@@ -1,0 +1,304 @@
+{
+  "fecha": "2026-09-25",
+  "titulo": "25 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-25-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "25 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026 · hoy",
+          "titulo": "El directorio de Caesars Entertainment aprueba su venta a Tilman Fertitta por US$17.600 millones",
+          "resumen": "La operación, sujeta a la aprobación de la FTC, combina unos US$5.700 millones en efectivo con cerca de US$12.000 millones de deuda asumida. Fertitta sumaría ocho propiedades del Strip de Las Vegas —entre ellas Caesars Palace, Flamingo y Paris— a su Golden Nugget, lo que abre interrogantes sobre eventuales ventas de activos en Atlantic City y South Lake Tahoe, y sobre la continuidad del WSOP como sede bajo la nueva propiedad.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750913-caesars-entertainment-approves-sale-to-tilman-fertitta"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer",
+          "titulo": "ClubWPT Gold anuncia su salida de Nevada por presión regulatoria",
+          "resumen": "El sitio de sweepstakes —uno de los más fuertes del estado, con embajadores como Phil Ivey y Doug Polk— confirmó que dejará de operar en Nevada: los jugadores ya no pueden depositar, podrán seguir jugando hasta el 28 de septiembre y deberán retirar sus fondos antes del 2 de octubre. Se suma a salidas previas de New Jersey, Connecticut y Luisiana.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "24 sep",
+              "url": "https://www.pokernews.com/news/2026/09/clubwpt-gold-pulls-out-of-nevada-52459.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "24 sep",
+              "url": "https://www.poker.org/latest-news/what-is-happening-at-clubwpt-gold-ayDW45S8mCR8/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer",
+          "titulo": "Johannes Straver completa un hat-trick de títulos en el WCOOP 2026",
+          "resumen": "El austríaco sumó su tercer título de la serie al ganar el Super Tuesday High Roller de US$5.200 (67 entradas) por US$90.420, tras vencer a Joao Vieira — apenas días después de haber encadenado sus dos primeros títulos consecutivos en la misma modalidad.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer",
+          "titulo": "\"Giselle54\" le gana cerca de US$300.000 a Jared Bleznick en un mano a mano de PLO en CoinPoker",
+          "resumen": "En una sesión heads-up de casi 1.000 manos a $300-600 y $500-1.000, la jugadora identificada como \"Giselle54\" revirtió la relación que días antes había favorecido al propio Bleznick y se llevó unos US$300.000 del profesional conocido como \"Theblez\".",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750425-best-plo-hands-from-giselle54s-300k-win-against-jared-bleznick"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026 · hoy",
+          "titulo": "Arranca el Asian Poker Tour Jeju 2026 con 135 eventos y camino al Championship de US$5 millones",
+          "resumen": "El festival se disputa en LES A Casino, Jeju Shinhwa World, hasta el 7 de octubre, con un Main Event de US$2.000 y US$1,6 millones garantizados, además de un High Roller de US$11.000 con un mínimo de US$365.000 garantizados. Los resultados clasifican al APT Championship de noviembre, que repartirá US$5 millones garantizados.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/apt-jeju-starts-friday-3-reasons-you-need-to-be-here-adyOv9d4ZJ8D/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "19-25 sep 2026 · en curso",
+          "titulo": "Doug Polk organiza \"Poker Champs\", un torneo heads-up entre streamers por US$500.000",
+          "resumen": "Con ClubWPT Gold como sponsor, un bracket eliminatorio enfrenta a ocho streamers —entre ellos Alexandra Botez, xQc, sodapoppin, erobb221 y loltyler1— por un pozo total de US$500.000, con US$250.000 para quien gane la final del 26 de septiembre. Polk oficia de comentarista con las cartas de ambos lados a la vista.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/500k-on-the-line-as-doug-polk-hosts-heads-up-streamers-tourney-a4XqL8m7ppJb/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "rumor",
+          "fecha": "23-25 sep 2026 · hilo activo",
+          "titulo": "En Two Plus Two crece la polémica por un staking no revelado entre \"C Ye\" y \"Britney\"",
+          "resumen": "Un hilo de apenas dos días acumula unas 17 respuestas y más de 600 vistas —ritmo alto para lo reciente que es— a partir de un video en el que \"C Ye\" acusa de problemas de integridad a \"Britney\", sin mencionar que ambas tenían un acuerdo de staking del 30% mientras compartían mesa en Hustler Casino. La comunidad discute si ese arreglo no divulgado, sumado a una frase de table talk señalada como sospechosa, constituye una ventaja desleal. Todavía no hay cobertura de prensa especializada sobre el caso.",
+          "fuentes": [
+            {
+              "nombre": "Two Plus Two",
+              "fecha": null,
+              "url": "https://forumserver.twoplustwo.com/29/news-views-gossip/c-ye-sold-britney-30-action-then-made-integrity-video-while-saying-quot-if-you-call-i-call-quot-1864618/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "23 sep 2026",
+          "titulo": "ACR Poker enfrenta ruido por su regla de retiro atada al 10% de rake generado",
+          "resumen": "Un cliente al que le bloquearon un retiro en la sportsbook de ACR/WPN generó revuelo en redes tras un cálculo erróneo de un agente de soporte sobre la regla que exige generar rake de poker equivalente al 10% del depósito antes de poder retirar. El CEO Phil Nagy salió a disculparse públicamente y explicó que la medida busca evitar el uso de la plataforma para mover dinero, tras detectar sindicatos de apuestas organizadas.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "23 sep 2026",
+          "titulo": "La polémica de Abby Merk suma un nuevo capítulo tras un pozo con \"Susan\"",
+          "resumen": "Días después de su primer episodio viral en The Lodge, Merk volvió a generar ruido en un stream tras perder un all-in con as-cinco suited contra un par de seises de una rival identificada como \"Susan\", a quien acusó de no haberle dado el mismo trato que como conocidas de mesa. Su explicación posterior en redes, normalizando el \"soft play\" entre amigas, sumó críticas públicas, entre ellas la de Marle Spragg.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/no-friends-at-the-poker-table-the-abby-merk-susan-controversy"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22 sep 2026",
+          "titulo": "Legisladores de Virginia, Ohio y Massachusetts debaten la legalización del casino online en un panel de la conferencia iDEA",
+          "resumen": "Representantes estatales expusieron posturas dispares sobre el iGaming: el legislador de Massachusetts lo calificó como \"el próximo paso lógico\", mientras que el de Virginia se mostró escéptico por temor a que canibalice los casinos físicos recién inaugurados en 2022. El debate es distinto del proyecto específico que ya avanza en la legislatura de Ohio.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750424-state-lawmakers-express-desire-to-legalize-online-casinos"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-25-2",
+      "titulo": "Segunda corrida (manual)",
+      "titulo_original": "25 de septiembre de 2026 — segunda corrida (manual)",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026 · hoy",
+          "titulo": "Negreanu cae en su tercera mesa final de la semana en el WSOP Online, ahora en el Bounty PLO de US$5.000",
+          "resumen": "En el evento $5.000 High Roller Bounty PLO de la WSOP Online, con 378 entradas, Negreanu llegó cuarto en fichas a la mesa final pero terminó sexto, con un cobro de US$43.641 más bounties, tras perder con doble pareja ante un set servido en el flop de Blaz Zerjav. Es su tercer intento fallido por el noveno brazalete en una semana, después de las caídas ya reportadas en los eventos de US$25.000 y US$10.000.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/daniel-negreanu-makes-third-wsop-final-table-52466.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer",
+          "titulo": "Alan Keating organiza un torneo en San Francisco para lanzar su fondo de capital de riesgo",
+          "resumen": "El reconocido jugador de altas apuestas, habitual de Hustler Casino Live y High Stakes Poker, organizó un evento de US$100 de buy-in en San Francisco que combinó manos de poker con presentaciones de startups ante él y su equipo, como lanzamiento de su fondo Hero Call Ventures.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/alan-keating-hosting-poker-tournament-52457.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer",
+          "titulo": "Arranca el WPT Australia Championship en The Star Sydney",
+          "resumen": "Tras el cierre del WPT Prime Australia Championship, comenzó el Día 1A del evento principal del WPT Australia Championship, de AUD$5.000 de entrada, con reentradas ilimitadas hasta el Nivel 10 y desarrollo previsto hasta el 30 de septiembre.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · ayer · en curso hasta 5 oct",
+          "titulo": "El WSOP Circuit vuelve a Thunder Valley con 16 eventos de anillo",
+          "resumen": "La nueva parada del circuito en Thunder Valley Casino Resort (California) se extiende hasta el 5 de octubre con 16 eventos de anillo, entre ellos un Main Event de US$1.700 con US$500.000 garantizados que arranca el 2 de octubre en dos flights. Los ganadores de anillo de la temporada reciben un paquete de US$5.000 hacia el WSOP Paradise.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/thunder-valley-welcomes-back-the-wsop-circuit-with-16-ring-events/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026 · hoy",
+          "titulo": "Sam Soverel extiende su récord con un 16º título de la PokerGO Tour",
+          "resumen": "Soverel amplió su propia marca histórica de la gira al sumar su decimosexto título, reafirmando su lugar como el jugador con más victorias en la historia del circuito. CardPlayer todavía no detalló el evento ni el premio específico de esta nueva marca.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751170-sam-soverel-wins-record-extending-16th-pokergo-tour-title"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24-25 sep 2026",
+          "titulo": "El Global Online Poker Championship de CoinPoker supera su garantía de US$50 millones",
+          "resumen": "La serie GOPC de CoinPoker, que corre hasta el 28 de septiembre con eventos divididos en tres regiones (Europa, LatAm y Asia), superó el total garantizado de US$50 millones en premios repartidos.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750955-coinpokers-global-online-poker-championship-surpasses-surpasses-50-million-series-guarantee"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24-25 sep 2026",
+          "titulo": "Jack Poker relanza su serie Lucky 8s Bomb Pot Fest el 26 de septiembre",
+          "resumen": "La sala confirmó el regreso de su festival de formato bomb pot, que ya había corrido en agosto, con el reinicio de la serie fijado para el 26 de septiembre.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750995-jack-poker-lucky-8s-bomb-pot-fest-returns-sept-26"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026",
+          "titulo": "Los accionistas de Caesars Entertainment aprueban la venta a Fertitta por US$17.600 millones",
+          "resumen": "Dos días antes de que el directorio diera su propia aprobación final —ya cubierta en el bloque de hoy—, los accionistas de Caesars votaron a favor de la adquisición por parte de Fertitta Entertainment. Es un paso previo y distinto dentro del mismo proceso de venta, todavía sujeto a la aprobación de la FTC.",
+          "fuentes": [
+            {
+              "nombre": "GamblingNews",
+              "fecha": null,
+              "url": "https://www.gamblingnews.com/news/caesars-shareholders-greenlight-17-6b-fertitta-entertainment-merger/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-25-3",
+      "titulo": "Corrida de prueba (solo WebSearch)",
+      "titulo_original": "25 de septiembre de 2026 — corrida de prueba (solo WebSearch)",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "semana del 21-25 sep 2026",
+          "titulo": "PokerStars, en su versión exclusiva de FanDuel, se prepara para lanzar mixed games con 8-Game",
+          "resumen": "Según Pokerfuse, PokerStars on FanDuel alista el lanzamiento de mesas de mixed games en Estados Unidos, empezando por 8-Game, con estreno previsto para el otoño boreal sin fecha exacta todavía confirmada. Se suma a la reciente apertura de la red a marcas hermanas de Flutter ya reportada en el bloque del 23 de septiembre.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/pokerstars-on-fanduel-preparing-launch-mixed/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "semana del 21-25 sep 2026",
+          "titulo": "Un jugador de Winamax gana un récord de €922.000 en bounties en apenas 258 minutos",
+          "resumen": "Pokerfuse reportó que un jugador de Winamax acumuló €922.000 en recompensas de bounty en una sesión de 258 minutos, la mayor cifra de este tipo registrada por el medio en la sala. La nota disponible no precisa el nombre del jugador ni el torneo puntual.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/winamax-player-wins-record-922k-bounties-258/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

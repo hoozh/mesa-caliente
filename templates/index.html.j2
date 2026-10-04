@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesa Caliente</title>
+<meta name="description" content="Barrido diario de noticias de poker, clasificadas como confirmadas, en discusión o rumores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<main>
+{% macro tarjeta(t) %}
+<article class="card">
+  <div class="card-top">
+    <span class="badge {{ t.clasificacion }}">{{ etiquetas.get(t.clasificacion, t.clasificacion) }}</span>
+    <span class="card-date">{{ t.fecha }}</span>
+  </div>
+  <h2>{{ t.titulo }}</h2>
+  <p class="summary">{{ t.resumen }}</p>
+  <div class="card-foot">
+  {% if t.fuentes | length == 1 %}
+    {% set f = t.fuentes[0] %}
+    <span class="source">Fuente: <strong>{{ f.nombre }}</strong>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% endif %}</span>
+    {% if f.url %}<a class="go" href="{{ f.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}
+  {% else %}
+    <details class="sources">
+      <summary class="sources-toggle">{{ t.fuentes | length }} fuentes sobre este hecho</summary>
+      <ul class="sources-list">
+      {% for f in t.fuentes %}
+        <li><span><span class="src-name">{{ f.nombre }}</span>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% endif %}</span>
+          {% if f.url %}<a class="go" href="{{ f.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}</li>
+      {% endfor %}
+      </ul>
+    </details>
+  {% endif %}
+  </div>
+</article>
+{% endmacro %}
+
+<header>
+  <p class="eyebrow">Barrido diario de poker</p>
+  <h1>Mesa Caliente</h1>
+  <p class="lede">Las noticias de poker más relevantes de cada día, agrupadas por hecho y con enlace a todas sus fuentes originales. Actualizado el {{ hoy_texto }}.</p>
+  <div class="meta-row">
+    <span><strong>{{ dias | length }}</strong> días en el historial</span>
+    <span><strong>{{ total_tarjetas }}</strong> tarjetas</span>
+    <span><strong>{{ salud.activas }}</strong> de {{ salud.total }} fuentes activas</span>
+  </div>
+  <div class="legend">
+    <span><b>Confirmado:</b> anuncio oficial o resultado verificado.</span>
+    <span><b>En discusión:</b> tema abierto o con versiones encontradas.</span>
+    <span><b>Rumor:</b> sin confirmación.</span>
+  </div>
+</header>
+
+{% for dia in dias %}
+<details class="day-block"{% if dia.abierto %} open{% endif %}>
+  <summary class="day-summary">{{ dia.titulo }}<span class="count">{{ dia.cantidad }} tarjeta{{ '' if dia.cantidad == 1 else 's' }}</span></summary>
+  {% for c in dia.corridas %}
+  <section class="run">
+    {% if dia.corridas | length > 1 or c.origen != 'importada' %}
+    <p class="section-label">{{ c.titulo_mostrar }}</p>
+    {% endif %}
+    {% if c.estado == 'fallida' %}
+    <p class="run-notice run-failed">Corrida fallida: {{ c.motivo }}</p>
+    {% endif %}
+    {% for nota in c.notas or [] %}
+    <p class="run-notice">{{ nota }}</p>
+    {% endfor %}
+    {% if c.tarjetas %}
+    <div class="feed">
+      {% for t in c.tarjetas %}{{ tarjeta(t) }}{% endfor %}
+    </div>
+    {% elif c.estado == 'sin_noticias' and not c.notas %}
+    <p class="run-notice">No hubo hechos nuevos en esta corrida.</p>
+    {% endif %}
+    {% if c.escena_latam is defined and c.escena_latam is not none %}
+    <section class="latam">
+      <h3 class="latam-title">Escena argentina y latinoamericana</h3>
+      {% if c.escena_latam.tarjetas %}
+      <div class="feed">
+        {% for t in c.escena_latam.tarjetas %}{{ tarjeta(t) }}{% endfor %}
+      </div>
+      {% else %}
+      <p class="latam-empty">{{ c.escena_latam.texto or 'Sin novedades relevantes de la escena argentina y latinoamericana en esta corrida.' }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+  </section>
+  {% endfor %}
+</details>
+{% else %}
+<p class="run-notice">Todavía no hay corridas registradas.</p>
+{% endfor %}
+
+<section class="candidates">
+  <h2>Fuentes candidatas</h2>
+  <p class="candidates-hint">Dominios que aparecen enlazados en varios artículos y todavía no están en la lista de fuentes. No se agregan solos: para sumarlos hay que editar config/fuentes.json.</p>
+  <div class="candidate-list">
+  {% for c in candidatas %}
+    <div class="candidate-item">
+      <div class="cand-top">
+        <span class="cand-name">{{ c.nombre }}</span>
+        <span class="cand-date">{{ c.detectada_texto or c.detectada }}</span>
+      </div>
+      {% if c.motivo %}<p class="cand-why">{{ c.motivo }}</p>{% endif %}
+      {% if c.ejemplo %}<a class="go" href="{{ c.ejemplo }}" target="_blank" rel="noopener">Ver enlace de ejemplo →</a>{% endif %}
+    </div>
+  {% else %}
+    <p class="candidate-empty">Por ahora no hay fuentes candidatas.</p>
+  {% endfor %}
+  </div>
+</section>
+
+<section class="health">
+  <h2>Salud de fuentes</h2>
+  {% if salud.pausadas %}
+  <p class="candidates-hint">Estas fuentes fallaron varios días seguidos y quedaron en pausa. Se reintentan una vez por semana y vuelven solas si responden.</p>
+  <ul class="health-list">
+  {% for p in salud.pausadas %}
+    <li><span class="src-name">{{ p.nombre }}</span> — {{ p.motivo }}{% if p.desde %} · en pausa desde el {{ p.desde }}{% endif %}{% if p.proximo %} · próximo reintento: {{ p.proximo }}{% endif %}</li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="candidate-empty">No hay fuentes en pausa.</p>
+  {% endif %}
+  {% if salud.con_fallos %}
+  <p class="candidates-hint">Con fallos recientes (aún activas):</p>
+  <ul class="health-list">
+  {% for f in salud.con_fallos %}
+    <li><span class="src-name">{{ f.nombre }}</span> — {{ f.motivo }} · {{ f.fallos }} día{{ '' if f.fallos == 1 else 's' }} seguido{{ '' if f.fallos == 1 else 's' }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+<footer>
+  <p>Fuentes activas: {{ fuentes_activas | join(', ') }}.</p>
+  {% if costos.ultima %}
+  <p>Última corrida ({{ costos.ultima.fecha }}): {{ '{:,}'.format(costos.ultima.tokens_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.ultima.tokens_salida).replace(',', '.') }} de salida con {{ costos.ultima.modelo }}, costo estimado US$ {{ '%.4f' | format(costos.ultima.costo_usd) }}.</p>
+  {% endif %}
+  <p>Mes de {{ costos.mes_nombre }}: {{ costos.mes_corridas }} llamada{{ '' if costos.mes_corridas == 1 else 's' }} al modelo, {{ '{:,}'.format(costos.mes_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.mes_salida).replace(',', '.') }} de salida, costo estimado US$ {{ '%.4f' | format(costos.mes_costo) }}.</p>
+  <p>Página generada el {{ generado }}. Los resúmenes se escriben automáticamente a partir de titulares públicos; verifique los detalles en la fuente original.</p>
+</footer>
+</main>
+</body>
+</html>

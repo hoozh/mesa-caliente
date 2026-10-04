@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-10-03",
+  "titulo": "3 de octubre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-10-03-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "3 de octubre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "discusion",
+          "fecha": "2-3 oct 2026",
+          "titulo": "El escándalo de malware en el poker suma un nuevo capítulo: según PokerNews, hubo salas advertidas sobre la cuenta sospechosa",
+          "resumen": "PokerNews publicó una nueva entrega del escándalo de malware que afecta a jugadores de altas apuestas —ya reportado en bloques anteriores a partir del caso de Paul Gregg y la denuncia de \"WolfSec0x0\"— bajo el título \"Poker Sites Were Warned About Suspicious Account\". Según el título, una o más salas habrían recibido advertencias sobre la cuenta sospechosa antes de que el caso se conociera públicamente; no fue posible confirmar en este barrido qué salas estarían involucradas ni el contenido exacto de esas advertencias, así que conviene seguir el caso de cerca en próximas corridas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/poker-sites-warned-about-superuser-account-52532.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026",
+          "titulo": "El WSOP Circuit confirma su primera parada en España: Madrid tendrá 11 eventos de anillo",
+          "resumen": "La gira internacional del WSOP Circuit publicó el calendario completo de su debut en España, en el Casino Gran Vía de Madrid, con 11 eventos de anillo en el programa. Es la primera vez que el circuito internacional del WSOP desembarca en el país.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/wsop-circuit-madrid-full-schedule-52526.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Ejemplo Poker</title><link>https://ejemplo-poker.com/</link>
+<item><title>Juan Pérez gana el Main Event del CAP en Buenos Aires</title><link>https://ejemplo-poker.com/noticias/juan-perez-gana-cap?utm_source=rss</link>
+<description><![CDATA[<p>El jugador argentino se impuso entre 900 entradas en el Circuito Argentino de Poker.</p>]]></description>
+<pubDate>Sun, 04 Oct 2026 10:00:00 +0000</pubDate></item>
+<item><title>Nuevo récord de inscriptos en el WCOOP</title><link>https://ejemplo-poker.com/noticias/record-wcoop</link>
+<description>El festival online superó todas las marcas de ediciones anteriores.</description>
+<pubDate>Sat, 03 Oct 2026 18:00:00 +0000</pubDate></item>
+<item><title>Nota vieja que no debe entrar</title><link>https://ejemplo-poker.com/noticias/nota-vieja</link>
+<description>Publicada hace semanas, fuera de la ventana de recencia.</description>
+<pubDate>Mon, 01 Sep 2026 18:00:00 +0000</pubDate></item>
+<item><title>Artículo copiado de un sitio prohibido</title><link>https://latam.gipsyteam.com/news/algo</link>
+<description>No debe aparecer nunca.</description>
+<pubDate>Sun, 04 Oct 2026 09:00:00 +0000</pubDate></item>
+</channel></rss>
