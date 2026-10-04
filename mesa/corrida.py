@@ -17,11 +17,25 @@ from pathlib import Path
 
 from . import candidatas as cand
 from . import modelo, pagina, recoleccion
-from .dias import agregar_corrida
+from .dias import agregar_corrida, cargar_dias
 from .util import (RAIZ, ahora_utc, escribir_json, esta_bloqueado, leer_json,
                    normalizar_url)
 
 TEXTO_LATAM_VACIO = "Sin novedades relevantes de la escena argentina y latinoamericana en esta corrida."
+
+
+def titulos_recientes(raiz: Path, hoy: date, dias: int = 3) -> list[str]:
+    """Títulos de las tarjetas publicadas en los últimos días (incluye corridas previas de hoy)."""
+    desde = (hoy - timedelta(days=dias)).isoformat()
+    titulos = []
+    for d in cargar_dias(raiz):  # del más reciente al más antiguo
+        if d["fecha"] < desde or d["fecha"] > hoy.isoformat():
+            continue
+        for c in reversed(d.get("corridas", [])):
+            for t in c.get("tarjetas", []) + ((c.get("escena_latam") or {}).get("tarjetas") or []):
+                if t.get("titulo") and t["titulo"] not in titulos:
+                    titulos.append(t["titulo"])
+    return titulos
 
 
 def _abrir_articulos(items: list[dict], ajustes: dict, descargar, estado_cand: dict, hoy: date) -> int:
@@ -100,7 +114,9 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
             if llamar is modelo.llamar_anthropic and not os.environ.get("ANTHROPIC_API_KEY", "").strip():
                 raise modelo.ErrorModelo("Falta la clave ANTHROPIC_API_KEY (secreto no configurado).")
             corrida["recoleccion"]["articulos_abiertos"] = _abrir_articulos(enviados, ajustes, descargar, estado_cand, hoy)
-            resultado = modelo.resumir(enviados, ajustes, llamar, hoy)
+            previos = titulos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 3))
+            resultado = modelo.resumir(enviados, ajustes, llamar, hoy, previos)
+            corrida["controles"] = resultado.get("controles", [])
             corrida["uso"] = resultado["uso"]
             corrida["tarjetas"] = resultado["tarjetas"]
             corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],

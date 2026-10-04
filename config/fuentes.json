@@ -241,18 +241,15 @@
     },
     {
       "nombre": "Poker Red",
-      "url": "https://poker-red.com/feed/",
-      "portada": "https://poker-red.com/",
-      "tipo": "rss",
+      "url": "https://www.poker-red.com/buscador?order=desc&sort=changed",
+      "portada": "https://www.poker-red.com/",
+      "tipo": "html",
       "idioma": "es",
       "region": "espana",
       "estado": "activa",
-      "fallos_consecutivos": 1,
+      "fallos_consecutivos": 0,
       "ultimo_ok": null,
-      "ultimo_fallo": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
-      "ultimo_motivo": "la dirección ya no existe (HTTP 404)",
-      "ultimos_titulares": 0
+      "incluir": "/noticias/[^/]+/?$"
     },
     {
       "nombre": "Circuito Argentino de Poker",
