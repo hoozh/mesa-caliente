@@ -1,0 +1,471 @@
+{
+  "fecha": "2026-10-04",
+  "titulo": "4 de octubre de 2026",
+  "corridas": [
+    {
+      "id": "2026-10-04T20:30:15Z",
+      "origen": "manual",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026",
+          "titulo": "Sergio Aido gana el WSOP Online GGMillion$ High Rollers 2026",
+          "resumen": "Sergio Aido se llevó el título del evento de 10.000 dólares en GGPoker el 30 de septiembre, ganando 2.228.762 dólares y su tercer brazalete WSOP.",
+          "fuentes": [
+            {
+              "nombre": "PokerNewsDaily",
+              "fecha": "2026-09-30",
+              "url": "https://www.pokernewsdaily.com/sergio-aido-claims-third-wsop-bracelet-49065/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "3-4 oct 2026",
+          "titulo": "Jonas Kronwitter domina el PGT PLO Series 2026",
+          "resumen": "Jonas Kronwitter conquistó el campeonato general del PGT PLO Series tras ganar dos títulos y acumular 598 puntos PGT, totalizando 576.088 dólares. También extendió el récord de títulos PGT a 17.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": "2026-10-04",
+              "url": "https://www.cardplayer.com/poker-news/1755602-jonas-kronwitter-crowned-pgt-plo-series-champion"
+            },
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-10-04",
+              "url": "https://www.pokernews.com/news/2026/10/pokergo-tour-pot-limit-omaha-series-full-results-52528.htm"
+            },
+            {
+              "nombre": "CardPlayer",
+              "fecha": "2026-10-03",
+              "url": "https://www.cardplayer.com/poker-news/1755145-jonas-kronwitter-secures-second-title-at-2026-pgt-plo-series"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "sin fecha en la fuente · vista el 4 oct 2026",
+          "titulo": "Connor Hayward gana su primer brazalete WSOP Circuit",
+          "resumen": "Connor Hayward se llevó el Main Event del WSOP Circuit en Horseshoe Council Bluffs, mientras que Daniel Lowery y Ari Engel alcanzaron sus anillos número 21.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/connor-hayward-wins-the-horseshoe-council-bluffs-wsop-circuit-main-event/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1-2 oct 2026",
+          "titulo": "Ciberataque con malware afecta a jugadores de poker online de alto nivel",
+          "resumen": "Un sofisticado ataque mediante troyano comprometió equipos de jugadores high stakes en múltiples plataformas. ACR Poker respondió lanzando Screen Shield, una herramienta para evitar captura de pantalla. Jugadores como Jurojin y Manu Saavedra reportaron pérdidas significativas, el español estimando más de 100.000 dólares.",
+          "fuentes": [
+            {
+              "nombre": "Código Poker",
+              "fecha": null,
+              "url": "https://codigopoker.com/noticias-generales/la-reaccion-de-acr-poker-ante-el-escandalo-del-troyano-lanzo-un-escudo-para-proteger-las-cartas"
+            },
+            {
+              "nombre": "PokerNews en español",
+              "fecha": "2026-10-02",
+              "url": "https://es.pokernews.com/noticias/2026/10/jurojin-rompe-su-silencio-tras-verse-afectado-por-el-ciberat-53936.htm"
+            },
+            {
+              "nombre": "PokerNews en español",
+              "fecha": "2026-10-01",
+              "url": "https://es.pokernews.com/noticias/2026/10/manu-saavedra-asegura-haber-sido-victima-del-malware-que-sac-53923.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "sin fecha en la fuente · vista el 4 oct 2026",
+          "titulo": "Mayukh Chakraborty gana el WSOP Super Circuit Canada Main Event",
+          "resumen": "Mayukh Chakraborty se coronó campeón del record-breaking WSOP Super Circuit Canada NLH Main Event, ganando su primer brazalete WSOP Circuit y el premio mayor de 1.500.000 dólares canadienses.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/mayukh-chakraborty-wins-wsop-super-circuit-canada-main-event/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "4 oct 2026",
+          "titulo": "César García gana el Campeonato del PGT PLO Series por 420.000 dólares",
+          "resumen": "El español César García conquistó el evento de 26.000 dólares de las PGT PLO Series en PokerGO Studio, Las Vegas, ganando su primer título del PokerGO Tour tras derrotar al británico Robert Cowen en heads-up.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": "2026-10-04",
+              "url": "https://www.cardplayer.com/poker-news/1755578-cesar-garcia-closes-pgt-plo-series-with-championship-win-for-420000"
+            },
+            {
+              "nombre": "Poker Noticias",
+              "fecha": "2026-10-04",
+              "url": "https://pokernoticias.com/cesar-garcia-conquista-el-campeonato-de-26-000-de-las-pgt-plo-series-y-suma-420-000/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "4 oct 2026",
+          "titulo": "Chris Moneymaker denuncia 'trampa flagrante' en ACR Poker",
+          "resumen": "Chris Moneymaker acusó de 'trampa flagrante' después de que un video viral involucrara a ACR Poker, lo que provocó una investigación oficial del sitio.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": "2026-10-04",
+              "url": "https://www.poker.org/latest-news/blatant-cheating-chris-moneymaker-reacts-to-viral-video-as-acr-issues-statement-adAZn5L0Q7E5/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "3 oct 2026",
+          "titulo": "Noruega avanza hacia la legalización del poker online",
+          "resumen": "Noruega podría legalizar el poker online por primera vez, aunque existen dudas sobre si la nueva propuesta de ley cubre adecuadamente todos los aspectos necesarios.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-10-03",
+              "url": "https://www.pokernews.com/news/2026/10/is-legal-online-poker-coming-to-norway-52530.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "4 oct 2026",
+          "titulo": "Avance legislativo para revertir controvertida regla tributaria del poker",
+          "resumen": "Una propuesta de corrección a la controversial regla tributaria de juegos de azar avanzó significativamente tras una votación abrumadora de 38-5 en el Comité de Medios y Arbitrios de la Cámara.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": "2026-10-04",
+              "url": "https://www.poker.org/latest-news/poker-tax-nightmare-could-be-reversed-after-overwhelming-38-5-vote-aEktz9f5AkrF/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026",
+          "titulo": "Octopi Poker lanza cambios significativos en octubre",
+          "resumen": "La plataforma de entrenamiento Octopi Poker implementará cambios y mejoras importantes, incluyendo el lanzamiento de un nuevo curso 'My First Solver' desarrollado en colaboración con Victoria el 1 de octubre.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": "2026-10-01",
+              "url": "https://pokerfuse.com/latest-news/2026/10/octopi-poker-rolling-out-some-big-changes-october/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026",
+          "titulo": "GTO Wizard introduce Preflop ICM Solving",
+          "resumen": "Tras el lanzamiento del PLO Solver, GTO Wizard presenta otra actualización importante: Preflop ICM Solving para mejorar el análisis de decisiones preflop.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": "2026-10-01",
+              "url": "https://www.pokerlistings.com/news/gto-wizard-introduces-preflop-icm-solving"
+            }
+          ]
+        }
+      ],
+      "escena_latam": {
+        "tarjetas": [
+          {
+            "clasificacion": "confirmado",
+            "fecha": "1 oct 2026",
+            "titulo": "PapoMC conquista el Main Event Medium del WCOOP 2026",
+            "resumen": "PapoMC (Lococo) ganó el Main Event Medium del WCOOP y se llevó su mayor premio online de 343.242 dólares, demostrando su consistencia en los grandes eventos.",
+            "fuentes": [
+              {
+                "nombre": "PokerNews en español",
+                "fecha": "2026-10-01",
+                "url": "https://es.pokernews.com/noticias/2026/10/papomc-conquista-el-main-event-medium-del-wcoop-y-firma-su-m-53922.htm"
+              }
+            ]
+          },
+          {
+            "clasificacion": "confirmado",
+            "fecha": "4 oct 2026",
+            "titulo": "Jhoen Hernández lidera el Main Event del WPT Global Festival con CLSOP",
+            "resumen": "El dominicano Jhoen Hernández termina el Día 2 como líder indiscutible con 2.050.000 fichas en el Main Event del WPT Global Festival con CLSOP, único stack superior a dos millones, con premio mayor de 34.972 dólares.",
+            "fuentes": [
+              {
+                "nombre": "Poker Noticias",
+                "fecha": "2026-10-04",
+                "url": "https://pokernoticias.com/jhoen-hernandez-lidera-a-los-14-sobrevivientes-del-main-event-del-wpt-global-festival-con-clsop/"
+              }
+            ]
+          },
+          {
+            "clasificacion": "confirmado",
+            "fecha": "2 oct 2026",
+            "titulo": "Santiago Montes lidera en el WPT Global Festival con CLSOP",
+            "resumen": "El colombiano Santiago Montes se adueña del mayor stack del Main Event del WPT Global Festival con CLSOP tras el Día 1C, terminando con 679.500 fichas y ganando el bono de 2.500 dólares para chip leader.",
+            "fuentes": [
+              {
+                "nombre": "Poker Noticias",
+                "fecha": "2026-10-02",
+                "url": "https://pokernoticias.com/santiago-montes-lidera-el-dia-1c-y-se-aduena-del-mayor-stack-del-main-event-del-wpt-global-festival-con-clsop/"
+              }
+            ]
+          },
+          {
+            "clasificacion": "confirmado",
+            "fecha": "sin fecha en la fuente · vista el 4 oct 2026",
+            "titulo": "Liga Patagónica de Poker: múltiples ganadores en diferentes eventos",
+            "resumen": "La Liga Patagónica de Poker ha entregado títulos en sus diferentes fechas con ganadores destacados como Mario Guarino (Main Event), Diego Visosa (Mini Main Event) y múltiples campeones en eventos como High Roller, Warm Up, Progressive KO y otros.",
+            "fuentes": [
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-mario-guarino-gana-la-lpp-en-bariloche"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-lpp-bariloche-diego-visosa-gana-el-mini-main-event"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-lpp-bariloche-rodrigo-zucman-se-lo-lleva"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-martin-mendiara-cerr-el-tel-n"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-mariano-pires-se-lleva-el-deepstack"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-jorge-alvarado-hace-doblete"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-david-harina-gan-el-pko"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-ger-nimo-rosales-se-lleva-la-fecha-3"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-jorge-alvarado-se-lleva-el-mini-main"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-pablo-reynoso-abre-la-fecha-3-por-todo-lo-alto"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-el-micro-high-roller-baj-el-tel-n-en-trelew"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-el-main-event-tuvo-un-gran-cierre-en-trelew"
+              },
+              {
+                "nombre": "Casino Club Liga Patagónica",
+                "fecha": null,
+                "url": "https://www.casinopokerclub.com.ar/noticias.html#t-v-ctor-d-az-se-qued-con-el-progressive-ko"
+              }
+            ]
+          },
+          {
+            "clasificacion": "confirmado",
+            "fecha": "2 oct 2026",
+            "titulo": "Brasil domina WSOP Online 2026 con siete brazaletes y 6.2 millones de dólares",
+            "resumen": "Brasil se consolidó como el país más exitoso de las WSOP Online 2026, ganando siete brazaletes totales y capturando 6.2 millones de dólares en premios con 21 podios latinoamericanos.",
+            "fuentes": [
+              {
+                "nombre": "Poker Noticias",
+                "fecha": "2026-10-02",
+                "url": "https://pokernoticias.com/brasil-convierte-las-wsop-online-2026-en-una-exhibicion-colectiva-siete-brazaletes-y-21-podios/"
+              },
+              {
+                "nombre": "Código Poker",
+                "fecha": null,
+                "url": "https://codigopoker.com/wsop/brasil-fue-el-mejor-pais-de-la-wsop-online-7-brazaletes-y-us62m-en-cobros"
+              }
+            ]
+          },
+          {
+            "clasificacion": "confirmado",
+            "fecha": "1 oct 2026",
+            "titulo": "Felipe Boianovsky triunfa en Main Event High del WCOOP",
+            "resumen": "Felipe Boianovsky se convierte en el ganador del Main Event High del WCOOP 2026 en PokerStars, repitiendo su éxito anterior en el SCOOP 2023.",
+            "fuentes": [
+              {
+                "nombre": "PokerNews Brasil",
+                "fecha": "2026-10-01",
+                "url": "https://br.pokernews.com/noticias/2026/10/felipe-boianovsky-main-event-high-wcoop-67734.htm"
+              }
+            ]
+          }
+        ],
+        "texto": null
+      },
+      "notas": [],
+      "uso": {
+        "tokens_entrada": 10701,
+        "tokens_salida": 2058,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.020991
+      },
+      "recoleccion": {
+        "titulares_nuevos": 147,
+        "titulares_enviados": 120,
+        "articulos_abiertos": 6,
+        "fuentes_ok": 19,
+        "fuentes_con_fallo": 2,
+        "fuentes_en_pausa": 0,
+        "detalle": [
+          {
+            "fuente": "PokerNews",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 11
+          },
+          {
+            "fuente": "Pokerfuse",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 2
+          },
+          {
+            "fuente": "WSOP.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 3
+          },
+          {
+            "fuente": "GamblingNews",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 10
+          },
+          {
+            "fuente": "PokerNewsDaily",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 2
+          },
+          {
+            "fuente": "PokerListings",
+            "resultado": "ok",
+            "titulares": 5,
+            "nuevos": 5
+          },
+          {
+            "fuente": "CardPlayer",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 9
+          },
+          {
+            "fuente": "Poker.org",
+            "resultado": "ok",
+            "titulares": 100,
+            "nuevos": 20
+          },
+          {
+            "fuente": "Poker Industry PRO",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 2
+          },
+          {
+            "fuente": "Reddit r/poker",
+            "resultado": "ok",
+            "titulares": 25,
+            "nuevos": 20
+          },
+          {
+            "fuente": "Two Plus Two",
+            "resultado": "fallo",
+            "motivo": "bloqueo del sitio (HTTP 403)"
+          },
+          {
+            "fuente": "blog.gtowizard.com",
+            "resultado": "ok",
+            "titulares": 15,
+            "nuevos": 0
+          },
+          {
+            "fuente": "Poker Media Australia",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0
+          },
+          {
+            "fuente": "tightpoker.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 2
+          },
+          {
+            "fuente": "PokerNews en español",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 4
+          },
+          {
+            "fuente": "PokerNews Brasil",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 7
+          },
+          {
+            "fuente": "Poker Noticias",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 10
+          },
+          {
+            "fuente": "Código Poker",
+            "resultado": "ok",
+            "titulares": 31,
+            "nuevos": 20
+          },
+          {
+            "fuente": "Poker Red",
+            "resultado": "fallo",
+            "motivo": "la dirección ya no existe (HTTP 404)"
+          },
+          {
+            "fuente": "Circuito Argentino de Poker",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0
+          },
+          {
+            "fuente": "Casino Club Liga Patagónica",
+            "resultado": "ok",
+            "titulares": 24,
+            "nuevos": 20
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "corridas": [
+    {
+      "fecha": "2026-10-04",
+      "id": "2026-10-04T20:30:15Z",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 10701,
+      "tokens_salida": 2058,
+      "costo_usd": 0.020991,
+      "estado": "ok"
+    }
+  ]
+}
