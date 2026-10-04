@@ -1,0 +1,82 @@
+{
+  "fecha": "2026-09-29",
+  "titulo": "29 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-29-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "29 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "discusion",
+          "fecha": "29 sep 2026 · hoy",
+          "titulo": "El GGMillion$ de US$10.000 llega a su mesa final: cierra el 33º y último evento de brazalete del WSOP Online 2026",
+          "resumen": "Con 1.754 entradas y un pozo de US$17.013.800, el evento que cierra el calendario del WSOP Online 2026 llegó a los nueve finalistas con el austríaco Roeland Peeks como líder de fichas, seguido por el mexicano Sergio Aido; también quedaron en carrera Niklas Astedt y Ole Schemion. El primer puesto paga US$2.228.762 más un Super Pass de US$30.000. Negreanu, Adrian Mateos, Wiktor Malinowski y Lex Veldhuis quedaron afuera antes de la mesa final, que se reanudó a las 19:00 (hora británica) del 29 de septiembre; el resultado todavía no está confirmado por ninguna fuente.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/aido-astedt-and-schemion-among-ggmillion-finalists-52491.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · ayer",
+          "titulo": "Alessio La Francesca gana el Heads-Up NLH Championship de US$10.000 y suma su segundo brazalete del WSOP Online",
+          "resumen": "El albanés se impuso en el campeonato heads-up de US$10.000 (123 entradas, pozo de US$1.193.100) y cobró US$352.561 tras vencer al esloveno Pavel Plesuv (US$211.536), apenas dos semanas después de ganar su primer brazalete en el GGMasters Freezeout de US$1.500. Es la definición del mismo torneo en el que Negreanu había quedado eliminado en la ronda de 128 ante Kabrhel, ya reportada en un bloque anterior.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/alessio-la-francesca-wins-second-bracelet-of-wsop-online-52474.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · ayer",
+          "titulo": "El World Poker Tour vuelve a operar el LA Poker Classic en el Commerce Casino",
+          "resumen": "Tras años sin el WPT al frente desde la disrupción de la pandemia, el torneo regresa al calendario de la gira con el Championship del LA Poker Classic 2026 programado del 26 de febrero al 3 de marzo de 2027, dentro de una serie completa que arranca el 15 de enero. Bajo gestión del WPT se esperan premios que superen el millón de dólares, frente a los US$158.000-402.000 de los últimos campeones por fuera de la gira; el formato vuelve a ser freezeout, poco habitual en el circuito actual.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/wpt-la-poker-classic-return-52488.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · ayer",
+          "titulo": "Jennifer Tilly le gana dos veces seguidas la misma mano a Antonio Esfandiari en \"No Gamble No Future\"",
+          "resumen": "En el programa de PokerGO, Tilly fue all-in por US$59.600 con pareja de cuatros contra la pareja de dieces de Esfandiari en un pozo de US$122.400, y ganó el double board runout completo: primero emparejó un cuatro en el turn de la primera tabla y después completó una escalera del as en el río de la segunda. Pese a la insólita secuencia, Esfandiari cerró la sesión arriba US$96.500 y Tilly abajo US$109.100.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751557-jennifer-tilly-and-antonio-esfandiari-battle-for-six-figures-in-insane-two-board-runout"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · ayer",
+          "titulo": "El RunGood Poker Series confirma su parada en Champions Club Houston con US$510.000 en garantizados",
+          "resumen": "La serie Golden Expedition llega a Houston del 15 al 21 de octubre con 11 eventos de anillo, encabezados por un Main Event de US$600 con US$250.000 garantizados repartidos en varios flights de entrada. El calendario suma también un PokerNews PowerStack de US$400, un evento de Pot-Limit Omaha y un torneo Ladies, entre otros.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/rgps-champions-club-houston-52485.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

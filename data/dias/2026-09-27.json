@@ -1,0 +1,170 @@
+{
+  "fecha": "2026-09-27",
+  "titulo": "27 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-27-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "27 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "sin_noticias",
+      "motivo": null,
+      "tarjetas": [],
+      "notas": [
+        "El barrido de hoy sobre las fuentes habituales (PokerNews, Pokerfuse, WSOP.com, GamblingNews, PokerNewsDaily, PokerListings, CardPlayer, Poker.org, Poker Industry PRO, Reddit r/poker, Two Plus Two, blog.gtowizard.com, Poker Media Australia y tightpoker.com) no encontró hechos nuevos y verificables que no estuvieran ya cargados en los bloques anteriores. Varios temas ya registrados siguen en curso —el arranque del BetRivers Poker Championship, los Main Events del WCOOP, el cierre del GOPC de CoinPoker y la final de \"Poker Champs\" de Doug Polk, entre otros— y sus resultados se sumarán en próximas corridas en cuanto haya confirmación de una fuente primaria."
+      ]
+    },
+    {
+      "id": "importada-2026-09-27-2",
+      "titulo": "Corrida de recuperación (WebFetch)",
+      "titulo_original": "27 de septiembre de 2026 — corrida de recuperación (WebFetch)",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26-27 sep 2026 · hoy",
+          "titulo": "Alexandra Botez se corona campeona del \"Poker Champs\" de Doug Polk y se lleva US$250.000",
+          "resumen": "La streamer se impuso en la gran final del torneo heads-up entre streamers organizado por Doug Polk y patrocinado por ClubWPT Gold —ya reportado como en curso en un bloque anterior de esta página—, tras eliminar a \"PaymoneyWubby\" en semifinales y vencer a \"Sodapoppin\" en la definición. Polk transmitió en vivo todas las instancias del certamen.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=pMZXZ3D93Xt0"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "27 sep 2026 · hoy",
+          "titulo": "ClubWPT Gold se muestra optimista de poder volver a operar en Nevada",
+          "resumen": "Un día después de confirmarse su retiro de Nevada —ya reportado en un bloque anterior—, la sala de sweepstakes envió un segundo mensaje a sus usuarios en el estado diciéndose \"optimista\" de poder retomar el juego allí tras introducir modificaciones a su producto, aunque no precisó fecha ni el detalle de esos cambios. Por ahora, WSOP Online sigue siendo la única sala de poker tradicional con licencia en el estado.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/clubwpt-gold-poker-site-return-to-nevada-52468.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26-27 sep 2026",
+          "titulo": "Marek Uharcek gana el Campeonato PLO de €1.500 del King's Million European Poker Championship",
+          "resumen": "El eslovaco lideró de punta a punta el evento de Pot-Limit Omaha, disputado en dos flights con 286 entradas y medio millón de euros en el pozo, y se impuso tras casi 12 horas de mesa final ante el alemán Lucas Giebing, llevándose €95.000 —su primer título importante, pese a jugar apenas unos diez torneos por año. Es un resultado distinto del Deepstack de €400 ya cubierto en un bloque anterior, dentro del mismo festival de King's Resort.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/marek-uharcek-wins-kings-million-plo-championship-52469.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26 sep 2026 · ayer",
+          "titulo": "Negreanu suma una nueva caída: pierde ante Kabrhel en el WSOP Online $10K Heads-Up Championship",
+          "resumen": "En la ronda de 128 del campeonato heads-up de US$10.000, Negreanu cayó ante un rival identificado como Kabrhel en una partida de unos 90 minutos, que transmitió en vivo con las cartas a la vista y demora prolongada. Es un nuevo intento fallido, distinto de los tres ya reportados en bloques anteriores en otros eventos de brazalete del WSOP Online.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=pUj1H1H8SUJg"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26 sep 2026 · ayer",
+          "titulo": "Robert Chorlian remonta desde el stack más corto y gana el Evento 2 de la PGT PLO Series",
+          "resumen": "En un campo de 106 entradas y US$530.000 de pozo en el PokerGO Studio de Las Vegas, Chorlian arrancó el día final como el stack más corto pero remontó para vencer a Lautaro Guerra —múltiple campeón de brazalete WSOP y de Triton— y quedarse con US$135.150 y su primer título grande. Es un resultado distinto del título de Sam Soverel en el Evento 1 de la misma serie, ya reportado en un bloque anterior.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751536-robert-chorlian-slays-plo-giants-en-route-to-first-pgt-title"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26 sep 2026 · ayer",
+          "titulo": "Phenom Poker lanza el \"Bellagio Mix\", con 13 variantes inspiradas en Bobby's Room de Las Vegas",
+          "resumen": "La sala sumó un mix de 13 juegos —entre flop games, stud, draw y modalidades big-bet— inspirado en la mítica sala de altas apuestas del Bellagio, ampliando su oferta de mixed games.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=pkaLV3k7NW0p"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24-25 sep 2026",
+          "titulo": "Un jugador polaco identificado como \"rfcffddgg\" gana US$250.000 en el Mystery Battle Royale de US$25 de GGPoker",
+          "resumen": "El jugador se impuso en una situación de all-in a cuatro bandas en el flop, con siete-cuatro descoordinado y proyecto de escalera, contra tres rivales con as-x, y se llevó el jackpot de US$250.000 del torneo. Es el segundo premio de este tipo que reparte GGPoker en unos meses, luego del que ganó el ucraniano \"STALKKER\" en julio.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/hero-from-poland-hit-250000-in-mystery-battle-royale"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-27-3",
+      "titulo": "Barrido adicional",
+      "titulo_original": "27 de septiembre de 2026 — barrido adicional",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026",
+          "titulo": "El Team PokerStars Pro Sebastian \"peace&love\" Huber gana su tercer título de la WCOOP 2026",
+          "resumen": "Huber se impuso en el Evento 100-M ($75 NLHE 6-Max Turbo PKO), con 1.113 entradas y un pozo de US$75.884, tras vencer heads-up a \"Old brock\" y cobrar US$10.056. La misma jornada sumó otros dos cobros: tercero en un evento de $215 (US$7.380) y sexto en uno de PLO de $55 (US$1.297).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/team-pokerstars-pro-becomes-a-three-time-wcoop-champion-52462.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026",
+          "titulo": "Renan Bruschi gana el Bounty Builder High Roller de $530 y suma su cuarto título de esta WCOOP",
+          "resumen": "El brasileño se impuso en el $530 NLHE PKO Bounty Builder High Roller y cobró US$23.772 —un resultado distinto de su título en NL 2-7 Single Draw ya reportado en un bloque anterior—, con lo que llega a 13 títulos históricos de la serie en cuatro años, ubicándose en el sexto puesto compartido del ranking histórico de campeones.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/renan-bruschi-wins-4th-title-of-the-2026-wcoop-13th-overall-52451.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22-24 sep 2026",
+          "titulo": "888poker completa los primeros 18 eventos de su XL Autumn Series, con más de US$900.000 en garantizados",
+          "resumen": "La serie, que corre hasta el 29 de septiembre con 41 eventos numerados en total, tuvo como mayor premio hasta el momento los US$12.376 que cobró el jugador británico \"MikeyW94\" en el Mystery Opening Event de $109 (871 entradas, pozo de US$100.000), además de un sobre de bounty misterioso de US$10.000 para \"TheFreston\".",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/888poker-xl-autumn-series-the-lay-of-the-land-after-18-event-52455.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

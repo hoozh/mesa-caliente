@@ -1,0 +1,182 @@
+{
+  "fecha": "2026-09-23",
+  "titulo": "23 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-23-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "23 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21-22 sep 2026",
+          "titulo": "Eric Chang gana el Main Event más grande en la historia del WSOP Circuit",
+          "resumen": "Chang se impuso en el Main Event de US$1.700 del WSOP Circuit en Texas Card House Austin, que reunió 2.090 entradas —récord histórico para el Circuit— y un pozo de US$3.166.350. Se llevó US$433.670 tras vencer heads-up a Anil Jivani (US$289.110); Lucas Jumalon, campeón del WSOP Main Event 2026, había llegado como líder de fichas pero terminó 14º.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": "21 sep",
+              "url": "https://www.poker.org/latest-news/the-slickest-of-rics-wins-the-biggest-of-wsop-circuit-main-events-aAp2p1d4bUNH/"
+            },
+            {
+              "nombre": "PokerNews",
+              "fecha": "22 sep",
+              "url": "https://www.pokernews.com/news/2026/09/eric-chang-wins-wsop-circuit-main-event-52440.htm"
+            },
+            {
+              "nombre": "CardPlayer",
+              "fecha": "22 sep",
+              "url": "https://www.cardplayer.com/poker-news/1750307-eric-chang-wins-record-breaking-wsop-circuit-texas-card-house-main-event"
+            },
+            {
+              "nombre": "WSOP.com",
+              "fecha": "22 sep",
+              "url": "https://www.wsop.com/news/eric-chang-wins-record-shattering-texas-card-house-wsop-circuit-main-event/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21-22 sep 2026",
+          "titulo": "Daniel Negreanu se queda a un paso de su noveno brazalete WSOP",
+          "resumen": "Negreanu llegó a la mesa final del evento Pot-Limit Omaha de US$10.000 del WSOP Online como segunda pila más grande, pero cayó en séptimo lugar por US$71.111 tras perder un pozo de casi 200 big blinds ante Andreas Freund, que completó un color en el río. Había ganado su octavo brazalete meses atrás en el PLO de US$100.000 presencial de Las Vegas.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": "21 sep",
+              "url": "https://www.cardplayer.com/poker-news/1749944-watch-daniel-negreanu-falls-just-short-of-ninth-world-series-of-poker-bracelet"
+            },
+            {
+              "nombre": "tightpoker.com",
+              "fecha": "22 sep",
+              "url": "https://www.tightpoker.com/news/daniel-negreanu-misses-ninth-wsop-bracelet-10k-plo-online/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "22 sep 2026 · ayer",
+          "titulo": "El Main Event del WSOP Online llega a su mesa final con Andrii Novak al frente",
+          "resumen": "Los nueve finalistas del Main Event de GGPoker —con un primer premio estimado en más de US$3,9 millones y al menos US$491.000 garantizados para cada uno— llegaron a la mesa final con el ucraniano Andrii Novak como líder de fichas. La transmisión se hizo por el canal de YouTube de GGPoker con comentarios de Jeff Gross y Phil Hellmuth; el resultado final todavía no fue confirmado por ninguna de las fuentes habituales de este barrido.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21-22 sep 2026",
+          "titulo": "PokerStars confirma que las redes conjuntas con marcas de Flutter son su estrategia a futuro",
+          "resumen": "Tras sus alianzas con FanDuel en Estados Unidos y con Ontario, PokerStars confirmó que integrará su liquidez con marcas hermanas de Flutter Entertainment como Betfair y Paddy Power. El embajador David Lappin explicó el funcionamiento actual de la red (pool global .com, pools regionales en Francia, España y Portugal, liquidez compartida en Michigan, Nueva Jersey y Pensilvania, y mercados segregados como Italia), mientras en Two Plus Two ya circula la lectura de que Flutter habría desarrollado esta capacidad B2B para consolidar varias marcas sobre la plataforma de PokerStars.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "Explicación de la red — 21 sep",
+              "url": "https://www.pokernews.com/news/2026/09/what-is-the-pokerstars-network-david-lappin-explains-52409.htm"
+            },
+            {
+              "nombre": "Two Plus Two",
+              "fecha": "Discusión del hilo — 21 sep",
+              "url": "https://forumserver.twoplustwo.com/29/news-views-gossip/pokerstars-open-b2b-1864557/"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "Confirmación oficial — 22 sep",
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22 sep 2026 · ayer",
+          "titulo": "Un ex directivo de Resorts World Las Vegas demanda al casino por despido de represalia",
+          "resumen": "Preston Banks, ex director de Cumplimiento del casino, alega que fue despedido después de presentar más de 50 reportes de actividad sospechosa sobre entre 60 y 150 apostadores de México, Paraguay, Uruguay, Italia y España con fondos no verificables. Tras su denuncia la empresa vetó a 28 personas y derivó unos US$12 millones de crédito impago al fiscal de distrito de Clark County; Resorts World ya había sido multado con US$10,5 millones por reguladores de Nevada en 2025 por violaciones antilavado.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1748899-former-resorts-world-las-vegas-employee-sues-casino"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "22 sep 2026 · ayer",
+          "titulo": "Una jugadora viral en The Lodge desata polémica por un comentario en una mesa de cash",
+          "resumen": "Abby Merk se volvió tendencia tras un pozo de cash game US$1/2 en The Lodge Card Club, donde fue all-in con as-cuatro contra un par de seises y respondió \"not really\" al preguntarle si quería acción, lo que generó acusaciones de bullying en redes. Merk aclaró después que ella y su rival son amigas habituales de mesa y que el enojo era consigo misma por \"ser demasiado honesta\"; ambas dijeron haber resuelto el tema en privado.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/the-internet-is-crucifying-me-whats-the-story-with-abby-merk-abTCv0R2acnu/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · hoy",
+          "titulo": "Poker Industry PRO reporta caída del póker online en Pensilvania y estabilidad en Michigan",
+          "resumen": "Según los reportes mensuales de mercado de Poker Industry PRO, el ingreso de póker online regulado en Pensilvania fue de US$2,4 millones en agosto, una caída del 5% interanual, mientras que en Michigan el juego online (póker, casino y apuestas deportivas combinados) se mantuvo por encima de los US$300 millones mensuales tras cuatro meses de estancamiento previo.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "Pensilvania — 23 sep",
+              "url": "https://pokerindustrypro.com/news/article/225286-market-monitor-pennsylvania-august-2026"
+            },
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "Michigan — 23 sep",
+              "url": "https://pokerindustrypro.com/news/article/225285-market-monitor-michigan-august-2026"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · hoy",
+          "titulo": "Renan Bruschi suma su cuarto título WCOOP de la temporada 2026",
+          "resumen": "El brasileño, bajo el alias \"Internett93o\", ganó el evento Bounty Builder de US$530 de la serie WCOOP en PokerStars, su cuarto título de esta edición 2026 y el 13º de su carrera en la serie.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22 sep 2026 · ayer",
+          "titulo": "RunGood anuncia su próxima parada en St. Louis con 12 eventos de anillo",
+          "resumen": "El RunGood Poker Series Golden Expedition se disputará en Hollywood Casino St. Louis del 6 al 11 de octubre, con un Main Event de US$800 y garantía de US$200.000 repartido en cuatro flights de entrada, además de un PowerStack de US$400 con US$50.000 garantizados y eventos especiales como Senior, Bomb Pot PLO y Tag Team.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/rgps-st-louis-full-schedule-52417.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "rumor",
+          "fecha": "22-23 sep 2026 · hilo activo",
+          "titulo": "En Two Plus Two crece el debate sobre el juego lento de Will Kassouf en el Main Event",
+          "resumen": "Un hilo con más de 270 respuestas y 35.000 vistas discute por qué parte de la comunidad defiende a Kassouf pese a sus mesas lentas y su \"speech play\" en el WSOP Main Event, con posturas divididas entre quienes valoran el entretenimiento que genera y quienes creen que perjudica el ritmo del torneo. Todavía no hay cobertura de prensa especializada sobre este debate puntual.",
+          "fuentes": [
+            {
+              "nombre": "Two Plus Two",
+              "fecha": null,
+              "url": "https://forumserver.twoplustwo.com/29/news-views-gossip/will-kassouf-discussion-1849510/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

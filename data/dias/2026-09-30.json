@@ -1,0 +1,278 @@
+{
+  "fecha": "2026-09-30",
+  "titulo": "30 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-30-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "30 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29-30 sep 2026 · hoy",
+          "titulo": "Sergio Aido gana el GGMillion$ de US$10.000 y suma su tercer brazalete WSOP",
+          "resumen": "El español se impuso en el evento que cerraba el calendario de brazaletes del WSOP Online 2026, con 1.754 entradas y un pozo de US$17.013.800, y cobró US$2.228.762 más un Super Pass de US$30.000. Es su tercer brazalete y la segunda vez que gana este mismo torneo, tras su título de 2024 con 1.433 entradas. Con esto se confirma el desenlace que la mesa final, reportada como en curso en el bloque anterior, todavía no tenía: venció heads-up a Matheus Machado (Brasil, US$1.718.571), con Roeland Peeks tercero (US$1.325.271) y Niklas Astedt noveno (US$278.847).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "30 sep",
+              "url": "https://www.pokernews.com/news/2026/09/sergio-aido-captures-his-third-wsop-bracelet-52502.htm"
+            },
+            {
+              "nombre": "PokerListings",
+              "fecha": "30 sep",
+              "url": "https://www.pokerlistings.com/news/sergio-aido-wins-record-ggmillion-wsop-online-again"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "29 sep",
+              "url": "https://www.poker.org/latest-news/aido-banks-2.2m-and-3rd-bracelet-in-repeat-wsop-online-ggmillion-win-arZUB9E2SvXb/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Estalla un escándalo de trampas por malware: acusan a un jugador de ver las cartas de sus rivales durante meses",
+          "resumen": "PokerListings identificó al canadiense Paul Gregg como responsable de instalar un troyano de acceso remoto (\"Mesh Agent\") en las computadoras de sus rivales para ver sus cartas, con ganancias combinadas superiores a US$837.000 bajo distintos alias en GGPoker, CoinPoker y la red WPN (Americas Cardroom); el caso salió a la luz gracias al regular de altas apuestas Aleksey \"Avr0ra\" Borovkov. El mismo día, PokerNews y Poker.org reportaron por separado denuncias anónimas de un usuario identificado como \"WolfSec0x0\" sobre el mismo tipo de malware afectando a unos 30 jugadores de altas apuestas desde 2024, aclarando que ni GGPoker ni ClubWPT Gold estarían comprometidos como plataforma; todavía no está confirmado si ambas denuncias describen el mismo caso o casos distintos.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": "Caso Paul Gregg — 29 sep",
+              "url": "https://www.pokerlistings.com/news/scandal-paul-gregg-sees-opponents-cards-for-months-wins-millions-dollars"
+            },
+            {
+              "nombre": "PokerNews",
+              "fecha": "Denuncia de WolfSec0x0 — 29 sep",
+              "url": "https://www.pokernews.com/news/2026/09/superuser-targets-online-poker-players-52500.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "29 sep",
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Brasil prohíbe las apuestas de cuotas fijas y el casino online; la duda es si el poker queda afuera",
+          "resumen": "El presidente Luiz Inácio Lula da Silva firmó una medida provisional que prohíbe las apuestas de cuotas fijas y el casino online en Brasil, días antes de la primera vuelta electoral del 1 de octubre. Los operadores dejaron de tomar depósitos nuevos el 25 de septiembre, los jugadores tienen hasta el 5 de octubre para retirar fondos y los sitios deben cerrar el 6, aunque el Congreso todavía debe ratificar la medida dentro de 120 días. La norma no menciona al poker de forma explícita, y tanto CardPlayer como PokerListings coinciden en que probablemente quede afuera de su alcance al tratarse de un juego jugador-contra-jugador y no de pagos con multiplicador fijo del operador, aunque el estatus legal todavía no está definido.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": "29 sep",
+              "url": "https://www.pokerlistings.com/news/brazil-bans-betting-sites-does-poker-escape"
+            },
+            {
+              "nombre": "CardPlayer",
+              "fecha": "29 sep",
+              "url": "https://www.cardplayer.com/poker-news/1751599-brazil-bans-online-gambling"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Escala la disputa de staking entre \"Britney\" y \"CYe\" en High Card Life",
+          "resumen": "El conflicto por fichas faltantes y fondos de staking no pagados entre las jugadoras \"Britney\" y \"CYe\" —ya asomado como rumor de Two Plus Two en un bloque anterior— sumó nuevos protagonistas: Ryan Feldman respalda a Britney, Charlie Carrel a CYe, y Garrett Adelstein lanzó acusaciones adicionales contra Feldman y un usuario identificado como \"Airball\", mientras Wesley Fei amenazó con difundir más información. La comentarista Xuan Liu, que reveló su propia amistad y vínculo de staking con Britney, calificó la situación de \"bastante vergonzosa para todos los involucrados\"; todavía no está claro quién controla los line-ups de High Card Life ni adónde fueron las fichas en disputa.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=phKeP4O4PufH"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Chris Moneymaker convierte US$15.000 en casi US$215.000 al ganar un evento del OSS XL de ACR",
+          "resumen": "El campeón del WSOP Main Event 2003 se impuso en el evento \"Phil's Nosebleeds\" de US$15.000 de la serie OSS XL en Americas Cardroom, con 49 entradas, y cobró US$214.987 tras vencer heads-up a Alex \"OutFoxenYou\" Foxen. Jugó la serie con un enfoque de una sola bala por evento y también sumó un sexto puesto por US$78.285 en un torneo de US$25.000, con un gasto total cercano a los US$120.000 en la serie.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": "29 sep",
+              "url": "https://www.pokerlistings.com/news/chris-moneymaker-turns-15k-into-almost-215k-in-single-oss-xl-event"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "29 sep",
+              "url": "https://www.poker.org/instant-news/?post=pIlp13J3fA2y"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026 · hoy",
+          "titulo": "James Chen suma 8 de las 14 recompensas en juego y gana el título de US$10.500 de la PGT PLO Series",
+          "resumen": "Chen se impuso en el Evento 4 de la PokerGO Tour PLO Series, con 57 entradas y un pozo combinado de US$798.000 (US$570.000 en premios más US$228.000 en bounties), y cobró US$239.000 tras eliminar a Sam Soverel y Dylan Weisman antes de la burbuja y a Jonas Kronwitter en noveno lugar. En la final venció a Richard Gryko con una escalera. Es su segundo título de la PGT y lo pone al frente de la carrera de puntos de la temporada de la serie PLO.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1752167-james-chen-collects-8-bounties-on-way-to-pgt-plo-10000-title"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Roussos Koliakoudakis gana su primer título de la PGT al imponerse en el Evento 3 de la PLO Series",
+          "resumen": "El profesional griego se impuso en el Evento 3 de la PokerGO Tour PLO Series, de US$10.000 de entrada con 66 jugadores y un pozo de US$660.000, y cobró US$198.000 —su mejor resultado en vivo, muy por encima de los US$139.773 que tenía como techo previo—. En la mesa final eliminó al tres veces campeón del WPT Chino Rheem en el puesto tres. El subcampeón, Brevin Andreadis, cobró US$128.700.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751897-roussos-koliakoudakis-triumphs-at-pgt-plo-series"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28-29 sep 2026",
+          "titulo": "Un contador amateur de 23 años da la sorpresa y gana el Main Event del Winamax Poker Open en Aix-les-Bains",
+          "resumen": "El francés Lucas Archeny, que nunca había cobrado más de €350 en un torneo, se impuso entre 2.873 entradas en el Main Event de €500 del Winamax Poker Open, disputado en el Casino Grand Cercle, y cobró €150.000 —muy por encima de los US$23.854 que sumaba en toda su carrera en vivo hasta ese momento—. Venció al subcampeón Étienne De Soultrait (€105.000); el tercer puesto fue para Mathieu Pontin (€74.000).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "28 sep",
+              "url": "https://www.pokernews.com/news/2026/09/lucas-archeny-wins-wpo-aix-les-bains-main-event-52479.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "29 sep",
+              "url": "https://www.poker.org/instant-news/?post=pJ6Hn1i8338H"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026",
+          "titulo": "Benny Glaser suma dos títulos más de la WCOOP en apenas tres horas y llega a 19, un récord histórico de la serie",
+          "resumen": "Glaser ganó el WCOOP 102-H de US$530 de Stud (US$8.357) y el WCOOP 90-H de US$530 de HORSE (US$11.082) la misma noche del sábado, apenas dos semanas después de haber alcanzado su título número 17. Con 19 títulos históricos de la serie, queda como el jugador con más victorias en la WCOOP.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/wcoop-2026-glaser-two-more-wcoop-titles-main-events-underway-52476.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "El PartyPoker Tour confirma su parada en Castellón, España, del 5 al 11 de octubre",
+          "resumen": "La séptima fecha del PartyPoker Tour 2026 se disputará en el Orenes Gran Casino de Castellón, con un Main Event de €500 y €100.000 garantizados repartido en cuatro flights de entrada (8 al 10 de octubre) y mesa final el 11, además de un Mini Main Event de €150 con €50.000 garantizados, un High Roller 7-Max de €1.000 y eventos satélite desde €30.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/the-partypoker-tour-heads-to-castellon-spain-from-oct-5-52496.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Tsuf Saltsberg completa una remontada y gana su primer título en el PLO High Roller de €3.000 del King's Million",
+          "resumen": "En el festival del King's Resort, con 142 entradas y €500.000 de pozo, Saltsberg llegó a un acuerdo ICM heads-up con Oliver Tot (€87.000 contra €96.800 del acuerdo) y ganó la mano definitoria por el trofeo. Es un resultado distinto del Campeonato PLO de €1.500 y del Deepstack de €400 del mismo festival, ya reportados en bloques anteriores.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/tsuf-saltsberg-gets-first-trophy-in-plo-high-roller-52490.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Vasilis Nikolas gana su primer torneo en vivo en el Mystery Bounty de €1.000 del King's Million EPC",
+          "resumen": "El sueco se impuso entre 1.863 entradas repartidas en ocho flights, con un pozo de €1.583.550, y cobró €123.850 más las recompensas ganadas, incluida la última bounty misteriosa sin reclamar de €30.000, con lo que superó los €150.000 en su primera victoria en un torneo presencial. El subcampeón, el italiano Loris Greco, cobró €103.000.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/vasilis-nikolas-wins-king-s-million-epc-mystery-bounty-52489.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026",
+          "titulo": "Justin Arnwine repite título en el Main Event del RGPS en MGM National Harbor, Maryland",
+          "resumen": "Arnwine se impuso por segunda vez consecutiva en esta parada del RunGood Poker Series, con 329 entradas en el evento de US$1.300, y cobró cerca de US$79.000 tras vencer al subcampeón Maclaren Chatham. Ya había ganado la edición inaugural de este mismo torneo unos once meses antes, con un campo más chico de 251 entradas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "28 sep",
+              "url": "https://www.pokernews.com/news/2026/09/justin-arnwine-does-it-again-in-the-rgps-maryland-main-event-52473.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "29 sep",
+              "url": "https://www.poker.org/instant-news/?post=p9wko2g5xOwi"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026",
+          "titulo": "Rob Wazwaz gana el Campeonato Estatal de Wisconsin del Mid-States Poker Tour",
+          "resumen": "El jugador de Minnesota, ya miembro del Salón de la Fama del MSPT, se impuso en el Potawatomi Hotel Casino de Milwaukee entre 1.568 entradas —muy por encima de la garantía de US$1.000.000, con un pozo final de US$1.519.460— y cobró US$253.521. Es su segundo título del circuito, ocho años después del primero, y extiende su propio récord histórico a 22 mesas finales del MSPT; sus ganancias en vivo superan ya los US$3,4 millones.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751631-mspt-legend-rob-wazwaz-wins-wisconsin-poker-state-championship"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026 · ayer",
+          "titulo": "Nevan Chang gana la edición más rica hasta ahora del APT Superstar Challenge, en Jeju",
+          "resumen": "El jugador identificado como Yu Chung \"Nevan\" Chang se impuso en el evento de US$27.000 del Asian Poker Tour, disputado sin transmisión ni cámaras, con 51 entradas —un récord para este torneo— y un pozo cercano a US$1,25 millones, y cobró el equivalente a unos US$337.000, el mejor resultado de su carrera. Es un resultado distinto de los títulos de Daisuke Abiko y Teeraphat Rangkatekarn en el mismo festival de APT Jeju, ya reportados en un bloque anterior.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/nevan-chang-wins-richest-ever-apt-superstar-challenge-for-337k-anLy18X1vOgg/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026",
+          "titulo": "Un nuevo evento combina golf y poker por equipos en un invitational que debuta en enero de 2027",
+          "resumen": "El \"Cards & Clubs Invitational\", creado por el referente de la industria Tom Wheaton, se disputará del 11 al 13 de enero de 2027 en el PGA National Resort de Palm Beach, Florida: equipos de cuatro jugadores compiten primero en una ronda de golf scramble de 18 hoyos y después en un torneo de poker por equipos bajo techo, con el resultado combinado de ambas instancias definiendo la Cards & Clubs Cup. Es un evento por invitación, con un campo de ejecutivos, profesionales y personalidades del poker; todavía no se difundió el monto de la entrada.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/cards-and-clubs-invitational-52487.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026",
+          "titulo": "Muere a los 46 años Josh Turner, referente del circuito con más de US$2,4 millones en cobros",
+          "resumen": "El jugador de San Luis, Misuri, murió el 2 de septiembre tras dos años de lucha contra el cáncer; su comunidad lo despidió con un homenaje el 8 de ese mes. Acumuló siete anillos del WSOP Circuit, más de US$2,4 millones en cobros en vivo, títulos de RunGood y del Heartland Poker Tour, y tres mesas finales de brazalete del WSOP en 2018; su último cobro fue en agosto, en The Lodge Card Club.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/josh-turner-poker-pro-passes-away-52482.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

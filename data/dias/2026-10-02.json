@@ -1,0 +1,334 @@
+{
+  "fecha": "2026-10-02",
+  "titulo": "2 de octubre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-10-02-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "2 de octubre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "La WCOOP 2026 de PokerStars corona a sus tres campeones: Boianovsky hace historia en el tramo alto",
+          "resumen": "Los tres Main Events de la WCOOP, que habían llegado a sus mesas finales el 30 de septiembre con Dante Goya como líder de fichas en el tramo de US$10.300, quedaron resueltos: el brasileño Felipe \"lipe piv\" Boianovsky se impuso en ese tramo y cobró US$551.632, convirtiéndose en el primer jugador en ganar un Main Event de US$10.000 o más tanto en el SCOOP (2023) como en el WCOOP. En el tramo medio de US$1.050, el argentino Alejandro \"Papo MC\" Lococo venció heads-up a \"Goodarla\" (Irlanda) y cobró US$343.242; en el de US$109, \"ihor888888\" (Ucrania) remontó desde el sexto lugar para quedarse con US$172.022, superando la garantía de US$1,25 millones.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "1 oct",
+              "url": "https://www.pokernews.com/news/2026/10/alejandro-lococo-adds-wcoop-main-event-title-52513.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "30 sep",
+              "url": "https://www.poker.org/latest-news/brazilian-makes-history-as-first-to-win-scoop-and-wcoop-10k-main-events-aoVdL9M2uqWd/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "30 sep-1 oct 2026",
+          "titulo": "El escándalo de malware en el poker suma el comunicado oficial de la empresa de software afectada",
+          "resumen": "El escándalo de malware que afecta a jugadores de altas apuestas —ya reportado en un bloque anterior a partir del caso de Paul Gregg y la denuncia de \"WolfSec0x0\"— sumó nuevos elementos: Jurojin Poker, una de las herramientas de software de terceros comprometidas, confirmó en un comunicado oficial que un ciberataque ocurrido entre junio de 2025 y junio de 2026 vulneró sus paquetes de actualización e instaló herramientas de acceso remoto, afectando a unos 30 jugadores junto con otra utilidad, IntuitiveTables. En Two Plus Two, un hilo identifica la misma herramienta como el troyano \"Mesh Agent\" y describe pérdidas millonarias para más de diez jugadores profesionales. La empresa dice haber reforzado la rotación de claves, el logging y la autenticación multifactor, y coopera con el investigador y con las autoridades; Mobius Poker y Patrick Leonard reaccionaron públicamente al caso.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "Comunicado de Jurojin — 30 sep",
+              "url": "https://www.pokernews.com/news/2026/09/online-poker-scandal-statement-released-52508.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "30 sep",
+              "url": "https://www.poker.org/latest-news/online-poker-rocked-by-fresh-hole-card-scandal-as-players-urged-to-check-pcs-aI8xa7r6rg2K/"
+            },
+            {
+              "nombre": "Two Plus Two",
+              "fecha": "Hilo \"Scary News\" — 30 sep",
+              "url": "https://twoplustwo.com/News-Views-and-Gossip/13ytv/Scary-News"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "El Main Event del APT Jeju llega a su mesa final con el chino Jianfeng Sun como líder",
+          "resumen": "Los 1.375 inscriptos del Main Event de US$2.000 del Asian Poker Tour en Jeju, Corea del Sur, quedaron en ocho finalistas que se reparten cerca de US$415.000 en premios. Sun lidera con 12,06 millones en fichas y cinco títulos previos en este mismo torneo, seguido por el singapurense Steve Ng y el irlandés Toby Joyce; el resultado todavía no está confirmado por ninguna fuente.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/meet-the-apt-jeju-main-event-final-table-abQvA0l3bycd/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "Sam Soverel extiende su propio récord a 17 títulos de la PokerGO Tour",
+          "resumen": "Soverel se impuso en el Evento 6 de la PGT PLO Series, un mystery bounty de US$15.700 con 46 entradas y un pozo de US$460.000 (US$230.000 en bounties), venciendo mano a mano a Robert Cowen y cobrando US$250.000 entre premio y recompensas. Es su 17º título de la gira, un nuevo récord histórico, y eleva sus ganancias de carrera a más de US$33,8 millones.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1754617-sam-soverel-strikes-again-in-plo-extends-record-with-17th-pgt-title"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Alex Thompson gana el WPT Australia Championship sin perder nunca el liderato",
+          "resumen": "El australiano se impuso de punta a punta en el campeonato de AUD$5.000 disputado en The Star Sydney, con 527 entradas, y cobró AUD$465.900 tras vencer heads-up a Filip Radic (segundo, AUD$290.000) con una ventaja de fichas de 6 a 1.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/alex-thompson-wins-wpt-australia-52518.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Calvin Anderson gana su octavo brazalete WSOP mientras jugaba a las tragamonedas en Las Vegas",
+          "resumen": "Anderson, conocido online como \"SethRogan\", se impuso en el US$777 NLH Lucky 7's del WSOP Online (363 entradas) y cobró US$48.914 tras vencer heads-up a \"Joedontknowh\". Estaba jugando slots en el Resorts World de Las Vegas cuando empezó la mesa final y volvió a tiempo a su casa para disputarla; se suma a Daniel Negreanu y Nick Schulman como los únicos jugadores con ocho brazaletes WSOP, y es su tercer título en tres meses.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/calvin-anderson-wins-eighth-wsop-bracelet-52507.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "El WSOP Online 2026 cierra con Brasil a la cabeza del medallero por país",
+          "resumen": "La edición 2026 del WSOP Online en GGPoker repartió US$345.767.442 en 33 eventos de brazalete y sus laterales, con 3.037.564 entradas totales. Brasil terminó primero en ganancias por país (US$6.247.877 y siete títulos), seguido de Rusia (US$2,6 millones, cinco títulos) y España (US$2,48 millones, tres títulos); Daniel Negreanu llegó a tres mesas finales sin sumar brazalete.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/brazil-dominates-2026-wsop-online-with-7-bracelets-and-6.2m-in-earnings-a49y54i3mGWB/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Adrian Mateos cruza a Negreanu por sus declaraciones sobre la rentabilidad del high stakes",
+          "resumen": "En una entrevista con Winamax, Mateos calificó de \"simplemente equivocada\" la afirmación de Negreanu de que hace falta ganar más de US$12 millones en torneos para ser rentable en las altas apuestas, y sostuvo que el canadiense \"no conoce el circuito\" por no viajar fuera de Estados Unidos. Según Mateos, la mayoría de los jugadores gasta menos de US$10 millones anuales en buy-ins, con un retorno de entre 20% y 30% para los mejores.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/adrian-mateos-says-negreanu-is-simply-wrong-about-high-stakes-poker-atvi26a85qgj/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026",
+          "titulo": "PokerStars on FanDuel es la única gran sala de EE.UU. que crece, según los reportes de agosto",
+          "resumen": "Según Pokerfuse y Poker Industry PRO, PokerStars on FanDuel generó unos US$2,6 millones en agosto entre Michigan, Nueva Jersey y Pensilvania (+14% interanual), tras migrar en abril a software iPoker y unificar su liquidez en esos tres estados. WSOP Online cayó 10% interanual y BetMGM Poker 16% en el mismo mercado, mientras que BetRivers Poker fue la red de más rápido crecimiento, con unos US$940.000 mensuales (+38%).",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": "30 sep",
+              "url": "https://pokerfuse.com/latest-news/2026/9/pokerstars-on-fanduel-poaching-players/"
+            },
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "30 sep",
+              "url": "https://pokerindustrypro.com/news/article/225423-us-online-poker-report-august-2026-pokerstars"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "PokerStars discontinúa \"Kick-Off\", su formato de torneo de seis años en .com",
+          "resumen": "La sala dejó de ofrecer este formato de torneos short-handed con bounties progresivos y premios aleatorios, que había mantenido activo en su plataforma .com durante seis años.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": null,
+              "url": "https://pokerindustrypro.com/news/article/225477-pokerstars-pulls-kick-story-six-year-run"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Barry Diller retira su oferta de US$18.000 millones por MGM Resorts",
+          "resumen": "People Incorporated, la firma de Diller que ya posee cerca del 27% de MGM Resorts, retiró la oferta de compra que le habría dado el control mayoritario de la empresa, anunciada en junio. Diller dijo que \"la combinación no se estaba dando como esperábamos\"; el Wall Street Journal reportó que MGM podría explorar en cambio comprarle su participación a People Inc., en medio de una deuda de la compañía que supera los US$30.000 millones.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1751866-people-incorporated-rescinds-18-billion-mgm-resorts-buyout-offer"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "ACR Poker suma más de US$10 millones en garantizados extra a su Dual Venom PKO",
+          "resumen": "La red WPN amplía su promoción de cara a los dos Venom PKO de US$2.650 (garantía combinada de US$6,5 millones ya anunciada en un bloque anterior): la fase de satélites \"Venom Fever\" reparte 587 asientos garantizados hasta el 18 de octubre, y \"Venom Specials\" suma 74 torneos adicionales del 4 al 19 de octubre con más de US$10 millones en garantías combinadas, incluidos tres eventos de US$600.000 cada uno.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/special-kind-of-fever-accompanies-the-dual-venom-pko-on-acr-poker"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Mike Traylor asume como director de poker del Champions Club de Houston",
+          "resumen": "Traylor, ex gerente general del Texas Card House Spring, llega a la sala copropiedad de Phil Hellmuth —la única de Texas con hotel propio— con el objetivo de reposicionarla hacia el cash game, y ya eliminó el programa de \"prop players\" para mejorar la acción. El 12 de octubre arranca allí el RunGood Poker Series.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/champions-club-houston-new-poker-director-52520.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "CoinPoker anuncia \"The One\", su próxima serie insignia con US$5 millones garantizados",
+          "resumen": "Tras cerrar su primer Global Online Poker Championship con US$88,4 millones repartidos —ya reportado en el bloque anterior—, CoinPoker confirmó el lanzamiento de \"The One\" para el 4 de octubre: buy-in de US$250, el mayor garantizado de la plataforma hasta ahora (US$5 millones) y un mínimo de US$1 millón asegurado al primer puesto.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1753970-coinpoker-wraps-up-wildly-successful-first-ever-global-online-poker-championship"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "La Women's Poker Association agota las plazas de su UK Ladies Weekend en Londres",
+          "resumen": "El evento, que se disputa del 16 al 18 de octubre en el Hippodrome Casino con la embajadora de PokerStars Kerryjane Craigie como anfitriona, ya agotó sus masterclasses del sábado con Jennifer Shahade, Marle Spragg y Victoria Livschitz. El fin de semana cierra el domingo con un torneo exclusivo para mujeres de US$300 de entrada y £20.000 garantizados.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/kerryjane-craigie-wpa-uk-ladies-weekend-hippodrome-52511.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "Grosvenor Poker despliega su calendario de octubre en Reino Unido con cuatro series",
+          "resumen": "El operador británico encara octubre con el 888LIVE de Londres (8-18 oct, Main Event de £1.250 con £250.000 garantizados), el G300 de Manchester y el G200 simultáneo en Newcastle y Portsmouth (ambos del 20 al 25 de octubre, con garantías combinadas de hasta £300.000), y el GUKPT de Blackpool (29 de octubre al 8 de noviembre) con un Main Event de £1.100 y £250.000 garantizados.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/grosvenor-poker-october-calendar-52504.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-10-02-2",
+      "titulo": "Barrido adicional",
+      "titulo_original": "2 de octubre de 2026 — barrido adicional",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Zynga Poker lanza \"Poker Dash\", un modo veloz con Keegan-Michael Key como presentador",
+          "resumen": "Zynga Poker presentó \"Poker Dash\", un nuevo modo de juego rápido a cinco jugadores con tres rondas progresivas, con el actor Keegan-Michael Key (de \"Key & Peele\") como rostro promocional de la campaña \"Inner Winner\", dirigida por Jody Hill. Completar las tres rondas puede valer hasta 10.000 millones de fichas virtuales; Yaron Leyvand, vicepresidente ejecutivo de juegos móviles de Zynga, encabezó el anuncio.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/zynga-poker-keegan-michael-key-poker-dash-52515.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "El WSOP Circuit llega a Harrah's Pompano Beach con un Main Event de US$1.000.000 garantizados",
+          "resumen": "La nueva parada del circuito en Florida se disputa del 1 al 12 de octubre con 18 eventos de anillo oficiales; el Main Event de US$1.700 reparte un millón de dólares garantizados en tres flights de entrada (8, 9 y 10 de octubre). Cada ganador de anillo recibe además un paquete de US$5.000 para el WSOP Paradise 2026 en Baha Mar, donde en diciembre se disputará un Circuit Championship Mystery Bounty con US$2,75 millones garantizados.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/harrah-s-pompano-beach-hosts-18-wsop-circuit-ring-events/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "Kyriakos Kesidis gana el Monsterstack de €600 del King's Million European Poker Championship",
+          "resumen": "El fisioterapeuta chipriota, que compitió bajo bandera griega, necesitó cinco intentos a lo largo del festival para quedarse con el título tras un acuerdo ICM a cuatro manos, embolsando €146.800 sobre un campo de 2.903 entradas y un pozo de €1.480.530. El subcampeón, el croata \"BUNJO\", cobró €128.200.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/kyriakos-kesidis-claims-epc-monsterstack-trophy-52524.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "El RunGood Poker Series confirma su parada en bestbet Jacksonville con US$300.000 garantizados",
+          "resumen": "La serie Golden Expedition llega a bestbet Jacksonville del 21 de octubre al 1 de noviembre con 11 eventos de anillo en diez días. El Main Event de US$1.200 garantiza al menos US$300.000 (flights del 29 al 31 de octubre, mesa final el 1 de noviembre) y el calendario incluye el \"PokerNews PowerStack\" con US$200.000 garantizados.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/rgps-bestbet-jacksonville-series-52521.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "2 oct 2026 · hoy",
+          "titulo": "Negreanu recuerda anécdotas de Doyle Brunson y Phil Ivey en el PokerNews Podcast",
+          "resumen": "En una nueva entrega del podcast, Negreanu describió a Brunson —fallecido en 2023— e Ivey como una pareja dispareja que discutía todo el tiempo pero se respetaba profundamente, con anécdotas como una pelea de horas por hándicaps de golf en Shadow Creek que terminó haciéndoles perder el partido. También destacó el enfoque analítico pionero de Brunson, que calculaba equities de manos décadas antes de la llegada de los solvers modernos.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/10/daniel-negreanu-remembers-doyle-brunson-52516.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "1 oct 2026 · ayer",
+          "titulo": "Según un primer reporte, Mongolia lograría su primer campeón en la historia del WCOOP",
+          "resumen": "Según el resumen de cierre de la serie publicado por Poker.org, el jugador identificado como \"Billionai8\" se habría convertido en el primer campeón mongol en las 26 ediciones del WCOOP, al ganar el evento de US$109 \"PKO Series Saver\" por US$32.520. Todavía no se encontró un artículo dedicado ni una segunda fuente que confirme el dato de forma independiente.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

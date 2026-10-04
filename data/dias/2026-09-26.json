@@ -1,0 +1,87 @@
+{
+  "fecha": "2026-09-26",
+  "titulo": "26 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-26-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "26 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "anuncio 24-25 sep 2026 · en curso desde 27 sep",
+          "titulo": "BetRivers confirma su Poker Championship 2026: arranca el 27 de septiembre con más de US$600.000 garantizados",
+          "resumen": "La serie de BetRivers Poker regresa del 27 de septiembre al 11 de octubre con alrededor de 100 eventos programados. PokerNews cifra el total garantizado en más de US$600.000, mientras que una nota previa de Pokerfuse había hablado de US$400.000 — una diferencia que probablemente responde a ajustes de garantía en las semanas previas al inicio de la serie.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "24-25 sep",
+              "url": "https://www.pokernews.com/news/2026/09/2026-betrivers-poker-championship-52423.htm"
+            },
+            {
+              "nombre": "Pokerfuse",
+              "fecha": "previo al inicio",
+              "url": "https://pokerfuse.com/latest-news/2026/9/betrivers-poker-championship-starts-weekend-100/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24-25 sep 2026",
+          "titulo": "El Trailblazer Poker Tour confirma su parada en Texas Card House Dallas con Main Event de US$1.000.000 garantizados",
+          "resumen": "La gira anual del circuito de Texas Card House suma una nueva fecha en Dallas/Fort Worth, con un Main Event que ofrece un millón de dólares garantizados como principal atractivo del calendario.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/dallas-trailblazer-poker-tour-52458.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026",
+          "titulo": "La Dynasty Series de PokerStars on FanDuel, con US$3,5 millones en garantizados, llega a su Main Event",
+          "resumen": "La serie de septiembre en la plataforma exclusiva de FanDuel en Estados Unidos y Ontario, que había arrancado con un total de US$3,5 millones garantizados, se acerca a su Main Event. Se suma al despliegue de la red hacia Ontario y a los planes de mixed games ya reportados en corridas anteriores de esta página.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/dynasty-series-main-event-52467.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24-25 sep 2026",
+          "titulo": "\"GBortoleto\" se lleva más de US$120.000 en una nueva edición del CoinMillion de CoinPoker",
+          "resumen": "En una edición del CoinMillion —el torneo insignia mensual de CoinPoker— distinta de la que ya había marcado récord de entradas a mediados de septiembre y que se cubrió en un bloque anterior, el jugador identificado como \"GBortoleto\" se impuso y cobró más de US$120.000.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750937-how-gbortoleto-scooped-the-coinmillion-for-more-than-120000"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 sep 2026",
+          "titulo": "El Australian Poker Tour muda el Melbourne Champs II a una nueva sede en Crown Melbourne",
+          "resumen": "El festival cambia de locación dentro de la ciudad y pasará a disputarse en Crown Melbourne, un movimiento que el propio circuito presenta como una apuesta por elevar el nivel de su segunda parada del año en Melbourne.",
+          "fuentes": [
+            {
+              "nombre": "Poker Media Australia",
+              "fecha": null,
+              "url": "https://www.pokermedia.com.au/2026/09/25/australian-poker-tour-raising-the-bar-by-bringing-melbourne-champs-ii-to-new-home-at-crown-melbourne/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

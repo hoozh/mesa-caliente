@@ -1,0 +1,162 @@
+{
+  "fecha": "2026-09-24",
+  "titulo": "24 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-24-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "24 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Andrii Novak gana el Main Event del WSOP Online por US$3,93 millones",
+          "resumen": "El ucraniano, que llegó a la mesa final como líder de fichas, se llevó US$3.931.259, su primer brazalete y un Super Pass de US$30.000 tras vencer heads-up a Simon Beckmann (US$3.030.486). El torneo reunió 6.008 entradas y un pozo de US$28.538.000; Moyan Chen fue tercero por US$2.336.938. Con esto queda confirmado el desenlace que la corrida del 23 de septiembre todavía no tenía.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "23 sep",
+              "url": "https://www.pokernews.com/news/2026/09/novak-crowned-the-2026-wsop-main-event-champion-52442.htm"
+            },
+            {
+              "nombre": "tightpoker.com",
+              "fecha": "23 sep",
+              "url": "https://www.tightpoker.com/news/andrii-novak-wins-2026-wsop-online-main-event-on-ggpoker/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Negreanu vuelve a quedarse a las puertas del noveno brazalete: cuarto en el High Roller de US$25.000",
+          "resumen": "En el Campeonato High Roller de US$25.000 del WSOP Online, Negreanu pagó el all-in del líder de fichas Casimir Seire con pareja de dieces contra nueve-ocho, pero el board A-9-6-8-K le dio doble pareja al rival y lo dejó en cuarto lugar por unos US$415.700. Seire ganó el brazalete y US$906.647. Habría sido el primer brazalete online de Negreanu y el noveno de su carrera, apenas un día después de caer séptimo en el PLO de US$10.000.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "23 sep",
+              "url": "https://www.pokernews.com/news/2026/09/daniel-negreanu-online-wsop-poker-high-roller-52447.htm"
+            },
+            {
+              "nombre": "CardPlayer",
+              "fecha": "23 sep",
+              "url": "https://www.cardplayer.com/poker-news/1750822-watch-daniel-negreanu-suffers-brutal-beat-with-bracelet-on-the-line"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "23 sep",
+              "url": "https://www.poker.org/latest-news/that-was-our-chance-negreanu-falls-short-of-ninth-wsop-bracelet-in-25k-high-roller-a8lO57I1QULu/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Paul Volpe gana el Big, Big Championship del Borgata por US$492.415",
+          "resumen": "Volpe se impuso en el evento de US$5.300 del BetMGM Borgata Poker Open, que reunió 519 entradas y un pozo de US$3.000.000. Tras un acuerdo ICM heads-up con Frank Lagodich (US$420.000), se quedó con el título y el mayor cobro de su carrera en ese casino, con más de US$10 millones en ganancias en vivo acumuladas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/paul-volpe-wins-betmgm-borgata-championship-52448.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Cooper Feltham gana el WPT Prime Australia Championship tras un chop y una carta de río",
+          "resumen": "El profesional australiano se impuso en el campeonato de AUD 1.500 disputado en The Star Sydney y cobró AUD 187.793 (Ling Liu, segundo, AUD 161.127). En el heads-up, Liu tenía as-siete contra el as-dos de Feltham, pero este completó una escalera con un cinco en el río.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/cooper-heltham-wpt-prime-australia-52449.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22 sep 2026",
+          "titulo": "Triton Jeju cierra con más de US$100 millones repartidos y ya tiene fechas para Chipre del Norte",
+          "resumen": "El festival superó los US$100 millones en premios a lo largo de 14 eventos, con el récord individual de Joao Simao (US$7,25 millones en el Invitational de US$200.000) y el Main Event de Nick Schulman (US$3,8 millones). La próxima parada será la primera edición europea, Triton ONE North Cyprus, del 5 al 15 de noviembre en el Merit Royal Diamond, con 22 torneos de US$2.000 a US$15.000 y un Main Event de US$8.000 desde el 10 de noviembre.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/over-100-million-awarded-during-triton-jeju-festival-52413.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Boris Smuskevicius gana el Merit Poker Cup de US$3.500 con póker de damas en la mano final",
+          "resumen": "El lituano se llevó US$217.000 —el mayor premio de su carrera en vivo, muy por encima de sus US$39.800 del Aria en 2023— en el torneo del Mediterranean Poker Party de Merit Crystal Cove. Cerró el mano a mano contra Ekrem Sanioglu con cuatro reinas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/boris-smuskevicius-wins-merit-poker-cup-52443.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · hoy",
+          "titulo": "Aliaksei Chernak vuelve a ganar en King's Resort con el Deepstack de €400",
+          "resumen": "El bielorruso se impuso entre 1.054 entradas en el King's Million European Poker Championship y cobró €54.800 sobre un pozo de €358.360, tras un día final de casi 16 horas. Es su segundo título grande en Rozvadov, después del Euro Poker Million de 2023.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/aliaksei-chernak-wins-king-s-million-deepstack-for-54-800-52453.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 sep 2026 · hoy",
+          "titulo": "Un torneo de €80.000 en Winamax paga más de €1 millón con su formato Space KO",
+          "resumen": "Según Poker Industry PRO, el evento con formato Space KO de Winamax dejó un jackpot récord y uno de los mayores pagos en los 16 años de historia del sitio, con premios totales por encima de €1 millón.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": null,
+              "url": "https://pokerindustrypro.com/news/article/225306-80k-winamax-tournament-paid-out-more-1-million"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "22 sep 2026",
+          "titulo": "Un legislador de Ohio propone habilitar el casino online solo para los 11 casinos del estado",
+          "resumen": "El representante republicano Brian Stewart presentó un proyecto que daría las licencias online exclusivamente a los 11 casinos físicos de Ohio y prohibiría los créditos promocionales online, permitiendo solo créditos canjeables en el casino terrestre. Sus impulsores estiman unos US$400 millones anuales en impuestos; se espera que avance en el presupuesto de 2027, mientras Churchill Downs y Jack Entertainment se oponen.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1750405-new-legislation-restarts-ohio-online-casino-debate"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "23 sep 2026 · ayer",
+          "titulo": "Jennifer Tilly encabeza las ganancias de la primera temporada de Hellmuth's Home Game",
+          "resumen": "Tras 33 episodios y 24 competidores en Grand Sierra Resort (Reno), Tilly terminó primera con +US$189.150, seguida por Dan Cates (+US$116.225); Phil Hellmuth fue cuarto (+US$58.975) y \"Texas\" Mike Moncek registró la mayor pérdida (−US$225.700), por delante de Shaun Deeb (−US$111.925).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/hellmuths-home-game-season-1-recap-winners-losers-stats-52435.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

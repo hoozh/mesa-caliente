@@ -1,0 +1,108 @@
+{
+  "fecha": "2026-09-22",
+  "titulo": "22 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-22-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "22 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "El Main Event del WSOP Online llega a su última oportunidad de inscripción con US$25 millones garantizados",
+          "resumen": "El registro tardío del Main Event de GGPoker cerró el lunes tras alcanzar 5.257 jugadores ya clasificados al segundo día, una cifra que se esperaba superara ampliamente la garantía. El campeón de la edición anterior, Benjamin Rolle, se había llevado cerca de US$3,9 millones de un pozo final de más de US$28 millones con 5.961 entradas.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/monday-brings-one-last-chance-to-enter-the-wsop-online-main-event-a8pU94Q3FYQz/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Vanessa Kade y Patrick Leonard suman hitos en el WCOOP 2026",
+          "resumen": "Kade se adjudicó su primer título WCOOP al ganar el Women's World Championship de $215, con $4.049 entre 75 jugadoras. El mismo día, Patrick Leonard sumó su 15º título WCOOP de carrera al ganar un evento de $530, quedando segundo en la lista histórica de campeones de la serie, solo detrás de Benny Glaser (17 títulos).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/kade-women-world-championship-leonard-15th-wcoop-title-52431.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Viorel Gavrila gana el trofeo inaugural del King's Million en el EPC",
+          "resumen": "El rumano se impuso en el Mini Main Event de €250 del European Poker Circuit en King's Resort Rozvadov, torneo con 4.389 entradas y un millón de euros garantizados. Se llevó €125.500 —el mayor cobro de su carrera— tras vencer con nueve-cinco a Mystery Kid, que tenía as-rey.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/viorel-gavrila-makes-history-with-first-kings-million-trophy-52438.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Ian Simpson, embajador de 888poker, logra un doblete en el UKPL Manchester",
+          "resumen": "Simpson ganó el High Roller (49 jugadores, £16.620) y el Main Event (345 jugadores, £38.000) del festival UK Poker League en Manchester, acumulando más de £54.000 en premios en una sola parada.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/double-delight-888poker-ian-simpson-ukpl-manchester-52430.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Joseph Ferguson gana el RunGood Golden Expedition en Joplin",
+          "resumen": "Ferguson se impuso en el Main Event de $700 del RunGood Poker Series en Downstream Casino Resort (Joplin, Misuri), con 400 entradas, y se llevó $48.516 tras superar a Robert Little, segundo por $32.348.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/joseph-ferguson-wins-rungood-event-52433.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Ethan \"Rampage\" Yau protagoniza una polémica por juego lento en Hustler Casino Live",
+          "resumen": "Yau pidió reloj a su rival Harut tras un tanque prolongado en un pozo grande durante la transmisión en vivo; los datos del stream mostraron que el tiempo promedio de decisión de Harut fue de apenas nueve segundos. La sesión terminó con Harut ganando cerca de $72.600 y Rampage perdiendo unos $103.250, lo que reavivó el debate sobre los tiempos de reflexión en las mesas transmitidas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/rampage-bashes-opponent-at-poker-table-52426.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · ayer",
+          "titulo": "Amy Batson corona el primer Mississippi State Poker Championship tras un cara o cruz",
+          "resumen": "En el evento de $400 en Horseshoe Tunica, los siete finalistas acordaron un chop ICM —el mayor pago fue de $17.570 para Michael Holland— y definieron el título con un lanzamiento de moneda, que ganó Amy Batson, primera campeona del certamen estatal.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/amy-batson-wins-rgps-event-52434.htm"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

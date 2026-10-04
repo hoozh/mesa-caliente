@@ -1,0 +1,533 @@
+{
+  "fecha": "2026-09-21",
+  "titulo": "21 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-21-1",
+      "titulo": "Corrida inicial",
+      "titulo_original": "21 de septiembre de 2026 — corrida inicial",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · hoy",
+          "titulo": "Congya Zhang corona el Global Poker Championship de Merit Poker",
+          "resumen": "Zhang se impuso en el Global Poker Championship, sumando otro título de peso a una temporada especialmente activa para el poker femenino de alto nivel.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/congya-zhang-wins-global-poker-championship-52427.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · hoy",
+          "titulo": "El RGPS corona campeón en Aruba: $29.000 y el anillo para el local",
+          "resumen": "Un jugador local se quedó con el ring y el pago principal del RunGood Poker Series en Aruba, en uno de los últimos cierres de festival de la serie.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/aruban-local-keeps-the-29k-payday-rgps-ring-52428.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "20-21 sep 2026",
+          "titulo": "Borgata reparte fuerte: mystery bounties récord y David Stefanski gana el Big Baller por $169.220",
+          "resumen": "En el mismo festival, un jugador se llevó las tres mystery bounties más grandes de un torneo de $500K GTD, y Stefanski se impuso mano a mano en el Big, Big Baller. Son dos resultados distintos del mismo festival, no la misma noticia cubierta dos veces — por eso quedan con sus dos fuentes propias en vez de fusionarse en un solo resumen.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "Mystery bounties — 21 sep",
+              "url": "https://www.pokernews.com/news/2026/09/poker-player-gets-every-mystery-bounty-52424.htm"
+            },
+            {
+              "nombre": "PokerNews",
+              "fecha": "Big Baller — 20 sep",
+              "url": "https://www.pokernews.com/news/2026/09/david-stefanski-triumphs-heads-up-in-the-big-big-baller-for-52425.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "Abren las acreditaciones de prensa para el WSOP Paradise 2026",
+          "resumen": "El WSOP habilitó las solicitudes de credenciales para medios que quieran cubrir el WSOP Paradise 2026 en Bahamas, en diciembre.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/media-credential-applications-now-open-for-2026-wsop-paradise/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "17 sep 2026",
+          "titulo": "Un jugador de PokerStars convierte $25 en medio millón de dólares",
+          "resumen": "El usuario \"visiontechno\" pegó un multiplicador de 26.000x en Spin & Go Max. Es el tercer premio grande de PokerStars desde julio, que ya había repartido dos jackpots de $1,2M en ese período.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/pokerstars-spin-go-max-player-turns-25-half/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "17 sep 2026",
+          "titulo": "El WSOP Circuit vuelve a Horseshoe Council Bluffs con 18 eventos",
+          "resumen": "Nueva parada del circuito con paquetes de premio hacia el WSOP Paradise entre las recompensas para los ganadores de anillo.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/wsop-circuit-returns-to-horseshoe-council-bluffs/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "16 sep 2026",
+          "titulo": "La \"Paradise Parlay\" vuelve para el WSOP Paradise 2026: bono de US$1M para ganadores de pulsera",
+          "resumen": "El WSOP repite la promoción que premia con un millón de dólares extra a quien sume brazaletes durante el festival de Bahamas.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/the-paradise-parlay-returns-for-wsop-paradise-2026/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "16 sep 2026",
+          "titulo": "Difunden el video de los sospechosos del asalto al pro Jared Griener",
+          "resumen": "La policía liberó las imágenes de seguridad de los sospechosos vinculados al robo sufrido por el jugador profesional, uno de los pocos temas policiales que tocó de cerca a la escena del poker esta semana.",
+          "fuentes": [
+            {
+              "nombre": "GamblingNews",
+              "fecha": null,
+              "url": "https://www.gamblingnews.com/news/police-release-footage-of-suspects-behind-poker-pro-jared-grieners-robbery/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "16 sep 2026",
+          "titulo": "WPT Global sube al 4.º puesto en el ranking de tráfico de Poker Industry PRO",
+          "resumen": "Tras sumar datos de cash game de Sharkscope Analytics a su medición, WPT Global superó a CoinPoker en el ranking global de salas (de ~1.500 a 1.870 puntos PRO). El propio sitio reconoce que su medición previa era \"incompleta\" — vale la pena seguir si el cambio se sostiene antes de tomarlo como dato asentado.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/wpt-globals-latest-traffic-numbers-show-where-it/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "15 sep 2026",
+          "titulo": "Valentin Lita gana el Main Event inaugural del WSOPC Caesars Virginia",
+          "resumen": "Primer campeón de la nueva parada del circuito en Virginia, que se suma al calendario de eliminatorias rumbo al WSOP Paradise.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": null,
+              "url": "https://www.wsop.com/news/valentin-lita-wins-inaugural-caesars-virginia-wsopc-main-event/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "9 sep 2026",
+          "titulo": "GGPoker reparte su 13.º jackpot millonario de Spin & Gold en 2026",
+          "resumen": "El danés Mattias Hansen se llevó el premio, repartido en $500.000 / $300.000 / $200.000 entre los tres finalistas. La racha de jackpots millonarios online sigue siendo inusualmente activa este año.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/ggpoker-sees-13th-million-dollar-spin-gold/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "8 sep 2026",
+          "titulo": "Americas Cardroom abre el OSS XL con $50M garantizados en 336 eventos",
+          "resumen": "Nueva edición de una de las series online más grandes de ACR, con garantías combinadas de $50 millones repartidas en 336 torneos.",
+          "fuentes": [
+            {
+              "nombre": "GamblingNews",
+              "fecha": null,
+              "url": "https://www.gamblingnews.com/news/americas-cardroom-opens-oss-xl-with-50-million-guaranteed-across-336-events/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 sep 2026",
+          "titulo": "GGPoker reparte $18M en promociones de cara al WSOP Online",
+          "resumen": "Campaña de septiembre con $3M en Flipouts continentales y $1M en torneos gratuitos para jugadores de WSOP Online. Los ganadores de pulsera reciben bonos de $30.000 y acceso a WSOP Paradise en diciembre.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/ggpoker-giving-away-18-million-promos-wsop-online/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "en curso hasta el 30 sep",
+          "titulo": "PokerStars corre el WCOOP 2026: 121 eventos y seis Main Events",
+          "resumen": "La serie corre del 6 al 30 de septiembre, con seis Main Events los días 27 y 28, buy-ins de $5,50 a $25.000, y garantías combinadas de más de $6,5M solo entre los campeonatos principales.",
+          "fuentes": [
+            {
+              "nombre": "PokerNewsDaily",
+              "fecha": null,
+              "url": "https://www.pokernewsdaily.com/pokerstars-unveils-2026-wcoop-schedule-121-48594/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "en curso hasta el 28 sep",
+          "titulo": "CoinPoker corre el GOPC 2026 con $50M garantizados",
+          "resumen": "Primera edición del Global Online Poker Championship de CoinPoker, del 23 de agosto al 28 de septiembre, con eventos de Hold'em y Omaha divididos en tres regiones (Europa, LatAm y Asia) y una carrera de podio con $20.000 en juego.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/coinpokers-record-breaking-series-50-million-gopc-2026-details"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-21-2",
+      "titulo": "Segunda corrida (manual, tras fallo de la corrida automática de las 9:45)",
+      "titulo_original": "21 de septiembre de 2026 — segunda corrida (manual, tras fallo de la corrida automática de las 9:45)",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "19 sep 2026",
+          "titulo": "La Cámara de Representantes avanza la derogación del recorte a la deducción por pérdidas de juego",
+          "resumen": "El comité Ways and Means aprobó por 38 a 5 la FULL HOUSE Act (HR 6985), que restituiría la deducción del 100% sobre pérdidas de juego (hoy limitada al 90% por una ley de 2026). El proyecto pasa ahora a votación en el pleno de la Cámara, con una versión equivalente ya en marcha en el Senado.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1748781-house-ways-means-committee-passes-bill-to-repeal-2026-gambling-tax-change"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "17 sep 2026",
+          "titulo": "Joao Simao y Nick Petrangelo cierran el Triton 10th Anniversary Special con un chop de más de $2,2M cada uno",
+          "resumen": "El acuerdo cierra una serie extraordinaria para Simao en Triton Jeju: casi $9,9M acumulados entre varios eventos, incluida la victoria de $7,25M en el Invitational de $200.000.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1748945-joao-simao-and-nick-petrangelo-end-triton-jeju-with-chop-for-over-2-million-each"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "16 sep 2026",
+          "titulo": "Nick Schulman gana el Main Event de Triton Jeju por $3,85M",
+          "resumen": "El Hall of Famer se impuso entre 196 entradas en el buy-in de $100.000, apenas dos días después de salir segundo en un high roller de $50.000 en el mismo festival — casi $4,7M combinados. El resultado lo puso a la cabeza del ranking Card Player Player of the Year 2026.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1748364-red-hot-nick-schulman-wins-triton-jeju-main-event-for-3-9-million"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "15 sep 2026",
+          "titulo": "Una apuesta de $5 en Ultimate Texas Hold'em se convierte en casi $2M en Yaamava'",
+          "resumen": "Un residente de Rancho Cucamonga ganó $1.977.758 en el juego de mesa Ultimate Texas Hold'em, en medio de los festejos por el 40.º aniversario del casino — uno de varios premios grandes que Yaamava' repartió este año.",
+          "fuentes": [
+            {
+              "nombre": "GamblingNews",
+              "fecha": null,
+              "url": "https://www.gamblingnews.com/news/rancho-cucamonga-resident-flips-5-bet-into-2m-payday-at-yaamava-resorts-casino/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "11 sep 2026",
+          "titulo": "Aliaksei Boika gana su primer título en Triton con el Event #5 de $25.000",
+          "resumen": "El jugador bielorruso se impuso mano a mano a Philip Sternheimer en un campo de 131 entradas, en Triton Jeju, llevándose $761.000 contra los $516.000 del subcampeón.",
+          "fuentes": [
+            {
+              "nombre": "tightpoker.com",
+              "fecha": null,
+              "url": "https://www.tightpoker.com/news/aliaksei-boika-wins-triton-title-in-jeju/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-21-3",
+      "titulo": "Barrido adicional de fuentes habituales",
+      "titulo_original": "21 de septiembre de 2026 — barrido adicional de fuentes habituales",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "discusion",
+          "fecha": "17-21 sep 2026 · en curso",
+          "titulo": "El WSOP Circuit bate récord de convocatoria en Austin: 2.090 entradas",
+          "resumen": "Texas Card House Austin recibe el Main Event más numeroso en la historia del WSOP Circuit, con 2.090 entradas y $2.000.000 garantizados. Al cierre del segundo día quedaban 18 jugadores, con Lucas Jumalon —campeón del WSOP Main Event 2026— a la cabeza rumbo a la mesa final. La cifra final de premios y el ganador todavía no están confirmados.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant/156/wsopc-tch-social-austin-september/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "17-20 sep 2026",
+          "titulo": "El nuevo evento Pro-Am de US$250.000 del WSOP Paradise genera controversia",
+          "resumen": "El WSOP confirmó un torneo Pro-Am de tres días y US$250.000 de buy-in para su festival de Bahamas en diciembre, que combina a profesionales y aficionados hasta llegar al dinero. El anuncio despertó críticas en la prensa especializada por la falta de criterios claros para definir quién califica como \"amateur\", en un formato que se aparta del espíritu abierto habitual del WSOP.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "Anuncio del evento — 17 sep",
+              "url": "https://www.pokernews.com/news/2026/09/wsop-paradise-pro-am-52410.htm"
+            },
+            {
+              "nombre": "CardPlayer",
+              "fecha": "Columna de opinión crítica — 19 sep",
+              "url": "https://www.cardplayer.com/poker-news/1748780-opinion-world-series-of-poker-tournaments-shouldnt-operate-like-private-cash-games"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "Entain, dueña de partypoker, anuncia otros 400 despidos por la suba de impuestos en Reino Unido",
+          "resumen": "La compañía recorta 400 puestos adicionales —tras 500 despidos previos— como respuesta al aumento del impuesto a los casinos online británicos, que pasará del 21% al 40%. La CEO Stella David advirtió un costo extra de £100 millones anuales; el sector ya perdió unos 4.500 empleos desde la aprobación del nuevo impuesto.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1748391-partypoker-parent-company-entain-announces-layoffs"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "ACR Poker enfrenta un nuevo escándalo de software de asistencia en tiempo real",
+          "resumen": "Un video difundido en redes sociales mostró a un jugador utilizando RTA (real-time assistance) en un skin de la red WPN, que opera ACR Poker. La sala identificó y baneó de forma permanente la cuenta en 24 horas, reembolsó a los siete jugadores afectados y publicó la filmación de la mesa con las cartas a la vista. Figuras como Chris Moneymaker calificaron el episodio de trampa flagrante.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/third-times-a-charm-acr-poker-handles-yet-another-rta-controversy"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "El Hall of Famer Gary Benson pierde en la justicia una disputa por una deuda de apuestas",
+          "resumen": "El primer jugador australiano en ganar un brazalete WSOP demandó a Michael O'Grady para cobrar cerca de US$49.000 en apuestas deportivas privadas impagas, pero el juez desestimó el reclamo por tratarse de una actividad de corretaje de apuestas no autorizada bajo la ley de Nueva Gales del Sur.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "18 sep",
+              "url": "https://www.pokernews.com/news/2026/09/poker-hall-of-famer-loses-court-battle-over-unpaid-gambling-52420.htm"
+            },
+            {
+              "nombre": "Poker Media Australia",
+              "fecha": "18 sep",
+              "url": "https://www.pokermedia.com.au/2026/09/18/poker-legend-gary-benson-loses-court-case-against-sydneys-michael-ogrady-over-near-50000-gambling-debt/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "rumor",
+          "fecha": "18 sep 2026 · hilo activo",
+          "titulo": "En Two Plus Two crece la denuncia de una granja de bots que habría ganado US$10 millones en WPN",
+          "resumen": "Un usuario del foro publicó evidencia de una supuesta operación de bots activa desde hace más de tres años en Winning Poker Network, con ganancias estimadas en US$10 millones y presencia de hasta 15% del campo en algunas mesas. El hilo acumula más de 800 respuestas y 218.000 vistas, un volumen inusual que sugiere que el tema está escalando, pero todavía no hay confirmación de prensa especializada ni respuesta oficial de la red.",
+          "fuentes": [
+            {
+              "nombre": "Two Plus Two",
+              "fecha": null,
+              "url": "https://forumserver.twoplustwo.com/29/news-views-gossip/botfarm-won-10-million-wpn-1830157/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "Siete jugadores superan ya los US$30 millones en ganancias históricas de Triton Poker",
+          "resumen": "Tras el cierre del festival Triton Jeju II, que repartió US$103,2 millones, Daniel Dvoress, Danny Tang y Punnat Punsri se sumaron al selecto grupo de jugadores con más de US$30 millones acumulados en el circuito. Bryn Kenney sigue a la cabeza con cerca de US$51,3 millones.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1749246-leaderboard-seven-players-now-over-30-million-in-triton-poker-earnings"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "19 sep 2026",
+          "titulo": "Jared Bleznick convierte US$40.000 en casi US$500.000 en las mesas de PLO de CoinPoker",
+          "resumen": "El profesional, conocido como \"Theblez\", ganó cerca de US$250.000 netos en una sesión de cash game 4-max de PLO a $200/$400 contra otros regulares de altas apuestas, con dos botes que superaron los US$250.000 y los US$380.000 respectivamente.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1749259-jared-bleznick-turns-40k-into-nearly-500k-at-coinpoker-plo-tables"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "19 sep 2026",
+          "titulo": "El WSOP Circuit vuelve a Panamá con US$500.000 garantizados y 12 anillos en juego",
+          "resumen": "La parada internacional del circuito regresa a Ciudad de Panamá del 5 al 15 de noviembre, con un Main Event de US$1.700 y US$500.000 garantizados entre 12 eventos con anillo. Como incentivo adicional, quien elimine al campeón del WSOP 2025, Michael Mizrachi, recupera su buy-in.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/wsop-circuit-panama-returns-with-500k-main-event-12-rings-up-for-grabs-ahrJj1v2sppf/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "ACR Poker relanza sus series Venom en octubre con US$6,5M en garantizados combinados",
+          "resumen": "La red confirmó el regreso del Venom PKO NLH (US$2.650 de buy-in, US$5M garantizados) y del Venom PKO PLO (US$2.650, US$1,5M garantizados), con entradas del 11 al 25 de octubre y mesas finales el 28.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/ready-supertrumpy-dual-venom-comes-back-in-october-2026"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "19-20 sep 2026",
+          "titulo": "CoinPoker cierra el CoinMillion con récord de entradas y anuncia una nueva serie de US$5M",
+          "resumen": "La edición más reciente del CoinMillion (US$1M garantizado) batió su récord con 5.321 entradas y coronó a \"FINALVERDICT7\". La sala ya ofrece satélites para la próxima edición y anunció \"The One\", un nuevo torneo con US$5M garantizados y US$1M al primer puesto, para disputarse del 4 al 11 de octubre.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1749483-coinpoker-running-satellites-for-upcoming-coinmillion-event"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    },
+    {
+      "id": "importada-2026-09-21-4",
+      "titulo": "Barrido complementario",
+      "titulo_original": "21 de septiembre de 2026 — barrido complementario",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · hoy",
+          "titulo": "Los dos partidos líderes de Quebec respaldan regular el juego online antes de las elecciones",
+          "resumen": "Tanto el Partido Liberal de Quebec como el Parti Québécois se manifestaron a favor de abrir el mercado de apuestas online a operadores privados de cara a las elecciones provinciales del 5 de octubre, lo que convertiría a Quebec en la tercera provincia canadiense en regularlo. Una coalición de operadores citó una encuesta según la cual el 73% de los jugadores en línea ya usa plataformas privadas no reguladas, y el Partido Liberal proyecta ingresos de entre C$310 y C$320 millones anuales a partir de 2027-28.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/qubecs-two-leading-parties-back-regulated-online/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "21 sep 2026 · hoy",
+          "titulo": "Daniel Negreanu llega como segunda pila más grande a una mesa final del WSOP Online",
+          "resumen": "Con 6,4 millones de fichas (92 big blinds), Negreanu quedó apenas detrás de Andreas Freund de cara a la mesa final del evento de brazalete Million$ Pot-Limit Omaha de $10.000, que se reanuda el lunes. El campeón se llevará US$428.000 y lo que sería su noveno brazalete; los siete finalistas tienen asegurados al menos US$71.000.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/i-really-did-it-daniel-negreanu-takes-huge-stack-to-wsop-final-table-aLb2v2u0a78A/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18-21 sep 2026",
+          "titulo": "Johannes \"Jepser8\" Straver encadena dos títulos consecutivos de Super Tuesday en el WCOOP",
+          "resumen": "El jugador austríaco ganó el Super Tuesday High Roller de $5.200 por US$90.420 tras superar a un campo de 67 jugadores, su segundo título de la serie en semanas consecutivas. La misma jornada del WCOOP 2026 también coronó a Joao Vieira en el Campeonato Mundial de PLO8 (su 14º título histórico) y a Renan Bruschi, que sumó su 11º título en NL 2-7 Single Draw.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/wcoop-2026-back-to-back-super-tuesday-johannes-straver-52419.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "rumor",
+          "fecha": "20-21 sep 2026",
+          "titulo": "En Two Plus Two crece la discusión sobre el modelo de negocio de los clubes de poker de Texas",
+          "resumen": "En el histórico hilo sobre la compra del Lodge Card Club de Austin por parte de Doug Polk, Andrew Neeme y Brad Owen (más de 800 respuestas acumuladas), la actividad de los últimos dos días giró en torno a si los clubes texanos priorizan a los jugadores profesionales por sobre los recreativos: hay usuarios proponiendo topes de 100 big blinds en las mesas bajas y límites de horas mensuales para jugadores extranjeros con visa de turista. Todavía no hay cobertura de prensa sobre este debate puntual — es la clase de señal temprana que Two Plus Two suele anticipar.",
+          "fuentes": [
+            {
+              "nombre": "Two Plus Two",
+              "fecha": null,
+              "url": "https://forumserver.twoplustwo.com/29/news-views-gossip/neeme-owen-polk-buy-stakes-quot-lodge-quot-poker-room-austin-tx-lodge-containment-thread-1801056/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "18 sep 2026",
+          "titulo": "El debut del WSOP Super Circuit en Montreal bate récords canadienses",
+          "resumen": "La primera edición del festival en el Playground Poker Club reunió 14.784 entradas en 18 eventos y repartió C$24,5 millones en premios, un 70% por encima de la garantía combinada. El Main Event de C$5.000 superó su garantía de C$10 millones y coronó a Mayukh Chakraborty, que se llevó C$1,5 millones tras superar en el día 4 a Daniel Negreanu, quien terminó 99º.",
+          "fuentes": [
+            {
+              "nombre": "Pokerfuse",
+              "fecha": null,
+              "url": "https://pokerfuse.com/latest-news/2026/9/wsop-super-circuit-montreal-sets-new-canadian/"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

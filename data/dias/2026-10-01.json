@@ -1,0 +1,121 @@
+{
+  "fecha": "2026-10-01",
+  "titulo": "1 de octubre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-10-01-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "1 de octubre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · hoy",
+          "titulo": "El Global Online Poker Championship de CoinPoker cierra con US$88,4 millones repartidos, un 77% por encima de su garantía",
+          "resumen": "La primera edición del GOPC de CoinPoker, disputada del 23 de agosto al 28 de septiembre con 6.321 torneos, reunió 2.122.920 entradas de 48.815 jugadores de 172 países y superó en 77% su garantía original de US$50 millones. El jugador identificado como \"siema\" ganó el Main Event de US$530 (pozo de más de US$3,7 millones) y cobró US$423.606, mientras que \"Trance\" se impuso en el Super High Roller Championship de US$25.500 por US$397.035; el argentino \"agustinverna\" lideró la carrera de podio de la serie con diez medallas de oro.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1753970-coinpoker-wraps-up-wildly-successful-first-ever-global-online-poker-championship"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "30 sep 2026 · ayer",
+          "titulo": "El Main Event de US$10.300 del WCOOP llega a su mesa final con Dante Goya como líder de fichas",
+          "resumen": "Los tres niveles del Main Event del WCOOP (World Championship of Online Poker) de PokerStars llegaron a sus respectivas mesas finales el 30 de septiembre; en la de US$10.300, Dante Goya lideró con 12.889.640 en fichas, con una ventaja ajustada sobre Thomas \"MarToMchat\" Boivin. El campeón se llevará US$551.632, con un piso garantizado de US$62.089 para los nueve finalistas; el resultado todavía no fue confirmado por ninguna de las fuentes habituales de este barrido.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/dante-goya-leads-final-table-in-wcoop-main-event-52503.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026 · ayer",
+          "titulo": "La Fiscalía General de Florida presiona a Google, Meta, Reddit, Snap y TikTok para que dejen de publicitar casinos sweepstakes",
+          "resumen": "El fiscal general James Uthmeier envió cartas a las cinco plataformas exigiendo que confirmen por escrito qué medidas tomarán para frenar la publicidad de sitios de casino sweepstakes como Stake, Chumba Casino, LuckyLand y Global Poker entre residentes de Florida, con plazo de respuesta al 23 de octubre. Uthmeier sostiene que promocionar ese tipo de juego ilegal es en sí mismo ilegal, en una ofensiva que se suma a dos demandas ya presentadas en agosto contra Stake y VGW; el sector de sweepstakes incluye plataformas con oferta de poker social, como Global Poker.",
+          "fuentes": [
+            {
+              "nombre": "PokerListings",
+              "fecha": null,
+              "url": "https://www.pokerlistings.com/news/florida-goes-after-sweepstakes-casino-ads-as-us-crackdown-grows"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "29 sep 2026",
+          "titulo": "Muere Tiffany Keathley, campeona del RunGood Poker Series",
+          "resumen": "La jugadora de 40 años, oriunda de Arkansas y habitual del circuito sureño, había ganado el Main Event de US$575 del RGPS Tunica en 2019 por US$48.796 y acumulaba US$115.328 en cobros registrados desde ese año. PokerNews no reportó la causa de su fallecimiento; la comunidad, incluidos jugadores como Daniel Lowery, Scott Smile y Chris Read, le dedicó mensajes de condolencia en redes sociales.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/tiffany-keathley-passes-away-52486.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "1 oct 2026 · hoy",
+          "titulo": "Jonas Kronwitter gana el Evento 5 de la PGT PLO Series por US$201.600",
+          "resumen": "El austríaco venció mano a mano a Richard Gryko en el torneo de 63 entradas y US$630.000 en premios, logrando su primer título de la PokerGO Tour tras haber sido subcampeón en el Evento 1 y sumar otros dos cobros en la serie —US$308.000 acumulados en total—. Es su primera victoria en un torneo PGT y eleva sus ganancias de carrera a unos US$4,3 millones.",
+          "fuentes": [
+            {
+              "nombre": "CardPlayer",
+              "fecha": null,
+              "url": "https://www.cardplayer.com/poker-news/1753611-jonas-kronwitter-continues-strong-run-with-pgt-plo-series-win"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026 · ayer",
+          "titulo": "\"LoveToLose\" y \"Mamalega\" ganan los Main Events de septiembre de la Dynasty Series en PokerStars on FanDuel",
+          "resumen": "La serie Dynasty de PokerStars on FanDuel, con US$3,5 millones garantizados, cerró sus Main Events del mes: \"LoveToLose\" se impuso en el evento de Estados Unidos (859 entradas, US$300 de buy-in) y cobró US$59.422, mientras que \"Mamalega\" ganó el de Ontario (176 entradas) por US$10.100.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/pokerstars-fanduel-dynasty-main-event-winners-52509.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026 · ayer",
+          "titulo": "El Victorian Poker Championship confirma su calendario en Crown Melbourne, del 12 al 27 de octubre",
+          "resumen": "El festival del Australian Poker Tour tendrá como plato fuerte un Main Event de US$2.500 con cuatro flights de entrada (21 al 24 de octubre) y mesa final el 27, además de un Challenge de US$5.000, un Super High Roller de US$10.600 y una serie de mixed games (H.O.R.S.E., 8-Game, Omaha Hi-Lo Limit, 2-7 Triple Draw); los satélites arrancan en US$240.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/victorian-poker-championship-2026-schedule-52505.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "30 sep 2026 · ayer",
+          "titulo": "888poker renueva su identidad de marca: pasa del azul al verde",
+          "resumen": "La sala reemplazó su identidad visual azul por un nuevo esquema verde en su sitio web, software de escritorio y aplicaciones móviles, como parte de la identidad unificada de marca 888. El reporte de Poker Industry PRO no incluyó declaraciones oficiales de la compañía sobre el cambio.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": null,
+              "url": "https://pokerindustrypro.com/news/article/225418-888-poker-rebrands-new-green-888-identity"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "fecha": "2026-09-28",
+  "titulo": "28 de septiembre de 2026",
+  "corridas": [
+    {
+      "id": "importada-2026-09-28-1",
+      "titulo": "Corrida principal",
+      "titulo_original": "28 de septiembre de 2026",
+      "origen": "importada",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · hoy",
+          "titulo": "Daniil Kiselev gana el Main Event del Mediterranean Poker Party por US$1.000.000",
+          "resumen": "El ruso se impuso en el Main Event de €5.400 del Mediterranean Poker Party, con 972 entradas, y cobró US$1.000.000 tras vencer heads-up a Mehmet Biskin (Turquía, US$621.000) con un trío. Es su primer título desde 2018 y el mayor cobro de su carrera; completaron la mesa final Jordan Woodall (tercero, US$420.000) y el defensor del título, Daniel Thaller (cuarto, US$290.000).",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "28 sep",
+              "url": "https://www.pokernews.com/news/2026/09/1-million-first-place-dished-out-to-2026-mpp-main-event-cha-52472.htm"
+            },
+            {
+              "nombre": "Poker.org",
+              "fecha": "28 sep",
+              "url": "https://www.poker.org/instant-news/?post=prLE88U8H15D"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · hoy",
+          "titulo": "Daisuke Abiko se queda con el título del Mystery Bounty Hunter del APT Jeju",
+          "resumen": "Abiko ganó el trofeo del Mystery Bounty Hunter del Asian Poker Tour en Jeju tras un acuerdo heads-up con el subcampeón Jianfeng Sun, sumando US$44.600 del pozo regular más US$7.000 en bounties y un lugar pago de US$10.000 para el APT Championship —pese a que Sun, por el acuerdo, terminó cobrando más del pozo regular (US$62.800). Es casi el triple del mayor cobro previo de Abiko en su carrera.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=pZFuM8S1uZ9x"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "27 sep 2026 · ayer",
+          "titulo": "Teeraphat Rangkatekarn gana el Super High Roller del APT Jeju por US$265.000",
+          "resumen": "El tailandés se impuso en el Super High Roller de US$11.070 del Asian Poker Tour en Jeju, con 99 entradas y un pozo de US$1.021.215, y cobró US$265.425 tras vencer heads-up a Calvin Lee (Estados Unidos, US$186.070), completando un proyecto de escalera abierta como perdedor 4 a 1 en el río. Es su quinto cobro consecutivo en primer o segundo puesto desde julio. Es un resultado distinto del título de Abiko en el Mystery Bounty Hunter del mismo festival, reportado por separado.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/latest-news/a-heater-for-the-ages-as-apt-jeju-super-high-roller-is-won-for-265k-aBUzc1I2DRA8/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "27-28 sep 2026 · hoy",
+          "titulo": "Rob Kuhn gana el Main Event de la Caribbean Poker Series por US$155.670",
+          "resumen": "El embajador de ACR Poker se impuso el domingo por la noche en el Main Event de la Caribbean Poker Series, disputado dentro del Moneymaker Poker Tour, y cobró US$155.670.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": null,
+              "url": "https://www.poker.org/instant-news/?post=pbwUW1Z5QL90"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "27 sep 2026 · ayer",
+          "titulo": "El evento benéfico de póker de Russell Westbrook recauda casi US$1.000.000",
+          "resumen": "La Why Not? Foundation del jugador de la NBA Russell Westbrook, en su sexta edición junto al World Poker Tour, recaudó casi US$1.000.000 (unos US$3.000.000 acumulados en seis años) en un evento de US$10.000 de entrada realizado en el Fontainebleau de Las Vegas. Participaron Phil Ivey, Vince Van Patten y el campeón del WSOP Main Event 2025, Michael Mizrachi, entre otras figuras; el torneo lo ganó el profesional Michail Grigorev.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/russell-westbrook-charity-poker-event-52471.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "27 sep 2026 · ayer",
+          "titulo": "Un video muestra un violento ataque a un jugador en una mesa de cash en Minnesota",
+          "resumen": "En una mesa de cash de $2-$100 spread limit del Shooting Star Casino (Mahnomen, Minnesota), un hombre golpeó repetidamente a un jugador y volcó una mesa antes de retirarse del lugar. La víctima, allegada al creador de contenido \"TimeTravelerPoker\" —quien compartió el video sin haberlo grabado él mismo—, se levantó pese a los golpes; todavía no se conoce la causa del altercado.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": null,
+              "url": "https://www.pokernews.com/news/2026/09/angry-man-punches-poker-player-52470.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "28 sep 2026 · hoy",
+          "titulo": "Poker Industry PRO: PokerStars on FanDuel lidera el mercado de Nueva Jersey y Ontario reporta CAD 5,6 millones en agosto",
+          "resumen": "Según los reportes mensuales de mercado de Poker Industry PRO, PokerStars on FanDuel pasó a ser la sala líder en ingresos de póker online de Nueva Jersey en agosto, con US$775.000 generados, mientras que en Ontario el mercado de póker online facturó CAD 5,6 millones en el mismo mes.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "Nueva Jersey — 28 sep",
+              "url": "https://pokerindustrypro.com/news/article/225376-market-monitor-new-jersey-august-2026"
+            },
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "Ontario — 28 sep",
+              "url": "https://pokerindustrypro.com/news/article/225377-market-monitor-ontario-august-2026"
+            }
+          ]
+        }
+      ],
+      "notas": []
+    }
+  ]
+}
