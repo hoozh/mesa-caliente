@@ -8,13 +8,13 @@ from mesa.util import RAIZ, esta_bloqueado, normalizar_url
 
 from .conftest import AHORA, DescargaFalsa, fuente, leer_fixture
 
-AJUSTES = {"ventana_horas": 96, "max_titulares_por_fuente": 20}
+AJUSTES = {"dias_maximos_atras": 3, "max_titulares_por_fuente": 10}
 
 
 def test_rss_extrae_titulo_fecha_y_primera_linea():
     items = recoleccion.parsear_rss(leer_fixture("feed.xml"), fuente())
     primero = items[0]
-    assert primero["titulo"] == "Juan Pérez gana el Main Event del CAP en Buenos Aires"
+    assert primero["titulo"] == "Fulano Inventado gana el Main Event del CAP en Buenos Aires"
     assert primero["fecha"].startswith("2026-10-04")
     assert primero["primera_linea"].startswith("El jugador argentino")
     assert primero["region"] == "latam"
@@ -24,13 +24,13 @@ def test_html_con_enlaces_por_nota():
     f = fuente("Portada", "https://portada-poker.com/news/", tipo="html", incluir="/news/[^/]+/?$")
     items = recoleccion.parsear_html(leer_fixture("portada.html"), f["url"], f)
     titulos = [i["titulo"] for i in items]
-    assert "María Gómez gana su primer título en el BSOP Millions" in titulos
+    assert "Mengana Ficticia gana su primer título en el BSOP Millions" in titulos
     assert "Anuncian las fechas del CLSOP 2027 en Lima y Bogotá" in titulos
     assert all("otro-sitio.com" not in i["url"] for i in items)  # enlaces externos fuera
     assert all("privacy" not in i["url"] and "category" not in i["url"] for i in items)
     assert len(items) == 2
-    maria = next(i for i in items if "María" in i["titulo"])
-    assert maria["primera_linea"].startswith("La jugadora brasileña")
+    mengana = next(i for i in items if "Mengana" in i["titulo"])
+    assert mengana["primera_linea"].startswith("La jugadora brasileña")
 
 
 def test_html_solo_titulares_usa_parrafo_siguiente():
@@ -44,19 +44,21 @@ def test_html_solo_titulares_usa_parrafo_siguiente():
 
 def test_recolectar_aplica_ventana_y_bloqueo_gipsyteam():
     descarga = DescargaFalsa({"https://ejemplo-poker.com/feed/": (200, leer_fixture("feed.xml"))})
-    nuevos, informe = recolectar([fuente()], AHORA.date(), AHORA, set(), AJUSTES, descarga)
+    nuevos, informe, recogidos = recolectar([fuente()], AHORA.date(), AHORA, set(), AJUSTES, descarga)
     urls = [i["url"] for i in nuevos]
     assert len(nuevos) == 2
     assert not any("nota-vieja" in u for u in urls)
     assert not any("gipsyteam" in u for u in urls)
     assert informe[0]["resultado"] == "ok"
+    assert informe[0]["por_fecha"] == 1  # la nota vieja
+    assert len(recogidos) == 3  # todo lo recogido, aunque no se elija (gipsyteam nunca)
 
 
 def test_descarta_lo_ya_visto_por_url():
     descarga = DescargaFalsa({"https://ejemplo-poker.com/feed/": (200, leer_fixture("feed.xml"))})
     # La URL vista se guardó sin parámetros utm: igual debe reconocerse.
-    vistos = {normalizar_url("https://www.ejemplo-poker.com/noticias/juan-perez-gana-cap/")}
-    nuevos, _ = recolectar([fuente()], AHORA.date(), AHORA, vistos, AJUSTES, descarga)
+    vistos = {normalizar_url("https://www.ejemplo-poker.com/noticias/fulano-inventado-gana-cap/")}
+    nuevos, _, _ = recolectar([fuente()], AHORA.date(), AHORA, vistos, AJUSTES, descarga)
     assert [i["titulo"] for i in nuevos] == ["Nuevo récord de inscriptos en el WCOOP"]
 
 
@@ -78,7 +80,7 @@ def test_fuente_gipsyteam_nunca_se_consulta():
     for url in ["https://gipsyteam.com/feed", "https://gipsyteam.com.br/", "https://gipsyteam.ru/news",
                 "https://latam.gipsyteam.com/", "https://cdn.latam.gipsyteam.com/x"]:
         assert esta_bloqueado(url)
-        nuevos, informe = recolectar([fuente("GT", url)], AHORA.date(), AHORA, set(), AJUSTES, descarga)
+        nuevos, informe, _ = recolectar([fuente("GT", url)], AHORA.date(), AHORA, set(), AJUSTES, descarga)
         assert nuevos == [] and informe[0]["resultado"] == "omitida"
     assert descarga.pedidas == []
     assert not esta_bloqueado("https://www.pokernews.com/")
@@ -112,7 +114,7 @@ def test_extraer_articulo_da_extracto_y_enlaces_del_cuerpo():
 
 def test_urls_sin_parametros_de_rastreo():
     items = recoleccion.parsear_rss(leer_fixture("feed.xml"), fuente())
-    assert items[0]["url"] == "https://ejemplo-poker.com/noticias/juan-perez-gana-cap"
+    assert items[0]["url"] == "https://ejemplo-poker.com/noticias/fulano-inventado-gana-cap"
 
 
 def test_poker_red_toma_solo_notas_del_listado():

@@ -73,6 +73,18 @@ def _costos(costos: dict, hoy: date) -> dict:
     }
 
 
+def _ultimo_registro(dias: list[dict]) -> dict | None:
+    """Recolección de la corrida más reciente que registró descartes."""
+    for d in dias:
+        for c in d["corridas"]:  # ya vienen de la más reciente a la más antigua
+            r = c.get("recoleccion") or {}
+            if r.get("descartes"):
+                corte = r.get("corte")
+                return {"id": c.get("id"), "corte": corte.replace("T", " ").replace("Z", " UTC") if corte else None,
+                        "enviados": r.get("titulares_enviados", 0), **r["descartes"]}
+    return None
+
+
 def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
     raiz = Path(raiz)
     ajustes = leer_json(raiz / "config" / "ajustes.json", {})
@@ -99,6 +111,7 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "salud": _salud(fuentes, ajustes.get("dias_pausa_reintento", 7)),
         "candidatas": sorted(candidatas, key=lambda c: c.get("detectada") or "", reverse=True),
         "costos": _costos(costos, hoy),
+        "descartes": _ultimo_registro(dias),
         "etiquetas": ETIQUETAS,
         "hoy_texto": fecha_larga(hoy),
         "generado": generado.strftime("%Y-%m-%d %H:%M UTC"),
