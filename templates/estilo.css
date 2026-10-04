@@ -434,3 +434,13 @@
   .card-foot{min-width:0;}
   .summary,h2{overflow-wrap:anywhere;}
   section.health .candidate-empty{margin-bottom:10px;}
+  .update-note{
+    font-size:13px;
+    line-height:1.5;
+    color:var(--discuss-ink);
+    background:var(--discuss-bg);
+    border-radius:8px;
+    padding:8px 12px;
+    margin:0;
+  }
+  .update-prev{color:var(--ink-dim);}

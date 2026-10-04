@@ -19,6 +19,9 @@
     <span class="card-date">{{ t.fecha }}</span>
   </div>
   <h2>{{ t.titulo }}</h2>
+  {% if t.novedad %}
+  <p class="update-note"><b>Qué cambió:</b> {{ t.novedad }}{% if t.actualiza %} <span class="update-prev">(actualiza «{{ t.actualiza }}»)</span>{% endif %}</p>
+  {% endif %}
   <p class="summary">{{ t.resumen }}</p>
   <div class="card-foot">
   {% if t.fuentes | length == 1 %}

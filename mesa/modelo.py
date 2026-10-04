@@ -8,6 +8,7 @@ import re
 from datetime import datetime
 from typing import Callable
 
+from . import control
 from .util import esta_bloqueado, fecha_corta, limpiar_texto, rango_fechas
 
 CLASIFICACIONES = {"confirmado", "discusion", "rumor"}
@@ -22,19 +23,23 @@ Tareas:
 2. Agrupe por hecho: si varias fuentes cuentan el mismo hecho, van en una sola tarjeta con todos sus números.
 3. Clasifique cada tarjeta: "confirmado" (anuncio oficial o resultado verificado), "discusion" (tema abierto, polémica o versiones encontradas), "rumor" (sin confirmación).
 4. Escriba un título en español y un resumen de 2 a 3 líneas.
-5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Si la fuente no indica la nacionalidad de un jugador, escriba "[nacionalidad a confirmar]" junto a su nombre. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
+5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 
 Reglas estrictas:
 - Use solo la información de los titulares, primeras líneas y extractos recibidos. Nunca invente hechos, fechas, cifras, nombres ni enlaces.
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
+- Términos exactos: conserve el premio o título que nombra la fuente, traducido de forma literal. "Bracelet" es "brazalete" (WSOP); "ring" es "anillo" (WSOP Circuit y otros circuitos); "trophy" es "trofeo". Nunca cambie uno por otro: si la fuente dice "ring", no escriba "brazalete". Lo mismo vale para nombres de torneos, eventos y circuitos: use el nombre que da la fuente.
+- Nacionalidad: si el titular, la primera línea o el extracto indican la nacionalidad de un jugador (por ejemplo "el argentino...", "Brazilian..."), inclúyala en el resumen. En "escena_latam", si la fuente no indica la nacionalidad de un jugador, escriba "[nacionalidad a confirmar]" junto a su nombre; nunca la deduzca del nombre, del alias ni de la sala.
+- Hechos ya publicados: al final del mensaje recibirá los títulos de las tarjetas publicadas en los últimos días, numerados P1, P2, etc. No cree una tarjeta para un hecho ya cubierto. Solo si hay un desarrollo nuevo (un resultado final, una cifra nueva, una confirmación, una respuesta oficial), cree la tarjeta e indique "actualiza" con el número del título previo (por ejemplo "P3") y "novedad" con una frase que diga exactamente qué cambió; el resumen debe contar ese cambio.
 
 Responda únicamente con un objeto JSON, sin texto adicional, con esta forma:
-{{"tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}],
+{{"tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}},
+              {{"ids": [9], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "actualiza": "P3", "novedad": "..."}}],
  "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}]}}"""
 
 
-def construir_mensaje(items: list[dict]) -> str:
+def construir_mensaje(items: list[dict], previos: list[str] | None = None) -> str:
     lineas = []
     for n, it in enumerate(items, 1):
         fecha = (it.get("fecha") or "sin fecha")[:10]
@@ -44,7 +49,11 @@ def construir_mensaje(items: list[dict]) -> str:
         if it.get("extracto"):
             linea += f"\n    Extracto: {limpiar_texto(it['extracto'])}"
         lineas.append(linea)
-    return "Titulares de hoy:\n\n" + "\n".join(lineas)
+    mensaje = "Titulares de hoy:\n\n" + "\n".join(lineas)
+    if previos:
+        mensaje += ("\n\nTítulos ya publicados en los últimos días (no repetir salvo desarrollo nuevo):\n"
+                    + "\n".join(f"[P{n}] {limpiar_texto(t)}" for n, t in enumerate(previos, 1)))
+    return mensaje
 
 
 def modelo_configurado(ajustes: dict) -> str:
@@ -134,7 +143,18 @@ def _fecha_item(it: dict):
         return None
 
 
-def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int], hoy=None) -> list[dict]:
+def _previo_indicado(valor, previos: list[str]) -> str | None:
+    m = re.fullmatch(r"\s*P?\s*(\d+)\s*", str(valor or ""), re.I)
+    if m and 1 <= int(m.group(1)) <= len(previos):
+        return previos[int(m.group(1)) - 1]
+    return None
+
+
+def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int], hoy=None,
+                        previos: list[str] | None = None, es_latam: bool = False,
+                        registro: list[dict] | None = None) -> list[dict]:
+    previos = previos or []
+    registro = registro if registro is not None else []
     tarjetas = []
     if not isinstance(crudas, list):
         return tarjetas
@@ -158,29 +178,53 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             continue
         if set(ids) <= usados:  # el mismo hecho ya está en otra tarjeta
             continue
+
+        # Hechos ya publicados: solo pasan si el modelo declara qué cambió.
+        actualiza = _previo_indicado(c.get("actualiza"), previos)
+        novedad = limpiar_texto(str(c.get("novedad") or ""))
+        if actualiza and not novedad:
+            registro.append({"titulo": titulo, "motivo": "repetida sin novedad", "previo": actualiza})
+            continue
+        if not actualiza:
+            previo = control.parece_repetida(titulo, previos)
+            if previo:
+                registro.append({"titulo": titulo, "motivo": "repetida", "previo": previo})
+                continue
+
         usados.update(ids)
+        fuentes_items = [items[i - 1] for i in ids]
         fuentes = []
-        for i in ids:
-            it = items[i - 1]
+        for it in fuentes_items:
             f = _fecha_item(it)
             fuentes.append({"nombre": it["fuente"], "fecha": f.isoformat() if f else None, "url": it["url"]})
-        fechas = [f for f in (_fecha_item(items[i - 1]) for i in ids) if f]
-        tarjetas.append({
+        fechas = [f for f in (_fecha_item(it) for it in fuentes_items) if f]
+        tarjeta = {
             "clasificacion": clasif,
             "fecha": rango_fechas(fechas) or (f"sin fecha en la fuente · vista el {fecha_corta(hoy)}" if hoy else "sin fecha en la fuente"),
             "titulo": titulo,
             "resumen": resumen,
             "fuentes": fuentes,
-        })
+        }
+        if actualiza:
+            tarjeta["actualiza"] = actualiza
+            tarjeta["novedad"] = novedad
+        for cambio in control.corregir_terminos(tarjeta, fuentes_items):
+            registro.append({"titulo": tarjeta["titulo"], "motivo": f"término corregido ({cambio})"})
+        cambio = control.asegurar_nacionalidad(tarjeta, fuentes_items, es_latam)
+        if cambio:
+            registro.append({"titulo": tarjeta["titulo"], "motivo": cambio})
+        tarjetas.append(tarjeta)
     return tarjetas
 
 
-def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None) -> dict:
-    """Devuelve {'tarjetas', 'escena_latam', 'uso'} o lanza ErrorModelo."""
+def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
+            previos: list[str] | None = None) -> dict:
+    """Devuelve {'tarjetas', 'escena_latam', 'controles', 'uso'} o lanza ErrorModelo."""
+    previos = list(previos or [])[: ajustes.get("max_titulos_previos", 80)]
     modelo = modelo_configurado(ajustes)
     sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 12),
                              max_latam=ajustes.get("max_tarjetas_latam", 6))
-    mensaje = construir_mensaje(items)
+    mensaje = construir_mensaje(items, previos)
     texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_salida", 3000))
     uso = dict(uso)
     uso["modelo"] = modelo
@@ -191,6 +235,9 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
         motivo = str(e) + (" La salida se cortó por el tope de tokens." if uso.get("truncado") else "")
         raise ErrorModelo(motivo, uso) from e
     usados: set[int] = set()
-    tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 12), usados, hoy)
-    latam = _construir_tarjetas(datos.get("escena_latam"), items, ajustes.get("max_tarjetas_latam", 6), usados, hoy)
-    return {"tarjetas": tarjetas, "escena_latam": latam, "uso": uso}
+    registro: list[dict] = []
+    tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 12), usados, hoy,
+                                   previos, False, registro)
+    latam = _construir_tarjetas(datos.get("escena_latam"), items, ajustes.get("max_tarjetas_latam", 6), usados, hoy,
+                                previos, True, registro)
+    return {"tarjetas": tarjetas, "escena_latam": latam, "controles": registro, "uso": uso}

@@ -1,0 +1,39 @@
+# TEMPORAL: prueba direcciones de Poker Red desde GitHub. Se borra antes de fusionar.
+name: Diagnóstico temporal Poker Red
+on:
+  pull_request:
+jobs:
+  probar:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Probar direcciones
+        run: |
+          python - <<'PY'
+          import re
+          from mesa.recoleccion import descargar_http, parsear_rss, parsear_html, ErrorDescarga
+          urls = ["https://poker-red.com/feed/", "https://www.poker-red.com/feed/",
+                  "https://www.poker-red.com/", "https://poker-red.com/",
+                  "https://www.poker-red.com/rss.xml", "https://poker-red.com/rss.xml",
+                  "https://www.poker-red.com/noticias", "https://www.poker-red.com/noticias/rss.xml",
+                  "https://www.poker-red.com/noticias/feed", "https://www.poker-red.com/rss",
+                  "https://www.poker-red.com/buscador?order=desc&sort=changed"]
+          f = {"nombre": "Poker Red", "idioma": "es", "region": "espana"}
+          for u in urls:
+              try:
+                  r = descargar_http(u)
+              except ErrorDescarga as e:
+                  print("ERR", u, e); continue
+              t = r.texto or ""
+              es_rss = bool(re.search(r"<(rss|feed|rdf)", t[:3000], re.I))
+              n = len(parsear_rss(t, f)) if es_rss else len(parsear_html(t, r.url, dict(f, url=u)))
+              alts = re.findall(r'<link[^>]+(?:rss|atom)\+xml[^>]*href="([^"]+)"', t, re.I)[:3]
+              print(r.estado, "RSS" if es_rss else "HTML", len(t), "items=", n, r.url, "<-", u, "alt=", alts)
+              if not es_rss and n:
+                  for it in parsear_html(t, r.url, dict(f, url=u))[:8]:
+                      print("     ", it["url"], "|", it["titulo"][:70])
+          PY
