@@ -113,3 +113,17 @@ def test_extraer_articulo_da_extracto_y_enlaces_del_cuerpo():
 def test_urls_sin_parametros_de_rastreo():
     items = recoleccion.parsear_rss(leer_fixture("feed.xml"), fuente())
     assert items[0]["url"] == "https://ejemplo-poker.com/noticias/juan-perez-gana-cap"
+
+
+def test_poker_red_toma_solo_notas_del_listado():
+    fuentes = json.loads((RAIZ / "config" / "fuentes.json").read_text(encoding="utf-8"))["fuentes"]
+    f = next(x for x in fuentes if x["nombre"] == "Poker Red")
+    assert f["tipo"] == "html" and "gipsyteam" not in f["url"]
+    html = """<html><body>
+      <a href="/noticias/coinpoker-detecto-y-baneo-a-paul-gregg-en-menos-de-una-semana">CoinPoker detectó y baneó a Paul Gregg en menos de una semana</a>
+      <a href="/noticias/tags/ppm">Todas las noticias etiquetadas con PPM y otras más</a>
+      <a href="/foros/general/un-hilo-del-foro-con-titulo-largo">Un hilo del foro con un título bastante largo</a>
+    </body></html>"""
+    items = recoleccion.parsear_html(html, f["url"], f)
+    assert [i["url"] for i in items] == [
+        "https://www.poker-red.com/noticias/coinpoker-detecto-y-baneo-a-paul-gregg-en-menos-de-una-semana"]
