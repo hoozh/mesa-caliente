@@ -15,7 +15,7 @@ from .conftest import AHORA, DescargaFalsa, leer_fixture
 def llamador_ok(sistema, mensaje, modelo_id, max_tokens):
     return json.dumps({
         "tarjetas": [{"ids": [1, 2], "clasificacion": "confirmado", "titulo": "Hecho del día", "resumen": "Resumen breve."}],
-        "escena_latam": [{"ids": [3], "clasificacion": "confirmado", "titulo": "Juan Pérez gana el CAP", "resumen": "Argentino campeón."}],
+        "escena_latam": [{"ids": [3], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el CAP", "resumen": "Argentino campeón."}],
     }), {"tokens_entrada": 2000, "tokens_salida": 300}
 
 

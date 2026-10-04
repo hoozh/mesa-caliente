@@ -444,3 +444,6 @@
     margin:0;
   }
   .update-prev{color:var(--ink-dim);}
+  details.discards{margin:0 0 8px;}
+  details.discards summary{cursor:pointer;color:var(--accent-ink);font-weight:600;}
+  details.discards ul{margin:8px 0 0;padding-left:18px;}

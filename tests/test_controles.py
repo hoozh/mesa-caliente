@@ -21,7 +21,14 @@ HAYWARD = {
 PAPO = {
     "fuente": "PokerNews en español", "url": "https://es.pokernews.com/noticias/2026/10/papomc-conquista-el-main-event-medium-del-wcoop-y-firma-su-m-53922.htm",
     "titulo": "PapoMC conquista el Main Event Medium del WCOOP y firma su mayor premio online",
-    "primera_linea": "El jugador se llevó 343.242 dólares.", "fecha": "2026-10-01T10:00:00+00:00", "region": "latam",
+    "primera_linea": "", "fecha": "2026-10-01T10:00:00+00:00", "region": "latam",
+}
+# Jugador claramente inventado, para probar el caso en que la fuente sí indica la nacionalidad.
+INVENTADO = {
+    "fuente": "Fuente de prueba", "url": "https://ejemplo-poker.com/noticias/fulano-inventado",
+    "titulo": "Fulano Inventado gana el torneo de ejemplo",
+    "primera_linea": "El argentino Fulano Inventado se impuso en el evento de prueba.",
+    "fecha": "2026-10-01T10:00:00+00:00", "region": "latam",
 }
 AIDO = {
     "fuente": "PokerNewsDaily", "url": "https://www.pokernewsdaily.com/sergio-aido-claims-third-wsop-bracelet-49065/",
@@ -89,26 +96,24 @@ def test_papomc_sin_nacionalidad_en_la_fuente_lleva_marca():
     """El 4 de octubre la tarjeta de PapoMC salió sin nacionalidad y sin marca."""
     r = modelo.resumir([PAPO], AJUSTES, llamador({"escena_latam": [{
         "ids": [1], "clasificacion": "confirmado", "titulo": "PapoMC conquista el Main Event Medium del WCOOP 2026",
-        "resumen": "PapoMC ganó el Main Event Medium del WCOOP y se llevó 343.242 dólares."}]}))
+        "resumen": "PapoMC ganó el Main Event Medium del WCOOP."}]}))
     t = r["escena_latam"][0]
     assert control.MARCA_NACIONALIDAD in t["titulo"]
 
 
-def test_papomc_con_nacionalidad_en_la_fuente_la_incluye():
-    item = dict(PAPO, primera_linea="El argentino Patricio 'PapoMC' Lococo se llevó 343.242 dólares.")
-    r = modelo.resumir([item], AJUSTES, llamador({"escena_latam": [{
-        "ids": [1], "clasificacion": "confirmado", "titulo": "PapoMC conquista el Main Event Medium del WCOOP 2026",
-        "resumen": "PapoMC ganó el Main Event Medium del WCOOP y se llevó 343.242 dólares."}]}))
+def test_nacionalidad_indicada_por_la_fuente_se_incluye():
+    r = modelo.resumir([INVENTADO], AJUSTES, llamador({"escena_latam": [{
+        "ids": [1], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el torneo de ejemplo",
+        "resumen": "Fulano Inventado se impuso en el evento de prueba."}]}))
     t = r["escena_latam"][0]
     assert "Argentina" in t["resumen"]
     assert control.MARCA_NACIONALIDAD not in t["titulo"]
 
 
 def test_nacionalidad_ya_escrita_no_se_duplica():
-    item = dict(PAPO, primera_linea="El argentino Patricio 'PapoMC' Lococo se llevó 343.242 dólares.")
-    tarjeta = {"titulo": "El argentino PapoMC gana", "resumen": "Ganó 343.242 dólares."}
-    assert control.asegurar_nacionalidad(tarjeta, [item], es_latam=True) is None
-    assert tarjeta["resumen"] == "Ganó 343.242 dólares."
+    tarjeta = {"titulo": "El argentino Fulano Inventado gana", "resumen": "Se impuso en el evento de prueba."}
+    assert control.asegurar_nacionalidad(tarjeta, [INVENTADO], es_latam=True) is None
+    assert tarjeta["resumen"] == "Se impuso en el evento de prueba."
 
 
 def test_tarjeta_principal_sin_nacionalidad_no_lleva_marca():
@@ -159,7 +164,7 @@ def test_hechos_distintos_del_mismo_circuito_no_se_confunden():
     assert control.parece_repetida("Liga Patagónica: Mario Guarino gana la LPP en Bariloche", previos) is None
 
 
-def test_corrida_envia_titulos_de_los_ultimos_tres_dias(raiz_temporal, descarga_ejemplo):
+def test_corrida_envia_titulos_de_los_ultimos_cinco_dias(raiz_temporal, descarga_ejemplo):
     def dia(n, titulo):
         agregar_corrida(raiz_temporal, AHORA.date() - timedelta(days=n), {
             "id": f"x{n}", "origen": "importada", "estado": "ok", "notas": [],
@@ -167,14 +172,14 @@ def test_corrida_envia_titulos_de_los_ultimos_tres_dias(raiz_temporal, descarga_
             "escena_latam": {"tarjetas": [{"clasificacion": "confirmado", "fecha": "", "titulo": f"Latam {n}",
                                            "resumen": "R", "fuentes": []}]}})
     dia(1, "Título de ayer")
-    dia(3, "Título de hace tres días")
-    dia(4, "Título de hace cuatro días")
+    dia(5, "Título de hace cinco días")
+    dia(6, "Título de hace seis días")
     capturado = {}
     c = corrida.ejecutar(raiz_temporal, AHORA, "manual", descarga_ejemplo, llamador({"tarjetas": []}, capturado))
     assert c["estado"] == "sin_noticias"
     m = capturado["mensaje"]
-    assert "Título de ayer" in m and "Latam 1" in m and "Título de hace tres días" in m
-    assert "Título de hace cuatro días" not in m
+    assert "Título de ayer" in m and "Latam 1" in m and "Título de hace cinco días" in m
+    assert "Título de hace seis días" not in m
     assert "https://" not in m.split("Títulos ya publicados")[1]  # solo títulos
 
 

@@ -146,6 +146,17 @@
   <p>Última corrida ({{ costos.ultima.fecha }}): {{ '{:,}'.format(costos.ultima.tokens_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.ultima.tokens_salida).replace(',', '.') }} de salida con {{ costos.ultima.modelo }}, costo estimado US$ {{ '%.4f' | format(costos.ultima.costo_usd) }}.</p>
   {% endif %}
   <p>Mes de {{ costos.mes_nombre }}: {{ costos.mes_corridas }} llamada{{ '' if costos.mes_corridas == 1 else 's' }} al modelo, {{ '{:,}'.format(costos.mes_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.mes_salida).replace(',', '.') }} de salida, costo estimado US$ {{ '%.4f' | format(costos.mes_costo) }}.</p>
+  {% if descartes %}
+  <p>Titulares descartados en la última corrida (ventana desde el {{ descartes.corte }}): {{ descartes.totales.por_fecha }} por fecha, {{ descartes.totales.por_orden }} por orden de la lista, {{ descartes.totales.por_tope }} por tope y {{ descartes.totales.ya_vistos }} ya vistos; {{ descartes.enviados }} enviados al modelo.</p>
+  <details class="discards">
+    <summary>Detalle por fuente</summary>
+    <ul>
+    {% for fuente, d in descartes.por_fuente.items() %}
+      <li><b>{{ fuente }}</b> ({{ 'por fecha' if d.modo == 'fecha' else 'por orden' }}): {{ d.enviados }} enviados · {{ d.por_fecha }} por fecha · {{ d.por_orden }} por orden · {{ d.por_tope }} por tope · {{ d.ya_vistos }} ya vistos</li>
+    {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
   <p>Página generada el {{ generado }}. Los resúmenes se escriben automáticamente a partir de titulares públicos; verifique los detalles en la fuente original.</p>
 </footer>
 </main>

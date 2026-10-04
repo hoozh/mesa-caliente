@@ -3,7 +3,7 @@
 Barrido diario de noticias de poker. Todos los días, de forma automática:
 
 1. Lee las fuentes de `config/fuentes.json` (RSS cuando existe, si no la portada de noticias). Esta parte no usa inteligencia artificial.
-2. Descarta los titulares que ya se vieron en corridas anteriores.
+2. Toma solo lo publicado desde la última corrida exitosa y descarta lo que ya se vio en corridas anteriores.
 3. Hace **una sola consulta** al modelo de Claude más económico (por defecto `claude-haiku-4-5`) con titulares, fecha, fuente y primera línea. El modelo elige hasta 12 hechos, los agrupa, los clasifica como **Confirmado**, **En discusión** o **Rumor** y escribe un resumen corto. También llena la sección **Escena argentina y latinoamericana**.
 4. Guarda el resultado del día en `data/dias/AAAA-MM-DD.json` y regenera la página `docs/index.html`, que publica GitHub Pages.
 
@@ -100,11 +100,12 @@ Para páginas `html` se puede agregar `"incluir"` o `"excluir"` con un patrón d
 | Página publicada | `docs/index.html` |
 
 - **Salud de fuentes**: si una fuente falla 3 días seguidos (error, bloqueo, 403, sin contenido), pasa a `en_pausa`. Las pausadas se reintentan una vez por semana y vuelven a `activa` si responden. La página las lista en "Salud de fuentes" con el motivo.
-- **Topes fijos** (en `config/ajustes.json`): 120 titulares enviados, 6 artículos abiertos como máximo, 3000 tokens de salida, 12 tarjetas.
+- **Filtro por día**: cada corrida toma lo publicado desde la última corrida exitosa, con 3 horas de margen (`margen_horas`), y nunca mira más de 3 días hacia atrás (`dias_maximos_atras`). Si una fuente no trae fecha, o pone la misma a todas sus notas (como Poker.org), se usa el orden de la lista: se toma desde arriba hasta la primera nota ya vista. Una fuente nueva aporta como máximo 10 notas. Después de cada corrida exitosa, todo lo recogido (elegido o no) queda como visto; si la corrida falla, no se marca nada y la siguiente lo vuelve a intentar.
+- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente, 120 enviados al modelo, 6 artículos abiertos como máximo, 3000 tokens de salida, 12 tarjetas. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
 - **Artículos abiertos**: solo se abre el texto de una nota cuando su titular no trae primera línea suficiente (como máximo 6 por corrida).
 - **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre. Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.
-- **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Además, el modelo recibe los títulos de las tarjetas de los últimos 3 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Lo que el programa corrige o descarta queda anotado en el archivo del día (campo `controles`).
+- **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Todo nombre de persona debe figurar en lo enviado al modelo: si el modelo agrega un nombre de pila, apellido o alias que no está, el programa lo quita, y si el nombre completo no figura, descarta la tarjeta. Además, el modelo recibe los títulos de las tarjetas de los últimos 5 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Lo que el programa corrige o descarta queda anotado en el archivo del día (campo `controles`).
 - **Diseño**: para cambiar el aspecto basta con editar `templates/`. La recolección no se toca.
 
 ### Comandos útiles (en una computadora con Python 3.10 o superior)
