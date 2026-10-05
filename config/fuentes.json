@@ -10,8 +10,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 20
     },
     {
@@ -23,8 +23,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 12
     },
     {
@@ -36,9 +36,9 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
       "incluir": "/news/[^/]+/?$",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -50,8 +50,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -63,8 +63,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -75,10 +75,12 @@
       "idioma": "en",
       "region": "internacional",
       "estado": "activa",
-      "fallos_consecutivos": 0,
+      "fallos_consecutivos": 1,
       "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
-      "ultimos_titulares": 5
+      "ultimo_intento": "2026-10-05",
+      "ultimos_titulares": 0,
+      "ultimo_fallo": "2026-10-05",
+      "ultimo_motivo": "sin contenido (no se encontraron titulares)"
     },
     {
       "nombre": "CardPlayer",
@@ -89,8 +91,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -102,8 +104,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 100
     },
     {
@@ -115,8 +117,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 12
     },
     {
@@ -128,8 +130,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 25
     },
     {
@@ -140,10 +142,10 @@
       "idioma": "en",
       "region": "internacional",
       "estado": "activa",
-      "fallos_consecutivos": 1,
+      "fallos_consecutivos": 2,
       "ultimo_ok": null,
-      "ultimo_fallo": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_fallo": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimo_motivo": "bloqueo del sitio (HTTP 403)",
       "ultimos_titulares": 0
     },
@@ -156,8 +158,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 15
     },
     {
@@ -169,8 +171,8 @@
       "region": "oceania",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -182,8 +184,8 @@
       "region": "internacional",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -195,8 +197,8 @@
       "region": "latam",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 20
     },
     {
@@ -208,8 +210,8 @@
       "region": "latam",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 20
     },
     {
@@ -221,8 +223,8 @@
       "region": "latam",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -234,9 +236,9 @@
       "region": "latam",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
       "excluir": "/(codigopoker-tv|codigo-youtube|category|club|codigopoker-club|tag|author)(/|$)",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 31
     },
     {
@@ -248,8 +250,10 @@
       "region": "espana",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": null,
-      "incluir": "/noticias/[^/]+/?$"
+      "ultimo_ok": "2026-10-05",
+      "incluir": "/noticias/[^/]+/?$",
+      "ultimo_intento": "2026-10-05",
+      "ultimos_titulares": 24
     },
     {
       "nombre": "Circuito Argentino de Poker",
@@ -260,8 +264,8 @@
       "region": "argentina",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 10
     },
     {
@@ -273,8 +277,8 @@
       "region": "argentina",
       "estado": "activa",
       "fallos_consecutivos": 0,
-      "ultimo_ok": "2026-10-04",
-      "ultimo_intento": "2026-10-04",
+      "ultimo_ok": "2026-10-05",
+      "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 24
     }
   ]
