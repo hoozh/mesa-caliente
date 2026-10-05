@@ -17,7 +17,7 @@ from pathlib import Path
 
 from . import candidatas as cand
 from . import modelo, pagina, recoleccion
-from .dias import agregar_corrida, cargar_dias
+from .dias import agregar_corrida, cargar_dias, ruta_dia
 from .util import (RAIZ, ahora_utc, escribir_json, esta_bloqueado, leer_json,
                    normalizar_url)
 
@@ -91,14 +91,40 @@ def titulos_recientes(raiz: Path, hoy: date, dias: int = 3) -> list[str]:
     return titulos
 
 
+def previos_recientes(raiz: Path, hoy: date, dias: int = 5) -> list[dict]:
+    """Tarjetas ya publicadas: las de hoy con su resumen (primero) y las de días anteriores solo con el título."""
+    desde = (hoy - timedelta(days=dias)).isoformat()
+    previos, vistos = [], set()
+    for d in cargar_dias(raiz):  # del día más reciente al más antiguo
+        if d["fecha"] < desde or d["fecha"] > hoy.isoformat():
+            continue
+        es_hoy = d["fecha"] == hoy.isoformat()
+        for c in reversed(d.get("corridas", [])):
+            for t in c.get("tarjetas", []) + ((c.get("escena_latam") or {}).get("tarjetas") or []):
+                if t.get("titulo") and t["titulo"] not in vistos:
+                    vistos.add(t["titulo"])
+                    previos.append({"titulo": t["titulo"], "resumen": t.get("resumen", "") if es_hoy else "",
+                                    "hoy": es_hoy})
+    return previos
+
+
+def hubo_corrida_exitosa(raiz: Path, dia: date) -> bool:
+    """¿Ya hubo hoy una corrida exitosa (automática o manual)? Las importadas no cuentan."""
+    datos = leer_json(ruta_dia(raiz, dia)) or {}
+    return any(c.get("origen") != "importada" and c.get("estado") in ESTADOS_EXITOSOS
+               for c in datos.get("corridas", []))
+
+
 def _abrir_articulos(items: list[dict], ajustes: dict, descargar, estado_cand: dict, hoy: date) -> int:
-    """Abre (como máximo el tope) los artículos cuyo titular no alcanza para entenderlos."""
+    """Abre (como máximo el tope) los artículos cuyo titular no alcanza para entenderlos.
+    Primero los titulares vagos (sin nombre ni cifra), después los que no traen primera línea."""
     tope = ajustes.get("max_articulos_abiertos", 6)
     abiertos = 0
-    for it in items:
+    candidatos = sorted(items, key=lambda it: 0 if recoleccion.titular_vago(it) else 1)
+    for it in candidatos:
         if abiertos >= tope:
             break
-        if not recoleccion.necesita_texto(it) or esta_bloqueado(it["url"]):
+        if not (recoleccion.titular_vago(it) or recoleccion.necesita_texto(it)) or esta_bloqueado(it["url"]):
             continue
         abiertos += 1
         try:
@@ -176,7 +202,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
             if llamar is modelo.llamar_anthropic and not os.environ.get("ANTHROPIC_API_KEY", "").strip():
                 raise modelo.ErrorModelo("Falta la clave ANTHROPIC_API_KEY (secreto no configurado).")
             corrida["recoleccion"]["articulos_abiertos"] = _abrir_articulos(enviados, ajustes, descargar, estado_cand, hoy)
-            previos = titulos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 5))
+            previos = previos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 5))
             resultado = modelo.resumir(enviados, ajustes, llamar, hoy, previos, corte)
             corrida["controles"] += resultado.get("controles", [])
             corrida["uso"] = resultado["uso"]
@@ -256,10 +282,15 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Corrida diaria de Mesa Caliente")
     p.add_argument("--origen", choices=["automatica", "manual"], default="manual")
     p.add_argument("--solo-recoleccion", action="store_true")
+    p.add_argument("--omitir-si-hubo-exito-hoy", action="store_true",
+                   help="Para los horarios programados: no hace nada si hoy ya hubo una corrida exitosa.")
     args = p.parse_args(argv)
     ahora = ahora_utc()
     if args.solo_recoleccion:
         return probar_recoleccion(RAIZ, ahora)
+    if args.omitir_si_hubo_exito_hoy and hubo_corrida_exitosa(RAIZ, ahora.date()):
+        print(f"Hoy ({ahora.date().isoformat()}) ya hubo una corrida exitosa: esta corrida programada se omite.")
+        return 0
     corrida = ejecutar(RAIZ, ahora, args.origen)
     r = corrida.get("recoleccion", {})
     print(f"Estado: {corrida['estado']}" + (f" ({corrida['motivo']})" if corrida["motivo"] else ""))

@@ -2,7 +2,9 @@ name: Barrido diario
 
 on:
   schedule:
-    - cron: "45 12 * * *"   # todos los días a las 12:45 UTC
+    - cron: "45 12 * * *"   # todos los días a las 12:45 UTC (horario principal)
+    - cron: "25 13 * * *"   # respaldo: solo corre si hoy todavía no hubo una corrida exitosa
+    - cron: "45 15 * * *"   # respaldo: solo corre si hoy todavía no hubo una corrida exitosa
   workflow_dispatch: {}       # botón "Run workflow" para correrlo a mano
 
 permissions:
@@ -33,7 +35,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MESA_MODELO: ${{ vars.MESA_MODELO }}
-        run: python -m mesa.corrida --origen ${{ github.event_name == 'schedule' && 'automatica' || 'manual' }}
+        # Las corridas programadas se omiten si hoy ya hubo una exitosa; las manuales siempre corren.
+        run: python -m mesa.corrida --origen ${{ github.event_name == 'schedule' && 'automatica --omitir-si-hubo-exito-hoy' || 'manual' }}
 
       - name: Guardar datos y página en main
         run: |

@@ -217,6 +217,7 @@ def _item(fuente: dict, url: str, titulo: str, fecha: datetime | None, linea: st
         "primera_linea": linea,
         "idioma": fuente.get("idioma"),
         "region": fuente.get("region"),
+        "clase": fuente.get("clase", "medio"),
     }
 
 
@@ -364,6 +365,16 @@ def extraer_articulo(texto: str, url_base: str, max_caracteres: int) -> tuple[st
         if url.startswith("http") and dominio_base(url) != propio:
             enlaces.append(url)
     return extracto, enlaces
+
+
+def titular_vago(item: dict) -> bool:
+    """Titular sin nombre propio ni cifra (p. ej. "French grinder wins in Marrakech"): conviene abrir la nota."""
+    if "#t-" in item["url"]:
+        return False
+    texto = f"{item.get('titulo') or ''} {item.get('primera_linea') or ''}"
+    tiene_cifra = bool(re.search(r"\d", texto))
+    tiene_nombre = bool(re.search(r"\b[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\b", texto))
+    return not (tiene_cifra or tiene_nombre)
 
 
 def necesita_texto(item: dict) -> bool:

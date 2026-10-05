@@ -247,7 +247,7 @@ def test_nombre_de_pila_agregado_a_un_alias_real_se_quita():
         "titulo": "Fulanito 'PapoMC' Menganez conquista el Main Event Medium del WCOOP",
         "resumen": "Fulanito 'PapoMC' Menganez ganó el Main Event Medium del WCOOP."}]}))
     t = r["escena_latam"][0]
-    assert t["titulo"].startswith("PapoMC conquista el Main Event Medium del WCOOP")
+    assert t["titulo"].startswith("PapoMC [nacionalidad a confirmar] conquista el Main Event Medium del WCOOP")
     assert "Fulanito" not in t["titulo"] + t["resumen"] and "Menganez" not in t["titulo"] + t["resumen"]
     assert any("nombre corregido" in x["motivo"] for x in r["controles"])
 

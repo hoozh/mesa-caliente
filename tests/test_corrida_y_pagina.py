@@ -14,8 +14,10 @@ from .conftest import AHORA, DescargaFalsa, leer_fixture
 
 def llamador_ok(sistema, mensaje, modelo_id, max_tokens):
     return json.dumps({
-        "tarjetas": [{"ids": [1, 2], "clasificacion": "confirmado", "titulo": "Hecho del día", "resumen": "Resumen breve."}],
-        "escena_latam": [{"ids": [3], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el CAP", "resumen": "Argentino campeón."}],
+        "tarjetas": [{"ids": [2], "clasificacion": "confirmado", "titulo": "Mengana Ficticia gana su primer título en el BSOP Millions",
+                      "resumen": "La jugadora brasileña venció en el heads-up final."}],
+        "escena_latam": [{"ids": [1], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el Main Event del CAP",
+                          "resumen": "El jugador argentino se impuso entre 900 entradas."}],
     }), {"tokens_entrada": 2000, "tokens_salida": 300}
 
 

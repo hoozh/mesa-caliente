@@ -44,6 +44,8 @@ Si la clave falta o es inválida, la página igual se publica y ese día queda r
 
 El flujo **Barrido diario** corre solo todos los días a las **12:45 UTC** (9:45 en Argentina). No hace falta hacer nada.
 
+GitHub a veces atrasa o salta los horarios programados. Por eso hay dos horarios de respaldo, a las **13:25** y a las **15:45 UTC**: si ese día ya hubo una corrida exitosa, el respaldo no hace nada (no consulta al modelo ni cambia la página). Las corridas manuales siempre corren.
+
 ### Correrlo a mano
 
 1. Abra la pestaña **Actions** del repositorio.
@@ -68,6 +70,7 @@ Todas las fuentes están en `config/fuentes.json`. Se puede editar desde GitHub 
 - `tipo`: `rss` si es un RSS, `html` si es una página de noticias.
 - `idioma`: `es`, `en` o `pt`.
 - `region`: `internacional`, `latam`, `argentina`, `espana` u otra.
+- `clase`: `oficial` (organizador o circuito), `medio` (medio especializado) o `comunidad` (Reddit, foros). Lo que solo informa una fuente `comunidad` nunca se publica como CONFIRMADO.
 - `estado`: `activa`. Deje `fallos_consecutivos` en `0` y `ultimo_ok` en `null`.
 
 Ejemplo:
@@ -166,7 +169,16 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
 - **Artículos abiertos**: solo se abre el texto de una nota cuando su titular no trae primera línea suficiente (como máximo 6 por corrida).
 - **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre. Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.
-- **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Todo nombre de persona debe figurar en lo enviado al modelo: si el modelo agrega un nombre de pila, apellido o alias que no está, el programa lo quita, y si el nombre completo no figura, descarta la tarjeta. Además, el modelo recibe los títulos de las tarjetas de los últimos 5 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Lo que el programa corrige o descarta queda anotado en el archivo del día (campo `controles`).
+- **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Todo nombre de persona debe figurar en lo enviado al modelo: si el modelo agrega un nombre de pila, apellido o alias que no está, el programa lo quita, y si el nombre completo no figura, descarta la tarjeta. Además, el modelo recibe los títulos de las tarjetas de los últimos 5 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Las tarjetas ya publicadas ese mismo día llegan al modelo con su resumen, y una "qué cambió" que no agrega nada nuevo se descarta.
+- **Reglas de calidad** (`mesa/calidad.py`):
+  - CONFIRMADO solo con una fuente oficial o un medio especializado con fecha; lo que se apoya solo en Reddit, foros o fuentes sin fecha queda EN DISCUSIÓN.
+  - Cargos, posiciones, edades y nacionalidades de personas solo si figuran en el texto enviado al modelo; si no, se quitan.
+  - Se descartan las notas sin relación con el poker, las puramente promocionales (satélites, promociones, ofertas, anuncios de garantizados) y las que no traen un dato concreto (un resultado sin el nombre del ganador, por ejemplo). Los titulares vagos se abren primero para buscar ese dato.
+  - Se quitan los superlativos copiados de la fuente ("el más prestigioso del mundo", "espectacular").
+  - "[nacionalidad a confirmar]" solo aparece junto al nombre de una persona.
+  - Si una fuente latinoamericana solo pone "$", el monto se publica como "$ N (moneda a confirmar)".
+
+  Lo que el programa corrige o descarta queda anotado en el archivo del día (campo `controles`).
 - **Diseño**: para cambiar el aspecto basta con editar `templates/`. La recolección no se toca.
 
 ### Comandos útiles (en una computadora con Python 3.10 o superior)
