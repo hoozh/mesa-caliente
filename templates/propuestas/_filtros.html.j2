@@ -1,0 +1,30 @@
+<div class="filtros" role="search" aria-label="Filtros y buscador">
+  <div class="filtros__fila">
+    <label class="oculto" for="f-buscar">Buscar en títulos, resúmenes y fuentes</label>
+    <input id="f-buscar" class="filtros__buscar" type="search" placeholder="Buscar noticias o fuentes" autocomplete="off" enterkeyhint="search">
+    <button id="f-mostrar" class="filtros__mostrar" type="button" aria-expanded="false" aria-controls="f-panel">Filtros</button>
+  </div>
+  <div id="f-panel" class="filtros__panel">
+    <label class="filtros__campo">Clasificación
+      <select id="f-clasif">
+        <option value="">Todas</option>
+        {% for clave, texto in etiquetas.items() %}<option value="{{ clave }}">{{ texto }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="filtros__campo">Fuente
+      <select id="f-fuente">
+        <option value="">Todas las fuentes</option>
+        {% for f in fuentes %}<option value="{{ f }}">{{ f }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="filtros__campo">Día
+      <select id="f-dia">
+        <option value="">Todos los días</option>
+        {% for d in dias %}<option value="{{ d.fecha }}">{{ d.titulo }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="filtros__casilla"><input type="checkbox" id="f-latam"> Solo escena argentina y latinoamericana</label>
+    <button id="f-limpiar" class="filtros__limpiar" type="button">Limpiar filtros</button>
+  </div>
+  <p id="f-contador" class="filtros__contador" aria-live="polite">{{ total }} tarjetas en el historial</p>
+</div>

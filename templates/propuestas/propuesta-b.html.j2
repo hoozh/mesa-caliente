@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesa Caliente · Propuesta B</title>
+<meta name="description" content="Propuesta de diseño compacta para Mesa Caliente, con miniaturas, filtros y buscador.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="propuesta-b.css">
+</head>
+<body>
+{% set iniciales = {"confirmado": "C", "discusion": "D", "rumor": "R"} %}
+{% macro fila(t, dia) %}
+<article class="fila fila--{{ t.clasificacion }}" id="{{ t.id }}"
+  data-tarjeta data-clasif="{{ t.clasificacion }}" data-fuentes="{{ t.datos_fuentes }}" data-dia="{{ dia.fecha }}"
+  data-latam="{{ 'si' if t.latam else 'no' }}" data-buscar="{{ t.buscar }}">
+  <div class="miniatura miniatura--{{ t.clasificacion }}{% if not t.imagen %} miniatura--sin-imagen{% endif %}" aria-hidden="true">
+    {% if t.imagen %}<img src="{{ t.imagen }}" alt="" referrerpolicy="no-referrer" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('miniatura--sin-imagen');this.remove()">{% endif %}
+    <span class="miniatura__letra">{{ iniciales[t.clasificacion] }}</span>
+  </div>
+  <div class="fila__cuerpo">
+    <p class="fila__meta">
+      <span class="clasif clasif--{{ t.clasificacion }}">{{ t.etiqueta }}</span>
+      <span>{{ t.fecha }}</span>
+      {% if t.latam %}<span class="fila__latam">Escena latina</span>{% endif %}
+    </p>
+    <h3 class="fila__titulo">{{ t.titulo }}</h3>
+    {% if t.novedad %}<p class="fila__novedad"><strong>Qué cambió:</strong> {{ t.novedad }}</p>{% endif %}
+    <p class="fila__resumen">{{ t.resumen }}</p>
+    <button class="fila__mas" type="button" data-mas aria-expanded="false">Ver más</button>
+    <p class="fila__fuentes">
+      {% for f in t.fuentes %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.texto }}</a>{% if not loop.last %}<span aria-hidden="true"> · </span>{% endif %}{% endfor %}
+    </p>
+  </div>
+</article>
+{% endmacro %}
+
+<header class="cabecera">
+  <div class="cabecera__marca">
+    <h1 class="cabecera__titulo">Mesa Caliente</h1>
+    <p class="cabecera__bajada">Noticias de poker del día, agrupadas por hecho</p>
+  </div>
+  <p class="cabecera__aviso">Propuesta B · diseño compacto (prueba). La página oficial no cambia.</p>
+</header>
+
+<div class="disposicion">
+  <aside class="lateral">
+    {% include "_filtros.html.j2" %}
+    <ul class="leyenda" aria-label="Clasificaciones">
+      <li><span class="clasif clasif--confirmado">Confirmado</span> oficial o verificado</li>
+      <li><span class="clasif clasif--discusion">En discusión</span> tema abierto</li>
+      <li><span class="clasif clasif--rumor">Rumor</span> sin confirmación</li>
+    </ul>
+  </aside>
+
+  <main class="principal">
+    {% if destacado %}
+    {% set dia_d = (dias | selectattr("fecha", "equalto", destacado) | first) %}
+    <section class="grupo grupo--latam" data-grupo aria-labelledby="titulo-latam">
+      <h2 id="titulo-latam" class="grupo__titulo">Escena argentina y latinoamericana <span>{{ dia_d.titulo }}</span></h2>
+      {% for t in dia_d.tarjetas if t.latam %}{{ fila(t, dia_d) }}{% endfor %}
+    </section>
+    {% endif %}
+
+    {% for dia in dias %}
+    {% set lista = dia.tarjetas | rejectattr("latam") | list if dia.fecha == destacado else dia.tarjetas %}
+    {% if lista or dia.notas %}
+    <section class="grupo" data-grupo aria-label="{{ dia.titulo }}">
+      <h2 class="grupo__titulo">{{ dia.titulo }} <span>{{ lista | length }} tarjeta{{ '' if lista | length == 1 else 's' }}</span></h2>
+      {% for nota in dia.notas %}<p class="grupo__nota">{{ nota }}</p>{% endfor %}
+      {% for t in lista %}{{ fila(t, dia) }}{% endfor %}
+    </section>
+    {% endif %}
+    {% endfor %}
+    <p id="f-vacio" class="vacio" hidden>No hay tarjetas que coincidan con los filtros. Pruebe con otras palabras o limpie los filtros.</p>
+
+    <footer class="pie">
+      <p>Mesa Caliente resume titulares públicos de forma automática. Verifique los detalles en la fuente original.</p>
+      <p>Las miniaturas pertenecen a cada medio y se muestran desde su sitio. Si una no carga, se muestra un color según la clasificación.</p>
+    </footer>
+  </main>
+</div>
+<script src="filtros.js"></script>
+</body>
+</html>
