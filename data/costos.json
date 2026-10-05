@@ -17,6 +17,15 @@
       "tokens_salida": 2535,
       "costo_usd": 0.022175,
       "estado": "ok"
+    },
+    {
+      "fecha": "2026-10-05",
+      "id": "2026-10-05T22:51:17Z",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 4447,
+      "tokens_salida": 598,
+      "costo_usd": 0.007437,
+      "estado": "ok"
     }
   ]
 }
