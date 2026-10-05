@@ -86,6 +86,67 @@ Para páginas `html` se puede agregar `"incluir"` o `"excluir"` con un patrón d
 
 ---
 
+## Cómo editar el diseño
+
+El diseño está separado de la recolección: cambiar colores o letras nunca afecta a las noticias ni al historial. Todo se puede hacer desde GitHub, sin instalar nada: abra el archivo, pulse el lápiz ✏️, cambie el valor y pulse **Commit changes**.
+
+Los colores se escriben como códigos hexadecimales, por ejemplo `#a8792f`. Para elegir uno, busque "selector de color" en internet, elija el tono y copie el código que empieza con `#`.
+
+### Página actual (la que se publica todos los días)
+
+- **Archivo que se edita:** `templates/estilo.css`. Todas las variables de color están en las primeras líneas, dentro de `:root`.
+- **Modo oscuro:** más abajo, en el mismo archivo, los colores se repiten para el modo oscuro, en los dos bloques que empiezan con `@media (prefers-color-scheme: dark)` y `:root[data-theme="dark"]`. Si cambia un color y quiere que también cambie en modo oscuro, cámbielo en esos bloques.
+
+| Variable | Qué colorea |
+|---|---|
+| `--bg` | Fondo de toda la página |
+| `--surface` | Fondo de cada tarjeta |
+| `--surface-2` | Fondo de la leyenda, de los títulos de cada día y de la lista de fuentes |
+| `--ink` | Texto principal y titulares |
+| `--ink-dim` | Textos secundarios: resúmenes, fechas, pie |
+| `--line` | Bordes y líneas separadoras |
+| `--accent` | Detalles de acento |
+| `--accent-ink` | Enlaces "Leer nota", flechas y antetítulo |
+| `--ok-bg`, `--ok-ink`, `--ok-dot` | Etiqueta CONFIRMADO: fondo, texto y punto |
+| `--discuss-bg`, `--discuss-ink`, `--discuss-dot` | Etiqueta EN DISCUSIÓN: fondo, texto y punto |
+| `--rumor-bg`, `--rumor-ink`, `--rumor-dot` | Etiqueta RUMOR: fondo, texto y punto |
+| `--font-display` | Letra de los títulos |
+| `--font-body` | Letra del texto |
+
+**Cómo ver el cambio:** la página se vuelve a generar con cada corrida. Puede esperar a la corrida del día siguiente, o correr el flujo a mano (pestaña **Actions** → **Barrido diario** → **Run workflow**). Correrlo a mano también hace una consulta al modelo, de unos US$ 0,02.
+
+Si quiere verlo al instante, haga el mismo cambio también en `docs/estilo.css`; GitHub Pages lo publica en 1 o 2 minutos. Ese archivo se reemplaza en cada corrida por una copia de `templates/estilo.css`, así que el cambio debe estar siempre en `templates/estilo.css`.
+
+### Propuestas de diseño (pruebas)
+
+- Propuesta A, editorial: `templates/propuestas/propuesta-a.css`. Se ve en https://hoozh.github.io/mesa-caliente/propuestas/propuesta-a.html
+- Propuesta B, compacta: `templates/propuestas/propuesta-b.css`. Se ve en https://hoozh.github.io/mesa-caliente/propuestas/propuesta-b.html
+
+Al principio de cada archivo hay un bloque `:root` donde cada variable tiene al lado una explicación de qué colorea. En ambas propuestas:
+
+| Variable | Qué colorea |
+|---|---|
+| `--fondo` | Fondo de la página |
+| `--superficie` | Fondo de las tarjetas o filas |
+| `--tinta` | Texto principal y titulares |
+| `--tinta-suave` | Fechas y resúmenes |
+| `--acento` | Enlaces y botones |
+| `--confirmado…`, `--discusion…`, `--rumor…` | Colores de cada clasificación |
+| `--degradado-…` (A) o `--miniatura-…` (B) | Color que reemplaza a la imagen cuando no hay o no carga |
+| `--latam…` | Sección "Escena argentina y latinoamericana" |
+
+**Cómo ver el cambio:** las páginas de prueba usan una copia del CSS que está en `docs/propuestas/`. Para verlo al instante, haga el mismo cambio en `docs/propuestas/propuesta-a.css` (o `-b.css`); se publica en 1 o 2 minutos.
+
+Quien tenga Python puede regenerar las propuestas con los datos del día. Esto copia los CSS de `templates/propuestas/` a `docs/propuestas/` y no toca la página oficial:
+
+```bash
+python scripts/probar_imagenes.py      # busca las imágenes de los últimos 2 días (no usa el modelo)
+python scripts/generar_propuestas.py   # crea docs/propuestas/propuesta-a.html y propuesta-b.html
+python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abre en Chromium y revisa imágenes y filtros
+```
+
+**Consejo de legibilidad:** si cambia un color de texto o de fondo, compruebe el contraste con un verificador en línea ("contrast checker"). Debe dar al menos **4.5:1** para el texto normal.
+
 ## Cómo funciona por dentro
 
 | Parte | Archivo |

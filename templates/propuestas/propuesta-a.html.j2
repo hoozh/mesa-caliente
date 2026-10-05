@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesa Caliente · Propuesta A</title>
+<meta name="description" content="Propuesta de diseño editorial para Mesa Caliente, con imágenes, filtros y buscador.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="propuesta-a.css">
+</head>
+<body>
+{% macro tarjeta(t, dia, grande=false) %}
+<article class="tarjeta tarjeta--{{ t.clasificacion }}{% if grande %} tarjeta--grande{% endif %}" id="{{ t.id }}"
+  data-tarjeta data-clasif="{{ t.clasificacion }}" data-fuentes="{{ t.datos_fuentes }}" data-dia="{{ dia.fecha }}"
+  data-latam="{{ 'si' if t.latam else 'no' }}" data-buscar="{{ t.buscar }}">
+  <div class="tarjeta__media media--{{ t.clasificacion }}{% if not t.imagen %} media--sin-imagen{% endif %}">
+    {% if t.imagen %}<img src="{{ t.imagen }}" alt="" referrerpolicy="no-referrer" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('media--sin-imagen');this.remove()">{% endif %}
+    <span class="media__etiqueta" aria-hidden="true">{{ t.etiqueta }}</span>
+  </div>
+  <div class="tarjeta__cuerpo">
+    <p class="tarjeta__meta">
+      <span class="etiqueta etiqueta--{{ t.clasificacion }}">{{ t.etiqueta }}</span>
+      <span class="tarjeta__fecha">{{ t.fecha }}</span>
+      {% if t.latam %}<span class="marca-latam">Escena argentina y latinoamericana</span>{% endif %}
+    </p>
+    <h3 class="tarjeta__titulo">{{ t.titulo }}</h3>
+    {% if t.novedad %}<p class="tarjeta__novedad"><strong>Qué cambió:</strong> {{ t.novedad }}</p>{% endif %}
+    <p class="tarjeta__resumen">{{ t.resumen }}</p>
+    <div class="tarjeta__fuentes">
+      <p class="tarjeta__fuentes-titulo">{{ 'Fuente' if t.fuentes|length == 1 else 'Fuentes' }}</p>
+      <ul>
+      {% for f in t.fuentes %}
+        <li><a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.texto }}</a>{% if f.fecha_texto %}<span class="tarjeta__fuente-fecha"> · {{ f.fecha_texto }}</span>{% endif %}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+</article>
+{% endmacro %}
+
+<header class="cabecera">
+  <div class="contenedor">
+    <p class="cabecera__antetitulo">Barrido diario de noticias de poker</p>
+    <h1 class="cabecera__titulo">Mesa Caliente</h1>
+    <p class="cabecera__bajada">Los hechos del día agrupados, clasificados y con enlace a cada fuente original.</p>
+    <p class="cabecera__aviso">Propuesta A · diseño editorial (prueba). La página oficial no cambia.</p>
+    <ul class="leyenda" aria-label="Clasificaciones">
+      <li><span class="etiqueta etiqueta--confirmado">Confirmado</span> anuncio oficial o resultado verificado</li>
+      <li><span class="etiqueta etiqueta--discusion">En discusión</span> tema abierto o con versiones encontradas</li>
+      <li><span class="etiqueta etiqueta--rumor">Rumor</span> sin confirmación</li>
+    </ul>
+  </div>
+</header>
+
+<div class="barra-filtros">
+  <div class="contenedor">{% include "_filtros.html.j2" %}</div>
+</div>
+
+<main class="contenedor">
+  {% if destacado %}
+  {% set dia_d = (dias | selectattr("fecha", "equalto", destacado) | first) %}
+  <section class="destacado" data-grupo aria-labelledby="titulo-destacado">
+    <h2 id="titulo-destacado" class="destacado__titulo">Escena argentina y latinoamericana</h2>
+    <p class="destacado__fecha">{{ dia_d.titulo }}</p>
+    <div class="rejilla rejilla--destacado">
+      {% for t in dia_d.tarjetas if t.latam %}{{ tarjeta(t, dia_d) }}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% for dia in dias %}
+  {% set lista = dia.tarjetas | rejectattr("latam") | list if dia.fecha == destacado else dia.tarjetas %}
+  {% if lista or dia.notas %}
+  <section class="dia" data-grupo aria-label="{{ dia.titulo }}">
+    <h2 class="dia__titulo">{{ dia.titulo }}</h2>
+    {% for nota in dia.notas %}<p class="dia__nota">{{ nota }}</p>{% endfor %}
+    <div class="rejilla">
+      {% for t in lista %}{{ tarjeta(t, dia, loop.first and dia.fecha == dias[0].fecha) }}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+  <p id="f-vacio" class="vacio" hidden>No hay tarjetas que coincidan con los filtros. Pruebe con otras palabras o limpie los filtros.</p>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p>Mesa Caliente resume titulares públicos de forma automática. Verifique los detalles en la fuente original.</p>
+    <p>Las imágenes pertenecen a cada medio y se muestran desde su sitio. Cuando una imagen no carga, se muestra un degradado según la clasificación.</p>
+  </div>
+</footer>
+<script src="filtros.js"></script>
+</body>
+</html>

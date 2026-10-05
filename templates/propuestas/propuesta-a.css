@@ -1,0 +1,188 @@
+/* =====================================================================
+   Mesa Caliente · Propuesta A (editorial)
+   Para cambiar colores, edite solo las variables de este bloque.
+   ===================================================================== */
+:root {
+  /* Fondo y textos */
+  --fondo: #f7f3ec;            /* color de fondo de toda la página */
+  --superficie: #ffffff;       /* fondo de las tarjetas */
+  --tinta: #1c1915;            /* texto principal y titulares */
+  --tinta-suave: #574f45;      /* textos secundarios: fechas, resúmenes */
+  --linea: #e4dccf;            /* bordes y separadores */
+  --acento: #8c2f1c;           /* enlaces y detalles destacados */
+  --acento-fondo: #f6e4dc;     /* fondo suave para botones y avisos */
+
+  /* Clasificaciones: fondo y texto de cada etiqueta */
+  --confirmado-fondo: #dcefe2;
+  --confirmado-texto: #1b5130;
+  --discusion-fondo: #fbe9c8;
+  --discusion-texto: #6e4300;
+  --rumor-fondo: #f8dddd;
+  --rumor-texto: #861c1c;
+
+  /* Degradados que reemplazan a la imagen cuando no hay o no carga */
+  --degradado-confirmado: linear-gradient(135deg, #24583a 0%, #4f8a66 100%);
+  --degradado-discusion: linear-gradient(135deg, #8a5a12 0%, #a8721f 100%);
+  --degradado-rumor: linear-gradient(135deg, #7d2323 0%, #a85252 100%);
+
+  /* Escena argentina y latinoamericana */
+  --latam-fondo: #14304f;      /* fondo de la sección destacada */
+  --latam-texto: #ffffff;
+  --latam-marca: #1d4f86;      /* color de la marca "Escena argentina..." en cada tarjeta */
+
+  /* Tipografías */
+  --letra-titulos: "Newsreader", Georgia, "Times New Roman", serif;
+  --letra-texto: "Public Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--letra-texto);
+  font-size: 17px;
+  line-height: 1.6;
+}
+a { color: var(--acento); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+.oculto {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.contenedor { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+[hidden] { display: none !important; }
+
+/* ---------- Cabecera ---------- */
+.cabecera { padding: 40px 0 28px; border-bottom: 1px solid var(--linea); }
+.cabecera__antetitulo {
+  margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--acento);
+}
+.cabecera__titulo {
+  margin: 0; font-family: var(--letra-titulos); font-weight: 700;
+  font-size: clamp(44px, 12vw, 84px); line-height: .95; letter-spacing: -.02em;
+}
+.cabecera__bajada { margin: 14px 0 0; max-width: 36ch; font-size: 19px; color: var(--tinta-suave); }
+.cabecera__aviso {
+  display: inline-block; margin: 16px 0 0; padding: 6px 12px; border-radius: 6px;
+  background: var(--acento-fondo); color: var(--tinta); font-size: 14px;
+}
+.leyenda { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 8px; font-size: 15px; color: var(--tinta-suave); }
+
+/* ---------- Etiquetas de clasificación ---------- */
+.etiqueta {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.etiqueta--confirmado { background: var(--confirmado-fondo); color: var(--confirmado-texto); }
+.etiqueta--discusion { background: var(--discusion-fondo); color: var(--discusion-texto); }
+.etiqueta--rumor { background: var(--rumor-fondo); color: var(--rumor-texto); }
+
+/* ---------- Filtros ---------- */
+.barra-filtros {
+  position: sticky; top: 0; z-index: 5; background: var(--fondo);
+  border-bottom: 1px solid var(--linea); padding: 12px 0;
+}
+.filtros__fila { display: flex; gap: 8px; }
+.filtros__buscar {
+  flex: 1; min-width: 0; height: 46px; padding: 0 14px; font: inherit; font-size: 16px;
+  color: var(--tinta); background: var(--superficie); border: 1px solid #b9ad9b; border-radius: 8px;
+}
+.filtros__mostrar, .filtros__limpiar {
+  height: 46px; padding: 0 16px; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
+  color: var(--acento); background: var(--acento-fondo); border: 1px solid transparent; border-radius: 8px;
+}
+.filtros__limpiar:disabled { opacity: .55; cursor: default; }
+.filtros__panel { display: none; gap: 12px; margin-top: 12px; }
+.filtros--abierto .filtros__panel { display: grid; }
+.filtros__campo { display: grid; gap: 4px; font-size: 14px; font-weight: 600; color: var(--tinta-suave); }
+.filtros__campo select {
+  width: 100%; height: 46px; padding: 0 10px; font: inherit; font-size: 16px; font-weight: 400; color: var(--tinta);
+  background: var(--superficie); border: 1px solid #b9ad9b; border-radius: 8px;
+}
+.filtros__casilla { display: flex; align-items: center; gap: 10px; font-size: 16px; min-height: 46px; }
+.filtros__casilla input { width: 22px; height: 22px; accent-color: var(--acento); }
+.filtros__contador { margin: 8px 0 0; font-size: 14px; color: var(--tinta-suave); }
+
+/* ---------- Escena argentina y latinoamericana (destacada) ---------- */
+.destacado {
+  margin: 28px -16px 8px; padding: 24px 16px 28px;
+  background: var(--latam-fondo); color: var(--latam-texto);
+}
+.destacado__titulo { margin: 0; font-family: var(--letra-titulos); font-size: 30px; line-height: 1.15; }
+.destacado__fecha { margin: 4px 0 18px; font-size: 15px; opacity: .9; }
+.destacado .tarjeta { color: var(--tinta); }
+
+/* ---------- Días ---------- */
+.dia { margin-top: 36px; }
+.dia__titulo {
+  margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--tinta);
+  font-family: var(--letra-titulos); font-size: 28px; line-height: 1.2;
+}
+.dia__nota {
+  margin: 0 0 16px; padding: 14px 16px; border-radius: 8px;
+  background: var(--superficie); border: 1px solid var(--linea); color: var(--tinta-suave);
+}
+.rejilla { display: grid; gap: 22px; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--superficie); border: 1px solid var(--linea); border-radius: 10px;
+}
+.tarjeta__media { position: relative; aspect-ratio: 16 / 9; background: var(--linea); }
+.tarjeta__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media--confirmado.media--sin-imagen { background: var(--degradado-confirmado); }
+.media--discusion.media--sin-imagen { background: var(--degradado-discusion); }
+.media--rumor.media--sin-imagen { background: var(--degradado-rumor); }
+.media--sin-imagen { aspect-ratio: auto; height: 64px; }
+.media__etiqueta { display: none; }
+.media--sin-imagen .media__etiqueta {
+  display: block; position: absolute; left: 16px; bottom: 10px;
+  font-family: var(--letra-titulos); font-size: 22px; font-weight: 700; color: #ffffff; opacity: .9;
+}
+.tarjeta__cuerpo { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.tarjeta__meta { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 14px; }
+.tarjeta__fecha { color: var(--tinta-suave); }
+.marca-latam { font-size: 13px; font-weight: 700; color: var(--latam-marca); }
+.tarjeta__titulo {
+  margin: 0; font-family: var(--letra-titulos); font-weight: 700;
+  font-size: 25px; line-height: 1.2; letter-spacing: -.01em; overflow-wrap: anywhere;
+}
+.tarjeta--grande .tarjeta__titulo { font-size: 30px; }
+.tarjeta__novedad {
+  margin: 0; padding: 8px 12px; border-left: 3px solid var(--acento);
+  background: var(--acento-fondo); font-size: 15px;
+}
+.tarjeta__resumen { margin: 0; color: var(--tinta-suave); overflow-wrap: anywhere; }
+.tarjeta__fuentes { margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--linea); }
+.tarjeta__fuentes-titulo {
+  margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--tinta-suave);
+}
+.tarjeta__fuentes ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 16px; }
+.tarjeta__fuentes a { font-weight: 600; display: inline-block; padding: 2px 0; }
+.tarjeta__fuente-fecha { color: var(--tinta-suave); font-size: 14px; }
+
+.vacio { margin: 40px 0; padding: 20px; text-align: center; background: var(--superficie); border-radius: 10px; }
+.pie { margin-top: 56px; padding: 28px 0 48px; border-top: 1px solid var(--linea); font-size: 15px; color: var(--tinta-suave); }
+
+/* ---------- Pantallas medianas y grandes ---------- */
+@media (min-width: 720px) {
+  .rejilla { grid-template-columns: repeat(2, 1fr); }
+  .tarjeta--grande { grid-column: 1 / -1; }
+  .tarjeta--grande .tarjeta__media { aspect-ratio: 21 / 9; }
+  .destacado { margin-left: 0; margin-right: 0; padding: 28px; border-radius: 14px; }
+  .leyenda { grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 24px; }
+}
+@media (min-width: 960px) {
+  .filtros__mostrar { display: none; }
+  .filtros__panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto auto; align-items: end; }
+  .rejilla--destacado { grid-template-columns: repeat(3, 1fr); }
+  .tarjeta--grande .tarjeta__titulo { font-size: 36px; }
+}
