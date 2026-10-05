@@ -8,7 +8,7 @@ import re
 from datetime import datetime
 from typing import Callable
 
-from . import control
+from . import calidad, control
 from .util import esta_bloqueado, fecha_corta, limpiar_texto, rango_fechas
 
 CLASIFICACIONES = {"confirmado", "discusion", "rumor"}
@@ -16,24 +16,36 @@ CLASIFICACIONES = {"confirmado", "discusion", "rumor"}
 SISTEMA = """Usted es el editor de "Mesa Caliente", un resumen diario de noticias de poker.
 Escriba siempre en español neutro y formal, sin voseo (use "usted" o formas impersonales).
 
-Recibirá una lista numerada de titulares recientes. Cada línea tiene: número, fuente, región de la fuente, fecha, titular y primera línea; algunos traen además un extracto del artículo.
+Recibirá una lista numerada de titulares recientes. Cada línea tiene: número, fuente (con su región y su clase: oficial, medio o comunidad), fecha, titular y primera línea; algunos traen además un extracto del artículo.
 
 Tareas:
-1. Elija hasta {max_tarjetas} hechos relevantes para la comunidad de poker (torneos importantes, resultados destacados, regulación, salas online, escándalos, industria). Ignore promociones comerciales, artículos de estrategia sin noticia y contenido que no sea de poker.
+1. Elija hasta {max_tarjetas} hechos relevantes para la comunidad de poker (torneos importantes, resultados destacados, regulación del poker, salas online, escándalos, industria del poker).
 2. Agrupe por hecho: si varias fuentes cuentan el mismo hecho, van en una sola tarjeta con todos sus números.
-3. Clasifique cada tarjeta: "confirmado" (anuncio oficial o resultado verificado), "discusion" (tema abierto, polémica o versiones encontradas), "rumor" (sin confirmación).
+3. Clasifique cada tarjeta:
+   - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
+   - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
+   - "rumor": sin confirmación.
 4. Escriba un título en español y un resumen de 2 a 3 líneas.
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
+
+Qué no publicar:
+- Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker, celebridades ajenas al poker).
+- Notas puramente promocionales: satélites, promociones, bonos, ofertas, rakeback, freerolls, anuncios de garantizados o calendarios comerciales.
+- Notas sin dato concreto: un resultado debe nombrar al ganador; toda tarjeta necesita al menos un nombre, un monto o un evento con nombre. Si el titular no los trae ("campeón francés en Marrakesh", "una mano decide al campeón"), no cree la tarjeta salvo que el extracto los dé.
+- Hechos ya publicados (ver más abajo), salvo con un desarrollo nuevo y concreto.
 
 Reglas estrictas:
 - Use solo la información de los titulares, primeras líneas y extractos recibidos. Nunca invente hechos, fechas, cifras, nombres ni enlaces.
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
+- Datos de personas: cargos, posiciones de juego o deportivas, edades y nacionalidades solo si aparecen literalmente en el material recibido. No los deduzca ni los complete con su conocimiento.
+- Tono: no copie superlativos ni elogios de la fuente ("el más prestigioso del mundo", "espectacular", "histórico", "increíble"). Escriba de forma neutra.
+- Montos: escriba la moneda exactamente como la indica la fuente (US$, €, £, R$, MXN, etc.). Si una fuente latinoamericana solo pone "$", escriba "$ (moneda a confirmar)" después del número y no lo convierta en dólares.
 - Términos exactos: conserve el premio o título que nombra la fuente, traducido de forma literal. "Bracelet" es "brazalete" (WSOP); "ring" es "anillo" (WSOP Circuit y otros circuitos); "trophy" es "trofeo". Nunca cambie uno por otro: si la fuente dice "ring", no escriba "brazalete". Lo mismo vale para nombres de torneos, eventos y circuitos: use el nombre que da la fuente.
-- Nacionalidad: si el titular, la primera línea o el extracto indican la nacionalidad de un jugador (por ejemplo "el argentino...", "Brazilian..."), inclúyala en el resumen. En "escena_latam", si la fuente no indica la nacionalidad de un jugador, escriba "[nacionalidad a confirmar]" junto a su nombre; nunca la deduzca del nombre, del alias ni de la sala.
+- Nacionalidad: si el titular, la primera línea o el extracto indican la nacionalidad de un jugador (por ejemplo "el argentino...", "Brazilian..."), inclúyala en el resumen. En "escena_latam", solo cuando la tarjeta nombra a una persona y la fuente no indica su nacionalidad, escriba "[nacionalidad a confirmar]" junto a su nombre; nunca la deduzca del nombre, del alias ni de la sala.
 - Nombres propios: escriba los nombres de personas exactamente como aparecen en el material recibido. Nunca complete, agregue ni invente nombres de pila, apellidos o alias: si la fuente solo da un alias, use solo el alias; si solo da el apellido, use solo el apellido. El programa elimina las partes de un nombre que no figuren en el material y descarta la tarjeta si el nombre completo no figura.
 - Ventana de la corrida: el mensaje indica desde qué fecha y hora se tomaron los titulares. Cada tarjeta debe tratar un hecho ocurrido o informado dentro de esa ventana.
-- Hechos ya publicados: al final del mensaje recibirá los títulos de las tarjetas publicadas en los últimos días, numerados P1, P2, etc. No cree una tarjeta para un hecho ya cubierto ni para un hecho anterior a la ventana. Solo si hay un desarrollo nuevo (un resultado final, una cifra nueva, una confirmación, una respuesta oficial), cree la tarjeta e indique "actualiza" con el número del título previo (por ejemplo "P3") y "novedad" con una frase que diga exactamente qué cambió; el resumen debe contar ese cambio.
+- Hechos ya publicados: al final del mensaje recibirá las tarjetas ya publicadas, numeradas P1, P2, etc. Las publicadas hoy por corridas anteriores llegan con su resumen; las de días anteriores, solo con el título. No cree una tarjeta para un hecho ya cubierto ni para un hecho anterior a la ventana. Solo si hay un desarrollo nuevo y concreto (un resultado final, una cifra nueva, una confirmación oficial, una respuesta de los involucrados) que no figure en la tarjeta publicada, cree la tarjeta e indique "actualiza" con el número de la tarjeta previa (por ejemplo "P3") y "novedad" con una frase que diga exactamente qué cambió; el resumen debe contar ese cambio. Repetir con otras palabras lo ya publicado no es una novedad.
 
 Responda únicamente con un objeto JSON, sin texto adicional, con esta forma:
 {{"tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}},
@@ -41,11 +53,23 @@ Responda únicamente con un objeto JSON, sin texto adicional, con esta forma:
  "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}]}}"""
 
 
-def construir_mensaje(items: list[dict], previos: list[str] | None = None, corte: datetime | None = None) -> str:
+def normalizar_previos(previos) -> list[dict]:
+    """Acepta títulos sueltos o tarjetas {titulo, resumen, hoy} y devuelve tarjetas."""
+    resultado = []
+    for p in previos or []:
+        if isinstance(p, str):
+            resultado.append({"titulo": p, "resumen": "", "hoy": False})
+        elif isinstance(p, dict) and p.get("titulo"):
+            resultado.append({"titulo": p["titulo"], "resumen": p.get("resumen") or "", "hoy": bool(p.get("hoy"))})
+    return resultado
+
+
+def construir_mensaje(items: list[dict], previos=None, corte: datetime | None = None) -> str:
     lineas = []
     for n, it in enumerate(items, 1):
         fecha = (it.get("fecha") or "sin fecha")[:10]
-        linea = f"[{n}] {it['fuente']} ({it.get('region') or 'internacional'}) | {fecha} | {limpiar_texto(it['titulo'])}"
+        origen = ", ".join(x for x in (it.get("region") or "internacional", it.get("clase")) if x)
+        linea = f"[{n}] {it['fuente']} ({origen}) | {fecha} | {limpiar_texto(it['titulo'])}"
         if it.get("primera_linea"):
             linea += f" | {limpiar_texto(it['primera_linea'])}"
         if it.get("extracto"):
@@ -54,9 +78,16 @@ def construir_mensaje(items: list[dict], previos: list[str] | None = None, corte
     encabezado = (f"Titulares publicados desde el {corte:%Y-%m-%d %H:%M} UTC (ventana de esta corrida):"
                   if corte else "Titulares de hoy:")
     mensaje = encabezado + "\n\n" + "\n".join(lineas)
+    previos = normalizar_previos(previos)
     if previos:
-        mensaje += ("\n\nTítulos ya publicados en los últimos días (no repetir salvo desarrollo nuevo):\n"
-                    + "\n".join(f"[P{n}] {limpiar_texto(t)}" for n, t in enumerate(previos, 1)))
+        filas = []
+        for n, p in enumerate(previos, 1):
+            if p["hoy"] and p["resumen"]:
+                filas.append(f"[P{n}] (publicada hoy) {limpiar_texto(p['titulo'])} — {limpiar_texto(p['resumen'])}")
+            else:
+                filas.append(f"[P{n}] {limpiar_texto(p['titulo'])}")
+        mensaje += ("\n\nTítulos ya publicados (las de hoy, con su resumen; no repetir salvo desarrollo nuevo):\n"
+                    + "\n".join(filas))
     return mensaje
 
 
@@ -153,7 +184,7 @@ def texto_enviado(items: list[dict]) -> str:
                     for it in items)
 
 
-def _previo_indicado(valor, previos: list[str]) -> str | None:
+def _previo_indicado(valor, previos: list[dict]) -> dict | None:
     m = re.fullmatch(r"\s*P?\s*(\d+)\s*", str(valor or ""), re.I)
     if m and 1 <= int(m.group(1)) <= len(previos):
         return previos[int(m.group(1)) - 1]
@@ -161,14 +192,19 @@ def _previo_indicado(valor, previos: list[str]) -> str | None:
 
 
 def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int], hoy=None,
-                        previos: list[str] | None = None, es_latam: bool = False,
+                        previos=None, es_latam: bool = False,
                         registro: list[dict] | None = None, enviado: str | None = None) -> list[dict]:
-    previos = previos or []
+    previos = normalizar_previos(previos)
+    titulos_previos = [p["titulo"] for p in previos]
     enviado = texto_enviado(items) if enviado is None else enviado
     registro = registro if registro is not None else []
     tarjetas = []
     if not isinstance(crudas, list):
         return tarjetas
+
+    def descartar(titulo, motivo, **extra):
+        registro.append({"titulo": titulo, "motivo": motivo, **extra})
+
     for c in crudas:
         if len(tarjetas) >= maximo or not isinstance(c, dict):
             continue
@@ -190,16 +226,24 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
         if set(ids) <= usados:  # el mismo hecho ya está en otra tarjeta
             continue
 
-        # Hechos ya publicados: solo pasan si el modelo declara qué cambió.
-        actualiza = _previo_indicado(c.get("actualiza"), previos)
+        # 1. Hechos ya publicados: solo pasan si el modelo declara qué cambió y es algo nuevo de verdad.
+        previo = _previo_indicado(c.get("actualiza"), previos)
         novedad = limpiar_texto(str(c.get("novedad") or ""))
-        if actualiza and not novedad:
-            registro.append({"titulo": titulo, "motivo": "repetida sin novedad", "previo": actualiza})
+        if previo and not novedad:
+            descartar(titulo, "repetida sin novedad", previo=previo["titulo"])
             continue
-        if not actualiza:
-            previo = control.parece_repetida(titulo, previos)
-            if previo:
-                registro.append({"titulo": titulo, "motivo": "repetida", "previo": previo})
+        # Lo publicado hoy cuenta entero: la novedad debe ser nueva respecto de todas las tarjetas del día.
+        publicado_hoy = " ".join(f"{p['titulo']} {p['resumen']}" for p in previos if p["hoy"])
+        if previo and not calidad.es_novedad_real(novedad, f"{previo['titulo']} {previo['resumen']} {publicado_hoy}"):
+            descartar(titulo, "repetida: la novedad no agrega nada a lo publicado", previo=previo["titulo"])
+            continue
+        if not previo:
+            parecido = control.parece_repetida(titulo, titulos_previos)
+            if not parecido:
+                parecido = next((p["titulo"] for p in previos if p["hoy"] and
+                                 calidad.misma_noticia(f"{titulo} {resumen}", f"{p['titulo']} {p['resumen']}")), None)
+            if parecido:
+                descartar(titulo, "repetida", previo=parecido)
                 continue
 
         fuentes_items = [items[i - 1] for i in ids]
@@ -215,28 +259,59 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             "resumen": resumen,
             "fuentes": fuentes,
         }
-        if actualiza:
-            tarjeta["actualiza"] = actualiza
+        if previo:
+            tarjeta["actualiza"] = previo["titulo"]
             tarjeta["novedad"] = novedad
+
+        # Nombres de persona presentes en lo enviado.
         conservar, cambios = control.verificar_nombres(tarjeta, enviado)
         for cambio in cambios:
-            registro.append({"titulo": titulo, "motivo": cambio})
+            descartar(titulo, cambio)
         if not conservar:
             continue
+        # 3. Relación con el poker y datos de personas (cargos, edades, nacionalidades).
+        if not calidad.es_de_poker(tarjeta, fuentes_items):
+            descartar(titulo, "sin relación con el poker")
+            continue
+        conservar, cambios = calidad.verificar_atributos(tarjeta, enviado)
+        for cambio in cambios:
+            descartar(titulo, cambio)
+        if not conservar:
+            continue
+        # 5. Promocionales y superlativos.
+        if calidad.es_promocional(tarjeta):
+            descartar(titulo, "nota promocional")
+            continue
+        for cambio in calidad.quitar_superlativos(tarjeta):
+            descartar(titulo, cambio)
+        # 4. Dato concreto.
+        concreta, motivo = calidad.tiene_dato_concreto(tarjeta, calidad.texto_items(fuentes_items))
+        if not concreta:
+            descartar(titulo, motivo)
+            continue
+
         usados.update(ids)
         for cambio in control.corregir_terminos(tarjeta, fuentes_items):
-            registro.append({"titulo": tarjeta["titulo"], "motivo": f"término corregido ({cambio})"})
+            descartar(tarjeta["titulo"], f"término corregido ({cambio})")
+        # 7. Monedas.
+        for cambio in calidad.corregir_monedas(tarjeta, fuentes_items):
+            descartar(tarjeta["titulo"], cambio)
+        # 6. Nacionalidad (marca solo si hay una persona nombrada).
         cambio = control.asegurar_nacionalidad(tarjeta, fuentes_items, es_latam)
         if cambio:
-            registro.append({"titulo": tarjeta["titulo"], "motivo": cambio})
+            descartar(tarjeta["titulo"], cambio)
+        # 2. Clasificación según el tipo de fuente.
+        cambio = calidad.ajustar_clasificacion(tarjeta, fuentes_items)
+        if cambio:
+            descartar(tarjeta["titulo"], cambio)
         tarjetas.append(tarjeta)
     return tarjetas
 
 
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
-            previos: list[str] | None = None, corte: datetime | None = None) -> dict:
+            previos=None, corte: datetime | None = None) -> dict:
     """Devuelve {'tarjetas', 'escena_latam', 'controles', 'uso'} o lanza ErrorModelo."""
-    previos = list(previos or [])[: ajustes.get("max_titulos_previos", 80)]
+    previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
     modelo = modelo_configurado(ajustes)
     sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 12),
                              max_latam=ajustes.get("max_tarjetas_latam", 6))

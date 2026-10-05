@@ -1,5 +1,5 @@
 {
-  "nota": "Lista de fuentes del barrido. Para agregar una, copie un bloque y cambie nombre, url, tipo (rss o html), idioma y region. Nunca agregue sitios de GipsyTeam: el programa los rechaza.",
+  "nota": "Lista de fuentes del barrido. Para agregar una, copie un bloque y cambie nombre, url, tipo (rss o html), idioma, region y clase (oficial, medio o comunidad). Nunca agregue sitios de GipsyTeam: el programa los rechaza.",
   "fuentes": [
     {
       "nombre": "PokerNews",
@@ -12,7 +12,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 20
+      "ultimos_titulares": 20,
+      "clase": "medio"
     },
     {
       "nombre": "Pokerfuse",
@@ -25,7 +26,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 12
+      "ultimos_titulares": 12,
+      "clase": "medio"
     },
     {
       "nombre": "WSOP.com",
@@ -39,7 +41,8 @@
       "ultimo_ok": "2026-10-05",
       "incluir": "/news/[^/]+/?$",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "oficial"
     },
     {
       "nombre": "GamblingNews",
@@ -52,7 +55,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "PokerNewsDaily",
@@ -65,7 +69,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "PokerListings",
@@ -80,7 +85,8 @@
       "ultimo_intento": "2026-10-05",
       "ultimos_titulares": 0,
       "ultimo_fallo": "2026-10-05",
-      "ultimo_motivo": "sin contenido (no se encontraron titulares)"
+      "ultimo_motivo": "sin contenido (no se encontraron titulares)",
+      "clase": "medio"
     },
     {
       "nombre": "CardPlayer",
@@ -93,7 +99,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "Poker.org",
@@ -106,7 +113,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 100
+      "ultimos_titulares": 100,
+      "clase": "medio"
     },
     {
       "nombre": "Poker Industry PRO",
@@ -119,7 +127,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 12
+      "ultimos_titulares": 12,
+      "clase": "medio"
     },
     {
       "nombre": "Reddit r/poker",
@@ -132,7 +141,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 25
+      "ultimos_titulares": 25,
+      "clase": "comunidad"
     },
     {
       "nombre": "Two Plus Two",
@@ -147,7 +157,8 @@
       "ultimo_fallo": "2026-10-05",
       "ultimo_intento": "2026-10-05",
       "ultimo_motivo": "bloqueo del sitio (HTTP 403)",
-      "ultimos_titulares": 0
+      "ultimos_titulares": 0,
+      "clase": "comunidad"
     },
     {
       "nombre": "blog.gtowizard.com",
@@ -160,7 +171,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 15
+      "ultimos_titulares": 15,
+      "clase": "medio"
     },
     {
       "nombre": "Poker Media Australia",
@@ -173,7 +185,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "tightpoker.com",
@@ -186,7 +199,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "PokerNews en español",
@@ -199,7 +213,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 20
+      "ultimos_titulares": 20,
+      "clase": "medio"
     },
     {
       "nombre": "PokerNews Brasil",
@@ -212,7 +227,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 20
+      "ultimos_titulares": 20,
+      "clase": "medio"
     },
     {
       "nombre": "Poker Noticias",
@@ -225,7 +241,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "medio"
     },
     {
       "nombre": "Código Poker",
@@ -239,7 +256,8 @@
       "ultimo_ok": "2026-10-05",
       "excluir": "/(codigopoker-tv|codigo-youtube|category|club|codigopoker-club|tag|author)(/|$)",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 31
+      "ultimos_titulares": 31,
+      "clase": "medio"
     },
     {
       "nombre": "Poker Red",
@@ -253,7 +271,8 @@
       "ultimo_ok": "2026-10-05",
       "incluir": "/noticias/[^/]+/?$",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 24
+      "ultimos_titulares": 24,
+      "clase": "medio"
     },
     {
       "nombre": "Circuito Argentino de Poker",
@@ -266,7 +285,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 10
+      "ultimos_titulares": 10,
+      "clase": "oficial"
     },
     {
       "nombre": "Casino Club Liga Patagónica",
@@ -279,7 +299,8 @@
       "fallos_consecutivos": 0,
       "ultimo_ok": "2026-10-05",
       "ultimo_intento": "2026-10-05",
-      "ultimos_titulares": 24
+      "ultimos_titulares": 24,
+      "clase": "oficial"
     }
   ]
 }

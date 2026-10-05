@@ -103,10 +103,15 @@ def paises_mencionados(texto: str, incluir_nombre_pais: bool = False) -> set[str
 
 
 def asegurar_nacionalidad(tarjeta: dict, items: list[dict], es_latam: bool) -> str | None:
-    """Si el titular o la primera línea de una fuente indica la nacionalidad y la
-    tarjeta no la menciona, la agrega. En la escena latina, si nadie la indica,
-    agrega la marca [nacionalidad a confirmar]. Devuelve el cambio hecho o None."""
+    """Solo actúa si la tarjeta nombra a una persona. Si el titular o la primera línea de una
+    fuente indica la nacionalidad y la tarjeta no la menciona, la agrega. En la escena latina,
+    si nadie la indica, agrega [nacionalidad a confirmar] junto al primer nombre."""
+    from .calidad import personas
+
     texto = f"{tarjeta['titulo']} {tarjeta['resumen']}"
+    nombres = personas(texto)
+    if not nombres:
+        return None
     en_tarjeta = paises_mencionados(texto, incluir_nombre_pais=True)
     en_fuentes = set()
     for it in items:
@@ -116,8 +121,13 @@ def asegurar_nacionalidad(tarjeta: dict, items: list[dict], es_latam: bool) -> s
         tarjeta["resumen"] = tarjeta["resumen"].rstrip() + f" Nacionalidad indicada por la fuente: {', '.join(faltan)}."
         return "nacionalidad agregada"
     if es_latam and not en_tarjeta and not en_fuentes and MARCA_NACIONALIDAD not in texto:
-        tarjeta["titulo"] = tarjeta["titulo"].rstrip() + f" {MARCA_NACIONALIDAD}"
-        return "marca de nacionalidad agregada"
+        for campo in ("titulo", "resumen"):
+            for nombre in nombres:
+                pos = tarjeta[campo].find(nombre)
+                if pos >= 0:
+                    fin = pos + len(nombre)
+                    tarjeta[campo] = f"{tarjeta[campo][:fin]} {MARCA_NACIONALIDAD}{tarjeta[campo][fin:]}"
+                    return "marca de nacionalidad agregada"
     return None
 
 
@@ -175,7 +185,9 @@ _NO_NOMBRES = set(_GENERICAS) | {
     "tras", "segun", "durante", "para", "por", "con", "sin", "sobre", "ante", "desde", "hasta", "entre",
     "el", "la", "los", "las", "un", "una", "unos", "unas", "en", "de", "del", "al", "y", "o", "que",
     "como", "cuando", "donde", "quien", "nuevo", "otro", "otra", "primer", "primera", "segundo", "segunda",
-    "tercer", "tercera", "ultimo", "ultima", "escena", "argentina", "latinoamericana", "nacionalidad",
+    "tercer", "tercera", "ultimo", "ultima", "escena", "estrella", "estrellas", "figura", "astro", "leyenda",
+    "director", "directora", "presidente", "presidenta", "fundador", "fundadora", "embajador", "embajadora",
+    "comentarista", "presentador", "presentadora", "entrenador", "ceo", "dueno", "propietario", "jefe", "argentina", "latinoamericana", "nacionalidad",
     "escandalo", "caso", "polemica", "regla", "ley", "proyecto", "avance", "confirma", "confirmado",
     "rumor", "discusion", "actualizacion", "novedad", "lunes", "martes", "miercoles", "jueves", "viernes",
     "sabado", "domingo", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",

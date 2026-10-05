@@ -26,7 +26,7 @@ PAPO = {
 # Jugador claramente inventado, para probar el caso en que la fuente sí indica la nacionalidad.
 INVENTADO = {
     "fuente": "Fuente de prueba", "url": "https://ejemplo-poker.com/noticias/fulano-inventado",
-    "titulo": "Fulano Inventado gana el torneo de ejemplo",
+    "titulo": "Fulano Inventado gana el torneo de poker de ejemplo",
     "primera_linea": "El argentino Fulano Inventado se impuso en el evento de prueba.",
     "fecha": "2026-10-01T10:00:00+00:00", "region": "latam",
 }
@@ -103,7 +103,7 @@ def test_papomc_sin_nacionalidad_en_la_fuente_lleva_marca():
 
 def test_nacionalidad_indicada_por_la_fuente_se_incluye():
     r = modelo.resumir([INVENTADO], AJUSTES, llamador({"escena_latam": [{
-        "ids": [1], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el torneo de ejemplo",
+        "ids": [1], "clasificacion": "confirmado", "titulo": "Fulano Inventado gana el torneo de poker de ejemplo",
         "resumen": "Fulano Inventado se impuso en el evento de prueba."}]}))
     t = r["escena_latam"][0]
     assert "Argentina" in t["resumen"]
