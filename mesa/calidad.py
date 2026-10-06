@@ -21,8 +21,9 @@ def plano(texto: str) -> str:
 
 
 def texto_items(items: list[dict]) -> str:
-    return " ".join(f"{it.get('titulo') or ''}. {it.get('primera_linea') or ''}. {it.get('extracto') or ''}"
-                    for it in items)
+    """Texto enviado al modelo para estas notas, incluido el nombre de cada fuente (para poder escribir "según X")."""
+    return " ".join(f"{it.get('fuente') or ''}. {it.get('titulo') or ''}. {it.get('primera_linea') or ''}. "
+                    f"{it.get('extracto') or ''}" for it in items)
 
 
 def _oraciones(texto: str) -> list[str]:
@@ -136,7 +137,8 @@ def personas(texto: str, texto_fuentes: str | None = None) -> list[str]:
 
     fuente = " " + re.sub(r"[^\w$]+", " ", sin_tildes(texto_fuentes)) + " " if texto_fuentes is not None else None
     encontrados = []
-    for m in _SECUENCIA.finditer(texto):
+    # Un nombre no cruza signos de puntuación ("…Fulano Inventado. Texto…").
+    for m in (m for parte in re.split(r"[.!?;:,()]\s+", texto) for m in _SECUENCIA.finditer(parte)):
         for tramo in _corridas_de_nombre(m.group(0)):
             limpios = [_limpio(p) for p in tramo]
             if len(tramo) >= 2 and not any(p in _NO_PERSONA for p in limpios):
@@ -378,15 +380,14 @@ def _quitar_oraciones_plano(texto: str, patron: re.Pattern) -> tuple[str, int]:
 # ---------------------------------------------------------------- clasificación
 
 def ajustar_clasificacion(tarjeta: dict, items: list[dict]) -> str | None:
-    """CONFIRMADO exige al menos una fuente oficial o medio especializado con fecha.
-    Lo que solo se apoya en Reddit, foros o fuentes sin fecha queda EN DISCUSIÓN."""
+    """CONFIRMADO exige al menos una fuente de clase oficial o medio. Las notas sin fecha usan la
+    fecha de la barrida, así que no bajan por eso; lo que solo cuenta Reddit o un foro queda EN DISCUSIÓN."""
     if tarjeta["clasificacion"] != "confirmado":
         return None
-    respaldo = [it for it in items if it.get("clase", "medio") in ("oficial", "medio") and it.get("fecha")]
-    if respaldo:
+    if any(it.get("clase", "medio") in ("oficial", "medio") for it in items):
         return None
     tarjeta["clasificacion"] = "discusion"
-    return "confirmado → en discusión (solo comunidad o fuentes sin fecha)"
+    return "confirmado → en discusión (solo fuentes de comunidad: Reddit o foros)"
 
 
 # ---------------------------------------------------------------- monedas
@@ -455,3 +456,118 @@ def es_novedad_real(novedad: str, previo_texto: str) -> bool:
     if _numeros(novedad) - _numeros(previo_texto):
         return True
     return len(_raices(novedad) - _raices(previo_texto)) >= 2
+
+
+# ---------------------------------------------------------------- regla máxima: todo debe estar en la fuente
+
+_DIAS_SEMANA = {
+    "lunes": "lunes|monday|segunda", "martes": "martes|tuesday|terca", "miercoles": "miercoles|wednesday|quarta",
+    "jueves": "jueves|thursday|quinta", "viernes": "viernes|friday|sexta", "sabado": "sabado|saturday",
+    "domingo": "domingo|sunday",
+}
+_MESES = {
+    "enero": "enero|january|janeiro|jan", "febrero": "febrero|february|fevereiro|feb", "marzo": "marzo|march|marco|mar",
+    "abril": "abril|april|apr", "mayo": "mayo|may|maio", "junio": "junio|june|junho|jun", "julio": "julio|july|julho|jul",
+    "agosto": "agosto|august|aug", "septiembre": "septiembre|setiembre|september|setembro|sept?",
+    "octubre": "octubre|october|outubro|oct", "noviembre": "noviembre|november|novembro|nov",
+    "diciembre": "diciembre|december|dezembro|dec",
+}
+# Lugares que suelen traducirse: forma en español -> formas aceptadas en la fuente.
+_LUGARES = {
+    "londres": "london|londres", "nueva york": "new york|nova york|nueva york", "lisboa": "lisbon|lisboa",
+    "praga": "prague|praga", "viena": "vienna|viena", "montecarlo": "monte carlo|montecarlo|monaco",
+    "seul": "seoul|seul", "pekin": "beijing|pekin|pequim", "moscu": "moscow|moscu", "atenas": "athens|atenas",
+    "varsovia": "warsaw|varsovia", "bruselas": "brussels|bruselas", "ginebra": "geneva|ginebra",
+    "estambul": "istanbul|estambul", "marruecos": "morocco|marruecos|marrocos", "sudafrica": "south africa|sudafrica",
+    "estados unidos": "united states|usa|u\\.s\\.|estados unidos", "reino unido": "united kingdom|uk|reino unido",
+    "paises bajos": "netherlands|holland|paises baixos", "corea del sur": "south korea|korea|corea",
+    "alemania": "germany|alemania|alemanha", "francia": "france|francia|franca", "italia": "italy|italia",
+    "espana": "spain|espana|espanha", "japon": "japan|japon|japao", "belgica": "belgium|belgica", "suiza": "switzerland|suiza|suica",
+    "suecia": "sweden|suecia", "noruega": "norway|noruega", "dinamarca": "denmark|dinamarca", "polonia": "poland|polonia",
+    "rusia": "russia|rusia|russia", "irlanda": "ireland|irlanda", "escocia": "scotland|escocia", "inglaterra": "england|inglaterra",
+    "grecia": "greece|grecia", "turquia": "turkey|turquia", "chipre": "cyprus|chipre", "malta": "malta",
+    "brasil": "brazil|brasil", "mexico": "mexico", "peru": "peru", "panama": "panama", "canada": "canada",
+}
+_PALABRAS_LUGARES = {w for clave in _LUGARES for w in clave.split() if len(w) > 3}
+_CITA = re.compile(r"[“\"«]([^”\"»]{12,})[”\"»]")
+_NUMERO = re.compile(r"\d+(?:[.,]\d+)*")
+
+
+def _fuente_normalizada(texto: str) -> tuple[str, set[str], set[str]]:
+    plano = " " + re.sub(r"[^\w$]+", " ", sin_tildes(texto)) + " "
+    digitos = {re.sub(r"\D", "", n) for n in _NUMERO.findall(texto)}
+    raices = {p[:5] for p in plano.split() if len(p) >= 5}
+    return plano, digitos, raices
+
+
+def _palabra_comun(base: str) -> bool:
+    from .control import _GENERICAS, _NO_NOMBRES
+    return base in _NO_NOMBRES or base in _GENERICAS or base in _NO_PERSONA
+
+
+def no_rastreables(oracion: str, fuente_texto: str) -> list[str]:
+    """Afirmaciones de una oración que no figuran en el texto de su fuente."""
+    plano, digitos, raices = _fuente_normalizada(fuente_texto)
+    oracion_sin_marcas = oracion.replace(MARCA_MONEDA, "").replace("[nacionalidad a confirmar]", "")
+    faltan = []
+    for n in _NUMERO.findall(oracion_sin_marcas):
+        d = re.sub(r"\D", "", n)
+        if d and d not in digitos:
+            faltan.append(f"cifra «{n}»")
+    for cita in _CITA.findall(oracion):
+        if " " + re.sub(r"[^\w$]+", " ", sin_tildes(cita)).strip() + " " not in plano:
+            faltan.append(f"cita «{cita[:40]}»")
+    base_oracion = sin_tildes(oracion)
+    for palabra, aceptadas in list(_DIAS_SEMANA.items()) + list(_MESES.items()):
+        if re.search(rf"\b{palabra}\b", base_oracion) and not re.search(rf" ({aceptadas}) ", plano):
+            faltan.append(f"fecha «{palabra}»")
+    for lugar, aceptadas in _LUGARES.items():
+        if re.search(rf"\b{lugar}\b", base_oracion) and not re.search(rf" ({aceptadas}) ", plano):
+            faltan.append(f"lugar «{lugar}»")
+    # Nombres propios (lugares, torneos, empresas) que no figuran: se omite la primera palabra de la oración.
+    palabras = re.findall(r"(?<=\s)[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$'-]{2,}", " " + oracion_sin_marcas.split(" ", 1)[-1])
+    for p in palabras:
+        base = sin_tildes(p).strip("'$-")
+        if re.search(r"\d", base) or re.fullmatch(r"(us|u|r|mxn|ars|cop|clp|pen|a|c)\$?", base):
+            continue  # montos ("US$250"): las cifras ya se verificaron arriba
+        if _palabra_comun(base) or base in _PALABRAS_LUGARES:
+            continue  # palabras comunes y lugares traducidos (estos ya se verificaron arriba)
+        if f" {base} " in plano or (len(base) >= 5 and base[:5] in raices):
+            continue
+        faltan.append(f"nombre propio «{p}»")
+    return faltan
+
+
+def depurar_texto(texto: str, fuente_texto: str) -> tuple[str, list[str]]:
+    """Quita las oraciones con afirmaciones que no figuran en la fuente."""
+    quedan, quitadas = [], []
+    for o in _oraciones(texto):
+        faltan = no_rastreables(o, fuente_texto)
+        if faltan:
+            quitadas.append(f"oración quitada ({', '.join(faltan)}): «{o[:60]}»")
+        else:
+            quedan.append(o)
+    return " ".join(quedan), quitadas
+
+
+def aplicar_regla_maxima(tarjeta: dict, fuente_texto: str) -> tuple[bool, list[str]]:
+    """Regla máxima para una tarjeta común: título, resumen y "qué cambió" deben poder rastrearse
+    al texto enviado para esa tarjeta. Si falla el título o el "qué cambió", o el resumen queda
+    vacío, la tarjeta se descarta."""
+    cambios = []
+    conservar, atributos = verificar_atributos(tarjeta, fuente_texto)
+    cambios += atributos
+    if not conservar:
+        return False, cambios
+    faltan = no_rastreables(tarjeta["titulo"], fuente_texto)
+    if faltan:
+        return False, cambios + [f"título con datos que no están en la fuente ({', '.join(faltan)})"]
+    if tarjeta.get("novedad"):
+        faltan = no_rastreables(tarjeta["novedad"], fuente_texto)
+        if faltan:
+            return False, cambios + [f"«qué cambió» con datos que no están en la fuente ({', '.join(faltan)})"]
+    tarjeta["resumen"], quitadas = depurar_texto(tarjeta["resumen"], fuente_texto)
+    cambios += quitadas
+    if not tarjeta["resumen"].strip():
+        return False, cambios + ["resumen vacío tras quitar lo que no está en la fuente"]
+    return True, cambios

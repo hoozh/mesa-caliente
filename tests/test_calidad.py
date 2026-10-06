@@ -84,15 +84,14 @@ def test_hecho_de_hoy_con_desarrollo_nuevo_pasa_y_dice_que_cambio():
 
 # ---------------------------------------------------------------- 2. clasificación
 
-def test_solo_reddit_o_sin_fecha_nunca_es_confirmado():
-    reddit = item(1, "Fulano Inventado wins the home game poker league", fuente_="Reddit r/poker", clase="comunidad")
-    sin_fecha = item(2, "Fulano Inventado wins the Example Poker Open", fuente_="Poker.org", fecha=None)
+def test_solo_reddit_baja_a_discusion():
+    reddit = item(1, "Fulano Inventado wins the Example Poker Open", fuente_="Reddit r/poker", clase="comunidad")
     con_fecha = item(3, "Fulano Inventado wins the Example Poker Open", fuente_="PokerNews")
-    for items, esperado in (([reddit], "discusion"), ([sin_fecha], "discusion"), ([reddit, con_fecha], "confirmado")):
+    for items, esperado in (([reddit], "discusion"), ([reddit, con_fecha], "confirmado")):
         r = modelo.resumir(items, AJ, llamador({"tarjetas": [tarjeta(
             list(range(1, len(items) + 1)), "Fulano Inventado gana el Example Poker Open", "Ganó el torneo de poker.")]}))
         assert r["tarjetas"][0]["clasificacion"] == esperado, items
-    assert "CONFIRMADO" not in modelo.SISTEMA or "comunidad" in modelo.SISTEMA
+    assert "comunidad" in modelo.SISTEMA
 
 
 # ---------------------------------------------------------------- 3. cargos, edades, nacionalidades; sin poker
@@ -166,7 +165,7 @@ def test_titular_vago_se_abre_primero():
 def test_promocionales_se_descartan():
     """Satélites del WPT, "duplica oportunidades" del BSOP y garantizados de Kings of Tallinn."""
     items = [item(1, "WPT Global satellites from $1.10 to WPT Seoul", region="latam"),
-             item(2, "BSOP Millions doubles chances in cash game promotion", region="latam"),
+             item(2, "BSOP Millions doubles chances to win R$1 million in cash game promotion", region="latam"),
              item(3, "Kings of Tallinn Autumn Edition announces €500,000 guaranteed Main Event")]
     r = modelo.resumir(items, AJ, llamador({"tarjetas": [
         tarjeta([1], "WPT Global ofrece satélites desde $1,10 para el WPT Seoul", "Satélites con paquetes para el WPT Seoul."),

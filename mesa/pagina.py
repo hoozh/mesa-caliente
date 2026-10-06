@@ -12,6 +12,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from . import temas as temas_mod
 from .dias import cargar_dias
 from .util import (MESES, RAIZ, escribir_texto, fecha_corta, fecha_larga,
                    leer_json)
@@ -85,6 +86,20 @@ def _ultimo_registro(dias: list[dict]) -> dict | None:
     return None
 
 
+def unir_temas(corridas: list[dict]) -> list[dict]:
+    """Una sola tarjeta por tema caliente y por día: junta las novedades de todas las corridas del día
+    (en orden) y usa la línea principal más reciente."""
+    temas: dict[str, dict] = {}
+    for c in corridas:  # orden cronológico
+        for t in c.get("temas") or []:
+            actual = temas.setdefault(t["tema"], {"tema": t["tema"], "linea": "", "novedades": []})
+            if t.get("linea"):
+                actual["linea"] = t["linea"]
+            vistas = {(n.get("url"), n.get("aporta")) for n in actual["novedades"]}
+            actual["novedades"] += [n for n in t.get("novedades", []) if (n.get("url"), n.get("aporta")) not in vistas]
+    return [t for t in temas.values() if t["novedades"]]
+
+
 def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
     raiz = Path(raiz)
     ajustes = leer_json(raiz / "config" / "ajustes.json", {})
@@ -102,7 +117,10 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         cantidad = sum(len(c.get("tarjetas", [])) + len((c.get("escena_latam") or {}).get("tarjetas", []))
                        for c in corridas)
         total_tarjetas += cantidad
-        dias.append({**d, "corridas": corridas, "abierto": n < abiertos, "cantidad": cantidad})
+        temas_dia = unir_temas(d.get("corridas", []))
+        cantidad += len(temas_dia)
+        total_tarjetas += len(temas_dia)
+        dias.append({**d, "corridas": corridas, "abierto": n < abiertos, "cantidad": cantidad, "temas": temas_dia})
 
     return {
         "dias": dias,
@@ -112,6 +130,7 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "candidatas": sorted(candidatas, key=lambda c: c.get("detectada") or "", reverse=True),
         "costos": _costos(costos, hoy),
         "descartes": _ultimo_registro(dias),
+        "temas_vigilancia": temas_mod.activos(raiz),
         "etiquetas": ETIQUETAS,
         "hoy_texto": fecha_larga(hoy),
         "generado": generado.strftime("%Y-%m-%d %H:%M UTC"),

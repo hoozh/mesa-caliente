@@ -214,6 +214,8 @@ def _item(fuente: dict, url: str, titulo: str, fecha: datetime | None, linea: st
         "url": quitar_rastreo(url),
         "titulo": titulo,
         "fecha": fecha.isoformat() if fecha else None,
+        # Hora solo si la fuente la da (una medianoche exacta suele ser una fecha sin hora).
+        "hora": fecha.astimezone(timezone.utc).strftime("%H:%M") if fecha and (fecha.hour, fecha.minute, fecha.second) != (0, 0, 0) else None,
         "primera_linea": linea,
         "idioma": fuente.get("idioma"),
         "region": fuente.get("region"),
@@ -256,7 +258,7 @@ def modo_de_lectura(items: list[dict]) -> str:
 
 
 def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: datetime,
-                   tope: int, primera_vez: bool) -> tuple[list[dict], dict]:
+                   tope: int, primera_vez: bool, prioridad=None, descartar_dia1=None) -> tuple[list[dict], dict]:
     """Aplica el filtro por día a los titulares de una fuente.
 
     - Modo 'fecha': solo lo publicado desde el corte (y no ya visto).
@@ -265,7 +267,7 @@ def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: 
     Devuelve (titulares tomados, conteo de descartes)."""
     modo = modo_de_lectura(items)
     conteo = {"modo": modo, "leidos": len(items), "por_fecha": 0, "por_orden": 0,
-              "ya_vistos": 0, "por_tope": 0, "primera_vez": primera_vez}
+              "ya_vistos": 0, "por_tope": 0, "por_dia1": 0, "primera_vez": primera_vez}
     tomados, ya = [], set()
     if modo == "fecha":
         for it in sorted(items, key=lambda i: i["fecha"], reverse=True):
@@ -289,14 +291,31 @@ def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: 
                 continue
             ya.add(norm)
             # Una fecha repetida en todas las notas no dice nada: no se muestra.
-            tomados.append(dict(it, fecha=None) if it.get("fecha") else it)
-    conteo["por_tope"] = max(0, len(tomados) - tope)
-    return tomados[:tope], conteo
+            tomados.append(dict(it, fecha=None, hora=None) if it.get("fecha") else it)
+    # Temas calientes primero y fuera del tope; el filtro de "día 1" no se les aplica.
+    prioritarios, resto = [], []
+    for it in tomados:
+        tema = prioridad(it) if prioridad else None
+        if tema:
+            prioritarios.append(dict(it, tema=tema))
+        elif descartar_dia1:
+            motivo = descartar_dia1(it)
+            if motivo:
+                conteo["por_dia1"] += 1
+                conteo.setdefault("dia1", []).append({"titulo": it["titulo"], "url": it["url"], **motivo})
+                continue
+            resto.append(it)
+        else:
+            resto.append(it)
+    conteo["por_tope"] = max(0, len(resto) - tope)
+    conteo["prioritarios"] = len(prioritarios)
+    return prioritarios + resto[:tope], conteo
 
 
 def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str],
                ajustes: dict, descargar: Descargador = descargar_http,
-               corte: datetime | None = None) -> tuple[list[dict], list[dict], list[str]]:
+               corte: datetime | None = None, prioridad=None,
+               descartar_dia1=None) -> tuple[list[dict], list[dict], list[str]]:
     """Consulta las fuentes, actualiza su salud y devuelve
     (titulares nuevos, informe por fuente, URLs de todo lo recogido)."""
     if corte is None:
@@ -326,7 +345,8 @@ def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str]
         recogidos.extend(it["url"] for it in items)
         hosts = {host_de(it["url"]).removeprefix("www.") for it in items}
         primera_vez = not (hosts & hosts_vistos)
-        tomados, conteo = filtrar_fuente(items, vistos | ya, corte, ahora, tope_fuente, primera_vez)
+        tomados, conteo = filtrar_fuente(items, vistos | ya, corte, ahora, tope_fuente, primera_vez,
+                                         prioridad, descartar_dia1)
         ya.update(normalizar_url(it["url"]) for it in tomados)
         nuevos.extend(tomados)
         informe.append({"fuente": fuente["nombre"], "resultado": "ok", "titulares": len(items),
@@ -335,17 +355,19 @@ def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str]
 
 
 def seleccionar(items: list[dict], tope: int) -> list[dict]:
-    """Reparte el tope entre fuentes por turnos, respetando el orden de cada fuente
-    (más reciente primero, o el orden de la lista si no hay fechas útiles)."""
+    """Las notas de temas calientes entran todas y van primero, fuera del tope.
+    El resto se reparte por turnos entre fuentes, respetando el orden de cada una."""
+    prioritarios = [it for it in items if it.get("tema")]
     por_fuente: dict[str, list[dict]] = {}
     for it in items:
-        por_fuente.setdefault(it["fuente"], []).append(it)
+        if not it.get("tema"):
+            por_fuente.setdefault(it["fuente"], []).append(it)
     elegidos = []
     while len(elegidos) < tope and any(por_fuente.values()):
         for nombre in list(por_fuente):
             if por_fuente[nombre] and len(elegidos) < tope:
                 elegidos.append(por_fuente[nombre].pop(0))
-    return elegidos
+    return prioritarios + elegidos
 
 
 # ---------------------------------------------------------------- artículos

@@ -16,6 +16,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from . import candidatas as cand
+from . import temas as temas_mod
+from . import torneos
 from . import modelo, pagina, recoleccion
 from .dias import agregar_corrida, cargar_dias, ruta_dia
 from .util import (RAIZ, ahora_utc, escribir_json, esta_bloqueado, leer_json,
@@ -62,19 +64,55 @@ def contar_descartes(informe: list[dict], items: list[dict], enviados: list[dict
     for it in items:
         if id(it) not in enviados_ids:
             fuera_por_total[it["fuente"]] = fuera_por_total.get(it["fuente"], 0) + 1
-    por_fuente, totales = {}, {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "ya_vistos": 0}
+    por_fuente, totales = {}, {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "por_dia1": 0, "ya_vistos": 0}
     for x in informe:
         if x.get("resultado") != "ok":
             continue
         x["por_tope_total"] = fuera_por_total.get(x["fuente"], 0)
         x["enviados"] = x["nuevos"] - x["por_tope_total"]
         fila = {"modo": x["modo"], "por_fecha": x["por_fecha"], "por_orden": x["por_orden"],
-                "por_tope": x["por_tope"] + x["por_tope_total"], "ya_vistos": x["ya_vistos"],
-                "enviados": x["enviados"]}
+                "por_tope": x["por_tope"] + x["por_tope_total"], "por_dia1": x.get("por_dia1", 0),
+                "ya_vistos": x["ya_vistos"], "enviados": x["enviados"]}
         por_fuente[x["fuente"]] = fila
         for k in totales:
             totales[k] += fila[k]
     return {"totales": totales, "por_fuente": por_fuente}
+
+
+def guardar_entradas(raiz: Path, dia: date, corrida_id: str, enviados: list[dict]) -> None:
+    """Auditoría: lo que se envió al modelo, por nota (fuente, URL, titular y primera frase, máx. 200 caracteres)."""
+    ruta = Path(raiz) / "data" / "entradas" / f"{dia.isoformat()}.json"
+    datos = leer_json(ruta) or {"fecha": dia.isoformat(), "corridas": []}
+    notas = []
+    for n, it in enumerate(enviados, 1):
+        nota = {"n": n, "fuente": it["fuente"], "url": it["url"], "titular": (it.get("titulo") or "")[:200],
+                "primera_frase": (it.get("primera_linea") or "")[:200]}
+        if it.get("extracto"):
+            nota["con_extracto"] = True  # además se envió un extracto del artículo abierto
+        if it.get("tema"):
+            nota["tema"] = it["tema"]
+        notas.append(nota)
+    datos["corridas"].append({"id": corrida_id, "notas": notas})
+    escribir_json(ruta, datos)
+
+
+def publicado_por_tema(raiz: Path, hoy: date, temas: list[dict], dias: int = 7) -> dict[str, str]:
+    """Texto ya publicado de cada tema caliente: sus tarjetas de tema y las tarjetas que lo mencionan."""
+    desde = (hoy - timedelta(days=dias)).isoformat()
+    textos: dict[str, list[str]] = {t["nombre"]: [] for t in temas}
+    for d in cargar_dias(raiz):
+        if not (desde <= d["fecha"] <= hoy.isoformat()):
+            continue
+        for c in d.get("corridas", []):
+            for tema in c.get("temas") or []:
+                if tema.get("tema") in textos:
+                    textos[tema["tema"]] += [tema.get("linea", "")] + [n.get("aporta", "") for n in tema.get("novedades", [])]
+            for t in c.get("tarjetas", []) + ((c.get("escena_latam") or {}).get("tarjetas") or []):
+                texto = f"{t['titulo']} {t['resumen']} {t.get('novedad') or ''}"
+                for tema in temas:
+                    if temas_mod.coincide(texto, tema["palabras_clave"]):
+                        textos[tema["nombre"]].append(texto)
+    return {k: " ".join(v) for k, v in textos.items()}
 
 
 def titulos_recientes(raiz: Path, hoy: date, dias: int = 3) -> list[str]:
@@ -174,12 +212,19 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
 
     try:
         corte, motivo_corte = calcular_corte(raiz, ahora, ajustes)
-        items, informe, recogidos = recoleccion.recolectar(fuentes, hoy, ahora, set(vistos["urls"]), ajustes,
-                                                           descargar, corte)
+        temas_activos = temas_mod.activos(raiz)
+        items, informe, recogidos = recoleccion.recolectar(
+            fuentes, hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
+            prioridad=temas_mod.detector(temas_activos),
+            descartar_dia1=torneos.descartador_dia1(torneos.cargar_relevantes(raiz)))
         enviados = recoleccion.seleccionar(items, ajustes.get("max_titulares_enviados", 120))
         descartes = contar_descartes(informe, items, enviados)
         corrida["controles"] = [{"motivo": "descartes", "fuente": f, **fila}
                                 for f, fila in descartes["por_fuente"].items()]
+        for x in informe:
+            for d1 in x.pop("dia1", []) if isinstance(x, dict) else []:
+                corrida["controles"].append({"fuente": x["fuente"], "titulo": d1["titulo"], "url": d1["url"],
+                                             "torneo": d1["torneo"], "motivo": d1["motivo"]})
         corrida["recoleccion"] = {
             "corte": corte.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "motivo_corte": motivo_corte,
@@ -203,13 +248,17 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 raise modelo.ErrorModelo("Falta la clave ANTHROPIC_API_KEY (secreto no configurado).")
             corrida["recoleccion"]["articulos_abiertos"] = _abrir_articulos(enviados, ajustes, descargar, estado_cand, hoy)
             previos = previos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 5))
-            resultado = modelo.resumir(enviados, ajustes, llamar, hoy, previos, corte)
+            guardar_entradas(raiz, hoy, corrida["id"], enviados)
+            resultado = modelo.resumir(enviados, ajustes, llamar, hoy, previos, corte,
+                                       publicado_por_tema(raiz, hoy, temas_activos))
+            if resultado.get("temas"):
+                corrida["temas"] = resultado["temas"]
             corrida["controles"] += resultado.get("controles", [])
             corrida["uso"] = resultado["uso"]
             corrida["tarjetas"] = resultado["tarjetas"]
             corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
                                        "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
-            if not resultado["tarjetas"] and not resultado["escena_latam"]:
+            if not resultado["tarjetas"] and not resultado["escena_latam"] and not resultado.get("temas"):
                 corrida["estado"] = "sin_noticias"
                 corrida["notas"].append("El modelo no encontró hechos relevantes entre los titulares nuevos.")
         # Corrida exitosa: todo lo recogido (elegido o no) cuenta como visto.
@@ -257,6 +306,10 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
     escribir_json(ruta_cand, estado_cand)
     escribir_json(ruta_costos, costos)
     agregar_corrida(raiz, hoy, corrida)
+    try:
+        temas_mod.detectar_auto(raiz, hoy)
+    except Exception:
+        traceback.print_exc()
 
     if generar_pagina:
         pagina.generar(raiz, hoy, ahora)

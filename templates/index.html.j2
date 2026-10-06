@@ -26,20 +26,41 @@
   <div class="card-foot">
   {% if t.fuentes | length == 1 %}
     {% set f = t.fuentes[0] %}
-    <span class="source">Fuente: <strong>{{ f.nombre }}</strong>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% endif %}</span>
+    <span class="source">Fuente: <strong>{{ f.nombre }}</strong>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% if f.hora %}, {{ f.hora }} UTC{% endif %}{% endif %}</span>
     {% if f.url %}<a class="go" href="{{ f.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}
   {% else %}
     <details class="sources">
       <summary class="sources-toggle">{{ t.fuentes | length }} fuentes sobre este hecho</summary>
       <ul class="sources-list">
       {% for f in t.fuentes %}
-        <li><span><span class="src-name">{{ f.nombre }}</span>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% endif %}</span>
+        <li><span><span class="src-name">{{ f.nombre }}</span>{% if f.fecha %} · {{ fecha_fuente(f.fecha) }}{% if f.hora %}, {{ f.hora }} UTC{% endif %}{% endif %}</span>
           {% if f.url %}<a class="go" href="{{ f.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}</li>
       {% endfor %}
       </ul>
     </details>
   {% endif %}
   </div>
+</article>
+{% endmacro %}
+
+{% macro tarjeta_tema(t) %}
+<article class="card card-tema">
+  <div class="card-top">
+    <span class="badge tema">Tema caliente</span>
+    <span class="card-date">{{ t.novedades | length }} novedad{{ '' if t.novedades | length == 1 else 'es' }}</span>
+  </div>
+  <h2>{{ t.tema }}</h2>
+  {% if t.linea %}<p class="summary">{{ t.linea }}</p>{% endif %}
+  <ul class="tema-novedades">
+  {% for n in t.novedades %}
+    <li>
+      <span class="badge {{ n.clasificacion }}">{{ etiquetas.get(n.clasificacion, n.clasificacion) }}</span>
+      <p class="tema-aporta">{{ n.aporta }}</p>
+      <p class="tema-fuente">Fuente: <strong>{{ n.fuente }}</strong>{% if n.fecha %} · {{ fecha_fuente(n.fecha) }}{% if n.hora %}, {{ n.hora }} UTC{% endif %}{% endif %}
+        {% if n.url %} · <a class="go" href="{{ n.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}</p>
+    </li>
+  {% endfor %}
+  </ul>
 </article>
 {% endmacro %}
 
@@ -59,9 +80,21 @@
   </div>
 </header>
 
+{% if temas_vigilancia %}
+<section class="vigilancia" aria-label="Temas en vigilancia">
+  <h2>Temas en vigilancia</h2>
+  <ul>{% for t in temas_vigilancia %}<li>{{ t.nombre }}</li>{% endfor %}</ul>
+</section>
+{% endif %}
+
 {% for dia in dias %}
 <details class="day-block"{% if dia.abierto %} open{% endif %}>
   <summary class="day-summary">{{ dia.titulo }}<span class="count">{{ dia.cantidad }} tarjeta{{ '' if dia.cantidad == 1 else 's' }}</span></summary>
+  {% if dia.temas %}
+  <div class="feed temas-del-dia">
+    {% for t in dia.temas %}{{ tarjeta_tema(t) }}{% endfor %}
+  </div>
+  {% endif %}
   {% for c in dia.corridas %}
   <section class="run">
     {% if dia.corridas | length > 1 or c.origen != 'importada' %}
@@ -147,7 +180,7 @@
   {% endif %}
   <p>Mes de {{ costos.mes_nombre }}: {{ costos.mes_corridas }} llamada{{ '' if costos.mes_corridas == 1 else 's' }} al modelo, {{ '{:,}'.format(costos.mes_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.mes_salida).replace(',', '.') }} de salida, costo estimado US$ {{ '%.4f' | format(costos.mes_costo) }}.</p>
   {% if descartes %}
-  <p>Titulares descartados en la última corrida (ventana desde el {{ descartes.corte }}): {{ descartes.totales.por_fecha }} por fecha, {{ descartes.totales.por_orden }} por orden de la lista, {{ descartes.totales.por_tope }} por tope y {{ descartes.totales.ya_vistos }} ya vistos; {{ descartes.enviados }} enviados al modelo.</p>
+  <p>Titulares descartados en la última corrida (ventana desde el {{ descartes.corte }}): {{ descartes.totales.por_fecha }} por fecha, {{ descartes.totales.por_orden }} por orden de la lista, {{ descartes.totales.por_tope }} por tope, {{ descartes.totales.get('por_dia1', 0) }} avances de día 1 y {{ descartes.totales.ya_vistos }} ya vistos; {{ descartes.enviados }} enviados al modelo.</p>
   <details class="discards">
     <summary>Detalle por fuente</summary>
     <ul>

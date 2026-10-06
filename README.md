@@ -89,6 +89,62 @@ Para páginas `html` se puede agregar `"incluir"` o `"excluir"` con un patrón d
 
 ---
 
+## Temas calientes
+
+Un **tema caliente** es una historia que se sigue de cerca, por ejemplo el caso Paul Gregg. Las notas que mencionan una de sus palabras clave entran siempre, van primero y no cuentan para los topes ni para los filtros. Cada día, todas sus novedades aparecen juntas en una sola tarjeta con la etiqueta **Tema caliente**. Arriba de la página, la sección **Temas en vigilancia** muestra los temas activos.
+
+Hay dos clases de temas:
+- **Manuales:** los elige usted, en `config/temas_calientes.json`.
+- **Automáticos:** el programa los crea solo cuando un mismo hecho aparece en 3 o más medios distintos en los últimos 3 días. Se apagan solos tras 7 días sin novedades y se guardan en `data/temas_auto.json`.
+
+### Agregar, desactivar o quitar un tema con el botón (recomendado)
+
+1. En GitHub, abra la pestaña **Actions** del repositorio.
+2. A la izquierda, elija **Gestionar tema caliente**.
+3. Pulse el botón **Run workflow**. Se abre un pequeño formulario:
+   - **Acción:** elija `agregar`, `desactivar` o `quitar`.
+   - **Nombre del tema:** por ejemplo `Caso Paul Gregg`.
+   - **Palabras clave:** solo para agregar, separadas por coma. Por ejemplo: `Paul Gregg, MeshAgent, superuser`.
+4. Pulse el botón verde **Run workflow**.
+5. En uno o dos minutos el tema queda guardado y la página se actualiza.
+
+Algunos detalles:
+- Si agrega un tema que ya existe, se suman las palabras nuevas y el tema vuelve a quedar activo.
+- **Desactivar** deja el tema guardado pero sin efecto; **quitar** lo borra.
+- Si algo falla (por ejemplo, falta el nombre), el registro de esa ejecución dice el motivo.
+
+### Editarlo a mano en la web de GitHub (alternativa)
+
+1. Abra el archivo `config/temas_calientes.json` y pulse el lápiz ✏️ (Edit).
+2. Cada tema es un bloque como este:
+   ```json
+   {
+     "nombre": "Caso Paul Gregg (malware MeshAgent)",
+     "palabras_clave": ["Paul Gregg", "MeshAgent", "superuser"],
+     "alta": "2026-10-06",
+     "estado": "activo"
+   }
+   ```
+3. Para agregar un tema, copie un bloque, péguelo después del último (separado por una coma) y cambie los datos. Para desactivarlo, cambie `"activo"` por `"inactivo"`. Para quitarlo, borre el bloque completo y la coma sobrante.
+4. Pulse **Commit changes** (abajo o arriba a la derecha) y confirme.
+5. La sección **Temas en vigilancia** se actualiza en la próxima corrida. Si lo quiere ver antes, use el botón del punto anterior con la acción `agregar` y el mismo nombre.
+
+## Avances de "día 1"
+
+Las notas de avance de día 1 ("X lidera el día 1", "Day 1A", "chip leader tras el día 1") se descartan, salvo que sean de un torneo de `config/torneos_relevantes.json`. Ese archivo trae dos grupos:
+- **Internacionales:** WSOP en todas sus variantes, EPT, WPT, Triton, WCOOP, SCOOP y PokerGO Tour.
+- **Regionales:** CAP Circuito Argentino de Poker, LAPT y BSOP.
+
+Para sumar un torneo, edite el archivo con el lápiz ✏️, copie un bloque y cambie el nombre y las claves (las palabras que aparecen en los titulares). El día 2 en adelante, las mesas finales, los resultados y los ganadores pasan siempre. Cada descarte queda anotado en el archivo del día, con el torneo y el motivo.
+
+## Regla máxima: nunca inventar datos
+
+Toda cifra, nombre, cargo, edad, nacionalidad, fecha, lugar, cita o hecho de una tarjeta debe estar escrito en el texto que se envió al modelo para esa tarjeta. El programa lo comprueba oración por oración:
+- Lo que no puede rastrear, lo quita.
+- Si falla el título o el "qué cambió", o si el resumen queda vacío, descarta la tarjeta.
+
+Todo queda anotado en el campo `controles` del archivo de cada día. Para auditar, en `data/entradas/AAAA-MM-DD.json` se guarda, por nota, lo que se envió al modelo: fuente, dirección, titular y primera frase (hasta 200 caracteres).
+
 ## Cómo editar el diseño
 
 El diseño está separado de la recolección: cambiar colores o letras nunca afecta a las noticias ni al historial. Todo se puede hacer desde GitHub, sin instalar nada: abra el archivo, pulse el lápiz ✏️, cambie el valor y pulse **Commit changes**.
@@ -171,7 +227,7 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.
 - **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Todo nombre de persona debe figurar en lo enviado al modelo: si el modelo agrega un nombre de pila, apellido o alias que no está, el programa lo quita, y si el nombre completo no figura, descarta la tarjeta. Además, el modelo recibe los títulos de las tarjetas de los últimos 5 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Las tarjetas ya publicadas ese mismo día llegan al modelo con su resumen, y una "qué cambió" que no agrega nada nuevo se descarta.
 - **Reglas de calidad** (`mesa/calidad.py`):
-  - CONFIRMADO solo con una fuente oficial o un medio especializado con fecha; lo que se apoya solo en Reddit, foros o fuentes sin fecha queda EN DISCUSIÓN.
+  - CONFIRMADO exige al menos una fuente oficial o un medio especializado; lo que se apoya solo en Reddit o foros queda EN DISCUSIÓN. Si una fuente no da la fecha, cuenta la fecha de la barrida. La hora se muestra solo cuando la fuente la da.
   - Cargos, posiciones, edades y nacionalidades de personas solo si figuran en el texto enviado al modelo; si no, se quitan.
   - Se descartan las notas sin relación con el poker, las puramente promocionales (satélites, promociones, ofertas, anuncios de garantizados) y las que no traen un dato concreto (un resultado sin el nombre del ganador, por ejemplo). Los titulares vagos se abren primero para buscar ese dato.
   - Se quitan los superlativos copiados de la fuente ("el más prestigioso del mundo", "espectacular").

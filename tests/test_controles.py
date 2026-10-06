@@ -95,7 +95,7 @@ def test_prompt_exige_nacionalidad():
 def test_papomc_sin_nacionalidad_en_la_fuente_lleva_marca():
     """El 4 de octubre la tarjeta de PapoMC salió sin nacionalidad y sin marca."""
     r = modelo.resumir([PAPO], AJUSTES, llamador({"escena_latam": [{
-        "ids": [1], "clasificacion": "confirmado", "titulo": "PapoMC conquista el Main Event Medium del WCOOP 2026",
+        "ids": [1], "clasificacion": "confirmado", "titulo": "PapoMC conquista el Main Event Medium del WCOOP",
         "resumen": "PapoMC ganó el Main Event Medium del WCOOP."}]}))
     t = r["escena_latam"][0]
     assert control.MARCA_NACIONALIDAD in t["titulo"]
