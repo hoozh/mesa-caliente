@@ -16,6 +16,7 @@
 <article class="card">
   <div class="card-top">
     <span class="badge {{ t.clasificacion }}">{{ etiquetas.get(t.clasificacion, t.clasificacion) }}</span>
+    {% if t.nivel == 2 %}<span class="badge nivel2">Segundo nivel</span>{% endif %}
     <span class="card-date">{{ t.fecha }}</span>
   </div>
   <h2>{{ t.titulo }}</h2>
@@ -174,9 +175,22 @@
 </section>
 
 <footer>
+  {% if meta_hoy %}
+  <p class="meta-dia"><b>{{ meta_hoy.cantidad }} nota{{ '' if meta_hoy.cantidad == 1 else 's' }} hoy</b>{% if meta_hoy.alcanzada %} (meta diaria: {{ meta_hoy.meta }}).{% else %} — la meta diaria es {{ meta_hoy.meta }} y no se completa con datos inventados. Motivo: en las corridas de hoy, la recolección dejó fuera {{ meta_hoy.recoleccion.por_fecha }} titulares por fecha, {{ meta_hoy.recoleccion.por_orden }} por orden de la lista (ya leídos), {{ meta_hoy.recoleccion.por_tope }} por tope y {{ meta_hoy.recoleccion.ya_vistos }} ya vistos; {{ meta_hoy.recoleccion.enviados }} titulares llegaron al modelo.{% if meta_hoy.reglas %} Descartes por regla: {% for r in meta_hoy.reglas %}{{ r.nombre }} ({{ r.cantidad }}){{ '; ' if not loop.last else '.' }}{% endfor %}{% else %} Ninguna nota se descartó por regla.{% endif %}{% if meta_hoy.recuperacion %} Recuperación (48 horas y segundo nivel): {{ meta_hoy.recuperacion.enviadas }} notas revisadas, {{ meta_hoy.recuperacion.tarjetas }} tarjeta{{ '' if meta_hoy.recuperacion.tarjetas == 1 else 's' }} agregada{{ '' if meta_hoy.recuperacion.tarjetas == 1 else 's' }} ({{ meta_hoy.recuperacion.segundo_nivel }} de segundo nivel){% if meta_hoy.recuperacion.omitida %}; {{ meta_hoy.recuperacion.omitida }}{% endif %}.{% endif %}{% endif %}</p>
+  {% if not meta_hoy.alcanzada and meta_hoy.por_fuente %}
+  <details class="discards">
+    <summary>Descartes por fuente</summary>
+    <ul>
+    {% for f in meta_hoy.por_fuente %}
+      <li><b>{{ f.fuente }}</b>: {{ f.detalle }}</li>
+    {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+  {% endif %}
   <p>Fuentes activas: {{ fuentes_activas | join(', ') }}.</p>
   {% if costos.ultima %}
-  <p>Última corrida ({{ costos.ultima.fecha }}): {{ '{:,}'.format(costos.ultima.tokens_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.ultima.tokens_salida).replace(',', '.') }} de salida con {{ costos.ultima.modelo }}, costo estimado US$ {{ '%.4f' | format(costos.ultima.costo_usd) }}.</p>
+  <p>Última corrida ({{ costos.ultima.fecha }}): {{ '{:,}'.format(costos.ultima.tokens_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.ultima.tokens_salida).replace(',', '.') }} de salida con {{ costos.ultima.modelo }}, costo estimado US$ {{ '%.4f' | format(costos.ultima.costo_usd) }}{% if costos.ultima.costo_recuperacion is not none %}, de los cuales US$ {{ '%.4f' | format(costos.ultima.costo_recuperacion) }} corresponden a la llamada de recuperación de la meta diaria{% endif %}.</p>
   {% endif %}
   <p>Mes de {{ costos.mes_nombre }}: {{ costos.mes_corridas }} llamada{{ '' if costos.mes_corridas == 1 else 's' }} al modelo, {{ '{:,}'.format(costos.mes_entrada).replace(',', '.') }} tokens de entrada y {{ '{:,}'.format(costos.mes_salida).replace(',', '.') }} de salida, costo estimado US$ {{ '%.4f' | format(costos.mes_costo) }}.</p>
   {% if descartes %}

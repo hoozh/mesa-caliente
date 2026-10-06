@@ -55,6 +55,10 @@ _POKER = re.compile(
 
 
 def es_de_poker(tarjeta: dict, items: list[dict]) -> bool:
+    """Nota de un medio dedicado solo al poker, o con palabras de poker en la tarjeta o su fuente.
+    Los medios de juego en general (casino, apuestas) necesitan la palabra."""
+    if any(it.get("tematica", "poker") == "poker" for it in items):
+        return True
     texto = sin_tildes(f"{tarjeta['titulo']} {tarjeta['resumen']} {texto_items(items)}")
     return bool(_POKER.search(texto))
 

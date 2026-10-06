@@ -13,7 +13,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 20,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Pokerfuse",
@@ -27,7 +28,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 12,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "WSOP.com",
@@ -42,7 +44,8 @@
       "incluir": "/news/[^/]+/?$",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "oficial"
+      "clase": "oficial",
+      "tematica": "poker"
     },
     {
       "nombre": "GamblingNews",
@@ -56,7 +59,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "juego"
     },
     {
       "nombre": "PokerNewsDaily",
@@ -70,7 +74,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "PokerListings",
@@ -85,7 +90,8 @@
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 4,
       "ultimo_fallo": "2026-10-05",
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "juego"
     },
     {
       "nombre": "CardPlayer",
@@ -99,7 +105,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "juego"
     },
     {
       "nombre": "Poker.org",
@@ -113,7 +120,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 100,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Poker Industry PRO",
@@ -127,7 +135,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 12,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Reddit r/poker",
@@ -141,7 +150,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 25,
-      "clase": "comunidad"
+      "clase": "comunidad",
+      "tematica": "poker"
     },
     {
       "nombre": "Two Plus Two",
@@ -159,7 +169,8 @@
       "ultimos_titulares": 0,
       "clase": "comunidad",
       "pausada_desde": "2026-10-06",
-      "motivo_pausa": "bloqueo del sitio (HTTP 403)"
+      "motivo_pausa": "bloqueo del sitio (HTTP 403)",
+      "tematica": "poker"
     },
     {
       "nombre": "blog.gtowizard.com",
@@ -173,7 +184,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 15,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Poker Media Australia",
@@ -187,7 +199,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "tightpoker.com",
@@ -201,7 +214,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "PokerNews en español",
@@ -215,7 +229,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 20,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "PokerNews Brasil",
@@ -229,7 +244,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 20,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Poker Noticias",
@@ -243,7 +259,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Código Poker",
@@ -258,7 +275,8 @@
       "excluir": "/(codigopoker-tv|codigo-youtube|category|club|codigopoker-club|tag|author)(/|$)",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 31,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Poker Red",
@@ -273,7 +291,8 @@
       "incluir": "/noticias/[^/]+/?$",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 24,
-      "clase": "medio"
+      "clase": "medio",
+      "tematica": "poker"
     },
     {
       "nombre": "Circuito Argentino de Poker",
@@ -287,7 +306,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 10,
-      "clase": "oficial"
+      "clase": "oficial",
+      "tematica": "poker"
     },
     {
       "nombre": "Casino Club Liga Patagónica",
@@ -301,7 +321,8 @@
       "ultimo_ok": "2026-10-06",
       "ultimo_intento": "2026-10-06",
       "ultimos_titulares": 24,
-      "clase": "oficial"
+      "clase": "oficial",
+      "tematica": "poker"
     }
   ]
 }

@@ -12,13 +12,14 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from . import modelo
 from . import temas as temas_mod
 from .dias import cargar_dias
 from .util import (MESES, RAIZ, escribir_texto, fecha_corta, fecha_larga,
                    leer_json)
 
 ETIQUETAS = {"confirmado": "Confirmado", "discusion": "En discusión", "rumor": "Rumor"}
-ORIGENES = {"automatica": "Corrida automática", "manual": "Corrida manual"}
+ORIGENES = {"automatica": "Corrida automática", "manual": "Corrida manual", "externo": "Corrida externa"}
 
 
 def fecha_fuente(valor: str | None) -> str:
@@ -60,12 +61,27 @@ def _salud(fuentes: list[dict], dias_reintento: int) -> dict:
     return {"pausadas": pausadas, "con_fallos": con_fallos, "activas": activas, "total": len(fuentes)}
 
 
+def _ultima_corrida_costos(corridas: list[dict]) -> dict | None:
+    """Suma las llamadas de la última corrida (principal y recuperación) y separa el costo extra."""
+    if not corridas:
+        return None
+    ultimo_id = corridas[-1].get("id")
+    llamadas = [c for c in corridas if c.get("id") == ultimo_id] if ultimo_id else corridas[-1:]
+    principal = next((c for c in llamadas if c.get("tipo", "principal") == "principal"), llamadas[0])
+    extra = [c for c in llamadas if c.get("tipo") == "recuperacion"]
+    return {**principal,
+            "tokens_entrada": sum(c.get("tokens_entrada", 0) for c in llamadas),
+            "tokens_salida": sum(c.get("tokens_salida", 0) for c in llamadas),
+            "costo_usd": sum(c.get("costo_usd", 0.0) for c in llamadas),
+            "costo_recuperacion": sum(c.get("costo_usd", 0.0) for c in extra) if extra else None}
+
+
 def _costos(costos: dict, hoy: date) -> dict:
     corridas = costos.get("corridas", [])
     mes = hoy.strftime("%Y-%m")
     del_mes = [c for c in corridas if (c.get("fecha") or "").startswith(mes)]
     return {
-        "ultima": corridas[-1] if corridas else None,
+        "ultima": _ultima_corrida_costos(corridas),
         "mes_nombre": f"{MESES[hoy.month - 1]} de {hoy.year}",
         "mes_costo": round(sum(c.get("costo_usd", 0) for c in del_mes), 4),
         "mes_entrada": sum(c.get("tokens_entrada", 0) for c in del_mes),
@@ -84,6 +100,50 @@ def _ultimo_registro(dias: list[dict]) -> dict | None:
                 return {"id": c.get("id"), "corte": corte.replace("T", " ").replace("Z", " UTC") if corte else None,
                         "enviados": r.get("titulares_enviados", 0), **r["descartes"]}
     return None
+
+
+def meta_del_dia(dia: dict | None, meta: int) -> dict | None:
+    """Cuántas tarjetas tiene el día frente a la meta y, si no se alcanzó, por qué:
+    descartes de la recolección, descartes por regla fija y por fuente, y lo que hizo la recuperación."""
+    if dia is None:
+        return None
+    resultado = {"cantidad": dia["cantidad"], "meta": meta, "alcanzada": dia["cantidad"] >= meta}
+    if resultado["alcanzada"]:
+        return resultado
+    recoleccion = {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "ya_vistos": 0, "enviados": 0}
+    reglas: dict[str, int] = {}
+    por_fuente: dict[str, dict[str, int]] = {}
+    recuperacion = {"enviadas": 0, "tarjetas": 0, "segundo_nivel": 0, "omitida": None, "costo_usd": 0.0}
+    hubo_recuperacion = False
+    for c in dia.get("corridas", []):
+        r = c.get("recoleccion") or {}
+        totales = (r.get("descartes") or {}).get("totales") or {}
+        for k in ("por_fecha", "por_orden", "por_tope", "ya_vistos"):
+            recoleccion[k] += totales.get(k, 0)
+        recoleccion["enviados"] += r.get("titulares_enviados", 0)
+        for x in c.get("controles") or []:
+            categoria = modelo.categoria_descarte(x.get("motivo") or "")
+            if not categoria:
+                continue
+            reglas[categoria] = reglas.get(categoria, 0) + 1
+            for f in x.get("fuentes") or ([x["fuente"]] if x.get("fuente") else []):
+                fila = por_fuente.setdefault(f, {})
+                fila[categoria] = fila.get(categoria, 0) + 1
+        rec = (c.get("meta") or {}).get("recuperacion")
+        if rec:
+            hubo_recuperacion = True
+            for k in ("enviadas", "tarjetas", "segundo_nivel", "costo_usd"):
+                recuperacion[k] += rec.get(k, 0) or 0
+            recuperacion["omitida"] = recuperacion["omitida"] or rec.get("omitida")
+    nombres = modelo.NOMBRES_CATEGORIAS
+    resultado.update({
+        "recoleccion": recoleccion,
+        "reglas": [{"nombre": nombres[k], "cantidad": n} for k, n in sorted(reglas.items(), key=lambda kv: -kv[1])],
+        "por_fuente": [{"fuente": f, "detalle": ", ".join(f"{nombres[k]} ({n})" for k, n in sorted(v.items(), key=lambda kv: -kv[1]))}
+                       for f, v in sorted(por_fuente.items(), key=lambda kv: -sum(kv[1].values()))],
+        "recuperacion": recuperacion if hubo_recuperacion else None,
+    })
+    return resultado
 
 
 def unir_temas(corridas: list[dict]) -> list[dict]:
@@ -130,6 +190,8 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "candidatas": sorted(candidatas, key=lambda c: c.get("detectada") or "", reverse=True),
         "costos": _costos(costos, hoy),
         "descartes": _ultimo_registro(dias),
+        "meta_hoy": meta_del_dia(next((d for d in dias if d["fecha"] == hoy.isoformat()), None),
+                                 ajustes.get("meta_diaria", 10)),
         "temas_vigilancia": temas_mod.activos(raiz),
         "etiquetas": ETIQUETAS,
         "hoy_texto": fecha_larga(hoy),

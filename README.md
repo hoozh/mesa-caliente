@@ -53,6 +53,32 @@ GitHub a veces atrasa o salta los horarios programados. Por eso hay dos horarios
 3. Pulse **Run workflow** → **Run workflow**.
 4. En unos minutos aparece un nuevo commit en `main` y la página se actualiza. Si ya hubo una corrida ese día, la nueva se agrega al mismo día sin borrar la anterior.
 
+### Entrada opcional «origen» (para corridas que dispara otro sistema)
+
+Al pulsar **Run workflow** aparece un campo opcional, **origen**:
+
+- **Vacío** (lo normal al correrlo a mano): la corrida siempre se hace, aunque ese día ya haya habido otra.
+- **`externo`**: pensado para un sistema externo (otro programa, un recordatorio automático) que dispara el flujo. Si ese día (en hora UTC) ya hubo una corrida exitosa, la corrida termina sin consultar al modelo y sin cambiar nada, igual que los horarios de respaldo. Si todavía no hubo ninguna, corre normalmente y en la página figura como "Corrida externa". No importan las mayúsculas ni los espacios.
+
+Cualquier otro valor se trata como una corrida manual.
+
+### Meta diaria de 10 notas
+
+El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). Si al terminar una corrida el día tiene menos de 10:
+
+1. **Ventana de 48 horas**: se arma una segunda lista con las notas de las últimas 48 horas que todavía no se publicaron ni se enviaron al modelo en esta corrida (`ventana_recuperacion_horas`). Las de fuentes sin fecha entran si no se habían visto o si se vieron por primera vez dentro de esas 48 horas.
+2. **Segundo nivel**: en esa misma llamada, si no alcanzan los hechos relevantes, el modelo puede proponer hechos de segundo nivel (torneos menores, novedades de salas o circuitos con dato concreto). Solo se aceptan si todas sus fuentes son de clase `oficial` o `medio` y solo hasta completar lo que falta para la meta. En la página llevan la etiqueta "Segundo nivel".
+
+Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, descartes por regla y por fuente, y lo que aportó la recuperación.
+
+La recuperación es una segunda llamada al modelo, con topes propios dentro de los de la corrida (`config/ajustes.json`):
+
+- `max_tokens_salida_por_corrida` (3000): suma de las dos llamadas. Si a la segunda le quedan menos de `min_tokens_salida_recuperacion` (600), no se hace.
+- `max_titulares_enviados` (120): suma de los titulares de las dos llamadas.
+- `max_costo_usd_por_corrida` (US$ 0,05): la segunda llamada solo se hace si, aun en el peor caso, la corrida completa queda por debajo.
+
+El costo de la recuperación se guarda aparte en `data/costos.json` (`"tipo": "recuperacion"`) y el pie de la página lo muestra junto al de la última corrida. Con Haiku, y con las fuentes del 6 de octubre de 2026 (69 notas para recuperar), la segunda llamada se estima en unos US$ 0,013 a 0,016, con un máximo de unos US$ 0,02; la corrida completa queda por debajo de US$ 0,035.
+
 ### Cambiar el modelo (opcional)
 
 Por defecto se usa `claude-haiku-4-5`. Para usar otro, en **Settings** → **Secrets and variables** → **Actions** → pestaña **Variables**, cree la variable `MESA_MODELO` con el nombre del modelo. Si el modelo no figura en `config/ajustes.json`, agregue allí su precio para que el costo estimado sea correcto.
@@ -215,13 +241,14 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
 | Un archivo por día | `data/dias/AAAA-MM-DD.json` |
 | Direcciones ya vistas | `data/vistos.json` |
 | Fuentes candidatas | `data/candidatas.json` |
-| Tokens y costo por corrida | `data/costos.json` |
+| Tokens y costo por corrida (principal y recuperación) | `data/costos.json` |
+| Lo enviado al modelo, por nota (auditoría) | `data/entradas/AAAA-MM-DD.json` |
 | Diseño de la página | `templates/index.html.j2` y `templates/estilo.css` |
 | Página publicada | `docs/index.html` |
 
 - **Salud de fuentes**: si una fuente falla 3 días seguidos (error, bloqueo, 403, sin contenido), pasa a `en_pausa`. Las pausadas se reintentan una vez por semana y vuelven a `activa` si responden. La página las lista en "Salud de fuentes" con el motivo.
 - **Filtro por día**: cada corrida toma lo publicado desde la última corrida exitosa, con 3 horas de margen (`margen_horas`), y nunca mira más de 3 días hacia atrás (`dias_maximos_atras`). Si una fuente no trae fecha, o pone la misma a todas sus notas (como Poker.org), se usa el orden de la lista: se toma desde arriba hasta la primera nota ya vista. Una fuente nueva aporta como máximo 10 notas. Después de cada corrida exitosa, todo lo recogido (elegido o no) queda como visto; si la corrida falla, no se marca nada y la siguiente lo vuelve a intentar.
-- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente, 120 enviados al modelo, 6 artículos abiertos como máximo, 3000 tokens de salida, 12 tarjetas. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
+- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente, 120 enviados al modelo, 6 artículos abiertos como máximo, 3000 tokens de salida, 12 tarjetas. Valen para la corrida completa, incluida la recuperación de la meta diaria. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
 - **Artículos abiertos**: solo se abre el texto de una nota cuando su titular no trae primera línea suficiente (como máximo 6 por corrida).
 - **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre. Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.

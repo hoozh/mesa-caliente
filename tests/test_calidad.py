@@ -98,7 +98,8 @@ def test_solo_reddit_baja_a_discusion():
 
 def test_cargo_que_no_figura_en_la_fuente_y_nota_sin_poker_se_descartan():
     """Caso Wembanyama: el modelo agregó "base" y la nota no era de poker."""
-    items = [item(1, "Fulano Inventado says he will never endorse a betting platform", fuente_="CardPlayer")]
+    items = [dict(item(1, "Fulano Inventado says he will never endorse a betting platform", fuente_="CardPlayer"),
+                  tematica="juego")]
     r = modelo.resumir(items, AJ, llamador({"tarjetas": [tarjeta(
         [1], "Estrella de la NBA rechaza respaldar plataformas de apuestas",
         "Fulano Inventado, base del equipo de ejemplo, respondió que nunca respaldaría una plataforma de apuestas.")]}))
@@ -267,3 +268,12 @@ def test_misma_noticia_de_hoy_sin_actualiza_se_descarta_pero_no_otra_persona():
                 "Mengano Ficticio terminó el Día 2 del festival de poker como líder.")]}), previos=[previo])
     assert [t["titulo"] for t in r["tarjetas"]] == ["Mengano Ficticio lidera el Día 2 del festival de poker"]
     assert r["controles"][0]["motivo"] == "repetida"
+
+
+def test_nota_de_medio_solo_de_poker_no_se_descarta_por_falta_de_la_palabra():
+    """Caso del 6 de octubre: «Julián Altieri gana el Torneo del Millón», de Código Poker, se descartó como ajena al poker."""
+    items = [dict(item(1, "Fulano Inventado gana el Torneo del Millón en el casino de ejemplo", fuente_="Código Poker",
+                       region="latam"), tematica="poker")]
+    r = modelo.resumir(items, AJ, llamador({"escena_latam": [tarjeta(
+        [1], "Fulano Inventado gana el Torneo del Millón", "Fulano Inventado ganó el Torneo del Millón en el casino de ejemplo.")]}))
+    assert len(r["escena_latam"]) == 1

@@ -5,7 +5,13 @@ on:
     - cron: "45 12 * * *"   # todos los días a las 12:45 UTC (horario principal)
     - cron: "25 13 * * *"   # respaldo: solo corre si hoy todavía no hubo una corrida exitosa
     - cron: "45 15 * * *"   # respaldo: solo corre si hoy todavía no hubo una corrida exitosa
-  workflow_dispatch: {}       # botón "Run workflow" para correrlo a mano
+  workflow_dispatch:            # botón "Run workflow" para correrlo a mano
+    inputs:
+      origen:
+        description: "Opcional. Escriba «externo» si la corrida la dispara otro sistema: se omite si hoy ya hubo una exitosa."
+        type: string
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -35,8 +41,19 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MESA_MODELO: ${{ vars.MESA_MODELO }}
-        # Las corridas programadas se omiten si hoy ya hubo una exitosa; las manuales siempre corren.
-        run: python -m mesa.corrida --origen ${{ github.event_name == 'schedule' && 'automatica --omitir-si-hubo-exito-hoy' || 'manual' }}
+          EVENTO: ${{ github.event_name }}
+          ORIGEN_ENTRADA: ${{ inputs.origen }}
+        # Programadas y externas se omiten si hoy ya hubo una corrida exitosa; las manuales siempre corren.
+        run: |
+          origen="${ORIGEN_ENTRADA,,}"   # en minúsculas
+          origen="${origen// /}"          # sin espacios
+          if [ "$EVENTO" = "schedule" ]; then
+            python -m mesa.corrida --origen automatica --omitir-si-hubo-exito-hoy
+          elif [ "$origen" = "externo" ]; then
+            python -m mesa.corrida --origen externo --omitir-si-hubo-exito-hoy
+          else
+            python -m mesa.corrida --origen manual
+          fi
 
       - name: Guardar datos y página en main
         run: |
