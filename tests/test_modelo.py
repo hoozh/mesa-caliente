@@ -41,7 +41,7 @@ def test_agrupa_fuentes_y_toma_urls_y_fechas_del_programa():
     assert t["fecha"] == "3-4 oct 2026"
     assert "inventada" not in json.dumps(r)
     assert r["escena_latam"][0]["fuentes"][0]["nombre"] == "Código Poker"
-    assert r["escena_latam"][0]["fecha"].startswith("sin fecha")
+    assert r["escena_latam"][0]["fecha"] == ""  # sin fecha de barrida (en la corrida real se usa la del día)
 
 
 def test_descarta_ids_inexistentes_y_clasificaciones_invalidas():

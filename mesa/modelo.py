@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import os
 import re
-from datetime import datetime
+from datetime import date, datetime
 from typing import Callable
 
 from . import calidad, control
@@ -28,6 +28,11 @@ Tareas:
 4. Escriba un título en español y un resumen de 2 a 3 líneas.
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 
+Temas calientes:
+- Algunas notas llegan marcadas con [tema: NOMBRE]. Esas notas van SOLO en la sección "temas", nunca en "tarjetas" ni en "escena_latam".
+- Por cada tema escriba una "linea_principal" (una oración que resuma el estado del tema con datos del material) y una lista de "novedades": una por nota, con "id" (el número de UNA nota), "clasificacion" y "aporta" (qué dato nuevo trae esa nota: respuesta de una sala, medida, cifra, cita, acción legal, reacción de un jugador u otro hecho). Si dos fuentes difieren, explique la diferencia solo con lo que dice cada una ("según X…; según Y…").
+- Si una nota del tema no aporta ningún dato nuevo respecto de lo ya publicado, no la incluya.
+
 Qué no publicar:
 - Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker, celebridades ajenas al poker).
 - Notas puramente promocionales: satélites, promociones, bonos, ofertas, rakeback, freerolls, anuncios de garantizados o calendarios comerciales.
@@ -35,7 +40,9 @@ Qué no publicar:
 - Hechos ya publicados (ver más abajo), salvo con un desarrollo nuevo y concreto.
 
 Reglas estrictas:
+- REGLA MÁXIMA: nunca invente datos. Toda cifra, nombre, cargo, edad, nacionalidad, fecha, lugar, cita o hecho que escriba debe estar en el texto de las notas que cita esa tarjeta (o esa novedad). Si una fuente no precisa algo, escriba "la fuente no precisa …"; nunca lo complete con su conocimiento. El programa borra lo que no pueda rastrear y descarta la tarjeta si pierde su dato principal.
 - Use solo la información de los titulares, primeras líneas y extractos recibidos. Nunca invente hechos, fechas, cifras, nombres ni enlaces.
+- Las citas textuales solo pueden copiarse exactas, en el idioma de la fuente; si no, cuente lo que dijo sin comillas.
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
 - Datos de personas: cargos, posiciones de juego o deportivas, edades y nacionalidades solo si aparecen literalmente en el material recibido. No los deduzca ni los complete con su conocimiento.
@@ -50,7 +57,8 @@ Reglas estrictas:
 Responda únicamente con un objeto JSON, sin texto adicional, con esta forma:
 {{"tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}},
               {{"ids": [9], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "actualiza": "P3", "novedad": "..."}}],
- "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}]}}"""
+ "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}],
+ "temas": [{{"tema": "NOMBRE", "linea_principal": "...", "novedades": [{{"id": 2, "clasificacion": "confirmado", "aporta": "..."}}]}}]}}"""
 
 
 def normalizar_previos(previos) -> list[dict]:
@@ -69,7 +77,8 @@ def construir_mensaje(items: list[dict], previos=None, corte: datetime | None = 
     for n, it in enumerate(items, 1):
         fecha = (it.get("fecha") or "sin fecha")[:10]
         origen = ", ".join(x for x in (it.get("region") or "internacional", it.get("clase")) if x)
-        linea = f"[{n}] {it['fuente']} ({origen}) | {fecha} | {limpiar_texto(it['titulo'])}"
+        etiqueta = f"[tema: {it['tema']}] " if it.get("tema") else ""
+        linea = f"[{n}] {etiqueta}{it['fuente']} ({origen}) | {fecha} | {limpiar_texto(it['titulo'])}"
         if it.get("primera_linea"):
             linea += f" | {limpiar_texto(it['primera_linea'])}"
         if it.get("extracto"):
@@ -169,6 +178,15 @@ def _extraer_json(texto: str) -> dict:
     raise ErrorModelo("La respuesta del modelo no es un JSON válido.")
 
 
+def _fuente_de(it: dict, hoy) -> dict:
+    """Enlace a la fuente. Sin fecha en la fuente, cuenta la fecha de la barrida; la hora, solo si la fuente la da."""
+    f = _fecha_item(it) or hoy
+    fuente = {"nombre": it["fuente"], "fecha": f.isoformat() if f else None, "url": it["url"]}
+    if it.get("hora") and _fecha_item(it):
+        fuente["hora"] = it["hora"]
+    return fuente
+
+
 def _fecha_item(it: dict):
     if not it.get("fecha"):
         return None
@@ -216,6 +234,8 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
                 continue
             if 1 <= i <= len(items) and i not in ids and not esta_bloqueado(items[i - 1]["url"]):
                 ids.append(i)
+        # Las notas de temas calientes van solo en su tarjeta de tema.
+        ids = [i for i in ids if not items[i - 1].get("tema")]
         titulo = limpiar_texto(str(c.get("titulo") or ""))
         resumen = limpiar_texto(str(c.get("resumen") or ""))
         clasif = str(c.get("clasificacion") or "").lower().replace("ó", "o").replace(" ", "_")
@@ -247,14 +267,11 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
                 continue
 
         fuentes_items = [items[i - 1] for i in ids]
-        fuentes = []
-        for it in fuentes_items:
-            f = _fecha_item(it)
-            fuentes.append({"nombre": it["fuente"], "fecha": f.isoformat() if f else None, "url": it["url"]})
-        fechas = [f for f in (_fecha_item(it) for it in fuentes_items) if f]
+        fuentes = [_fuente_de(it, hoy) for it in fuentes_items]
+        fechas = [date.fromisoformat(f["fecha"]) for f in fuentes if f["fecha"]]
         tarjeta = {
             "clasificacion": clasif,
-            "fecha": rango_fechas(fechas) or (f"sin fecha en la fuente · vista el {fecha_corta(hoy)}" if hoy else "sin fecha en la fuente"),
+            "fecha": rango_fechas(fechas) or "",
             "titulo": titulo,
             "resumen": resumen,
             "fuentes": fuentes,
@@ -263,8 +280,9 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             tarjeta["actualiza"] = previo["titulo"]
             tarjeta["novedad"] = novedad
 
-        # Nombres de persona presentes en lo enviado.
-        conservar, cambios = control.verificar_nombres(tarjeta, enviado)
+        # Regla máxima: todo se verifica contra el texto enviado para ESTA tarjeta (sus fuentes).
+        texto_tarjeta = calidad.texto_items(fuentes_items)
+        conservar, cambios = control.verificar_nombres(tarjeta, texto_tarjeta)
         for cambio in cambios:
             descartar(titulo, cambio)
         if not conservar:
@@ -273,7 +291,7 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
         if not calidad.es_de_poker(tarjeta, fuentes_items):
             descartar(titulo, "sin relación con el poker")
             continue
-        conservar, cambios = calidad.verificar_atributos(tarjeta, enviado)
+        conservar, cambios = calidad.aplicar_regla_maxima(tarjeta, texto_tarjeta)
         for cambio in cambios:
             descartar(titulo, cambio)
         if not conservar:
@@ -308,8 +326,67 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
     return tarjetas
 
 
+def construir_temas(crudos, items: list[dict], hoy, publicado: dict[str, str] | None = None,
+                    registro: list[dict] | None = None) -> list[dict]:
+    """Una tarjeta por tema caliente. Cada novedad sale de UNA nota y se verifica contra ella.
+    Repetido = no aporta ningún dato nuevo respecto de lo ya publicado del tema (no se mira a las personas)."""
+    publicado = publicado or {}
+    registro = registro if registro is not None else []
+    temas: dict[str, dict] = {}
+    for crudo in crudos if isinstance(crudos, list) else []:
+        if not isinstance(crudo, dict):
+            continue
+        for nov in crudo.get("novedades") or []:
+            try:
+                i = int(nov.get("id"))
+            except (TypeError, ValueError, AttributeError):
+                continue
+            if not 1 <= i <= len(items) or not items[i - 1].get("tema"):
+                continue
+            it = items[i - 1]
+            nombre = it["tema"]
+            tema = temas.setdefault(nombre, {"tema": nombre, "linea": "", "novedades": [], "_textos": []})
+            aporta = limpiar_texto(str(nov.get("aporta") or ""))
+            fuente_texto = calidad.texto_items([it])
+            aporta, quitadas = calidad.depurar_texto(aporta, fuente_texto)
+            for q in quitadas:
+                registro.append({"tema": nombre, "url": it["url"], "motivo": q})
+            if not aporta:
+                registro.append({"tema": nombre, "url": it["url"], "motivo": "novedad sin datos rastreables en su fuente"})
+                continue
+            ya = f"{publicado.get(nombre, '')} {' '.join(tema['_textos'])}"
+            if ya.strip() and not calidad.es_novedad_real(aporta, ya):
+                registro.append({"tema": nombre, "url": it["url"], "motivo": "repetida: no aporta ningún dato nuevo al tema"})
+                continue
+            clasif = str(nov.get("clasificacion") or "discusion").lower().replace("ó", "o").replace(" ", "_")
+            clasif = "discusion" if clasif in ("en_discusion", "discusión") else clasif
+            if clasif not in CLASIFICACIONES:
+                clasif = "discusion"
+            novedad = {"aporta": aporta, "clasificacion": clasif, **_fuente_de(it, hoy)}
+            novedad["fuente"] = novedad.pop("nombre")
+            cambio = calidad.ajustar_clasificacion(novedad, [it])
+            if cambio:
+                registro.append({"tema": nombre, "url": it["url"], "motivo": cambio})
+            tema["novedades"].append(novedad)
+            tema["_textos"].append(aporta)
+        nombre_crudo = str(crudo.get("tema") or "").strip().lower()
+        linea = limpiar_texto(str(crudo.get("linea_principal") or ""))
+        for nombre, tema in temas.items():
+            if nombre.lower() == nombre_crudo and linea and not tema["linea"]:
+                notas_tema = [it for it in items if it.get("tema") == nombre]
+                tema["linea"], quitadas = calidad.depurar_texto(linea, calidad.texto_items(notas_tema))
+                for q in quitadas:
+                    registro.append({"tema": nombre, "motivo": f"línea principal: {q}"})
+    resultado = []
+    for tema in temas.values():
+        tema.pop("_textos")
+        if tema["novedades"]:
+            resultado.append(tema)
+    return resultado
+
+
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
-            previos=None, corte: datetime | None = None) -> dict:
+            previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None) -> dict:
     """Devuelve {'tarjetas', 'escena_latam', 'controles', 'uso'} o lanza ErrorModelo."""
     previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
     modelo = modelo_configurado(ajustes)
@@ -331,4 +408,5 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
                                    previos, False, registro)
     latam = _construir_tarjetas(datos.get("escena_latam"), items, ajustes.get("max_tarjetas_latam", 6), usados, hoy,
                                 previos, True, registro)
-    return {"tarjetas": tarjetas, "escena_latam": latam, "controles": registro, "uso": uso}
+    temas = construir_temas(datos.get("temas"), items, hoy, publicado_temas, registro)
+    return {"tarjetas": tarjetas, "escena_latam": latam, "temas": temas, "controles": registro, "uso": uso}

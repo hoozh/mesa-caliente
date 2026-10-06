@@ -1,0 +1,11 @@
+{
+  "nota": "Temas en vigilancia, editables a mano o con el botón «Gestionar tema caliente» en Actions. Cada tema: nombre, palabras_clave (lista), alta (fecha) y estado (activo o inactivo). Las notas que mencionan una palabra clave de un tema activo entran siempre y van primero.",
+  "temas": [
+    {
+      "nombre": "Caso Paul Gregg (malware MeshAgent)",
+      "palabras_clave": ["Paul Gregg", "MeshAgent", "superuser"],
+      "alta": "2026-10-06",
+      "estado": "activo"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "nota": "Torneos cuyos avances de día 1 sí se publican. Los demás avances de día 1 se descartan. Para agregar uno, copie un bloque y cambie el nombre y las claves (palabras que aparecen en el titular).",
+  "internacionales": [
+    {"nombre": "WSOP", "claves": ["WSOP", "WSOPC", "World Series of Poker", "WSOP Circuit", "WSOP Online", "WSOP Europe", "WSOP Paradise", "WSOP Super Circuit"]},
+    {"nombre": "EPT", "claves": ["EPT", "European Poker Tour"]},
+    {"nombre": "WPT", "claves": ["WPT", "World Poker Tour"]},
+    {"nombre": "Triton", "claves": ["Triton"]},
+    {"nombre": "WCOOP", "claves": ["WCOOP"]},
+    {"nombre": "SCOOP", "claves": ["SCOOP"]},
+    {"nombre": "PokerGO Tour", "claves": ["PokerGO Tour", "PGT"]}
+  ],
+  "regionales": [
+    {"nombre": "CAP Circuito Argentino de Poker", "claves": ["CAP", "Circuito Argentino de Poker"]},
+    {"nombre": "LAPT", "claves": ["LAPT", "Latin American Poker Tour"]},
+    {"nombre": "BSOP", "claves": ["BSOP", "Brazilian Series of Poker"]}
+  ]
+}
