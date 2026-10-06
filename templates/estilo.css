@@ -451,6 +451,9 @@
 /* ---- Temas calientes ---- */
   .badge.tema{background:var(--accent-ink);color:var(--surface);}
   .badge.tema::before{background:var(--surface);}
+  .badge.nivel2{background:transparent;color:var(--ink-dim);border:1px solid currentColor;}
+  .badge.nivel2::before{display:none;}
+  .meta-dia{font-size:1rem;}
   article.card-tema{border-color:var(--accent);border-width:2px;}
   ul.tema-novedades{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
   ul.tema-novedades li{padding:10px 12px;background:var(--surface-2);border-radius:8px;}

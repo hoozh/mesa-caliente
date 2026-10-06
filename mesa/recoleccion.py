@@ -220,6 +220,7 @@ def _item(fuente: dict, url: str, titulo: str, fecha: datetime | None, linea: st
         "idioma": fuente.get("idioma"),
         "region": fuente.get("region"),
         "clase": fuente.get("clase", "medio"),
+        "tematica": fuente.get("tematica", "poker"),
     }
 
 
@@ -315,7 +316,7 @@ def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: 
 def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str],
                ajustes: dict, descargar: Descargador = descargar_http,
                corte: datetime | None = None, prioridad=None,
-               descartar_dia1=None) -> tuple[list[dict], list[dict], list[str]]:
+               descartar_dia1=None, leidos: list | None = None) -> tuple[list[dict], list[dict], list[str]]:
     """Consulta las fuentes, actualiza su salud y devuelve
     (titulares nuevos, informe por fuente, URLs de todo lo recogido)."""
     if corte is None:
@@ -343,6 +344,8 @@ def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str]
             continue
         salud.registrar_exito(fuente, hoy, len(items))
         recogidos.extend(it["url"] for it in items)
+        if leidos is not None:  # todo lo leído, para la recuperación de la meta diaria
+            leidos.append({"fuente": fuente["nombre"], "items": items})
         hosts = {host_de(it["url"]).removeprefix("www.") for it in items}
         primera_vez = not (hosts & hosts_vistos)
         tomados, conteo = filtrar_fuente(items, vistos | ya, corte, ahora, tope_fuente, primera_vez,

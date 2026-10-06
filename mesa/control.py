@@ -190,7 +190,9 @@ _NO_NOMBRES = set(_GENERICAS) | {
     "comentarista", "presentador", "presentadora", "entrenador", "ceo", "dueno", "propietario", "jefe", "argentina", "latinoamericana", "nacionalidad",
     "escandalo", "caso", "polemica", "regla", "ley", "proyecto", "avance", "confirma", "confirmado",
     "rumor", "discusion", "actualizacion", "novedad", "lunes", "martes", "miercoles", "jueves", "viernes",
-    "sabado", "domingo", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+    "sabado", "domingo", "londres", "lisboa", "praga", "viena", "seul", "pekin", "moscu", "atenas", "varsovia",
+    "bruselas", "ginebra", "estambul", "marruecos", "sudafrica", "japon", "alemania", "francia", "italia",
+    "espana", "inglaterra", "escocia", "irlanda", "grecia", "turquia", "chipre", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
     "septiembre", "octubre", "noviembre", "diciembre",
 } | {_sin_tildes(p) for nombre in PAISES for p in nombre.split()}
 

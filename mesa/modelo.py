@@ -211,7 +211,8 @@ def _previo_indicado(valor, previos: list[dict]) -> dict | None:
 
 def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int], hoy=None,
                         previos=None, es_latam: bool = False,
-                        registro: list[dict] | None = None, enviado: str | None = None) -> list[dict]:
+                        registro: list[dict] | None = None, enviado: str | None = None,
+                        recuperacion: dict | None = None) -> list[dict]:
     previos = normalizar_previos(previos)
     titulos_previos = [p["titulo"] for p in previos]
     enviado = texto_enviado(items) if enviado is None else enviado
@@ -220,8 +221,10 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
     if not isinstance(crudas, list):
         return tarjetas
 
+    nombres_fuentes: list[str] = []
+
     def descartar(titulo, motivo, **extra):
-        registro.append({"titulo": titulo, "motivo": motivo, **extra})
+        registro.append({"titulo": titulo, "motivo": motivo, "fuentes": list(nombres_fuentes), **extra})
 
     for c in crudas:
         if len(tarjetas) >= maximo or not isinstance(c, dict):
@@ -236,6 +239,7 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
                 ids.append(i)
         # Las notas de temas calientes van solo en su tarjeta de tema.
         ids = [i for i in ids if not items[i - 1].get("tema")]
+        nombres_fuentes[:] = [items[i - 1]["fuente"] for i in ids]
         titulo = limpiar_texto(str(c.get("titulo") or ""))
         resumen = limpiar_texto(str(c.get("resumen") or ""))
         clasif = str(c.get("clasificacion") or "").lower().replace("ó", "o").replace(" ", "_")
@@ -280,6 +284,15 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             tarjeta["actualiza"] = previo["titulo"]
             tarjeta["novedad"] = novedad
 
+        # Segundo nivel (solo en la recuperación de la meta diaria): únicamente fuentes oficiales o medios.
+        if c.get("nivel") in (2, "2"):
+            if not recuperacion:
+                descartar(titulo, "segundo nivel fuera de la recuperación")
+                continue
+            if any(it.get("clase", "medio") not in ("oficial", "medio") for it in fuentes_items):
+                descartar(titulo, "segundo nivel: solo se admiten fuentes oficiales o medios")
+                continue
+            tarjeta["nivel"] = 2
         # Regla máxima: todo se verifica contra el texto enviado para ESTA tarjeta (sus fuentes).
         texto_tarjeta = calidad.texto_items(fuentes_items)
         conservar, cambios = control.verificar_nombres(tarjeta, texto_tarjeta)
@@ -385,15 +398,65 @@ def construir_temas(crudos, items: list[dict], hoy, publicado: dict[str, str] | 
     return resultado
 
 
+def _limitar_segundo_nivel(tarjetas: list[dict], latam: list[dict], faltan: int, registro: list[dict]):
+    """El segundo nivel solo completa lo que falta para la meta: nunca la supera."""
+    primer_nivel = sum(1 for t in tarjetas + latam if t.get("nivel") != 2)
+    cupo = max(0, faltan - primer_nivel)
+    resultado = []
+    for lista in (tarjetas, latam):
+        quedan = []
+        for t in lista:
+            if t.get("nivel") == 2:
+                if cupo <= 0:
+                    registro.append({"titulo": t["titulo"], "motivo": "segundo nivel: la meta ya se alcanzó",
+                                     "fuentes": [f["nombre"] for f in t["fuentes"]]})
+                    continue
+                cupo -= 1
+            quedan.append(t)
+        resultado.append(quedan)
+    return resultado[0], resultado[1]
+
+
+CATEGORIAS_DESCARTE = {
+    "promociones": ("nota promocional",),
+    "dia1": ("avance de día 1",),
+    "sin_dato": ("sin dato concreto", "resultado sin nombre del ganador"),
+    "sin_respaldo": ("título con datos", "«qué cambió» con datos", "resumen vacío", "nombre no presente",
+                     "novedad sin datos rastreables", "en el título"),
+    "repetidas": ("repetida",),
+    "sin_poker": ("sin relación con el poker",),
+    "segundo_nivel": ("segundo nivel",),
+}
+NOMBRES_CATEGORIAS = {"promociones": "promociones", "dia1": "avances de día 1", "sin_dato": "sin dato concreto",
+                      "sin_respaldo": "sin respaldo en la fuente", "repetidas": "repetidas sin dato nuevo",
+                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido"}
+
+
+def categoria_descarte(motivo: str) -> str | None:
+    """Regla fija que causó el descarte de una tarjeta o nota (None si fue una corrección, no un descarte)."""
+    for categoria, prefijos in CATEGORIAS_DESCARTE.items():
+        if any(motivo.startswith(p) or (p == "en el título" and p in motivo) for p in prefijos):
+            return categoria
+    return None
+
+
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
-            previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None) -> dict:
+            previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
+            recuperacion: dict | None = None, max_tokens: int | None = None) -> dict:
     """Devuelve {'tarjetas', 'escena_latam', 'controles', 'uso'} o lanza ErrorModelo."""
     previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
     modelo = modelo_configurado(ajustes)
     sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 12),
                              max_latam=ajustes.get("max_tarjetas_latam", 6))
     mensaje = construir_mensaje(items, previos, corte)
-    texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_salida", 3000))
+    if recuperacion:
+        mensaje = (f"CORRIDA DE RECUPERACIÓN. Hoy hay {recuperacion['publicadas']} tarjetas publicadas; la meta es "
+                   f"{recuperacion['meta']}. Faltan {recuperacion['faltan']}. Estas notas son de las últimas 48 horas o no se "
+                   "eligieron antes. Elija primero hechos relevantes. Solo si no alcanzan, puede agregar hechos de segundo "
+                   "nivel (resultados de torneos menores, novedades de salas o circuitos con dato concreto) marcando "
+                   '"nivel": 2, y solo de notas de clase oficial o medio. Todas las reglas siguen igual: nunca invente ni '
+                   "complete datos para llegar a la meta; si no hay suficientes hechos, devuelva menos tarjetas.\n\n" + mensaje)
+    texto, uso = llamar(sistema, mensaje, modelo, max_tokens or ajustes.get("max_tokens_salida", 3000))
     uso = dict(uso)
     uso["modelo"] = modelo
     uso["costo_usd"] = costo_estimado(modelo, uso.get("tokens_entrada", 0), uso.get("tokens_salida", 0), ajustes)
@@ -405,8 +468,10 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
     usados: set[int] = set()
     registro: list[dict] = []
     tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 12), usados, hoy,
-                                   previos, False, registro)
+                                   previos, False, registro, recuperacion=recuperacion)
     latam = _construir_tarjetas(datos.get("escena_latam"), items, ajustes.get("max_tarjetas_latam", 6), usados, hoy,
-                                previos, True, registro)
+                                previos, True, registro, recuperacion=recuperacion)
+    if recuperacion:
+        tarjetas, latam = _limitar_segundo_nivel(tarjetas, latam, recuperacion["faltan"], registro)
     temas = construir_temas(datos.get("temas"), items, hoy, publicado_temas, registro)
     return {"tarjetas": tarjetas, "escena_latam": latam, "temas": temas, "controles": registro, "uso": uso}
