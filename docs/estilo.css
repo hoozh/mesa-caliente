@@ -447,3 +447,18 @@
   details.discards{margin:0 0 8px;}
   details.discards summary{cursor:pointer;color:var(--accent-ink);font-weight:600;}
   details.discards ul{margin:8px 0 0;padding-left:18px;}
+
+/* ---- Temas calientes ---- */
+  .badge.tema{background:var(--accent-ink);color:var(--surface);}
+  .badge.tema::before{background:var(--surface);}
+  .badge.nivel2{background:transparent;color:var(--ink-dim);border:1px solid currentColor;}
+  .badge.nivel2::before{display:none;}
+  .meta-dia{font-size:1rem;}
+  article.card-tema{border-color:var(--accent);border-width:2px;}
+  ul.tema-novedades{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  ul.tema-novedades li{padding:10px 12px;background:var(--surface-2);border-radius:8px;}
+  .tema-aporta{margin:6px 0 4px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .tema-fuente{margin:0;font-size:12.5px;color:var(--ink-dim);}
+  section.vigilancia{margin:0 0 24px;padding:12px 16px;border:1px solid var(--accent);border-radius:10px;background:var(--surface);}
+  section.vigilancia h2{font-size:15px;margin:0 0 6px;}
+  section.vigilancia ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink);}

@@ -1,0 +1,47 @@
+{
+  "temas": [
+    {
+      "nombre": "Tema: Ocean KO",
+      "palabras_clave": [
+        "Ocean KO"
+      ],
+      "alta": "2026-10-07",
+      "ultima_novedad": "2026-10-07",
+      "fuentes": [
+        "codigopoker.com",
+        "poker-red.com",
+        "pokerlistings.com",
+        "pokernoticias.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Sam Soverel",
+      "palabras_clave": [
+        "Sam Soverel"
+      ],
+      "alta": "2026-10-07",
+      "ultima_novedad": "2026-10-05",
+      "fuentes": [
+        "poker-red.com",
+        "pokernews.com",
+        "tightpoker.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Britney Jing",
+      "palabras_clave": [
+        "Britney Jing"
+      ],
+      "alta": "2026-10-07",
+      "ultima_novedad": "2026-10-05",
+      "fuentes": [
+        "poker.org",
+        "pokernews.com",
+        "reddit.com"
+      ],
+      "estado": "activo"
+    }
+  ]
+}
