@@ -1,0 +1,481 @@
+{
+  "fecha": "2026-10-09",
+  "corridas": [
+    {
+      "id": "2026-10-09T12:00:23Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/open-source-superuser-detection-software-released-to-public-52549.htm",
+          "titular": "New Open-Source Superuser Detection Software Released to the Public",
+          "primera_frase": "AceGuardian releases open-source code to detect poker superusers following recent scandal",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/video/poker-s-biggest-security-scandal-superuser-steals-hundreds-o-13509.htm",
+          "titular": "Poker’s Biggest Security Scandal? Superuser Steals Hundreds of Thousands | PokerNews Podcast #1,010",
+          "primera_frase": "On this episode of the PokerNews Podcast, Chad is joined by Mike Holtz and Connor Richards where they discuss the superuser scandal where a player stole hundreds of thousands of dollars from opponents",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/podcast/pokernews-podcast/pokernews-podcast-1010-superuser-cheating-britney-hcl-52566.htm",
+          "titular": "Superuser Steals Hundreds of Thousands in Online Poker Cyber Attack; Britney HCL Drama | PokerNews Podcast #1,010",
+          "primera_frase": "Plus, the slide dealing debate is back in the poker spotlight.",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 4,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/muchos-jugadores-profesionales-tienen-a-un-paul-gregg-dentro",
+          "titular": "Muchos jugadores profesionales tienen a un Paul Gregg dentro",
+          "primera_frase": "ASSES",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/quintace-libera-una-herramienta-open-source-para-detectar-superusers",
+          "titular": "QuintAce libera una herramienta open source para detectar superusers",
+          "primera_frase": "Paul Gregg",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/erik-seidel-runner-up-in-las-vegas-backgammon-tournament-52576.htm",
+          "titular": "Erik Seidel Finishes Second in First Backgammon Tournament in Over 40 Years",
+          "primera_frase": "Form is temporary, class is permanent"
+        },
+        {
+          "n": 7,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/over-5-million-guaranteed-prizes-across-three/",
+          "titular": "Over $5 Million in Guaranteed Prizes Across Three Festivals at WSOP Online This Fall",
+          "primera_frase": ""
+        },
+        {
+          "n": 8,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/2026-wsop-player-of-the-year-to-culminate-at-wsop-paradise/",
+          "titular": "2026 WSOP PLAYER OF THE YEAR TO CULMINATE AT WSOP PARADISE",
+          "primera_frase": "Top 100 players to share in $1,000,000 in 2026 WSOP Player of the Year (POY) leaderboard prizes, with the race ending with a finale at WSOP Paradise 2026."
+        },
+        {
+          "n": 9,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/france-strengthens-safeguards-in-gambling-ads-under-new-anj-boss/",
+          "titular": "France Strengthens Safeguards in Gambling Ads under New ANJ Boss",
+          "primera_frase": "France has strengthened the obligations of licensed operators when it comes to gambling advertising in the country, with the Autorité Nationale des Jeux (ANJ), the country’s gambling watchdog, announc"
+        },
+        {
+          "n": 10,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/inaugural-acr-poker-ladies-online-championship-becomes-a-massive-success",
+          "titular": "Inaugural ACR Poker Ladies Online Championship Becomes a Massive Success",
+          "primera_frase": "On October 4th, 2026, Katie Lindsay hosted the first-ever all-female online tournament on ACR Poker."
+        },
+        {
+          "n": 11,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1759885-leaderboard-sean-winter-tops-pgt-standings-heading-into-final-stretch",
+          "titular": "Leaderboard: Sean Winter Tops PGT Standings Heading Into Final Stretch",
+          "primera_frase": "With $99.9 million awarded so far, Sean Winter and Eelis Parssinen sit neck-and-neck atop the PGT standings heading into the final stretch."
+        },
+        {
+          "n": 12,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/why-the-apt-championship-is-different-abuCb7u3zWpc/",
+          "titular": "Why the APT Championship is different",
+          "primera_frase": "The Asian Poker Tour's end-of-year Championship series is unlike anything else."
+        },
+        {
+          "n": 13,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225636-online-pokers-2026-fall-tournament-season",
+          "titular": "Online Poker’s 2026 Fall Tournament Season Generates Record $600M+ Prize Money",
+          "primera_frase": "Online poker’s biggest fall tournament season has come to an end, with the major series now wrapped up and the numbers produced across the market reaching record levels."
+        },
+        {
+          "n": 14,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1itab/20knl_awkward_spot_w_2p_facing_huge_jam/",
+          "titular": "$20KNL: Awkward spot w 2p facing huge jam",
+          "primera_frase": "$20KNL on Coin, Linus opens, call call call, BB folds."
+        },
+        {
+          "n": 15,
+          "fuente": "blog.gtowizard.com",
+          "url": "https://blog.gtowizard.com/responding-to-3-bets-in-straddle-ante-games/",
+          "titular": "Responding to 3-bets in Straddle+Ante Games",
+          "primera_frase": "Previously, we explored opening and 3-betting in Straddle+Ante games."
+        },
+        {
+          "n": 16,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/sean-rafael-claims-wins-2026-super-high-roller-bowl-plo-vi-title/",
+          "titular": "Sean Rafael Claims Wins 2026 Super High Roller Bowl PLO VI Title",
+          "primera_frase": "Huge Pot Limit Omaha tournaments are only getting bigger and this week’s 2026 PGT Super High Roller Bowl PLO VI was no exception."
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/lanzan-herramienta-codigo-abierto-para-detectar-superusers-53996.htm",
+          "titular": "Lanzan una herramienta de código abierto para detectar “superusers” en el póker online",
+          "primera_frase": "AceGuardian publica gratuitamente su sistema de detección.",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/leo-jokura-campeao-mystery-bounty-main-event-888-67806.htm",
+          "titular": "Léo Jokura volta ao topo do pódio no 888 com título do Mystery Bounty Main Event",
+          "primera_frase": "O streamer do site anotou mais uma vitória no currículo"
+        },
+        {
+          "n": 19,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/por-que-el-plo-esta-atrayendo-cada-vez-mas-a-la-elite-latina/",
+          "titular": "¿Por qué el PLO está atrayendo cada vez más a la élite latina?",
+          "primera_frase": "El Pot-Limit Omaha gana protagonismo en el circuito internacional y los jugadores latinoamericanos están demostrando su talento en una modalidad que combina estrategia, acción y millonarios premios."
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/wsop/agenda-wsop-circuit-panama",
+          "titular": "Así se vivirá la agenda WSOP Circuit Panamá: mira el programa completo",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/sean-rafael-denies-joao-simao-in-shrb-plo-52560.htm",
+          "titular": "Poker Pro on Heater Has Over $10 Million in Cashes in Under a Month",
+          "primera_frase": "Joao Simao has been on a heater to remember."
+        },
+        {
+          "n": 22,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/888-pokers-youtube-channel-hits-major-milestone/",
+          "titular": "888 Poker’s YouTube Channel Hits Major Milestone, Reaching 500,000 Subscribers",
+          "primera_frase": ""
+        },
+        {
+          "n": 23,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/kingwins-players-should-find-a-destination-not-just-a-grid-of-games/",
+          "titular": "KingWins: ‘Players should find a destination, not just a grid of games’",
+          "primera_frase": "KingWins has launched in the US social gaming market with a product combining almost 5,000 casino-style games, proprietary Originals, player-versus-player poker and a social sportsbook."
+        },
+        {
+          "n": 24,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/a-2-for-1-special-wpt-global-puts-a-50k-tournament-on-the-schedule",
+          "titular": "A 2-For-1 Special: WPT Global Puts a $50K Tournament on the Schedule",
+          "primera_frase": "October is usually the month when poker rooms start coming out with their yearly take on Halloween — WPT Global, however, seems to have fast forwarded to Black Friday."
+        },
+        {
+          "n": 25,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1758257-watch-rapper-offset-gets-in-heated-argument-over-high-stakes-blackjack",
+          "titular": "WATCH: Rapper Offset Gets In Heated Argument Over High-Stakes Blackjack",
+          "primera_frase": "The award-winning rapper was upset with staff over other players playing at his high-stake blackjack table at a Paris casino."
+        },
+        {
+          "n": 26,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/sean-rafael-hits-1.15m-high-score-in-wire-to-wire-shrb-plo-iv-win-aYzJz7R1lOe4/",
+          "titular": "Sean Rafael hits $1.15M high score in wire-to-wire SHRB PLO IV win",
+          "primera_frase": "Sean Rafael has a new career-best score after triumphing over the 32-entry field in the PokerGo Tour $100K Super High Roller Bowl PLO IV."
+        },
+        {
+          "n": 27,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1i542/what_happened_here/",
+          "titular": "What happened here?",
+          "primera_frase": "I am not an experienced player, but I have been playing online off and on for a few years with long breaks between times."
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/pokernews-online-championship-destaque-888-67803.htm",
+          "titular": "PokerNews Online Championship retorna e é destaque do 888 para outubro; saiba mais",
+          "primera_frase": "A série acontece de 18 a 27 de outubro, com 40 eventos e quase US$ 800 mil em premiações"
+        },
+        {
+          "n": 29,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/de-las-bodas-al-casino-la-mujer-que-convirtio-el-matrimonio-en-su-banca-de-juego-y-termino-condenada/",
+          "titular": "De las bodas al casino: la mujer que convirtió el matrimonio en su banca de juego y terminó condenada",
+          "primera_frase": "Lo que comenzó como una serie de relaciones sentimentales terminó destapando una millonaria red de engaños en Las Vegas."
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/el-menu-del-restaurante-escondia-un-casino-ilegal-18-detenidos",
+          "titular": "El menú del restaurante escondía un… casino ilegal: 18 detenidos",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/10/poker-players-have-this-leak-are-you-one-of-them-52569.htm",
+          "titular": "90% of Poker Players Have This Leak. Are You One of Them?",
+          "primera_frase": "Is your red line hurting your poker profits?"
+        },
+        {
+          "n": 32,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/online-poker/social-poker/poker-patio/",
+          "titular": "Poker Patio Review",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/colorado-man-sues-mgm-grand-over-security-causing-him-a-brain-injury/",
+          "titular": "Colorado Man Sues MGM Grand Over Security Causing Him a Brain Injury",
+          "primera_frase": "Denis Matthew Lanctot has filed a lawsuit against MGM Grand, alleging that a property security guard tackled him in his hotel room, causing him a mild brain injury."
+        },
+        {
+          "n": 34,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1757808-class-action-lawsuit-alleges-draftkings-targets-problem-gamblers-with-ai",
+          "titular": "Class-Action Lawsuit Alleges DraftKings Targets Problem Gamblers With AI",
+          "primera_frase": "A new federal class action claims that DraftKings uses artificial intelligence to target customers who are struggling with problem gambling."
+        },
+        {
+          "n": 35,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
+          "titular": "QuintAce unveils open-source weapon against online ‘superusers’",
+          "primera_frase": "Could a new solution and playbook for online poker operators help win the war on 'superusers'?",
+          "con_extracto": true
+        },
+        {
+          "n": 36,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1gny3/live_12_ako_facing_a_20_ep_raise_from_a_passive/",
+          "titular": "Live 1/2: AKo facing a $20 EP raise from a passive rec.. is 3-betting actually a mistake?",
+          "primera_frase": "$1/$2 live cash game, $400 effective. One player limps, and a passive rec in EP raises to $20."
+        },
+        {
+          "n": 37,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/joao-simao-vice-super-high-roller-bowl-plo-67798.htm",
+          "titular": "João Simão é vice no Super High Roller Bowl PLO e expande fase insana",
+          "primera_frase": "O mineiro adicionou mais US$ 775 mil ao seu currículo de resultados"
+        },
+        {
+          "n": 38,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/cesar-garcia-y-lautaro-guerra-destacan-en-el-super-high-roller-bowl-plo-dos-espanoles-entre-la-elite-mundial/",
+          "titular": "César García y Lautaro Guerra destacan en el Super High Roller Bowl PLO: dos españoles entre la élite mundial",
+          "primera_frase": "El poker español volvió a demostrar su fortaleza en los torneos de altas apuestas."
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/erik-seidel-jugo-un-torneo-de-backgammon-despues-de-40-anos-y-asi-le-fue",
+          "titular": "Erik Seidel jugó un torneo de Backgammon después de 40 años y así le fue",
+          "primera_frase": ""
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/2026-betrivers-poker-championship-recap-1-52567.htm",
+          "titular": "$410K+ Awarded Headed Into 2026 BetRivers Poker Championship Weekend Final",
+          "primera_frase": "The 2026 BetRivers Poker Championship is entering its final weekend."
+        },
+        {
+          "n": 41,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/wynn-uae-casino-to-surpass-revenue-forecasts/",
+          "titular": "Wynn UAE Casino to Surpass Revenue Forecasts",
+          "primera_frase": "Wynn Resorts could generate more gaming revenue than expected from its planned casino resort in the United Arab Emirates (UAE), Wolfe Research said."
+        },
+        {
+          "n": 42,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1758249-ohio-issues-cease-and-desists-to-prediction-market-operators",
+          "titular": "Ohio Issues Cease-And-Desists To Prediction Market Operators",
+          "primera_frase": "This week in prediction markets: Ohio issued cease-and-desists to 10 prediction market operators."
+        },
+        {
+          "n": 43,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/lee-jones-poker-with-charley-playing-cards-in-steinbeck-country-aMbV59f17PdH/",
+          "titular": "Lee Jones: Poker with Charley – playing cards in Steinbeck Country",
+          "primera_frase": "Lee Jones visits a couple of poker rooms in Monterey County, California, where John Steinbeck did much of his writing."
+        },
+        {
+          "n": 44,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1g105/uk_pokerstars_players/",
+          "titular": "UK PokerStars players",
+          "primera_frase": "How are you finding the switch to Betfair?"
+        },
+        {
+          "n": 45,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/bsop-millions-novo-dia-satelite-direto-pokerstars-67797.htm",
+          "titular": "BSOP Millions ganha novo dia de satélite direto no PokerStars; saiba mais",
+          "primera_frase": "Agora as quartas-feiras também terão vagas distribuídas para o Main Event"
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/imparable-joao-simao-ya-esta-en-el-dia-2-del-super-high-roller-bowl-xi",
+          "titular": "Imparable: Joao Simao ya está en el Día 2 del Super High Roller Bowl XI",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/10/rivers-casino-philadelphia-pays-out-yet-another-jackpot-52572.htm",
+          "titular": "Rivers Casino Philadelphia Pays Out Yet Another Jackpot",
+          "primera_frase": "A player at Rivers Casino Philadelphia hits a near $700,000 jackpot."
+        },
+        {
+          "n": 48,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/biloxi-approves-black-marlin-casino-plan-as-protesters-lament-tree-removal/",
+          "titular": "Biloxi Approves Black Marlin Casino Plan as Protesters Lament Tree Removal",
+          "primera_frase": "The proposed Black Marlin Casino took a step forward when the Biloxi City Council approved a zoning change for the project, but the move was met with opposition over the removal of protected trees at "
+        },
+        {
+          "n": 49,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1fyzl/some_pokerplayers_here_frome_augsburg/",
+          "titular": "Some Pokerplayers here frome Augsburg ?",
+          "primera_frase": "As the title shows I want to connect to people in my town Augsburg submitted by /u/Zeis76 [link] [comentarios]"
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/lanzan-un-set-de-fichas-de-poker-inspirado-en-la-saga-de-peliculas-de-john-wick",
+          "titular": "Lanzan un set de fichas de poker inspirado en la saga de películas de John Wick",
+          "primera_frase": ""
+        },
+        {
+          "n": 51,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/10/ladbrokes-backed-adrenaline-junkies-bring-new-meaning-to-hig-52565.htm",
+          "titular": "Ladbrokes-Backed Adrenaline Junkies Bring New Meaning to \"High Stakes\"",
+          "primera_frase": "Ladbrokes commissions a skydiving Blackjack stunt"
+        },
+        {
+          "n": 52,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/house-of-horrors-suspect-connected-to-illegal-gambling-investigation/",
+          "titular": "“House of Horrors” Suspect Connected to Illegal Gambling Investigation",
+          "primera_frase": "A California, US, real estate investor who has been accused of abusing children at his Arcadia mansion is also reportedly connected to a separate investigation into an alleged illegal casino and drug "
+        },
+        {
+          "n": 53,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1dxfx/this_was_supposed_to_be_my_apl_million_warmup/",
+          "titular": "This Was Supposed to Be My APL Million Warm-Up…",
+          "primera_frase": "submitted by /u/Additional-Low7235 [link] [comentarios]"
+        },
+        {
+          "n": 54,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/wsop/volvio-por-la-revancha-y-gano-el-anillo-del-wsop-circuit",
+          "titular": "Volvió por la revancha y ganó el anillo del WSOP Circuit",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 55,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/ahead-of-key-nebraska-vote-draftkings-and-fanduel-add-another-7m/",
+          "titular": "Ahead of Key Nebraska Vote: DraftKings and FanDuel Add Another $7M",
+          "primera_frase": "DraftKings and FanDuel have each contributed another $3.5 million to the campaign aimed at legalizing online sports betting in Nebraska."
+        },
+        {
+          "n": 56,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1dnhb/salas_de_poker_medellín/",
+          "titular": "Salas de poker Medellín",
+          "primera_frase": "submitted by /u/Ill_Charity_2855 [link] [comentarios]"
+        },
+        {
+          "n": 57,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/lanzan-una-herramienta-para-detectar-tramposos-en-el-poker-online",
+          "titular": "Lanzan una herramienta para detectar tramposos en el poker online",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 58,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/macquarie-is-bullish-on-gambling-stocks-and-prediction-markets-growth/",
+          "titular": "Macquarie Is Bullish on Gambling Stocks and Prediction Markets Growth",
+          "primera_frase": "Macquarie, one of Australia’s largest banks, remains positive on gaming stocks heading into the Q3 results season, despite gambling companies’ shares falling 12% over the past month."
+        },
+        {
+          "n": 59,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1cpil/check_nut_flush_on_paired_board_multiway/",
+          "titular": "Check nut flush on paired board multi-way",
+          "primera_frase": "Game: Live $1/$2 NLHE, 9-handed, no ante."
+        },
+        {
+          "n": 60,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/dan-cates-gano-casi-us40k-con-una-escalera-de-color-en-el-hellmuths-home-game",
+          "titular": "Dan Cates ganó casi US$40K con una escalera de color en el Hellmuth’s Home Game",
+          "primera_frase": ""
+        },
+        {
+          "n": 61,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/kingwins-launches-a-new-online-sweepstakes-casino-in-the-us/",
+          "titular": "KingWins Launches a New Online Sweepstakes Casino in the US",
+          "primera_frase": "Launched in partnership with GameBridge, KingWins is a new sweepstakes casino operated by ECOMENTERPRISEUSA INC., which also operates KingPrize and MegaPrize, and it promises thousands of games presen"
+        },
+        {
+          "n": 62,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1co6b/made_a_tournament_final_table_for_the_first_time/",
+          "titular": "Made a tournament final table for the first time tonight. Thank you /r/poker for all of the knowledge.",
+          "primera_frase": "Small $50 buy in.. 70 or so participants, went about 6 hours."
+        },
+        {
+          "n": 63,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/fue-all-in-contra-dos-jugadores-esquivo-casi-la-mitad-del-mazo-en-outs-y-gano-us60k",
+          "titular": "Fue all-in contra dos jugadores, esquivó casi la mitad del mazo en outs y ganó US$60K",
+          "primera_frase": ""
+        },
+        {
+          "n": 64,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/brazil-supreme-court-ruling-on-market-closure-may-come-after-the-elections/",
+          "titular": "Brazil Supreme Court Ruling on Market Closure May Come After the Elections",
+          "primera_frase": "Industry experts believe the Brazilian Supreme Court’s decision regarding the sudden closure of the country’s regulated gambling sector may come after the nation’s general election."
+        },
+        {
+          "n": 65,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x1ca47/lets_be_real_nobody_trusts_hcl_live_anymore/",
+          "titular": "Let's be real. Nobody trusts HCL live anymore.",
+          "primera_frase": "Feldman, Robbie, Vertucci the perv, and now Britney."
+        },
+        {
+          "n": 66,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/por-la-alta-demanda-se-suman-satelites-online-para-el-bsop-millions-2026",
+          "titular": "Por la alta demanda, se suman satélites online para el BSOP Millions 2026",
+          "primera_frase": ""
+        }
+      ]
+    }
+  ]
+}
