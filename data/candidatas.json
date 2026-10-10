@@ -8,6 +8,15 @@
       "motivo": "Por qué se nota: PokerNewsDaily la citó como fuente original de una nota sobre la revisión regulatoria de Michigan al uso de IA y a los programas VIP de DraftKings. Es un medio especializado y recurrente en seguimiento legal y regulatorio de apuestas en EE.UU. que podría aportar cobertura temprana de temas normativos con impacto en el poker online (como ya pasó con Brasil o Florida en bloques anteriores de esta página).",
       "ejemplo": "https://www.legalsportsreport.com/279553/michigan-regulators-reviewing-issues-raised-in-draftkings-ai-vip-reports/",
       "origen": "importada"
+    },
+    {
+      "nombre": "quintace.ai",
+      "dominio": "quintace.ai",
+      "detectada": "2026-10-10",
+      "detectada_texto": "detectada el 10 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://quintace.ai/blog/biggest-online-cash-winners",
+      "origen": "automatica"
     }
   ],
   "menciones": [
@@ -106,6 +115,12 @@
       "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
       "enlace": "https://pairrd.com/?via=pokerorg",
       "fecha": "2026-10-09"
+    },
+    {
+      "dominio": "quintace.ai",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/software-gratuito-detectar-trapacas-poker-online-67812.htm",
+      "enlace": "https://quintace.ai/blog/superuser-detection-open-source",
+      "fecha": "2026-10-10"
     }
   ]
 }
