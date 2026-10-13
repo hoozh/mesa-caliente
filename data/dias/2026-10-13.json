@@ -1,0 +1,1108 @@
+{
+  "fecha": "2026-10-13",
+  "titulo": "13 de octubre de 2026",
+  "corridas": [
+    {
+      "id": "2026-10-13T12:00:23Z",
+      "origen": "externo",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "13 oct 2026",
+          "titulo": "Robert Gianquitti gana Main Event del WSOP Circuit Pompano Beach tras remontada",
+          "resumen": "Robert Gianquitti pasó de tener el stack más corto a campeón en el WSOP Circuit Main Event de Harrah's Pompano Beach el día final, según Poker.org.",
+          "fuentes": [
+            {
+              "nombre": "Poker.org",
+              "fecha": "2026-10-13",
+              "url": "https://www.poker.org/latest-news/no-quit-in-him-wsopc-pompano-main-event-wraps-with-worst-to-first-champ-aHyfq2K5qunt/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "12 oct 2026",
+          "titulo": "Mike Hurley defiende su territorio ganando RGPS St. Louis Main Event con US$ 52.597",
+          "resumen": "Mike Hurley ganó el RGPS St.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-10-12",
+              "url": "https://www.pokernews.com/news/2026/10/mike-hurley-defends-his-home-turf-with-the-rgps-st-louis-win-52585.htm",
+              "hora": "17:00"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "11 oct 2026",
+          "titulo": "AceGuardian libera código abierto para detectar superusers en poker online",
+          "resumen": "AceGuardian, enfocada en preservar la integridad del juego, publicó una metodología completa con código de acceso público para identificar de manera oportuna a tramposos que obtienen acceso a ver las cartas de rivales, basándose en métricas del poker.",
+          "fuentes": [
+            {
+              "nombre": "Poker Noticias",
+              "fecha": "2026-10-11",
+              "url": "https://pokernoticias.com/aceguardian-libero-un-codigo-abierto-para-la-caza-de-superusuarios-lo-que-las-metricas-del-poker-revelan/",
+              "hora": "19:25"
+            }
+          ],
+          "recuperada": true
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "12 oct 2026",
+          "titulo": "West Virginia: casinos online generan US$ 38,8 millones en septiembre de 2026",
+          "resumen": "Los casinos online en West Virginia registraron ingresos de US$ 38,8 millones durante septiembre de 2026, según datos de Market Monitor.",
+          "fuentes": [
+            {
+              "nombre": "Poker Industry PRO",
+              "fecha": "2026-10-12",
+              "url": "https://pokerindustrypro.com/news/article/225689-market-monitor-west-virginia-september-2026",
+              "hora": "08:58"
+            }
+          ],
+          "nivel": 2,
+          "recuperada": true
+        }
+      ],
+      "escena_latam": {
+        "tarjetas": [],
+        "texto": "Sin novedades relevantes de la escena argentina y latinoamericana en esta corrida."
+      },
+      "notas": [],
+      "uso": {
+        "tokens_entrada": 8100,
+        "tokens_salida": 2074,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.01847
+      },
+      "recoleccion": {
+        "corte": "2026-10-12T09:00:24Z",
+        "motivo_corte": "última corrida exitosa (2026-10-12 12:00 UTC) menos 3 horas",
+        "descartes": {
+          "totales": {
+            "por_fecha": 135,
+            "por_orden": 172,
+            "por_tope": 10,
+            "por_dia1": 0,
+            "ya_vistos": 4
+          },
+          "por_fuente": {
+            "PokerNews": {
+              "modo": "fecha",
+              "por_fecha": 11,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 1,
+              "enviados": 8
+            },
+            "Pokerfuse": {
+              "modo": "fecha",
+              "por_fecha": 9,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 3
+            },
+            "WSOP.com": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 10,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            },
+            "GamblingNews": {
+              "modo": "fecha",
+              "por_fecha": 0,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 10
+            },
+            "PokerNewsDaily": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            },
+            "PokerListings": {
+              "modo": "fecha",
+              "por_fecha": 0,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 2
+            },
+            "CardPlayer": {
+              "modo": "fecha",
+              "por_fecha": 8,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 2
+            },
+            "Poker.org": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 96,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 4
+            },
+            "Poker Industry PRO": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 2
+            },
+            "Reddit r/poker": {
+              "modo": "fecha",
+              "por_fecha": 5,
+              "por_orden": 0,
+              "por_tope": 10,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 10
+            },
+            "blog.gtowizard.com": {
+              "modo": "fecha",
+              "por_fecha": 15,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            },
+            "Poker Media Australia": {
+              "modo": "fecha",
+              "por_fecha": 9,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 1
+            },
+            "tightpoker.com": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            },
+            "PokerNews en español": {
+              "modo": "fecha",
+              "por_fecha": 18,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 1,
+              "enviados": 1
+            },
+            "PokerNews Brasil": {
+              "modo": "fecha",
+              "por_fecha": 14,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 2,
+              "enviados": 4
+            },
+            "Poker Noticias": {
+              "modo": "fecha",
+              "por_fecha": 6,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 4
+            },
+            "Código Poker": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 21,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 10
+            },
+            "Poker Red": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 20,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 4
+            },
+            "Circuito Argentino de Poker": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            },
+            "Casino Club Liga Patagónica": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 25,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "enviados": 0
+            }
+          }
+        },
+        "titulares_recogidos": 386,
+        "titulares_nuevos": 65,
+        "titulares_enviados": 65,
+        "articulos_abiertos": 6,
+        "fuentes_ok": 20,
+        "fuentes_con_fallo": 1,
+        "fuentes_en_pausa": 0,
+        "detalle": [
+          {
+            "fuente": "PokerNews",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 8,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 11,
+            "por_orden": 0,
+            "ya_vistos": 1,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 1,
+            "por_tope_total": 0,
+            "enviados": 8
+          },
+          {
+            "fuente": "Pokerfuse",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 3,
+            "modo": "fecha",
+            "leidos": 12,
+            "por_fecha": 9,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 3
+          },
+          {
+            "fuente": "WSOP.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "orden",
+            "leidos": 10,
+            "por_fecha": 0,
+            "por_orden": 10,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "GamblingNews",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 10,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 0,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 10
+          },
+          {
+            "fuente": "PokerNewsDaily",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "PokerListings",
+            "resultado": "ok",
+            "titulares": 2,
+            "nuevos": 2,
+            "modo": "fecha",
+            "leidos": 2,
+            "por_fecha": 0,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "CardPlayer",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 2,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 8,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "Poker.org",
+            "resultado": "ok",
+            "titulares": 100,
+            "nuevos": 4,
+            "modo": "orden",
+            "leidos": 100,
+            "por_fecha": 0,
+            "por_orden": 96,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "Poker Industry PRO",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 2,
+            "modo": "fecha",
+            "leidos": 12,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "Reddit r/poker",
+            "resultado": "ok",
+            "titulares": 25,
+            "nuevos": 10,
+            "modo": "fecha",
+            "leidos": 25,
+            "por_fecha": 5,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 10,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 10
+          },
+          {
+            "fuente": "Two Plus Two",
+            "resultado": "fallo",
+            "motivo": "bloqueo del sitio (HTTP 403)"
+          },
+          {
+            "fuente": "blog.gtowizard.com",
+            "resultado": "ok",
+            "titulares": 15,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 15,
+            "por_fecha": 15,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "Poker Media Australia",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 1,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 9,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 1
+          },
+          {
+            "fuente": "tightpoker.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "PokerNews en español",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 1,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 18,
+            "por_orden": 0,
+            "ya_vistos": 1,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 1,
+            "por_tope_total": 0,
+            "enviados": 1
+          },
+          {
+            "fuente": "PokerNews Brasil",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 4,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 14,
+            "por_orden": 0,
+            "ya_vistos": 2,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 1,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "Poker Noticias",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 4,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 6,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "Código Poker",
+            "resultado": "ok",
+            "titulares": 31,
+            "nuevos": 10,
+            "modo": "orden",
+            "leidos": 31,
+            "por_fecha": 0,
+            "por_orden": 21,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 10
+          },
+          {
+            "fuente": "Poker Red",
+            "resultado": "ok",
+            "titulares": 24,
+            "nuevos": 4,
+            "modo": "orden",
+            "leidos": 24,
+            "por_fecha": 0,
+            "por_orden": 20,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 2,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "Circuito Argentino de Poker",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "Casino Club Liga Patagónica",
+            "resultado": "ok",
+            "titulares": 25,
+            "nuevos": 0,
+            "modo": "orden",
+            "leidos": 25,
+            "por_fecha": 0,
+            "por_orden": 25,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          }
+        ]
+      },
+      "controles": [
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews",
+          "modo": "fecha",
+          "por_fecha": 11,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 1,
+          "enviados": 8
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Pokerfuse",
+          "modo": "fecha",
+          "por_fecha": 9,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 3
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "WSOP.com",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 10,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "GamblingNews",
+          "modo": "fecha",
+          "por_fecha": 0,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 10
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNewsDaily",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerListings",
+          "modo": "fecha",
+          "por_fecha": 0,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "CardPlayer",
+          "modo": "fecha",
+          "por_fecha": 8,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker.org",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 96,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Industry PRO",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Reddit r/poker",
+          "modo": "fecha",
+          "por_fecha": 5,
+          "por_orden": 0,
+          "por_tope": 10,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 10
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "blog.gtowizard.com",
+          "modo": "fecha",
+          "por_fecha": 15,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Media Australia",
+          "modo": "fecha",
+          "por_fecha": 9,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 1
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "tightpoker.com",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews en español",
+          "modo": "fecha",
+          "por_fecha": 18,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 1,
+          "enviados": 1
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews Brasil",
+          "modo": "fecha",
+          "por_fecha": 14,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 2,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Noticias",
+          "modo": "fecha",
+          "por_fecha": 6,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Código Poker",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 21,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 10
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Red",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 20,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Circuito Argentino de Poker",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Casino Club Liga Patagónica",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 25,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "enviados": 0
+        },
+        {
+          "titulo": "GGPoker establece récord mundial con 420.084 entradas en Ocean KO Opener",
+          "motivo": "oración quitada (cifra «253.692»): «El torneo de US$ 5 Ocean KO Opener de GGPoker registró 420.0»",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "GGPoker establece récord mundial con 420.084 entradas en Ocean KO Opener",
+          "motivo": "oración quitada (cifra «43.938»): «El pool final alcanzó US$ 1.927.717, con primer premio de US»",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "GGPoker establece récord mundial con 420.084 entradas en Ocean KO Opener",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Ganador ucraniano triunfa con US$ 12.000 en 888 PokerNews Online Championship",
+          "motivo": "título con datos que no están en la fuente (cifra «12.000»)",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "TonyTheToenailcollector gana The One de CoinPoker con US$ 1 millón",
+          "motivo": "repetida",
+          "fuentes": [
+            "PokerListings"
+          ],
+          "previo": "The One de CoinPoker con US$ 5 millones garantizados avanza a Día 2 con 1.000 supervivientes"
+        },
+        {
+          "titulo": "888 se convierte en primer sitio de poker online regulado en Alberta",
+          "motivo": "oración quitada (cifra «13», fecha «octubre»): «888 ha lanzado poker online regulado en Alberta, convirtiénd»",
+          "fuentes": [
+            "Poker Industry PRO"
+          ]
+        },
+        {
+          "titulo": "888 se convierte en primer sitio de poker online regulado en Alberta",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Industry PRO"
+          ]
+        },
+        {
+          "titulo": "Corte Suprema de Canadá examina caso de liquidez compartida de poker online en Ontario",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «La Corte Suprema de Canadá escuchó argumentos sobre un caso »",
+          "fuentes": [
+            "Pokerfuse"
+          ]
+        },
+        {
+          "titulo": "Corte Suprema de Canadá examina caso de liquidez compartida de poker online en Ontario",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Pokerfuse"
+          ]
+        },
+        {
+          "titulo": "OlyBet trae festival de juegos mixtos a Tallin con expansión de la escena",
+          "motivo": "oración quitada (cifra «13», fecha «octubre»): «OlyBet organiza un festival de juegos mixtos en Tallin, cont»",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "OlyBet trae festival de juegos mixtos a Tallin con expansión de la escena",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Battle of Malta regresa con €2 millones garantizados en otoño de 2026",
+          "motivo": "título con datos que no están en la fuente (cifra «2026»)",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Mike Hurley defiende su territorio ganando RGPS St. Louis Main Event con US$ 52.597",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «Louis Main Event venciendo a 406 competidores y acumulando U»",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Amin Hosein de Trinidad y Tobago conquista primer brazalete de la WSOP",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «Amin Hosein logró su primer brazalete de la WSOP, representa»",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "Amin Hosein de Trinidad y Tobago conquista primer brazalete de la WSOP",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "Tres resultados destacados de jugadores brasileños en GGPoker: un título y dos subcampeonatos",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «Bárbara Akemi, Diogo Ferreira y Dennys Ramos obtuvieron resu»",
+          "fuentes": [
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Tres resultados destacados de jugadores brasileños en GGPoker: un título y dos subcampeonatos",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Fabiano Kolvaski llega a la mesa final del GGMillion$ con US$ 430.000 en juego",
+          "motivo": "título con datos que no están en la fuente (cifra «430.000»)",
+          "fuentes": [
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Papo MC regresa a Twitch tras ganar Main Event Medium del WCOOP 2026",
+          "motivo": "oración quitada (cifra «12»): «El argentino Alejandro Papo MC Lococo volvió a transmitir en»",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "Papo MC regresa a Twitch tras ganar Main Event Medium del WCOOP 2026",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "Adrián Mateos alcanza mesa final del Super High Roller Bowl XI con US$ 215.000",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «El español Adrián Mateos llegó a la mesa final del Super Hig»",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "Adrián Mateos alcanza mesa final del Super High Roller Bowl XI con US$ 215.000",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "WPT Global Festival by CLSOP regresa a Boca Chica del 25 de noviembre al 2 de diciembre",
+          "motivo": "oración quitada (cifra «12», fecha «octubre»): «El WPT Global Festival by CLSOP retorna a República Dominica»",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "titulo": "WPT Global Festival by CLSOP regresa a Boca Chica del 25 de noviembre al 2 de diciembre",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Noticias"
+          ]
+        },
+        {
+          "tema": "Tema: Ocean KO",
+          "url": "https://br.pokernews.com/noticias/2026/10/ggpoker-maior-torneio-poker-historia-67829.htm",
+          "motivo": "oración quitada (cifra «1.927.717»): «El torneio se jugó a lo largo de múltiples Día 1, con al men»"
+        },
+        {
+          "tema": "Tema: Ocean KO",
+          "url": "https://br.pokernews.com/noticias/2026/10/ggpoker-maior-torneio-poker-historia-67829.htm",
+          "motivo": "novedad sin datos rastreables en su fuente"
+        },
+        {
+          "tema": "Tema: Ocean KO",
+          "motivo": "línea principal: oración quitada (cifra «1.927.717»): «GGPoker estableció un nuevo récord mundial con 420.084 entra»"
+        },
+        {
+          "titulo": "Brandon Wilson gana el Super High Roller Bowl XI por US$ 1.125.000",
+          "motivo": "repetida",
+          "fuentes": [
+            "Poker.org",
+            "Código Poker"
+          ],
+          "previo": "Brandon Wilson gana el Super High Roller Bowl XI por US$ 1.125.000",
+          "recuperacion": true
+        },
+        {
+          "titulo": "Alberta enfrenta apagón de póker online mientras PokerStars y 888 cierran operaciones",
+          "motivo": "oración quitada (cifra «2026»): «PokerStars y 888 anunciaron su salida del mercado de Alberta»",
+          "fuentes": [
+            "Poker Industry PRO"
+          ],
+          "recuperacion": true
+        },
+        {
+          "titulo": "Alberta enfrenta apagón de póker online mientras PokerStars y 888 cierran operaciones",
+          "motivo": "resumen vacío tras quitar lo que no está en la fuente",
+          "fuentes": [
+            "Poker Industry PRO"
+          ],
+          "recuperacion": true
+        },
+        {
+          "titulo": "PokerNews Online Championship regresa a 888 en octubre de 2026",
+          "motivo": "título con datos que no están en la fuente (cifra «2026»)",
+          "fuentes": [
+            "Pokerfuse"
+          ],
+          "recuperacion": true
+        },
+        {
+          "titulo": "WPT implementa reloj en Day 2 in the money del Main Event Prime: caso de Aces descartadas",
+          "motivo": "segundo nivel: solo se admiten fuentes oficiales o medios",
+          "fuentes": [
+            "Reddit r/poker"
+          ],
+          "recuperacion": true
+        },
+        {
+          "titulo": "Brandon Wilson busca back-to-back en el Poker Masters tras su victoria en Super High Roller Bowl XI",
+          "motivo": "repetida",
+          "fuentes": [
+            "Código Poker"
+          ],
+          "previo": "Brandon Wilson gana el Super High Roller Bowl XI por US$ 1.125.000",
+          "recuperacion": true
+        }
+      ],
+      "uso_recuperacion": {
+        "tokens_entrada": 5144,
+        "tokens_salida": 889,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.009589
+      },
+      "meta": {
+        "meta": 10,
+        "publicadas_antes": 2,
+        "publicadas": 4,
+        "recuperacion": {
+          "faltan": 8,
+          "candidatas": 35,
+          "enviadas": 35,
+          "tarjetas": 2,
+          "segundo_nivel": 1,
+          "costo_usd": 0.009589,
+          "omitida": null
+        }
+      }
+    }
+  ]
+}

@@ -17,6 +17,24 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://quintace.ai/blog/biggest-online-cash-winners",
       "origen": "automatica"
+    },
+    {
+      "nombre": "ggpoker.com",
+      "dominio": "ggpoker.com",
+      "detectada": "2026-10-13",
+      "detectada_texto": "detectada el 13 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s&#038;incoming_url=",
+      "origen": "automatica"
+    },
+    {
+      "nombre": "ig.me",
+      "dominio": "ig.me",
+      "detectada": "2026-10-13",
+      "detectada_texto": "detectada el 13 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://ig.me/m/pokernoticiaslatam_",
+      "origen": "automatica"
     }
   ],
   "menciones": [
@@ -157,6 +175,24 @@
       "articulo": "https://pokernoticias.com/aceguardian-libero-un-codigo-abierto-para-la-caza-de-superusuarios-lo-que-las-metricas-del-poker-revelan/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-10-12"
+    },
+    {
+      "dominio": "pokerfuse.com",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/ggpoker-maior-torneio-poker-historia-67829.htm",
+      "enlace": "https://pokerfuse.com/latest-news/2026/9/winamax-player-wins-record-922k-bounties-258",
+      "fecha": "2026-10-13"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://codigopoker.com/poker-online/ggpoker-torneo-online-record",
+      "enlace": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s&#038;incoming_url=",
+      "fecha": "2026-10-13"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/papo-mc-vuelve-a-twitch-del-exito-millonario-a-mostrar-sus-decisiones-en-las-mesas/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-13"
     }
   ]
 }

@@ -27,7 +27,7 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Britney Jing",
@@ -41,7 +41,7 @@
         "pokernews.com",
         "reddit.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     }
   ]
 }
