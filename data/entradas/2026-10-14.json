@@ -1,0 +1,587 @@
+{
+  "fecha": "2026-10-14",
+  "corridas": [
+    {
+      "id": "2026-10-14T12:00:29Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/strategy/are-you-as-fast-as-a-superuser-52563.htm",
+          "titular": "Are You as Fast as a Superuser?",
+          "primera_frase": "What is a superuser and how can you combat one Could you keep up with one, without the...",
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/ggpoker-breaks-11-year-poker-record-with-420084-ocean-ko-entries",
+          "titular": "GGPoker Breaks 11-Year Poker Record With 420,084 Ocean KO Entries",
+          "primera_frase": "Some poker records seem last about as long as the tournament that created them, while others apparently need more than a decade before somebody finally comes along to break them…",
+          "tema": "Tema: Ocean KO"
+        },
+        {
+          "n": 3,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/winner-crowned-as-ggpoker-smashes-online-poker-world-record-with-420k-entries-adeiN7q8PS7i/",
+          "titular": "Winner crowned as GGPoker smashes online poker world record with 420K entries",
+          "primera_frase": "The $5 Ocean KO Opener on GGPoker drew a field of 420,084 entries – smashing the prior record.",
+          "tema": "Tema: Ocean KO"
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/jurojin-pide-disculpas-caso-superuser-y-admite-afectados-54017.htm",
+          "titular": "Jurojin pide disculpas por el caso del \"superuser\" y admite que podría haber más afectados",
+          "primera_frase": "Jurojin admite que podría haber usuarios afectados que aún no ha logrado identificar.",
+          "con_extracto": true,
+          "tema": "Caso Paul Gregg (malware MeshAgent)"
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/una-locura-de-us5-ggpoker-rompe-un-record-mundial-que-llevaba-11-anos-intacto/",
+          "titular": "GGPoker rompe un récord mundial que llevaba 11 años intacto",
+          "primera_frase": "GGPoker hizo historia con el Ocean KO Opener, un torneo que reunió 420.084 inscripciones y repartió más de US$1,9 millones en premios, superando una marca que PokerStars mantenía desde 2015.",
+          "tema": "Tema: Ocean KO"
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-legend-john-duthie-victorious-at-888live-london-52601.htm",
+          "titular": "Poker Legend John Duthie Victorious at 888LIVE London",
+          "primera_frase": "Duthie took down the £550 Big Shot event for £12,470."
+        },
+        {
+          "n": 7,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/888-becomes-first-operator-launch-regulated/",
+          "titular": "888 Becomes First Operator to Launch Regulated Online Poker in Alberta",
+          "primera_frase": ""
+        },
+        {
+          "n": 8,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/robert-gianquitti-wins-harrah-s-pompano-beach-wsop-circuit-main-event/",
+          "titular": "ROBERT GIANQUITTI WINS HARRAH'S POMPANO BEACH WSOP CIRCUIT MAIN EVENT",
+          "primera_frase": "Robert Gianquitti wins the Harrah's Pompano Beach WSOP Circuit Main Event for $248,632 and his first WSOP Circuit ring, punching his ticket to WSOP Paradise 2026."
+        },
+        {
+          "n": 9,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/chicago-lottery-player-secures-6-73m-jackpot-payout/",
+          "titular": "Chicago Lottery Player Secures $6.73M Jackpot Payout",
+          "primera_frase": "A huge lottery payday has happened in Chicago, with a Grand Traverse County man winning $6.79 million from the Michigan Lottery."
+        },
+        {
+          "n": 10,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/full-house-of-horror-and-monster-hand-hunt-take-over-october-at-jackpoker",
+          "titular": "Full House of Horror and Monster Hand Hunt Take Over October at JackPoker",
+          "primera_frase": "Halloween is 18 days away. For the online poker world that means the gloves are off — nothing is too out there to qualify as a seasonal promotion."
+        },
+        {
+          "n": 11,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1761418-another-las-vegas-poker-room-switches-to-slide-dealing-method",
+          "titular": "Another Las Vegas Poker Room Switches To Slide Dealing Method",
+          "primera_frase": "The Venetian is the latest Las Vegas casino to switch to slide dealing cards for poker, following South Point's lead amid scandals."
+        },
+        {
+          "n": 12,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-women/dodging-poker-world-champions-in-canada-can-i-survive-acX9S5z8PmWf/",
+          "titular": "Dodging Poker WORLD CHAMPIONS in Canada… Can I SURVIVE?!",
+          "primera_frase": "Lexy Gavin-Mather heads to Canada to take on stacked tables with top poker pros like Jonathan Little and Michael Mizrachi."
+        },
+        {
+          "n": 13,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225727-pokerstars-sunday-million-live-proves-hit",
+          "titular": "PokerStars Sunday Million Live Proves a Hit in Campione",
+          "primera_frase": "The live edition of PokerStars’ iconic Sunday Million has concluded, with the winner crowned on Monday after a tournament that comfortably surpassed its €1 million guarantee."
+        },
+        {
+          "n": 14,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5p2ss/really_hard_time_calling_in_situations_like_this/",
+          "titular": "Really hard time calling in situations like this (nl2)",
+          "primera_frase": "When i play single raised pots especially and villain puts me under pressure like this I basically only see him doing this with sets, even more if he calls from sb or bb."
+        },
+        {
+          "n": 15,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/nut-flush-loses-to-straight-flush-in-stunning-wpt-prime-finale/",
+          "titular": "Nut Flush Loses to Straight Flush in Stunning WPT Prime Finale",
+          "primera_frase": "The most sensational hand to play out this year?"
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/jonathan-rees-conquista-el-partypoker-tour-castellon-54026.htm",
+          "titular": "Jonathan Rees conquista el PartyPoker Tour Castellón y se lleva 30.000 €",
+          "primera_frase": "El galés superó a Pau Veciana en el heads-up de un torneo que reunió 368 entradas."
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/shrikant-pillamarapu-wpt-prime-lodge-championship-67848.htm",
+          "titular": "Em FT insana, Shrikant Pillamarapu vence WPT Prime Lodge Championship no Texas",
+          "primera_frase": "A mesa final foi marcada por mãos impressionantes"
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/el-ego-en-el-poker-cuando-querer-demostrar-superioridad-termina-costando-dinero/",
+          "titular": "El ego en el poker: cuando querer demostrar superioridad termina costando dinero",
+          "primera_frase": "En el poker no siempre se pierde por tener las peores cartas.",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/leo-fernandez-5-millones-casino",
+          "titular": "El día que Leo Fernández perdió US$5 millones en el casino: «¿Vos entendés lo que acaba de pasar?»",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/marknyet-afina-la-estrategia-en-sb-3h-vs.-bb-srp",
+          "titular": "'MarkNyet' afina la estrategia en SB 3H vs. BB SRP",
+          "primera_frase": "14/10/26 13:57"
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wpt-prime-lodge-championship-final-table-52599.htm",
+          "titular": "Shrikant Pillamarapu Wins WPT Prime Lodge Championship in Texas",
+          "primera_frase": "The final table was truly something."
+        },
+        {
+          "n": 22,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/mega-millions-jackpot-hits-403m-after-no-tuesday-winners-emerge/",
+          "titular": "Mega Millions Jackpot Hits $403M After No Tuesday Winners Emerge",
+          "primera_frase": "The Mega Millions top prize has continued to elude players, resulting in no major winners for the Tuesday drawing."
+        },
+        {
+          "n": 23,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/mixed-games-fun-arrives-at-redstar-poker-via-the-festival-online",
+          "titular": "Mixed Games Fun Arrives at RedStar Poker via The Festival Online",
+          "primera_frase": "From October 12th to 26th, 2026, during the latest leg of the online version of The Festival, the iPoker network decided to give players what they had long wanted: a…"
+        },
+        {
+          "n": 24,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1761082-a-look-at-hands-from-giselle54s-million-dollar-weekend",
+          "titular": "A Look At Hands From Giselle54’s Million-Dollar Weekend",
+          "primera_frase": "Reviewing two high-stakes 5-card pot-limit Omaha hands played by crusher 'Giselle54' on CoinPoker this weekend."
+        },
+        {
+          "n": 25,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-women/tina-stafford-talks-lips-poker-wpf-ladies-weekend-at-rivers-casino-philadelphia-aFEK58Q7ZHBW/",
+          "titular": "Tina Stafford Talks LIPS Poker & WPF Ladies Weekend at Rivers Casino Philadelphia",
+          "primera_frase": "Tina Stafford, Tour Director for the Ladies International Poker Series (LIPS), joins the Nerdthusiast Poker Podcast to talk women in poker, the growth of the LIPS tour, her journey in the game, and wh"
+        },
+        {
+          "n": 26,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5nek8/what_am_i_targeting/",
+          "titular": "What am I Targeting",
+          "primera_frase": "So this is right after a bad beat just happened and i’m not necessarily upset at the fact i lost the hand because it was inevitable, i am more curious as to clarifying my thought process further as we"
+        },
+        {
+          "n": 27,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/super-high-roller-bowl-xi-won-by-brandon-wilson-after-brutal-bubble/",
+          "titular": "Super High Roller Bowl XI Won by Brandon Wilson After Brutal Bubble",
+          "primera_frase": "American high-stakes pro Brandon Wilson got the win this weekend in the Super High Roller Bowl XI Las Vegas, beating his fellow U.S."
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/caroline-darcourt-la-fotografa-que-aprendio-a-mirar-el-poker-54024.htm",
+          "titular": "Caroline Darcourt, la fotógrafa que aprendió a mirar el póker más allá de las cartas",
+          "primera_frase": "La fotógrafa de Winamax repasa una década capturando los rostros y emociones del póker."
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/jogador-folda-aa-pre-flop-67847.htm",
+          "titular": "Em vacilo gigante, jogador folda AA pré-flop em torneio no Texas; entenda",
+          "primera_frase": "David Pelosi cometeu um erro cruel em um torneio de US$ 1 milhão garantidos"
+        },
+        {
+          "n": 30,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/solo-9-dias-para-la-gran-final-de-las-wps-2026-medellin-espera-a-los-ultimos-campeones-del-ano/",
+          "titular": "¡Solo 9 días para la gran final de las WPS 2026! Medellín espera a los últimos campeones del año",
+          "primera_frase": "Después de tres paradas que dejaron importantes premios, grandes historias y nuevos campeones, las Winner Poker Series se preparan para despedir su temporada 2026 en la capital antioqueña."
+        },
+        {
+          "n": 31,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/wpt/video-insolito-un-jugador-tuvo-que-foldear-ases-preflop",
+          "titular": "VIDEO: ¡Insólito! Un jugador tuvo que foldear ases preflop",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 32,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/kikelake-mas-alla-de-las-mesas-charla-con-elmorobielsa",
+          "titular": "‘Kikelake’, más allá de las mesas: charla con ‘elmorobielsa’",
+          "primera_frase": "Entrevistas",
+          "con_extracto": true
+        },
+        {
+          "n": 33,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/myles-mullaly-wins-poker-masters-event-1-52598.htm",
+          "titular": "Myles Mullaly Wins First PokerGO Title and $218,400 in Poker Masters Opener",
+          "primera_frase": "The young American pro defeated heads-up opponent Justin Zaki."
+        },
+        {
+          "n": 34,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/mississippi-player-scoops-200k-from-lottery-win-in-new-albany/",
+          "titular": "Mississippi Player Scoops $200K from Lottery Win in New Albany",
+          "primera_frase": "A lucky player in Mississippi has much to be happy about after they won a $200,000 prize from a scratcher."
+        },
+        {
+          "n": 35,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1759947-opinion-new-lottery-style-pkos-are-taking-poker-to-uncomfortable-places",
+          "titular": "Opinion: New Lottery-Style PKOs Are Taking Poker To Uncomfortable Places",
+          "primera_frase": "Progressive knockout (PKO) poker tournaments have added a lottery-style payout twist."
+        },
+        {
+          "n": 36,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-women/poker-influencer-britney-banned-from-hustler-casino-live-aJBJ79u0baAt/",
+          "titular": "Poker Influencer Britney - BANNED FROM HUSTLER CASINO LIVE",
+          "primera_frase": "Poker pro Charlie Carrel explores the recent allegations around Britney, a regular player on the Hustler Casino Live stream."
+        },
+        {
+          "n": 37,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5ljw2/qqpk_bans_724_bot_accounts_after_integrity_report/",
+          "titular": "QQPK Bans 724 Bot Accounts After Integrity Report",
+          "primera_frase": "Actually surprised they took action this quickly after the botting accusation went a bit viral last week."
+        },
+        {
+          "n": 38,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/ases-al-mazo-el-reloj-deja-a-un-jugador-sin-la-mejor-mano-54023.htm",
+          "titular": "¡Ases al mazo! El reloj deja a un jugador sin la mejor mano del póker en pleno WPT Prime",
+          "primera_frase": "David Pelosi agotó su tiempo para actuar y vio cómo su pareja de ases quedaba anulada."
+        },
+        {
+          "n": 39,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/joao-simao-bolha-mesa-final-poker-masters-evento-1-67842.htm",
+          "titular": "João Simão bolha mesa final, mas começa Poker Masters com ITM no Evento #1",
+          "primera_frase": "O brasileiro ficou em oitavo no field de 78 entradas"
+        },
+        {
+          "n": 40,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/noruega-legalizar-poker-online",
+          "titular": "Noruega busca legalizar el poker online, pero con restricciones que generan dudas",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 41,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/adrian-mateos-lidera-a-los-cinco-finalistas-del-evento-%232-del-poker-masters",
+          "titular": "Adrián Mateos lidera a los cinco finalistas del Evento #2 del Poker Masters",
+          "primera_frase": "14/10/26 12:03"
+        },
+        {
+          "n": 42,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-player-folds-pocket-aces-52597.htm",
+          "titular": "Player Forced to Fold Pocket Aces Preflop Deep in $1M GTD Tournament",
+          "primera_frase": "A brutal way to lose a potentially large hand."
+        },
+        {
+          "n": 43,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/7-of-gambling-coloradans-show-signs-of-problem-gambling-study-says/",
+          "titular": "7% of Gambling Coloradans Show Signs of Problem Gambling, Study Says",
+          "primera_frase": "According to the initial findings of a new study from the University of Nevada, Las Vegas (UNLV), a portion of sports bettors in the state of Colorado, US, experience serious gambling problems."
+        },
+        {
+          "n": 44,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1760411-poker-hall-of-famer-erik-seidel-finishes-second-in-las-vegas-backgammon-tournament",
+          "titular": "Poker Hall Of Famer Erik Seidel Finishes Second In Las Vegas Backgammon Tournament",
+          "primera_frase": "Ten-time World Series of Poker bracelet winner Erik Seidel finished second playing in his first backgammon tournament in \"over 40 years.\" The post Poker Hall Of Famer Erik Seidel Finishes Second In La"
+        },
+        {
+          "n": 45,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-vlogs/chasing-20000-with-an-aggressive-strategy-a-wynn-poker-vlog-ahoBs6J7xSGB/",
+          "titular": "CHASING $20,000 With An AGGRESSIVE Strategy! | A Wynn Poker Vlog",
+          "primera_frase": "Jeff Boski plays a $400 $100K GTD poker tournament at the Wynn in Las Vegas."
+        },
+        {
+          "n": 46,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5lde9/did_i_break_some_unwritten_poker_etiquette/",
+          "titular": "Did I break some unwritten poker etiquette?",
+          "primera_frase": "A local bar near me has regular free bar poker that I sometimes play with some buddies of mine."
+        },
+        {
+          "n": 47,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/lucas-rigos-mesa-final-mystery-bounty-main-event-888-67839.htm",
+          "titular": "Lucas Rigos brilha e alcança mesa final do Mystery Bounty Main Event do 888",
+          "primera_frase": "O craque terminou na quarta colocação entre 726 inscritos"
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/myles-mullaly-se-lleva-la-primera-chaqueta-trofeo-del-poker-masters",
+          "titular": "Myles Mullaly se lleva la primera chaqueta trofeo del Poker Masters",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/qqpk-expulsa-724-cuentas-por-uso-de-bots",
+          "titular": "QQPK expulsa 724 cuentas por uso de bots",
+          "primera_frase": "Bots"
+        },
+        {
+          "n": 50,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/casino-barcelona-sixers-festival-six-handed-52596.htm",
+          "titular": "Every Tournament During the Casino Barcelona Sixers Festival is Played Six Handed",
+          "primera_frase": "Love six-handed tournaments? You'll love the Sixers Series at Casino Barcelona."
+        },
+        {
+          "n": 51,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/crypto-casino-pays-controversial-youtuber-to-stay-off-social-media/",
+          "titular": "Crypto Casino Pays Controversial YouTuber to Stay Off Social Media",
+          "primera_frase": "Controversial YouTuber Jack Doherty claims a newly inked six-month sponsorship deal with crypto casino Shuffle.com does not allow him to post on social media."
+        },
+        {
+          "n": 52,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1761386-robert-gianquitti-wins-wsop-circuit-pompano-beach-main-event",
+          "titular": "Robert Gianquitti Wins WSOP Circuit Pompano Beach Main Event",
+          "primera_frase": "South Florida's Robert Gianquitti topped 1,011 entries in the $1,700 WSOP Circuit Pompano Beach main event for $248,632 and his first ring."
+        },
+        {
+          "n": 53,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-strategy/he-thought-he-was-a-genius.-bart-sees-a-huge-mistake-a8L4M0c9MWJ2/",
+          "titular": "He Thought He Was a Genius. Bart Sees a HUGE Mistake",
+          "primera_frase": "In this live cash game hand review Bart Hanson breaks down every street, explains what a flop raise really means in low stakes live poker, and reveals why a play can look brilliant and still be a mist"
+        },
+        {
+          "n": 54,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5ldaz/my_favorite/",
+          "titular": "My favorite",
+          "primera_frase": "submitted by /u/Top_Syllabub_5111 [link] [comentarios]"
+        },
+        {
+          "n": 55,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/iuri-ribeiro-vice-campeao-ggmasters-high-rollers-67838.htm",
+          "titular": "Iuri Ribeiro é vice-campeão do GGMasters High Rollers e fatura US$ 109 mil",
+          "primera_frase": "A tropa verde e amarela deu show nos feltros virtuais da GGPoker"
+        },
+        {
+          "n": 56,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-chile/osop-prime-estrena-un-mini-main-event-y-una-agenda-con-cl80m-a-repartir",
+          "titular": "OSOP Prime estrena un Mini Main Event y una agenda con CL$80M a repartir",
+          "primera_frase": ""
+        },
+        {
+          "n": 57,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/luismi-y-raul-mestre-ya-miran-de-reojo-al-cofre-dorado",
+          "titular": "Luismi y Raúl Mestre ya miran de reojo al cofre dorado",
+          "primera_frase": "Golden Button"
+        },
+        {
+          "n": 58,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/partypoker-tour-castellon-jonathan-rees-wins-main-event-52587.htm",
+          "titular": "PartyPoker Tour Castellón: Jonathan Rees Wins Main Event",
+          "primera_frase": "Jonathan Rees Takes Down the Main Event at PartyPoker Tour Castellón"
+        },
+        {
+          "n": 59,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/afl-tells-sportsbet-to-remove-ai-generated-player-content/",
+          "titular": "AFL Tells Sportsbet to Remove AI-Generated Player Content",
+          "primera_frase": "The Australian Football League (AFL) has stepped in after its betting partner Sportsbet used artificial intelligence to create social media videos featuring professional players without their permissi"
+        },
+        {
+          "n": 60,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1761380-tonythetoenailcollector-takes-down-1-million-in-the-one",
+          "titular": "“TonyTheToenailcollector” takes down $1 million in The One",
+          "primera_frase": "The guarantee was beaten and life-changing payouts were made in the most ambitious CoinPoker tournament so far."
+        },
+        {
+          "n": 61,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-strategy/give-me-21-minutes-ill-give-you-10000-hours-of-poker-knowledge-abvwu6f47Aly/",
+          "titular": "Give Me 21 Minutes, I’ll Give You 10,000 hours of Poker Knowledge",
+          "primera_frase": "Nathan 'BlackRain79' Williams breaks down some of the most important fundamentals you need to know, including which hands to play and when to bet, raise, bluff, or fold."
+        },
+        {
+          "n": 62,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5jmh1/soy_muevo_y_quiero_aprender_a_jugar_me_ayudan/",
+          "titular": "Soy muevo, y quiero aprender a jugar, me ayudan?",
+          "primera_frase": "submitted by /u/rexitomc [link] [comentarios]"
+        },
+        {
+          "n": 63,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/brandon-wilson-vence-super-high-roller-bowl-xi-67836.htm",
+          "titular": "De quase bolha a campeão: Brandon Wilson leva US$ 1,1 milhão no Super High Roller Bowl",
+          "primera_frase": "O campeão bateu o compatriota Nick Petrangelo no heads-up"
+        },
+        {
+          "n": 64,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/oportunidad-de-mitad-de-semana-en-ignition-poker-hay-accion-gratuita-con-su-freeroll",
+          "titular": "Oportunidad de mitad de semana: ¡En Ignition Poker hay acción gratuita con su freeroll!",
+          "primera_frase": ""
+        },
+        {
+          "n": 65,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lucia-navarro-persigue-un-mystery-bounty-de-1.000.000-USD-en-su-nuevo-vlog",
+          "titular": "Lucía Navarro persigue un mystery bounty de 1.000.000 $ en su nuevo vlog",
+          "primera_frase": "WSOP 2026"
+        },
+        {
+          "n": 66,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/entain-skycity-stake-among-11-bidders-for-new-zealand-gaming-license/",
+          "titular": "Entain, SkyCity, Stake Among 11 Bidders for New Zealand Gaming License",
+          "primera_frase": "New Zealand has selected 11 gambling operators to be eligible to apply for online casino licenses after a competitive auction, moving the country one step closer to establishing its regulated iGaming "
+        },
+        {
+          "n": 67,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-vlogs/folding-aces-preflop-wtf-absolutely-ridiculous-high-stakes-game-in-bobbys-room-unbelievable-aXQvT4s6QgER/",
+          "titular": "Folding ACES Preflop?!! WTF?!! ABSOLUTELY RIDICULOUS High Stakes Game In Bobby's Room! Unbelievable!",
+          "primera_frase": "Brad Owen has some tough choices to make at Bellagio in Las Vegas."
+        },
+        {
+          "n": 68,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5j4bu/gto_wizard_publishes_their_largefield_icm/",
+          "titular": "GTO Wizard Publishes Their Large-Field ICM Algorithm",
+          "primera_frase": "ICM is how we estimate chip value in tournaments."
+        },
+        {
+          "n": 69,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/saber-salum-se-hizo-gigante-en-la-wsop-circuit-en-pompano-beach",
+          "titular": "Saber Salum se hizo gigante en la WSOP Circuit en Pompano Beach",
+          "primera_frase": ""
+        },
+        {
+          "n": 70,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/ex-security-officer-alleges-peppermill-renos-facial-recognition-system-is-faulty/",
+          "titular": "Ex-Security Officer Alleges Peppermill Reno’s Facial Recognition System Is Faulty",
+          "primera_frase": "Aaron Gamino, a former security officer at the Peppermill Reno casino resort, has alleged that the gaming property’s facial recognition system does not work as intended."
+        },
+        {
+          "n": 71,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-vlogs/i-quit-my-job-for-poker-ep-15-aCIq91R28KGp/",
+          "titular": "I QUIT MY JOB FOR POKER! (Ep 15)",
+          "primera_frase": "After failing at tournaments in Vegas, leahhatespoker is back in the UK looking for some redemption."
+        },
+        {
+          "n": 72,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5ien0/is_a_1010_game_with_a_200_time_rakewhole_session/",
+          "titular": "Is a 10/10 game with a 200￥ time rake(whole session) worth playing",
+          "primera_frase": "Game runner said the typical win/losses is 10-20k, and Avg session last 5-6h, games run 3-4 times a week."
+        },
+        {
+          "n": 73,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/la-mano-que-destrozo-a-un-color-maximo-en-una-final-del-wpt-y-cambio-el-rumbo-del-torneo",
+          "titular": "La mano que destrozó a un color máximo en una final del WPT y cambió el rumbo del torneo",
+          "primera_frase": ""
+        },
+        {
+          "n": 74,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/prediction-markets-under-scrutiny-for-murder-trial-bets/",
+          "titular": "Prediction Markets Under Scrutiny for Murder Trial Bets",
+          "primera_frase": "Prediction markets are facing fresh criticism over wagers on criminal trials, with bets on the case of Massachusetts mother Lindsay Clancy raising concerns about jury impartiality, confidential court "
+        },
+        {
+          "n": 75,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-videos/poker-strategy/how-to-stop-giving-away-tells-at-the-poker-table-aouiO9f50A5u/",
+          "titular": "How to Stop Giving Away Tells at the Poker Table",
+          "primera_frase": "Poker pro Charlie Carrel explains how to exercise self control at the table to ensure your opponents can't exploit your behavioral patterns."
+        },
+        {
+          "n": 76,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5h7ll/mexico_city_cash_games/",
+          "titular": "Mexico City cash games?",
+          "primera_frase": "Hi, looking for recommendations in Mexico City."
+        },
+        {
+          "n": 77,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/jugar-poker-online-en-mexico",
+          "titular": "Top 5 mejores sitios para jugar poker online en México",
+          "primera_frase": ""
+        },
+        {
+          "n": 78,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/bgaming-becomes-the-latest-operator-to-celebrate-spooky-season-with-chicken-halloween/",
+          "titular": "BGaming Becomes the Latest Operator to Celebrate Spooky Season with Chicken Halloween",
+          "primera_frase": "BGaming has become the latest operator to embrace the autumn festivities with the release of Chicken Halloween, a new game that is all about hunting costumed chickens."
+        },
+        {
+          "n": 79,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/3m-in-guarantees-and-a-luxe-new-venue-await-at-wsopc-turning-stone-aAU9z3P0nZ6B/",
+          "titular": "$3M in guarantees and a luxe new venue await at WSOPC Turning Stone",
+          "primera_frase": "Turning Stone Resort in upstate New York prepares to host its biggest WSOP Circuit series ever this week."
+        },
+        {
+          "n": 80,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x5es8a/you_will_always_be_a_shitreg/",
+          "titular": "You will always be a shitreg",
+          "primera_frase": ". You have no edge, you have no instincts, you have no fundamentals."
+        },
+        {
+          "n": 81,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/pokerstars-se-fue-de-alberta-y-888-aprovecho-para-desembarcar",
+          "titular": "PokerStars se fue de Alberta y 888 aprovechó para desembarcar",
+          "primera_frase": ""
+        }
+      ]
+    }
+  ]
+}
