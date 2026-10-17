@@ -35,6 +35,33 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://ig.me/m/pokernoticiaslatam_",
       "origen": "automatica"
+    },
+    {
+      "nombre": "betmgmpartners.com",
+      "dominio": "betmgmpartners.com",
+      "detectada": "2026-10-17",
+      "detectada_texto": "detectada el 17 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "origen": "automatica"
+    },
+    {
+      "nombre": "octopipoker.ai",
+      "dominio": "octopipoker.ai",
+      "detectada": "2026-10-17",
+      "detectada_texto": "detectada el 17 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "origen": "automatica"
+    },
+    {
+      "nombre": "pairrd.com",
+      "dominio": "pairrd.com",
+      "detectada": "2026-10-17",
+      "detectada_texto": "detectada el 17 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://pairrd.com/?via=pokerorg",
+      "origen": "automatica"
     }
   ],
   "menciones": [
@@ -205,6 +232,48 @@
       "articulo": "https://pokernoticias.com/camino-a-panama-conoce-a-los-clasificados-del-wsopc/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-10-15"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
+      "enlace": "https://ggpoker.com/network/security-ecology-policy/",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/ggpoker-endurece-sus-reglas-adios-a-los-programas-externos/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "wsop.com",
+      "articulo": "https://codigopoker.com/aprende-poker/satelites-en-poker-que-son",
+      "enlace": "https://www.wsop.com/about/wsop-circuit/",
+      "fecha": "2026-10-17"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://codigopoker.com/aprende-poker/satelites-en-poker-que-son",
+      "enlace": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s#038;incoming_url=",
+      "fecha": "2026-10-17"
     }
   ]
 }
