@@ -55,23 +55,6 @@ def _limpiar_espacios(texto: str) -> str:
     return texto[:1].upper() + texto[1:] if texto else texto
 
 
-# ---------------------------------------------------------------- idioma del título
-
-_PALABRAS_EN = {"the", "and", "with", "for", "wins", "takes", "hosts", "after", "from", "of", "to", "on", "at",
-                "his", "her", "its", "into", "over", "features", "down", "up", "is", "are", "was", "be", "as",
-                "by", "new", "first", "set", "sets", "out", "huge", "big", "how", "why", "what", "who"}
-_PALABRAS_ES = {"el", "la", "los", "las", "de", "del", "con", "por", "para", "en", "y", "tras", "gana", "se",
-                "su", "sus", "un", "una", "al", "que", "como", "sobre", "ante", "desde", "entre", "es", "son"}
-
-
-def titulo_sin_traducir(titulo: str) -> bool:
-    """El título quedó en inglés (p. ej. "ACR Poker hosts major Sunday tournaments with Paradise packages")."""
-    palabras = re.findall(r"[a-z']+", sin_tildes(titulo))
-    en = sum(1 for p in palabras if p in _PALABRAS_EN)
-    es = sum(1 for p in palabras if p in _PALABRAS_ES)
-    return en >= 2 and es == 0
-
-
 # ---------------------------------------------------------------- relación con el poker
 
 _POKER = re.compile(

@@ -74,12 +74,9 @@ def test_abreviaturas_no_cortan_la_oracion():
     assert resumen == texto and quitadas == []
 
 
-# ---------------------------------------------------------------- título sin traducir
+# ---------------------------------------------------------------- títulos y jerga
 
-def test_titulo_en_ingles_se_descarta():
-    assert calidad.titulo_sin_traducir("ACR Poker hosts major Sunday tournaments with Paradise packages")
-    assert not calidad.titulo_sin_traducir("Marius Conan triunfa en 888LIVE London Main Event por £91.170")
-    assert not calidad.titulo_sin_traducir("Joe Hachem gana Evento #9 del Victorian Poker Championship")
+def test_titulo_con_terminos_en_ingles_no_se_descarta():
     medio = fuente("Medio Inventado", "https://medio-inventado.com/feed/", region="internacional", clase="medio")
     items = [recoleccion._item(medio, "https://medio-inventado.com/n/1", "Fulano Inventado wins the Big Event",
                                AHORA, "Fulano Inventado won the Big Event for $50,000.")]
@@ -89,8 +86,8 @@ def test_titulo_en_ingles_se_descarta():
                                          "titulo": "Fulano Inventado wins the Big Event for $50,000",
                                          "resumen": "Fulano Inventado ganó el Big Event y cobró US$ 50.000."}]}), {}
     r = modelo.resumir(items, {}, llamar, AHORA.date())
-    assert r["tarjetas"] == [] and r["controles"][-1]["motivo"] == "título sin traducir al español"
-    assert modelo.categoria_descarte("título sin traducir al español") == "sin_traducir"
+    assert [t["titulo"] for t in r["tarjetas"]] == ["Fulano Inventado wins the Big Event for $50,000"]
+    assert "no los traduzca" in modelo.SISTEMA
 
 
 # ---------------------------------------------------------------- nacionalidad
