@@ -52,6 +52,7 @@ Reglas estrictas:
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
 - Datos de personas: cargos, posiciones de juego o deportivas, edades y nacionalidades solo si aparecen literalmente en el material recibido. No los deduzca ni los complete con su conocimiento.
+- Español correcto: traduzca la jerga cuando hay un término claro ("score" → "premio" o "cobro", "runner-up" o "vice" → "subcampeón", "sevens" → "sietes", "chip leader" → "líder de fichas"); conserve los nombres propios de torneos y salas. Use tildes ("prohíbe", "Día").
 - Tono: no copie superlativos ni elogios de la fuente ("el más prestigioso del mundo", "espectacular", "histórico", "increíble"). Escriba de forma neutra.
 - Montos: escriba la moneda exactamente como la indica la fuente (US$, €, £, R$, MXN, etc.). Si una fuente latinoamericana solo pone "$", escriba "$ (moneda a confirmar)" después del número y no lo convierta en dólares.
 - Términos exactos: conserve el premio o título que nombra la fuente, traducido de forma literal. "Bracelet" es "brazalete" (WSOP); "ring" es "anillo" (WSOP Circuit y otros circuitos); "trophy" es "trofeo". Nunca cambie uno por otro: si la fuente dice "ring", no escriba "brazalete". Lo mismo vale para nombres de torneos, eventos y circuitos: use el nombre que da la fuente.

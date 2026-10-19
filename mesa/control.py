@@ -182,9 +182,17 @@ def parece_repetida(titulo: str, previos: list[str]) -> str | None:
     nuevas = _claves(titulo)
     if not nuevas:
         return None
+    from .calidad import _numeros, parecido
     for previo in previos:
         comunes = nuevas & _claves(previo)
         if len(comunes) >= 2 and len(comunes) / len(nuevas) >= 0.6:
+            # Misma persona no es mismo hecho: un monto nuevo o un título con otras ideas
+            # ("Aaron Barone gana un evento" frente a "Aaron Barone completa un desafío") es otra noticia.
+            nuevos_numeros = {n for n in _numeros(titulo) - _numeros(previo) if not re.fullmatch(r"(19|20)\d\d", n)}
+            if nuevos_numeros:
+                continue
+            if parecido(titulo, previo) < 0.5:
+                continue
             return previo
     return None
 
@@ -238,7 +246,7 @@ def _corridas_de_nombre(secuencia: str) -> list[list[str]]:
         base = _limpio(palabra)
         if base in _CONECTORES:
             continue
-        if base in _NO_NOMBRES or len(base) < 2 or base.isdigit():
+        if base in _NO_NOMBRES or len(base) < 2 or base.isdigit() or "$" in base or re.search(r"\d", base):
             if actual:
                 tramos.append(actual)
             actual = []
@@ -247,6 +255,18 @@ def _corridas_de_nombre(secuencia: str) -> list[list[str]]:
     if actual:
         tramos.append(actual)
     return tramos
+
+
+_INICIOS = {"tambien", "ademas", "asimismo", "luego", "despues", "antes", "finalmente", "previamente", "ahora",
+            "hoy", "ayer", "aunque", "mientras", "sin", "pese", "gracias", "segun", "tras", "durante", "entre", "su",
+            "sus", "esta", "este", "ese", "esa", "dicha", "dicho", "ambos", "ambas", "otro", "otra", "cada", "todos",
+            "solo", "ya", "aun", "incluso", "mas", "con", "por", "para", "en", "el", "la", "los", "las", "un", "una"}
+
+
+def _palabra_de_inicio(palabra: str) -> bool:
+    """Primera palabra de oración que no puede ser un nombre: un conector o un verbo en pretérito ("Capturó")."""
+    base = _limpio(palabra)
+    return base in _INICIOS or palabra.rstrip(".,;:").lower().endswith("ó")
 
 
 def verificar_nombres(tarjeta: dict, texto_enviado: str) -> tuple[bool, list[str]]:
@@ -265,8 +285,15 @@ def verificar_nombres(tarjeta: dict, texto_enviado: str) -> tuple[bool, list[str
     cambios = []
     for campo in ("titulo", "resumen"):
         texto = tarjeta[campo]
-        for m in list(_SECUENCIA.finditer(texto)):
-            for tramo in _corridas_de_nombre(m.group(0)):
+        secuencias = []
+        for parte in re.split(r"(?<=[.!?;:])\s+", texto):
+            inicial = parte.split(" ", 1)[0]
+            secuencias += [(m.group(0), m.start() == 0 and inicial) for m in _SECUENCIA.finditer(parte)]
+        for secuencia, inicial in secuencias:
+            for tramo in _corridas_de_nombre(secuencia):
+                # La primera palabra de una oración lleva mayúscula sin ser un nombre ("También", "Capturó").
+                if inicial and tramo and tramo[0] == inicial and not figura(tramo[0]) and _palabra_de_inicio(inicial):
+                    tramo = tramo[1:]
                 if len(tramo) < 2:
                     continue
                 faltan = [p for p in tramo if not figura(p)]
