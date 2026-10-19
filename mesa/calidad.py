@@ -26,8 +26,20 @@ def texto_items(items: list[dict]) -> str:
                     f"{it.get('extracto') or ''}" for it in items)
 
 
+# Abreviaturas e iniciales que terminan en punto sin cerrar la oración ("RGPS St. Louis", "J. Smith").
+_ABREVIATURA = re.compile(r"(?:\b(?:St|Sts|Sr|Sra|Sres|Jr|Dr|Dra|Mr|Mrs|Ms|No|Nro|Núm|Num|vs|Mt|Ft|Sto|Sta|Av|"
+                          r"Inc|Ltd|Co|Corp|Ed|Vol|aprox|etc|EE\.UU|EE\.\s?UU|U\.S|U\.K)|\b[A-Z])\.$")
+
+
 def _oraciones(texto: str) -> list[str]:
-    return [o for o in re.split(r"(?<=[.!?])\s+", texto.strip()) if o]
+    partes = [o for o in re.split(r"(?<=[.!?])\s+", texto.strip()) if o]
+    oraciones: list[str] = []
+    for parte in partes:
+        if oraciones and _ABREVIATURA.search(oraciones[-1]):
+            oraciones[-1] = f"{oraciones[-1]} {parte}"
+        else:
+            oraciones.append(parte)
+    return oraciones
 
 
 def _quitar_oraciones(texto: str, patron: re.Pattern) -> tuple[str, int]:
@@ -41,6 +53,23 @@ def _limpiar_espacios(texto: str) -> str:
     texto = re.sub(r",\s*,", ",", texto)
     texto = re.sub(r"\s{2,}", " ", texto).strip()
     return texto[:1].upper() + texto[1:] if texto else texto
+
+
+# ---------------------------------------------------------------- idioma del título
+
+_PALABRAS_EN = {"the", "and", "with", "for", "wins", "takes", "hosts", "after", "from", "of", "to", "on", "at",
+                "his", "her", "its", "into", "over", "features", "down", "up", "is", "are", "was", "be", "as",
+                "by", "new", "first", "set", "sets", "out", "huge", "big", "how", "why", "what", "who"}
+_PALABRAS_ES = {"el", "la", "los", "las", "de", "del", "con", "por", "para", "en", "y", "tras", "gana", "se",
+                "su", "sus", "un", "una", "al", "que", "como", "sobre", "ante", "desde", "entre", "es", "son"}
+
+
+def titulo_sin_traducir(titulo: str) -> bool:
+    """El título quedó en inglés (p. ej. "ACR Poker hosts major Sunday tournaments with Paradise packages")."""
+    palabras = re.findall(r"[a-z']+", sin_tildes(titulo))
+    en = sum(1 for p in palabras if p in _PALABRAS_EN)
+    es = sum(1 for p in palabras if p in _PALABRAS_ES)
+    return en >= 2 and es == 0
 
 
 # ---------------------------------------------------------------- relación con el poker
@@ -134,6 +163,9 @@ _MARCAS = {"ggpoker", "pokerstars", "coinpoker", "pokernews", "cardplayer", "pok
            "wsopc", "codigopoker", "pokernoticias", "screenshield", "ggmillion", "ggmillions"}
 
 
+_COMILLAS_NOMBRE = "\"'‘’“”«»"
+
+
 def personas(texto: str, texto_fuentes: str | None = None) -> list[str]:
     """Nombres de persona probables: dos o más palabras con mayúscula que no son de torneos,
     lugares ni palabras comunes, o un alias con mayúsculas internas o dígitos (p. ej. PapoMC)."""
@@ -145,7 +177,9 @@ def personas(texto: str, texto_fuentes: str | None = None) -> list[str]:
     for m in (m for parte in re.split(r"[.!?;:,()]\s+", texto) for m in _SECUENCIA.finditer(parte)):
         for tramo in _corridas_de_nombre(m.group(0)):
             limpios = [_limpio(p) for p in tramo]
-            if len(tramo) >= 2 and not any(p in _NO_PERSONA for p in limpios):
+            # Una sigla en mayúsculas ("Triton ONE", "WPT Prime") indica un torneo o una marca, no una persona.
+            sigla = any(re.fullmatch(r"[A-ZÁÉÍÓÚÑ]{2,}\$?", p.strip(_COMILLAS_NOMBRE)) for p in tramo)
+            if len(tramo) >= 2 and not sigla and not any(p in _NO_PERSONA for p in limpios):
                 if fuente is None or all(f" {p} " in fuente for p in limpios):
                     encontrados.append(" ".join(p.strip("\"'‘’“”«»") for p in tramo))
     for m in re.finditer(r"\b[A-Za-z]*[a-z][A-Z][A-Za-z0-9]*\b|\b[A-Za-z]+\d+[A-Za-z0-9]*\b", texto):
@@ -491,17 +525,81 @@ _LUGARES = {
     "rusia": "russia|rusia|russia", "irlanda": "ireland|irlanda", "escocia": "scotland|escocia", "inglaterra": "england|inglaterra",
     "grecia": "greece|grecia", "turquia": "turkey|turquia", "chipre": "cyprus|chipre", "malta": "malta",
     "brasil": "brazil|brasil", "mexico": "mexico", "peru": "peru", "panama": "panama", "canada": "canada",
+    "rumania": "romania|rumania|romenia", "hungria": "hungary|hungria", "austria": "austria", "portugal": "portugal",
+    "australia": "australia", "nueva zelanda": "new zealand|nova zelandia|nueva zelanda", "ucrania": "ukraine|ucrania",
+    "finlandia": "finland|finlandia", "letonia": "latvia|letonia", "lituania": "lithuania|lituania", "estonia": "estonia",
+    "croacia": "croatia|croacia", "eslovenia": "slovenia|eslovenia", "eslovaquia": "slovakia|eslovaquia",
+    "republica checa": "czech republic|czechia|republica checa|chequia", "tailandia": "thailand|tailandia",
+    "filipinas": "philippines|filipinas", "singapur": "singapore|singapura|singapur", "taiwan": "taiwan",
+    "china": "china", "india": "india", "bahamas": "bahamas", "gales": "wales|gales|pais de gales",
+    "macao": "macau|macao", "israel": "israel", "nueva jersey": "new jersey|nueva jersey|nova jersey",
+    "pensilvania": "pennsylvania|pensilvania", "misuri": "missouri|misuri", "virginia occidental": "west virginia",
+    "carolina del norte": "north carolina", "carolina del sur": "south carolina",
 }
+# Palabras que el modelo traduce y suelen ir con mayúscula dentro de nombres de eventos o premios
+# ("Campeonato de Damas", "Jugador del Año"): forma en español -> formas aceptadas en la fuente.
+_TRADUCCIONES = {
+    "damas": "ladies|women|womens|mulheres|damas|femenin|feminin", "mujeres": "women|womens|ladies|mulheres|mujeres",
+    "ano": "year|ano|anos", "jugador": "player|jogador|jugador", "jugadora": "player|jogadora|jugadora",
+    "otono": "autumn|fall|outono|otono", "invierno": "winter|inverno|invierno", "verano": "summer|verao|verano",
+    "primavera": "spring|primavera", "noche": "night|noite|noche", "domingo": "sunday|domingo",
+    "mundial": "world|mundial", "copa": "cup|copa|taca", "liga": "league|liga", "gira": "tour|gira|turne",
+    "clasificatorio": "qualifier|satellite|classificatorio|clasificatorio", "estelar": "star|stars|estelar",
+    "leyendas": "legends|lendas|leyendas", "maestros": "masters|mestres|maestros", "reyes": "kings|reis|reyes",
+    "reinas": "queens|rainhas|reinas", "campeones": "champions|campeoes|campeones", "abierto": "open|aberto|abierto",
+}
+_ANIO_ACTUAL = None  # se calcula al usarse (permite congelar la fecha en pruebas)
 _PALABRAS_LUGARES = {w for clave in _LUGARES for w in clave.split() if len(w) > 3}
 _CITA = re.compile(r"[“\"«]([^”\"»]{12,})[”\"»]")
 _NUMERO = re.compile(r"\d+(?:[.,]\d+)*")
+# Número con su multiplicador opcional ("US$ 1,2 millones", "$410K", "270 mil", "€2.5M").
+_NUMERO_MULT = re.compile(r"(\d+(?:[.,]\d+)*)\s*(mil\s+millones|bilhoes|bilhao|billions?|bn|"
+                          r"millones|millon|millions?|milhoes|milhao|mm|m|mi|mil|thousand|k)?(?![a-z])", re.I)
+_MULTIPLICADORES = {"k": 1e3, "mil": 1e3, "thousand": 1e3, "m": 1e6, "mm": 1e6, "mi": 1e6, "millon": 1e6,
+                    "millones": 1e6, "million": 1e6, "millions": 1e6, "milhao": 1e6, "milhoes": 1e6,
+                    "bn": 1e9, "billion": 1e9, "billions": 1e9, "bilhao": 1e9, "bilhoes": 1e9, "mil millones": 1e9}
 
 
-def _fuente_normalizada(texto: str) -> tuple[str, set[str], set[str]]:
+def _interpretaciones(numero: str) -> set[float]:
+    """Valores posibles de un número escrito con separadores de miles o decimales de cualquier idioma."""
+    if re.fullmatch(r"\d+", numero):
+        return {float(numero)}
+    if re.fullmatch(r"\d{1,3}([.,]\d{3})+", numero):
+        valores = {float(re.sub(r"[.,]", "", numero))}
+        if numero.count(".") + numero.count(",") == 1:  # "1.350" o "1,350": también puede ser decimal
+            valores.add(float(numero.replace(",", ".")))
+        return valores
+    m = re.fullmatch(r"(\d{1,3}(?:([.,])\d{3})*)([.,])(\d+)", numero)
+    if m and m.group(2) != m.group(3):  # "1.234,5" o "1,234.5"
+        return {float(re.sub(r"[.,]", "", m.group(1)) + "." + m.group(4))}
+    try:
+        return {float(numero.replace(",", "."))}
+    except ValueError:
+        return set()
+
+
+def _valores(match: re.Match) -> set[float]:
+    mult = _MULTIPLICADORES.get(re.sub(r"\s+", " ", (match.group(2) or "").lower()), 1.0)
+    return {round(v * mult, 2) for v in _interpretaciones(match.group(1))}
+
+
+def _valores_de(texto: str) -> set[float]:
+    valores: set[float] = set()
+    for m in _NUMERO_MULT.finditer(sin_tildes(texto)):
+        valores |= _valores(m)
+    return valores
+
+
+def _fuente_normalizada(texto: str) -> tuple[str, set[str], set[str], set[float]]:
     plano = " " + re.sub(r"[^\w$]+", " ", sin_tildes(texto)) + " "
     digitos = {re.sub(r"\D", "", n) for n in _NUMERO.findall(texto)}
     raices = {p[:5] for p in plano.split() if len(p) >= 5}
-    return plano, digitos, raices
+    return plano, digitos, raices, _valores_de(texto)
+
+
+def _anio_actual() -> int:
+    from datetime import datetime, timezone
+    return _ANIO_ACTUAL or datetime.now(timezone.utc).year
 
 
 def _palabra_comun(base: str) -> bool:
@@ -511,13 +609,17 @@ def _palabra_comun(base: str) -> bool:
 
 def no_rastreables(oracion: str, fuente_texto: str) -> list[str]:
     """Afirmaciones de una oración que no figuran en el texto de su fuente."""
-    plano, digitos, raices = _fuente_normalizada(fuente_texto)
+    plano, digitos, raices, valores = _fuente_normalizada(fuente_texto)
     oracion_sin_marcas = oracion.replace(MARCA_MONEDA, "").replace("[nacionalidad a confirmar]", "")
     faltan = []
-    for n in _NUMERO.findall(oracion_sin_marcas):
+    for m in _NUMERO_MULT.finditer(sin_tildes(oracion_sin_marcas)):
+        n = m.group(1)
         d = re.sub(r"\D", "", n)
-        if d and d not in digitos:
-            faltan.append(f"cifra «{n}»")
+        if not d or d in digitos or (_valores(m) & valores):
+            continue
+        if re.fullmatch(r"20\d\d", n) and int(n) == _anio_actual():
+            continue  # el año en curso agregado a un nombre de temporada ("Fall 2026")
+        faltan.append(f"cifra «{n}»")
     for cita in _CITA.findall(oracion):
         if " " + re.sub(r"[^\w$]+", " ", sin_tildes(cita)).strip() + " " not in plano:
             faltan.append(f"cita «{cita[:40]}»")
@@ -529,13 +631,19 @@ def no_rastreables(oracion: str, fuente_texto: str) -> list[str]:
         if re.search(rf"\b{lugar}\b", base_oracion) and not re.search(rf" ({aceptadas}) ", plano):
             faltan.append(f"lugar «{lugar}»")
     # Nombres propios (lugares, torneos, empresas) que no figuran: se omite la primera palabra de la oración.
-    palabras = re.findall(r"(?<=\s)[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$'-]{2,}", " " + oracion_sin_marcas.split(" ", 1)[-1])
+    palabras = re.findall(r"(?<=\s)[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$'’-]{2,}", " " + oracion_sin_marcas.split(" ", 1)[-1])
     for p in palabras:
-        base = sin_tildes(p).strip("'$-")
+        base = sin_tildes(p).strip("'’$-")
         if re.search(r"\d", base) or re.fullmatch(r"(us|u|r|mxn|ars|cop|clp|pen|a|c)\$?", base):
             continue  # montos ("US$250"): las cifras ya se verificaron arriba
         if _palabra_comun(base) or base in _PALABRAS_LUGARES:
             continue  # palabras comunes y lugares traducidos (estos ya se verificaron arriba)
+        if base in _TRADUCCIONES and re.search(rf" ({_TRADUCCIONES[base]})", plano):
+            continue  # traducción habitual de una palabra que sí está en la fuente
+        # "King's", "Mix-Max", "Hold'em": se comparan las partes, como en el texto de la fuente.
+        partes = [x for x in re.sub(r"[^\w$]+", " ", base).split() if x]
+        if partes and f" {' '.join(partes)} " in plano:
+            continue
         if f" {base} " in plano or (len(base) >= 5 and base[:5] in raices):
             continue
         faltan.append(f"nombre propio «{p}»")

@@ -1,4 +1,10 @@
-"""Una sola llamada al modelo por corrida: selecciona, agrupa, clasifica y resume."""
+"""Dos llamadas cortas al modelo por corrida.
+
+1. Selección: solo titulares y primera línea; elige y agrupa los hechos que valen una tarjeta.
+2. Redacción: solo las notas elegidas, con el extracto de su artículo; clasifica y resume.
+
+Así el modelo escribe con el texto real de la nota (los controles pueden rastrear cada dato)
+y la cantidad de tarjetas no depende de una segunda llamada de recuperación."""
 
 from __future__ import annotations
 
@@ -25,7 +31,7 @@ Tareas:
    - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
    - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
    - "rumor": sin confirmación.
-4. Escriba un título en español y un resumen de 2 a 3 líneas.
+4. Escriba un título en español (nunca deje el título en el idioma de la fuente) y un resumen de 2 a 3 líneas.
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 
 Temas calientes:
@@ -54,11 +60,32 @@ Reglas estrictas:
 - Ventana de la corrida: el mensaje indica desde qué fecha y hora se tomaron los titulares. Cada tarjeta debe tratar un hecho ocurrido o informado dentro de esa ventana.
 - Hechos ya publicados: al final del mensaje recibirá las tarjetas ya publicadas, numeradas P1, P2, etc. Las publicadas hoy por corridas anteriores llegan con su resumen; las de días anteriores, solo con el título. No cree una tarjeta para un hecho ya cubierto ni para un hecho anterior a la ventana. Solo si hay un desarrollo nuevo y concreto (un resultado final, una cifra nueva, una confirmación oficial, una respuesta de los involucrados) que no figure en la tarjeta publicada, cree la tarjeta e indique "actualiza" con el número de la tarjeta previa (por ejemplo "P3") y "novedad" con una frase que diga exactamente qué cambió; el resumen debe contar ese cambio. Repetir con otras palabras lo ya publicado no es una novedad.
 
-Responda únicamente con un objeto JSON, sin texto adicional, con esta forma:
-{{"tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}},
+Responda únicamente con un objeto JSON, sin texto adicional, con esta forma (en este orden: temas, tarjetas, escena_latam):
+{{"temas": [{{"tema": "NOMBRE", "linea_principal": "...", "novedades": [{{"id": 2, "clasificacion": "confirmado", "aporta": "..."}}]}}],
+ "tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}},
               {{"ids": [9], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "actualiza": "P3", "novedad": "..."}}],
- "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}],
- "temas": [{{"tema": "NOMBRE", "linea_principal": "...", "novedades": [{{"id": 2, "clasificacion": "confirmado", "aporta": "..."}}]}}]}}"""
+ "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "..."}}]}}"""
+
+
+SELECCION = """Usted es el editor de "Mesa Caliente", un resumen diario de noticias de poker. En este paso solo elige: no escribe tarjetas.
+
+Recibirá una lista numerada de titulares. Cada línea tiene: número, fuente (con su región y su clase: oficial, medio o comunidad), fecha, titular y primera línea. Los marcados "(pendiente)" son de las últimas 48 horas y todavía no se publicaron.
+
+Tareas:
+1. Agrupe por hecho: todos los números que cuentan el mismo hecho van juntos en un solo elemento.
+2. Elija hasta {max_general} hechos para la sección "general" y hasta {max_latam} para la sección "latam" (jugadores argentinos o latinoamericanos, o torneos latinos como CAP, LAPT, BSOP o CLSOP; prefiera las fuentes de región latam y argentina). Cada hecho va en una sola sección.
+3. Prefiera los hechos de la ventana de esta corrida; use los pendientes cuando sean relevantes.
+4. Meta del día: {meta} tarjetas; hoy ya hay {publicadas} publicadas. Si los hechos relevantes no alcanzan, complete con hechos de segundo nivel (resultados de torneos menores, novedades de salas o circuitos con dato concreto) SOLO de notas de clase oficial o medio, marcándolos con "nivel": 2. Nunca elija relleno sin dato.
+
+No elija:
+- Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker).
+- Promociones, satélites, bonos, ofertas, rakeback, freerolls, anuncios de garantizados o calendarios comerciales.
+- Titulares sin nombre de persona, cifra ni evento con nombre.
+- Hechos ya publicados (lista P al final), salvo un desarrollo nuevo y concreto (resultado final, cifra nueva, confirmación oficial, respuesta de los involucrados): en ese caso agregue "actualiza": "P3".
+- Notas de comunidad (Reddit, foros) solas, salvo que traten un hecho de alto impacto para el poker (escándalo, trampas, seguridad, regulación).
+
+Responda únicamente con un objeto JSON, sin texto adicional:
+{{"hechos": [{{"ids": [3, 17], "seccion": "general"}}, {{"ids": [8], "seccion": "latam"}}, {{"ids": [21], "seccion": "general", "nivel": 2}}]}}"""
 
 
 def normalizar_previos(previos) -> list[dict]:
@@ -72,21 +99,34 @@ def normalizar_previos(previos) -> list[dict]:
     return resultado
 
 
-def construir_mensaje(items: list[dict], previos=None, corte: datetime | None = None) -> str:
+def construir_mensaje(items: list[dict], previos=None, corte: datetime | None = None,
+                      grupos: list[dict] | None = None, con_extractos: bool = True) -> str:
     lineas = []
     for n, it in enumerate(items, 1):
         fecha = (it.get("fecha") or "sin fecha")[:10]
         origen = ", ".join(x for x in (it.get("region") or "internacional", it.get("clase")) if x)
         etiqueta = f"[tema: {it['tema']}] " if it.get("tema") else ""
+        if it.get("pendiente"):
+            etiqueta += "(pendiente) "
         linea = f"[{n}] {etiqueta}{it['fuente']} ({origen}) | {fecha} | {limpiar_texto(it['titulo'])}"
         if it.get("primera_linea"):
             linea += f" | {limpiar_texto(it['primera_linea'])}"
-        if it.get("extracto"):
+        if it.get("extracto") and con_extractos:
             linea += f"\n    Extracto: {limpiar_texto(it['extracto'])}"
         lineas.append(linea)
     encabezado = (f"Titulares publicados desde el {corte:%Y-%m-%d %H:%M} UTC (ventana de esta corrida):"
                   if corte else "Titulares de hoy:")
     mensaje = encabezado + "\n\n" + "\n".join(lineas)
+    if grupos:
+        filas = []
+        for g in grupos:
+            fila = f"- {g['ids']} → {'escena_latam' if g['seccion'] == 'latam' else 'tarjetas'}"
+            if g.get("actualiza"):
+                fila += f" (actualiza {g['actualiza']})"
+            filas.append(fila)
+        mensaje += ("\n\nHechos ya elegidos: escriba una tarjeta por cada uno, con esos números y en esa sección. "
+                    "Si al leer el extracto un hecho no tiene dato concreto o resulta promocional, omítalo; "
+                    "no agregue hechos nuevos:\n" + "\n".join(filas))
     previos = normalizar_previos(previos)
     if previos:
         filas = []
@@ -212,7 +252,7 @@ def _previo_indicado(valor, previos: list[dict]) -> dict | None:
 def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int], hoy=None,
                         previos=None, es_latam: bool = False,
                         registro: list[dict] | None = None, enviado: str | None = None,
-                        recuperacion: dict | None = None) -> list[dict]:
+                        niveles: dict[int, int] | None = None) -> list[dict]:
     previos = normalizar_previos(previos)
     titulos_previos = [p["titulo"] for p in previos]
     enviado = texto_enviado(items) if enviado is None else enviado
@@ -284,15 +324,15 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             tarjeta["actualiza"] = previo["titulo"]
             tarjeta["novedad"] = novedad
 
-        # Segundo nivel (solo en la recuperación de la meta diaria): únicamente fuentes oficiales o medios.
-        if c.get("nivel") in (2, "2"):
-            if not recuperacion:
-                descartar(titulo, "segundo nivel fuera de la recuperación")
-                continue
+        # Segundo nivel: lo decide la selección (solo para completar la meta), nunca la redacción.
+        if niveles and any(niveles.get(i) == 2 for i in ids):
             if any(it.get("clase", "medio") not in ("oficial", "medio") for it in fuentes_items):
                 descartar(titulo, "segundo nivel: solo se admiten fuentes oficiales o medios")
                 continue
             tarjeta["nivel"] = 2
+        if calidad.titulo_sin_traducir(titulo):
+            descartar(titulo, "título sin traducir al español")
+            continue
         # Regla máxima: todo se verifica contra el texto enviado para ESTA tarjeta (sus fuentes).
         texto_tarjeta = calidad.texto_items(fuentes_items)
         conservar, cambios = control.verificar_nombres(tarjeta, texto_tarjeta)
@@ -426,10 +466,12 @@ CATEGORIAS_DESCARTE = {
     "repetidas": ("repetida",),
     "sin_poker": ("sin relación con el poker",),
     "segundo_nivel": ("segundo nivel",),
+    "sin_traducir": ("título sin traducir",),
 }
 NOMBRES_CATEGORIAS = {"promociones": "promociones", "dia1": "avances de día 1", "sin_dato": "sin dato concreto",
                       "sin_respaldo": "sin respaldo en la fuente", "repetidas": "repetidas sin dato nuevo",
-                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido"}
+                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido",
+                      "sin_traducir": "títulos sin traducir"}
 
 
 def categoria_descarte(motivo: str) -> str | None:
@@ -440,38 +482,125 @@ def categoria_descarte(motivo: str) -> str | None:
     return None
 
 
-def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
-            previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
-            recuperacion: dict | None = None, max_tokens: int | None = None) -> dict:
-    """Devuelve {'tarjetas', 'escena_latam', 'controles', 'uso'} o lanza ErrorModelo."""
-    previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
-    modelo = modelo_configurado(ajustes)
-    sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 12),
-                             max_latam=ajustes.get("max_tarjetas_latam", 6))
-    mensaje = construir_mensaje(items, previos, corte)
-    if recuperacion:
-        mensaje = (f"CORRIDA DE RECUPERACIÓN. Hoy hay {recuperacion['publicadas']} tarjetas publicadas; la meta es "
-                   f"{recuperacion['meta']}. Faltan {recuperacion['faltan']}. Estas notas son de las últimas 48 horas o no se "
-                   "eligieron antes. Elija primero hechos relevantes. Solo si no alcanzan, puede agregar hechos de segundo "
-                   "nivel (resultados de torneos menores, novedades de salas o circuitos con dato concreto) marcando "
-                   '"nivel": 2, y solo de notas de clase oficial o medio. Todas las reglas siguen igual: nunca invente ni '
-                   "complete datos para llegar a la meta; si no hay suficientes hechos, devuelva menos tarjetas.\n\n" + mensaje)
-    texto, uso = llamar(sistema, mensaje, modelo, max_tokens or ajustes.get("max_tokens_salida", 3000))
+def _rescatar_json(texto: str) -> dict:
+    """Si la salida se cortó, rescata los elementos completos de cada lista (temas, tarjetas, escena_latam)."""
+    decodificador = json.JSONDecoder()
+    datos: dict = {}
+    for clave in ("temas", "tarjetas", "escena_latam", "hechos"):
+        m = re.search(rf'"{clave}"\s*:\s*\[', texto)
+        if not m:
+            continue
+        pos, elementos = m.end(), []
+        while True:
+            while pos < len(texto) and texto[pos] in " \n\r\t,":
+                pos += 1
+            if pos >= len(texto) or texto[pos] != "{":
+                break
+            try:
+                obj, fin = decodificador.raw_decode(texto, pos)
+            except json.JSONDecodeError:
+                break  # elemento cortado: se descarta entero
+            elementos.append(obj)
+            pos = fin
+        datos[clave] = elementos
+    if not datos:
+        raise ErrorModelo("La respuesta del modelo no es un JSON válido.")
+    return datos
+
+
+def _leer_respuesta(texto: str, uso: dict) -> tuple[dict, bool]:
+    """Devuelve (datos, rescatado). Si la salida se cortó, conserva lo que llegó completo."""
+    try:
+        return _extraer_json(texto), False
+    except ErrorModelo as e:
+        try:
+            return _rescatar_json(texto), True
+        except ErrorModelo:
+            motivo = str(e) + (" La salida se cortó por el tope de tokens." if uso.get("truncado") else "")
+            raise ErrorModelo(motivo, uso) from e
+
+
+def _con_costo(uso: dict, modelo: str, ajustes: dict) -> dict:
     uso = dict(uso)
     uso["modelo"] = modelo
     uso["costo_usd"] = costo_estimado(modelo, uso.get("tokens_entrada", 0), uso.get("tokens_salida", 0), ajustes)
-    try:
-        datos = _extraer_json(texto)
-    except ErrorModelo as e:
-        motivo = str(e) + (" La salida se cortó por el tope de tokens." if uso.get("truncado") else "")
-        raise ErrorModelo(motivo, uso) from e
+    return uso
+
+
+def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, previos=None,
+                       corte: datetime | None = None, publicadas: int = 0) -> dict:
+    """Primera llamada: elige y agrupa hechos a partir de titulares y primeras líneas (sin extractos).
+    Devuelve {'hechos': [{'ids', 'seccion', 'nivel', 'actualiza'}], 'uso', 'descartados'}."""
+    previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
+    modelo = modelo_configurado(ajustes)
+    sistema = SELECCION.format(max_general=ajustes.get("max_hechos_general", 14),
+                               max_latam=ajustes.get("max_hechos_latam", 6),
+                               meta=ajustes.get("meta_diaria", 10), publicadas=publicadas)
+    mensaje = construir_mensaje(items, previos, corte, con_extractos=False)
+    texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_seleccion", 1200))
+    uso = _con_costo(uso, modelo, ajustes)
+    datos, rescatado = _leer_respuesta(texto, uso)
+    if "hechos" not in datos or not isinstance(datos["hechos"], list):
+        raise ErrorModelo("La selección no devolvió la lista de hechos.", uso)
+    maximos = {"general": ajustes.get("max_hechos_general", 14), "latam": ajustes.get("max_hechos_latam", 6)}
+    cuenta = {"general": 0, "latam": 0}
+    hechos, usados, descartados = [], set(), []
+    for h in datos["hechos"]:
+        if not isinstance(h, dict):
+            continue
+        ids = []
+        for i in h.get("ids") or []:
+            try:
+                i = int(i)
+            except (TypeError, ValueError):
+                continue
+            if 1 <= i <= len(items) and i not in usados and i not in ids and not esta_bloqueado(items[i - 1]["url"]):
+                ids.append(i)
+        if not ids:
+            continue
+        seccion = "latam" if str(h.get("seccion") or "").lower().startswith("lat") else "general"
+        if cuenta[seccion] >= maximos[seccion]:
+            continue
+        nivel = 2 if h.get("nivel") in (2, "2") else 1
+        if nivel == 2 and any(items[i - 1].get("clase", "medio") not in ("oficial", "medio") for i in ids):
+            descartados.append({"ids": ids, "motivo": "segundo nivel: solo se admiten fuentes oficiales o medios"})
+            continue
+        usados.update(ids)
+        cuenta[seccion] += 1
+        hecho = {"ids": ids, "seccion": seccion, "nivel": nivel}
+        if h.get("actualiza"):
+            hecho["actualiza"] = str(h["actualiza"])
+        hechos.append(hecho)
+    return {"hechos": hechos, "uso": uso, "descartados": descartados, "rescatado": rescatado}
+
+
+def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
+            previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
+            grupos: list[dict] | None = None, faltan: int | None = None, max_tokens: int | None = None) -> dict:
+    """Redacción. Devuelve {'tarjetas', 'escena_latam', 'temas', 'controles', 'uso'} o lanza ErrorModelo.
+
+    `grupos` son los hechos elegidos en la selección (números referidos a `items`); `faltan` es cuántas
+    tarjetas faltaban para la meta antes de esta corrida: el segundo nivel nunca la supera."""
+    previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
+    modelo = modelo_configurado(ajustes)
+    sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 14),
+                             max_latam=ajustes.get("max_tarjetas_latam", 6))
+    mensaje = construir_mensaje(items, previos, corte, grupos)
+    texto, uso = llamar(sistema, mensaje, modelo, max_tokens or ajustes.get("max_tokens_salida", 4500))
+    uso = _con_costo(uso, modelo, ajustes)
+    datos, rescatado = _leer_respuesta(texto, uso)
+    niveles = {i: g.get("nivel", 1) for g in grupos or [] for i in g["ids"]}
     usados: set[int] = set()
     registro: list[dict] = []
-    tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 12), usados, hoy,
-                                   previos, False, registro, recuperacion=recuperacion)
+    if rescatado:
+        registro.append({"motivo": "salida cortada por el tope de tokens: se conservaron las tarjetas completas"})
+    tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 14), usados, hoy,
+                                   previos, False, registro, niveles=niveles)
+    # La sección latina no repite un hecho que ya quedó en la general (aunque venga de otra fuente).
+    previos_latam = [{"titulo": t["titulo"], "resumen": t["resumen"], "hoy": True} for t in tarjetas] + previos
     latam = _construir_tarjetas(datos.get("escena_latam"), items, ajustes.get("max_tarjetas_latam", 6), usados, hoy,
-                                previos, True, registro, recuperacion=recuperacion)
-    if recuperacion:
-        tarjetas, latam = _limitar_segundo_nivel(tarjetas, latam, recuperacion["faltan"], registro)
+                                previos_latam, True, registro, niveles=niveles)
+    if faltan is not None:
+        tarjetas, latam = _limitar_segundo_nivel(tarjetas, latam, faltan, registro)
     temas = construir_temas(datos.get("temas"), items, hoy, publicado_temas, registro)
     return {"tarjetas": tarjetas, "escena_latam": latam, "temas": temas, "controles": registro, "uso": uso}

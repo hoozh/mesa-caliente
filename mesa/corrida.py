@@ -1,4 +1,5 @@
-"""Corrida diaria completa: recolecta, llama una vez al modelo, guarda y genera la página.
+"""Corrida diaria completa: recolecta, elige hechos (1.ª llamada), abre sus artículos,
+redacta las tarjetas (2.ª llamada), guarda y genera la página.
 
 Uso:
   python -m mesa.corrida                 # corrida normal
@@ -65,7 +66,8 @@ def contar_descartes(informe: list[dict], items: list[dict], enviados: list[dict
     for it in items:
         if id(it) not in enviados_ids:
             fuera_por_total[it["fuente"]] = fuera_por_total.get(it["fuente"], 0) + 1
-    por_fuente, totales = {}, {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "por_dia1": 0, "ya_vistos": 0}
+    por_fuente, totales = {}, {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "por_dia1": 0, "ya_vistos": 0,
+                               "por_tematica": 0}
     for x in informe:
         if x.get("resultado") != "ok":
             continue
@@ -73,7 +75,7 @@ def contar_descartes(informe: list[dict], items: list[dict], enviados: list[dict
         x["enviados"] = x["nuevos"] - x["por_tope_total"]
         fila = {"modo": x["modo"], "por_fecha": x["por_fecha"], "por_orden": x["por_orden"],
                 "por_tope": x["por_tope"] + x["por_tope_total"], "por_dia1": x.get("por_dia1", 0),
-                "ya_vistos": x["ya_vistos"], "enviados": x["enviados"]}
+                "ya_vistos": x["ya_vistos"], "por_tematica": x.get("por_tematica", 0), "enviados": x["enviados"]}
         por_fuente[x["fuente"]] = fila
         for k in totales:
             totales[k] += fila[k]
@@ -188,6 +190,60 @@ def _abrir_articulos(items: list[dict], ajustes: dict, descargar, estado_cand: d
     return abiertos
 
 
+def _abrir_para_redaccion(redaccion: list[dict], grupos: list[dict], ajustes: dict, descargar,
+                          estado_cand: dict, hoy: date) -> int:
+    """Abre el artículo de cada hecho elegido (una nota por hecho, de un medio u oficial si la hay),
+    para que la redacción tenga el texto real y los controles puedan rastrear cada dato."""
+    tope = ajustes.get("max_articulos_abiertos", 20)
+    a_abrir = []
+    for g in grupos:
+        notas = [redaccion[i - 1] for i in g["ids"]]
+        if any(it.get("extracto") for it in notas):
+            continue
+        candidatas = [it for it in notas if "#t-" not in it["url"] and not esta_bloqueado(it["url"])]
+        candidatas.sort(key=lambda it: 0 if it.get("clase", "medio") in ("oficial", "medio") else 1)
+        # Primero la nota con menos texto: es la que más necesita el artículo.
+        if candidatas:
+            a_abrir.append(candidatas[0])
+    # Notas de temas calientes con titular insuficiente.
+    a_abrir += [it for it in redaccion if it.get("tema") and not it.get("extracto")
+                and (recoleccion.titular_vago(it) or recoleccion.necesita_texto(it))]
+    abiertos = 0
+    for it in a_abrir:
+        if abiertos >= tope:
+            break
+        abiertos += 1
+        try:
+            r = descargar(it["url"])
+        except recoleccion.ErrorDescarga:
+            continue
+        if r.estado != 200:
+            continue
+        try:
+            extracto, enlaces = recoleccion.extraer_articulo(r.texto, r.url or it["url"],
+                                                             ajustes.get("max_caracteres_extracto", 1200))
+        except Exception:
+            continue
+        if extracto:
+            it["extracto"] = extracto
+        cand.registrar_menciones(estado_cand, it["url"], enlaces, hoy)
+    return abiertos
+
+
+def registrar_enlaces_compartidos(leidos: list[dict], estado_cand: dict, hoy: date) -> int:
+    """Fuentes de descubrimiento (Reddit): los sitios que comparten sus usuarios suman como menciones
+    para las fuentes candidatas. Nada se agrega solo a la lista de fuentes."""
+    total = 0
+    for bloque in leidos:
+        if not bloque.get("descubrimiento"):
+            continue
+        for it in bloque["items"]:
+            if it.get("enlaces"):
+                cand.registrar_menciones(estado_cand, it["url"], it["enlaces"], hoy)
+                total += len(it["enlaces"])
+    return total
+
+
 # ---------------------------------------------------------------- meta diaria
 
 def tarjetas_publicadas_hoy(raiz: Path, hoy: date, corrida: dict | None = None) -> int:
@@ -216,14 +272,14 @@ def urls_publicadas(raiz: Path, hoy: date, dias: int = 3) -> set[str]:
     return urls
 
 
-def candidatas_recuperacion(leidos: list[dict], ahora: datetime, vistos: dict, excluidas: set[str],
-                            horas: int, tope_fuente: int, prioridad=None, descartar_dia1=None) -> list[dict]:
-    """Notas de las últimas `horas` aún no publicadas ni enviadas en esta corrida.
+def notas_pendientes(leidos: list[dict], ahora: datetime, vistos: dict, excluidas: set[str],
+                     horas: int, tope_fuente: int, prioridad=None, descartar_dia1=None) -> list[dict]:
+    """Notas de las últimas `horas` aún no publicadas ni enviadas en esta corrida (pendientes).
 
     - Fuentes con fecha propia: solo lo publicado dentro de la ventana.
     - Fuentes sin fecha (modo orden): lo no visto antes o visto por primera vez dentro de la ventana.
     Se excluyen dominios prohibidos, notas de temas calientes (ya van en la llamada principal)
-    y avances de día 1 de torneos que no están en la lista. Rige el tope por fuente."""
+    y avances de día 1 de torneos que no están en la lista. Rige el tope de cada fuente."""
     desde = ahora - timedelta(hours=horas)
     desde_dia = desde.date().isoformat()
     resultado, ya = [], set(excluidas)
@@ -249,9 +305,21 @@ def candidatas_recuperacion(leidos: list[dict], ahora: datetime, vistos: dict, e
             if descartar_dia1 and descartar_dia1(it):
                 continue
             ya.add(norm)
-            tomados.append(dict(it))
-        resultado += tomados[:tope_fuente]
+            tomados.append(dict(it, pendiente=True))
+        resultado += tomados[:bloque.get("tope", tope_fuente)]
     return resultado
+
+
+def sumar_uso(*usos: dict | None) -> dict | None:
+    """Uso total de la corrida (selección + redacción)."""
+    usos = [u for u in usos if u]
+    if not usos:
+        return None
+    total = {"tokens_entrada": sum(u.get("tokens_entrada", 0) for u in usos),
+             "tokens_salida": sum(u.get("tokens_salida", 0) for u in usos),
+             "modelo": usos[-1].get("modelo"),
+             "costo_usd": round(sum(u.get("costo_usd", 0.0) for u in usos), 6)}
+    return total
 
 
 def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: str) -> None:
@@ -265,88 +333,6 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
         "costo_usd": uso.get("costo_usd", 0.0),
         "estado": corrida["estado"],
     })
-
-
-def recuperar_meta(raiz: Path, hoy: date, ahora: datetime, corrida: dict, ajustes: dict, llamar,
-                   leidos: list[dict], vistos: dict, enviados: list[dict], prioridad, descartar_dia1,
-                   descargar, estado_cand: dict) -> dict:
-    """Si el día queda por debajo de la meta, una segunda llamada (acotada) con las notas de las
-    últimas 48 horas aún no publicadas. Las reglas fijas no cambian; nada se completa ni se inventa."""
-    meta_n = ajustes.get("meta_diaria", 10)
-    antes = tarjetas_publicadas_hoy(raiz, hoy, corrida)
-    meta = {"meta": meta_n, "publicadas_antes": antes, "publicadas": antes, "recuperacion": None}
-    if antes >= meta_n:
-        return meta
-    faltan = meta_n - antes
-    info = {"faltan": faltan, "candidatas": 0, "enviadas": 0, "tarjetas": 0, "segundo_nivel": 0,
-            "costo_usd": 0.0, "omitida": None}
-    meta["recuperacion"] = info
-
-    uso_principal = corrida.get("uso") or {}
-    tope_salida = ajustes.get("max_tokens_salida_por_corrida", 3000)
-    salida_restante = min(tope_salida - uso_principal.get("tokens_salida", 0), ajustes.get("max_tokens_salida", 3000))
-    titulares_restantes = ajustes.get("max_titulares_enviados", 120) - len(enviados)
-    costo_restante = ajustes.get("max_costo_usd_por_corrida", 0.05) - uso_principal.get("costo_usd", 0.0)
-    if salida_restante < ajustes.get("min_tokens_salida_recuperacion", 600):
-        info["omitida"] = "sin presupuesto de tokens de salida en esta corrida"
-        return meta
-    if titulares_restantes <= 0:
-        info["omitida"] = "sin cupo de titulares en esta corrida"
-        return meta
-
-    excluidas = urls_publicadas(raiz, hoy) | {normalizar_url(it["url"]) for it in enviados}
-    candidatas = candidatas_recuperacion(leidos, ahora, vistos, excluidas,
-                                         ajustes.get("ventana_recuperacion_horas", 48),
-                                         ajustes.get("max_titulares_por_fuente", 10), prioridad, descartar_dia1)
-    info["candidatas"] = len(candidatas)
-    elegidas = recoleccion.seleccionar(candidatas, titulares_restantes)
-    if not elegidas:
-        info["omitida"] = "no hay notas de las últimas 48 horas sin publicar"
-        return meta
-    # Tope de costo: la peor salida posible más una estimación de la entrada (unos 4 caracteres por token).
-    modelo_nombre = modelo.modelo_configurado(ajustes)
-    entrada_estimada = (len(modelo.SISTEMA) + sum(len(it.get("titulo") or "") + len(it.get("primera_linea") or "")
-                                                   + len(it.get("extracto") or "") + 120 for it in elegidas)) // 4
-    if modelo.costo_estimado(modelo_nombre, entrada_estimada, salida_restante, ajustes) > costo_restante:
-        info["omitida"] = "superaría el tope de costo por corrida"
-        return meta
-    if llamar is modelo.llamar_anthropic and not os.environ.get("ANTHROPIC_API_KEY", "").strip():
-        info["omitida"] = "falta la clave ANTHROPIC_API_KEY"
-        return meta
-
-    abiertos = corrida.get("recoleccion", {}).get("articulos_abiertos", 0)
-    _abrir_articulos(elegidas, ajustes, descargar, estado_cand, hoy,
-                     tope=max(0, ajustes.get("max_articulos_abiertos", 6) - abiertos))
-    previos = previos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 5))
-    previos = [{"titulo": t["titulo"], "resumen": t.get("resumen", ""), "hoy": True}
-               for t in corrida["tarjetas"] + corrida["escena_latam"]["tarjetas"]] + previos
-    guardar_entradas(raiz, hoy, corrida["id"], elegidas, tipo="recuperacion")
-    info["enviadas"] = len(elegidas)
-    try:
-        resultado = modelo.resumir(elegidas, ajustes, llamar, hoy, previos, None, {},
-                                   recuperacion={"publicadas": antes, "meta": meta_n, "faltan": faltan},
-                                   max_tokens=salida_restante)
-    except modelo.ErrorModelo as e:
-        info["omitida"] = f"falló la llamada de recuperación: {e}"
-        if e.uso:
-            uso = {**e.uso, "modelo": modelo_nombre}
-            uso.setdefault("costo_usd", modelo.costo_estimado(modelo_nombre, uso.get("tokens_entrada", 0),
-                                                              uso.get("tokens_salida", 0), ajustes))
-            corrida["uso_recuperacion"] = uso
-            info["costo_usd"] = uso["costo_usd"]
-        return meta
-    corrida["uso_recuperacion"] = resultado["uso"]
-    info["costo_usd"] = resultado["uso"].get("costo_usd", 0.0)
-    for t in resultado["tarjetas"] + resultado["escena_latam"]:
-        t["recuperada"] = True
-    corrida["tarjetas"] += resultado["tarjetas"]
-    corrida["escena_latam"]["tarjetas"] += resultado["escena_latam"]
-    corrida["controles"] += [dict(x, recuperacion=True) for x in resultado.get("controles", [])]
-    nuevas = resultado["tarjetas"] + resultado["escena_latam"]
-    info["tarjetas"] = len(nuevas)
-    info["segundo_nivel"] = sum(1 for t in nuevas if t.get("nivel") == 2)
-    meta["publicadas"] = antes + len(nuevas)
-    return meta
 
 
 def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
@@ -387,27 +373,40 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         items, informe, recogidos = recoleccion.recolectar(
             fuentes, hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
             prioridad=prioridad, descartar_dia1=descartar_dia1, leidos=leidos)
-        enviados = recoleccion.seleccionar(items, ajustes.get("max_titulares_enviados", 120))
-        descartes = contar_descartes(informe, items, enviados)
+        ventana = recoleccion.seleccionar(items, ajustes.get("max_titulares_enviados", 120))
+        descartes = contar_descartes(informe, items, ventana)
         corrida["controles"] = [{"motivo": "descartes", "fuente": f, **fila}
                                 for f, fila in descartes["por_fuente"].items()]
         for x in informe:
             for d1 in x.pop("dia1", []) if isinstance(x, dict) else []:
                 corrida["controles"].append({"fuente": x["fuente"], "titulo": d1["titulo"], "url": d1["url"],
                                              "torneo": d1["torneo"], "motivo": d1["motivo"]})
+        # Pendientes: notas de las últimas 48 horas que todavía no se publicaron ni entraron en la ventana.
+        excluidas = urls_publicadas(raiz, hoy) | {normalizar_url(it["url"]) for it in items}
+        pendientes = notas_pendientes(leidos, ahora, vistos_antes, excluidas,
+                                      ajustes.get("ventana_pendientes_horas", 48),
+                                      ajustes.get("max_titulares_por_fuente", 10), prioridad, descartar_dia1)
+        pendientes = recoleccion.seleccionar(pendientes, ajustes.get("max_pendientes_enviados", 40))
+        enviados = ventana + pendientes
         corrida["recoleccion"] = {
             "corte": corte.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "motivo_corte": motivo_corte,
             "descartes": descartes,
             "titulares_recogidos": len(recogidos),
             "titulares_nuevos": len(items),
-            "titulares_enviados": len(enviados),
+            "titulares_enviados": len(ventana),
+            "pendientes_enviados": len(pendientes),
             "articulos_abiertos": 0,
+            "enlaces_compartidos": registrar_enlaces_compartidos(leidos, estado_cand, hoy),
             "fuentes_ok": sum(1 for x in informe if x["resultado"] == "ok"),
             "fuentes_con_fallo": sum(1 for x in informe if x["resultado"] == "fallo"),
             "fuentes_en_pausa": sum(1 for x in informe if x["resultado"] == "en_pausa"),
             "detalle": informe,
         }
+        meta_n = ajustes.get("meta_diaria", 10)
+        publicadas_antes = tarjetas_publicadas_hoy(raiz, hoy)
+        corrida["meta"] = {"meta": meta_n, "publicadas_antes": publicadas_antes, "publicadas": publicadas_antes,
+                           "recuperacion": None}
 
         if not enviados:
             corrida["estado"] = "sin_noticias"
@@ -416,26 +415,73 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         else:
             if llamar is modelo.llamar_anthropic and not os.environ.get("ANTHROPIC_API_KEY", "").strip():
                 raise modelo.ErrorModelo("Falta la clave ANTHROPIC_API_KEY (secreto no configurado).")
-            corrida["recoleccion"]["articulos_abiertos"] = _abrir_articulos(enviados, ajustes, descargar, estado_cand, hoy)
             previos = previos_recientes(raiz, hoy, ajustes.get("dias_titulos_previos", 5))
-            guardar_entradas(raiz, hoy, corrida["id"], enviados)
-            resultado = modelo.resumir(enviados, ajustes, llamar, hoy, previos, corte,
-                                       publicado_por_tema(raiz, hoy, temas_activos))
-            if resultado.get("temas"):
-                corrida["temas"] = resultado["temas"]
-            corrida["controles"] += resultado.get("controles", [])
-            corrida["uso"] = resultado["uso"]
-            corrida["tarjetas"] = resultado["tarjetas"]
-            corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
-                                       "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
-        try:
-            corrida["meta"] = recuperar_meta(raiz, hoy, ahora, corrida, ajustes, llamar, leidos, vistos_antes,
-                                             enviados, prioridad, descartar_dia1, descargar, estado_cand)
-        except Exception as e:  # la recuperación nunca tumba lo ya obtenido
-            traceback.print_exc()
-            corrida["meta"] = {"meta": ajustes.get("meta_diaria", 10),
-                               "publicadas": tarjetas_publicadas_hoy(raiz, hoy, corrida),
-                               "recuperacion": {"omitida": f"error interno: {type(e).__name__}"}}
+            de_temas = [it for it in enviados if it.get("tema")]
+            a_elegir = [it for it in enviados if not it.get("tema")]
+
+            # 1.ª llamada: selección de hechos (solo titulares).
+            seleccion = {"estado": "sin_notas", "hechos": 0, "enviadas": len(a_elegir)}
+            grupos_sel: list[dict] = []
+            if a_elegir:
+                guardar_entradas(raiz, hoy, corrida["id"], a_elegir, tipo="seleccion")
+                try:
+                    sel = modelo.seleccionar_hechos(a_elegir, ajustes, llamar, previos, corte, publicadas_antes)
+                    corrida["uso_seleccion"] = sel["uso"]
+                    grupos_sel = sel["hechos"]
+                    seleccion.update(estado="ok", hechos=len(grupos_sel), rescatada=sel["rescatado"],
+                                     costo_usd=sel["uso"].get("costo_usd", 0.0))
+                    corrida["controles"] += [dict(d, motivo=d["motivo"], seleccion=True) for d in sel["descartados"]]
+                except modelo.ErrorModelo as e:
+                    # Respaldo: sin selección, la redacción recibe la ventana como antes (sin pendientes).
+                    if e.uso:
+                        corrida["uso_seleccion"] = {**e.uso, "modelo": modelo.modelo_configurado(ajustes)}
+                    seleccion.update(estado="fallida", motivo=str(e))
+            corrida["seleccion"] = seleccion
+
+            # Notas para la redacción: temas calientes y, después, las de cada hecho elegido.
+            if seleccion["estado"] == "ok":
+                redaccion = list(de_temas)
+                grupos = []
+                for g in grupos_sel:
+                    inicio = len(redaccion)
+                    redaccion += [a_elegir[i - 1] for i in g["ids"]]
+                    grupos.append({**g, "ids": list(range(inicio + 1, len(redaccion) + 1))})
+            else:
+                redaccion = list(de_temas) + [it for it in ventana if not it.get("tema")]
+                grupos = []
+            if not redaccion:
+                corrida["estado"] = "sin_noticias"
+                corrida["notas"].append("La selección no encontró hechos relevantes entre los titulares nuevos.")
+                corrida["escena_latam"]["texto"] = TEXTO_LATAM_VACIO
+            else:
+                if grupos:
+                    abiertos = _abrir_para_redaccion(redaccion, grupos, ajustes, descargar, estado_cand, hoy)
+                else:
+                    abiertos = _abrir_articulos(redaccion, ajustes, descargar, estado_cand, hoy)
+                corrida["recoleccion"]["articulos_abiertos"] = abiertos
+                guardar_entradas(raiz, hoy, corrida["id"], redaccion, tipo="redaccion")
+                # 2.ª llamada: redacción, dentro del tope de costo de la corrida.
+                max_salida = ajustes.get("max_tokens_salida", 4500)
+                costo_sel = (corrida.get("uso_seleccion") or {}).get("costo_usd", 0.0)
+                disponible = ajustes.get("max_costo_usd_por_corrida", 0.05) - costo_sel
+                nombre_modelo = modelo.modelo_configurado(ajustes)
+                entrada_est = (len(modelo.SISTEMA) + sum(len(it.get("titulo") or "") + len(it.get("primera_linea") or "")
+                                                         + len(it.get("extracto") or "") + 120 for it in redaccion)
+                               + 60 * ajustes.get("max_titulos_previos", 80)) // 4
+                while max_salida > 1500 and modelo.costo_estimado(nombre_modelo, entrada_est, max_salida, ajustes) > disponible:
+                    max_salida -= 500
+                resultado = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
+                                           publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
+                                           faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida)
+                if resultado.get("temas"):
+                    corrida["temas"] = resultado["temas"]
+                corrida["controles"] += resultado.get("controles", [])
+                corrida["uso_redaccion"] = resultado["uso"]
+                corrida["tarjetas"] = resultado["tarjetas"]
+                corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
+                                           "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
+            corrida["uso"] = sumar_uso(corrida.get("uso_seleccion"), corrida.get("uso_redaccion"))
+        corrida["meta"]["publicadas"] = tarjetas_publicadas_hoy(raiz, hoy, corrida)
         if corrida["tarjetas"] or corrida["escena_latam"]["tarjetas"]:
             corrida["estado"] = "ok"
             if corrida["escena_latam"]["tarjetas"]:
@@ -451,10 +497,13 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
     except modelo.ErrorModelo as e:
         corrida["estado"] = "fallida"
         corrida["motivo"] = str(e)
-        corrida["uso"] = ({**e.uso, "modelo": modelo.modelo_configurado(ajustes)} if e.uso else None)
-        if e.uso and "costo_usd" not in corrida["uso"]:
-            corrida["uso"]["costo_usd"] = modelo.costo_estimado(
-                corrida["uso"]["modelo"], e.uso.get("tokens_entrada", 0), e.uso.get("tokens_salida", 0), ajustes)
+        uso_error = ({**e.uso, "modelo": modelo.modelo_configurado(ajustes)} if e.uso else None)
+        if uso_error and "costo_usd" not in uso_error:
+            uso_error["costo_usd"] = modelo.costo_estimado(
+                uso_error["modelo"], e.uso.get("tokens_entrada", 0), e.uso.get("tokens_salida", 0), ajustes)
+        if uso_error:
+            corrida["uso_redaccion"] = uso_error
+        corrida["uso"] = sumar_uso(corrida.get("uso_seleccion"), uso_error)
         corrida["escena_latam"] = {"tarjetas": [], "texto": "No disponible: la corrida falló."}
     except Exception as e:  # cualquier error inesperado queda registrado, no rompe la página
         corrida["estado"] = "fallida"
@@ -463,10 +512,10 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         traceback.print_exc()
 
     # Registro de costos (también si la llamada falló después de consumir tokens).
-    if corrida["uso"]:
-        _registrar_costo(costos, hoy, corrida, corrida["uso"], "principal")
-    if corrida.get("uso_recuperacion"):
-        _registrar_costo(costos, hoy, corrida, corrida["uso_recuperacion"], "recuperacion")
+    if corrida.get("uso_seleccion"):
+        _registrar_costo(costos, hoy, corrida, corrida["uso_seleccion"], "seleccion")
+    if corrida.get("uso_redaccion"):
+        _registrar_costo(costos, hoy, corrida, corrida["uso_redaccion"], "redaccion")
 
     try:
         cand.actualizar(estado_cand, fuentes, hoy, ajustes.get("candidatas_ventana_dias", 14),
@@ -530,14 +579,13 @@ def main(argv: list[str] | None = None) -> int:
         u = corrida["uso"]
         print(f"Tokens: {u.get('tokens_entrada', 0)} entrada / {u.get('tokens_salida', 0)} salida, "
               f"costo estimado US$ {u.get('costo_usd', 0):.4f}")
+    sel = corrida.get("seleccion") or {}
+    if sel:
+        print(f"Selección: {sel.get('estado')}, {sel.get('hechos', 0)} hechos de {sel.get('enviadas', 0)} notas"
+              + (f" ({sel['motivo']})" if sel.get("motivo") else ""))
     m = corrida.get("meta") or {}
     if m:
         print(f"Meta diaria: {m['publicadas']} de {m['meta']} tarjetas hoy.")
-        rec = m.get("recuperacion")
-        if rec:
-            print(f"Recuperación: {rec.get('enviadas', 0)} notas enviadas, {rec.get('tarjetas', 0)} tarjetas "
-                  f"({rec.get('segundo_nivel', 0)} de segundo nivel), costo extra US$ {rec.get('costo_usd', 0):.4f}"
-                  + (f"; omitida: {rec['omitida']}" if rec.get("omitida") else ""))
     # Una corrida fallida igual termina bien: el día queda registrado y la página publicada.
     return 0
 

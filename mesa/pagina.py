@@ -62,17 +62,19 @@ def _salud(fuentes: list[dict], dias_reintento: int) -> dict:
 
 
 def _ultima_corrida_costos(corridas: list[dict]) -> dict | None:
-    """Suma las llamadas de la última corrida (principal y recuperación) y separa el costo extra."""
+    """Suma las llamadas de la última corrida (selección y redacción) y separa el costo de la selección."""
     if not corridas:
         return None
     ultimo_id = corridas[-1].get("id")
     llamadas = [c for c in corridas if c.get("id") == ultimo_id] if ultimo_id else corridas[-1:]
-    principal = next((c for c in llamadas if c.get("tipo", "principal") == "principal"), llamadas[0])
+    principal = next((c for c in llamadas if c.get("tipo", "principal") in ("principal", "redaccion")), llamadas[-1])
+    seleccion = [c for c in llamadas if c.get("tipo") == "seleccion"]
     extra = [c for c in llamadas if c.get("tipo") == "recuperacion"]
     return {**principal,
             "tokens_entrada": sum(c.get("tokens_entrada", 0) for c in llamadas),
             "tokens_salida": sum(c.get("tokens_salida", 0) for c in llamadas),
             "costo_usd": sum(c.get("costo_usd", 0.0) for c in llamadas),
+            "costo_seleccion": sum(c.get("costo_usd", 0.0) for c in seleccion) if seleccion else None,
             "costo_recuperacion": sum(c.get("costo_usd", 0.0) for c in extra) if extra else None}
 
 
@@ -104,23 +106,32 @@ def _ultimo_registro(dias: list[dict]) -> dict | None:
 
 def meta_del_dia(dia: dict | None, meta: int) -> dict | None:
     """Cuántas tarjetas tiene el día frente a la meta y, si no se alcanzó, por qué:
-    descartes de la recolección, descartes por regla fija y por fuente, y lo que hizo la recuperación."""
+    descartes de la recolección, descartes por regla fija y por fuente, y lo que hizo la selección."""
     if dia is None:
         return None
     resultado = {"cantidad": dia["cantidad"], "meta": meta, "alcanzada": dia["cantidad"] >= meta}
     if resultado["alcanzada"]:
         return resultado
-    recoleccion = {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "ya_vistos": 0, "enviados": 0}
+    recoleccion = {"por_fecha": 0, "por_orden": 0, "por_tope": 0, "ya_vistos": 0, "por_tematica": 0, "enviados": 0,
+                   "pendientes": 0}
     reglas: dict[str, int] = {}
     por_fuente: dict[str, dict[str, int]] = {}
     recuperacion = {"enviadas": 0, "tarjetas": 0, "segundo_nivel": 0, "omitida": None, "costo_usd": 0.0}
     hubo_recuperacion = False
+    seleccion = {"hechos": 0, "fallida": False}
+    hubo_seleccion = False
     for c in dia.get("corridas", []):
         r = c.get("recoleccion") or {}
         totales = (r.get("descartes") or {}).get("totales") or {}
-        for k in ("por_fecha", "por_orden", "por_tope", "ya_vistos"):
+        for k in ("por_fecha", "por_orden", "por_tope", "ya_vistos", "por_tematica"):
             recoleccion[k] += totales.get(k, 0)
         recoleccion["enviados"] += r.get("titulares_enviados", 0)
+        recoleccion["pendientes"] += r.get("pendientes_enviados", 0)
+        sel = c.get("seleccion")
+        if sel:
+            hubo_seleccion = True
+            seleccion["hechos"] += sel.get("hechos", 0)
+            seleccion["fallida"] = seleccion["fallida"] or sel.get("estado") == "fallida"
         for x in c.get("controles") or []:
             categoria = modelo.categoria_descarte(x.get("motivo") or "")
             if not categoria:
@@ -142,6 +153,7 @@ def meta_del_dia(dia: dict | None, meta: int) -> dict | None:
         "por_fuente": [{"fuente": f, "detalle": ", ".join(f"{nombres[k]} ({n})" for k, n in sorted(v.items(), key=lambda kv: -kv[1]))}
                        for f, v in sorted(por_fuente.items(), key=lambda kv: -sum(kv[1].values()))],
         "recuperacion": recuperacion if hubo_recuperacion else None,
+        "seleccion": seleccion if hubo_seleccion else None,
     })
     return resultado
 
