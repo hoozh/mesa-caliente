@@ -1,5 +1,5 @@
 {
-  "nota": "Lista de fuentes del barrido. Para agregar una, copie un bloque y cambie nombre, url, tipo (rss o html), idioma, region y clase (oficial, medio o comunidad). Nunca agregue sitios de GipsyTeam: el programa los rechaza.",
+  "nota": "Lista de fuentes del barrido. Para agregar una, copie un bloque y cambie nombre, url, tipo (rss o html), idioma, region y clase (oficial, medio o comunidad). Nunca agregue sitios de GipsyTeam: el programa los rechaza. Campos opcionales: max_titulares (tope propio por corrida) y uso=\"descubrimiento\" (fuente de fuentes, como Reddit: aporta pocas notas y los sitios que comparten sus usuarios suman como candidatas). Con tematica distinta de \"poker\" (medios de juego en general) solo entran las notas que hablan de poker.",
   "fuentes": [
     {
       "nombre": "PokerNews",
@@ -152,7 +152,9 @@
       "ultimo_intento": "2026-10-19",
       "ultimos_titulares": 25,
       "clase": "comunidad",
-      "tematica": "poker"
+      "tematica": "poker",
+      "uso": "descubrimiento",
+      "max_titulares": 3
     },
     {
       "nombre": "Two Plus Two",

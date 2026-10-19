@@ -97,6 +97,9 @@ def test_articulos_abiertos_alimentan_candidatas(raiz_temporal):
     for i in range(8):
         respuestas[f"https://portada-poker.com/news/nota-numero-{i}-con-titulo-largo/"] = (200, articulo)
     descarga = DescargaFalsa(respuestas)
+    ajustes = leer_json(raiz_temporal / "config" / "ajustes.json")
+    ajustes["max_articulos_abiertos"] = 6
+    (raiz_temporal / "config" / "ajustes.json").write_text(json.dumps(ajustes), encoding="utf-8")
     corrida.ejecutar(raiz_temporal, AHORA, "automatica", descarga, llamador_ok)
     abiertas = [u for u in descarga.pedidas if "/nota-numero-" in u]
     assert len(abiertas) == 6  # tope de artículos abiertos

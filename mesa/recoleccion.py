@@ -95,13 +95,33 @@ def parsear_rss(texto: str, fuente: dict) -> list[dict]:
         titulo = limpiar_texto(_texto_html(e.get("title", "")))
         if not url or not titulo:
             continue
-        resumen = _texto_html(e.get("summary", "") or e.get("description", ""))
+        html_resumen = e.get("summary", "") or e.get("description", "")
+        resumen = _texto_html(html_resumen)
         if resumen.lower().startswith(titulo.lower()):
             resumen = resumen[len(titulo):]
         if not re.search(r"[^\W\d_]{3}", resumen):  # solo números o símbolos
             resumen = ""
-        items.append(_item(fuente, url, titulo, _fecha_entrada(e), primera_oracion(resumen)))
+        item = _item(fuente, url, titulo, _fecha_entrada(e), primera_oracion(resumen))
+        if fuente.get("uso") == "descubrimiento":
+            item["enlaces"] = _enlaces_externos(html_resumen, url)
+        items.append(item)
     return items
+
+
+def _enlaces_externos(fragmento: str, url_propia: str) -> list[str]:
+    """Enlaces a otros sitios dentro de una entrada (lo que comparte un usuario de Reddit o de un foro)."""
+    if not fragmento:
+        return []
+    propio = dominio_base(url_propia)
+    enlaces = []
+    for a in BeautifulSoup(fragmento, "html.parser").find_all("a", href=True):
+        href = a["href"]
+        dominio = dominio_base(href) if href.startswith("http") else ""
+        if not dominio or dominio == propio or dominio in ("redd.it", "reddit.com", "redditmedia.com") \
+                or href in enlaces:
+            continue
+        enlaces.append(href)
+    return enlaces
 
 
 # ---------------------------------------------------------------- HTML
@@ -224,6 +244,19 @@ def _item(fuente: dict, url: str, titulo: str, fecha: datetime | None, linea: st
     }
 
 
+def es_nota_de_poker(item: dict) -> bool:
+    from .calidad import _POKER, sin_tildes
+    return bool(_POKER.search(sin_tildes(f"{item.get('titulo') or ''} {item.get('primera_linea') or ''}")))
+
+
+def filtrar_tematica(fuente: dict, items: list[dict]) -> tuple[list[dict], int]:
+    """Los medios de juego en general (tematica distinta de "poker") solo aportan notas que hablan de poker."""
+    if fuente.get("tematica", "poker") == "poker":
+        return items, 0
+    quedan = [it for it in items if es_nota_de_poker(it)]
+    return quedan, len(items) - len(quedan)
+
+
 def leer_fuente(fuente: dict, descargar: Descargador) -> list[dict]:
     """Devuelve los titulares de una fuente o lanza ErrorDescarga con el motivo."""
     if esta_bloqueado(fuente["url"]):
@@ -259,7 +292,8 @@ def modo_de_lectura(items: list[dict]) -> str:
 
 
 def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: datetime,
-                   tope: int, primera_vez: bool, prioridad=None, descartar_dia1=None) -> tuple[list[dict], dict]:
+                   tope: int, primera_vez: bool, prioridad=None, descartar_dia1=None,
+                   tope_prioritarios: int | None = None) -> tuple[list[dict], dict]:
     """Aplica el filtro por día a los titulares de una fuente.
 
     - Modo 'fecha': solo lo publicado desde el corte (y no ya visto).
@@ -308,7 +342,11 @@ def filtrar_fuente(items: list[dict], vistos: set[str], corte: datetime, ahora: 
             resto.append(it)
         else:
             resto.append(it)
-    conteo["por_tope"] = max(0, len(resto) - tope)
+    if tope_prioritarios is not None and len(prioritarios) > tope_prioritarios:
+        conteo["por_tope"] += len(prioritarios) - tope_prioritarios
+        prioritarios = prioritarios[:tope_prioritarios]
+        tope = max(0, tope - len(prioritarios))
+    conteo["por_tope"] += max(0, len(resto) - tope)
     conteo["prioritarios"] = len(prioritarios)
     return prioritarios + resto[:tope], conteo
 
@@ -344,15 +382,22 @@ def recolectar(fuentes: list[dict], hoy: date, ahora: datetime, vistos: set[str]
             continue
         salud.registrar_exito(fuente, hoy, len(items))
         recogidos.extend(it["url"] for it in items)
-        if leidos is not None:  # todo lo leído, para la recuperación de la meta diaria
-            leidos.append({"fuente": fuente["nombre"], "items": items})
+        # Tope propio de la fuente: las de descubrimiento (Reddit) aportan pocas notas y sus enlaces.
+        tope = fuente.get("max_titulares", tope_fuente)
+        descubrimiento = fuente.get("uso") == "descubrimiento"
+        items, por_tematica = filtrar_tematica(fuente, items)
+        if leidos is not None:  # todo lo leído, para los pendientes de las últimas 48 horas
+            leidos.append({"fuente": fuente["nombre"], "items": items, "tope": tope,
+                           "descubrimiento": descubrimiento})
         hosts = {host_de(it["url"]).removeprefix("www.") for it in items}
         primera_vez = not (hosts & hosts_vistos)
-        tomados, conteo = filtrar_fuente(items, vistos | ya, corte, ahora, tope_fuente, primera_vez,
-                                         prioridad, descartar_dia1)
+        tomados, conteo = filtrar_fuente(items, vistos | ya, corte, ahora, tope, primera_vez,
+                                         prioridad, descartar_dia1,
+                                         tope_prioritarios=tope if descubrimiento else None)
+        conteo["por_tematica"] = por_tematica
         ya.update(normalizar_url(it["url"]) for it in tomados)
         nuevos.extend(tomados)
-        informe.append({"fuente": fuente["nombre"], "resultado": "ok", "titulares": len(items),
+        informe.append({"fuente": fuente["nombre"], "resultado": "ok", "titulares": len(items) + por_tematica,
                         "nuevos": len(tomados), **conteo})
     return nuevos, informe, recogidos
 

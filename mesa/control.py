@@ -102,6 +102,22 @@ def paises_mencionados(texto: str, incluir_nombre_pais: bool = False) -> set[str
     return encontrados
 
 
+# Gentilicios de fuera de la región (español, inglés y portugués, sin tildes): si la tarjeta o su fuente
+# ya dicen de dónde es la persona, no corresponde la marca de nacionalidad a confirmar.
+_OTROS_GENTILICIOS = re.compile(
+    r"\b(espanol(a|es|as)?|spanish|spaniard|espanho(l|is|la|las)|portugues(a|es|as)?|portuguese|"
+    r"estadounidenses?|american|norte-?american[oa]s?|canadienses?|canadian|canadense|britanic[oa]s?|british|"
+    r"ingles(a|es|as)?|english|escoces(a|es|as)?|scottish|irlandes(a|es|as)?|irish|frances(a|es|as)?|french|"
+    r"aleman(a|es|as)?|german|alema(o|es)|italian[oa]s?|italian|rus[oa]s?|russian|ucranian[oa]s?|ukrainian|"
+    r"chin[oa]s?|chinese|japones(a|es|as)?|japanese|coreano?s?|korean|australian[oa]s?|australian|"
+    r"neerlandes(a|es|as)?|holandes(a|es|as)?|dutch|belga|belgian|suec[oa]s?|swedish|swede|norueg[oa]s?|norwegian|"
+    r"finlandes(a|es|as)?|finnish|finn|danes(a|es|as)?|danish|polac[oa]s?|polish|austriac[oa]s?|austrian|"
+    r"suiz[oa]s?|swiss|grieg[oa]s?|greek|turc[oa]s?|turkish|israeli(es)?|letona?s?|latvian|lituan[oa]s?|lithuanian|"
+    r"estonios?|estonian|hungar[oa]s?|hungarian|rumano?s?|romanian|bulgar[oa]s?|bulgarian|croatas?|croatian|"
+    r"checos?|czech|tailandes(a|es|as)?|thai|filipin[oa]s?|filipino|vietnamita|vietnamese|indi[oa]s?|indian|"
+    r"malayo?s?|malaysian|singapurenses?|singaporean|taiwanes(a|es|as)?|taiwanese|sudafrican[oa]s?|south african)\b")
+
+
 def asegurar_nacionalidad(tarjeta: dict, items: list[dict], es_latam: bool) -> str | None:
     """Solo actúa si la tarjeta nombra a una persona. Si el titular o la primera línea de una
     fuente indica la nacionalidad y la tarjeta no la menciona, la agrega. En la escena latina,
@@ -120,7 +136,11 @@ def asegurar_nacionalidad(tarjeta: dict, items: list[dict], es_latam: bool) -> s
     if faltan:
         tarjeta["resumen"] = tarjeta["resumen"].rstrip() + f" Nacionalidad indicada por la fuente: {', '.join(faltan)}."
         return "nacionalidad agregada"
-    if es_latam and not en_tarjeta and not en_fuentes and MARCA_NACIONALIDAD not in texto:
+    fuentes_texto = " ".join(f"{it.get('titulo') or ''} {it.get('primera_linea') or ''}" for it in items)
+    otra_nacionalidad = bool(_OTROS_GENTILICIOS.search(_sin_tildes(texto))
+                             or _OTROS_GENTILICIOS.search(_sin_tildes(fuentes_texto)))
+    if (es_latam and not en_tarjeta and not en_fuentes and not otra_nacionalidad
+            and MARCA_NACIONALIDAD not in texto):
         for campo in ("titulo", "resumen"):
             for nombre in nombres:
                 pos = tarjeta[campo].find(nombre)
@@ -194,7 +214,12 @@ _NO_NOMBRES = set(_GENERICAS) | {
     "bruselas", "ginebra", "estambul", "marruecos", "sudafrica", "japon", "alemania", "francia", "italia",
     "espana", "inglaterra", "escocia", "irlanda", "grecia", "turquia", "chipre", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
     "septiembre", "octubre", "noviembre", "diciembre",
-} | {_sin_tildes(p) for nombre in PAISES for p in nombre.split()}
+} | {_sin_tildes(p) for nombre in PAISES for p in nombre.split()} | {
+    "rumania", "hungria", "austria", "portugal", "australia", "ucrania", "finlandia", "letonia", "lituania",
+    "estonia", "croacia", "eslovenia", "eslovaquia", "tailandia", "filipinas", "singapur", "taiwan", "china",
+    "india", "bahamas", "gales", "macao", "israel", "canada", "rusia", "suecia", "noruega", "dinamarca",
+    "polonia", "belgica", "suiza", "malta", "corea", "holanda", "chequia",
+}
 
 _CONECTORES = {"de", "da", "del", "dos", "das", "do", "van", "von", "der", "di", "du", "la", "le", "y"}
 _TOKEN = r"[\"'‘’“”«»]?[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$.-]*[\"'‘’“”«»]?"

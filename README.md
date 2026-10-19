@@ -62,22 +62,25 @@ Al pulsar **Run workflow** aparece un campo opcional, **origen**:
 
 Cualquier otro valor se trata como una corrida manual.
 
+### Cómo se arma cada corrida: selección y redacción (desde el 19 oct 2026)
+
+Cada corrida hace **dos llamadas cortas** al modelo:
+
+1. **Selección** (solo titulares y primera línea, sin extractos): el modelo elige y agrupa los hechos que valen una tarjeta, hasta `max_hechos_general` (14) y `max_hechos_latam` (6). Recibe la ventana de la corrida (`max_titulares_enviados`, 120) y, además, las notas **pendientes** de las últimas 48 horas que todavía no se publicaron (`ventana_pendientes_horas`, `max_pendientes_enviados`: 40), marcadas "(pendiente)". Las notas de temas calientes no pasan por la selección: van directo a la redacción.
+2. **Apertura de artículos**: el programa abre el artículo de cada hecho elegido (una nota por hecho, de un medio u oficial si la hay; como máximo `max_articulos_abiertos`, 20, con `max_caracteres_extracto`, 1200).
+3. **Redacción**: el modelo recibe solo las notas elegidas, con su extracto, y escribe una tarjeta por hecho. Como escribe con el texto real de la nota, los controles pueden rastrear cada cifra y cada nombre, y se descartan menos tarjetas por "sin respaldo".
+
+Si la selección falla (error o respuesta inválida), la redacción recibe la ventana como antes y la página lo indica. Si la salida de la redacción se corta por el tope de tokens, se conservan las tarjetas que llegaron completas.
+
+Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía solo si el día no llegaba a la meta y que a menudo se cortaba por falta de tokens).
+
 ### Meta diaria de 10 notas
 
-El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). Si al terminar una corrida el día tiene menos de 10:
+El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). La selección sabe cuántas hay publicadas ese día y, si los hechos relevantes no alcanzan, puede completar con hechos de **segundo nivel** (torneos menores, novedades de salas o circuitos con dato concreto). Solo se aceptan si todas sus fuentes son de clase `oficial` o `medio` y solo hasta completar lo que falta para la meta. En la página llevan la etiqueta "Segundo nivel". La marca de segundo nivel la pone la selección, nunca la redacción.
 
-1. **Ventana de 48 horas**: se arma una segunda lista con las notas de las últimas 48 horas que todavía no se publicaron ni se enviaron al modelo en esta corrida (`ventana_recuperacion_horas`). Las de fuentes sin fecha entran si no se habían visto o si se vieron por primera vez dentro de esas 48 horas.
-2. **Segundo nivel**: en esa misma llamada, si no alcanzan los hechos relevantes, el modelo puede proponer hechos de segundo nivel (torneos menores, novedades de salas o circuitos con dato concreto). Solo se aceptan si todas sus fuentes son de clase `oficial` o `medio` y solo hasta completar lo que falta para la meta. En la página llevan la etiqueta "Segundo nivel".
+Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo, los títulos sin traducir y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, cuántos hechos eligió la selección y los descartes por regla y por fuente.
 
-Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, descartes por regla y por fuente, y lo que aportó la recuperación.
-
-La recuperación es una segunda llamada al modelo, con topes propios dentro de los de la corrida (`config/ajustes.json`):
-
-- `max_tokens_salida_por_corrida` (3000): suma de las dos llamadas. Si a la segunda le quedan menos de `min_tokens_salida_recuperacion` (600), no se hace.
-- `max_titulares_enviados` (120): suma de los titulares de las dos llamadas.
-- `max_costo_usd_por_corrida` (US$ 0,05): la segunda llamada solo se hace si, aun en el peor caso, la corrida completa queda por debajo.
-
-El costo de la recuperación se guarda aparte en `data/costos.json` (`"tipo": "recuperacion"`) y el pie de la página lo muestra junto al de la última corrida. Con Haiku, y con las fuentes del 6 de octubre de 2026 (69 notas para recuperar), la segunda llamada se estima en unos US$ 0,013 a 0,016, con un máximo de unos US$ 0,02; la corrida completa queda por debajo de US$ 0,035.
+Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (4500, redacción) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
 
 ### Cambiar el modelo (opcional)
 
@@ -97,6 +100,7 @@ Todas las fuentes están en `config/fuentes.json`. Se puede editar desde GitHub 
 - `idioma`: `es`, `en` o `pt`.
 - `region`: `internacional`, `latam`, `argentina`, `espana` u otra.
 - `clase`: `oficial` (organizador o circuito), `medio` (medio especializado) o `comunidad` (Reddit, foros). Lo que solo informa una fuente `comunidad` nunca se publica como CONFIRMADO.
+- Opcionales: `max_titulares` (tope propio por corrida, en lugar de los 10 generales); `uso`: `descubrimiento` para una fuente de fuentes como Reddit (aporta pocas notas, también en temas calientes, y los sitios que comparten sus usuarios suman como menciones para las fuentes candidatas); `tematica`: `juego` para medios de juego en general (como GamblingNews), de los que solo entran las notas que hablan de poker.
 - `estado`: `activa`. Deje `fallos_consecutivos` en `0` y `ultimo_ok` en `null`.
 
 Ejemplo:
@@ -241,16 +245,16 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
 | Un archivo por día | `data/dias/AAAA-MM-DD.json` |
 | Direcciones ya vistas | `data/vistos.json` |
 | Fuentes candidatas | `data/candidatas.json` |
-| Tokens y costo por corrida (principal y recuperación) | `data/costos.json` |
+| Tokens y costo por corrida (selección y redacción) | `data/costos.json` |
 | Lo enviado al modelo, por nota (auditoría) | `data/entradas/AAAA-MM-DD.json` |
 | Diseño de la página | `templates/index.html.j2` y `templates/estilo.css` |
 | Página publicada | `docs/index.html` |
 
 - **Salud de fuentes**: si una fuente falla 3 días seguidos (error, bloqueo, 403, sin contenido), pasa a `en_pausa`. Las pausadas se reintentan una vez por semana y vuelven a `activa` si responden. La página las lista en "Salud de fuentes" con el motivo.
 - **Filtro por día**: cada corrida toma lo publicado desde la última corrida exitosa, con 3 horas de margen (`margen_horas`), y nunca mira más de 3 días hacia atrás (`dias_maximos_atras`). Si una fuente no trae fecha, o pone la misma a todas sus notas (como Poker.org), se usa el orden de la lista: se toma desde arriba hasta la primera nota ya vista. Una fuente nueva aporta como máximo 10 notas. Después de cada corrida exitosa, todo lo recogido (elegido o no) queda como visto; si la corrida falla, no se marca nada y la siguiente lo vuelve a intentar.
-- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente, 120 enviados al modelo, 6 artículos abiertos como máximo, 3000 tokens de salida, 12 tarjetas. Valen para la corrida completa, incluida la recuperación de la meta diaria. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
-- **Artículos abiertos**: solo se abre el texto de una nota cuando su titular no trae primera línea suficiente (como máximo 6 por corrida).
-- **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre. Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
+- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente (Reddit, 3), 120 de la ventana más 40 pendientes en la selección, 20 artículos abiertos como máximo, 4500 tokens de salida en la redacción, 14 tarjetas generales y 6 latinas. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
+- **Artículos abiertos**: se abre el artículo de cada hecho elegido en la selección (y de las notas de temas calientes con titular insuficiente), como máximo 20 por corrida.
+- **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre y los que comparten los usuarios de las fuentes de descubrimiento (Reddit). Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.
 - **Controles sobre el resumen**: el programa revisa lo que escribe el modelo. Conserva el premio que nombra la fuente (brazalete para la WSOP, anillo para el WSOP Circuit, trofeo), agrega la nacionalidad cuando el titular o la primera línea la indican y, en la escena latina, marca "[nacionalidad a confirmar]" si nadie la indica. Todo nombre de persona debe figurar en lo enviado al modelo: si el modelo agrega un nombre de pila, apellido o alias que no está, el programa lo quita, y si el nombre completo no figura, descarta la tarjeta. Además, el modelo recibe los títulos de las tarjetas de los últimos 5 días (`dias_titulos_previos` en `config/ajustes.json`) y no repite un hecho salvo que haya un desarrollo nuevo; en ese caso la tarjeta muestra "Qué cambió". Las tarjetas ya publicadas ese mismo día llegan al modelo con su resumen, y una "qué cambió" que no agrega nada nuevo se descarta.
 - **Reglas de calidad** (`mesa/calidad.py`):
@@ -258,7 +262,10 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
   - Cargos, posiciones, edades y nacionalidades de personas solo si figuran en el texto enviado al modelo; si no, se quitan.
   - Se descartan las notas sin relación con el poker, las puramente promocionales (satélites, promociones, ofertas, anuncios de garantizados) y las que no traen un dato concreto (un resultado sin el nombre del ganador, por ejemplo). Los titulares vagos se abren primero para buscar ese dato.
   - Se quitan los superlativos copiados de la fuente ("el más prestigioso del mundo", "espectacular").
-  - "[nacionalidad a confirmar]" solo aparece junto al nombre de una persona.
+  - "[nacionalidad a confirmar]" solo aparece junto al nombre de una persona (no junto a un torneo o una marca con sigla, como "Triton ONE") y nunca si la tarjeta o su fuente ya dicen de dónde es (por ejemplo, "el español").
+  - Un título que quedó en el idioma de la fuente se descarta ("título sin traducir").
+  - Un hecho publicado en la sección general no se repite en la escena latina, aunque venga de otra fuente.
+  - Las cifras se comparan por valor: "US$ 800.000" coincide con "$800K", "US$ 1 millón" con "$1,000,000" y "270.000" con "270 mil". El año en curso agregado al nombre de una temporada ("Fall 2026") no cuenta como dato inventado. Las traducciones habituales ("Damas" por "Ladies", "Jugador del Año" por "Player of the Year", "Gales" por "Wales") y los nombres con apóstrofo o guion ("King's", "Mix-Max") tampoco. Las abreviaturas ("St. Louis") no cortan las oraciones.
   - Si una fuente latinoamericana solo pone "$", el monto se publica como "$ N (moneda a confirmar)".
 
   Lo que el programa corrige o descarta queda anotado en el archivo del día (campo `controles`).

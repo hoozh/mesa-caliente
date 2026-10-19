@@ -1,20 +1,19 @@
 {
-  "nota": "Topes fijos de cada corrida. El modelo se elige con la variable MESA_MODELO (por defecto claude-haiku-4-5).",
+  "nota": "Topes fijos de cada corrida (selección + redacción). El modelo se elige con la variable MESA_MODELO (por defecto claude-haiku-4-5).",
   "modelo_por_defecto": "claude-haiku-4-5",
   "max_titulares_enviados": 120,
   "max_titulares_por_fuente": 10,
+  "max_pendientes_enviados": 40,
+  "ventana_pendientes_horas": 48,
   "margen_horas": 3,
   "dias_maximos_atras": 3,
-  "max_articulos_abiertos": 6,
-  "max_caracteres_extracto": 900,
-  "max_tokens_salida": 3000,
-  "max_tokens_salida_por_corrida": 3000,
+  "max_articulos_abiertos": 20,
+  "max_caracteres_extracto": 1200,
+  "max_tokens_salida": 4500,
   "max_costo_usd_por_corrida": 0.05,
-  "max_tarjetas": 12,
+  "max_tarjetas": 14,
   "max_tarjetas_latam": 6,
   "meta_diaria": 10,
-  "ventana_recuperacion_horas": 48,
-  "min_tokens_salida_recuperacion": 600,
   "dias_titulos_previos": 5,
   "max_titulos_previos": 80,
   "dias_pausa_reintento": 7,
@@ -40,5 +39,8 @@
       "entrada": 4.0,
       "salida": 20.0
     }
-  }
+  },
+  "max_tokens_seleccion": 1200,
+  "max_hechos_general": 14,
+  "max_hechos_latam": 6
 }
