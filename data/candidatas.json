@@ -66,30 +66,6 @@
   ],
   "menciones": [
     {
-      "dominio": "highrollpoker.com",
-      "articulo": "https://br.pokernews.com/noticias/2026/10/hustler-casino-live-afasta-jogadora-denuncias-67774.htm",
-      "enlace": "https://highrollpoker.com/tracker/players/2231?page=1&perPage=10&sort=%5B%22name.asc%22%5D&tab=breakdownByLivestream",
-      "fecha": "2026-10-05"
-    },
-    {
-      "dominio": "maderopoker.com.ar",
-      "articulo": "https://codigopoker.com/torneos-argentina/campeon-gonzalo-dalbes-puso-a-codigopoker-en-lo-mas-alto-del-cap-buenos-aires",
-      "enlace": "https://maderopoker.com.ar/",
-      "fecha": "2026-10-05"
-    },
-    {
-      "dominio": "capoker.com.ar",
-      "articulo": "https://codigopoker.com/torneos-argentina/campeon-gonzalo-dalbes-puso-a-codigopoker-en-lo-mas-alto-del-cap-buenos-aires",
-      "enlace": "https://capoker.com.ar",
-      "fecha": "2026-10-05"
-    },
-    {
-      "dominio": "poker-red.com",
-      "articulo": "https://br.pokernews.com/noticias/2026/10/sites-avisados-escandalo-superuses-67776.htm",
-      "enlace": "https://poker-red.com/noticias/nacho-moron-sobre-paul-gregg-en-15-minutos-me-pelo-60.000-dolares",
-      "fecha": "2026-10-05"
-    },
-    {
       "dominio": "atfx.com",
       "articulo": "https://codigopoker.com/noticias-generales/como-invertir-dolares-poker",
       "enlace": "https://login-intl.atfx.com/register?redirect_uri=applyLive&invitationCode=kc%2FZo%2B8YUngGPxkcCWDnpA%3D%3D",
@@ -274,6 +250,12 @@
       "articulo": "https://codigopoker.com/poker-online/hallowin-de-kkpoker",
       "enlace": "https://kkpoker.club/CODIGOCLUB",
       "fecha": "2026-10-18"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/joe-hachem-winners-circle-victorian-poker-championship-52627.htm",
+      "enlace": "https://pokerdb.thehendonmob.com/ranking/191/#30",
+      "fecha": "2026-10-19"
     }
   ]
 }
