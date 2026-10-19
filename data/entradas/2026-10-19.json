@@ -543,6 +543,537 @@
         }
       ],
       "tipo": "recuperacion"
+    },
+    {
+      "id": "2026-10-19T16:21:02Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/10/wpt-global-asia-mtt-super-package-leaderboards-52610.htm",
+          "titular": "Calling All Asian Players: Play Your Way to WPT Prime Taiwan at WPT Global",
+          "primera_frase": "Thirty WPT Prime Taiwan packages must be won."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/new-zealand-applications-spell-bad-news-poker/",
+          "titular": "New Zealand Applications Spell Bad News for Poker Players",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/ggpoker-prohibits-thirdparty-tools-rolls-security-49136/",
+          "titular": "GGPoker Bans Third-Party Software, Adds Security Controls for Players",
+          "primera_frase": "GGPoker has prohibited third-party poker software from being used on its platform, PokerNews reported."
+        },
+        {
+          "n": 4,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xa04ww/double_board_bomb_pot_nlh/",
+          "titular": "Double board bomb pot NLH",
+          "primera_frase": "Hi All - I usually play PLO but there wasn't a game running so I jumped into a 1/3 game at the borgata."
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/jogada-polemica-bolha-gera-discussao-poker-masters-67899.htm",
+          "titular": "Estratégia ou desrespeito? Jogada polêmica na bolha gera discussão no Poker Masters",
+          "primera_frase": "John Krpan criticou jogadores que deixam uma ficha para trás e questionou a estratégia"
+        },
+        {
+          "n": 6,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/de-estar-casi-eliminados-a-convertirse-en-campeones-las-remontadas-mas-increibles-del-poker/",
+          "titular": "¡De estar casi eliminados a convertirse en campeones! Las remontadas más increíbles del poker",
+          "primera_frase": "En el poker, una sola mano puede cambiar el destino de un torneo."
+        },
+        {
+          "n": 7,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama/gratis-wsop-panama-sorteo",
+          "titular": "CodigoPoker te lleva GRATIS a la WSOP Panamá: cómo ganar entrada y alojamiento",
+          "primera_frase": ""
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/sam-chartier-wins-mspt-canadian-poker-championship-52631.htm",
+          "titular": "Sam Chartier Wins MSPT Canadian Poker Championship at Playground for Largest-Ever Score on Home Soil",
+          "primera_frase": "It marked Chartier's largest score on Canadian soil!"
+        },
+        {
+          "n": 9,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x9yxsx/poker_room_meltdown/",
+          "titular": "Poker Room Meltdown",
+          "primera_frase": "One of yall needs to get your girl 😂 submitted by /u/Nice-Ad-8524 [link] [comentarios]"
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/marius-conan-titulo-main-event-888live-londres-67897.htm",
+          "titular": "Marius Conan brilha e fatura o título do Main Event do 888LIVE Londres",
+          "primera_frase": "A premiação de £91.170 foi a segunda maior conquistada por Conan em torneios ao vivo"
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/los-rostros-que-no-dicen-nada-maestros-del-poker-face/",
+          "titular": "Los rostros que no dicen nada: maestros del poker face",
+          "primera_frase": "Una mirada, un gesto inesperado o una sonrisa fuera de lugar pueden revelar más de lo que parece."
+        },
+        {
+          "n": 12,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-argentina/ranking-cap-siete-fechas",
+          "titular": "Así quedó el ranking del CAP de cara a la Gran Final en Rosario",
+          "primera_frase": ""
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/podcast/betrivers-table-talk-podcast-presented-by-pokernews/betrivers-table-talk-podcast-9-shaun-deeb-wsop-hellmuth-52630.htm",
+          "titular": "Shaun Deeb Reveals All on WSOP POY Issues & Poker Hall of Fame Snub | BetRivers Table Talk #9",
+          "primera_frase": "Shaun Deeb also talks about his long-running friendly rivalry with Phil Hellmuth."
+        },
+        {
+          "n": 14,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x9wniq/ignition_account_disabled_and_under_review_since/",
+          "titular": "Ignition Account Disabled and Under \"Review\" Since October 1st",
+          "primera_frase": "Hello everyone, I’m writing this out of sheer frustration to see if anyone else has dealt with this recently or if there's any advice on how to get Ignition to respond."
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/luan-barbosa-vice-valioso-bounty-hunters-hr-me-ggpoker-67895.htm",
+          "titular": "Luan Barbosa forra com vice valioso no Bounty Hunters HR Main Event da GGPoker",
+          "primera_frase": "Os brasileiros também foram às decisões do GGMillion$ High Rollers e GGMasters"
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/cash-games-las-vegas",
+          "titular": "¿Las partidas privadas están matando los cash games en Las Vegas? Las redes encendieron el debate",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-wins-pokernews-online-championship-event-52629.htm",
+          "titular": "888's Aaron Barone Wins PokerNews Online Championship Event",
+          "primera_frase": "Barone continued his impressive form with a win in the $16.50 Mystery Bounty."
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/grantas-naujokas-joins-poker-royalty-kings-of-tallinn-win-52628.htm",
+          "titular": "Grantas Naujokas Joins Poker Royalty With Kings of Tallinn Title",
+          "primera_frase": "The €1,100 Kings of Tallinn Autumn Edition Main Event drew 607 entrants."
+        },
+        {
+          "n": 19,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/strategy/big-blunders-premium-hands-edition-52191.htm",
+          "titular": "Big Blunders: Premium Hands Edition",
+          "primera_frase": "Solver breakdown of how overplaying KK, QQ, and JJ cost players over 1,100 BB in a week"
+        },
+        {
+          "n": 20,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/ggpoker-takes-security-next-level-five-new/",
+          "titular": "GGPoker Takes Security to the Next Level: Five New Security Measures Introduced",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-circuit-winners-share-their-plans-for-wsop-paradise-2026/",
+          "titular": "WSOP CIRCUIT WINNERS SHARE THEIR PLANS FOR WSOP PARADISE 2026",
+          "primera_frase": "As WSOP Paradise 2026 approaches, WSOP Circuit champions receiving WSOP Paradise Packages share what they are most looking forward to about making the trip to Baha Mar."
+        },
+        {
+          "n": 22,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1762737-opinion-poker-dealing-in-america-is-sliding-into-modernity-just-in-time",
+          "titular": "Opinion: Poker Dealing In America Is Sliding Into Modernity Just In Time",
+          "primera_frase": "Venetian has become the first major Las Vegas cardroom to switch to slide dealing."
+        },
+        {
+          "n": 23,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/exclusive-book-extract-100-essential-tips-to-master-pot-limit-omaha-agZTE0s39S9z/",
+          "titular": "Exclusive book extract: 100 Essential Tips to Master Pot-Limit Omaha",
+          "primera_frase": "Discover how position changes your decisions in pot-limit Omaha in this exclusive extract from Fernando 'JNandez' Habegger's PLO strategy book."
+        },
+        {
+          "n": 24,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225823-alberta-actively-looking-shared-liquidity-pools",
+          "titular": "Alberta \"Actively Looking at Shared Liquidity Pools Within Canada\" as 888 Completes First Weekend Alone",
+          "primera_frase": "The Alberta iGaming Corporation (AiGC) is “actively looking at shared liquidity pools within Canada,” it told PRO , after 888’s first weekend as the province’s only regulated online poker site."
+        },
+        {
+          "n": 25,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x9pv7l/seat_open/",
+          "titular": "Seat open",
+          "primera_frase": "submitted by /u/VegetableZone6705 [link] [comentarios]"
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/petroleo-maximos-bajara-subira",
+          "titular": "Petróleo en máximos: ¿seguirá subiendo o bajará? Hagan sus apuestas",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/cesar-garcia-runner-up-del-ggmillionUSD-plo-por-196.384-USD",
+          "titular": "César García, runner-up del GGMillion$ PLO por 196.384 $",
+          "primera_frase": "GGMillion$ PLO"
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/old-school-poker-player-gets-angry-52624.htm",
+          "titular": "Did Chip Leader 'Disrespect' Poker By Refusing to Bust Short Stack on Bubble?",
+          "primera_frase": "John Krpan is not having it with the one-chip-behind bettors."
+        },
+        {
+          "n": 29,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/east-or-west-two-must-play-wsop-circuit-stops-are-on-deck-a15PG9g285ek/",
+          "titular": "East or west, two must-play WSOP Circuit stops are on deck",
+          "primera_frase": "Two must-play WSOP Circuit series are coming to Lake Tahoe and Southern Indiana, with 18 rings up for grabs at each stop and $1,700 Main Events."
+        },
+        {
+          "n": 30,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225787-coinpoker-begins-testing-mystery-bounty",
+          "titular": "CoinPoker Begins Testing Mystery Bounty Tournaments",
+          "primera_frase": "CoinPoker has begun testing mystery bounty tournaments, with the leading crypto online poker platform trialing a couple of events at micro-stakes last week."
+        },
+        {
+          "n": 31,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x9vix8/a_new_way_to_tip_poker_dealers/",
+          "titular": "A New Way To Tip Poker Dealers",
+          "primera_frase": "Maybe now they'll learn to deal right! submitted by /u/MartinoMods [link] [comentarios]"
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/luxon-pay-en-poker-online-bankroll",
+          "titular": "Luxon Pay en poker online y sus beneficios para gestionar el bankroll",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/triton-one-aterriza-en-europa-con-15-eventos-en-chipre-0",
+          "titular": "Triton ONE aterriza en Europa con 15 eventos en Chipre",
+          "primera_frase": "Triton ONE"
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wsop-super-circuit-kings-2026-schedule-52594.htm",
+          "titular": "Rings at King's! WSOP Super Circuit in Rozvadov October 28-November 11",
+          "primera_frase": "WSOP Super Circuit returns to King's Casino with €5M GTD and 18 gold rings up for grabs."
+        },
+        {
+          "n": 35,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/8-poker-tells-you-could-be-giving-away-without-realizing-it-axUE88U0v7Dq/",
+          "titular": "8 poker tells you could be giving away without realizing it",
+          "primera_frase": "Alex Fitzgerald reveals eight common poker tells that could be giving away your hand, and shares simple ways to improve your poker face and become harder to read at the table."
+        },
+        {
+          "n": 36,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1x9wbm5/have_any_of_you_guys_tried_taking_tactical_notes/",
+          "titular": "Have any of you guys tried taking tactical notes?",
+          "primera_frase": "Think of the most obvious way you could take notes."
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/que-jugar-en-suprema-poker",
+          "titular": "¿Qué jugar en Suprema Poker según tu perfil y nivel como jugador?",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/triton-one-aterriza-en-europa-con-15-eventos-en-chipre",
+          "titular": "Triton ONE aterriza en Europa con 15 eventos en Chipre",
+          "primera_frase": "Triton ONE"
+        },
+        {
+          "n": 39,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/10/las-vegas-slot-machine-jackpot-52621.htm",
+          "titular": "Watch Las Vegas Gambler Win $5 Million on $50 Slot Machine Spin",
+          "primera_frase": "You won't believe this insane Las Vegas slot machine jackpot."
+        },
+        {
+          "n": 40,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/115k-gtd-in-30-minutes-the-biggest-weekend-value-at-pokerstars-on-fanduel-aImib6z5inWm/",
+          "titular": "$115K GTD in 30 minutes: The biggest weekend value at PokerStars on FanDuel",
+          "primera_frase": "The weekend bring some of the biggest guaranteed prizepools of the week for online poker players at PokerStars on FanDuel."
+        },
+        {
+          "n": 41,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/esperando-gta-power",
+          "titular": "¿Esperando GTA VI? Este juego mezcla poker, casinos y el espíritu de Grand Theft Auto",
+          "primera_frase": ""
+        },
+        {
+          "n": 42,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/casino-orenes-murcia-acogera-la-gran-final-de-noche-de-poker-el-festival-del-2-al-8-de-noviembre",
+          "titular": "Casino Orenes Murcia acogerá la Gran Final de Noche de Póker El Festival del 2 al 8 de noviembre",
+          "primera_frase": "Noche de Poker El Festival"
+        },
+        {
+          "n": 43,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/the-1980s-pixel-art-poker-app-taking-cues-from-grand-theft-auto-aIzzv8I1lAfv/",
+          "titular": "The 1980s pixel-art poker app taking cues from Grand Theft Auto",
+          "primera_frase": "How do you turn an idea for a poker game into an app anyone can download?"
+        },
+        {
+          "n": 44,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/plo-el-secreto-de-la-posicion",
+          "titular": "PLO: el secreto de la posición que puede transformar una mano perdedora en ganadora",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/torneos-con-o-sin-recompras-debate-y-opinion-en-el-episodio-397",
+          "titular": "¿Torneos con o sin recompras? Debate y opinión en el episodio 397",
+          "primera_frase": "MarcaPóker"
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/viaja-con-codigotravel-al-bsop-millions-promociones-imperdibles-y-estadia-gratuita",
+          "titular": "Viaja con CodigoTravel al BSOP Millions: promociones imperdibles y estadía gratuita",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/jose-alonso-remonta-el-heads-up-en-sixers-por-35.000-eu",
+          "titular": "Jose Alonso remonta el heads-up en SIXERS por 35.000 €",
+          "primera_frase": "SIXERS BARCELONA 2026"
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/poker-trading-codigopoker-y-atfx-se-unen-en-una-alianza-que-rompe-el-mercado",
+          "titular": "Poker & Trading: CodigoPoker y ATFX se unen en una alianza que rompe el mercado",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/giacomo-colibono-se-erige-lider-entre-los-22-jugadores-que-lucharan-por-los-35.000-eu-del-main-event",
+          "titular": "Giacomo Colibono se erige líder entre los 22 jugadores que lucharán por los 35.000 € del Main Event",
+          "primera_frase": "SIXERS BARCELONA 2026"
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/luxon-pay-que-es-y-como-funciona-la-billetera-virtual-que-puede-salvar-a-los-jugadores-de-poker",
+          "titular": "Luxon Pay: qué es y cómo funciona la billetera virtual que puede salvar a los jugadores de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 51,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/alejandro-jimenez-estara-en-la-gran-final-de-noche-de-poker",
+          "titular": "Alejandro Jiménez estará en la Gran Final de Noche de Poker",
+          "primera_frase": "Noche de Poker"
+        },
+        {
+          "n": 52,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/ignition/bodog-se-transforma-ahora-somos-ignition-poker",
+          "titular": "Bodog se transforma: «Ahora somos Ignition Poker»",
+          "primera_frase": ""
+        },
+        {
+          "n": 53,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/888.es-anade-la-funcion-run-it-twice-a-sus-mesas-de-cash",
+          "titular": "888.es añade la función Run It Twice a sus mesas de cash",
+          "primera_frase": "888.es"
+        },
+        {
+          "n": 54,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/zavorotnijs-pokermaster",
+          "titular": "¡Full house contra full house! Vitalijs Zavorotnijs alzó el título en el Poker Masters",
+          "primera_frase": ""
+        },
+        {
+          "n": 55,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/winamax-duplica-la-apuesta-25-entradas-semanales-para-la-gran-final-del-cnp",
+          "titular": "Winamax duplica la apuesta: 25 entradas semanales para la Gran Final del CNP",
+          "primera_frase": "Winamax España"
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-19T16:21:02Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/adrian-mateos-burbuja-poker-masters",
+          "titular": "Cuatro burbujas y un título en 6 torneos: Adrián Mateos en el Poker Masters",
+          "primera_frase": "",
+          "con_extracto": true,
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/ggpoker-prohibits-thirdparty-tools-rolls-security-49136/",
+          "titular": "GGPoker Bans Third-Party Software, Adds Security Controls for Players",
+          "primera_frase": "GGPoker has prohibited third-party poker software from being used on its platform, PokerNews reported.",
+          "con_extracto": true
+        },
+        {
+          "n": 3,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/ggpoker-takes-security-next-level-five-new/",
+          "titular": "GGPoker Takes Security to the Next Level: Five New Security Measures Introduced",
+          "primera_frase": ""
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/sam-chartier-wins-mspt-canadian-poker-championship-52631.htm",
+          "titular": "Sam Chartier Wins MSPT Canadian Poker Championship at Playground for Largest-Ever Score on Home Soil",
+          "primera_frase": "It marked Chartier's largest score on Canadian soil!",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/podcast/betrivers-table-talk-podcast-presented-by-pokernews/betrivers-table-talk-podcast-9-shaun-deeb-wsop-hellmuth-52630.htm",
+          "titular": "Shaun Deeb Reveals All on WSOP POY Issues & Poker Hall of Fame Snub | BetRivers Table Talk #9",
+          "primera_frase": "Shaun Deeb also talks about his long-running friendly rivalry with Phil Hellmuth.",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-wins-pokernews-online-championship-event-52629.htm",
+          "titular": "888's Aaron Barone Wins PokerNews Online Championship Event",
+          "primera_frase": "Barone continued his impressive form with a win in the $16.50 Mystery Bounty.",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/grantas-naujokas-joins-poker-royalty-kings-of-tallinn-win-52628.htm",
+          "titular": "Grantas Naujokas Joins Poker Royalty With Kings of Tallinn Title",
+          "primera_frase": "The €1,100 Kings of Tallinn Autumn Edition Main Event drew 607 entrants.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/new-zealand-applications-spell-bad-news-poker/",
+          "titular": "New Zealand Applications Spell Bad News for Poker Players",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/jogada-polemica-bolha-gera-discussao-poker-masters-67899.htm",
+          "titular": "Estratégia ou desrespeito? Jogada polêmica na bolha gera discussão no Poker Masters",
+          "primera_frase": "John Krpan criticou jogadores que deixam uma ficha para trás e questionou a estratégia",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/old-school-poker-player-gets-angry-52624.htm",
+          "titular": "Did Chip Leader 'Disrespect' Poker By Refusing to Bust Short Stack on Bubble?",
+          "primera_frase": "John Krpan is not having it with the one-chip-behind bettors."
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225823-alberta-actively-looking-shared-liquidity-pools",
+          "titular": "Alberta \"Actively Looking at Shared Liquidity Pools Within Canada\" as 888 Completes First Weekend Alone",
+          "primera_frase": "The Alberta iGaming Corporation (AiGC) is “actively looking at shared liquidity pools within Canada,” it told PRO , after 888’s first weekend as the province’s only regulated online poker site."
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wsop-super-circuit-kings-2026-schedule-52594.htm",
+          "titular": "Rings at King's! WSOP Super Circuit in Rozvadov October 28-November 11",
+          "primera_frase": "WSOP Super Circuit returns to King's Casino with €5M GTD and 18 gold rings up for grabs.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/marius-conan-titulo-main-event-888live-londres-67897.htm",
+          "titular": "Marius Conan brilha e fatura o título do Main Event do 888LIVE Londres",
+          "primera_frase": "A premiação de £91.170 foi a segunda maior conquistada por Conan em torneios ao vivo",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/luan-barbosa-vice-valioso-bounty-hunters-hr-me-ggpoker-67895.htm",
+          "titular": "Luan Barbosa forra com vice valioso no Bounty Hunters HR Main Event da GGPoker",
+          "primera_frase": "Os brasileiros também foram às decisões do GGMillion$ High Rollers e GGMasters",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-argentina/ranking-cap-siete-fechas",
+          "titular": "Así quedó el ranking del CAP de cara a la Gran Final en Rosario",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/cesar-garcia-runner-up-del-ggmillionUSD-plo-por-196.384-USD",
+          "titular": "César García, runner-up del GGMillion$ PLO por 196.384 $",
+          "primera_frase": "GGMillion$ PLO",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/jose-alonso-remonta-el-heads-up-en-sixers-por-35.000-eu",
+          "titular": "Jose Alonso remonta el heads-up en SIXERS por 35.000 €",
+          "primera_frase": "SIXERS BARCELONA 2026",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
     }
   ]
 }

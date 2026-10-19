@@ -256,6 +256,36 @@
       "articulo": "https://www.pokernews.com/news/2026/10/joe-hachem-winners-circle-victorian-poker-championship-52627.htm",
       "enlace": "https://pokerdb.thehendonmob.com/ranking/191/#30",
       "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/ggpoker-prohibits-thirdparty-tools-rolls-security-49136/",
+      "enlace": "https://www.pokernews.com/news/2026/10/ggpoker-bans-huds-52622.htm",
+      "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/sam-chartier-wins-mspt-canadian-poker-championship-52631.htm",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=79139&sort=date&dir=desc",
+      "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "msptpoker.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/sam-chartier-wins-mspt-canadian-poker-championship-52631.htm",
+      "enlace": "https://msptpoker.com/",
+      "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "capoker.com.ar",
+      "articulo": "https://codigopoker.com/torneos-argentina/ranking-cap-siete-fechas",
+      "enlace": "https://capoker.com.ar",
+      "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "maderopoker.com.ar",
+      "articulo": "https://codigopoker.com/torneos-argentina/ranking-cap-siete-fechas",
+      "enlace": "https://maderopoker.com.ar/",
+      "fecha": "2026-10-19"
     }
   ]
 }
