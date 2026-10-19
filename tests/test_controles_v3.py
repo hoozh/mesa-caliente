@@ -74,12 +74,9 @@ def test_abreviaturas_no_cortan_la_oracion():
     assert resumen == texto and quitadas == []
 
 
-# ---------------------------------------------------------------- título sin traducir
+# ---------------------------------------------------------------- títulos y jerga
 
-def test_titulo_en_ingles_se_descarta():
-    assert calidad.titulo_sin_traducir("ACR Poker hosts major Sunday tournaments with Paradise packages")
-    assert not calidad.titulo_sin_traducir("Marius Conan triunfa en 888LIVE London Main Event por £91.170")
-    assert not calidad.titulo_sin_traducir("Joe Hachem gana Evento #9 del Victorian Poker Championship")
+def test_titulo_con_terminos_en_ingles_no_se_descarta():
     medio = fuente("Medio Inventado", "https://medio-inventado.com/feed/", region="internacional", clase="medio")
     items = [recoleccion._item(medio, "https://medio-inventado.com/n/1", "Fulano Inventado wins the Big Event",
                                AHORA, "Fulano Inventado won the Big Event for $50,000.")]
@@ -89,8 +86,8 @@ def test_titulo_en_ingles_se_descarta():
                                          "titulo": "Fulano Inventado wins the Big Event for $50,000",
                                          "resumen": "Fulano Inventado ganó el Big Event y cobró US$ 50.000."}]}), {}
     r = modelo.resumir(items, {}, llamar, AHORA.date())
-    assert r["tarjetas"] == [] and r["controles"][-1]["motivo"] == "título sin traducir al español"
-    assert modelo.categoria_descarte("título sin traducir al español") == "sin_traducir"
+    assert [t["titulo"] for t in r["tarjetas"]] == ["Fulano Inventado wins the Big Event for $50,000"]
+    assert "no los traduzca" in modelo.SISTEMA
 
 
 # ---------------------------------------------------------------- nacionalidad
@@ -176,3 +173,26 @@ def test_medio_de_juego_general_solo_aporta_notas_de_poker():
                                                         AHORA - timedelta(hours=12))
     assert [it["url"] for it in nuevos] == ["https://juego-inventado.com/3"]
     assert informe[0]["por_tematica"] == 2 and len(recogidos) == 3  # lo descartado igual queda como visto
+
+
+# ---------------------------------------------------------------- casos de la primera corrida (19 oct, 16:21 UTC)
+
+def test_misma_persona_en_otro_hecho_no_es_repetida():
+    assert control.parece_repetida("Aaron Barone gana Mystery Bounty en PokerNews Online Championship de 888",
+                                   ["Aaron Barone multiplica bankroll en desafío de 888poker"]) is None
+    assert control.parece_repetida("Jose Alonso gana Main Event de SIXERS Barcelona por €35.000",
+                                   ["José Ignacio Alonso lidera High Roller récord en SIXERS Barcelona"]) is None
+    previo = "Marius Conan triunfa en 888LIVE London Main Event por £91.170"
+    assert control.parece_repetida("Marius Conan gana 888LIVE London Main Event por £91.170", [previo]) == previo
+
+
+def test_nombres_no_cruzan_oraciones_ni_incluyen_montos_ni_la_palabra_inicial():
+    t = {"titulo": "César García subcampeón del GGMillion$ PLO", "resumen": "Capturó US$ 196.384 en el torneo."}
+    assert control.verificar_nombres(t, "César García, runner-up del GGMillion$ PLO por 196.384 $") == (True, [])
+    t = {"titulo": "Shaun Deeb habla del Hall of Fame", "resumen": "Deeb habló del Poker Hall of Fame. También del POY."}
+    assert control.verificar_nombres(t, "Shaun Deeb on WSOP POY Issues & Poker Hall of Fame Snub") == (True, [])
+    assert t["resumen"] == "Deeb habló del Poker Hall of Fame. También del POY."
+    # Un nombre de pila agregado al comienzo de una oración se sigue quitando.
+    t = {"titulo": "Fulano gana", "resumen": "Mengano Fulano ganó el torneo."}
+    conservar, cambios = control.verificar_nombres(t, "Fulano wins the event")
+    assert conservar and cambios and t["resumen"] == "Fulano ganó el torneo."

@@ -31,7 +31,7 @@ Tareas:
    - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
    - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
    - "rumor": sin confirmación.
-4. Escriba un título en español (nunca deje el título en el idioma de la fuente) y un resumen de 2 a 3 líneas.
+4. Escriba un título y un resumen de 2 a 3 líneas. El título no necesita traducirse por completo: puede conservar términos y nombres en inglés.
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 
 Temas calientes:
@@ -52,6 +52,7 @@ Reglas estrictas:
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
 - Datos de personas: cargos, posiciones de juego o deportivas, edades y nacionalidades solo si aparecen literalmente en el material recibido. No los deduzca ni los complete con su conocimiento.
+- Jerga del poker: conserve los términos en inglés tal como los usa la comunidad (score, runner-up, chip leader, bounty, heads-up, bubble, sevens, etc.); no los traduzca. Use tildes en las palabras en español ("prohíbe", "Día").
 - Tono: no copie superlativos ni elogios de la fuente ("el más prestigioso del mundo", "espectacular", "histórico", "increíble"). Escriba de forma neutra.
 - Montos: escriba la moneda exactamente como la indica la fuente (US$, €, £, R$, MXN, etc.). Si una fuente latinoamericana solo pone "$", escriba "$ (moneda a confirmar)" después del número y no lo convierta en dólares.
 - Términos exactos: conserve el premio o título que nombra la fuente, traducido de forma literal. "Bracelet" es "brazalete" (WSOP); "ring" es "anillo" (WSOP Circuit y otros circuitos); "trophy" es "trofeo". Nunca cambie uno por otro: si la fuente dice "ring", no escriba "brazalete". Lo mismo vale para nombres de torneos, eventos y circuitos: use el nombre que da la fuente.
@@ -330,9 +331,6 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
                 descartar(titulo, "segundo nivel: solo se admiten fuentes oficiales o medios")
                 continue
             tarjeta["nivel"] = 2
-        if calidad.titulo_sin_traducir(titulo):
-            descartar(titulo, "título sin traducir al español")
-            continue
         # Regla máxima: todo se verifica contra el texto enviado para ESTA tarjeta (sus fuentes).
         texto_tarjeta = calidad.texto_items(fuentes_items)
         conservar, cambios = control.verificar_nombres(tarjeta, texto_tarjeta)
@@ -466,12 +464,10 @@ CATEGORIAS_DESCARTE = {
     "repetidas": ("repetida",),
     "sin_poker": ("sin relación con el poker",),
     "segundo_nivel": ("segundo nivel",),
-    "sin_traducir": ("título sin traducir",),
 }
 NOMBRES_CATEGORIAS = {"promociones": "promociones", "dia1": "avances de día 1", "sin_dato": "sin dato concreto",
                       "sin_respaldo": "sin respaldo en la fuente", "repetidas": "repetidas sin dato nuevo",
-                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido",
-                      "sin_traducir": "títulos sin traducir"}
+                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido"}
 
 
 def categoria_descarte(motivo: str) -> str | None:
