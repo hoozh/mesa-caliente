@@ -230,7 +230,7 @@ _NO_NOMBRES = set(_GENERICAS) | {
 }
 
 _CONECTORES = {"de", "da", "del", "dos", "das", "do", "van", "von", "der", "di", "du", "la", "le", "y"}
-_TOKEN = r"[\"'‘’“”«»]?[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$.-]*[\"'‘’“”«»]?"
+_TOKEN = r"(?<![\wÁÉÍÓÚÑÜáéíóúñü])[\"'‘’“”«»]?[A-ZÁÉÍÓÚÑÜ][\wÁÉÍÓÚÑÜáéíóúñü$.-]*[\"'‘’“”«»]?"
 _SECUENCIA = re.compile(rf"{_TOKEN}(?:\s+(?:(?:de|da|del|dos|das|do|van|von|der|di|du|la|le)\s+)*{_TOKEN})+")
 _COMILLAS = "\"'‘’“”«»"
 
@@ -278,8 +278,12 @@ def verificar_nombres(tarjeta: dict, texto_enviado: str) -> tuple[bool, list[str
     Devuelve (conservar_tarjeta, cambios)."""
     fuente = " " + re.sub(r"[^\w$]+", " ", _sin_tildes(texto_enviado)) + " "
 
+    from .calidad import _TRADUCCIONES
+
     def figura(palabra: str) -> bool:
         base = re.sub(r"[^\w$]+", " ", _limpio(palabra)).strip()
+        if base in _TRADUCCIONES and re.search(rf" ({_TRADUCCIONES[base]})", fuente):
+            return True  # traducción habitual ("Chaqueta Púrpura" por "Purple Jacket")
         return bool(base) and f" {base} " in fuente
 
     cambios = []

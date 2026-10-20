@@ -307,7 +307,7 @@ CARGOS = {
     r"alero": r"forward|alero|ala-pivo",
     r"pivot|pivo": r"\bcenter\b|pivot|pivo",
     r"delantero|delantera": r"forward|striker|delanter|atacante",
-    r"defensor|defensa central|lateral": r"defender|defensor|zagueiro|lateral",
+    r"defensor|defensa central|lateral": r"defender|defending|defensor|zagueiro|lateral|reigning",
     r"mediocampista|centrocampista|volante": r"midfielder|mediocampista|centrocampista|volante|meio-campista",
     r"arquero|portero|guardameta": r"goalkeeper|goalie|arquero|portero|goleiro",
     r"mariscal de campo|quarterback": r"quarterback|mariscal",
@@ -530,6 +530,8 @@ _TRADUCCIONES = {
     "clasificatorio": "qualifier|satellite|classificatorio|clasificatorio", "estelar": "star|stars|estelar",
     "leyendas": "legends|lendas|leyendas", "maestros": "masters|mestres|maestros", "reyes": "kings|reis|reyes",
     "reinas": "queens|rainhas|reinas", "campeones": "champions|campeoes|campeones", "abierto": "open|aberto|abierto",
+    "chaqueta": "jacket|jaqueta|chaqueta", "purpura": "purple|roxa|purpura", "morada": "purple|roxa|morada",
+    "brazalete": "bracelet|bracelete|brazalete", "anillo": "ring|anel|anillo", "trofeo": "trophy|trofeu|trofeo",
 }
 _ANIO_ACTUAL = None  # se calcula al usarse (permite congelar la fecha en pruebas)
 _PALABRAS_LUGARES = {w for clave in _LUGARES for w in clave.split() if len(w) > 3}

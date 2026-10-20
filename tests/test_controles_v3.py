@@ -196,3 +196,23 @@ def test_nombres_no_cruzan_oraciones_ni_incluyen_montos_ni_la_palabra_inicial():
     t = {"titulo": "Fulano gana", "resumen": "Mengano Fulano ganó el torneo."}
     conservar, cambios = control.verificar_nombres(t, "Fulano wins the event")
     assert conservar and cambios and t["resumen"] == "Fulano ganó el torneo."
+
+
+# ---------------------------------------------------------------- casos del 20 oct
+
+def test_casos_del_20_de_octubre():
+    # «iGaming Corporation»: no se parte la palabra en «Gaming Corporation».
+    t = {"titulo": "Alberta analiza pools de liquidez compartida",
+         "resumen": "La Alberta iGaming Corporation analiza pools de liquidez con otras provincias."}
+    assert control.verificar_nombres(t, "The Alberta iGaming Corporation (AiGC) is looking at shared liquidity pools") \
+        == (True, [])
+    # «Chaqueta Púrpura» por «Purple Jacket» no es un nombre inventado.
+    t = {"titulo": "Justin Vaysman gana el Evento #6", "resumen": "Nick Palma lidera la carrera por la Chaqueta Púrpura."}
+    assert control.verificar_nombres(t, "Justin Vaysman wins Event #6; Nick Palma leads the Purple Jacket race")[0]
+    # «defensor» del título de jugador del año figura en la fuente como «Defending».
+    t = {"titulo": "Jesse Lonis gana su tercer brazalete WSOP",
+         "resumen": "El defensor del título de Jugador del Año de Card Player, Jesse Lonis, ganó su tercer brazalete."}
+    conservar, cambios = calidad.verificar_atributos(
+        t, "Defending Card Player Player of the Year Jesse Lonis won his third World Series of Poker bracelet")
+    assert conservar and not cambios
+    assert "título en español" in modelo.SISTEMA and "Purple Jacket" in modelo.SISTEMA

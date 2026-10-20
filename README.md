@@ -66,7 +66,7 @@ Cualquier otro valor se trata como una corrida manual.
 
 Cada corrida hace **dos llamadas cortas** al modelo:
 
-1. **Selección** (solo titulares y primera línea, sin extractos): el modelo elige y agrupa los hechos que valen una tarjeta, hasta `max_hechos_general` (14) y `max_hechos_latam` (6). Recibe la ventana de la corrida (`max_titulares_enviados`, 120) y, además, las notas **pendientes** de las últimas 48 horas que todavía no se publicaron (`ventana_pendientes_horas`, `max_pendientes_enviados`: 40), marcadas "(pendiente)". Las notas de temas calientes no pasan por la selección: van directo a la redacción.
+1. **Selección** (solo titulares y primera línea, sin extractos): el modelo elige y agrupa todos los hechos relevantes, hasta `max_hechos_general` (14) y `max_hechos_latam` (6). Recibe la ventana de la corrida (`max_titulares_enviados`, 120) y, además, las notas **pendientes** de las últimas 48 horas que todavía no se publicaron (`ventana_pendientes_horas`, `max_pendientes_enviados`: 40), marcadas "(pendiente)". Las notas de temas calientes no pasan por la selección: van directo a la redacción.
 2. **Apertura de artículos**: el programa abre el artículo de cada hecho elegido (una nota por hecho, de un medio u oficial si la hay; como máximo `max_articulos_abiertos`, 20, con `max_caracteres_extracto`, 1200).
 3. **Redacción**: el modelo recibe solo las notas elegidas, con su extracto, y escribe una tarjeta por hecho. Como escribe con el texto real de la nota, los controles pueden rastrear cada cifra y cada nombre, y se descartan menos tarjetas por "sin respaldo".
 
@@ -76,7 +76,7 @@ Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía s
 
 ### Meta diaria de 10 notas
 
-El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). La selección sabe cuántas hay publicadas ese día y, si los hechos relevantes no alcanzan, puede completar con hechos de **segundo nivel** (torneos menores, novedades de salas o circuitos con dato concreto). Solo se aceptan si todas sus fuentes son de clase `oficial` o `medio` y solo hasta completar lo que falta para la meta. En la página llevan la etiqueta "Segundo nivel". La marca de segundo nivel la pone la selección, nunca la redacción.
+El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). La meta es solo una medida del pie: **la selección no la conoce** y elige todos los hechos relevantes que haya, sin apuntar a un número. Desde el 20 de octubre de 2026 ya no hay "segundo nivel" (relleno con torneos menores para completar la meta); las tarjetas viejas con esa etiqueta se siguen mostrando como estaban.
 
 Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, cuántos hechos eligió la selección y los descartes por regla y por fuente.
 
@@ -263,7 +263,7 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
   - Se descartan las notas sin relación con el poker, las puramente promocionales (satélites, promociones, ofertas, anuncios de garantizados) y las que no traen un dato concreto (un resultado sin el nombre del ganador, por ejemplo). Los titulares vagos se abren primero para buscar ese dato.
   - Se quitan los superlativos copiados de la fuente ("el más prestigioso del mundo", "espectacular").
   - "[nacionalidad a confirmar]" solo aparece junto al nombre de una persona (no junto a un torneo o una marca con sigla, como "Triton ONE") y nunca si la tarjeta o su fuente ya dicen de dónde es (por ejemplo, "el español").
-  - Los términos del poker en inglés (score, runner-up, chip leader, bounty) se conservan sin traducir, y un título puede mantener términos y nombres en inglés.
+  - Títulos en español con la jerga del poker y los nombres propios en inglés (score, runner-up, chip leader, bounty, Purple Jacket, Main Event).
   - Un hecho publicado en la sección general no se repite en la escena latina, aunque venga de otra fuente.
   - Las cifras se comparan por valor: "US$ 800.000" coincide con "$800K", "US$ 1 millón" con "$1,000,000" y "270.000" con "270 mil". El año en curso agregado al nombre de una temporada ("Fall 2026") no cuenta como dato inventado. Las traducciones habituales ("Damas" por "Ladies", "Jugador del Año" por "Player of the Year", "Gales" por "Wales") y los nombres con apóstrofo o guion ("King's", "Mix-Max") tampoco. Las abreviaturas ("St. Louis") no cortan las oraciones.
   - Si una fuente latinoamericana solo pone "$", el monto se publica como "$ N (moneda a confirmar)".
