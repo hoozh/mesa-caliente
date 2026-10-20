@@ -611,6 +611,10 @@ def no_rastreables(oracion: str, fuente_texto: str) -> list[str]:
     base_oracion = sin_tildes(oracion)
     for palabra, aceptadas in list(_DIAS_SEMANA.items()) + list(_MESES.items()):
         if re.search(rf"\b{palabra}\b", base_oracion) and not re.search(rf" ({aceptadas}) ", plano):
+            mes = list(_MESES).index(palabra) + 1 if palabra in _MESES else None
+            # Fechas numéricas de la fuente ("18/10", "18.10.2026", "2026-10-18") también cuentan.
+            if mes and re.search(rf"\b\d{{1,2}}[/.-]0?{mes}\b|\b20\d\d-0?{mes}-\d{{1,2}}\b", fuente_texto):
+                continue
             faltan.append(f"fecha «{palabra}»")
     for lugar, aceptadas in _LUGARES.items():
         if re.search(rf"\b{lugar}\b", base_oracion) and not re.search(rf" ({aceptadas}) ", plano):

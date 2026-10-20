@@ -216,3 +216,26 @@ def test_casos_del_20_de_octubre():
         t, "Defending Card Player Player of the Year Jesse Lonis won his third World Series of Poker bracelet")
     assert conservar and not cambios
     assert "título en español" in modelo.SISTEMA and "Purple Jacket" in modelo.SISTEMA
+
+
+# ---------------------------------------------------------------- casos de la corrida manual del 20 oct
+
+def test_mismo_hecho_de_otra_fuente_con_el_monto_ya_publicado_es_repetida():
+    titulo_previo = "Ivelin Kolev wins WPT Prime Cyprus Championship"
+    texto_previo = f"{titulo_previo} Ivelin Kolev ganó el WPT Prime de Chipre por US$ 171.600."
+    assert control.parece_repetida("Ivelin Kolev gana WPT Prime Cyprus Championship por US$ 171.600",
+                                   [titulo_previo], [texto_previo]) == titulo_previo
+
+
+def test_marca_de_nacionalidad_solo_para_el_protagonista():
+    t = {"titulo": "WSOP Paradise cambia de sede a Bahamas Baha Mar", "resumen": "La serie se muda al resort."}
+    assert control.asegurar_nacionalidad(t, [{"titulo": "WSOP Paradise moves", "primera_linea": ""}], True) is None
+    t = {"titulo": "Ignacio Sagra juega el High Roller", "resumen": "Ignacio Sagra compite en el GGMillion$."}
+    assert control.asegurar_nacionalidad(t, [{"titulo": "Ignacio Sagra", "primera_linea": ""}], True) \
+        == "marca de nacionalidad agregada"
+
+
+def test_mes_escrito_con_fecha_numerica_en_la_fuente():
+    assert calidad.no_rastreables("El 18 de octubre ganó el torneo.", "Venceu no domingo (18/10) o torneio") == []
+    assert calidad.no_rastreables("El 18 de marzo ganó el torneo.", "Venceu no domingo (18/10) o torneio") \
+        == ["fecha «marzo»"]

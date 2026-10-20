@@ -144,7 +144,9 @@ def asegurar_nacionalidad(tarjeta: dict, items: list[dict], es_latam: bool) -> s
         for campo in ("titulo", "resumen"):
             for nombre in nombres:
                 pos = tarjeta[campo].find(nombre)
-                if pos >= 0:
+                # Solo el protagonista: un nombre al comienzo del título o de una oración. Así no se marca
+                # un lugar o una sede que parece un nombre ("Bahamas Baha Mar").
+                if pos >= 0 and (pos == 0 or re.search(r"[.!?]\s*$", tarjeta[campo][:pos])):
                     fin = pos + len(nombre)
                     tarjeta[campo] = f"{tarjeta[campo][:fin]} {MARCA_NACIONALIDAD}{tarjeta[campo][fin:]}"
                     return "marca de nacionalidad agregada"
@@ -175,7 +177,7 @@ def _claves(titulo: str) -> set[str]:
     return claves
 
 
-def parece_repetida(titulo: str, previos: list[str]) -> str | None:
+def parece_repetida(titulo: str, previos: list[str], textos: list[str] | None = None) -> str | None:
     """Devuelve el título previo que cubre el mismo hecho, o None.
     Criterio prudente: comparten al menos 2 nombres propios no genéricos y esos
     nombres son la mayor parte (60 % o más) de los del título nuevo."""
@@ -183,15 +185,17 @@ def parece_repetida(titulo: str, previos: list[str]) -> str | None:
     if not nuevas:
         return None
     from .calidad import _numeros, parecido
-    for previo in previos:
+    textos = textos or previos
+    for previo, texto_previo in zip(previos, textos):
         comunes = nuevas & _claves(previo)
         if len(comunes) >= 2 and len(comunes) / len(nuevas) >= 0.6:
             # Misma persona no es mismo hecho: un monto nuevo o un título con otras ideas
             # ("Aaron Barone gana un evento" frente a "Aaron Barone completa un desafío") es otra noticia.
-            nuevos_numeros = {n for n in _numeros(titulo) - _numeros(previo) if not re.fullmatch(r"(19|20)\d\d", n)}
+            # El monto se compara con toda la tarjeta publicada (título y resumen), no solo con el título.
+            nuevos_numeros = {n for n in _numeros(titulo) - _numeros(texto_previo) if not re.fullmatch(r"(19|20)\d\d", n)}
             if nuevos_numeros:
                 continue
-            if parecido(titulo, previo) < 0.5:
+            if parecido(titulo, texto_previo) < 0.5:
                 continue
             return previo
     return None
