@@ -96,7 +96,9 @@ def normalizar_previos(previos) -> list[dict]:
         if isinstance(p, str):
             resultado.append({"titulo": p, "resumen": "", "hoy": False})
         elif isinstance(p, dict) and p.get("titulo"):
-            resultado.append({"titulo": p["titulo"], "resumen": p.get("resumen") or "", "hoy": bool(p.get("hoy"))})
+            resultado.append({"titulo": p["titulo"], "resumen": p.get("resumen") or "", "hoy": bool(p.get("hoy")),
+                              # Texto completo de la tarjeta publicada (solo para los controles, no va al modelo).
+                              "texto": p.get("texto") or f"{p['titulo']} {p.get('resumen') or ''}"})
     return resultado
 
 
@@ -303,7 +305,7 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             descartar(titulo, "repetida: la novedad no agrega nada a lo publicado", previo=previo["titulo"])
             continue
         if not previo:
-            parecido = control.parece_repetida(titulo, titulos_previos)
+            parecido = control.parece_repetida(titulo, titulos_previos, [p["texto"] for p in previos])
             if not parecido:
                 parecido = next((p["titulo"] for p in previos if p["hoy"] and
                                  calidad.misma_noticia(f"{titulo} {resumen}", f"{p['titulo']} {p['resumen']}")), None)

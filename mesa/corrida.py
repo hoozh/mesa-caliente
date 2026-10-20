@@ -148,6 +148,7 @@ def previos_recientes(raiz: Path, hoy: date, dias: int = 5) -> list[dict]:
                 if t.get("titulo") and t["titulo"] not in vistos:
                     vistos.add(t["titulo"])
                     previos.append({"titulo": t["titulo"], "resumen": t.get("resumen", "") if es_hoy else "",
+                                    "texto": f"{t['titulo']} {t.get('resumen', '')} {t.get('novedad') or ''}",
                                     "hoy": es_hoy})
     return previos
 

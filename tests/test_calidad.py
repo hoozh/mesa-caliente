@@ -49,8 +49,11 @@ def test_el_modelo_recibe_las_tarjetas_de_hoy_con_su_resumen(raiz_temporal):
         "tarjetas": [{"clasificacion": "confirmado", "fecha": "", "titulo": "Título de hace dos días",
                       "resumen": "Resumen viejo que no se envía.", "fuentes": []}]})
     previos = corrida.previos_recientes(raiz_temporal, AHORA.date(), 5)
-    assert previos[0] == {"titulo": "Fulana Ejemplar deja el programa de poker en vivo",
-                          "resumen": "El programa investiga acusaciones de colusión contra Fulana Ejemplar.", "hoy": True}
+    assert {k: v for k, v in previos[0].items() if k != "texto"} == {
+        "titulo": "Fulana Ejemplar deja el programa de poker en vivo",
+        "resumen": "El programa investiga acusaciones de colusión contra Fulana Ejemplar.", "hoy": True}
+    # El texto completo de las tarjetas de días anteriores queda para los controles, pero no va al modelo.
+    assert "Resumen viejo que no se envía." in previos[-1]["texto"]
     m = modelo.construir_mensaje([], previos)
     assert "(publicada hoy) Fulana Ejemplar deja el programa de poker en vivo — El programa investiga" in m
     assert "Título de hace dos días" in m and "Resumen viejo" not in m
