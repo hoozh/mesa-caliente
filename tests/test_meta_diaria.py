@@ -117,8 +117,8 @@ def test_dos_llamadas_seleccion_con_pendientes_y_redaccion(raiz_temporal):
     # La selección ve la ventana y los pendientes de 48 horas (marcados), nunca lo más antiguo.
     assert NUEVA[0] in seleccion and DE_AYER[0] in seleccion and VIEJA[0] not in seleccion
     assert "(pendiente) Medio Inventado" in seleccion and "Extracto:" not in seleccion
-    assert "Hoy ya hay 0 publicadas" not in seleccion  # el dato va en el sistema, no en el mensaje
-    assert "hoy ya hay 0 publicadas" in llamar.llamadas[0]["sistema"]
+    # La selección no conoce la meta: elige todo lo relevante, sin apuntar a un número ni rellenar.
+    assert "Meta" not in llamar.llamadas[0]["sistema"] and "segundo nivel" not in llamar.llamadas[0]["sistema"]
     # La redacción recibe solo lo elegido, agrupado por hecho.
     assert "Hechos ya elegidos" in redaccion and VIEJA[0] not in redaccion
     assert [t["titulo"] for t in c["tarjetas"]] == [NUEVA[0], DE_AYER[0]]
@@ -190,20 +190,15 @@ def _llamar_nivel2(sistema, mensaje, modelo_id, max_tokens):
          "resumen": "Zutano Imaginario ganó el torneo casero y cobró US$ 300."}]}), {"tokens_entrada": 10, "tokens_salida": 10}
 
 
-def test_segundo_nivel_lo_decide_la_seleccion_y_solo_de_fuentes_oficiales_o_medios():
+def test_la_seleccion_ya_no_marca_segundo_nivel():
     items = _items_nivel2()
 
     def seleccion(*_):
-        return json.dumps({"hechos": [{"ids": [1], "seccion": "general", "nivel": 2},
-                                      {"ids": [2], "seccion": "general", "nivel": 2}]}), {}
+        return json.dumps({"hechos": [{"ids": [1], "seccion": "general", "nivel": 2}]}), {}
     sel = modelo.seleccionar_hechos(items, {}, seleccion)
-    assert [h["ids"] for h in sel["hechos"]] == [[1]] and sel["hechos"][0]["nivel"] == 2
-    assert sel["descartados"][0]["motivo"].startswith("segundo nivel: solo se admiten fuentes oficiales o medios")
-    # Si la redacción marca "nivel" por su cuenta, no cuenta: vale lo que eligió la selección.
-    sin_grupos = modelo.resumir(items, {}, _llamar_nivel2, AHORA.date())
-    assert all("nivel" not in t for t in sin_grupos["tarjetas"])
-    con_grupos = modelo.resumir(items, {}, _llamar_nivel2, AHORA.date(), grupos=sel["hechos"], faltan=5)
-    assert con_grupos["tarjetas"][0]["nivel"] == 2
+    assert sel["hechos"] == [{"ids": [1], "seccion": "general"}]
+    r = modelo.resumir(items, {}, _llamar_nivel2, AHORA.date(), grupos=sel["hechos"], faltan=5)
+    assert all("nivel" not in t for t in r["tarjetas"])
 
 
 def test_segundo_nivel_no_supera_lo_que_falta_para_la_meta():

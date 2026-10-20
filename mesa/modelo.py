@@ -31,7 +31,7 @@ Tareas:
    - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
    - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
    - "rumor": sin confirmación.
-4. Escriba un título y un resumen de 2 a 3 líneas. El título no necesita traducirse por completo: puede conservar términos y nombres en inglés.
+4. Escriba un título en español y un resumen de 2 a 3 líneas. La jerga del poker y los nombres propios quedan en inglés dentro del título en español (por ejemplo: "César García, runner-up en el GGMillion$ PLO"; "Ivelin Kolev gana el WPT Prime Cyprus Championship").
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 
 Temas calientes:
@@ -52,7 +52,7 @@ Reglas estrictas:
 - No escriba URLs ni fechas: el programa las agrega a partir de los números que usted indique.
 - Si una cifra o dato no aparece en el material, no lo mencione.
 - Datos de personas: cargos, posiciones de juego o deportivas, edades y nacionalidades solo si aparecen literalmente en el material recibido. No los deduzca ni los complete con su conocimiento.
-- Jerga del poker: conserve los términos en inglés tal como los usa la comunidad (score, runner-up, chip leader, bounty, heads-up, bubble, sevens, etc.); no los traduzca. Use tildes en las palabras en español ("prohíbe", "Día").
+- Jerga del poker: conserve los términos en inglés tal como los usa la comunidad (score, runner-up, chip leader, bounty, heads-up, bubble, sevens, etc.); no los traduzca. Tampoco traduzca nombres de premios, rankings ni eventos ("Purple Jacket", "Player of the Year", "Main Event"). Use tildes en las palabras en español ("prohíbe", "Día").
 - Tono: no copie superlativos ni elogios de la fuente ("el más prestigioso del mundo", "espectacular", "histórico", "increíble"). Escriba de forma neutra.
 - Montos: escriba la moneda exactamente como la indica la fuente (US$, €, £, R$, MXN, etc.). Si una fuente latinoamericana solo pone "$", escriba "$ (moneda a confirmar)" después del número y no lo convierta en dólares.
 - Términos exactos: conserve el premio o título que nombra la fuente, traducido de forma literal. "Bracelet" es "brazalete" (WSOP); "ring" es "anillo" (WSOP Circuit y otros circuitos); "trophy" es "trofeo". Nunca cambie uno por otro: si la fuente dice "ring", no escriba "brazalete". Lo mismo vale para nombres de torneos, eventos y circuitos: use el nombre que da la fuente.
@@ -74,9 +74,9 @@ Recibirá una lista numerada de titulares. Cada línea tiene: número, fuente (c
 
 Tareas:
 1. Agrupe por hecho: todos los números que cuentan el mismo hecho van juntos en un solo elemento.
-2. Elija hasta {max_general} hechos para la sección "general" y hasta {max_latam} para la sección "latam" (jugadores argentinos o latinoamericanos, o torneos latinos como CAP, LAPT, BSOP o CLSOP; prefiera las fuentes de región latam y argentina). Cada hecho va en una sola sección.
-3. Prefiera los hechos de la ventana de esta corrida; use los pendientes cuando sean relevantes.
-4. Meta del día: {meta} tarjetas; hoy ya hay {publicadas} publicadas. Si los hechos relevantes no alcanzan, complete con hechos de segundo nivel (resultados de torneos menores, novedades de salas o circuitos con dato concreto) SOLO de notas de clase oficial o medio, marcándolos con "nivel": 2. Nunca elija relleno sin dato.
+2. Elija TODOS los hechos relevantes, hasta {max_general} para la sección "general" y hasta {max_latam} para la sección "latam". Relevante: resultados con ganador y premio (también de circuitos regionales y torneos online destacados), escándalos e integridad, regulación y mercados, novedades de salas y operadores, historia y figuras del poker. No se detenga en una cantidad: si hay más hechos relevantes, elíjalos; si hay menos, elija menos.
+3. La sección "latam" es para hechos con protagonistas argentinos o latinoamericanos, o torneos latinos (CAP, LAPT, BSOP, CLSOP y similares). Que la fuente sea latinoamericana no basta. Cada hecho va en una sola sección.
+4. Los pendientes valen igual que los de la ventana: si son relevantes y no se publicaron, elíjalos.
 
 No elija:
 - Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker).
@@ -86,7 +86,7 @@ No elija:
 - Notas de comunidad (Reddit, foros) solas, salvo que traten un hecho de alto impacto para el poker (escándalo, trampas, seguridad, regulación).
 
 Responda únicamente con un objeto JSON, sin texto adicional:
-{{"hechos": [{{"ids": [3, 17], "seccion": "general"}}, {{"ids": [8], "seccion": "latam"}}, {{"ids": [21], "seccion": "general", "nivel": 2}}]}}"""
+{{"hechos": [{{"ids": [3, 17], "seccion": "general"}}, {{"ids": [8], "seccion": "latam"}}]}}"""
 
 
 def normalizar_previos(previos) -> list[dict]:
@@ -531,7 +531,7 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
     modelo = modelo_configurado(ajustes)
     sistema = SELECCION.format(max_general=ajustes.get("max_hechos_general", 14),
                                max_latam=ajustes.get("max_hechos_latam", 6),
-                               meta=ajustes.get("meta_diaria", 10), publicadas=publicadas)
+                               )
     mensaje = construir_mensaje(items, previos, corte, con_extractos=False)
     texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_seleccion", 1200))
     uso = _con_costo(uso, modelo, ajustes)
@@ -557,13 +557,9 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
         seccion = "latam" if str(h.get("seccion") or "").lower().startswith("lat") else "general"
         if cuenta[seccion] >= maximos[seccion]:
             continue
-        nivel = 2 if h.get("nivel") in (2, "2") else 1
-        if nivel == 2 and any(items[i - 1].get("clase", "medio") not in ("oficial", "medio") for i in ids):
-            descartados.append({"ids": ids, "motivo": "segundo nivel: solo se admiten fuentes oficiales o medios"})
-            continue
         usados.update(ids)
         cuenta[seccion] += 1
-        hecho = {"ids": ids, "seccion": seccion, "nivel": nivel}
+        hecho = {"ids": ids, "seccion": seccion}
         if h.get("actualiza"):
             hecho["actualiza"] = str(h["actualiza"])
         hechos.append(hecho)
