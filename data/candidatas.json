@@ -62,21 +62,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://pairrd.com/?via=pokerorg",
       "origen": "automatica"
+    },
+    {
+      "nombre": "pokercoaching.com",
+      "dominio": "pokercoaching.com",
+      "detectada": "2026-10-20",
+      "detectada_texto": "detectada el 20 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://cardplayer.pokercoaching.com/courses",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "atfx.com",
-      "articulo": "https://codigopoker.com/noticias-generales/como-invertir-dolares-poker",
-      "enlace": "https://login-intl.atfx.com/register?redirect_uri=applyLive&invitationCode=kc%2FZo%2B8YUngGPxkcCWDnpA%3D%3D",
-      "fecha": "2026-10-06"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://codigopoker.com/poker-online/ggpoker-lanza-ocean-ko",
-      "enlace": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s&#038;incoming_url=",
-      "fecha": "2026-10-06"
-    },
     {
       "dominio": "educapoker.com",
       "articulo": "https://www.poker-red.com/noticias/aprende-como-construir-el-probe-river-con-smalllake",
@@ -286,6 +283,54 @@
       "articulo": "https://codigopoker.com/torneos-argentina/ranking-cap-siete-fechas",
       "enlace": "https://maderopoker.com.ar/",
       "fecha": "2026-10-19"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xaovz2/australian_poker_legend_joe_hachem_victorious_at/",
+      "enlace": "https://www.pokernews.com/news/2026/10/joe-hachem-winners-circle-victorian-poker-championship-52627.htm",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "theguardian.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xaexxh/revealed_african_island_fights_offshore_gambling/",
+      "enlace": "https://www.theguardian.com/society/2026/oct/19/revealed-britons-using-an-african-islands-name-to-aid-underground-gambling?CMP=share_btn_url",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1763966-justin-vaysman-comes-back-from-0-25-big-blinds-to-win-a-poker-masters-title",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "pgt.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1763966-justin-vaysman-comes-back-from-0-25-big-blinds-to-win-a-poker-masters-title",
+      "enlace": "https://www.pgt.com/",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1763967-jesse-lonis-wins-third-wsop-bracelet-in-online-mystery-bounty-event",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1763898-umut-ozturk-conquers-firekeepers-for-second-mspt-main-event-title-of-2026",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "qqpk.poker",
+      "articulo": "https://codigopoker.com/noticias/escandalo-bots-12000-usuarios-sospechosos",
+      "enlace": "https://www.qqpk.poker/",
+      "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "capoker.com.ar",
+      "articulo": "https://codigopoker.com/noticias/torneos/argentina/cap/cap-rosario-agenda-2",
+      "enlace": "https://capoker.com.ar",
+      "fecha": "2026-10-20"
     }
   ]
 }
