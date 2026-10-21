@@ -1,0 +1,754 @@
+{
+  "fecha": "2026-10-21",
+  "corridas": [
+    {
+      "id": "2026-10-21T12:00:25Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/jeremy-ausmus-does-it-again-captures-poker-masters-event-7-52643.htm",
+          "titular": "Jeremy Ausmus Wins Poker Masters Event #7 for 10th PGT Title",
+          "primera_frase": "Jeremy Ausmus wins Poker Masters Event #7 for $278,400, securing his tenth career PGT title."
+        },
+        {
+          "n": 2,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1764900-jeremy-ausmus-locks-up-10th-pgt-trophy-at-2026-poker-masters",
+          "titular": "Jeremy Ausmus Locks Up 10th PGT Trophy At 2026 Poker Masters",
+          "primera_frase": "Jeremy Ausmus outlasted a stacked final table to win event no."
+        },
+        {
+          "n": 3,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225708-evoke-launched-888-poker-on-mr-green-and-william",
+          "titular": "Evoke Launched 888 Poker on Mr Green, and William Hill Could be Next",
+          "primera_frase": "Mr Green, the Nordic casino brand that evoke owns, has offered online poker on the 888 network in Denmark and Sweden for more than a year."
+        },
+        {
+          "n": 4,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xbkz3u/removed_by_reddit/",
+          "titular": "[ Removed by Reddit ]",
+          "primera_frase": "[ Removed by Reddit on account of violating the content policy ."
+        },
+        {
+          "n": 5,
+          "fuente": "blog.gtowizard.com",
+          "url": "https://blog.gtowizard.com/how-to-exploit-capped-ranges-with-custom-aggregated-reports/",
+          "titular": "How to Exploit Capped Ranges with Custom Aggregated Reports",
+          "primera_frase": "Have you ever considered how capping your range preflop would shift your postflop strategy?"
+        },
+        {
+          "n": 6,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/ggpoker-december-1-enforcement-date-third-party-software-ban/",
+          "titular": "GGPoker Sets December 1 Enforcement Date for Third-Party Software Ban",
+          "primera_frase": "GGPoker has put a date on its crackdown. In a statement on X on October 19, 2026, the site said automated detection of third-party poker software goes live on December 1."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/falta-de-respeto-o-estrategia-polemica-mano-poker-masters-54089.htm",
+          "titular": "¿Falta de respeto o estrategia? Una polémica mano en la burbuja del Poker Masters",
+          "primera_frase": "John Krpan recriminó a Clemen Deng que no pusiera all-in a un rival en plena burbuja."
+        },
+        {
+          "n": 8,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/aplicaciones-poker-reddit-steam-carcel",
+          "titular": "De Reddit a una cárcel: las insólitas nuevas formas de jugar al poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/oihan-abarzuza-y-nacho-moron-se-meten-en-la-mesa-final-del-venom-pko-de-acr",
+          "titular": "Oihan Abarzuza y Nacho Morón se meten en la mesa final del Venom PKO de ACR",
+          "primera_frase": "The Venom"
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/daniel-negreanu-talks-lucas-jumalon-52642.htm",
+          "titular": "Daniel Negreanu Says WSOP Main Event Champ Will 'Be Around For a While'",
+          "primera_frase": "Negreanu thinks Jumalon will be a mainstay in poker."
+        },
+        {
+          "n": 11,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1763874-watch-woman-fights-staff-at-rhode-island-poker-room",
+          "titular": "WATCH: Woman Fights Staff At Rhode Island Poker Room",
+          "primera_frase": "A woman was involved in a physical altercation with security in the poker room at Bally’s Lincoln Casino in Rhode Island on Saturday."
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225852-market-monitor-new-jersey-september-2026",
+          "titular": "Market Monitor: New Jersey September 2026",
+          "primera_frase": "New Jersey online poker weathered another weak month in September 2026."
+        },
+        {
+          "n": 13,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xbk926/pickeringdurham_poker_players_would_you_support_a/",
+          "titular": "Pickering/Durham poker players — would you support a new small poker club in the area?",
+          "primera_frase": "Hey everyone, A few of us are currently working on the concept for a small, premium poker focused social club in the Pickering area ."
+        },
+        {
+          "n": 14,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ggpoker-sanciones-software-prohibido",
+          "titular": "GGPoker pone fecha límite: desde diciembre podrá sancionar a quienes utilicen software prohibido",
+          "primera_frase": ""
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lucia-navarro-y-una-burbuja-agonica-en-un-1.100-USD-del-aria",
+          "titular": "Lucía Navarro y una burbuja agónica en un 1.100 $ del ARIA",
+          "primera_frase": "Las Vegas 2026"
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/from-the-brink-of-elimination-to-poker-masters-champion-52641.htm",
+          "titular": "From the Brink of Elimination to Poker Masters Champion: Justin Vaysman Pulls Off Incredible Comeback",
+          "primera_frase": "Justin Vaysman completes a remarkable comeback to win Poker Masters Event #6 for $192,000."
+        },
+        {
+          "n": 17,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1764880-acr-poker-halloween-special-offers-new-twist-on-mystery-bounties",
+          "titular": "ACR Poker Halloween Special Offers New Twist On Mystery Bounties",
+          "primera_frase": "ACR Poker is rolling out a new Mystery PKO format through three Halloween special tournaments with a combined $650,000 guaranteed."
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225835-market-monitor-connecticut-september-2026",
+          "titular": "Market Monitor: Connecticut September 2026",
+          "primera_frase": "CT online casinos generated $57 million in revenue in September, up 6% year-over-year."
+        },
+        {
+          "n": 19,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xbk0o5/has_anyone_tried_this_poker_iq_test/",
+          "titular": "Has anyone tried this poker IQ test?",
+          "primera_frase": "I just tried it and want to know how accurate it is."
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/8-tells-que-te-delatan",
+          "titular": "8 tells que te delatan en el poker sin que te des cuenta",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/jake-quiere-romper-el-dominio-de-luismi-y-raul-mestre-en-golden-button",
+          "titular": "Jake quiere romper el dominio de Luismi y Raúl Mestre en Golden Button",
+          "primera_frase": "Golden Button"
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/lorenzo-sabato-chipleads-full-final-day-on-way-to-glory-in-v-52639.htm",
+          "titular": "Lorenzo Sabato Chipleads Full Final Day on Way to Glory in Venice",
+          "primera_frase": "La Notte Degli Assi wraps up in Venice, with Lorenzo Sabato winning the Main Event"
+        },
+        {
+          "n": 23,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1763932-kayhan-mokri-makes-hay-in-100000-no-limit-holdem-heads-up-matches",
+          "titular": "Kayhan Mokri Makes Hay In $100,000 No-Limit Hold’em Heads-Up Matches",
+          "primera_frase": "While most of the highest-stakes action on CoinPoker continues to take place at the pot-limit Omaha tables, there are still bouts of nosebleed no-limit hold’em action."
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/nueva-zelanda-pk-onl",
+          "titular": "Nueva Zelanda pone en jaque al poker online",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-chile/osop-prime-calienta-motores-cl80-millones-y-codigopoker-en-ovalle",
+          "titular": "OSOP Prime calienta motores: ¡CL$80 millones y CodigoPoker en Ovalle!",
+          "primera_frase": ""
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/pagos-y-retiros-en-ignition-poker",
+          "titular": "Guía fácil para hacer pagos y retiros en Ignition Poker (paso a paso)",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/casino-vegas-debe-105-millones-downtown",
+          "titular": "Una deuda de US$105 millones terminó con la venta de un casino de Las Vegas",
+          "primera_frase": ""
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ignacio-moron-ther-venom",
+          "titular": "Ignacio Morón está entre los finalistas del The Venom PKO en NLH y busca revancha",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/asia/apt-asia-online-2026-records-argentinos",
+          "titular": "El poker de Asia rompe récords y dos argentinos se metieron entre los protagonistas",
+          "primera_frase": ""
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/umut-ozturk-wins-mspt-firekeeepers-52637.htm",
+          "titular": "Career-High Win Vaults Umut Ozturk to Top of MSPT’s All-Time Money List",
+          "primera_frase": "Ozturk topped a field of 2,442 runners to win his third MSPT title."
+        },
+        {
+          "n": 31,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/qualify-wpt-prime-taiwan-win-exclusive-black-card/",
+          "titular": "Qualify for WPT Prime Taiwan & Win Exclusive Black Card Benefits",
+          "primera_frase": ""
+        },
+        {
+          "n": 32,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/kgbseven-wins-coinmillion-for-120500-in-his-first-cash",
+          "titular": "Kgbseven Wins CoinMillion for $120,500 in His First Cash",
+          "primera_frase": "Before this tournament, Kgbseven had no cashes listed on his CoinPoker profile."
+        },
+        {
+          "n": 33,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1764243-kgbseven-gets-denied-deal-wins-coinmillion-for-120k",
+          "titular": "‘Kgbseven’ Gets Denied Deal, Wins CoinMillion For $120K",
+          "primera_frase": "The newcomer to CoinPoker was playing just his second-ever tournament on the site and turned down a heads-up deal to win an extra $25,000."
+        },
+        {
+          "n": 34,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/apt-online-continues-record-breaking-surge-in-turnout-and-prize-pools-ah7xK3y27bMH/",
+          "titular": "APT Online continues record-breaking surge in turnout and prize pools",
+          "primera_frase": "The 2026 APT Online (APTO) series is smashing records left and right, riding the momentum of a strong start into the second week of play."
+        },
+        {
+          "n": 35,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225837-market-monitor-pennsylvania-september-2026",
+          "titular": "Market Monitor: Pennsylvania September 2026",
+          "primera_frase": "PA online poker is slowly climbing out of a hole, with the market now almost stable year-over-year."
+        },
+        {
+          "n": 36,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xasv9i/how_it_feels_to_play_poker/",
+          "titular": "How it feels to play poker",
+          "primera_frase": "submitted by /u/planetmarsupial [link] [comentarios]"
+        },
+        {
+          "n": 37,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/ggpoker-proibe-huds-67907.htm",
+          "titular": "Após escândalo de trapaça, GGPoker proíbe uso de HUDs e softwares de terceiros",
+          "primera_frase": "Novas regras buscam proteger os jogadores e reforçar a integridade das partidas online"
+        },
+        {
+          "n": 38,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/ggpoker-pone-fecha-limite-nuevas-restricciones-y-posibles-expulsiones/",
+          "titular": "GGPoker pone fecha límite: nuevas restricciones y posibles expulsiones",
+          "primera_frase": "A partir del 1 de diciembre de 2026, GGPoker activará un sistema automático para detectar programas externos no autorizados."
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/codigotravel-bsop-millions",
+          "titular": "Viaja con CodigoTravel al BSOP Millions: promociones imperdibles y estadía gratuita",
+          "primera_frase": ""
+        },
+        {
+          "n": 40,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/todo-lo-que-debes-saber-del-max-late-reg",
+          "titular": "¡Todo lo que debes saber del max late reg!",
+          "primera_frase": "EducaPoker"
+        },
+        {
+          "n": 41,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/ipoker-official-triton-poker-series-satellite-partner-52636.htm",
+          "titular": "Even More Ways to Qualify For Triton Events as iPoker Becomes Official Satellite Partner",
+          "primera_frase": "Almost 20 iPoker sites are offering Triton Poker Series satellites."
+        },
+        {
+          "n": 42,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/learn-poker/tools/sharkscope-review/",
+          "titular": "Sharkscope Review",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/kkpoker-finally-get-on-the-halloween-train-with-hallowin-and-250k-in-guarantees",
+          "titular": "KKPoker Finally Get on the Halloween Train With HalloWIN and $250K+ in Guarantees",
+          "primera_frase": "Just when we thought KKPoker would sit out the spookiest part of the poker calendar this year, it came out swinging."
+        },
+        {
+          "n": 44,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/how-to-win-a-free-triton-one-8k-seat-in-a-day-with-one-small-catch-aEH8X1n1w1VN/",
+          "titular": "How to win a free Triton ONE $8K seat in a day (with one small catch)",
+          "primera_frase": "November 4 is the day to mark in your calendar if you want to win a free $8K seat in the Triton ONE North Cyprus event."
+        },
+        {
+          "n": 45,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225836-market-monitor-pennsylvania-fantasy-sports",
+          "titular": "Market Monitor: Pennsylvania Fantasy Sports September 2026",
+          "primera_frase": "The PA fantasy sports market generated $1.5 million in revenue in September, the best since February 2026, as the new NFL season gets underway."
+        },
+        {
+          "n": 46,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xbcnkk/ausmus_wins_poker_masters_event_7/",
+          "titular": "Ausmus Wins Poker Masters Event #7",
+          "primera_frase": "I feel like Ausmus had a down year last year and is dominating at the Masters, good for him!"
+        },
+        {
+          "n": 47,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/craques-brasil-cravam-530-bounty-builder-hr-pokerstars-67906.htm",
+          "titular": "Craques do Brasil cravam US$ 530 Bounty Builder HR em sequência no PokerStars",
+          "primera_frase": "Paulo Brombim e Jonathan Wolter venceram duas edições do torneio"
+        },
+        {
+          "n": 48,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/de-estar-casi-eliminados-a-convertirse-en-campeones-las-remontadas-mas-increibles-del-poker/",
+          "titular": "¡De estar casi eliminados a convertirse en campeones! Las remontadas más increíbles del poker",
+          "primera_frase": "En el poker, una sola mano puede cambiar el destino de un torneo."
+        },
+        {
+          "n": 49,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ignacio-sagra-alcanzo-el-quinto-lugar-en-el-ggmillion-high-roller",
+          "titular": "Ignacio Sagra alcanzó el quinto lugar en el GGMillion$ High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 50,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/marius-conan-conquista-el-main-event-del-888live-londres-por-91.170-ps",
+          "titular": "Marius Conan conquista el Main Event del 888Live Londres por 91.170 £",
+          "primera_frase": "888Live Londres"
+        },
+        {
+          "n": 51,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/10/wpt-prime-taiwan-satellites-52609.htm",
+          "titular": "Satellite into WPT Prime Taiwan for as Little as $0.55 Thanks to WPT Global",
+          "primera_frase": "WPT® Prime Taiwan Satellites from just $0.55."
+        },
+        {
+          "n": 52,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/russian-beast-strikes-again-martirosian-takes-down-two-mini-phils-at-once",
+          "titular": "Russian Beast Strikes Again: Martirosian Takes Down Two Mini Phil’s at Once",
+          "primera_frase": "While other players on ACR Poker were battling in the Venom PKO for a shot at reaching the final table, super high roller Artur \"AlwaysWithNuts\" Martirosian chose to conquer the…"
+        },
+        {
+          "n": 53,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/play-inside-reddit-steam-or-prison-quirky-new-poker-apps-are-everywhere-aADQn5a6qWgC/",
+          "titular": "Play inside Reddit, Steam or prison: quirky new poker apps are everywhere",
+          "primera_frase": "Take a quick look at some of the recent poker apps, games and tools that have sprung up over the past month."
+        },
+        {
+          "n": 54,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xb5z32/qqpk_bots_update_over_6000_still_active/",
+          "titular": "QQPK bots update - over 6,000 still active",
+          "primera_frase": "Little update on my previous thread few days ago: https://www.reddit.com/r/poker/s/Zj1Lf5p90w X thread: https://x.com/MTT_Data_Review/status/2112659423575302213 On October 15, I reported 11,469 bots o"
+        },
+        {
+          "n": 55,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/marius-conan-titulo-main-event-888live-londres-67897.htm",
+          "titular": "Marius Conan brilha e fatura o título do Main Event do 888LIVE Londres",
+          "primera_frase": "A premiação de £91.170 foi a segunda maior conquistada por Conan em torneios ao vivo"
+        },
+        {
+          "n": 56,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/los-rostros-que-no-dicen-nada-maestros-del-poker-face/",
+          "titular": "Los rostros que no dicen nada: maestros del poker face",
+          "primera_frase": "Una mirada, un gesto inesperado o una sonrisa fuera de lugar pueden revelar más de lo que parece."
+        },
+        {
+          "n": 57,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/daniel-negreanu-poker-golf",
+          "titular": "Daniel Negreanu comparó el poker con el golf en su regreso a los paños",
+          "primera_frase": ""
+        },
+        {
+          "n": 58,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/estan-las-partidas-privadas-asfixiando-los-cash-games-de-las-vegas",
+          "titular": "¿Están las partidas privadas asfixiando los cash games de Las Vegas?",
+          "primera_frase": "Salsa"
+        },
+        {
+          "n": 59,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/10/wpt-global-asia-mtt-super-package-leaderboards-52610.htm",
+          "titular": "Calling All Asian Players: Play Your Way to WPT Prime Taiwan at WPT Global",
+          "primera_frase": "Thirty WPT Prime Taiwan packages must be won."
+        },
+        {
+          "n": 60,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+          "titular": "A new venue and more affordable buy-ins: Jeff Platt talks WSOP Paradise 2026",
+          "primera_frase": "WSOP's Jeff Platt shares what to expect with some new surprises for mid-stakes players at this year's WSOP Bahamas Paradise series in December."
+        },
+        {
+          "n": 61,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/owens-grandoli-hustler",
+          "titular": "Terrell Owens se suma a Mariano Grandoli en el Torneo VIP de Hustler",
+          "primera_frase": ""
+        },
+        {
+          "n": 62,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/fernando-liano-termina-7o-en-el-mystery-bounty-hunter-por-29.979-USD",
+          "titular": "Fernando Liaño termina 7º en el Mystery Bounty Hunter por 29.979 $",
+          "primera_frase": "Pinchazos .com"
+        },
+        {
+          "n": 63,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-wins-pokernews-online-championship-event-52629.htm",
+          "titular": "888's Aaron Barone Wins PokerNews Online Championship Event",
+          "primera_frase": "Barone continued his impressive form with a win in the $16.50 Mystery Bounty."
+        },
+        {
+          "n": 64,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+          "titular": "The first woman to win an open WSOP event was almost erased from history",
+          "primera_frase": "Vera Richmond made WSOP history in 1982, but her name was later removed from the records."
+        },
+        {
+          "n": 65,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/vera-richmond-la-pr-brazalet",
+          "titular": "Vera Richmond: la primera mujer que ganó un brazalete WSOP y casi fue borrada de la historia",
+          "primera_frase": ""
+        },
+        {
+          "n": 66,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/triton-one-aterriza-en-europa-con-15-eventos-en-chipre-0",
+          "titular": "Triton ONE aterriza en Europa con 15 eventos en Chipre",
+          "primera_frase": "Triton ONE"
+        },
+        {
+          "n": 67,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/exclusive-book-extract-100-essential-tips-to-master-pot-limit-omaha-agZTE0s39S9z/",
+          "titular": "Exclusive book extract: 100 Essential Tips to Master Pot-Limit Omaha",
+          "primera_frase": "Discover how position changes your decisions in pot-limit Omaha in this exclusive extract from Fernando 'JNandez' Habegger's PLO strategy book."
+        },
+        {
+          "n": 68,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/justin-vaysman-remontada",
+          "titular": "Justin Vaysman protagonizó una remontada épica y conquistó un Poker Masters",
+          "primera_frase": ""
+        },
+        {
+          "n": 69,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/triton-one-aterriza-en-europa-con-15-eventos-en-chipre",
+          "titular": "Triton ONE aterriza en Europa con 15 eventos en Chipre",
+          "primera_frase": "Triton ONE"
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-21T12:00:25Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/adrian-mateos-adds-to-purple-jacket-lead-as-jeremy-ausmus-wins-10th-pgt-title-aPwNx3n5RZDo/",
+          "titular": "Adrian Mateos adds to Purple Jacket lead as Jeremy Ausmus wins 10th PGT title",
+          "primera_frase": "Jeremy Ausmus walked away with the win in Event #7 of the PGT Poker Masters, but Adrian Mateos has one arm in the Purple Jacket with another big point haul.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/adrian-mateos-suma-mesa-final-sigue-lider-chaqueta-purpura-54086.htm",
+          "titular": "Adrián Mateos suma otra mesa final y sigue líder de la Chaqueta Púrpura",
+          "primera_frase": "El madrileño terminó cuarto en el Evento #7, conquistado por Jeremy Ausmus.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 3,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/adrian-mateos-suma-us87-000-en-el-poker-masters-y-se-afianza-en-la-lucha-por-la-purple-jacket/",
+          "titular": "Adrián Mateos suma US$87.000 en el Poker Masters y se afianza en la lucha por la Purple Jacket",
+          "primera_frase": "El español Adrián Mateos volvió a destacar en el Poker Masters 2026 tras finalizar en la cuarta posición del Evento #7, con una entrada de US$15.700, sumando US$87.000 a sus ganancias y puntos importa",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 4,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/adrian-mateos-chaqueta",
+          "titular": "Adrián Mateos sigue sumando puntos para conseguir su Chaqueta Morada",
+          "primera_frase": "",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/adrian-mateos-4o-en-el-evento-%237-y-amplia-su-ventaja-por-la-chaqueta-purpura",
+          "titular": "Adrián Mateos, 4º en el evento #7 y amplía su ventaja por la Chaqueta Púrpura",
+          "primera_frase": "Poker Masters",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/jeremy-ausmus-does-it-again-captures-poker-masters-event-7-52643.htm",
+          "titular": "Jeremy Ausmus Wins Poker Masters Event #7 for 10th PGT Title",
+          "primera_frase": "Jeremy Ausmus wins Poker Masters Event #7 for $278,400, securing his tenth career PGT title.",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1764900-jeremy-ausmus-locks-up-10th-pgt-trophy-at-2026-poker-masters",
+          "titular": "Jeremy Ausmus Locks Up 10th PGT Trophy At 2026 Poker Masters",
+          "primera_frase": "Jeremy Ausmus outlasted a stacked final table to win event no."
+        },
+        {
+          "n": 8,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225708-evoke-launched-888-poker-on-mr-green-and-william",
+          "titular": "Evoke Launched 888 Poker on Mr Green, and William Hill Could be Next",
+          "primera_frase": "Mr Green, the Nordic casino brand that evoke owns, has offered online poker on the 888 network in Denmark and Sweden for more than a year."
+        },
+        {
+          "n": 9,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/ggpoker-december-1-enforcement-date-third-party-software-ban/",
+          "titular": "GGPoker Sets December 1 Enforcement Date for Third-Party Software Ban",
+          "primera_frase": "GGPoker has put a date on its crackdown. In a statement on X on October 19, 2026, the site said automated detection of third-party poker software goes live on December 1.",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ggpoker-sanciones-software-prohibido",
+          "titular": "GGPoker pone fecha límite: desde diciembre podrá sancionar a quienes utilicen software prohibido",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/ggpoker-proibe-huds-67907.htm",
+          "titular": "Após escândalo de trapaça, GGPoker proíbe uso de HUDs e softwares de terceiros",
+          "primera_frase": "Novas regras buscam proteger os jogadores e reforçar a integridade das partidas online"
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/ggpoker-pone-fecha-limite-nuevas-restricciones-y-posibles-expulsiones/",
+          "titular": "GGPoker pone fecha límite: nuevas restricciones y posibles expulsiones",
+          "primera_frase": "A partir del 1 de diciembre de 2026, GGPoker activará un sistema automático para detectar programas externos no autorizados."
+        },
+        {
+          "n": 13,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225852-market-monitor-new-jersey-september-2026",
+          "titular": "Market Monitor: New Jersey September 2026",
+          "primera_frase": "New Jersey online poker weathered another weak month in September 2026."
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225835-market-monitor-connecticut-september-2026",
+          "titular": "Market Monitor: Connecticut September 2026",
+          "primera_frase": "CT online casinos generated $57 million in revenue in September, up 6% year-over-year."
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225837-market-monitor-pennsylvania-september-2026",
+          "titular": "Market Monitor: Pennsylvania September 2026",
+          "primera_frase": "PA online poker is slowly climbing out of a hole, with the market now almost stable year-over-year."
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/from-the-brink-of-elimination-to-poker-masters-champion-52641.htm",
+          "titular": "From the Brink of Elimination to Poker Masters Champion: Justin Vaysman Pulls Off Incredible Comeback",
+          "primera_frase": "Justin Vaysman completes a remarkable comeback to win Poker Masters Event #6 for $192,000.",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/lorenzo-sabato-chipleads-full-final-day-on-way-to-glory-in-v-52639.htm",
+          "titular": "Lorenzo Sabato Chipleads Full Final Day on Way to Glory in Venice",
+          "primera_frase": "La Notte Degli Assi wraps up in Venice, with Lorenzo Sabato winning the Main Event",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/umut-ozturk-wins-mspt-firekeeepers-52637.htm",
+          "titular": "Career-High Win Vaults Umut Ozturk to Top of MSPT’s All-Time Money List",
+          "primera_frase": "Ozturk topped a field of 2,442 runners to win his third MSPT title.",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/kgbseven-wins-coinmillion-for-120500-in-his-first-cash",
+          "titular": "Kgbseven Wins CoinMillion for $120,500 in His First Cash",
+          "primera_frase": "Before this tournament, Kgbseven had no cashes listed on his CoinPoker profile.",
+          "con_extracto": true
+        },
+        {
+          "n": 20,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1764243-kgbseven-gets-denied-deal-wins-coinmillion-for-120k",
+          "titular": "‘Kgbseven’ Gets Denied Deal, Wins CoinMillion For $120K",
+          "primera_frase": "The newcomer to CoinPoker was playing just his second-ever tournament on the site and turned down a heads-up deal to win an extra $25,000."
+        },
+        {
+          "n": 21,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/apt-online-continues-record-breaking-surge-in-turnout-and-prize-pools-ah7xK3y27bMH/",
+          "titular": "APT Online continues record-breaking surge in turnout and prize pools",
+          "primera_frase": "The 2026 APT Online (APTO) series is smashing records left and right, riding the momentum of a strong start into the second week of play.",
+          "con_extracto": true
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/ipoker-official-triton-poker-series-satellite-partner-52636.htm",
+          "titular": "Even More Ways to Qualify For Triton Events as iPoker Becomes Official Satellite Partner",
+          "primera_frase": "Almost 20 iPoker sites are offering Triton Poker Series satellites.",
+          "con_extracto": true
+        },
+        {
+          "n": 23,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/russian-beast-strikes-again-martirosian-takes-down-two-mini-phils-at-once",
+          "titular": "Russian Beast Strikes Again: Martirosian Takes Down Two Mini Phil’s at Once",
+          "primera_frase": "While other players on ACR Poker were battling in the Venom PKO for a shot at reaching the final table, super high roller Artur \"AlwaysWithNuts\" Martirosian chose to conquer the…",
+          "con_extracto": true
+        },
+        {
+          "n": 24,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+          "titular": "A new venue and more affordable buy-ins: Jeff Platt talks WSOP Paradise 2026",
+          "primera_frase": "WSOP's Jeff Platt shares what to expect with some new surprises for mid-stakes players at this year's WSOP Bahamas Paradise series in December.",
+          "con_extracto": true
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-wins-pokernews-online-championship-event-52629.htm",
+          "titular": "888's Aaron Barone Wins PokerNews Online Championship Event",
+          "primera_frase": "Barone continued his impressive form with a win in the $16.50 Mystery Bounty.",
+          "con_extracto": true
+        },
+        {
+          "n": 26,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+          "titular": "The first woman to win an open WSOP event was almost erased from history",
+          "primera_frase": "Vera Richmond made WSOP history in 1982, but her name was later removed from the records.",
+          "con_extracto": true
+        },
+        {
+          "n": 27,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/falta-de-respeto-o-estrategia-polemica-mano-poker-masters-54089.htm",
+          "titular": "¿Falta de respeto o estrategia? Una polémica mano en la burbuja del Poker Masters",
+          "primera_frase": "John Krpan recriminó a Clemen Deng que no pusiera all-in a un rival en plena burbuja.",
+          "con_extracto": true
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ignacio-moron-ther-venom",
+          "titular": "Ignacio Morón está entre los finalistas del The Venom PKO en NLH y busca revancha",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/craques-brasil-cravam-530-bounty-builder-hr-pokerstars-67906.htm",
+          "titular": "Craques do Brasil cravam US$ 530 Bounty Builder HR em sequência no PokerStars",
+          "primera_frase": "Paulo Brombim e Jonathan Wolter venceram duas edições do torneio",
+          "con_extracto": true
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ignacio-sagra-alcanzo-el-quinto-lugar-en-el-ggmillion-high-roller",
+          "titular": "Ignacio Sagra alcanzó el quinto lugar en el GGMillion$ High Roller",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 31,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/marius-conan-conquista-el-main-event-del-888live-londres-por-91.170-ps",
+          "titular": "Marius Conan conquista el Main Event del 888Live Londres por 91.170 £",
+          "primera_frase": "888Live Londres",
+          "con_extracto": true
+        },
+        {
+          "n": 32,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/marius-conan-titulo-main-event-888live-londres-67897.htm",
+          "titular": "Marius Conan brilha e fatura o título do Main Event do 888LIVE Londres",
+          "primera_frase": "A premiação de £91.170 foi a segunda maior conquistada por Conan em torneios ao vivo"
+        },
+        {
+          "n": 33,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/vera-richmond-la-pr-brazalet",
+          "titular": "Vera Richmond: la primera mujer que ganó un brazalete WSOP y casi fue borrada de la historia",
+          "primera_frase": "",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

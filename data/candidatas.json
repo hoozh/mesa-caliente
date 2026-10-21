@@ -71,15 +71,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://cardplayer.pokercoaching.com/courses",
       "origen": "automatica"
+    },
+    {
+      "nombre": "thehendonmob.com",
+      "dominio": "thehendonmob.com",
+      "detectada": "2026-10-21",
+      "detectada_texto": "detectada el 21 de octubre de 2026",
+      "motivo": "Enlazada desde 4 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://pokerdb.thehendonmob.com/ranking/191/#30",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "educapoker.com",
-      "articulo": "https://www.poker-red.com/noticias/aprende-como-construir-el-probe-river-con-smalllake",
-      "enlace": "https://educapoker.com/noticias/aprende-como-construir-el-probe-river-con-smalllake",
-      "fecha": "2026-10-07"
-    },
     {
       "dominio": "quintace.ai",
       "articulo": "https://www.poker-red.com/noticias/quintace-analiza-a-los-grandes-ganadores-del-cash-online",
@@ -385,6 +388,114 @@
       "articulo": "https://codigopoker.com/noticias/torneos/wsop/novedades-wsop-paradise-2026",
       "enlace": "https://www.wsop.com/tournaments/2026-wsop-paradise/",
       "fecha": "2026-10-20"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xbcnkk/ausmus_wins_poker_masters_event_7/",
+      "enlace": "https://www.pokernews.com/news/2026/10/jeremy-ausmus-does-it-again-captures-poker-masters-event-7-52643.htm",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "drivehud.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xbk0o5/has_anyone_tried_this_poker_iq_test/",
+      "enlace": "https://drivehud.com/poker-iq/",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "bggtrack.cfd",
+      "articulo": "https://www.pokerlistings.com/news/kgbseven-wins-coinmillion-for-120500-in-his-first-cash",
+      "enlace": "https://bggtrack.cfd/rfwhhYE?type=pokerlistings_banners",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/apt-online-continues-record-breaking-surge-in-turnout-and-prize-pools-ah7xK3y27bMH/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/apt-online-continues-record-breaking-surge-in-turnout-and-prize-pools-ah7xK3y27bMH/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/apt-online-continues-record-breaking-surge-in-turnout-and-prize-pools-ah7xK3y27bMH/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "wsop.com",
+      "articulo": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+      "enlace": "https://www.wsop.com/news/wsop-unveils-paradise-2026-schedule-and-early-bird-packages/",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pokerstake.com",
+      "articulo": "https://www.poker.org/latest-news/a-new-venue-and-more-affordable-buy-ins-jeff-platt-talks-wsop-paradise-2026-agZq33m5mGCH/",
+      "enlace": "https://www.pokerstake.com/",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=27612&__cf_chl_tk=bRSilYcPE3AQ2wrjFuDyI0_V5ErW17.nNF7_nVfRAhs-1792420286-1.0.1.1-rmAMZcbKSgSKBSjJaeB9wU5PVK4O48TqZeZkJQYo..0",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "thepokergrid.com",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://thepokergrid.com/2020/11/02/the-grid-049-ft-linda-johnson-six-deuce-suited/",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pokerstars.uk",
+      "articulo": "https://www.poker.org/latest-news/the-first-woman-to-win-an-open-wsop-event-was-almost-erased-from-history-aHSsq9d4H2T9/",
+      "enlace": "https://www.pokerstars.uk/poker/learn/news/timeline-women-poker-pioneers-who-changed-the-game-forever/",
+      "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://codigopoker.com/noticias/torneos/wsop/vera-richmond-la-pr-brazalet",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=27612",
+      "fecha": "2026-10-21"
     }
   ]
 }

@@ -52,13 +52,35 @@
         "Nick Schulman"
       ],
       "alta": "2026-10-18",
-      "ultima_novedad": "2026-10-20",
+      "ultima_novedad": "2026-10-21",
       "fuentes": [
         "codigopoker.com",
         "poker-red.com",
         "poker.org",
         "pokernews.com",
         "pokernoticias.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: No-Limit Hold",
+      "palabras_clave": [
+        "Clemen Deng",
+        "Joey Weissman",
+        "John Krpan",
+        "Justin Vaysman",
+        "Nick Palma",
+        "No-Limit Hold",
+        "PokerGO Studio",
+        "Purple Jacket"
+      ],
+      "alta": "2026-10-21",
+      "ultima_novedad": "2026-10-21",
+      "fuentes": [
+        "cardplayer.com",
+        "codigopoker.com",
+        "poker.org",
+        "pokernews.com"
       ],
       "estado": "activo"
     }
