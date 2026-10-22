@@ -84,24 +84,6 @@
   ],
   "menciones": [
     {
-      "dominio": "quintace.ai",
-      "articulo": "https://www.poker-red.com/noticias/quintace-analiza-a-los-grandes-ganadores-del-cash-online",
-      "enlace": "https://quintace.ai/blog/biggest-online-cash-winners",
-      "fecha": "2026-10-08"
-    },
-    {
-      "dominio": "stake.com",
-      "articulo": "https://codigopoker.com/poker-online/como-jugar-poker-online-en-stake",
-      "enlace": "https://stake.com/es?offer=codigopoker&c=ceoZPrjj",
-      "fecha": "2026-10-08"
-    },
-    {
-      "dominio": "stake.mx",
-      "articulo": "https://codigopoker.com/poker-online/como-jugar-poker-online-en-stake",
-      "enlace": "https://stake.mx/?offer=codigopoker&c=NDeH8BtT",
-      "fecha": "2026-10-08"
-    },
-    {
       "dominio": "espn.com",
       "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
       "enlace": "https://www.espn.com/blog/poker/post/_/id/528/kahnawake-gaming-commission-releases-final-report-ub-scandal",
@@ -496,6 +478,66 @@
       "articulo": "https://codigopoker.com/noticias/torneos/wsop/vera-richmond-la-pr-brazalet",
       "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=27612",
       "fecha": "2026-10-21"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xcdwv5/keith_lehr_wins_poker_masters_event_8_after/",
+      "enlace": "https://www.pokernews.com/news/2026/10/another-heads-up-cooler-decides-poker-masters-title-52648.htm",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xblwep/daniel_negreanu_says_wsop_champ_jumalon_is_here/",
+      "enlace": "https://www.pokernews.com/news/2026/10/daniel-negreanu-talks-lucas-jumalon-52642.htm",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1765195-keith-lehr-captures-poker-masters-event-no-8-title",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pgt.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1765195-keith-lehr-captures-poker-masters-event-no-8-title",
+      "enlace": "https://www.pgt.com/",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1764627-poker-pro-bryn-kenney-sues-ggpoker",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "reviewjournal.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1764627-poker-pro-bryn-kenney-sues-ggpoker",
+      "enlace": "https://www.reviewjournal.com/business/casinos-gaming/poker-star-bryn-kenney-sues-ggpoker-executive-over-alleged-broken-deal-3900646/",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1764627-poker-pro-bryn-kenney-sues-ggpoker",
+      "enlace": "https://en.ggpoker.com/blog/news-headlines/battle-against-rta/",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1763874-watch-woman-fights-staff-at-rhode-island-poker-room",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/adrian-villada-lidera-los-33-clasificados-del-open-de-la-wps-medellin/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/llego-el-dia-medellin-enciende-las-mesas-para-la-ultima-wps-de-2026/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-22"
     }
   ]
 }
