@@ -1,0 +1,838 @@
+{
+  "fecha": "2026-10-23",
+  "corridas": [
+    {
+      "id": "2026-10-23T12:00:28Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/peng-huang-wins-kpc-jeju-main-event-52659.htm",
+          "titular": "Peng Huang Wins KPC Jeju Main Event; Denied Heads-Up in King's Main Event",
+          "primera_frase": "Huang won the KPC Main Event and finished second in the King's Main Event."
+        },
+        {
+          "n": 2,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-circuit-series-underway-in-lake-tahoe-and-southern-indiana/",
+          "titular": "WSOP CIRCUIT SERIES UNDERWAY IN LAKE TAHOE AND SOUTHERN INDIANA",
+          "primera_frase": "18 WSOP Circuit ring events take place at both Caesars Republic Lake Tahoe and Caesars Southern Indiana from October 22 through November 2, 2026."
+        },
+        {
+          "n": 3,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/damien-leforbes-may-not-go-to-jail-in-resorts-world-gambling-case/",
+          "titular": "Damien LeForbes May Not Go to Jail in Resorts World Gambling Case",
+          "primera_frase": "Professional poker player Damien LeForbes could avoid jail and get probation after pleading guilty to running an illegal gambling business and money laundering."
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/pokernews-online-championship-888-enters-final-49217/",
+          "titular": "PokerNews Online Championship on 888 Approaches Finish Line With Mystery Main Event Still Open",
+          "primera_frase": "The PokerNews Online Championship on 888 is winding down, with the Mystery Main Event set to conclude on October 27, 2026, when the series champion will be decided."
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765529-bcpoker-unveils-halloween-series-with-50000-in-prizes",
+          "titular": "BCPoker Unveils Halloween Series With $50,000+ In Prizes",
+          "primera_frase": "Online poker site BCPoker has unveiled a Halloween tournament series with more than $50,000 in guaranteed prizes."
+        },
+        {
+          "n": 6,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/7-ways-to-barrel-the-turn-more-effectively-aMuEV5o3XHhH/",
+          "titular": "7 ways to barrel the turn more effectively",
+          "primera_frase": "Player, coach and author Alex Fitzgerald shares what to look out for after c-betting and then barreling the turn."
+        },
+        {
+          "n": 7,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225896-ggpoker-criticizes-local-rivals-push-open",
+          "titular": "GGPoker Criticizes Local Rivals in Push for Open Liquidity in Southern Europe",
+          "primera_frase": "“GGPoker strongly believes that poker is best served by open, global liquidity, and we remain determined to work with regulators worldwide to educate them on this.” GGPoker will continue pushing for i"
+        },
+        {
+          "n": 8,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xdavvd/in_a_9_person_4_card_plo_double_board_bomb_pot/",
+          "titular": "In a 9 person 4 card PLO double board bomb pot, how much would you pay for a 5th card?",
+          "primera_frase": "Had this debate in a home game today, answers varied from 25% more to 400% more submitted by /u/Fair_Web3594 [link] [comentarios]"
+        },
+        {
+          "n": 9,
+          "fuente": "blog.gtowizard.com",
+          "url": "https://blog.gtowizard.com/custom-solutions-upgrade-and-easier-preflop-icm-setup/",
+          "titular": "Custom Solutions Upgrade and Easier Preflop ICM Setup",
+          "primera_frase": "Custom solutions now go 1,000bb deep, GTO Wizard AI can choose your 3-way bet sizes, and you can load any tournament spot directly from a hand history."
+        },
+        {
+          "n": 10,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/bryn-kenney-sues-ggpoker-parent-company-nsus-group/",
+          "titular": "Bryn Kenney Files Lawsuit Against GGPoker’s Parent Company, NSUS Group",
+          "primera_frase": "Bryn Kenney, one of poker's all-time leading money winners, is suing GGPoker parent company NSUS Group and GGPoker CEO Mansoo \"Michael\" Kim."
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/leo-margets-debutara-en-triton-poker-jugando-el-invitational-54103.htm",
+          "titular": "Leo Margets debutará en Triton Poker jugando el Invitational de 200.000 $",
+          "primera_frase": "La catalana se estrenará en el circuito acompañada por João Vieira, su compañero de Winamax."
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/spin-go-national-championship-live-brasil-67925.htm",
+          "titular": "Spin & Go Championship Live chega ao Brasil com US$ 75 mil em prêmios no BSOP Millions",
+          "primera_frase": "A competição acontece na sexta-feira (27) de novembro e pagará US$ 30 mil ao campeão"
+        },
+        {
+          "n": 13,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-nlh-open/",
+          "titular": "WPS Medellín: así quedaron las mesas para el Día 2 del NLH Open",
+          "primera_frase": "El NLH Open de las Winner Poker Series 2026 superó su garantía de $200 millones y alcanzó una bolsa de $360.000.000 COP, tras reunir 450 registros en sus tres vuelos clasificatorios."
+        },
+        {
+          "n": 14,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/negreanu-segundo-pgt",
+          "titular": "Daniel Negreanu acarició su título 13 del PGT, pero una joven promesa le arruinó la fiesta",
+          "primera_frase": ""
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/las-galactic-series-aterrizan-con-164-torneos-y-mas-de-60.000-eu-extra-en-los-juegos-galacticos",
+          "titular": "Las Galactic Series aterrizan con 164 torneos y más de 60.000 € extra en los \"Juegos Galácticos\"",
+          "primera_frase": "PokerStars.es"
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/video/the-mad-poker-genius-who-disappeared-for-20-years-pokernews-13511.htm",
+          "titular": "The Mad Poker Genius Who Disappeared for 20 Years | PokerNews Podcast #1012",
+          "primera_frase": "The legendary poker player disappeared from the poker world 20 years ago, and Chad managed to track him down for an exclusive two-part interview."
+        },
+        {
+          "n": 17,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765523-acr-poker-500k-mystery-pko-gives-turbo-tuesday-an-early-start",
+          "titular": "ACR Poker $500K Mystery PKO Gives Turbo Tuesday An Early Start",
+          "primera_frase": "ACR Poker has kicked off Turbo Tuesdays with a $500,000 guaranteed mystery progressive knockout tournament."
+        },
+        {
+          "n": 18,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/negreanu-denied-at-poker-masters-as-nick-seward-wins-412k-and-first-pgt-title-af5IX8S4sQWG/",
+          "titular": "Negreanu denied at Poker Masters as Nick Seward wins $412K and first PGT title",
+          "primera_frase": "Daniel Negreanu finished runner-up to Nick Seward in Event #9 at the Poker Masters Negreanu denied at Poker Masters as Nick Seward wins $412K and first PGT title"
+        },
+        {
+          "n": 19,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xdaufm/removed_by_reddit/",
+          "titular": "[ Removed by Reddit ]",
+          "primera_frase": "[ Removed by Reddit on account of violating the content policy ."
+        },
+        {
+          "n": 20,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/poker-masters-race-heats-up-as-negreanu-leads-25000-event/",
+          "titular": "Poker Masters Race Heats Up as Negreanu Leads $25,000 Event",
+          "primera_frase": "The latest PokerGO Tour Poker Masters event to conclude in Las Vegas saw Keith Lehr take the title as Daniel Negreanu then pushed on for glory in Event #9."
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/una-redada-policial-obliga-a-cerrar-el-101-poker-club-de-tex-54102.htm",
+          "titular": "Una redada policial obliga a cerrar el 101 Poker Club de Texas",
+          "primera_frase": "La policía desalojó la sala de Katy y arrestó al menos a un empleado, según PokerNews."
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/pnoc-main-event-888-67923.htm",
+          "titular": "PokerNews Online Championship: Main Event se aproxima de fase decisiva no 888",
+          "primera_frase": "Grandes nomes do poker já garantiram vaga no Dia 2 da competição"
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/perez-y-gomez-lideran-los-ultimos-vuelos-clasificatorios-del-open-de-las-wps/",
+          "titular": "Pérez y Gómez lideran los últimos vuelos clasificatorios del Open de las WPS",
+          "primera_frase": "El NLH Open de las Winner Poker Series 2026 superó todas las expectativas en Medellín."
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/el-poker-necesita-espec",
+          "titular": "¿El poker necesita menos estrategia y más espectáculo?",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/main-event-2-million-wizard-y-viaje-a-sudafrica-en-el-domingo-de-winamax",
+          "titular": "Main Event, 2 Million Wizard y viaje a Sudáfrica en el domingo de Winamax",
+          "primera_frase": "Winamax España"
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/seward-denies-negreanu-at-poker-masters-52655.htm",
+          "titular": "Young Poker Pro Denies Daniel Negreanu His Latest High Roller Title",
+          "primera_frase": "Nicholas Seward defeated Daniel Negreanu heads-up at the 2026 Poker Masters."
+        },
+        {
+          "n": 27,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765481-nicholas-seward-denies-daniel-negreanu-at-poker-masters",
+          "titular": "Nicholas Seward Denies Daniel Negreanu At Poker Masters",
+          "primera_frase": "Rising star Nicholas Seward topped 50 entries in the $25,000 buy-in at the 2026 Poker Masters, besting Daniel Negreanu heads-up for $412,500."
+        },
+        {
+          "n": 28,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/pokerstars-cuts-campione-main-event-buy-in-for-2027-return-aOSv13R4QEnG/",
+          "titular": "PokerStars cuts Campione Main Event buy-in for 2027 return",
+          "primera_frase": "Dates for the first PokerStars Open event of 2027 are out, with Campione in Italy playing host."
+        },
+        {
+          "n": 29,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xdancu/playing_two_pair_plo_without_backup_oop/",
+          "titular": "Playing Two pair PLO without backup OOP",
+          "primera_frase": "Edit: It was a bomb pot thus why my hand wasn't great to begin with In PLO I feel like one of my biggest gaps in understanding is what to do with marginal hands OOP with no backup."
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/daniel-negreanu-fala-sobre-lucas-jumalon-67922.htm",
+          "titular": "Daniel Negreanu aposta em futuro promissor para jovem campeão do Main Event da WSOP",
+          "primera_frase": "O craque canadense acredita que Lucas Jumalon será uma figura de destaque no poker"
+        },
+        {
+          "n": 31,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-palau-conquista-el-venom-plo-y-se-lleva-us239-819/",
+          "titular": "Daniel Palau conquista el Venom PLO y se lleva US$239.819",
+          "primera_frase": "El español se impuso en una mesa final de alto nivel, superó un field de 602 entradas y sumó un nuevo título a su trayectoria."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/spin-go-championship-live-bsop-millions",
+          "titular": "Spin & Go Championship Live: en una versión inédita se jugará en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/leo-margets-debutara-en-triton-jugando-el-invitational-x-de-200.000-USD",
+          "titular": "Leo Margets debutará en Triton jugando el Invitational X de 200.000 $",
+          "primera_frase": "Triton Invitational X"
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-stabbing-victim-speaks-52657.htm",
+          "titular": "Poker-Playing Couple's Argument Led to Alleged Stabbing, Victim Claims",
+          "primera_frase": "The player allegedly stabbed by Lynne Ji tells his side of the story."
+        },
+        {
+          "n": 35,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765431-wildhorse-resort-casinos-2026-fall-poker-round-up-is-fast-approaching",
+          "titular": "Wildhorse Resort & Casino’s 2026 Fall Poker Round Up Is Fast Approaching",
+          "primera_frase": "The 2026 Fall Poker Round Up returns to Wildhorse Resort & Casino from Nov."
+        },
+        {
+          "n": 36,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/wsop-slashes-paradise-rake-across-12-events-following-criticism-aqjQ10i607QM/",
+          "titular": "WSOP slashes Paradise rake across 12 events following criticism",
+          "primera_frase": "12 bracelet events are going to be a little cheaper to play at this year's WSOP Paradise series."
+        },
+        {
+          "n": 37,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/el-wsopc-panama/",
+          "titular": "El WSOPC Panamá enciende motores: Estrellas de clase mundial aterrizan en suelo canalero",
+          "primera_frase": "La cuenta regresiva ha comenzado, en el Sortis Hotel, Spa & Casino ya se siente."
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/redada-policial-en-texas",
+          "titular": "Redada policial en Texas: irrumpen con armas en popular sala de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/hoy-debutan-las-wsop-circuit-en-espana-de-la-mano-de-casino-gran-via",
+          "titular": "Hoy debutan las WSOP Circuit en España de la mano de Casino Gran Vía",
+          "primera_frase": "WSOPC Madrid"
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/101-poker-club-raided-52654.htm",
+          "titular": "Police Raid Another Popular Texas Poker Room; Illegal Gambling Involved?",
+          "primera_frase": "The raid occurred Thursday morning at 101 Poker Club."
+        },
+        {
+          "n": 41,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765354-jared-bleznick-and-eelis-parssinen-in-epic-heads-up-plo-battle",
+          "titular": "Jared Bleznick And Eelis Parssinen In Epic Heads-up PLO Battle",
+          "primera_frase": "Two of the best Pot Limit Omaha specialists in the game today took each other on at CoinPoker this week."
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/la-wsop-paradise-baja-el-rake",
+          "titular": "¡La WSOP Paradise baja el rake tras las quejas de los jugadores!",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/seminole-hard-rock-hollywood-regular-nancy-thomas-passes-52656.htm",
+          "titular": "Seminole Hard Rock Hollywood Regular Nancy Thomas Passes Away",
+          "primera_frase": "Nancy Thomas finished runner-up to Jerry Wong in the 2017 Seminole LHPO for $109K."
+        },
+        {
+          "n": 44,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/bleznick-parssinen-duelo-plo-669000-us",
+          "titular": "Un duelo de 971 manos y US$669.000: Bleznick arrasó en una maratón de PLO",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/jared-bleznick-defends-wsop-poker-commentary-52646.htm",
+          "titular": "Jared Bleznick Defends Controversial WSOP Commentary - 'It's About the Entertainment'",
+          "primera_frase": "Bleznick thinks his commentary is great for the game."
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/promociones-de-stake-poker",
+          "titular": "Cuatro promociones de Stake Poker para activar antes de que acabe el año",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/podcast/pokernews-podcast/pokernews-podcast-1012-mike-caro-mad-genius-of-poker-52652.htm",
+          "titular": "Where Did the Mad Genius of Poker Disappear to for 20 Years? | PokerNews Podcast #1,012",
+          "primera_frase": "Mike Caro shares stories about Doyle Brunson, Planet Poker, and much more!"
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-agenda-streaming",
+          "titular": "Dónde mirar el BSOP Millions: la agenda de streaming en CodigoPoker",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/2027-irish-poker-open-runs-march-18-29-full-schedule-52651.htm",
+          "titular": "Save the Dates: 2027 Irish Poker Open Runs March 18-29 in Dublin",
+          "primera_frase": "The 2027 Irish Open runs March 18-29 at the Royal Society Dublin."
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/robo-flamenco-casino-las-vegas-condena",
+          "titular": "Tomó 40 cervezas, robó un flamenco vivo de un casino y ahora puede ir preso",
+          "primera_frase": ""
+        },
+        {
+          "n": 51,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/negreanu-golf-vino-lider-poker-masters",
+          "titular": "Daniel Negreanu: golf, dos copas cargadas de vino y líder del Poker Masters",
+          "primera_frase": ""
+        },
+        {
+          "n": 52,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/start-your-quest-for-pnoc-main-event-glory-at-888-52650.htm",
+          "titular": "Start Your Quest for PokerNews Online Championship Main Event Glory",
+          "primera_frase": "Some big names have already punched their $250K Gtd Main Event Day 2 tickets."
+        },
+        {
+          "n": 53,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/poker-winnings-tax-us-49205/",
+          "titular": "Poker Winnings Tax in the US: How Winnings Are Reported",
+          "primera_frase": "Poker winnings are taxable whether or not a Form W-2G arrives."
+        },
+        {
+          "n": 54,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/acr-poker-makes-tuesday-great-again-and-turbo-too",
+          "titular": "ACR Poker Makes Tuesday Great Again — And Turbo, Too!",
+          "primera_frase": "Starting October 27th, 2026, a new chapter of weekly tournaments begins on the WPN network."
+        },
+        {
+          "n": 55,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/one-shot-5m-gtd-surviving-the-apt-championship-freezeout-aMANU6L7sbzg/",
+          "titular": "One shot, $5M GTD: Surviving the APT Championship freezeout",
+          "primera_frase": "Are you ready for the $5M GTD Asian Poker Tour Championship Main Event?"
+        },
+        {
+          "n": 56,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xctq2m/when_youve_been_vibing_the_whole_night_with_the/",
+          "titular": "When you've been vibing the whole night with the guy sitting next to you and suddenly he goes all in against you",
+          "primera_frase": "You wouldn't deceive me, would you? submitted by /u/diamond2obsidian [link] [comentarios]"
+        },
+        {
+          "n": 57,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/wpt-prime-taiwan-satelites-67918.htm",
+          "titular": "WPT Prime Taiwan: descubra satélites por apenas US$ 0,55 no WPT Global",
+          "primera_frase": "Jogadores têm três caminhos de classificação para o Main Event de US$ 1 milhão garantido"
+        },
+        {
+          "n": 58,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/inteligencia-artificial-vs-jugadores-profesionales/",
+          "titular": "Inteligencia artificial vs jugadores profesionales",
+          "primera_frase": "La tecnología ha conseguido lo que durante años parecía imposible: vencer a jugadores profesionales de poker."
+        },
+        {
+          "n": 59,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/codigotravel-wsop-super-circuit-latam-punta-cana",
+          "titular": "CodigoTravel te lleva a jugar el WSOP Super Circuit Latam de Punta Cana",
+          "primera_frase": ""
+        },
+        {
+          "n": 60,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/daniel-palau-gana-el-venom-plo-por-239.819-USD-y-completa-el-doblete-espanol",
+          "titular": "Daniel Palau gana el Venom PLO por 239.819 $ y completa el doblete español",
+          "primera_frase": "The Venom PLO"
+        },
+        {
+          "n": 61,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/triton-one-super-high-roller-series-northern-cyprus-schedule-52605.htm",
+          "titular": "Triton ONE & Super High Roller Series to Close Out Decade Year in N. Cyprus",
+          "primera_frase": "Triton ONE and the Super High Roller Series head to Cyprus for 26 days of poker action."
+        },
+        {
+          "n": 62,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/phenom-series-of-poker-is-the-most-diverse-poker-series-ever-heres-why",
+          "titular": "Phenom Series of Poker Is the Most Diverse Poker Series Ever: Here’s Why",
+          "primera_frase": "Phenom Series of Poker (PSOP) starts on October 23 and runs through November 15."
+        },
+        {
+          "n": 63,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/two-venoms-two-podiums-online-player-bags-446k-double-on-acr-poker-a5LB75M42EvB/",
+          "titular": "Two Venoms, two podiums: Online player bags $446K double on ACR Poker",
+          "primera_frase": "The Venom PKO tournaments on ACR Poker concluded Wednesday – and one player was in the thick of the action on both final tables."
+        },
+        {
+          "n": 64,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xcxrw5/i_kicked_a_fish_out_of_our_home_game_for_being/",
+          "titular": "I kicked a fish out of our home game for being insufferable",
+          "primera_frase": "This is kind of a rant. He started playing poker at our no rake 1/2 home game hosted in a bar that played every Tuesday."
+        },
+        {
+          "n": 65,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/ivelin-kolev-wpt-prime-chipre-67916.htm",
+          "titular": "Ivelin Kolev dá show na mesa final e é campeão do WPT Prime Chipre",
+          "primera_frase": "Com o título, o búlgaro faturou US$ 171 mil"
+        },
+        {
+          "n": 66,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/bcpoker-series-de-halloween",
+          "titular": "BCPoker anuncia las Series de Halloween e incluye un freeroll con US$300",
+          "primera_frase": ""
+        },
+        {
+          "n": 67,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/oihan-abarzuza-gana-el-venom-pko-de-acr-por-536.577-USD",
+          "titular": "Oihan Abarzuza gana el Venom PKO de ACR por 536.577 $",
+          "primera_frase": "The Venom"
+        },
+        {
+          "n": 68,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/five-reasons-to-try-pokerstars-us-on-fanduel-52635.htm",
+          "titular": "Five Reasons to Try PokerStars US on FanDuel",
+          "primera_frase": "PokerStars US on FanDuel offers huge guarantee tournaments, and deposit bonuses."
+        },
+        {
+          "n": 69,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/ignore-the-hangover-2027-irish-poker-open-starts-the-day-after-st.-patricks-day-ag2dh6R6bBp6/",
+          "titular": "Ignore the hangover: 2027 Irish Poker Open starts the day after St. Patrick’s Day",
+          "primera_frase": "Starting the day after St Patrick's Day, the 2027 Irish Poker Open looks to keep the party going."
+        },
+        {
+          "n": 70,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xcy33q/breaking_alleged_poker_stabbing_victim_tells_all/",
+          "titular": "BREAKING: Alleged Poker Stabbing Victim Tells All - Lynne Ji stabs KGAO",
+          "primera_frase": "TLDR: Basically, Kgao and Lynne Ji were dating, living together, breakup; and Kgao finds out Lynne was escorting while they were \"together\"."
+        },
+        {
+          "n": 71,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/astropay-cashback-poker",
+          "titular": "AstroPay devuelve hasta US$50 en cashback a jugadores de estas 6 salas de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 72,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/oihan-abarzuza-y-nacho-moron-se-meten-en-la-mesa-final-del-venom-pko-de-acr",
+          "titular": "Oihan Abarzuza y Nacho Morón se meten en la mesa final del Venom PKO de ACR",
+          "primera_frase": "The Venom"
+        },
+        {
+          "n": 73,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/all-in-for-mental-health-charity-poker-event-52640.htm",
+          "titular": "Win a WPT World Championship Seat in this Las Vegas Charity Event; NFL Legend Ray Lewis to Be There",
+          "primera_frase": "The $500 buy-in charity event will take place in the Encore Poker Room at Wynn Las Vegas."
+        },
+        {
+          "n": 74,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/pokerorgs-beginners-hub-the-fastest-way-to-learn-poker-agDg92V0Zz8J/",
+          "titular": "PokerOrg’s Beginners Hub: the fastest way to learn poker",
+          "primera_frase": "Learn poker the quick and easy way with PokerOrg's new Beginners Hub."
+        },
+        {
+          "n": 75,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/coolers-hustler-42k",
+          "titular": "Luis Lefleur metió el cooler de la semana en el Hustler por US$42K",
+          "primera_frase": ""
+        },
+        {
+          "n": 76,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lucia-navarro-y-una-burbuja-agonica-en-un-1.100-USD-del-aria",
+          "titular": "Lucía Navarro y una burbuja agónica en un 1.100 $ del ARIA",
+          "primera_frase": "Las Vegas 2026"
+        },
+        {
+          "n": 77,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/infinity-poker-launches-new-asian-tour-with-114-events-in-just-10-days-awLJL1h4AOij/",
+          "titular": "Infinity Poker launches new Asian tour with 114 events in just 10 days",
+          "primera_frase": "Infinity Poker Incheon 2027 is the first live stop on a new poker tour launching in Asia next year."
+        },
+        {
+          "n": 78,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/phil-hellmuth-24-brazaletes",
+          "titular": "Phil Hellmuth quiere seguir haciendo historia en la WSOP Paradise: «Voy a ganar 24 brazaletes»",
+          "primera_frase": ""
+        },
+        {
+          "n": 79,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/jake-quiere-romper-el-dominio-de-luismi-y-raul-mestre-en-golden-button",
+          "titular": "Jake quiere romper el dominio de Luismi y Raúl Mestre en Golden Button",
+          "primera_frase": "Golden Button"
+        },
+        {
+          "n": 80,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/keith-lehr-conquista-el-poker",
+          "titular": "Keith Lehr ganó el Evento #8 del Poker Masters con un river brutal",
+          "primera_frase": ""
+        },
+        {
+          "n": 81,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/el-caos-en-una-sala-de-poker",
+          "titular": "¡All-in contra seguridad! Una mujer desató el caos en una sala de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 82,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/frankie-cucchiara-wsop",
+          "titular": "Frankie Cucchiara se emocionó ante sus seguidores al ganar su primer brazalete de WSOP",
+          "primera_frase": ""
+        },
+        {
+          "n": 83,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/es-jueves-y-se-grindea-en-suprema-poker-ya-viste-su-grilla",
+          "titular": "Es jueves y se grindea en Suprema Poker: ¿Ya viste su grilla?",
+          "primera_frase": ""
+        },
+        {
+          "n": 84,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/ignacio-moron-fue-el-primer-eliminado-del-the-venom-pko-en-nlh",
+          "titular": "Ignacio Morón fue el primer eliminado del The Venom PKO en NLH y Abarzuza fue quien festejó",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-23T12:00:28Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/jared-bleznick-why-nick-schulmans-poker-commentary-wont-grow-the-game-aJovZ3P68s4O/",
+          "titular": "Jared Bleznick: Why Nick Schulman's poker commentary won't grow the game",
+          "primera_frase": "In an appearance on the Late Reg poker podcast, Jared Bleznick defended his no-holds-barred approach to the commentary booth and argued that his entertaining style does more to bring new viewers than ",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/sergi-reixach-estrena-canal-de-youtube-con-un-analisis-de-lo-54101.htm",
+          "titular": "Sergi Reixach estrena canal de YouTube con un análisis de los Ocean KO",
+          "primera_frase": "El jugador español dedica su primer vídeo a la varianza y al impacto de los Ocean KO.",
+          "tema": "Tema: Ocean KO"
+        },
+        {
+          "n": 3,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/adrian-mateos-se-juega-la-chaqueta-purpura-desde-la-barrera",
+          "titular": "Adrián Mateos se juega la Chaqueta Púrpura desde la barrera",
+          "primera_frase": "Poker Masters",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/seward-denies-negreanu-at-poker-masters-52655.htm",
+          "titular": "Young Poker Pro Denies Daniel Negreanu His Latest High Roller Title",
+          "primera_frase": "Nicholas Seward defeated Daniel Negreanu heads-up at the 2026 Poker Masters.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765481-nicholas-seward-denies-daniel-negreanu-at-poker-masters",
+          "titular": "Nicholas Seward Denies Daniel Negreanu At Poker Masters",
+          "primera_frase": "Rising star Nicholas Seward topped 50 entries in the $25,000 buy-in at the 2026 Poker Masters, besting Daniel Negreanu heads-up for $412,500."
+        },
+        {
+          "n": 6,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/poker-masters-race-heats-up-as-negreanu-leads-25000-event/",
+          "titular": "Poker Masters Race Heats Up as Negreanu Leads $25,000 Event",
+          "primera_frase": "The latest PokerGO Tour Poker Masters event to conclude in Las Vegas saw Keith Lehr take the title as Daniel Negreanu then pushed on for glory in Event #9."
+        },
+        {
+          "n": 7,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/negreanu-denied-at-poker-masters-as-nick-seward-wins-412k-and-first-pgt-title-af5IX8S4sQWG/",
+          "titular": "Negreanu denied at Poker Masters as Nick Seward wins $412K and first PGT title",
+          "primera_frase": "Daniel Negreanu finished runner-up to Nick Seward in Event #9 at the Poker Masters Negreanu denied at Poker Masters as Nick Seward wins $412K and first PGT title"
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/peng-huang-wins-kpc-jeju-main-event-52659.htm",
+          "titular": "Peng Huang Wins KPC Jeju Main Event; Denied Heads-Up in King's Main Event",
+          "primera_frase": "Huang won the KPC Main Event and finished second in the King's Main Event.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/bryn-kenney-sues-ggpoker-parent-company-nsus-group/",
+          "titular": "Bryn Kenney Files Lawsuit Against GGPoker’s Parent Company, NSUS Group",
+          "primera_frase": "Bryn Kenney, one of poker's all-time leading money winners, is suing GGPoker parent company NSUS Group and GGPoker CEO Mansoo \"Michael\" Kim.",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/damien-leforbes-may-not-go-to-jail-in-resorts-world-gambling-case/",
+          "titular": "Damien LeForbes May Not Go to Jail in Resorts World Gambling Case",
+          "primera_frase": "Professional poker player Damien LeForbes could avoid jail and get probation after pleading guilty to running an illegal gambling business and money laundering.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/101-poker-club-raided-52654.htm",
+          "titular": "Police Raid Another Popular Texas Poker Room; Illegal Gambling Involved?",
+          "primera_frase": "The raid occurred Thursday morning at 101 Poker Club.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/una-redada-policial-obliga-a-cerrar-el-101-poker-club-de-tex-54102.htm",
+          "titular": "Una redada policial obliga a cerrar el 101 Poker Club de Texas",
+          "primera_frase": "La policía desalojó la sala de Katy y arrestó al menos a un empleado, según PokerNews."
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-stabbing-victim-speaks-52657.htm",
+          "titular": "Poker-Playing Couple's Argument Led to Alleged Stabbing, Victim Claims",
+          "primera_frase": "The player allegedly stabbed by Lynne Ji tells his side of the story.",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/seminole-hard-rock-hollywood-regular-nancy-thomas-passes-52656.htm",
+          "titular": "Seminole Hard Rock Hollywood Regular Nancy Thomas Passes Away",
+          "primera_frase": "Nancy Thomas finished runner-up to Jerry Wong in the 2017 Seminole LHPO for $109K.",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/jared-bleznick-defends-wsop-poker-commentary-52646.htm",
+          "titular": "Jared Bleznick Defends Controversial WSOP Commentary - 'It's About the Entertainment'",
+          "primera_frase": "Bleznick thinks his commentary is great for the game.",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/triton-one-super-high-roller-series-northern-cyprus-schedule-52605.htm",
+          "titular": "Triton ONE & Super High Roller Series to Close Out Decade Year in N. Cyprus",
+          "primera_frase": "Triton ONE and the Super High Roller Series head to Cyprus for 26 days of poker action.",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765354-jared-bleznick-and-eelis-parssinen-in-epic-heads-up-plo-battle",
+          "titular": "Jared Bleznick And Eelis Parssinen In Epic Heads-up PLO Battle",
+          "primera_frase": "Two of the best Pot Limit Omaha specialists in the game today took each other on at CoinPoker this week.",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/phenom-series-of-poker-is-the-most-diverse-poker-series-ever-heres-why",
+          "titular": "Phenom Series of Poker Is the Most Diverse Poker Series Ever: Here’s Why",
+          "primera_frase": "Phenom Series of Poker (PSOP) starts on October 23 and runs through November 15.",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/infinity-poker-launches-new-asian-tour-with-114-events-in-just-10-days-awLJL1h4AOij/",
+          "titular": "Infinity Poker launches new Asian tour with 114 events in just 10 days",
+          "primera_frase": "Infinity Poker Incheon 2027 is the first live stop on a new poker tour launching in Asia next year.",
+          "con_extracto": true
+        },
+        {
+          "n": 20,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/2027-irish-poker-open-runs-march-18-29-full-schedule-52651.htm",
+          "titular": "Save the Dates: 2027 Irish Poker Open Runs March 18-29 in Dublin",
+          "primera_frase": "The 2027 Irish Open runs March 18-29 at the Royal Society Dublin.",
+          "con_extracto": true
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/pokernews-online-championship-888-enters-final-49217/",
+          "titular": "PokerNews Online Championship on 888 Approaches Finish Line With Mystery Main Event Still Open",
+          "primera_frase": "The PokerNews Online Championship on 888 is winding down, with the Mystery Main Event set to conclude on October 27, 2026, when the series champion will be decided.",
+          "con_extracto": true
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/leo-margets-debutara-en-triton-poker-jugando-el-invitational-54103.htm",
+          "titular": "Leo Margets debutará en Triton Poker jugando el Invitational de 200.000 $",
+          "primera_frase": "La catalana se estrenará en el circuito acompañada por João Vieira, su compañero de Winamax.",
+          "con_extracto": true
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/leo-margets-debutara-en-triton-jugando-el-invitational-x-de-200.000-USD",
+          "titular": "Leo Margets debutará en Triton jugando el Invitational X de 200.000 $",
+          "primera_frase": "Triton Invitational X"
+        },
+        {
+          "n": 24,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-nlh-open/",
+          "titular": "WPS Medellín: así quedaron las mesas para el Día 2 del NLH Open",
+          "primera_frase": "El NLH Open de las Winner Poker Series 2026 superó su garantía de $200 millones y alcanzó una bolsa de $360.000.000 COP, tras reunir 450 registros en sus tres vuelos clasificatorios.",
+          "con_extracto": true
+        },
+        {
+          "n": 25,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/perez-y-gomez-lideran-los-ultimos-vuelos-clasificatorios-del-open-de-las-wps/",
+          "titular": "Pérez y Gómez lideran los últimos vuelos clasificatorios del Open de las WPS",
+          "primera_frase": "El NLH Open de las Winner Poker Series 2026 superó todas las expectativas en Medellín."
+        },
+        {
+          "n": 26,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-palau-conquista-el-venom-plo-y-se-lleva-us239-819/",
+          "titular": "Daniel Palau conquista el Venom PLO y se lleva US$239.819",
+          "primera_frase": "El español se impuso en una mesa final de alto nivel, superó un field de 602 entradas y sumó un nuevo título a su trayectoria.",
+          "con_extracto": true
+        },
+        {
+          "n": 27,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/daniel-palau-gana-el-venom-plo-por-239.819-USD-y-completa-el-doblete-espanol",
+          "titular": "Daniel Palau gana el Venom PLO por 239.819 $ y completa el doblete español",
+          "primera_frase": "The Venom PLO"
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/spin-go-national-championship-live-brasil-67925.htm",
+          "titular": "Spin & Go Championship Live chega ao Brasil com US$ 75 mil em prêmios no BSOP Millions",
+          "primera_frase": "A competição acontece na sexta-feira (27) de novembro e pagará US$ 30 mil ao campeão",
+          "con_extracto": true
+        },
+        {
+          "n": 29,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/el-wsopc-panama/",
+          "titular": "El WSOPC Panamá enciende motores: Estrellas de clase mundial aterrizan en suelo canalero",
+          "primera_frase": "La cuenta regresiva ha comenzado, en el Sortis Hotel, Spa & Casino ya se siente.",
+          "con_extracto": true
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/ivelin-kolev-wpt-prime-chipre-67916.htm",
+          "titular": "Ivelin Kolev dá show na mesa final e é campeão do WPT Prime Chipre",
+          "primera_frase": "Com o título, o búlgaro faturou US$ 171 mil",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

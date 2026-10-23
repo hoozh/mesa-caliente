@@ -6,7 +6,7 @@
         "Ocean KO"
       ],
       "alta": "2026-10-07",
-      "ultima_novedad": "2026-10-17",
+      "ultima_novedad": "2026-10-23",
       "fuentes": [
         "codigopoker.com",
         "poker-red.com",
@@ -53,7 +53,7 @@
         "Purple Jacket."
       ],
       "alta": "2026-10-18",
-      "ultima_novedad": "2026-10-22",
+      "ultima_novedad": "2026-10-23",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -83,6 +83,21 @@
         "codigopoker.com",
         "poker.org",
         "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Hendon Mob",
+      "palabras_clave": [
+        "Hendon Mob"
+      ],
+      "alta": "2026-10-23",
+      "ultima_novedad": "2026-10-23",
+      "fuentes": [
+        "cardplayer.com",
+        "poker.org",
+        "pokernews.com",
+        "tightpoker.com"
       ],
       "estado": "activo"
     }

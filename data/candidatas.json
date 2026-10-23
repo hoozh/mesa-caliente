@@ -84,36 +84,6 @@
   ],
   "menciones": [
     {
-      "dominio": "espn.com",
-      "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
-      "enlace": "https://www.espn.com/blog/poker/post/_/id/528/kahnawake-gaming-commission-releases-final-report-ub-scandal",
-      "fecha": "2026-10-09"
-    },
-    {
-      "dominio": "quintace.ai",
-      "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
-      "enlace": "https://quintace.ai/blog/superuser-detection-open-source",
-      "fecha": "2026-10-09"
-    },
-    {
-      "dominio": "betmgmpartners.com",
-      "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
-      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
-      "fecha": "2026-10-09"
-    },
-    {
-      "dominio": "octopipoker.ai",
-      "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
-      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
-      "fecha": "2026-10-09"
-    },
-    {
-      "dominio": "pairrd.com",
-      "articulo": "https://www.poker.org/latest-news/quintace-unveils-open-source-weapon-against-online-superusers-amRxw5Y1wKno/",
-      "enlace": "https://pairrd.com/?via=pokerorg",
-      "fecha": "2026-10-09"
-    },
-    {
       "dominio": "quintace.ai",
       "articulo": "https://br.pokernews.com/noticias/2026/10/software-gratuito-detectar-trapacas-poker-online-67812.htm",
       "enlace": "https://quintace.ai/blog/superuser-detection-open-source",
@@ -538,6 +508,78 @@
       "articulo": "https://pokernoticias.com/llego-el-dia-medellin-enciende-las-mesas-para-la-ultima-wps-de-2026/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-10-22"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xcwlcf/another_popular_texas_poker_room_raided_likely/",
+      "enlace": "https://www.pokernews.com/news/2026/10/101-poker-club-raided-52654.htm",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "gg.gl",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xd2wuw/ggpoker_mystery_battle_royale_025/",
+      "enlace": "https://gg.gl/awozz",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "somuchpoker.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/peng-huang-wins-kpc-jeju-main-event-52659.htm",
+      "enlace": "https://somuchpoker.com/",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/seminole-hard-rock-hollywood-regular-nancy-thomas-passes-52656.htm",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=190001&sort=prize&dir=desc",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1765354-jared-bleznick-and-eelis-parssinen-in-epic-heads-up-plo-battle",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "bggtrack.cfd",
+      "articulo": "https://www.pokerlistings.com/news/phenom-series-of-poker-is-the-most-diverse-poker-series-ever-heres-why",
+      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "infinitypoker.co",
+      "articulo": "https://www.poker.org/latest-news/infinity-poker-launches-new-asian-tour-with-114-events-in-just-10-days-awLJL1h4AOij/",
+      "enlace": "https://infinitypoker.co/schedule",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/pokernews-online-championship-888-enters-final-49217/",
+      "enlace": "https://www.pokernews.com/news/2026/10/start-your-quest-for-pnoc-main-event-glory-at-888-52650.htm",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-nlh-open/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/daniel-palau-conquista-el-venom-plo-y-se-lleva-us239-819/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "pokerstars.com",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/spin-go-national-championship-live-brasil-67925.htm",
+      "enlace": "https://www.pokerstars.com/pt-BR/poker/pages/sag-national-championship-live-brasil/",
+      "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/el-wsopc-panama/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-23"
     }
   ]
 }
