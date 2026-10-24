@@ -84,12 +84,6 @@
   ],
   "menciones": [
     {
-      "dominio": "quintace.ai",
-      "articulo": "https://br.pokernews.com/noticias/2026/10/software-gratuito-detectar-trapacas-poker-online-67812.htm",
-      "enlace": "https://quintace.ai/blog/superuser-detection-open-source",
-      "fecha": "2026-10-10"
-    },
-    {
       "dominio": "ig.me",
       "articulo": "https://pokernoticias.com/vivir-de-torneo-en-torneo-la-realidad-detras-del-sueno-de-ser-jugador-profesional-de-poker/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
@@ -580,6 +574,72 @@
       "articulo": "https://pokernoticias.com/el-wsopc-panama/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-10-23"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xdmp7g/sammy_farha_finally_snapped_and_beat_up_a_dealer/",
+      "enlace": "https://www.pokernews.com/news/2026/10/poker-star-sammy-farha-attacks-dealer-52653.htm",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xdo406/farha_has_always_been_a_pile_of_garbage/",
+      "enlace": "https://www.pokernews.com/news/2026/10/poker-star-sammy-farha-attacks-dealer-52653.htm?fbclid=IwdGRjcAVImN1leHRuA2FlbQIxMQBwZG9mBWZkaWQWUQ3fhbJU5CPTv9RbKfwmfwLyWHompnNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR5hsMU_RM_NQk8S-5UnOnhQUc6Sp4lQ42xall6w-S6l2-tJ7mURxgokWoq6cA_aem_EVr0Tt4Ud-5jyjE-lcvI7A",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xddid7/mega_pints_of_red_wine_cant_save_daniel_negreanu/",
+      "enlace": "https://www.pokernews.com/news/2026/10/seward-denies-negreanu-at-poker-masters-52655.htm",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/daniel-negreanu-se-queda-a-un-paso-del-titulo-en-el-poker-masters-2026/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "hardrock.com",
+      "articulo": "https://www.wsop.com/news/wsop-super-circuit-latam-wsop-debuts-in-punta-cana/",
+      "enlace": "https://hotel.hardrock.com/punta-cana/world-series-of-poker-latam-2027.aspx",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "jostens.com",
+      "articulo": "https://www.wsop.com/news/wsop-super-circuit-latam-wsop-debuts-in-punta-cana/",
+      "enlace": "https://www.jostens.com/apps/prochamp/wsop/fans/landing.mvc",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/la-espera-termino-andres-huertas-conquista-su-primer-titulo-wps-en-medellin/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/clsop-poker-series-festival-regresa-con-una-nueva-alianza-y-un-main-event-de-us100-000-garantizados/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "caesars.com",
+      "articulo": "https://www.wsop.com/news/wsop-circuit-series-underway-in-lake-tahoe-and-southern-indiana/",
+      "enlace": "https://www.caesars.com/caesars-republic-lake-tahoe",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "poker.org",
+      "articulo": "https://www.wsop.com/news/wsop-circuit-series-underway-in-lake-tahoe-and-southern-indiana/",
+      "enlace": "https://www.poker.org/instant/",
+      "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "bsop.com.br",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/monte-sua-grade-bsop-millions-67935.htm",
+      "enlace": "https://bsop.com.br/monte-sua-grade",
+      "fecha": "2026-10-24"
     }
   ]
 }
