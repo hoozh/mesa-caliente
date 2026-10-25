@@ -80,33 +80,18 @@
       "motivo": "Enlazada desde 4 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://pokerdb.thehendonmob.com/ranking/191/#30",
       "origen": "automatica"
+    },
+    {
+      "nombre": "pgt.com",
+      "dominio": "pgt.com",
+      "detectada": "2026-10-25",
+      "detectada_texto": "detectada el 25 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://www.pgt.com/",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/vivir-de-torneo-en-torneo-la-realidad-detras-del-sueno-de-ser-jugador-profesional-de-poker/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-10-11"
-    },
-    {
-      "dominio": "betmgmpartners.com",
-      "articulo": "https://www.poker.org/latest-news/staying-safe-with-pokerstars-on-fanduel-azEDA7y3Rrg0/",
-      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
-      "fecha": "2026-10-11"
-    },
-    {
-      "dominio": "octopipoker.ai",
-      "articulo": "https://www.poker.org/latest-news/staying-safe-with-pokerstars-on-fanduel-azEDA7y3Rrg0/",
-      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
-      "fecha": "2026-10-11"
-    },
-    {
-      "dominio": "pairrd.com",
-      "articulo": "https://www.poker.org/latest-news/staying-safe-with-pokerstars-on-fanduel-azEDA7y3Rrg0/",
-      "enlace": "https://pairrd.com/?via=pokerorg",
-      "fecha": "2026-10-11"
-    },
     {
       "dominio": "jurojinpoker.com",
       "articulo": "https://br.pokernews.com/noticias/2026/10/jurojin-perguntas-superuser-67822.htm",
@@ -640,6 +625,42 @@
       "articulo": "https://br.pokernews.com/noticias/2026/10/monte-sua-grade-bsop-millions-67935.htm",
       "enlace": "https://bsop.com.br/monte-sua-grade",
       "fecha": "2026-10-24"
+    },
+    {
+      "dominio": "lovable.app",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xf0g32/i_built_a_poker_game_would_love_your_feedback/",
+      "enlace": "https://poker-hands.lovable.app",
+      "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "wsop.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/10/player-absolutely-crushing-wsop-online-fall/",
+      "enlace": "https://wsop.com/",
+      "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/sebastian-toro-lleva-la-bandera-colombiana-a-lo-alto-del-poker-asiatico/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "houstonsocialcardroom.com",
+      "articulo": "https://codigopoker.com/noticias/sammy-farha-acusado-golpear-dealer-texas",
+      "enlace": "https://www.houstonsocialcardroom.com/",
+      "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-high-roller/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "pgt.com",
+      "articulo": "https://codigopoker.com/noticias/torneos/estados-unidos/adrian-mateos-chaqueta-poker-masters",
+      "enlace": "https://www.pgt.com/news/adrian-mateos-wins-2026-poker-masters-purple-jacket",
+      "fecha": "2026-10-25"
     }
   ]
 }

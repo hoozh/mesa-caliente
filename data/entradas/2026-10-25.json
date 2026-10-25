@@ -1,0 +1,546 @@
+{
+  "fecha": "2026-10-25",
+  "corridas": [
+    {
+      "id": "2026-10-25T12:00:24Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wpt-venetian-fall-championship-52667.htm",
+          "titular": "World Poker Tour Heads Back to Venetian for $2 Million Guaranteed Tournament",
+          "primera_frase": "This is going to be a big one."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/player-absolutely-crushing-wsop-online-fall/",
+          "titular": "This Player Is Absolutely Crushing the WSOP Online Fall Bracelet Series",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+          "titular": "What online poker gained – and lost – from the boom years to the solver era",
+          "primera_frase": "Wladimir Taschner, author of The History of Online Poker, examines the progression of online poker through the good years – and the bad ones."
+        },
+        {
+          "n": 4,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xf0g32/i_built_a_poker_game_would_love_your_feedback/",
+          "titular": "I built a poker game 🎮 — would love your feedback!",
+          "primera_frase": "Hey everyone! 👋 I've been building my own poker game and would love to hear what actual poker players think about it."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/sebastian-toro-lleva-la-bandera-colombiana-a-lo-alto-del-poker-asiatico/",
+          "titular": "Sebastián Toro lleva la bandera colombiana a lo alto del poker asiático",
+          "primera_frase": "El colombiano Sebastián Camilo Toro Henao alcanzó el cuarto lugar del KPC Main Event en Jeju, Corea del Sur, y se llevó un premio de US$43.265."
+        },
+        {
+          "n": 6,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/sammy-farha-acusado-golpear-dealer-texas",
+          "titular": "Escándalo en el poker: Sammy Farha, acusado de golpear a un dealer y prohibido",
+          "primera_frase": ""
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/rgps-lodge-card-club-san-antonio-52666.htm",
+          "titular": "RunGood Poker Series Will Visit The Lodge in San Antonio Next Month",
+          "primera_frase": "A big poker series is heading to the other Lodge."
+        },
+        {
+          "n": 8,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/the-biggest-myth-about-playing-fearless-poker-ajarR5j3dIwV/",
+          "titular": "The biggest myth about playing fearless poker",
+          "primera_frase": "High-stakes poker players spend years trying to eliminate fear at the table."
+        },
+        {
+          "n": 9,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xf0a0n/why_do_some_people_insist_on_being_complete/",
+          "titular": "Why do some people insist on being complete assholes at the poker table?",
+          "primera_frase": "Just an observation from a tournament I played yesterday."
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-high-roller/",
+          "titular": "WPS Medellín: así quedaron las mesas para el Día 2 del High Roller",
+          "primera_frase": "Los 32 clasificados regresarán este domingo al Hollywood Casino Milla de Oro para continuar la lucha por el título y una bolsa de $435 millones COP."
+        },
+        {
+          "n": 11,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/kassouf-eliminado-gano-50k-venecia-tesoro",
+          "titular": "La increíble suerte de Kassouf: eliminado y con €50.000 en el bolsillo",
+          "primera_frase": ""
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/101-poker-club-arrests-52663.htm",
+          "titular": "$118K Seized and Four Arrested for 'Illegal Gambling' in Poker Room Raid",
+          "primera_frase": "The card room reopened less than 24 hours after the raid."
+        },
+        {
+          "n": 13,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/todays-11-grinders-could-have-been-top-5-players-in-2003-aaron-barone-aC5R30b4WvYv/",
+          "titular": "Today's $11 grinders could have been top 5 players in 2003 – Aaron Barone",
+          "primera_frase": "Aaron Barone turned $2,500 into more than $10,000 in six days."
+        },
+        {
+          "n": 14,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xf06hq/noobie_play_review/",
+          "titular": "Noobie Play Review",
+          "primera_frase": "I just got into poker 3 days ago and been trying to learn via playing and studying."
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/gloria-molina-toma-la-delantera-en-el-high-roller-de-las-wps-medellin/",
+          "titular": "Gloria Molina toma la delantera en el High Roller de las WPS Medellín",
+          "primera_frase": "La colombiana lideró el primer vuelo clasificatorio con 615.000 fichas."
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/eliuth-rojas-lidera-la-mesa-final-del-opener-en-psop-calaverita",
+          "titular": "Eliuth Rojas lidera la mesa final del Opener en PSOP Calaverita",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/irving-sanchez-adquirio-el-nuevo-liderato-en-fichas-del-opener",
+          "titular": "Irving Sánchez adquirió el nuevo liderato en fichas del Opener",
+          "primera_frase": ""
+        },
+        {
+          "n": 18,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/funcionario-ucraniano-multado-jugar-poker",
+          "titular": "Un funionario ucraniano fue multado por jugar al poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 19,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/estados-unidos/sean-winter-campeon-poker-masters-2026",
+          "titular": "Sean Winter cerró el Poker Masters con un premio de US$620.000",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/betrivers-poker-celebrating-2nd-anniversary-52661.htm",
+          "titular": "BetRivers Poker Celebrating 2nd Anniversary with Week of Promotions",
+          "primera_frase": "A special BetRivers Poker Anniversary Week that will run through Sunday, November 1."
+        },
+        {
+          "n": 21,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/betrivers-poker-celebrates-its-second-birthday/",
+          "titular": "BetRivers Poker Celebrates Its Second Birthday With Anniversary Week",
+          "primera_frase": ""
+        },
+        {
+          "n": 22,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-super-circuit-latam-wsop-debuts-in-punta-cana/",
+          "titular": "WSOP SUPER CIRCUIT LATAM: WSOP DEBUTS IN PUNTA CANA",
+          "primera_frase": "WSOP Super Circuit LATAM debuts at Hard Rock Punta Cana in the Dominican Republic, hosting 18 WSOP Circuit ring events from January 24 through February 2, 2027."
+        },
+        {
+          "n": 23,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/what-is-msiga-shared-online-poker-liquidity-49206/",
+          "titular": "What Is MSIGA? Multi-State Online Poker Compact Explained",
+          "primera_frase": "MSIGA is the compact behind shared online poker liquidity in the US."
+        },
+        {
+          "n": 24,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1763332-poker-strategy-with-alex-fitzgerald-the-pros-bluff-less-than-you-think",
+          "titular": "Poker Strategy With Alex Fitzgerald: The Pros Bluff Less Than You Think",
+          "primera_frase": "In today’s strategy guide we are going to talk about some concepts that amateurs get completely wrong about professionals."
+        },
+        {
+          "n": 25,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/7-ways-to-barrel-the-turn-more-effectively-aMuEV5o3XHhH/",
+          "titular": "7 ways to barrel the turn more effectively",
+          "primera_frase": "Player, coach and author Alex Fitzgerald shares what to look out for after c-betting and then barreling the turn."
+        },
+        {
+          "n": 26,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xeq0vk/winning_100_at_the_casino_vs_losing_400_drunk_in/",
+          "titular": "Winning $100 at the casino vs. losing $400 drunk in a home game with friends",
+          "primera_frase": "submitted by /u/exboxthreesixty [link] [comentarios]"
+        },
+        {
+          "n": 27,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/101-poker-club-katy-shut-down-police-raid/",
+          "titular": "101 Poker Club in Katy Shut Down After Houston Police Raid",
+          "primera_frase": "Police shut down 101 Poker Club in Katy, Texas, on Thursday, October 22, raiding the Houston-area card room around 11:30 a.m."
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/nicholas-seward-impede-titulo-daniel-negreanu-poker-masters-67933.htm",
+          "titular": "Nicholas Seward impede título de Daniel Negreanu no Poker Masters e leva US$ 412.500",
+          "primera_frase": "O jovem americano derrotou seu ídolo de infância e conquistou seu primeiro título no PGT"
+        },
+        {
+          "n": 29,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-se-queda-a-un-paso-del-titulo-en-el-poker-masters-2026/",
+          "titular": "Daniel Negreanu se queda a un paso del título en el Poker Masters 2026",
+          "primera_frase": "El canadiense llegó como líder a la mesa final, pero terminó cediendo el triunfo ante Nicholas Seward, quien conquistó su primer título del PokerGO Tour y un premio de US$412.500."
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/michel-picketi-embolso-el-mejor-stack-del-1a-en-el-opener-de-la-psop-calaverita",
+          "titular": "Michel Picketi embolsó el mejor stack del 1A en el Opener de la PSOP Calaverita",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/las-galactic-series-aterrizan-con-164-torneos-y-mas-de-60.000-eu-extra-en-los-juegos-galacticos",
+          "titular": "Las Galactic Series aterrizan con 164 torneos y más de 60.000 € extra en los \"Juegos Galácticos\"",
+          "primera_frase": "PokerStars.es"
+        },
+        {
+          "n": 32,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/kick-2027-off-in-style-at-pokerstars-open-campione-52660.htm",
+          "titular": "Kick 2027 Off In Style at PokerStars Open Campione; New €1,250 Main Event Buy-In",
+          "primera_frase": "The first PokerStars Open festival of 2027 takes place from January 8."
+        },
+        {
+          "n": 33,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/pokerstars-on-fanduel-coming-back-alberta/",
+          "titular": "PokerStars on FanDuel Is Coming Back to Alberta",
+          "primera_frase": ""
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/cftc-halts-micro-prediction-contracts-novig-49219/",
+          "titular": "CFTC Halts Micro Prediction Contracts From Novig and ProphetX Over Manipulation Concerns",
+          "primera_frase": "The Commodity Futures Trading Commission has moved to pause two micro-style sports prediction contracts — one from Novig and one from ProphetX — citing concerns that such products may be susceptible t"
+        },
+        {
+          "n": 35,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/pokerstars-cuts-campione-main-event-buy-in-for-2027-return-aOSv13R4QEnG/",
+          "titular": "PokerStars cuts Campione Main Event buy-in for 2027 return",
+          "primera_frase": "Dates for the first PokerStars Open event of 2027 are out, with Campione in Italy playing host."
+        },
+        {
+          "n": 36,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xepge5/this_jacks_full_fold_though_wow/",
+          "titular": "This Jacks Full Fold Though. WOW",
+          "primera_frase": "Top 5 Hero Fold WOW 🤯 submitted by /u/Various_Trainer6423 [link] [comentarios]"
+        },
+        {
+          "n": 37,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/clsop-poker-series-festival-regresa-con-una-nueva-alianza-y-un-main-event-de-us100-000-garantizados/",
+          "titular": "CLSOP Poker Series Festival regresa con una nueva alianza y un Main Event de US$100.000 garantizados",
+          "primera_frase": "El festival se disputará del 24 de noviembre al 2 de diciembre de 2026 en el Santo Domingo Bay Convention Resort, con nueve días de poker, torneos para diferentes presupuestos y una oferta especial de"
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/anti-staking-la-idea-para-apostar-contra-otros-jugadores",
+          "titular": "Anti-staking: la idea para apostar contra otros jugadores",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/main-event-2-million-wizard-y-viaje-a-sudafrica-en-el-domingo-de-winamax",
+          "titular": "Main Event, 2 Million Wizard y viaje a Sudáfrica en el domingo de Winamax",
+          "primera_frase": "Winamax España"
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/will-kassouf-wins-third-place-money-despite-busting-day-2-in-52658.htm",
+          "titular": "Will Kassouf Wins Third Place Money Despite Busting During Day 2",
+          "primera_frase": "Will Kassouf pulls the €50,000 prize from the Treasure Hunt"
+        },
+        {
+          "n": 41,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/clubs-poker-ring-races-bring-massive-value-30/",
+          "titular": "Clubs Poker Ring Races Bring Massive Value - 30% or More Extra Rakeback Every Day",
+          "primera_frase": ""
+        },
+        {
+          "n": 42,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/wsop-slashes-paradise-rake-across-12-events-following-criticism-aqjQ10i607QM/",
+          "titular": "WSOP slashes Paradise rake across 12 events following criticism",
+          "primera_frase": "12 bracelet events are going to be a little cheaper to play at this year's WSOP Paradise series."
+        },
+        {
+          "n": 43,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xeyeom/50_mtt_facing_shove_whilst_deep_stack_with_nut/",
+          "titular": "$50 MTT - Facing shove whilst deep stack with nut flush draw",
+          "primera_frase": "Some context. These are pub tourneys. I'm a casual player."
+        },
+        {
+          "n": 44,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/pastor-vs-kraken",
+          "titular": "Juan Martín Pastor vs. Erick «Kraken» Argote: el análisis del propio Pastorcito",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/hoy-debutan-las-wsop-circuit-en-espana-de-la-mano-de-casino-gran-via",
+          "titular": "Hoy debutan las WSOP Circuit en España de la mano de Casino Gran Vía",
+          "primera_frase": "WSOPC Madrid"
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-asia-taiwan-2027",
+          "titular": "El poker sigue creciendo en Asia: WPT confirmó su primera parada para 2027 en Taiwán",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/un-jugador-de-poker-afirma-haber-sido-apunalado-por-su-pareja",
+          "titular": "Un jugador de poker afirma haber sido apuñalado por su pareja",
+          "primera_frase": ""
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/spin-go-championship-live-bsop-millions",
+          "titular": "Spin & Go Championship Live: en una versión inédita se jugará en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/el-poker-necesita-espec",
+          "titular": "¿El poker necesita menos estrategia y más espectáculo?",
+          "primera_frase": ""
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/redada-policial-en-texas",
+          "titular": "Redada policial en Texas: irrumpen con armas en popular sala de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 51,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/negreanu-segundo-pgt",
+          "titular": "Daniel Negreanu acarició su título 13 del PGT, pero una joven promesa le arruinó la fiesta",
+          "primera_frase": ""
+        },
+        {
+          "n": 52,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/la-wsop-paradise-baja-el-rake",
+          "titular": "¡La WSOP Paradise baja el rake tras las quejas de los jugadores!",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-25T12:00:24Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/sean-winter-wins-2026-poker-masters-49222/",
+          "titular": "Sean Winter Claims 2026 Poker Masters Event #10 Title for $620,000; Adrian Mateos Earns Purple Jacket",
+          "primera_frase": "Sean Winter captured Event #10 of the 2026 Poker Masters, a no-limit hold’em tournament, taking home $620,000 for the victory.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 2,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1765557-sean-winter-wins-poker-masters-finale-as-adrian-mateos-clinches-purple-jacket",
+          "titular": "Sean Winter Wins Poker Masters Finale As Adrian Mateos Clinches Purple Jacket",
+          "primera_frase": "Sean Winter won the $51,000 Poker Masters finale for $620,000, while Adrian Mateos held on to claim the 2026 purple jacket.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 3,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/estados-unidos/adrian-mateos-chaqueta-poker-masters",
+          "titular": "Para la historia: ¡Adrián Mateos se quedó con la Chaqueta Morada del Poker Masters!",
+          "primera_frase": "",
+          "con_extracto": true,
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wpt-venetian-fall-championship-52667.htm",
+          "titular": "World Poker Tour Heads Back to Venetian for $2 Million Guaranteed Tournament",
+          "primera_frase": "This is going to be a big one.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/player-absolutely-crushing-wsop-online-fall/",
+          "titular": "This Player Is Absolutely Crushing the WSOP Online Fall Bracelet Series",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/sebastian-toro-lleva-la-bandera-colombiana-a-lo-alto-del-poker-asiatico/",
+          "titular": "Sebastián Toro lleva la bandera colombiana a lo alto del poker asiático",
+          "primera_frase": "El colombiano Sebastián Camilo Toro Henao alcanzó el cuarto lugar del KPC Main Event en Jeju, Corea del Sur, y se llevó un premio de US$43.265.",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/sammy-farha-acusado-golpear-dealer-texas",
+          "titular": "Escándalo en el poker: Sammy Farha, acusado de golpear a un dealer y prohibido",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/101-poker-club-arrests-52663.htm",
+          "titular": "$118K Seized and Four Arrested for 'Illegal Gambling' in Poker Room Raid",
+          "primera_frase": "The card room reopened less than 24 hours after the raid.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wps-medellin-asi-quedaron-las-mesas-para-el-dia-2-del-high-roller/",
+          "titular": "WPS Medellín: así quedaron las mesas para el Día 2 del High Roller",
+          "primera_frase": "Los 32 clasificados regresarán este domingo al Hollywood Casino Milla de Oro para continuar la lucha por el título y una bolsa de $435 millones COP.",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/gloria-molina-toma-la-delantera-en-el-high-roller-de-las-wps-medellin/",
+          "titular": "Gloria Molina toma la delantera en el High Roller de las WPS Medellín",
+          "primera_frase": "La colombiana lideró el primer vuelo clasificatorio con 615.000 fichas."
+        },
+        {
+          "n": 11,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-super-circuit-latam-wsop-debuts-in-punta-cana/",
+          "titular": "WSOP SUPER CIRCUIT LATAM: WSOP DEBUTS IN PUNTA CANA",
+          "primera_frase": "WSOP Super Circuit LATAM debuts at Hard Rock Punta Cana in the Dominican Republic, hosting 18 WSOP Circuit ring events from January 24 through February 2, 2027.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/101-poker-club-katy-shut-down-police-raid/",
+          "titular": "101 Poker Club in Katy Shut Down After Houston Police Raid",
+          "primera_frase": "Police shut down 101 Poker Club in Katy, Texas, on Thursday, October 22, raiding the Houston-area card room around 11:30 a.m.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/nicholas-seward-impede-titulo-daniel-negreanu-poker-masters-67933.htm",
+          "titular": "Nicholas Seward impede título de Daniel Negreanu no Poker Masters e leva US$ 412.500",
+          "primera_frase": "O jovem americano derrotou seu ídolo de infância e conquistou seu primeiro título no PGT",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-se-queda-a-un-paso-del-titulo-en-el-poker-masters-2026/",
+          "titular": "Daniel Negreanu se queda a un paso del título en el Poker Masters 2026",
+          "primera_frase": "El canadiense llegó como líder a la mesa final, pero terminó cediendo el triunfo ante Nicholas Seward, quien conquistó su primer título del PokerGO Tour y un premio de US$412.500."
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/clsop-poker-series-festival-regresa-con-una-nueva-alianza-y-un-main-event-de-us100-000-garantizados/",
+          "titular": "CLSOP Poker Series Festival regresa con una nueva alianza y un Main Event de US$100.000 garantizados",
+          "primera_frase": "El festival se disputará del 24 de noviembre al 2 de diciembre de 2026 en el Santo Domingo Bay Convention Resort, con nueve días de poker, torneos para diferentes presupuestos y una oferta especial de",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/will-kassouf-wins-third-place-money-despite-busting-day-2-in-52658.htm",
+          "titular": "Will Kassouf Wins Third Place Money Despite Busting During Day 2",
+          "primera_frase": "Will Kassouf pulls the €50,000 prize from the Treasure Hunt",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-asia-taiwan-2027",
+          "titular": "El poker sigue creciendo en Asia: WPT confirmó su primera parada para 2027 en Taiwán",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/eliuth-rojas-lidera-la-mesa-final-del-opener-en-psop-calaverita",
+          "titular": "Eliuth Rojas lidera la mesa final del Opener en PSOP Calaverita",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/irving-sanchez-adquirio-el-nuevo-liderato-en-fichas-del-opener",
+          "titular": "Irving Sánchez adquirió el nuevo liderato en fichas del Opener",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/michel-picketi-embolso-el-mejor-stack-del-1a-en-el-opener-de-la-psop-calaverita",
+          "titular": "Michel Picketi embolsó el mejor stack del 1A en el Opener de la PSOP Calaverita",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/wsop-slashes-paradise-rake-across-12-events-following-criticism-aqjQ10i607QM/",
+          "titular": "WSOP slashes Paradise rake across 12 events following criticism",
+          "primera_frase": "12 bracelet events are going to be a little cheaper to play at this year's WSOP Paradise series.",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}
