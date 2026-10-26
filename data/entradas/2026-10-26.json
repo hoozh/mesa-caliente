@@ -1,0 +1,442 @@
+{
+  "fecha": "2026-10-26",
+  "corridas": [
+    {
+      "id": "2026-10-26T12:00:27Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/become-the-pokernews-online-championship-main-event-champ-52670.htm",
+          "titular": "Don't Miss Your Chance to Become the PokerNews Online Championship Main Event Champion",
+          "primera_frase": ""
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/wpt-venetian-fall-championship-set-november-49225/",
+          "titular": "WPT Venetian Fall Championship Set for November 5 With $2M Guarantee",
+          "primera_frase": "The World Poker Tour will bring a $5,000 championship event to the Venetian in Las Vegas this fall, with the main event set to kick off on November 5, 2026, according to PokerNews."
+        },
+        {
+          "n": 3,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/?post_type=news-post&p=142993",
+          "titular": "Why Do You Need to Report Cheaters on WPT Global via Email",
+          "primera_frase": "Every modern poker room welcomes the involvement of players in ensuring that everyone adheres to the rules of the game."
+        },
+        {
+          "n": 4,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/lee-jones-get-ready-the-slide-deal-is-coming-aenPa8Z3oC2B/",
+          "titular": "Lee Jones: Get ready, the slide deal is coming",
+          "primera_frase": "Lee Jones tells his dealer friends that the slide deal is coming, like it or not."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225971-pokerstars-announces-return-alberta-ggpoker",
+          "titular": "PokerStars Announces Return to Alberta as GGPoker Apparently Withdraws Registration",
+          "primera_frase": "PokerStars informed players late last week that online poker will return to Alberta “soon,” under what will likely be a segregated provincial launch as it awaits shared liquidity with Ontario."
+        },
+        {
+          "n": 6,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xfuau4/anyone_else_running_really_bad_at_chase_the_ace/",
+          "titular": "anyone else running really bad at chase the ace?",
+          "primera_frase": "https://preview.redd.it/h271zfbdssxh1.png?width=277&format=png&auto=webp&s=77e1b014429c03bbf5763723f2e1d8e1b4da4eb8 submitted by /u/DrawPitiful6103 [link] [comentarios]"
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-crupier-durante-una-partida-texa-54116.htm",
+          "titular": "Sammy Farha, acusado de agredir a un crupier durante una partida de póker en Texas",
+          "primera_frase": "El veterano jugador habría golpeado a un crupier, que sufrió heridas leves y presentó una denuncia."
+        },
+        {
+          "n": 8,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/carlos-sansoucy-lidera-a-los-14-finalistas-del-deep-stack-turbo/",
+          "titular": "Carlos Sansoucy lidera a los 14 finalistas del Deep Stack Turbo",
+          "primera_frase": "El dominicano encabeza la clasificación del tercer evento de la Winner Poker Series en Medellín, que superó su garantizado y prepara una definición con $20 millones para el campeón."
+        },
+        {
+          "n": 9,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/ignition/ignition-poker-prepara-los-especiales-de-domingo-con-us300-mil-garantizados",
+          "titular": "Ignition Poker prepara los Especiales de Domingo con US$300 mil garantizados",
+          "primera_frase": ""
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/nacho-moron-gana-el-apt-online-USD700-sunday-7-max-challenge-hr-por-42.557-USD",
+          "titular": "Nacho Morón gana el APT Online $700 Sunday 7-Max Challenge HR por 42.557 $",
+          "primera_frase": "26/10/26 12:09"
+        },
+        {
+          "n": 11,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/3-reasons-dfs-players-could-have-an-edge-at-pokerstars-on-fanduel-apbCm3D3Xq6t/",
+          "titular": "3 reasons DFS players could have an edge at PokerStars on FanDuel",
+          "primera_frase": "Your skills in Daily Fantasy Sports can translate to the poker table better than you might think."
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225962-market-monitor-massachusetts-sports-betting",
+          "titular": "Market Monitor: Massachusetts Sports Betting September 2026",
+          "primera_frase": "The yo-yoing in MA sports betting continues for yet another month."
+        },
+        {
+          "n": 13,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xfu310/wsop_paradise_fantasy/",
+          "titular": "WSOP Paradise Fantasy",
+          "primera_frase": "Hi all, Putting this out there for anyone that might be interested in a fantasy game for the upcoming WSOP Paradise in December."
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/despegan-las-galactic-series-de-pokerstars-con-164-torneos-54113.htm",
+          "titular": "¡Despegan las Galactic Series de PokerStars con 164 torneos y más de 60.000 € extra!",
+          "primera_frase": "El festival ya está en marcha, con entradas desde 10 € y un Main Event de 300.000 € GTD."
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/poker-online-perdio-su-magia-solvers",
+          "titular": "¿El poker online perdió su magia? Del boom de Moneymaker a la dictadura de los solvers",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/sammy-farha-baneado-de-por-vida-tras-agredir-a-un-dealer",
+          "titular": "Sammy Farha, baneado de por vida tras agredir a un dealer",
+          "primera_frase": "Sammy Farha"
+        },
+        {
+          "n": 17,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/your-aces-are-dead-and-justin-hammer-says-you-deserve-a-penalty-too-anXi13e60yJh/",
+          "titular": "Your aces are dead, and Justin Hammer says you deserve a penalty too",
+          "primera_frase": "Tournament Director Justin Hammer shares how important action clocks are and wants players to pay attention to their time extensions or act fast so not to have their aces declared dead preflop."
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225960-market-monitor-michigan-september-2026",
+          "titular": "Market Monitor: Michigan September 2026",
+          "primera_frase": "Another $300 million month reported from Michigan online gaming; operators have held revenue flat for six months straight."
+        },
+        {
+          "n": 19,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xft02z/anyone_have_any_spiritual_or_paranormal/",
+          "titular": "anyone have any spiritual or paranormal experiences related to the game?",
+          "primera_frase": "premonition? precog? …cartomancy? submitted by /u/stickywildcumshot [link] [comentarios]"
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/bankroll-management-poker-trading",
+          "titular": "Bankroll management: la regla que aplica igual en la mesa y en el mercado",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/homenaje-a-la-figura-de-miguel-mogedas-y-repaso-a-toda-la-actualidad-en-el-capitulo-398",
+          "titular": "Homenaje a la figura de Miguel Mogedas y repaso a toda la actualidad en el capítulo 398",
+          "primera_frase": "MarcaPóker"
+        },
+        {
+          "n": 22,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/the-science-of-intuition-how-to-know-if-your-reads-are-real-alMPX1m9kdGj/",
+          "titular": "The science of intuition: how to know if your reads are real",
+          "primera_frase": "As performance psychologist Alan Longo explains, while intuition in poker can feel like magic there's a lot going on in your brain that makes it happen - and importantly, you can improve it."
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225961-market-monitor-michigan-fantasy-sports-august",
+          "titular": "Market Monitor: Michigan Fantasy Sports August 2026",
+          "primera_frase": "Michigan fantasy sports ticked up in August, with operators reporting $658k in revenue."
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/se-define-la-liga-del-codigopoker-club-de-octubre-con-un-freeroll-en-bc-poker",
+          "titular": "Se define la Liga del CodigoPoker Club de octubre con un freeroll en BC Poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/acr-poker-en-noviembre",
+          "titular": "Calendario de ACR Poker en noviembre 2026: torneos de US$1M GTD, la OSS y paquetes a Bahamas",
+          "primera_frase": ""
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/jugadores-bsop-millions",
+          "titular": "El viajero, el amateur y el que quiere medirse contra la élite: los tipos de jugadores que llegarán al BSOP Millions 2026",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/profesionales-poker-bluffean-menos",
+          "titular": "Los profesionales del poker bluffean mucho menos de lo que imaginas",
+          "primera_frase": ""
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/el-gran-mito-del-poker-sin-miedo",
+          "titular": "El gran mito del poker sin miedo: ¿realmente necesitas controlar tus emociones para ganar?",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/nuevos-antecedentes-texasus118k-incautados",
+          "titular": "Nuevos antecedentes de la redada en Texas: cuatro detenidos y US$118K incautados",
+          "primera_frase": ""
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wpt-venetian-fall-championship-52667.htm",
+          "titular": "World Poker Tour Heads Back to Venetian for $2 Million Guaranteed Tournament",
+          "primera_frase": "This is going to be a big one."
+        },
+        {
+          "n": 31,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+          "titular": "What online poker gained – and lost – from the boom years to the solver era",
+          "primera_frase": "Wladimir Taschner, author of The History of Online Poker, examines the progression of online poker through the good years – and the bad ones."
+        },
+        {
+          "n": 32,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xf9zhi/a_funny_poker_joke_i_accidentally_told_at_the/",
+          "titular": "A funny poker joke I accidentally told at the table one time:",
+          "primera_frase": "So I was thinking one day about Matt Damon's famous rib to Johnny Chan in Rounders: \"Did you have it?\" \"Sorry Jon, I don't remember.\" and I had a thought that if that scene was set in modern times Mik"
+        },
+        {
+          "n": 33,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/funcionario-ucraniano-multado-jugar-poker",
+          "titular": "Un funionario ucraniano fue multado por jugar al poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/rgps-lodge-card-club-san-antonio-52666.htm",
+          "titular": "RunGood Poker Series Will Visit The Lodge in San Antonio Next Month",
+          "primera_frase": "A big poker series is heading to the other Lodge."
+        },
+        {
+          "n": 35,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/the-biggest-myth-about-playing-fearless-poker-ajarR5j3dIwV/",
+          "titular": "The biggest myth about playing fearless poker",
+          "primera_frase": "High-stakes poker players spend years trying to eliminate fear at the table."
+        },
+        {
+          "n": 36,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xfm63s/playing_25_at_wynn_first_time_need_some_advice/",
+          "titular": "Playing 2/5 at Wynn --- First Time. Need some advice.",
+          "primera_frase": "Is $700 enough for 2-5 buy-in? Or should I play $500 max 1-3 table?"
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/kassouf-eliminado-gano-50k-venecia-tesoro",
+          "titular": "La increíble suerte de Kassouf: eliminado y con €50.000 en el bolsillo",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/todays-11-grinders-could-have-been-top-5-players-in-2003-aaron-barone-aC5R30b4WvYv/",
+          "titular": "Today's $11 grinders could have been top 5 players in 2003 – Aaron Barone",
+          "primera_frase": "Aaron Barone turned $2,500 into more than $10,000 in six days."
+        },
+        {
+          "n": 39,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xfqnmg/poker_tournament_hand_review/",
+          "titular": "Poker tournament hand review",
+          "primera_frase": "1.5$ MTT, 209 get paid, sitting at 5th/73 place."
+        },
+        {
+          "n": 40,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/estados-unidos/sean-winter-campeon-poker-masters-2026",
+          "titular": "Sean Winter cerró el Poker Masters con un premio de US$620.000",
+          "primera_frase": ""
+        },
+        {
+          "n": 41,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/sammy-farha-acusado-golpear-dealer-texas",
+          "titular": "Escándalo en el poker: Sammy Farha, acusado de golpear a un dealer y prohibido",
+          "primera_frase": ""
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/anti-staking-la-idea-para-apostar-contra-otros-jugadores",
+          "titular": "Anti-staking: la idea para apostar contra otros jugadores",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/pastor-vs-kraken",
+          "titular": "Juan Martín Pastor vs. Erick «Kraken» Argote: el análisis del propio Pastorcito",
+          "primera_frase": ""
+        },
+        {
+          "n": 44,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-asia-taiwan-2027",
+          "titular": "El poker sigue creciendo en Asia: WPT confirmó su primera parada para 2027 en Taiwán",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/un-jugador-de-poker-afirma-haber-sido-apunalado-por-su-pareja",
+          "titular": "Un jugador de poker afirma haber sido apuñalado por su pareja",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-26T12:00:27Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xfiaxu/river_spot_in_100_ocean_ko/",
+          "titular": "River spot in 100$ ocean KO",
+          "primera_frase": "Late reg almost over/ 10k chips starting stack/ 250-500 blinds I have about 20bbs (10k) utg open 2bb with A5dd my bounty is 20$-20k (the smallest one as i didnt bust anyone) Folds to bb an aggro playe",
+          "tema": "Tema: Ocean KO"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/adrian-mateos-conquista-chaqueta-purpura-poker-masters-54114.htm",
+          "titular": "¡Adrián Mateos conquista la Chaqueta Púrpura del Poker Masters 2026!",
+          "primera_frase": "El madrileño acaba líder, pese a sufrir cinco burbujas.",
+          "con_extracto": true,
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 3,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/adrian-mateos-luce-por-fin-la-chaqueta-purpura-del-poker-masters",
+          "titular": "Adrián Mateos luce, por fin, la Chaqueta Púrpura del Poker Masters",
+          "primera_frase": "Poker Masters",
+          "con_extracto": true,
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/wpt-venetian-fall-championship-set-november-49225/",
+          "titular": "WPT Venetian Fall Championship Set for November 5 With $2M Guarantee",
+          "primera_frase": "The World Poker Tour will bring a $5,000 championship event to the Venetian in Las Vegas this fall, with the main event set to kick off on November 5, 2026, according to PokerNews.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/wpt-venetian-fall-championship-52667.htm",
+          "titular": "World Poker Tour Heads Back to Venetian for $2 Million Guaranteed Tournament",
+          "primera_frase": "This is going to be a big one."
+        },
+        {
+          "n": 6,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225971-pokerstars-announces-return-alberta-ggpoker",
+          "titular": "PokerStars Announces Return to Alberta as GGPoker Apparently Withdraws Registration",
+          "primera_frase": "PokerStars informed players late last week that online poker will return to Alberta “soon,” under what will likely be a segregated provincial launch as it awaits shared liquidity with Ontario."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-crupier-durante-una-partida-texa-54116.htm",
+          "titular": "Sammy Farha, acusado de agredir a un crupier durante una partida de póker en Texas",
+          "primera_frase": "El veterano jugador habría golpeado a un crupier, que sufrió heridas leves y presentó una denuncia.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/sammy-farha-baneado-de-por-vida-tras-agredir-a-un-dealer",
+          "titular": "Sammy Farha, baneado de por vida tras agredir a un dealer",
+          "primera_frase": "Sammy Farha"
+        },
+        {
+          "n": 9,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/sammy-farha-acusado-golpear-dealer-texas",
+          "titular": "Escándalo en el poker: Sammy Farha, acusado de golpear a un dealer y prohibido",
+          "primera_frase": ""
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/carlos-sansoucy-lidera-a-los-14-finalistas-del-deep-stack-turbo/",
+          "titular": "Carlos Sansoucy lidera a los 14 finalistas del Deep Stack Turbo",
+          "primera_frase": "El dominicano encabeza la clasificación del tercer evento de la Winner Poker Series en Medellín, que superó su garantizado y prepara una definición con $20 millones para el campeón.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/despegan-las-galactic-series-de-pokerstars-con-164-torneos-54113.htm",
+          "titular": "¡Despegan las Galactic Series de PokerStars con 164 torneos y más de 60.000 € extra!",
+          "primera_frase": "El festival ya está en marcha, con entradas desde 10 € y un Main Event de 300.000 € GTD.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+          "titular": "What online poker gained – and lost – from the boom years to the solver era",
+          "primera_frase": "Wladimir Taschner, author of The History of Online Poker, examines the progression of online poker through the good years – and the bad ones.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/estados-unidos/sean-winter-campeon-poker-masters-2026",
+          "titular": "Sean Winter cerró el Poker Masters con un premio de US$620.000",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-asia-taiwan-2027",
+          "titular": "El poker sigue creciendo en Asia: WPT confirmó su primera parada para 2027 en Taiwán",
+          "primera_frase": "",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

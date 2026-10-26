@@ -93,18 +93,6 @@
   ],
   "menciones": [
     {
-      "dominio": "jurojinpoker.com",
-      "articulo": "https://br.pokernews.com/noticias/2026/10/jurojin-perguntas-superuser-67822.htm",
-      "enlace": "https://jurojinpoker.com/meshcheck/download",
-      "fecha": "2026-10-12"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/aceguardian-libero-un-codigo-abierto-para-la-caza-de-superusuarios-lo-que-las-metricas-del-poker-revelan/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-10-12"
-    },
-    {
       "dominio": "pokerfuse.com",
       "articulo": "https://br.pokernews.com/noticias/2026/10/ggpoker-maior-torneio-poker-historia-67829.htm",
       "enlace": "https://pokerfuse.com/latest-news/2026/9/winamax-player-wins-record-922k-bounties-258",
@@ -661,6 +649,54 @@
       "articulo": "https://codigopoker.com/noticias/torneos/estados-unidos/adrian-mateos-chaqueta-poker-masters",
       "enlace": "https://www.pgt.com/news/adrian-mateos-wins-2026-poker-masters-purple-jacket",
       "fecha": "2026-10-25"
+    },
+    {
+      "dominio": "controlcentresports.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xfu310/wsop_paradise_fantasy/",
+      "enlace": "http://controlcentresports.com/poker/suits/rules",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/wpt-venetian-fall-championship-set-november-49225/",
+      "enlace": "https://www.pokernews.com/news/2026/10/wpt-venetian-fall-championship-52667.htm",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/carlos-sansoucy-lidera-a-los-14-finalistas-del-deep-stack-turbo/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/what-online-poker-gained-and-lost-from-the-boom-years-to-the-solver-era-ajhox2X8cyQs/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "pokergo.com",
+      "articulo": "https://codigopoker.com/noticias/torneos/estados-unidos/sean-winter-campeon-poker-masters-2026",
+      "enlace": "https://www.pokergo.com/collections/poker-masters-2026",
+      "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.poker-red.com/noticias/adrian-mateos-luce-por-fin-la-chaqueta-purpura-del-poker-masters",
+      "enlace": "https://www.pokernews.com/",
+      "fecha": "2026-10-26"
     }
   ]
 }
