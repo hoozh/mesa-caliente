@@ -1,0 +1,838 @@
+{
+  "fecha": "2026-10-27",
+  "corridas": [
+    {
+      "id": "2026-10-27T12:00:24Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-reaches-pnoc-main-event-final-table-52677.htm",
+          "titular": "888's Aaron Barone Continues Fine Run; Reaches PNOC Main Final Table",
+          "primera_frase": "Only eight players remain in the 2026 PokerNews Online Championship Mystery Main Event."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/betrivers-poker-adds-mystery-bounty-tournaments/",
+          "titular": "BetRivers Poker Adds Mystery Bounty Tournaments as Operator Celebrates Second Anniversary",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/kyle-grupp-wins-the-turning-stone-wsop-circuit-main-event/",
+          "titular": "KYLE GRUPP WINS THE TURNING STONE WSOP CIRCUIT MAIN EVENT",
+          "primera_frase": "Kyle Grupp wins the Turning Stone WSOP Circuit Main Event, receiving $246,362, his first WSOP Circuit ring, and a $5,000 package for WSOP Paradise 2026."
+        },
+        {
+          "n": 4,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/vgw-faces-fresh-accusations-in-arizona/",
+          "titular": "VGW Faces Fresh Accusations in Arizona",
+          "primera_frase": "Virtual Gaming Worlds (VGW), the company behind Chumba Casino, Global Poker, and Luckyland Slots, reportedly continues to operate in Arizona nearly two years after state regulators ordered it to stop."
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/2026-pokernews-online-championship-nears-finish-49227/",
+          "titular": "2026 PokerNews Online Championship Enters Final Stretch With Two Main Events in Action",
+          "primera_frase": "The 2026 PokerNews Online Championship is approaching its conclusion, with only a handful of events left on the schedule."
+        },
+        {
+          "n": 6,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/pgt-goes-online-on-coinpoker-250-million-in-prizes-guaranteed-for-one-year",
+          "titular": "PGT Goes Online on CoinPoker: $250 Million in Prizes Guaranteed for One Year",
+          "primera_frase": "Autumn 2026 marks a new, historic partnership for the poker industry between CoinPoker, a popular crypto poker room, and the PokerGO Tour, a brand known for its high-roller events."
+        },
+        {
+          "n": 7,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1766072-big-heads-up-plo-hands-from-jared-bleznick-vs-1btc1btc",
+          "titular": "Big Heads-Up PLO Hands From Jared Bleznick Vs. ‘1btc1btc’",
+          "primera_frase": "Jared Bleznick has been taking on '1btc1btc' at the high-stakes heads-up pot-limit Omaha tables on CoinPoker."
+        },
+        {
+          "n": 8,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/the-life-of-the-party-hellmuth-matusow-lead-tributes-to-jeremy-kaufman-ayFu09p9NpvL/",
+          "titular": "‘The life of the party’: Hellmuth, Matusow lead tributes to Jeremy Kaufman",
+          "primera_frase": "High-stakes poker player Jeremy Kaufman has died aged 56, prompting emotional tributes from Phil Hellmuth, Mike Matusow and Ryan Feldman."
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225995-stake-poker-signs-its-first-poker-ambassador",
+          "titular": "Stake Poker Signs Its First Poker Ambassador",
+          "primera_frase": "Stake, a leading sweepstakes online casino in the United States and a major crypto casino and sportsbook globally, has appointed Colombian poker professional Farid Jattin as its first poker player amb"
+        },
+        {
+          "n": 10,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xgpldq/bay_101_shooting_star_championship_down_to_final/",
+          "titular": "Bay 101 Shooting Star Championship down to final 6, resumes in December",
+          "primera_frase": "Players & Chip-counts: Quoc Mai - 10,165,000 Chahn Jung - 9,075,000 Ziao Guo - 4,095,000 Shawn Daniels - 3,000,000 Eric Zheng - 2,065,000 William Davis - 700,000 470k for 1st (i am not sure why FT is "
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/wpt-venetian-fall-championship-67947.htm",
+          "titular": "World Poker Tour retorna ao Venetian com torneio de US$ 2 milhões garantidos",
+          "primera_frase": "Evento de buy-in US$ 5.000 acontece em novembro na cidade de Las Vegas"
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/el-main-event-de-las-wps-arranca-con-cardona-y-reyes-al-frente/",
+          "titular": "El Main Event de las WPS arranca con Cardona y Reyes al frente",
+          "primera_frase": "El torneo principal de la última parada de las Winner Poker Series comenzó con 135 movimientos reportados y una recaudación de $336 millones COP en su primer vuelo."
+        },
+        {
+          "n": 13,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/millionaire-maker-bsop-millions",
+          "titular": "Así será el Millionaire Maker, el torneo que pretende romper récords en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/sergi-reixach-habla-sobre-los-programas-prohibidos-por-ggpoker",
+          "titular": "Sergi Reixach habla sobre los programas prohibidos por GGPoker",
+          "primera_frase": "Sergi Reixach"
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/betrivers-poker-launches-mystery-bounty-tournaments-52675.htm",
+          "titular": "BetRivers Poker Launches Mystery Bounty Tournaments",
+          "primera_frase": "Mystery Bounty tournaments are coming this week."
+        },
+        {
+          "n": 16,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/10/octopi-poker-opens-early-bird-black-friday-access/",
+          "titular": "Octopi Poker Opens Early Bird Black Friday Access",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/the-best-halloween-poker-promotions-for-2026",
+          "titular": "The Best Halloween Poker Promotions for 2026",
+          "primera_frase": "Halloween is coming to the poker tables, with major series, tournaments, missions, and special promotions running across several online poker rooms."
+        },
+        {
+          "n": 18,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1766062-kyle-grupp-wins-wsop-circuit-turning-stone-main-event",
+          "titular": "Kyle Grupp Wins WSOP Circuit Turning Stone Main Event",
+          "primera_frase": "New York's Kyle Grupp topped a 996-entry field in the WSOP Circuit Turning Stone main event for $246,362 and his first career gold ring."
+        },
+        {
+          "n": 19,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/wsop-circuit-debut-at-the-reserve-shares-spotlight-with-choctaw-classic-amjSL3K7GasN/",
+          "titular": "WSOP Circuit debut at The Reserve shares spotlight with Choctaw classic",
+          "primera_frase": "The Reserve makes its WSOP Circuit debut while Choctaw Durant hosts its third series of 2026 WSOP Circuit debut at The Reserve shares spotlight with Choctaw classic"
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225973-monday-shuffle-october-26-2026",
+          "titular": "The Monday Shuffle: October 26, 2026",
+          "primera_frase": "The Monday Shuffle returns after a week’s break, with difficult news for many across the gaming industry following Flutter’s reported cuts of around 1,400 roles."
+        },
+        {
+          "n": 21,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xgo3ep/what_are_your_hot_takes_on_poker/",
+          "titular": "What are your hot takes on poker?",
+          "primera_frase": "I have a few: ''Nits are profitable specially in live cash."
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-dealer-texas-67946.htm",
+          "titular": "Astro do poker, Sammy Farha é acusado de agredir dealer em cash game no Texas",
+          "primera_frase": "Veterano teria dado um soco no funcionário e acabou banido permanentemente do clube"
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/luis-horacio-botero-super-man-conquista-el-deep-stack-turbo-de-las-wps-en-medellin/",
+          "titular": "Luis Horacio Botero, “Super Man”, conquista el Deep Stack Turbo de las WPS en Medellín",
+          "primera_frase": "El colombiano Luis Horacio Botero, conocido en las mesas como “Super Man”, celebró una nueva victoria en su camino por el poker al consagrarse campeón del Deep Stack Turbo de las Winner Poker Series ("
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/pokergo-tour-online",
+          "titular": "El PokerGO Tour llega al mundo online con US$250 millones garantizados",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lucia-navarro-muestra-como-construye-un-stack-gigante-en-un-high-roller",
+          "titular": "Lucía Navarro muestra como construye un stack gigante en un High Roller",
+          "primera_frase": "WSOP 2026"
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-player-jeremy-kaufman-passes-away-52673.htm",
+          "titular": "High-Stakes Poker Player, Real Estate Investor Jeremy Kaufman Passes Away",
+          "primera_frase": "Kaufman appeared multiple times on High Stakes Poker."
+        },
+        {
+          "n": 27,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/why-do-you-need-to-report-cheaters-on-wpt-global-via-email",
+          "titular": "Why Do You Need to Report Cheaters on WPT Global via Email",
+          "primera_frase": "Every modern poker room welcomes the involvement of players in ensuring that everyone adheres to the rules of the game."
+        },
+        {
+          "n": 28,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/local-product-gains-main-event-redemption-at-wsopc-turning-stone-aojze8u9RlrT/",
+          "titular": "Local product gains Main Event redemption at WSOPC Turning Stone",
+          "primera_frase": "After a disappointing WSOP Circuit Main Event finish in 2023 at Turning Stone, Kyle Grupp won it in his return to the final table in 2026."
+        },
+        {
+          "n": 29,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xgn8b0/online_poker_australia/",
+          "titular": "Online Poker Australia",
+          "primera_frase": "Looking for recommendations for online poker sites that work for Australian players."
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/pokernews-online-championship-main-events-67945.htm",
+          "titular": "Reta final do PokerNews Online Championship tem dois Main Events e bounties de até US$ 25 mil",
+          "primera_frase": "Últimos classificatórios dos dois torneios acontecem nesta segunda-feira (26)"
+        },
+        {
+          "n": 31,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/menos-comisiones-y-mas-dinero-en-juego-wsop-paradise-anuncia-importantes-cambios/",
+          "titular": "Menos comisiones y más dinero en juego: WSOP Paradise anuncia importantes cambios",
+          "primera_frase": "Competir en los torneos más importantes del mundo no solo exige habilidad y preparación, también representa una inversión considerable."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/video-complica-a-sammy-farha",
+          "titular": "La prueba: apareció el video de la agresión de Sammy Farha al dealer",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/javi-fernandez-factura-50.332-USD-con-un-runner-up-en-el-bounty-hunters-hr",
+          "titular": "Javi Fernández factura 50.332 $ con un runner-up en el Bounty Hunters HR",
+          "primera_frase": "Pinchazos .com"
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/sam-farha-poker-dealer-attack-altercation-52668.htm",
+          "titular": "WATCH: Video Shows Altercation Between Sammy Farha and Poker Dealer",
+          "primera_frase": "Farha clearly shoved the dealer."
+        },
+        {
+          "n": 35,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/six-majors-250m-gtd-pokergo-tour-hits-the-virtual-felt-on-coinpoker-a8frq1n0GBXm/",
+          "titular": "Six majors, $250M GTD: PokerGO Tour hits the virtual felt on CoinPoker",
+          "primera_frase": "The PokerGO Tour (PGT) is taking over the virtual felt on CoinPoker, with six major series on the schedule and $250M in guaranteed prize pools up for grabs."
+        },
+        {
+          "n": 36,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/las-vegas-prepara-otra-batalla-millonaria-el-wpt-repartira-us2-millones/",
+          "titular": "Las Vegas prepara otra batalla millonaria: el WPT repartirá US$2 millones",
+          "primera_frase": "Las Vegas volverá a ser escenario de una importante competencia internacional con la celebración del WPT Venetian Las Vegas Fall Championship 2026, programado del 5 al 10 de noviembre."
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/steve-wynn-casino-mirage-vegas-millones",
+          "titular": "Steve Wynn: el magnate que cambió Las Vegas reveló cómo nació su casino de US$630 millones",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/coinpoker-y-pokergo-lanzan-el-pgt-online-con-250-millones-garantizados",
+          "titular": "CoinPoker y PokerGO lanzan el PGT Online con 250 millones garantizados",
+          "primera_frase": "PokerGO Tour"
+        },
+        {
+          "n": 39,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/partypoker-heads-to-cork-from-november-9-for-the-eight-leg-52671.htm",
+          "titular": "PartyPoker Heads to Cork From November 9 For the Eight Leg of Its 2026 Tour",
+          "primera_frase": "PartyPoker Tour Cork features a €500 Main Event with a €100,000 guarantee."
+        },
+        {
+          "n": 40,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/why-ari-engel-and-jo-kim-keep-returning-to-wsop-circuit-panama-ajrFc8w3dJpF/",
+          "titular": "Why Ari Engel and Jo Kim keep returning to WSOP Circuit Panama",
+          "primera_frase": "Ari Engel and Jo Kim reveal why they love WSOP Circuit Panama, sharing their poker success, travel adventures and life without a permanent home."
+        },
+        {
+          "n": 41,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/giovanny-reyes-se-corona-campeon-del-high-roller-de-las-wps-en-medellin/",
+          "titular": "Giovanny Reyes se corona campeón del High Roller de las WPS en Medellín",
+          "primera_frase": "El poker colombiano vuelve a celebrar. Giovanny Reyes se convirtió en el nuevo campeón del High Roller de las Winner Poker Series (WPS), disputado en Medellín, tras superar en el enfrentamiento defini"
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/wallets-para-poker-online",
+          "titular": "Las mejores wallets para poker online y billeteras virtuales para retiros fáciles",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/luca-vivaldi-desvela-los-secretos-detras-de-la-organizacion-de-triton",
+          "titular": "Luca Vivaldi desvela los secretos detrás de la organización de Triton",
+          "primera_frase": "Triton Poker Series"
+        },
+        {
+          "n": 44,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/eric-bunch-wins-fifth-rungood-ring-at-rgps-tulsa-52669.htm",
+          "titular": "Eric Bunch Wins Fifth RunGood Ring After Capturing RGPS Hard Rock Tulsa Main Event Title",
+          "primera_frase": "Bunch became a five-time RGPS ring event champion."
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/kyle-grupp-campeon-wsopc-turning-stone",
+          "titular": "Kyle Grupp esperó por su primer anillo del WSOPC y terminó ganando casi US$250.000",
+          "primera_frase": ""
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-estados-unidos/world-poker-tour-vuelve-al-venetian-con-un-torneo-de-us2m-gtd",
+          "titular": "World Poker Tour vuelve al Venetian con un torneo de US$2M GTD",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/estrategia-y-basicos/la-ciencia-de-la-intuicion-poker-como-saber-si-tus-lecturas-son-confiables",
+          "titular": "La ciencia de la intuición en el poker: cómo saber si tus lecturas son confiables",
+          "primera_frase": ""
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/joel-trevino-es-el-campeon-inaugural-de-la-psop-calaverita",
+          "titular": "Joel Treviño es el campeón inaugural de la PSOP Calaverita",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/become-the-pokernews-online-championship-main-event-champ-52670.htm",
+          "titular": "Don't Miss Your Chance to Become the PokerNews Online Championship Main Event Champion",
+          "primera_frase": ""
+        },
+        {
+          "n": 50,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/lee-jones-get-ready-the-slide-deal-is-coming-aenPa8Z3oC2B/",
+          "titular": "Lee Jones: Get ready, the slide deal is coming",
+          "primera_frase": "Lee Jones tells his dealer friends that the slide deal is coming, like it or not."
+        },
+        {
+          "n": 51,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225971-pokerstars-announces-return-alberta-ggpoker",
+          "titular": "PokerStars Announces Return to Alberta as GGPoker Apparently Withdraws Registration",
+          "primera_frase": "PokerStars informed players late last week that online poker will return to Alberta “soon,” under what will likely be a segregated provincial launch as it awaits shared liquidity with Ontario."
+        },
+        {
+          "n": 52,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xgj5k9/i_cried_in_the_bathroom_after_this_hand/",
+          "titular": "I cried in the bathroom after this hand",
+          "primera_frase": "Youtube - Zegenerate I'm gonna be starting a Rags to Riches challenge soon, starting with $15k and seeing if I can run it up at the 5/5 game or dust it off submitted by /u/PokerOTR [link] [comentarios"
+        },
+        {
+          "n": 53,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-crupier-durante-una-partida-texa-54116.htm",
+          "titular": "Sammy Farha, acusado de agredir a un crupier durante una partida de póker en Texas",
+          "primera_frase": "El veterano jugador habría golpeado a un crupier, que sufrió heridas leves y presentó una denuncia."
+        },
+        {
+          "n": 54,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/farid-jattin-stake",
+          "titular": "Farid Jattin se suma al equipo de Stake Poker Team",
+          "primera_frase": ""
+        },
+        {
+          "n": 55,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/nacho-moron-gana-el-apt-online-USD700-sunday-7-max-challenge-hr-por-42.557-USD",
+          "titular": "Nacho Morón gana el APT Online $700 Sunday 7-Max Challenge HR por 42.557 $",
+          "primera_frase": "26/10/26 12:09"
+        },
+        {
+          "n": 56,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/3-reasons-dfs-players-could-have-an-edge-at-pokerstars-on-fanduel-apbCm3D3Xq6t/",
+          "titular": "3 reasons DFS players could have an edge at PokerStars on FanDuel",
+          "primera_frase": "Your skills in Daily Fantasy Sports can translate to the poker table better than you might think."
+        },
+        {
+          "n": 57,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225962-market-monitor-massachusetts-sports-betting",
+          "titular": "Market Monitor: Massachusetts Sports Betting September 2026",
+          "primera_frase": "The yo-yoing in MA sports betting continues for yet another month."
+        },
+        {
+          "n": 58,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xg06vv/you_aint_going_anywhere/",
+          "titular": "You ain’t going anywhere",
+          "primera_frase": "submitted by /u/BigFootsBigArm [link] [comentarios]"
+        },
+        {
+          "n": 59,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/brasil-ggmillion",
+          "titular": "Brasil domina la mesa final del GGMillion$ con tres figuras",
+          "primera_frase": ""
+        },
+        {
+          "n": 60,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/sammy-farha-baneado-de-por-vida-tras-agredir-a-un-dealer",
+          "titular": "Sammy Farha, baneado de por vida tras agredir a un dealer",
+          "primera_frase": "Sammy Farha"
+        },
+        {
+          "n": 61,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/your-aces-are-dead-and-justin-hammer-says-you-deserve-a-penalty-too-anXi13e60yJh/",
+          "titular": "Your aces are dead, and Justin Hammer says you deserve a penalty too",
+          "primera_frase": "Tournament Director Justin Hammer shares how important action clocks are and wants players to pay attention to their time extensions or act fast so not to have their aces declared dead preflop."
+        },
+        {
+          "n": 62,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225960-market-monitor-michigan-september-2026",
+          "titular": "Market Monitor: Michigan September 2026",
+          "primera_frase": "Another $300 million month reported from Michigan online gaming; operators have held revenue flat for six months straight."
+        },
+        {
+          "n": 63,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xgex5x/only_in_poker_can_you_take_a_stab_at_the_blinds/",
+          "titular": "Only in poker can you take a stab at the blinds and be praised for taking them down",
+          "primera_frase": "submitted by /u/ScubaSteezz [link] [comentarios]"
+        },
+        {
+          "n": 64,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-argentina/walter-tognola-madero",
+          "titular": "Walter Tognola ganó la Mega Marathon de Madero Poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 65,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/homenaje-a-la-figura-de-miguel-mogedas-y-repaso-a-toda-la-actualidad-en-el-capitulo-398",
+          "titular": "Homenaje a la figura de Miguel Mogedas y repaso a toda la actualidad en el capítulo 398",
+          "primera_frase": "MarcaPóker"
+        },
+        {
+          "n": 66,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/the-science-of-intuition-how-to-know-if-your-reads-are-real-alMPX1m9kdGj/",
+          "titular": "The science of intuition: how to know if your reads are real",
+          "primera_frase": "As performance psychologist Alan Longo explains, while intuition in poker can feel like magic there's a lot going on in your brain that makes it happen - and importantly, you can improve it."
+        },
+        {
+          "n": 67,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225961-market-monitor-michigan-fantasy-sports-august",
+          "titular": "Market Monitor: Michigan Fantasy Sports August 2026",
+          "primera_frase": "Michigan fantasy sports ticked up in August, with operators reporting $658k in revenue."
+        },
+        {
+          "n": 68,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/bankroll-management-poker-trading",
+          "titular": "Bankroll management: la regla que aplica igual en la mesa y en el mercado",
+          "primera_frase": ""
+        },
+        {
+          "n": 69,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/poker-strategy/the-biggest-myth-about-playing-fearless-poker-ajarR5j3dIwV/",
+          "titular": "The biggest myth about playing fearless poker",
+          "primera_frase": "High-stakes poker players spend years trying to eliminate fear at the table."
+        },
+        {
+          "n": 70,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/se-define-la-liga-del-codigopoker-club-de-octubre-con-un-freeroll-en-bc-poker",
+          "titular": "Se define la Liga del CodigoPoker Club de octubre con un freeroll en BC Poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 71,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/todays-11-grinders-could-have-been-top-5-players-in-2003-aaron-barone-aC5R30b4WvYv/",
+          "titular": "Today's $11 grinders could have been top 5 players in 2003 – Aaron Barone",
+          "primera_frase": "Aaron Barone turned $2,500 into more than $10,000 in six days."
+        },
+        {
+          "n": 72,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/acr-poker-en-noviembre",
+          "titular": "Calendario de ACR Poker en noviembre 2026: torneos de US$1M GTD, la OSS y paquetes a Bahamas",
+          "primera_frase": ""
+        },
+        {
+          "n": 73,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/jugadores-bsop-millions",
+          "titular": "El viajero, el amateur y el que quiere medirse contra la élite: los tipos de jugadores que llegarán al BSOP Millions 2026",
+          "primera_frase": ""
+        },
+        {
+          "n": 74,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/profesionales-poker-bluffean-menos",
+          "titular": "Los profesionales del poker bluffean mucho menos de lo que imaginas",
+          "primera_frase": ""
+        },
+        {
+          "n": 75,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/el-gran-mito-del-poker-sin-miedo",
+          "titular": "El gran mito del poker sin miedo: ¿realmente necesitas controlar tus emociones para ganar?",
+          "primera_frase": ""
+        },
+        {
+          "n": 76,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/poker-online-perdio-su-magia-solvers",
+          "titular": "¿El poker online perdió su magia? Del boom de Moneymaker a la dictadura de los solvers",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-10-27T12:00:24Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/strategy/gto-wizard-calling-with-king-high-at-triton-52665.htm",
+          "titular": "Is Calling with King-High in a $100K Tournament GTO-Approved?",
+          "primera_frase": "Check out this hand between Nick Schulman and Bernhard Binder.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 2,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/late-surge-sees-adrian-mateos-win-2026-poker-masters-series/",
+          "titular": "Late Surge Sees Adrian Mateos Win 2026 Poker Masters Series",
+          "primera_frase": "The 2026 Poker Masters Series came down to the wire, but the Spanish sensation Adrian Mateos held on for a famous victory in Las Vegas.",
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 3,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/entrevistas/adrian-mateos-me-siento-muy-orgulloso-de-poder-competir-en-la-elite-durante-tantos-anos",
+          "titular": "Adrián Mateos: «Me siento muy orgulloso de poder competir en la élite durante tantos años»",
+          "primera_frase": "",
+          "con_extracto": true,
+          "tema": "Tema: Adrián Mateos"
+        },
+        {
+          "n": 4,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/kyle-grupp-wins-the-turning-stone-wsop-circuit-main-event/",
+          "titular": "KYLE GRUPP WINS THE TURNING STONE WSOP CIRCUIT MAIN EVENT",
+          "primera_frase": "Kyle Grupp wins the Turning Stone WSOP Circuit Main Event, receiving $246,362, his first WSOP Circuit ring, and a $5,000 package for WSOP Paradise 2026.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1766062-kyle-grupp-wins-wsop-circuit-turning-stone-main-event",
+          "titular": "Kyle Grupp Wins WSOP Circuit Turning Stone Main Event",
+          "primera_frase": "New York's Kyle Grupp topped a 996-entry field in the WSOP Circuit Turning Stone main event for $246,362 and his first career gold ring."
+        },
+        {
+          "n": 6,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/local-product-gains-main-event-redemption-at-wsopc-turning-stone-aojze8u9RlrT/",
+          "titular": "Local product gains Main Event redemption at WSOPC Turning Stone",
+          "primera_frase": "After a disappointing WSOP Circuit Main Event finish in 2023 at Turning Stone, Kyle Grupp won it in his return to the final table in 2026."
+        },
+        {
+          "n": 7,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/kyle-grupp-campeon-wsopc-turning-stone",
+          "titular": "Kyle Grupp esperó por su primer anillo del WSOPC y terminó ganando casi US$250.000",
+          "primera_frase": ""
+        },
+        {
+          "n": 8,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/the-life-of-the-party-hellmuth-matusow-lead-tributes-to-jeremy-kaufman-ayFu09p9NpvL/",
+          "titular": "‘The life of the party’: Hellmuth, Matusow lead tributes to Jeremy Kaufman",
+          "primera_frase": "High-stakes poker player Jeremy Kaufman has died aged 56, prompting emotional tributes from Phil Hellmuth, Mike Matusow and Ryan Feldman.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/poker-player-jeremy-kaufman-passes-away-52673.htm",
+          "titular": "High-Stakes Poker Player, Real Estate Investor Jeremy Kaufman Passes Away",
+          "primera_frase": "Kaufman appeared multiple times on High Stakes Poker."
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-dealer-texas-67946.htm",
+          "titular": "Astro do poker, Sammy Farha é acusado de agredir dealer em cash game no Texas",
+          "primera_frase": "Veterano teria dado um soco no funcionário e acabou banido permanentemente do clube",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/video-complica-a-sammy-farha",
+          "titular": "La prueba: apareció el video de la agresión de Sammy Farha al dealer",
+          "primera_frase": ""
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/sam-farha-poker-dealer-attack-altercation-52668.htm",
+          "titular": "WATCH: Video Shows Altercation Between Sammy Farha and Poker Dealer",
+          "primera_frase": "Farha clearly shoved the dealer."
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/10/sammy-farha-acusado-agredir-crupier-durante-una-partida-texa-54116.htm",
+          "titular": "Sammy Farha, acusado de agredir a un crupier durante una partida de póker en Texas",
+          "primera_frase": "El veterano jugador habría golpeado a un crupier, que sufrió heridas leves y presentó una denuncia."
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/sammy-farha-baneado-de-por-vida-tras-agredir-a-un-dealer",
+          "titular": "Sammy Farha, baneado de por vida tras agredir a un dealer",
+          "primera_frase": "Sammy Farha"
+        },
+        {
+          "n": 15,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/pgt-goes-online-on-coinpoker-250-million-in-prizes-guaranteed-for-one-year",
+          "titular": "PGT Goes Online on CoinPoker: $250 Million in Prizes Guaranteed for One Year",
+          "primera_frase": "Autumn 2026 marks a new, historic partnership for the poker industry between CoinPoker, a popular crypto poker room, and the PokerGO Tour, a brand known for its high-roller events.",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/pokergo-tour-online",
+          "titular": "El PokerGO Tour llega al mundo online con US$250 millones garantizados",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "Poker.org",
+          "url": "https://www.poker.org/latest-news/six-majors-250m-gtd-pokergo-tour-hits-the-virtual-felt-on-coinpoker-a8frq1n0GBXm/",
+          "titular": "Six majors, $250M GTD: PokerGO Tour hits the virtual felt on CoinPoker",
+          "primera_frase": "The PokerGO Tour (PGT) is taking over the virtual felt on CoinPoker, with six major series on the schedule and $250M in guaranteed prize pools up for grabs."
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/coinpoker-y-pokergo-lanzan-el-pgt-online-con-250-millones-garantizados",
+          "titular": "CoinPoker y PokerGO lanzan el PGT Online con 250 millones garantizados",
+          "primera_frase": "PokerGO Tour"
+        },
+        {
+          "n": 19,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225995-stake-poker-signs-its-first-poker-ambassador",
+          "titular": "Stake Poker Signs Its First Poker Ambassador",
+          "primera_frase": "Stake, a leading sweepstakes online casino in the United States and a major crypto casino and sportsbook globally, has appointed Colombian poker professional Farid Jattin as its first poker player amb"
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/farid-jattin-stake",
+          "titular": "Farid Jattin se suma al equipo de Stake Poker Team",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/vgw-faces-fresh-accusations-in-arizona/",
+          "titular": "VGW Faces Fresh Accusations in Arizona",
+          "primera_frase": "Virtual Gaming Worlds (VGW), the company behind Chumba Casino, Global Poker, and Luckyland Slots, reportedly continues to operate in Arizona nearly two years after state regulators ordered it to stop.",
+          "con_extracto": true
+        },
+        {
+          "n": 22,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/225971-pokerstars-announces-return-alberta-ggpoker",
+          "titular": "PokerStars Announces Return to Alberta as GGPoker Apparently Withdraws Registration",
+          "primera_frase": "PokerStars informed players late last week that online poker will return to Alberta “soon,” under what will likely be a segregated provincial launch as it awaits shared liquidity with Ontario."
+        },
+        {
+          "n": 23,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/888-aaron-barone-reaches-pnoc-main-event-final-table-52677.htm",
+          "titular": "888's Aaron Barone Continues Fine Run; Reaches PNOC Main Final Table",
+          "primera_frase": "Only eight players remain in the 2026 PokerNews Online Championship Mystery Main Event.",
+          "con_extracto": true
+        },
+        {
+          "n": 24,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/2026-pokernews-online-championship-nears-finish-49227/",
+          "titular": "2026 PokerNews Online Championship Enters Final Stretch With Two Main Events in Action",
+          "primera_frase": "The 2026 PokerNews Online Championship is approaching its conclusion, with only a handful of events left on the schedule."
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/pokernews-online-championship-main-events-67945.htm",
+          "titular": "Reta final do PokerNews Online Championship tem dois Main Events e bounties de até US$ 25 mil",
+          "primera_frase": "Últimos classificatórios dos dois torneios acontecem nesta segunda-feira (26)"
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/become-the-pokernews-online-championship-main-event-champ-52670.htm",
+          "titular": "Don't Miss Your Chance to Become the PokerNews Online Championship Main Event Champion",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/eric-bunch-wins-fifth-rungood-ring-at-rgps-tulsa-52669.htm",
+          "titular": "Eric Bunch Wins Fifth RunGood Ring After Capturing RGPS Hard Rock Tulsa Main Event Title",
+          "primera_frase": "Bunch became a five-time RGPS ring event champion.",
+          "con_extracto": true
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/10/partypoker-heads-to-cork-from-november-9-for-the-eight-leg-52671.htm",
+          "titular": "PartyPoker Heads to Cork From November 9 For the Eight Leg of Its 2026 Tour",
+          "primera_frase": "PartyPoker Tour Cork features a €500 Main Event with a €100,000 guarantee.",
+          "con_extracto": true
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/10/wpt-venetian-fall-championship-67947.htm",
+          "titular": "World Poker Tour retorna ao Venetian com torneio de US$ 2 milhões garantidos",
+          "primera_frase": "Evento de buy-in US$ 5.000 acontece em novembro na cidade de Las Vegas",
+          "con_extracto": true
+        },
+        {
+          "n": 30,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/menos-comisiones-y-mas-dinero-en-juego-wsop-paradise-anuncia-importantes-cambios/",
+          "titular": "Menos comisiones y más dinero en juego: WSOP Paradise anuncia importantes cambios",
+          "primera_frase": "Competir en los torneos más importantes del mundo no solo exige habilidad y preparación, también representa una inversión considerable."
+        },
+        {
+          "n": 31,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/las-vegas-prepara-otra-batalla-millonaria-el-wpt-repartira-us2-millones/",
+          "titular": "Las Vegas prepara otra batalla millonaria: el WPT repartirá US$2 millones",
+          "primera_frase": "Las Vegas volverá a ser escenario de una importante competencia internacional con la celebración del WPT Venetian Las Vegas Fall Championship 2026, programado del 5 al 10 de noviembre."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wpt/wpt-estados-unidos/world-poker-tour-vuelve-al-venetian-con-un-torneo-de-us2m-gtd",
+          "titular": "World Poker Tour vuelve al Venetian con un torneo de US$2M GTD",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/el-main-event-de-las-wps-arranca-con-cardona-y-reyes-al-frente/",
+          "titular": "El Main Event de las WPS arranca con Cardona y Reyes al frente",
+          "primera_frase": "El torneo principal de la última parada de las Winner Poker Series comenzó con 135 movimientos reportados y una recaudación de $336 millones COP en su primer vuelo.",
+          "con_extracto": true
+        },
+        {
+          "n": 34,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/luis-horacio-botero-super-man-conquista-el-deep-stack-turbo-de-las-wps-en-medellin/",
+          "titular": "Luis Horacio Botero, “Super Man”, conquista el Deep Stack Turbo de las WPS en Medellín",
+          "primera_frase": "El colombiano Luis Horacio Botero, conocido en las mesas como “Super Man”, celebró una nueva victoria en su camino por el poker al consagrarse campeón del Deep Stack Turbo de las Winner Poker Series ("
+        },
+        {
+          "n": 35,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/giovanny-reyes-se-corona-campeon-del-high-roller-de-las-wps-en-medellin/",
+          "titular": "Giovanny Reyes se corona campeón del High Roller de las WPS en Medellín",
+          "primera_frase": "El poker colombiano vuelve a celebrar. Giovanny Reyes se convirtió en el nuevo campeón del High Roller de las Winner Poker Series (WPS), disputado en Medellín, tras superar en el enfrentamiento defini"
+        },
+        {
+          "n": 36,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/joel-trevino-es-el-campeon-inaugural-de-la-psop-calaverita",
+          "titular": "Joel Treviño es el campeón inaugural de la PSOP Calaverita",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-argentina/walter-tognola-madero",
+          "titular": "Walter Tognola ganó la Mega Marathon de Madero Poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/millionaire-maker-bsop-millions",
+          "titular": "Así será el Millionaire Maker, el torneo que pretende romper récords en el BSOP Millions",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/poker-online/brasil-ggmillion",
+          "titular": "Brasil domina la mesa final del GGMillion$ con tres figuras",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

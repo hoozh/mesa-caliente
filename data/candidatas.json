@@ -93,24 +93,6 @@
   ],
   "menciones": [
     {
-      "dominio": "pokerfuse.com",
-      "articulo": "https://br.pokernews.com/noticias/2026/10/ggpoker-maior-torneio-poker-historia-67829.htm",
-      "enlace": "https://pokerfuse.com/latest-news/2026/9/winamax-player-wins-record-922k-bounties-258",
-      "fecha": "2026-10-13"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://codigopoker.com/poker-online/ggpoker-torneo-online-record",
-      "enlace": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s&#038;incoming_url=",
-      "fecha": "2026-10-13"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/papo-mc-vuelve-a-twitch-del-exito-millonario-a-mostrar-sus-decisiones-en-las-mesas/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-10-13"
-    },
-    {
       "dominio": "ig.me",
       "articulo": "https://pokernoticias.com/el-ego-en-el-poker-cuando-querer-demostrar-superioridad-termina-costando-dinero/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
@@ -697,6 +679,66 @@
       "articulo": "https://www.poker-red.com/noticias/adrian-mateos-luce-por-fin-la-chaqueta-purpura-del-poker-masters",
       "enlace": "https://www.pokernews.com/",
       "fecha": "2026-10-26"
+    },
+    {
+      "dominio": "c.org",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xgk94e/online_petition_for_michigan_card_rooms/",
+      "enlace": "https://c.org/ttPtbwznwJ",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xg3ej4/watch_video_shows_altercation_between_sammy_farha/",
+      "enlace": "https://www.pokernews.com/news/2026/10/sam-farha-poker-dealer-attack-altercation-52668.htm",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "worldpokertour.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xgpldq/bay_101_shooting_star_championship_down_to_final/",
+      "enlace": "https://www.worldpokertour.com/event/main-tour-wpt-bay-101-shooting-star-championship-season-2026/payouts",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "bahamar.com",
+      "articulo": "https://www.wsop.com/news/kyle-grupp-wins-the-turning-stone-wsop-circuit-main-event/",
+      "enlace": "https://bahamar.com/",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://www.wsop.com/news/kyle-grupp-wins-the-turning-stone-wsop-circuit-main-event/",
+      "enlace": "https://ggpoker.com/",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "betmgmpartners.com",
+      "articulo": "https://www.poker.org/latest-news/the-life-of-the-party-hellmuth-matusow-lead-tributes-to-jeremy-kaufman-ayFu09p9NpvL/",
+      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.poker.org/latest-news/the-life-of-the-party-hellmuth-matusow-lead-tributes-to-jeremy-kaufman-ayFu09p9NpvL/",
+      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "pairrd.com",
+      "articulo": "https://www.poker.org/latest-news/the-life-of-the-party-hellmuth-matusow-lead-tributes-to-jeremy-kaufman-ayFu09p9NpvL/",
+      "enlace": "https://pairrd.com/?via=pokerorg",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/el-main-event-de-las-wps-arranca-con-cardona-y-reyes-al-frente/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-27"
+    },
+    {
+      "dominio": "bsop.com.br",
+      "articulo": "https://codigopoker.com/brazilian-series-of-poker/millionaire-maker-bsop-millions",
+      "enlace": "https://bsop.com.br/millionaire-maker-saiba-tudo-sobre-a-estreia-do-torneio-que-promete-quebrar-recordes-no-bsop-millions-2026/",
+      "fecha": "2026-10-27"
     }
   ]
 }

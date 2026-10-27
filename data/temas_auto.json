@@ -54,7 +54,7 @@
         "Purple Jacket."
       ],
       "alta": "2026-10-18",
-      "ultima_novedad": "2026-10-26",
+      "ultima_novedad": "2026-10-27",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -143,6 +143,50 @@
         "poker.org",
         "pokernews.com",
         "tightpoker.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Joel Cattelane",
+      "palabras_clave": [
+        "Joel Cattelane"
+      ],
+      "alta": "2026-10-27",
+      "ultima_novedad": "2026-10-27",
+      "fuentes": [
+        "cardplayer.com",
+        "codigopoker.com",
+        "poker.org",
+        "wsop.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Sammy Farha",
+      "palabras_clave": [
+        "Sammy Farha"
+      ],
+      "alta": "2026-10-27",
+      "ultima_novedad": "2026-10-27",
+      "fuentes": [
+        "codigopoker.com",
+        "poker-red.com",
+        "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Millionaire Challenges.",
+      "palabras_clave": [
+        "Millionaire Challenges."
+      ],
+      "alta": "2026-10-27",
+      "ultima_novedad": "2026-10-27",
+      "fuentes": [
+        "codigopoker.com",
+        "poker-red.com",
+        "poker.org",
+        "pokerlistings.com"
       ],
       "estado": "activo"
     }
