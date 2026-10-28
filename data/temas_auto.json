@@ -167,8 +167,9 @@
         "Sammy Farha"
       ],
       "alta": "2026-10-27",
-      "ultima_novedad": "2026-10-27",
+      "ultima_novedad": "2026-10-28",
       "fuentes": [
+        "cardplayer.com",
         "codigopoker.com",
         "poker-red.com",
         "pokernews.com"
@@ -187,6 +188,50 @@
         "poker-red.com",
         "poker.org",
         "pokerlistings.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Joe Hachem",
+      "palabras_clave": [
+        "Joe Hachem"
+      ],
+      "alta": "2026-10-28",
+      "ultima_novedad": "2026-10-28",
+      "fuentes": [
+        "cardplayer.com",
+        "pokermedia.com.au",
+        "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Lucas Jumalon",
+      "palabras_clave": [
+        "Lucas Jumalon"
+      ],
+      "alta": "2026-10-28",
+      "ultima_novedad": "2026-10-28",
+      "fuentes": [
+        "codigopoker.com",
+        "poker.org",
+        "pokernoticias.com",
+        "wsop.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Turning Stone",
+      "palabras_clave": [
+        "Turning Stone"
+      ],
+      "alta": "2026-10-28",
+      "ultima_novedad": "2026-10-27",
+      "fuentes": [
+        "cardplayer.com",
+        "codigopoker.com",
+        "poker.org",
+        "wsop.com"
       ],
       "estado": "activo"
     }
