@@ -89,15 +89,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://www.pgt.com/",
       "origen": "automatica"
+    },
+    {
+      "nombre": "bggtrack.cfd",
+      "dominio": "bggtrack.cfd",
+      "detectada": "2026-10-29",
+      "detectada_texto": "detectada el 29 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://bggtrack.cfd/rfwhhYE?type=pokerlistings_banners",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/camino-a-panama-conoce-a-los-clasificados-del-wsopc/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-10-15"
-    },
     {
       "dominio": "ggpoker.com",
       "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
@@ -865,6 +868,90 @@
       "articulo": "https://pokernoticias.com/menos-comisiones-y-mas-dinero-en-juego-wsop-paradise-anuncia-importantes-cambios/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-10-28"
+    },
+    {
+      "dominio": "spadepoker.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xid4ym/playing_online_poker_in_new_zealand_2027/",
+      "enlace": "https://www.spadepoker.com/en/news/pokerstars-and-ggpoker-face-new-zealand-exit-after-missing-online-gambling-licence-auction/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "suno.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xigix2/looking_for_a_poker_backer_in_berlin/",
+      "enlace": "https://suno.com/@tablefornobody",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "zenosolver.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xiczxi/new_free_solver_zeno_in_beta_testing_by_oleg_for/",
+      "enlace": "http://zenosolver.com",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/iownu888-wins-pokernews-online-championship-mystery-49232/",
+      "enlace": "https://www.pokernews.com/news/2026/10/iownu888-defeats-barone-heads-up-to-win-the-pnoc-main-event-52684.htm",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "bggtrack.cfd",
+      "articulo": "https://www.pokerlistings.com/news/fabiano-kovalski-finally-wins-10k-ggmillion-for-464-8k",
+      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1767670-chino-rheem-triumphs-in-pgt-sprint-kickoff-event",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "pgt.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1767670-chino-rheem-triumphs-in-pgt-sprint-kickoff-event",
+      "enlace": "https://www.pgt.com/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "irishpokeropen.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/irish-open-marrakech-full-schedule-52687.htm",
+      "enlace": "https://irishpokeropen.com/marrakech/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "thedenpokerlounge.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/first-woman-owned-texas-poker-room-52674.htm",
+      "enlace": "https://thedenpokerlounge.com/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/fernando-mayor-molina-lidera-el-progresivo-k-o-de-las-wps/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "thedenpokerlounge.com",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/primeiro-clube-poker-fundado-por-mulheres-67967.htm",
+      "enlace": "https://thedenpokerlounge.com/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/del-poker-online-a-las-vegas-50-jugadores-competiran-por-us1-millon/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "fiscalespenalesalta.gob.ar",
+      "articulo": "https://codigopoker.com/noticias/argentina-infiltro-casinos-online-ilegales",
+      "enlace": "https://www.fiscalespenalesalta.gob.ar/",
+      "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "redstarpoker.com",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/redstar-poker-halloween-5m-garantidos-bhs-67957.htm",
+      "enlace": "https://www.redstarpoker.com/promotions/hunter_halloween",
+      "fecha": "2026-10-29"
     }
   ]
 }
