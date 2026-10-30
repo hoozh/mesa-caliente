@@ -1,0 +1,82 @@
+name: Brief semanal
+
+on:
+  schedule:
+    - cron: "30 12 * * 1"   # lunes a las 12:30 UTC: brief de la semana anterior (lunes a domingo)
+  workflow_dispatch:            # botón "Run workflow" para correrlo a mano
+    inputs:
+      semana:
+        description: "Opcional. Semana en formato AAAA-Wnn (por ejemplo 2026-W43). Vacío: la semana anterior completa."
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: mesa-caliente-barrido   # nunca al mismo tiempo que un barrido
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-24.04   # versión fija
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Armar el brief (una llamada al modelo)
+        id: brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MESA_MODELO: ${{ vars.MESA_MODELO }}
+          SEMANA: ${{ inputs.semana }}
+        run: |
+          python -m mesa.semanal --semana "${SEMANA// /}" | tee salida.txt
+          grep '^SEMANA=' salida.txt | sed 's/^SEMANA=/semana=/' >> "$GITHUB_OUTPUT"
+          grep '^MD=' salida.txt | sed 's/^MD=/md=/' >> "$GITHUB_OUTPUT"
+          rm salida.txt
+
+      - name: Guardar datos y páginas en main
+        env:
+          SEMANA: ${{ steps.brief.outputs.semana }}
+        run: |
+          git config user.name "mesa-caliente-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+            exit 0
+          fi
+          git commit -m "Brief semanal ${SEMANA}"
+          for intento in 1 2 3 4; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((intento * 5))
+          done
+          echo "No se pudo guardar en main." >&2
+          exit 1
+
+      - name: Abrir el issue «Brief semanal AAAA-Wnn»
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SEMANA: ${{ steps.brief.outputs.semana }}
+          MD: ${{ steps.brief.outputs.md }}
+        # Si el issue de esa semana ya existe (por ejemplo, al repetir a mano), no se abre otro.
+        run: |
+          titulo="Brief semanal ${SEMANA}"
+          if gh issue list --state all --search "\"${titulo}\" in:title" --json title --jq '.[].title' | grep -Fxq "$titulo"; then
+            echo "El issue «${titulo}» ya existe: no se abre otro."
+            exit 0
+          fi
+          gh issue create --title "$titulo" --body-file "$MD"

@@ -1,0 +1,18 @@
+{# Cuerpo del brief semanal (HTML). Datos: data/semanal/AAAA-Wnn.json #}
+{% macro fuentes(lista) %}{% for f in lista %} <a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.nombre }}</a>{% endfor %}{% endmacro %}
+<section class="sec-brief">
+  <h2>Brief semanal {{ b.semana }}</h2>
+  <p class="sec-nota">Semana del {{ fecha_corta(b.desde) }} al {{ fecha_corta(b.hasta) }} · {{ b.hechos }} hecho{{ '' if b.hechos == 1 else 's' }} y {{ b.cambios_registrados }} cambio{{ '' if b.cambios_registrados == 1 else 's' }} en salas en el registro.</p>
+  {% if b.nota %}<p class="sec-nota">{{ b.nota }}</p>{% endif %}
+  <h3>Temas de la semana</h3>
+  <ul>{% for e in b.temas %}<li>{{ e.texto }}{{ fuentes(e.fuentes) }}</li>{% else %}<li>Sin temas.</li>{% endfor %}</ul>
+  <h3>Cambios en salas</h3>
+  <ul>{% for e in b.cambios %}<li>{{ e.texto }}{{ fuentes(e.fuentes) }}</li>{% else %}<li>Sin cambios registrados.</li>{% endfor %}</ul>
+  <h3>Jugadores y torneos latinos destacados</h3>
+  <ul>{% for e in b.latinos %}<li>{{ e.texto }}{{ fuentes(e.fuentes) }}</li>{% else %}<li>Sin hechos latinos en el registro.</li>{% endfor %}</ul>
+  <h3>Fuentes nuevas que rindieron</h3>
+  <ul>{% for f in b.fuentes_nuevas %}<li><strong>{{ f.nombre }}</strong>{% if f.clase %} ({{ f.clase }}){% endif %}: {{ f.hechos | length }} hecho{{ '' if f.hechos | length == 1 else 's' }}. {% for h in f.hechos %}<a href="{{ h.url }}" target="_blank" rel="noopener">{{ h.titulo }}</a>{{ '; ' if not loop.last }}{% endfor %}</li>{% else %}<li>Ninguna.</li>{% endfor %}</ul>
+  <h3>Ideas de artículos</h3>
+  <ul>{% for i in b.ideas %}<li><strong>{{ i.tema }}</strong> — motivo: {{ i.motivo }}.{% if i.texto %} {{ i.texto }}{% endif %}{{ fuentes(i.fuentes) }}</li>{% else %}<li>Ninguna esta semana.</li>{% endfor %}</ul>
+  <p class="sec-nota">Generado el {{ b.generado }} a partir del registro.</p>
+</section>

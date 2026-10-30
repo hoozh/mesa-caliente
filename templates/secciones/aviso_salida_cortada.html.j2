@@ -1,0 +1,4 @@
+{# Aviso en el pie: la redacción de hoy se cortó por el tope de tokens (max_tokens_salida). Contexto: salida_cortada #}
+{% for s in salida_cortada %}
+<p class="sec-aviso"><b>Aviso:</b> la redacción de la {{ s.corrida | lower }} se cortó por el tope de tokens de salida{% if s.perdidas is none %}; no se puede saber cuántas tarjetas se perdieron{% elif s.perdidas == 0 %}, sin tarjetas perdidas{% else %}: {{ s.perdidas }} tarjeta{{ '' if s.perdidas == 1 else 's' }} perdida{{ '' if s.perdidas == 1 else 's' }}{% endif %}. Se publicaron las que llegaron completas.</p>
+{% endfor %}

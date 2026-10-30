@@ -80,13 +80,62 @@ El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del dí
 
 Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, cuántos hechos eligió la selección y los descartes por regla y por fuente.
 
-Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (4500, redacción) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
+Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (5500, redacción; era 4500 hasta que la redacción empezó a devolver la ficha del registro). Si la salida igual se corta, se conservan las tarjetas completas y el pie de la página y `controles` avisan cuántas tarjetas se perdieron (hechos elegidos sin tarjeta completa) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
 
 ### Cambiar el modelo (opcional)
 
 Por defecto se usa `claude-haiku-4-5`. Para usar otro, en **Settings** → **Secrets and variables** → **Actions** → pestaña **Variables**, cree la variable `MESA_MODELO` con el nombre del modelo. Si el modelo no figura en `config/ajustes.json`, agregue allí su precio para que el costo estimado sea correcto.
 
 ---
+
+## Registro permanente, cambios en salas y brief semanal (desde el 30 oct 2026)
+
+Mesa Caliente deja un registro para el resto de SEI, **sin llamadas extra en el barrido**: la misma llamada de redacción devuelve, junto con cada tarjeta, una ficha breve, y el programa la verifica contra el texto enviado al modelo. Lo que no figura ahí queda vacío.
+
+### `data/registro/hechos.jsonl`
+
+Una línea JSON por tarjeta publicada (también las de temas calientes), con estos campos:
+
+| Campo | Contenido |
+|---|---|
+| `fecha`, `id` | Día de la corrida e identificador estable (`AAAA-MM-DD-xxxxxxxx`) |
+| `titulo`, `clasificacion` | Los de la tarjeta publicada |
+| `tipo` | `resultado`, `anuncio_evento`, `industria_polemica`, `software`, `obituario` u `otro` |
+| `seccion` | `general`, `latam` o `tema` (tarjeta de tema caliente) |
+| `salas` | Salas nombradas en las notas |
+| `jugadores` | `[{"nombre", "pais"}]`. El país solo si una nota de la fuente lo vincula de forma explícita con esa persona («el argentino X», «Argentine pro X», «X (Argentina)», «X, de Brasil»). Si el país aparece sin ese vínculo, queda vacío con `pais_pendiente` (`valor` candidato y `fuente`); cuando una línea posterior trae a ese jugador con ese país explícito, se confirma (`pais` lleno y `pais_confirmado_por`: fecha e id del hecho). |
+| `torneo`, `pais_evento` | Solo si están escritos en las notas |
+| `temas_calientes` | Temas cuyas palabras clave aparecen en la tarjeta o sus notas |
+| `fuentes` | `[{"nombre", "url", "clase"}]` |
+
+**Historial**: para cargar una sola vez lo publicado desde el 21 sep 2026 (hace falta el modelo, porque las tarjetas viejas no tienen esos campos):
+
+1. Abra **Actions** → **Cargar historial del registro** → **Run workflow** (solo tiene botón, no corre sola).
+2. Usa la clave `ANTHROPIC_API_KEY` del repositorio, registra el costo en `data/costos.json` (`"tipo": "historial"`, unos US$ 0,28) y guarda en `main`.
+3. Si el historial ya está cargado, no llama al modelo ni cambia nada. Si algún lote falló, al volver a correrlo carga solo lo que falta.
+
+En una computadora con Python: `python -m mesa.historial_registro` informa el costo estimado sin llamar al modelo; con `--confirmar`, carga.
+
+En el historial, el país de un jugador queda casi siempre pendiente: el resumen publicado no es texto de la fuente, y antes del 7 oct no se guardaba el titular original.
+
+### Cambios en salas
+
+Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lápiz ✏️; cada sala tiene `alias` para otras formas de nombrarla; Ignition figura solo como «Ignition Poker», nunca «Ignition» suelto). Si una nota trae un cambio de una sala vigilada sobre bonos y promociones, rake y rakeback, HUD y software permitido, pagos y retiros, app y plataformas, licencia o países, o series y torneos insignia, se agrega a `data/registro/cambios_salas.jsonl` (`fecha`, `sala`, `tema`, `dato`, `fuente`).
+
+- El `dato` debe estar copiado **tal cual** del texto de la nota (en su idioma) y la sala debe estar nombrada en esa nota; si no, se descarta y queda anotado en `controles`.
+- Las promociones siguen fuera de las tarjetas. La selección las puede elegir en una sección aparte, «salas» (hasta `max_hechos_salas`, 6), que solo alimenta este registro.
+- La página muestra la sección **Cambios en salas** con los últimos 30 días (`dias_cambios_salas_en_pagina`).
+
+### Brief semanal
+
+El flujo **Brief semanal** corre los **lunes a las 12:30 UTC** (y con el botón **Run workflow**, con una semana opcional `AAAA-Wnn`). Lee el registro de la semana anterior (lunes a domingo) y hace **una sola llamada** al modelo. Trae: temas de la semana, cambios en salas, jugadores y torneos latinos destacados, fuentes nuevas que rindieron e ideas de artículos.
+
+- **Ideas de artículos** y **fuentes nuevas** las decide el programa con el registro. Es idea, con su motivo, un hecho o tema que en la semana tuvo 3 o más fuentes distintas, o apareció en 2 o más días (el mismo tema caliente, el mismo torneo o un título casi igual), o un tema caliente que siguió 2 semanas seguidas o más. Una fuente es nueva si aparece por primera vez en el registro esa semana. El modelo solo agrega una oración a cada idea.
+- Cada texto del modelo debe citar líneas del registro y se quitan las oraciones con datos que no figuren en ellas.
+- La página principal tiene un enlace **Brief semanal** a `docs/semanal/`.
+- Guarda `data/semanal/AAAA-Wnn.json` y `.md`, publica `docs/semanal/` (https://hoozh.github.io/mesa-caliente/semanal/) y abre el issue «Brief semanal AAAA-Wnn» con el texto (si ya existe, no abre otro). El costo queda en `data/costos.json` con `"tipo": "brief"`.
+
+Las secciones nuevas se dibujan con plantillas aparte del diseño actual: `templates/secciones/` (con su propio `secciones.css`, que usa los colores de `templates/estilo.css`).
 
 ## Agregar o quitar una fuente
 
@@ -247,12 +296,16 @@ python scripts/verificar_propuestas.py # opcional (requiere Playwright): las abr
 | Fuentes candidatas | `data/candidatas.json` |
 | Tokens y costo por corrida (selección y redacción) | `data/costos.json` |
 | Lo enviado al modelo, por nota (auditoría) | `data/entradas/AAAA-MM-DD.json` |
+| Registro permanente y cambios en salas | `data/registro/hechos.jsonl` y `data/registro/cambios_salas.jsonl` |
+| Salas vigiladas | `config/salas_vigiladas.json` |
+| Brief semanal | `data/semanal/AAAA-Wnn.json` y `.md`, `docs/semanal/` |
+| Plantillas de las secciones nuevas | `templates/secciones/` |
 | Diseño de la página | `templates/index.html.j2` y `templates/estilo.css` |
 | Página publicada | `docs/index.html` |
 
 - **Salud de fuentes**: si una fuente falla 3 días seguidos (error, bloqueo, 403, sin contenido), pasa a `en_pausa`. Las pausadas se reintentan una vez por semana y vuelven a `activa` si responden. La página las lista en "Salud de fuentes" con el motivo.
 - **Filtro por día**: cada corrida toma lo publicado desde la última corrida exitosa, con 3 horas de margen (`margen_horas`), y nunca mira más de 3 días hacia atrás (`dias_maximos_atras`). Si una fuente no trae fecha, o pone la misma a todas sus notas (como Poker.org), se usa el orden de la lista: se toma desde arriba hasta la primera nota ya vista. Una fuente nueva aporta como máximo 10 notas. Después de cada corrida exitosa, todo lo recogido (elegido o no) queda como visto; si la corrida falla, no se marca nada y la siguiente lo vuelve a intentar.
-- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente (Reddit, 3), 120 de la ventana más 40 pendientes en la selección, 20 artículos abiertos como máximo, 4500 tokens de salida en la redacción, 14 tarjetas generales y 6 latinas. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
+- **Topes fijos** (en `config/ajustes.json`): 10 titulares por fuente (Reddit, 3), 120 de la ventana más 40 pendientes en la selección, 20 artículos abiertos como máximo, 5500 tokens de salida en la redacción, 14 tarjetas generales y 6 latinas. El pie de la página muestra cuántos titulares se descartaron en la última corrida por fecha, por orden de la lista y por tope, con el detalle por fuente.
 - **Artículos abiertos**: se abre el artículo de cada hecho elegido en la selección (y de las notas de temas calientes con titular insuficiente), como máximo 20 por corrida.
 - **Candidatas**: el programa cuenta los dominios enlazados dentro de los artículos que abre y los que comparten los usuarios de las fuentes de descubrimiento (Reddit). Si un dominio aparece en al menos 3 artículos distintos en 14 días, no está en las fuentes y no es una red social, se agrega a "Fuentes candidatas". Nunca se agrega solo a la lista de fuentes y nunca se borra solo.
 - **Robustez**: una corrida solo escribe el archivo de su propio día; nunca modifica días anteriores. Si el modelo falla, el día queda como "Corrida fallida" con el motivo y los titulares se vuelven a intentar al día siguiente.

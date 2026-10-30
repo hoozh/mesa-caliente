@@ -13,6 +13,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from . import modelo
+from . import registro
 from . import temas as temas_mod
 from .dias import cargar_dias
 from .util import (MESES, RAIZ, escribir_texto, fecha_corta, fecha_larga,
@@ -63,6 +64,8 @@ def _salud(fuentes: list[dict], dias_reintento: int) -> dict:
 
 def _ultima_corrida_costos(corridas: list[dict]) -> dict | None:
     """Suma las llamadas de la última corrida (selección y redacción) y separa el costo de la selección."""
+    # El brief semanal y la carga del historial no son corridas del barrido: suman al mes, no a «la última corrida».
+    corridas = [c for c in corridas if c.get("tipo") not in ("brief", "historial")]
     if not corridas:
         return None
     ultimo_id = corridas[-1].get("id")
@@ -158,6 +161,12 @@ def meta_del_dia(dia: dict | None, meta: int) -> dict | None:
     return resultado
 
 
+def salidas_cortadas(dia: dict | None) -> list[dict]:
+    """Corridas del día cuya redacción se cortó por el tope de tokens, con las tarjetas perdidas."""
+    return [{"corrida": c.get("titulo_mostrar") or c.get("id"), "perdidas": c["salida_cortada"].get("perdidas")}
+            for c in (dia or {}).get("corridas", []) if c.get("salida_cortada")]
+
+
 def unir_temas(corridas: list[dict]) -> list[dict]:
     """Una sola tarjeta por tema caliente y por día: junta las novedades de todas las corridas del día
     (en orden) y usa la línea principal más reciente."""
@@ -202,9 +211,12 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "candidatas": sorted(candidatas, key=lambda c: c.get("detectada") or "", reverse=True),
         "costos": _costos(costos, hoy),
         "descartes": _ultimo_registro(dias),
+        "salida_cortada": salidas_cortadas(next((d for d in dias if d["fecha"] == hoy.isoformat()), None)),
         "meta_hoy": meta_del_dia(next((d for d in dias if d["fecha"] == hoy.isoformat()), None),
                                  ajustes.get("meta_diaria", 10)),
         "temas_vigilancia": temas_mod.activos(raiz),
+        # Secciones nuevas: salen de data/registro/ y se dibujan con templates/secciones/.
+        "cambios_salas": registro.cambios_recientes(raiz, hoy, ajustes.get("dias_cambios_salas_en_pagina", 30)),
         "etiquetas": ETIQUETAS,
         "hoy_texto": fecha_larga(hoy),
         "generado": generado.strftime("%Y-%m-%d %H:%M UTC"),
@@ -223,6 +235,11 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
     html = entorno.get_template("index.html.j2").render(**contexto(raiz, hoy, generado))
     escribir_texto(salida / "index.html", html)
     shutil.copyfile(plantillas / "estilo.css", salida / "estilo.css")
+    if (plantillas / "secciones" / "secciones.css").exists():
+        shutil.copyfile(plantillas / "secciones" / "secciones.css", salida / "secciones.css")
+    if (plantillas / "secciones" / "semanal_indice.html.j2").exists() and salida == raiz / "docs":
+        from .semanal import escribir_indice  # índice de briefs: el enlace «Brief semanal» nunca queda roto
+        escribir_indice(raiz)
     (salida / ".nojekyll").touch()
     return salida / "index.html"
 
