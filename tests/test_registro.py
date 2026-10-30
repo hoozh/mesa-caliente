@@ -130,7 +130,7 @@ def test_una_linea_por_tarjeta_publicada_con_todos_los_campos(raiz_temporal):
         assert h["tipo"] in registro.TIPOS and h["clasificacion"] in ("confirmado", "discusion", "rumor")
         assert all(set(f) == {"nombre", "url", "clase"} and f["url"] for f in h["fuentes"])
     assert hechos[0]["fuentes"] == [{"nombre": "Medio Inventado", "url": URL_RESULTADO, "clase": "medio"}]
-    assert c["registro"] == {"hechos": 2, "cambios_salas": 2}
+    assert c["registro"] == {"hechos": 2, "cambios_salas": 2, "paises_confirmados": 0}
 
 
 def test_el_registro_no_inventa_datos(raiz_temporal):
@@ -154,13 +154,70 @@ def test_pais_torneo_y_tipo_que_no_estan_en_la_fuente_quedan_vacios(raiz_tempora
     assert h["torneo"] == "" and h["pais_evento"] == ""
 
 
-def test_pais_del_jugador_solo_si_la_fuente_lo_dice_de_esa_persona():
-    texto = ("Zutano Imaginario took second place. Many players travelled to the event. " * 2
-             + "Later, Argentine player Perengano Supuesto won the side event.")
-    ficha = registro.verificar_ficha({"jugadores": [["Zutano Imaginario", "Argentina"], ["Perengano Supuesto", "Argentina"]]},
-                                     texto, "", {"salas": [], "temas": {}})
-    assert ficha["jugadores"] == [{"nombre": "Zutano Imaginario", "pais": ""},
-                                  {"nombre": "Perengano Supuesto", "pais": "Argentina"}]
+def _nota(texto, n=1):
+    return {"fuente": "Medio Inventado", "url": f"https://medio-inventado.com/n/{n}", "clase": "medio",
+            "titulo": texto, "primera_linea": ""}
+
+
+def test_pais_solo_con_vinculo_explicito():
+    explicitos = [
+        ("Argentina", "El argentino Fulano Inventado ganó el torneo."),
+        ("Argentina", "Argentine pro Fulano Inventado won the event."),
+        ("Argentina", "Fulano Inventado (Argentina) won the event."),
+        ("Brasil", "Fulano Inventado, de Brasil, ganó el torneo."),
+        ("Brasil", "Fulano Inventado, from Brazil, won the event."),
+        ("Estados Unidos", "Fulano Inventado, from the United States, won."),
+    ]
+    for pais, texto in explicitos:
+        assert registro.pais_explicito(pais, "Fulano Inventado", texto), texto
+    no_explicitos = [
+        ("Argentina", "Fulano Inventado beat the Argentine Zutano Imaginario heads-up."),
+        ("Argentina", "Fulano Inventado won. The Argentine crowd cheered."),
+        ("Argentina", "An Argentine and Fulano Inventado reached the final table."),
+    ]
+    for pais, texto in no_explicitos:
+        assert not registro.pais_explicito(pais, "Fulano Inventado", texto), texto
+
+
+def test_pais_no_explicito_queda_pendiente_con_valor_y_fuente():
+    texto = "Fulano Inventado beat the Argentine Zutano Imaginario heads-up."
+    ficha = registro.verificar_ficha({"jugadores": [["Fulano Inventado", "Argentina"], ["Zutano Imaginario", "Argentina"],
+                                                    ["Mengana Ficticia", "Chile"]]},
+                                     texto + " Mengana Ficticia also played.", "", {"salas": [], "temas": {}},
+                                     [_nota(texto), _nota("Mengana Ficticia also played.", 2)])
+    assert ficha["jugadores"] == [
+        {"nombre": "Fulano Inventado", "pais": "",
+         "pais_pendiente": {"valor": "Argentina", "fuente": {"nombre": "Medio Inventado", "url": "https://medio-inventado.com/n/1"}}},
+        {"nombre": "Zutano Imaginario", "pais": "Argentina"},
+        # Chile no figura en ninguna nota: ni país ni pendiente.
+        {"nombre": "Mengana Ficticia", "pais": ""},
+    ]
+
+
+def test_el_vinculo_explicito_debe_venir_de_una_nota_de_la_fuente():
+    # El texto sin URL (por ejemplo, el resumen ya publicado en la carga del historial) no alcanza.
+    sin_url = {"fuente": "", "url": "", "titulo": "El argentino Fulano Inventado ganó.", "primera_linea": ""}
+    ficha = registro.verificar_ficha({"jugadores": [["Fulano Inventado", "Argentina"]]}, sin_url["titulo"], "",
+                                     {"salas": [], "temas": {}}, [sin_url, _nota("Fulano Inventado won.")])
+    assert ficha["jugadores"][0]["pais"] == "" and ficha["jugadores"][0]["pais_pendiente"]["valor"] == "Argentina"
+
+
+def test_una_fuente_posterior_explicita_confirma_el_pais_pendiente(tmp_path):
+    pendiente = {"nombre": "Fulano Inventado", "pais": "",
+                 "pais_pendiente": {"valor": "Argentina", "fuente": {"nombre": "Medio Inventado", "url": "https://m.com/1"}}}
+    base = {"titulo": "t", "tipo": "otro", "clasificacion": "confirmado", "seccion": "general", "salas": [],
+            "torneo": "", "pais_evento": "", "temas_calientes": [], "fuentes": []}
+    registro.registrar(tmp_path, [dict(base, fecha="2026-10-01", id="a", jugadores=[pendiente])], [])
+    # Otro país explícito no confirma; el mismo país explícito, sí.
+    _, _, confirmados = registro.registrar(tmp_path, [dict(base, fecha="2026-10-02", id="b",
+                                                            jugadores=[{"nombre": "Fulano Inventado", "pais": "Chile"}])], [])
+    assert confirmados == 0
+    _, _, confirmados = registro.registrar(tmp_path, [dict(base, fecha="2026-10-03", id="c",
+                                                            jugadores=[{"nombre": "fulano inventado", "pais": "Argentina"}])], [])
+    assert confirmados == 1
+    primera = registro.leer_jsonl(tmp_path / "data" / "registro" / "hechos.jsonl")[0]
+    assert primera["jugadores"] == [{"nombre": "Fulano Inventado", "pais": "Argentina",
+                                     "pais_confirmado_por": {"fecha": "2026-10-03", "hecho": "c"}}]
 
 
 def test_temas_calientes_y_tarjetas_de_tema_entran_al_registro(raiz_temporal):
@@ -203,14 +260,19 @@ SALAS = json.loads((RAIZ / "config" / "salas_vigiladas.json").read_text(encoding
 def test_salas_vigiladas_de_la_configuracion():
     nombres = [s["nombre"] for s in SALAS["salas"]]
     assert nombres == ["CoinPoker", "RedStar Poker", "WPT Global", "GGPoker", "PokerStars", "BC Poker",
-                       "Phenom Poker", "YaPoker", "ACR", "PokerKing", "Ignition"]
+                       "Phenom Poker", "YaPoker", "ACR", "PokerKing", "Ignition Poker"]
+    acr = next(s for s in SALAS["salas"] if s["nombre"] == "ACR")
+    assert acr["alias"] == ["ACR Poker", "Americas Cardroom"]
     assert list(SALAS["temas"]) == ["bonos_promociones", "rake_rakeback", "hud_software", "pagos_retiros",
                                     "app_plataformas", "licencia_paises", "series_torneos"]
 
 
 def test_detecta_salas_por_nombre_y_alias_como_palabra_completa():
     texto = "Americas Cardroom and GG Poker change their HUD policy; Poker Stars too. Ignition Poker adds tables."
-    assert registro.detectar_salas(texto, SALAS) == ["GGPoker", "PokerStars", "ACR", "Ignition"]
+    assert registro.detectar_salas(texto, SALAS) == ["GGPoker", "PokerStars", "ACR", "Ignition Poker"]
+    # «Ignition» suelto no cuenta: solo «Ignition Poker».
+    assert registro.detectar_salas("Ignition Casino changes its cashier", SALAS) == []
+    assert registro.sala_vigilada("Ignition", SALAS) is None
     assert registro.detectar_salas("The WPT Global Championship and the WPT Prime", SALAS) == ["WPT Global"]
     assert registro.detectar_salas("Accra Poker Open in Ghana", SALAS) == []  # «ACR» no es parte de «Accra»
     assert registro.sala_vigilada("americas cardroom", SALAS)["nombre"] == "ACR"
@@ -352,3 +414,55 @@ def test_flujo_diario_sin_cambios_y_brief_en_su_propio_flujo():
     pasos = " ".join(p.get("run", "") for p in brief["jobs"]["brief"]["steps"])
     assert "python -m mesa.semanal" in pasos and 'gh issue create --title "$titulo"' in pasos
     assert 'titulo="Brief semanal ${SEMANA}"' in pasos
+
+
+# ---------------------------------------------------------------- salida cortada
+
+def test_salida_cortada_avisa_cuantas_tarjetas_se_perdieron(raiz_temporal):
+    class Cortado(Modelo):
+        def __call__(self, sistema, mensaje, modelo_id, max_tokens):
+            texto, uso = super().__call__(sistema, mensaje, modelo_id, max_tokens)
+            if "solo elige" in sistema:
+                return texto, uso
+            datos = json.loads(texto)
+            # Llega completa solo la primera tarjeta; la segunda (recorte de rake) se corta a la mitad.
+            cortada = ('{"temas": [], "tarjetas": [' + json.dumps(datos["tarjetas"][0]) + ', {"ids": ['
+                       + str(self._n(mensaje, RAKE[0])) + '], "clasificacion": "conf')
+            return cortada, dict(uso, truncado=True)
+    c = corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Cortado())
+    assert len(c["tarjetas"]) == 1 and c["salida_cortada"] == {"perdidas": 1}
+    aviso = next(x for x in c["controles"] if x["motivo"].startswith("salida cortada"))
+    assert aviso["perdidas"] == 1 and "1 tarjeta perdida" in aviso["motivo"]
+    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser").footer
+    texto = pie.find("p", class_="sec-aviso").get_text(" ")
+    assert "se cortó por el tope de tokens" in texto and "1 tarjeta perdida" in texto
+
+
+def test_sin_salida_cortada_no_hay_aviso(raiz_temporal):
+    c = corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo())
+    assert "salida_cortada" not in c
+    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser").footer
+    assert pie.find("p", class_="sec-aviso") is None
+
+
+def test_tope_de_salida_de_la_redaccion():
+    assert leer_json(RAIZ / "config" / "ajustes.json")["max_tokens_salida"] == 5500
+
+
+def test_enlace_al_brief_semanal_en_la_pagina(raiz_temporal):
+    pagina.generar(raiz_temporal, AHORA.date(), AHORA)
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    enlace = sopa.find("a", string="Brief semanal")
+    assert enlace["href"] == "semanal/"
+    # El índice existe aunque todavía no haya briefs: el enlace nunca queda roto.
+    assert "Todavía no hay briefs" in (raiz_temporal / "docs" / "semanal" / "index.html").read_text(encoding="utf-8")
+
+
+def test_flujo_manual_para_cargar_el_historial():
+    flujo = yaml.safe_load((RAIZ / ".github" / "workflows" / "cargar-historial.yml").read_text(encoding="utf-8"))
+    assert flujo["name"] == "Cargar historial del registro"
+    assert list(flujo[True]) == ["workflow_dispatch"]  # solo botón, sin horario
+    pasos = " ".join(p.get("run", "") for p in flujo["jobs"]["historial"]["steps"])
+    assert "python -m mesa.historial_registro --confirmar" in pasos and "data/costos.json" in pasos
+    entorno = next(p["env"] for p in flujo["jobs"]["historial"]["steps"] if "env" in p)
+    assert entorno["ANTHROPIC_API_KEY"] == "${{ secrets.ANTHROPIC_API_KEY }}"

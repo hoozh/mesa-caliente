@@ -80,7 +80,7 @@ El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del dí
 
 Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, cuántos hechos eligió la selección y los descartes por regla y por fuente.
 
-Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (5500, redacción; era 4500 hasta que la redacción empezó a devolver la ficha del registro) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
+Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (5500, redacción; era 4500 hasta que la redacción empezó a devolver la ficha del registro). Si la salida igual se corta, se conservan las tarjetas completas y el pie de la página y `controles` avisan cuántas tarjetas se perdieron (hechos elegidos sin tarjeta completa) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
 
 ### Cambiar el modelo (opcional)
 
@@ -103,21 +103,24 @@ Una línea JSON por tarjeta publicada (también las de temas calientes), con est
 | `tipo` | `resultado`, `anuncio_evento`, `industria_polemica`, `software`, `obituario` u `otro` |
 | `seccion` | `general`, `latam` o `tema` (tarjeta de tema caliente) |
 | `salas` | Salas nombradas en las notas |
-| `jugadores` | `[{"nombre", "pais"}]`; el país solo si la fuente lo dice en la misma oración que nombra a esa persona |
+| `jugadores` | `[{"nombre", "pais"}]`. El país solo si una nota de la fuente lo vincula de forma explícita con esa persona («el argentino X», «Argentine pro X», «X (Argentina)», «X, de Brasil»). Si el país aparece sin ese vínculo, queda vacío con `pais_pendiente` (`valor` candidato y `fuente`); cuando una línea posterior trae a ese jugador con ese país explícito, se confirma (`pais` lleno y `pais_confirmado_por`: fecha e id del hecho). |
 | `torneo`, `pais_evento` | Solo si están escritos en las notas |
 | `temas_calientes` | Temas cuyas palabras clave aparecen en la tarjeta o sus notas |
 | `fuentes` | `[{"nombre", "url", "clase"}]` |
 
 **Historial**: para cargar una sola vez lo publicado desde el 21 sep 2026 (hace falta el modelo, porque las tarjetas viejas no tienen esos campos):
 
-```bash
-python -m mesa.historial_registro              # informa cuántas tarjetas faltan y el costo estimado (~US$ 0,28); no llama al modelo
-python -m mesa.historial_registro --confirmar  # carga el historial (necesita ANTHROPIC_API_KEY); no duplica lo que ya está
-```
+1. Abra **Actions** → **Cargar historial del registro** → **Run workflow** (solo tiene botón, no corre sola).
+2. Usa la clave `ANTHROPIC_API_KEY` del repositorio, registra el costo en `data/costos.json` (`"tipo": "historial"`, unos US$ 0,28) y guarda en `main`.
+3. Si el historial ya está cargado, no llama al modelo ni cambia nada. Si algún lote falló, al volver a correrlo carga solo lo que falta.
+
+En una computadora con Python: `python -m mesa.historial_registro` informa el costo estimado sin llamar al modelo; con `--confirmar`, carga.
+
+En el historial, el país de un jugador queda casi siempre pendiente: el resumen publicado no es texto de la fuente, y antes del 7 oct no se guardaba el titular original.
 
 ### Cambios en salas
 
-Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lápiz ✏️; cada sala tiene `alias` para otras formas de nombrarla). Si una nota trae un cambio de una sala vigilada sobre bonos y promociones, rake y rakeback, HUD y software permitido, pagos y retiros, app y plataformas, licencia o países, o series y torneos insignia, se agrega a `data/registro/cambios_salas.jsonl` (`fecha`, `sala`, `tema`, `dato`, `fuente`).
+Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lápiz ✏️; cada sala tiene `alias` para otras formas de nombrarla; Ignition figura solo como «Ignition Poker», nunca «Ignition» suelto). Si una nota trae un cambio de una sala vigilada sobre bonos y promociones, rake y rakeback, HUD y software permitido, pagos y retiros, app y plataformas, licencia o países, o series y torneos insignia, se agrega a `data/registro/cambios_salas.jsonl` (`fecha`, `sala`, `tema`, `dato`, `fuente`).
 
 - El `dato` debe estar copiado **tal cual** del texto de la nota (en su idioma) y la sala debe estar nombrada en esa nota; si no, se descarta y queda anotado en `controles`.
 - Las promociones siguen fuera de las tarjetas. La selección las puede elegir en una sección aparte, «salas» (hasta `max_hechos_salas`, 6), que solo alimenta este registro.
@@ -127,8 +130,9 @@ Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lá
 
 El flujo **Brief semanal** corre los **lunes a las 12:30 UTC** (y con el botón **Run workflow**, con una semana opcional `AAAA-Wnn`). Lee el registro de la semana anterior (lunes a domingo) y hace **una sola llamada** al modelo. Trae: temas de la semana, cambios en salas, jugadores y torneos latinos destacados, fuentes nuevas que rindieron e ideas de artículos.
 
-- **Ideas de artículos** y **fuentes nuevas** las decide el programa con el registro: un tema caliente que siguió 2 semanas seguidas o más, o un tema o hecho con 3 o más fuentes distintas en la semana (con el motivo); una fuente es nueva si aparece por primera vez en el registro esa semana. El modelo solo agrega una oración a cada idea.
+- **Ideas de artículos** y **fuentes nuevas** las decide el programa con el registro. Es idea, con su motivo, un hecho o tema que en la semana tuvo 3 o más fuentes distintas, o apareció en 2 o más días (el mismo tema caliente, el mismo torneo o un título casi igual), o un tema caliente que siguió 2 semanas seguidas o más. Una fuente es nueva si aparece por primera vez en el registro esa semana. El modelo solo agrega una oración a cada idea.
 - Cada texto del modelo debe citar líneas del registro y se quitan las oraciones con datos que no figuren en ellas.
+- La página principal tiene un enlace **Brief semanal** a `docs/semanal/`.
 - Guarda `data/semanal/AAAA-Wnn.json` y `.md`, publica `docs/semanal/` (https://hoozh.github.io/mesa-caliente/semanal/) y abre el issue «Brief semanal AAAA-Wnn» con el texto (si ya existe, no abre otro). El costo queda en `data/costos.json` con `"tipo": "brief"`.
 
 Las secciones nuevas se dibujan con plantillas aparte del diseño actual: `templates/secciones/` (con su propio `secciones.css`, que usa los colores de `templates/estilo.css`).

@@ -13,3 +13,6 @@ ul.sec-lista li{padding:8px 10px;background:var(--surface-2);border-radius:8px;o
 .sec-brief h3{font-size:14px;margin:14px 0 6px;}
 .sec-brief ul{margin:0;padding-left:18px;font-size:14px;line-height:1.55;}
 .sec-brief li{margin:0 0 6px;}
+.sec-aviso{margin:0 0 10px;padding:8px 12px;border:1px solid var(--rumor-dot);border-radius:8px;background:var(--rumor-bg);color:var(--rumor-ink);font-size:13.5px;}
+nav.sec-enlaces{margin:0 0 16px;font-size:14px;}
+nav.sec-enlaces a{color:var(--accent-ink);font-weight:600;}

@@ -135,26 +135,65 @@ def figura(valor: str, texto: str) -> bool:
     return bool(v.strip()) and v in _norm(texto)
 
 
-def _pais_dicho(pais: str, texto: str, cerca_de: str | None = None) -> str | None:
-    """Nombre del país si el texto lo dice (gentilicio o «from X»); con `cerca_de`, en la oración de esa persona."""
+# Palabras que pueden ir entre el gentilicio y el nombre: «Argentine pro X», «el jugador argentino X» no.
+_DESCRIPTORES = r"(?:pro|player|jugador|jugadora|jogador|jogadora|profesional|professional|grinder|star|estrella|regular|reg|streamer|poker)"
+
+
+def _formas_pais(pais: str) -> tuple[str, str, str]:
+    """(nombre normalizado del país, gentilicios, nombres del país) como alternativas de regex."""
     clave = next((k for k in calidad.NACIONALIDADES if calidad.sin_tildes(k) == calidad.sin_tildes(pais).strip()), None)
-    plano = calidad.sin_tildes(texto)
-    if clave:
-        patron = re.compile(rf"\b({calidad.NACIONALIDADES[clave][1]}|{re.escape(calidad.sin_tildes(clave))})\b")
-    else:
-        patron = re.compile(rf"\b{re.escape(calidad.sin_tildes(pais).strip())}\b")
-    if cerca_de is None:
-        return (clave or pais.strip()) if patron.search(plano) else None
-    # El país debe estar en la misma oración que alguna mención de la persona (por su apellido).
-    partes = [p for p in re.split(r"\s+", calidad.sin_tildes(cerca_de).strip()) if len(p) > 1]
-    if not partes:
-        return None
-    apellido = re.compile(rf"\b{re.escape(partes[-1])}\b")
-    for oracion in calidad._oraciones(texto):
-        plana = calidad.sin_tildes(oracion)
-        if apellido.search(plana) and patron.search(plana):
-            return clave or pais.strip()
-    return None
+    if not clave:
+        nombre = re.escape(calidad.sin_tildes(pais).strip())
+        return pais.strip(), "(?!)", nombre
+    formas = calidad.NACIONALIDADES[clave][1]
+    # Las formas «from X» (algunas con grupos: «from the (us|usa|united states)», «from (south )?korea») dan los
+    # nombres del país; el resto son gentilicios.
+    desde = re.findall(r"from (?:the )?(?:\([^)]*\)[a-z ?]*|[a-z ]+)", formas)
+    resto = formas
+    for d in desde:
+        resto = resto.replace(d, "")
+    gentilicios = "|".join(f for f in resto.split("|") if f and "'" not in f) or "(?!)"
+    nombres = {re.escape(calidad.sin_tildes(clave))}
+    for d in desde:
+        d = re.sub(r"^from (?:the )?", "", d).replace("(", "").replace(")", "").replace("?", "")
+        nombres.update(re.escape(x.strip()) for x in d.split("|") if len(x.strip()) > 2)
+    return clave, gentilicios, "|".join(sorted(nombres))
+
+
+def pais_explicito(pais: str, nombre: str, texto: str) -> bool:
+    """¿La fuente vincula el país con esa persona de forma explícita?
+    «el argentino X», «Argentine pro X», «X (Argentina)», «X, de Brasil», «X, from Brazil», «X, argentino»."""
+    _, gent, nombres = _formas_pais(pais)
+    n = r"\s+".join(re.escape(p) for p in calidad.sin_tildes(nombre).split())
+    plano = re.sub(r"\s+", " ", calidad.sin_tildes(texto))
+    patrones = [
+        rf"\b(?:{gent})\s+(?:{_DESCRIPTORES}\s+)?{n}\b",
+        rf"\b{n}\s*\(\s*(?:{nombres}|{gent})\s*\)",
+        rf"\b{n},\s*(?:(?:de|from|do|da|of)\s+(?:the\s+)?(?:{nombres})|(?:(?:el|la|o|a|an|the)\s+)?(?:{gent}))\b",
+    ]
+    return any(re.search(p, plano) for p in patrones)
+
+
+def _menciona_pais(pais: str, texto: str) -> bool:
+    _, gent, nombres = _formas_pais(pais)
+    return bool(re.search(rf"\b(?:{gent}|{nombres})\b", calidad.sin_tildes(texto)))
+
+
+def pais_de_jugador(pais: str, nombre: str, notas: list[tuple[str, dict | None]]) -> dict:
+    """{"pais"} si una nota de una fuente (con URL) lo dice de forma explícita; si el país solo aparece
+    sin vínculo claro, queda vacío con {"pais_pendiente": {"valor", "fuente"}}; si no aparece, vacío."""
+    if not pais:
+        return {"pais": ""}
+    clave = _formas_pais(pais)[0]
+    for texto, fuente in notas:
+        if fuente and pais_explicito(pais, nombre, texto):
+            return {"pais": clave}
+    con_url = [(t, f) for t, f in notas if f]
+    menciona = next((f for t, f in con_url if _menciona_pais(pais, t)), None)
+    if menciona or any(_menciona_pais(pais, t) for t, _ in notas):
+        fuente = menciona or (con_url[0][1] if con_url else {})
+        return {"pais": "", "pais_pendiente": {"valor": clave, "fuente": fuente}}
+    return {"pais": ""}
 
 
 def _pais_evento(pais: str, texto: str) -> str | None:
@@ -181,9 +220,12 @@ def _texto(valor) -> str:
     return limpiar_texto(str(valor)) if isinstance(valor, (str, int, float)) else ""
 
 
-def verificar_ficha(crudo, texto: str, texto_publicado: str, salas: dict) -> dict:
+def verificar_ficha(crudo, texto: str, texto_publicado: str, salas: dict, items: list[dict] | None = None) -> dict:
     """Campos del registro propuestos por el modelo, verificados contra el texto enviado.
-    `texto_publicado` es el título y el resumen ya verificados de la tarjeta."""
+    `texto_publicado` es el título y el resumen ya verificados de la tarjeta; `items`, las notas enviadas
+    (el país de un jugador solo se asigna si una nota con URL lo dice de forma explícita)."""
+    notas = [(calidad.texto_items([it]), {"nombre": it.get("fuente") or "", "url": it["url"]} if it.get("url") else None)
+             for it in items or []]
     crudo = crudo if isinstance(crudo, dict) else {}
     tipo = _texto(crudo.get("tipo")).lower().replace(" ", "_")
     tipo = tipo if tipo in TIPOS else next((k for k, v in TIPOS.items() if calidad.sin_tildes(v) == calidad.sin_tildes(tipo.replace("_", " "))), "otro")
@@ -211,7 +253,7 @@ def verificar_ficha(crudo, texto: str, texto_publicado: str, salas: dict) -> dic
             nombre, pais = _texto(j), ""
         if not nombre or not figura(nombre, texto) or any(x["nombre"] == nombre for x in jugadores):
             continue
-        jugadores.append({"nombre": nombre, "pais": (_pais_dicho(pais, texto, nombre) or "") if pais else ""})
+        jugadores.append({"nombre": nombre, **pais_de_jugador(pais, nombre, notas)})
 
     torneo = _texto(crudo.get("torneo"))
     pais_evento = _texto(crudo.get("pais_evento"))
@@ -238,7 +280,7 @@ def hecho_de_tarjeta(fecha: str, corrida_id: str, tarjeta: dict, seccion: str, c
                      salas: dict, temas: list[dict]) -> dict:
     texto = calidad.texto_items(items)
     publicado = f"{tarjeta['titulo']} {tarjeta.get('resumen') or ''} {tarjeta.get('novedad') or ''}"
-    ficha = verificar_ficha(crudo, texto, publicado, salas)
+    ficha = verificar_ficha(crudo, texto, publicado, salas, items)
     return {
         "fecha": fecha,
         "id": id_hecho(fecha, corrida_id, tarjeta["titulo"]),
@@ -257,7 +299,7 @@ def hecho_de_tarjeta(fecha: str, corrida_id: str, tarjeta: dict, seccion: str, c
 
 def hecho_de_tema(fecha: str, corrida_id: str, tema: dict, crudo, items: list[dict], salas: dict) -> dict:
     publicado = " ".join([tema.get("linea") or ""] + [n.get("aporta") or "" for n in tema.get("novedades", [])])
-    ficha = verificar_ficha(crudo, calidad.texto_items(items), publicado, salas)
+    ficha = verificar_ficha(crudo, calidad.texto_items(items), publicado, salas, items)
     clasif = [n.get("clasificacion") for n in tema.get("novedades", [])]
     return {
         "fecha": fecha,
@@ -309,10 +351,37 @@ def verificar_cambio(crudo, items: list[dict], salas: dict, fecha: str) -> tuple
     return None, "el dato o la sala no figuran tal cual en la nota"
 
 
-def registrar(raiz: Path, hechos: list[dict], cambios: list[dict]) -> tuple[int, int]:
+def confirmar_paises(filas: list[dict]) -> int:
+    """Confirma los países pendientes cuando una línea posterior del registro trae a ese jugador
+    con ese país dicho de forma explícita por su fuente. Devuelve cuántos confirmó."""
+    confirmados = 0
+    for i, fila in enumerate(filas):
+        for j in fila.get("jugadores") or []:
+            pendiente = j.get("pais_pendiente")
+            if not pendiente:
+                continue
+            for posterior in filas[i + 1:]:
+                if any(_norm(x.get("nombre")) == _norm(j["nombre"]) and x.get("pais") == pendiente["valor"]
+                       for x in posterior.get("jugadores") or []):
+                    j["pais"] = pendiente["valor"]
+                    j.pop("pais_pendiente")
+                    j["pais_confirmado_por"] = {"fecha": posterior.get("fecha"), "hecho": posterior.get("id")}
+                    confirmados += 1
+                    break
+    return confirmados
+
+
+def registrar(raiz: Path, hechos: list[dict], cambios: list[dict]) -> tuple[int, int, int]:
+    """Agrega hechos y cambios nuevos y confirma países pendientes. Devuelve (hechos, cambios, países confirmados)."""
     raiz = Path(raiz)
-    return (agregar(raiz / HECHOS, hechos, clave_hecho) if hechos else 0,
-            agregar(raiz / CAMBIOS, cambios, clave_cambio) if cambios else 0)
+    nuevos_hechos = agregar(raiz / HECHOS, hechos, clave_hecho) if hechos else 0
+    confirmados = 0
+    if nuevos_hechos:
+        filas = leer_jsonl(raiz / HECHOS)
+        confirmados = confirmar_paises(filas)
+        if confirmados:
+            escribir_jsonl(raiz / HECHOS, filas)
+    return nuevos_hechos, agregar(raiz / CAMBIOS, cambios, clave_cambio) if cambios else 0, confirmados
 
 
 # ---------------------------------------------------------------- página

@@ -1,0 +1,57 @@
+name: Cargar historial del registro
+
+# Solo con el botón «Run workflow» (sin horario). Carga en data/registro/ lo publicado desde el 21 sep 2026
+# y registra el costo en data/costos.json. Si el historial ya está cargado, no llama al modelo ni cambia nada.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mesa-caliente-barrido   # nunca al mismo tiempo que un barrido
+  cancel-in-progress: false
+
+jobs:
+  historial:
+    runs-on: ubuntu-24.04   # versión fija
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Cargar el historial
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MESA_MODELO: ${{ vars.MESA_MODELO }}
+        run: python -m mesa.historial_registro --confirmar
+
+      - name: Actualizar la página
+        run: python -m mesa.pagina
+
+      - name: Guardar en main
+        run: |
+          git config user.name "mesa-caliente-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/registro data/costos.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar: el historial ya estaba cargado."
+            exit 0
+          fi
+          git add docs
+          git commit -m "Registro: carga del historial"
+          for intento in 1 2 3 4; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((intento * 5))
+          done
+          echo "No se pudo guardar en main." >&2
+          exit 1

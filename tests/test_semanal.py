@@ -109,13 +109,35 @@ def test_ideas_y_fuentes_nuevas_las_decide_el_programa(raiz_temporal):
     brief = semanal.generar_brief(raiz_temporal, AHORA.date(), AHORA, Modelo(RESPUESTA))
     ideas = {i["tema"]: i for i in brief["ideas"]}
     # Siguió 2 semanas seguidas (W42 y W43).
-    assert ideas["Caso Ficticio"]["motivo"] == "siguió 2 semanas seguidas"
+    assert ideas["Caso Ficticio"]["motivo"] == "tema caliente que siguió 2 semanas seguidas"
     assert ideas["Caso Ficticio"]["texto"] == "Cronología del Caso Ficticio."
     # 3 fuentes distintas.
     assert ideas["Fulano Inventado gana el Ficticia Open por US$ 50.000"]["motivo"] == "3 fuentes distintas"
     assert len(brief["ideas"]) == 2  # la idea I9 del modelo no existe
     # Fuente nueva: aparece por primera vez en el registro esta semana. Medio Viejo no rindió esta semana.
     assert [f["nombre"] for f in brief["fuentes_nuevas"]] == ["Medio Dos", "Medio Nuevo"]
+
+
+def test_ideas_por_varios_dias_o_varias_fuentes_sin_esperar_dos_semanas():
+    hechos = [
+        # El mismo torneo en 2 días, con una fuente cada vez.
+        _hecho("2026-10-20", "Comienza la Serie Ficticia en Lima", [_f("Medio Uno", 1)], torneo="Serie Ficticia"),
+        _hecho("2026-10-22", "Fulano Inventado lidera la Serie Ficticia", [_f("Medio Uno", 2)], torneo="Serie Ficticia"),
+        # El mismo hecho contado dos días seguidos (título casi igual).
+        _hecho("2026-10-21", "Mengana Ficticia gana el High Roller Ficticio", [_f("Medio Uno", 3)]),
+        _hecho("2026-10-22", "Mengana Ficticia gana el High Roller Ficticio por US$ 20.000", [_f("Medio Dos", 4)]),
+        # Tres fuentes el mismo día.
+        _hecho("2026-10-23", "Zutano Imaginario gana el Ficticia Cup",
+               [_f("Medio Uno", 5), _f("Medio Dos", 6), _f("Medio Tres", 7)]),
+        # Un hecho suelto, un solo día y una sola fuente: no es idea.
+        _hecho("2026-10-24", "Perengano Supuesto cobra un premio menor", [_f("Medio Uno", 8)]),
+    ]
+    ideas = {i["tema"]: i["motivo"] for i in semanal.ideas_candidatas(hechos, date(2026, 10, 19), date(2026, 10, 25))}
+    assert ideas == {
+        "Serie Ficticia": "apareció 2 días (20 oct 2026, 22 oct 2026)",
+        "Mengana Ficticia gana el High Roller Ficticio": "apareció 2 días (21 oct 2026, 22 oct 2026)",
+        "Zutano Imaginario gana el Ficticia Cup": "3 fuentes distintas",
+    }
 
 
 def test_guarda_publica_y_registra_el_costo(raiz_temporal):
@@ -186,7 +208,11 @@ def test_historial_carga_verifica_y_no_duplica(raiz_temporal):
     assert r["hechos"] == 1 and len(llamar.llamadas) == 1
     h = registro.leer_jsonl(raiz_temporal / "data" / "registro" / "hechos.jsonl")[0]
     assert h["fecha"] == "2026-09-21" and h["salas"] == ["PokerStars"] and h["torneo"] == "Ficticia Cup"
-    assert h["jugadores"] == [{"nombre": "Zutano Imaginario", "pais": "Argentina"}] and h["pais_evento"] == ""
+    # El país solo está en el resumen publicado, no en una nota de la fuente: queda pendiente.
+    assert h["jugadores"] == [{"nombre": "Zutano Imaginario", "pais": "",
+                               "pais_pendiente": {"valor": "Argentina",
+                                                  "fuente": {"nombre": "Medio Uno", "url": "https://medio-uno.com/n/1"}}}]
+    assert h["pais_evento"] == ""
     # Sin titular original (antes del 7 oct no hay data/entradas): el dato no sale de la fuente, no entra.
     assert r["cambios_salas"] == 0
     assert leer_json(raiz_temporal / "data" / "costos.json")["corridas"][-1]["tipo"] == "historial"

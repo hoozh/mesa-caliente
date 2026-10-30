@@ -356,8 +356,9 @@ def registrar_hechos(raiz: Path, hoy: date, corrida: dict, resultado: dict, reda
             cambios.append(cambio)
         else:
             descartados.append({"motivo": f"cambio en sala descartado: {motivo}"})
-    nuevos_hechos, nuevos_cambios = registro_mod.registrar(raiz, hechos, cambios)
-    return {"hechos": nuevos_hechos, "cambios_salas": nuevos_cambios, "descartados": descartados}
+    nuevos_hechos, nuevos_cambios, confirmados = registro_mod.registrar(raiz, hechos, cambios)
+    return {"hechos": nuevos_hechos, "cambios_salas": nuevos_cambios, "paises_confirmados": confirmados,
+            "descartados": descartados}
 
 
 def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
@@ -511,13 +512,16 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                     corrida["temas"] = resultado["temas"]
                 corrida["controles"] += resultado.get("controles", [])
                 corrida["uso_redaccion"] = resultado["uso"]
+                if resultado.get("salida_cortada"):
+                    corrida["salida_cortada"] = resultado["salida_cortada"]  # aviso en el pie de la página
                 corrida["tarjetas"] = resultado["tarjetas"]
                 corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
                                            "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
                 # Un error del registro nunca afecta la corrida: queda anotado y el día se publica igual.
                 try:
                     reg = registrar_hechos(raiz, hoy, corrida, resultado, redaccion, salas, temas_activos)
-                    corrida["registro"] = {"hechos": reg["hechos"], "cambios_salas": reg["cambios_salas"]}
+                    corrida["registro"] = {"hechos": reg["hechos"], "cambios_salas": reg["cambios_salas"],
+                                           "paises_confirmados": reg["paises_confirmados"]}
                     corrida["controles"] += reg["descartados"]
                 except Exception as e:
                     corrida["registro"] = {"error": f"{type(e).__name__}: {e}"}

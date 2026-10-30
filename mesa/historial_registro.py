@@ -184,7 +184,8 @@ def cargar(raiz: Path, llamar=modelo.llamar_anthropic) -> dict:
                                    "tipo": "historial", "modelo": nombre, **uso_total,
                                    "estado": "ok" if not fallidas else "parcial"})
         escribir_json(raiz / "data" / "costos.json", costos)
-    return {"hechos": agregados[0], "cambios_salas": agregados[1], "lotes_fallidos": fallidas, "uso": uso_total}
+    return {"hechos": agregados[0], "cambios_salas": agregados[1], "paises_confirmados": agregados[2],
+            "lotes_fallidos": fallidas, "uso": uso_total}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -200,6 +201,7 @@ def main(argv: list[str] | None = None) -> int:
         print("No se llamó al modelo. Para cargar el historial, repita con --confirmar.")
         return 0
     if not e["tarjetas"]:
+        print("El historial ya está cargado: no hay nada que hacer.")
         return 0
     r = cargar(RAIZ)
     print(f"Agregados: {r['hechos']} hechos y {r['cambios_salas']} cambios en salas. "

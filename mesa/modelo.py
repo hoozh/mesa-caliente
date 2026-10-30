@@ -530,6 +530,22 @@ def _rescatar_json(texto: str) -> dict:
     return datos
 
 
+def tarjetas_perdidas(datos: dict, grupos: list[dict] | None) -> int | None:
+    """Hechos elegidos (que iban a ser tarjeta) sin ninguna tarjeta completa en la salida cortada.
+    Sin hechos elegidos (selección fallida) no se puede saber."""
+    if not grupos:
+        return None
+    escritos = set()
+    for clave in ("tarjetas", "escena_latam"):
+        for c in datos.get(clave) or []:
+            for i in (c.get("ids") or []) if isinstance(c, dict) else []:
+                try:
+                    escritos.add(int(i))
+                except (TypeError, ValueError):
+                    continue
+    return sum(1 for g in grupos if g.get("seccion") != "salas" and not set(g["ids"]) & escritos)
+
+
 def _leer_respuesta(texto: str, uso: dict) -> tuple[dict, bool]:
     """Devuelve (datos, rescatado). Si la salida se cortó, conserva lo que llegó completo."""
     try:
@@ -618,8 +634,14 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
     fichas: list[dict] = []
     usados: set[int] = set()
     registro: list[dict] = []
+    cortada = None
     if rescatado:
-        registro.append({"motivo": "salida cortada por el tope de tokens: se conservaron las tarjetas completas"})
+        cortada = {"perdidas": tarjetas_perdidas(datos, grupos)}
+        perdidas = ("no se puede saber cuántas tarjetas se perdieron (la redacción no tenía hechos elegidos)"
+                    if cortada["perdidas"] is None else
+                    f"{cortada['perdidas']} tarjeta{'' if cortada['perdidas'] == 1 else 's'} perdida{'' if cortada['perdidas'] == 1 else 's'}")
+        registro.append({"motivo": f"salida cortada por el tope de tokens: se conservaron las tarjetas completas; {perdidas}",
+                         "perdidas": cortada["perdidas"]})
     tarjetas = _construir_tarjetas(datos.get("tarjetas"), items, ajustes.get("max_tarjetas", 14), usados, hoy,
                                    previos, False, registro, niveles=niveles, excluir=solo_salas, fichas=fichas)
     # La sección latina no repite un hecho que ya quedó en la general (aunque venga de otra fuente).
@@ -640,4 +662,4 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
                        "seccion": "tema"})
     cambios = datos.get("cambios_salas") if isinstance(datos.get("cambios_salas"), list) else []
     return {"tarjetas": tarjetas, "escena_latam": latam, "temas": temas, "controles": registro, "uso": uso,
-            "fichas": fichas, "cambios_salas": cambios}
+            "fichas": fichas, "cambios_salas": cambios, "salida_cortada": cortada}

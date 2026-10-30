@@ -101,37 +101,63 @@ def fuentes_nuevas(todos: list[dict], desde: date, hasta: date) -> list[dict]:
     return sorted(nuevas.values(), key=lambda f: -len(f["hechos"]))
 
 
+def _agrupar(semana: list[dict]) -> list[list[dict]]:
+    """Grupos del mismo hecho o tema: comparten un tema caliente, el mismo torneo o un título casi igual."""
+    padre = list(range(len(semana)))
+
+    def raiz(i):
+        while padre[i] != i:
+            padre[i] = padre[padre[i]]
+            i = padre[i]
+        return i
+    for i, a in enumerate(semana):
+        for j in range(i + 1, len(semana)):
+            b = semana[j]
+            mismo = (set(a.get("temas_calientes") or []) & set(b.get("temas_calientes") or [])
+                     or (a.get("torneo") and registro_mod.figura(a["torneo"], b.get("torneo") or "")
+                         and registro_mod.figura(b["torneo"], a["torneo"]))
+                     or calidad.misma_noticia(a["titulo"], b["titulo"]))
+            if mismo:
+                padre[raiz(j)] = raiz(i)
+    grupos: dict[int, list[dict]] = {}
+    for i, h in enumerate(semana):
+        grupos.setdefault(raiz(i), []).append(h)
+    return list(grupos.values())
+
+
+def _semanas_seguidas(tema: str, todos: list[dict], desde: date, hasta: date) -> int:
+    semanas = {_semana_iso(h["fecha"]) for h in todos
+               if tema in (h.get("temas_calientes") or []) and h.get("fecha", "") <= hasta.isoformat()}
+    seguidas, lunes = 0, desde
+    while _semana_iso(lunes.isoformat()) in semanas:
+        seguidas += 1
+        lunes -= timedelta(days=7)
+    return seguidas
+
+
 def ideas_candidatas(todos: list[dict], desde: date, hasta: date) -> list[dict]:
-    """Temas que siguieron 2 semanas o más (seguidas, hasta esta) o con 3 o más fuentes distintas en la semana."""
-    semana = [h for h in todos if _en(h, desde, hasta)]
+    """Ideas de artículos, con su motivo. Un hecho o tema entra si en la semana:
+    - lo contaron 3 o más fuentes distintas, o
+    - apareció en 2 o más días (el mismo hecho, tema caliente o torneo), o
+    - es un tema caliente que siguió 2 semanas seguidas o más (hasta esta)."""
+    semana = sorted((h for h in todos if _en(h, desde, hasta)), key=lambda h: h.get("fecha") or "")
     ideas = []
-    nombres_temas = []
-    for h in semana:
-        for t in h.get("temas_calientes") or []:
-            if t not in nombres_temas:
-                nombres_temas.append(t)
-    for tema in nombres_temas:
-        semanas = {_semana_iso(h["fecha"]) for h in todos
-                   if tema in (h.get("temas_calientes") or []) and h.get("fecha", "") <= hasta.isoformat()}
-        seguidas, lunes = 0, desde
-        while _semana_iso(lunes.isoformat()) in semanas:
-            seguidas += 1
-            lunes -= timedelta(days=7)
-        de_semana = [h for h in semana if tema in (h.get("temas_calientes") or [])]
-        fuentes = {f.get("nombre") for h in de_semana for f in h.get("fuentes") or []}
+    for grupo in _agrupar(semana):
+        temas = [t for h in grupo for t in h.get("temas_calientes") or []]
+        torneos = [h["torneo"] for h in grupo if h.get("torneo")]
+        nombre = temas[0] if temas else torneos[0] if len(grupo) > 1 and torneos else grupo[0]["titulo"]
+        dias = sorted({h["fecha"] for h in grupo})
+        fuentes = {f.get("nombre") for h in grupo for f in h.get("fuentes") or []}
+        seguidas = max((_semanas_seguidas(t, todos, desde, hasta) for t in set(temas)), default=0)
         motivos = []
+        if len(fuentes) >= 3:
+            motivos.append(f"{len(fuentes)} fuentes distintas")
+        if len(dias) >= 2:
+            motivos.append(f"apareció {len(dias)} días ({', '.join(fecha_corta(date.fromisoformat(d)) for d in dias)})")
         if seguidas >= 2:
-            motivos.append(f"siguió {seguidas} semanas seguidas")
-        if len(fuentes) >= 3:
-            motivos.append(f"{len(fuentes)} fuentes distintas esta semana")
+            motivos.append(f"tema caliente que siguió {seguidas} semanas seguidas")
         if motivos:
-            ideas.append({"tema": tema, "motivo": "; ".join(motivos), "hechos": de_semana})
-    for h in semana:
-        if h.get("temas_calientes"):
-            continue  # ya cuenta dentro de su tema
-        fuentes = {f.get("nombre") for f in h.get("fuentes") or []}
-        if len(fuentes) >= 3:
-            ideas.append({"tema": h["titulo"], "motivo": f"{len(fuentes)} fuentes distintas", "hechos": [h]})
+            ideas.append({"tema": nombre, "motivo": "; ".join(motivos), "hechos": grupo})
     for n, idea in enumerate(ideas, 1):
         idea["id"] = f"I{n}"
     return ideas
@@ -300,6 +326,20 @@ def _entorno(raiz: Path) -> Environment:
                        autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
 
 
+def escribir_indice(raiz: Path) -> Path:
+    """docs/semanal/index.html con todos los briefs (también vacío, para que el enlace de la página funcione)."""
+    raiz = Path(raiz)
+    briefs = []
+    for ruta in sorted((raiz / "data" / "semanal").glob("*.json"), reverse=True):
+        b = leer_json(ruta)
+        if isinstance(b, dict) and b.get("semana"):
+            briefs.append(b)
+    html = _entorno(raiz).get_template("semanal_indice.html.j2").render(
+        briefs=briefs, fecha_corta=lambda f: fecha_corta(date.fromisoformat(f)))
+    escribir_texto(raiz / "docs" / "semanal" / "index.html", html)
+    return raiz / "docs" / "semanal" / "index.html"
+
+
 def escribir(raiz: Path, brief: dict) -> dict[str, Path]:
     """Guarda el JSON y el Markdown en data/semanal/ y publica las páginas en docs/semanal/."""
     raiz = Path(raiz)
@@ -312,12 +352,7 @@ def escribir(raiz: Path, brief: dict) -> dict[str, Path]:
     escribir_texto(datos / f"{brief['semana']}.md", md)
     docs = raiz / "docs" / "semanal"
     escribir_texto(docs / f"{brief['semana']}.html", entorno.get_template("semanal.html.j2").render(b=brief, **extra))
-    briefs = []
-    for ruta in sorted(datos.glob("*.json"), reverse=True):
-        b = leer_json(ruta)
-        if isinstance(b, dict) and b.get("semana"):
-            briefs.append(b)
-    escribir_texto(docs / "index.html", entorno.get_template("semanal_indice.html.j2").render(briefs=briefs, **extra))
+    escribir_indice(raiz)
     shutil.copyfile(raiz / "templates" / "estilo.css", raiz / "docs" / "estilo.css")
     shutil.copyfile(raiz / "templates" / "secciones" / "secciones.css", raiz / "docs" / "secciones.css")
     return {"json": datos / f"{brief['semana']}.json", "md": datos / f"{brief['semana']}.md",

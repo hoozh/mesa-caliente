@@ -161,6 +161,12 @@ def meta_del_dia(dia: dict | None, meta: int) -> dict | None:
     return resultado
 
 
+def salidas_cortadas(dia: dict | None) -> list[dict]:
+    """Corridas del día cuya redacción se cortó por el tope de tokens, con las tarjetas perdidas."""
+    return [{"corrida": c.get("titulo_mostrar") or c.get("id"), "perdidas": c["salida_cortada"].get("perdidas")}
+            for c in (dia or {}).get("corridas", []) if c.get("salida_cortada")]
+
+
 def unir_temas(corridas: list[dict]) -> list[dict]:
     """Una sola tarjeta por tema caliente y por día: junta las novedades de todas las corridas del día
     (en orden) y usa la línea principal más reciente."""
@@ -205,6 +211,7 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "candidatas": sorted(candidatas, key=lambda c: c.get("detectada") or "", reverse=True),
         "costos": _costos(costos, hoy),
         "descartes": _ultimo_registro(dias),
+        "salida_cortada": salidas_cortadas(next((d for d in dias if d["fecha"] == hoy.isoformat()), None)),
         "meta_hoy": meta_del_dia(next((d for d in dias if d["fecha"] == hoy.isoformat()), None),
                                  ajustes.get("meta_diaria", 10)),
         "temas_vigilancia": temas_mod.activos(raiz),
@@ -230,6 +237,9 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
     shutil.copyfile(plantillas / "estilo.css", salida / "estilo.css")
     if (plantillas / "secciones" / "secciones.css").exists():
         shutil.copyfile(plantillas / "secciones" / "secciones.css", salida / "secciones.css")
+    if (plantillas / "secciones" / "semanal_indice.html.j2").exists() and salida == raiz / "docs":
+        from .semanal import escribir_indice  # índice de briefs: el enlace «Brief semanal» nunca queda roto
+        escribir_indice(raiz)
     (salida / ".nojekyll").touch()
     return salida / "index.html"
 
