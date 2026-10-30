@@ -9,7 +9,7 @@
   "dias_maximos_atras": 3,
   "max_articulos_abiertos": 20,
   "max_caracteres_extracto": 1200,
-  "max_tokens_salida": 4500,
+  "max_tokens_salida": 5500,
   "max_costo_usd_por_corrida": 0.05,
   "max_tarjetas": 14,
   "max_tarjetas_latam": 6,
@@ -42,5 +42,8 @@
   },
   "max_tokens_seleccion": 1200,
   "max_hechos_general": 14,
-  "max_hechos_latam": 6
+  "max_hechos_latam": 6,
+  "max_hechos_salas": 6,
+  "dias_cambios_salas_en_pagina": 30,
+  "max_tokens_brief": 2000
 }

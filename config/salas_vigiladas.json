@@ -1,0 +1,25 @@
+{
+  "nota": "Salas vigiladas para el registro «Cambios en salas». Para agregar una sala, copie un bloque y cambie el nombre; en «alias» van otras formas en que la nombran las fuentes (sin distinguir mayúsculas ni tildes). Los temas son fijos: cada clave tiene al lado el texto que muestra la página.",
+  "salas": [
+    {"nombre": "CoinPoker", "alias": ["Coin Poker"]},
+    {"nombre": "RedStar Poker", "alias": ["RedStar", "Red Star Poker"]},
+    {"nombre": "WPT Global", "alias": []},
+    {"nombre": "GGPoker", "alias": ["GG Poker"]},
+    {"nombre": "PokerStars", "alias": ["Poker Stars"]},
+    {"nombre": "BC Poker", "alias": ["BCPoker"]},
+    {"nombre": "Phenom Poker", "alias": []},
+    {"nombre": "YaPoker", "alias": ["Ya Poker"]},
+    {"nombre": "ACR", "alias": ["ACR Poker", "Americas Cardroom"]},
+    {"nombre": "PokerKing", "alias": ["Poker King"]},
+    {"nombre": "Ignition", "alias": ["Ignition Poker"]}
+  ],
+  "temas": {
+    "bonos_promociones": "Bonos y promociones",
+    "rake_rakeback": "Rake y rakeback",
+    "hud_software": "HUD y software permitido",
+    "pagos_retiros": "Pagos y retiros",
+    "app_plataformas": "App y plataformas",
+    "licencia_paises": "Licencia o países",
+    "series_torneos": "Series y torneos insignia"
+  }
+}

@@ -1,0 +1,19 @@
+{# Sección «Cambios en salas». Se genera desde data/registro/cambios_salas.jsonl (contexto: cambios_salas).
+   Plantilla aparte del diseño de la página: se puede mover o rediseñar sin tocar los datos. #}
+<section class="sec-cambios" aria-label="Cambios en salas">
+  <h2>Cambios en salas</h2>
+  <p class="sec-nota">Datos de las salas vigiladas tal como los dice la fuente (últimos {{ cambios_salas.dias }} días). Incluye promociones, que no se publican como tarjetas.</p>
+  {% if cambios_salas.filas %}
+  <ul class="sec-lista">
+  {% for c in cambios_salas.filas %}
+    <li>
+      <p class="sec-cabeza"><strong>{{ c.sala }}</strong> · {{ c.tema_texto }} · <span class="sec-fecha">{{ fecha_fuente(c.fecha) }}</span></p>
+      <p class="sec-dato">«{{ c.dato }}»</p>
+      <p class="sec-fuente">Fuente: {{ c.fuente.nombre }}{% if c.fuente.url %} · <a href="{{ c.fuente.url }}" target="_blank" rel="noopener">Leer nota →</a>{% endif %}</p>
+    </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="sec-vacio">Sin cambios registrados en los últimos {{ cambios_salas.dias }} días.</p>
+  {% endif %}
+</section>

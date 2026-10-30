@@ -1,0 +1,51 @@
+{# Brief semanal en Markdown (data/semanal/AAAA-Wnn.md y cuerpo del issue). Datos: data/semanal/AAAA-Wnn.json #}
+# Brief semanal {{ b.semana }}
+
+Semana del {{ fecha_corta(b.desde) }} al {{ fecha_corta(b.hasta) }} · {{ b.hechos }} hecho{{ '' if b.hechos == 1 else 's' }} y {{ b.cambios_registrados }} cambio{{ '' if b.cambios_registrados == 1 else 's' }} en salas en el registro.
+{% if b.nota %}
+
+> {{ b.nota }}
+{% endif %}
+
+## Temas de la semana
+{% for e in b.temas %}
+- {{ e.texto }}{% for f in e.fuentes %} [{{ f.nombre }}]({{ f.url }}){% endfor %}
+
+{% else %}
+- Sin temas.
+{% endfor %}
+
+## Cambios en salas
+{% for e in b.cambios %}
+- {{ e.texto }}{% for f in e.fuentes %} [{{ f.nombre }}]({{ f.url }}){% endfor %}
+
+{% else %}
+- Sin cambios registrados.
+{% endfor %}
+
+## Jugadores y torneos latinos destacados
+{% for e in b.latinos %}
+- {{ e.texto }}{% for f in e.fuentes %} [{{ f.nombre }}]({{ f.url }}){% endfor %}
+
+{% else %}
+- Sin hechos latinos en el registro.
+{% endfor %}
+
+## Fuentes nuevas que rindieron
+{% for f in b.fuentes_nuevas %}
+- **{{ f.nombre }}**{% if f.clase %} ({{ f.clase }}){% endif %}: {{ f.hechos | length }} hecho{{ '' if f.hechos | length == 1 else 's' }}. {% for h in f.hechos %}[{{ h.titulo }}]({{ h.url }}){{ '; ' if not loop.last }}{% endfor %}
+
+{% else %}
+- Ninguna.
+{% endfor %}
+
+## Ideas de artículos
+{% for i in b.ideas %}
+- **{{ i.tema }}** — motivo: {{ i.motivo }}.{% if i.texto %} {{ i.texto }}{% endif %}{% for f in i.fuentes %} [{{ f.nombre }}]({{ f.url }}){% endfor %}
+
+{% else %}
+- Ninguna esta semana (ningún tema siguió 2 semanas o más ni tuvo 3 o más fuentes).
+{% endfor %}
+
+---
+Generado el {{ b.generado }} a partir de data/registro/. Todo dato sale del registro.

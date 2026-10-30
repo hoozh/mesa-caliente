@@ -20,6 +20,7 @@ from . import candidatas as cand
 from . import temas as temas_mod
 from . import torneos
 from . import modelo, pagina, recoleccion
+from . import registro as registro_mod
 from .dias import agregar_corrida, cargar_dias, ruta_dia
 from .util import (RAIZ, ahora_utc, escribir_json, esta_bloqueado, leer_json,
                    normalizar_url)
@@ -336,6 +337,29 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
     })
 
 
+def registrar_hechos(raiz: Path, hoy: date, corrida: dict, resultado: dict, redaccion: list[dict],
+                     salas: dict, temas_activos: list[dict]) -> dict:
+    """Registro permanente: una línea por tarjeta o tema publicado y los cambios de las salas vigiladas.
+    Solo agrega archivos en data/registro/: nunca cambia las tarjetas ni la página del día."""
+    fecha = hoy.isoformat()
+    hechos = []
+    for f in resultado.get("fichas") or []:
+        if "tema" in f:
+            hechos.append(registro_mod.hecho_de_tema(fecha, corrida["id"], f["tema"], f["crudo"], f["items"], salas))
+        else:
+            hechos.append(registro_mod.hecho_de_tarjeta(fecha, corrida["id"], f["tarjeta"], f["seccion"], f["crudo"],
+                                                        f["items"], salas, temas_activos))
+    cambios, descartados = [], []
+    for crudo in resultado.get("cambios_salas") or []:
+        cambio, motivo = registro_mod.verificar_cambio(crudo, redaccion, salas, fecha)
+        if cambio:
+            cambios.append(cambio)
+        else:
+            descartados.append({"motivo": f"cambio en sala descartado: {motivo}"})
+    nuevos_hechos, nuevos_cambios = registro_mod.registrar(raiz, hechos, cambios)
+    return {"hechos": nuevos_hechos, "cambios_salas": nuevos_cambios, "descartados": descartados}
+
+
 def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
              descargar=recoleccion.descargar_http, llamar=modelo.llamar_anthropic,
              generar_pagina: bool = True) -> dict:
@@ -367,6 +391,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
     try:
         corte, motivo_corte = calcular_corte(raiz, ahora, ajustes)
         temas_activos = temas_mod.activos(raiz)
+        salas = registro_mod.cargar_salas(raiz)
         prioridad = temas_mod.detector(temas_activos)
         descartar_dia1 = torneos.descartador_dia1(torneos.cargar_relevantes(raiz))
         vistos_antes = dict(vistos["urls"])
@@ -426,11 +451,16 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
             if a_elegir:
                 guardar_entradas(raiz, hoy, corrida["id"], a_elegir, tipo="seleccion")
                 try:
-                    sel = modelo.seleccionar_hechos(a_elegir, ajustes, llamar, previos, corte, publicadas_antes)
+                    sel = modelo.seleccionar_hechos(a_elegir, ajustes, llamar, previos, corte, publicadas_antes,
+                                                    salas=salas)
                     corrida["uso_seleccion"] = sel["uso"]
                     grupos_sel = sel["hechos"]
-                    seleccion.update(estado="ok", hechos=len(grupos_sel), rescatada=sel["rescatado"],
+                    # «hechos» cuenta solo lo que puede ser tarjeta; las notas de salas van aparte.
+                    n_salas = sum(1 for g in grupos_sel if g["seccion"] == "salas")
+                    seleccion.update(estado="ok", hechos=len(grupos_sel) - n_salas, rescatada=sel["rescatado"],
                                      costo_usd=sel["uso"].get("costo_usd", 0.0))
+                    if n_salas:
+                        seleccion["salas"] = n_salas
                     corrida["controles"] += [dict(d, motivo=d["motivo"], seleccion=True) for d in sel["descartados"]]
                 except modelo.ErrorModelo as e:
                     # Respaldo: sin selección, la redacción recibe la ventana como antes (sin pendientes).
@@ -456,7 +486,9 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 corrida["escena_latam"]["texto"] = TEXTO_LATAM_VACIO
             else:
                 if grupos:
-                    abiertos = _abrir_para_redaccion(redaccion, grupos, ajustes, descargar, estado_cand, hoy)
+                    # Primero los artículos de los hechos que serán tarjetas; los de salas, con lo que sobre.
+                    orden = sorted(grupos, key=lambda g: g["seccion"] == "salas")
+                    abiertos = _abrir_para_redaccion(redaccion, orden, ajustes, descargar, estado_cand, hoy)
                 else:
                     abiertos = _abrir_articulos(redaccion, ajustes, descargar, estado_cand, hoy)
                 corrida["recoleccion"]["articulos_abiertos"] = abiertos
@@ -473,7 +505,8 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                     max_salida -= 500
                 resultado = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
                                            publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
-                                           faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida)
+                                           faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida,
+                                           salas=salas)
                 if resultado.get("temas"):
                     corrida["temas"] = resultado["temas"]
                 corrida["controles"] += resultado.get("controles", [])
@@ -481,6 +514,14 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 corrida["tarjetas"] = resultado["tarjetas"]
                 corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
                                            "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
+                # Un error del registro nunca afecta la corrida: queda anotado y el día se publica igual.
+                try:
+                    reg = registrar_hechos(raiz, hoy, corrida, resultado, redaccion, salas, temas_activos)
+                    corrida["registro"] = {"hechos": reg["hechos"], "cambios_salas": reg["cambios_salas"]}
+                    corrida["controles"] += reg["descartados"]
+                except Exception as e:
+                    corrida["registro"] = {"error": f"{type(e).__name__}: {e}"}
+                    traceback.print_exc()
             corrida["uso"] = sumar_uso(corrida.get("uso_seleccion"), corrida.get("uso_redaccion"))
         corrida["meta"]["publicadas"] = tarjetas_publicadas_hoy(raiz, hoy, corrida)
         if corrida["tarjetas"] or corrida["escena_latam"]["tarjetas"]:

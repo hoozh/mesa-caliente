@@ -1,0 +1,15 @@
+/* Secciones nuevas (Cambios en salas y Brief semanal). Aparte de estilo.css para el rediseño:
+   solo usan las variables de color de estilo.css (--surface, --ink, --line, etc.), así siguen el modo oscuro. */
+section.sec-cambios, section.sec-brief{margin:0 0 24px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);}
+section.sec-cambios h2, section.sec-brief h2{font-size:15px;margin:0 0 6px;}
+.sec-nota, .sec-vacio{margin:0 0 8px;font-size:13px;color:var(--ink-dim);}
+ul.sec-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+ul.sec-lista li{padding:8px 10px;background:var(--surface-2);border-radius:8px;overflow-wrap:anywhere;}
+.sec-cabeza{margin:0;font-size:13.5px;}
+.sec-fecha{color:var(--ink-dim);}
+.sec-dato{margin:4px 0;font-size:14px;line-height:1.5;}
+.sec-fuente{margin:0;font-size:12.5px;color:var(--ink-dim);}
+.sec-fuente a, .sec-brief a{color:var(--accent-ink);}
+.sec-brief h3{font-size:14px;margin:14px 0 6px;}
+.sec-brief ul{margin:0;padding-left:18px;font-size:14px;line-height:1.55;}
+.sec-brief li{margin:0 0 6px;}
