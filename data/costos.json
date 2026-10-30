@@ -526,6 +526,26 @@
       "tokens_salida": 2000,
       "costo_usd": 0.020251,
       "estado": "fallida"
+    },
+    {
+      "fecha": "2026-10-30",
+      "id": "2026-10-30T12:00:26Z",
+      "tipo": "seleccion",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 7391,
+      "tokens_salida": 477,
+      "costo_usd": 0.009776,
+      "estado": "ok"
+    },
+    {
+      "fecha": "2026-10-30",
+      "id": "2026-10-30T12:00:26Z",
+      "tipo": "redaccion",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 12933,
+      "tokens_salida": 5256,
+      "costo_usd": 0.039213,
+      "estado": "ok"
     }
   ]
 }

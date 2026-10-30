@@ -98,6 +98,33 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://bggtrack.cfd/rfwhhYE?type=pokerlistings_banners",
       "origen": "automatica"
+    },
+    {
+      "nombre": "gamblingtherapy.org",
+      "dominio": "gamblingtherapy.org",
+      "detectada": "2026-10-30",
+      "detectada_texto": "detectada el 30 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://www.gamblingtherapy.org/en",
+      "origen": "automatica"
+    },
+    {
+      "nombre": "raig.org",
+      "dominio": "raig.org",
+      "detectada": "2026-10-30",
+      "detectada_texto": "detectada el 30 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://www.raig.org/",
+      "origen": "automatica"
+    },
+    {
+      "nombre": "responsiblegambling.org",
+      "dominio": "responsiblegambling.org",
+      "detectada": "2026-10-30",
+      "detectada_texto": "detectada el 30 de octubre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://www.responsiblegambling.org/",
+      "origen": "automatica"
     }
   ],
   "menciones": [
@@ -952,6 +979,84 @@
       "articulo": "https://br.pokernews.com/noticias/2026/10/redstar-poker-halloween-5m-garantidos-bhs-67957.htm",
       "enlace": "https://www.redstarpoker.com/promotions/hunter_halloween",
       "fecha": "2026-10-29"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1767857-brock-wilson-speeds-to-his-fifth-pokergo-tour-victory-of-2026",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "pgt.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1767857-brock-wilson-speeds-to-his-fifth-pokergo-tour-victory-of-2026",
+      "enlace": "https://www.pgt.com/",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "raig.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/fabiano-kovalski-continues-hot-run-with-ggmillion-victory-52685.htm",
+      "enlace": "https://www.raig.org/",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "gamblingtherapy.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/fabiano-kovalski-continues-hot-run-with-ggmillion-victory-52685.htm",
+      "enlace": "https://www.gamblingtherapy.org/en",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "responsiblegambling.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/fabiano-kovalski-continues-hot-run-with-ggmillion-victory-52685.htm",
+      "enlace": "https://www.responsiblegambling.org/",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "circuitonacionaldepoker.es",
+      "articulo": "https://www.pokernews.com/news/2026/10/cnp-winamax-grand-final-full-schedule-52699.htm",
+      "enlace": "https://circuitonacionaldepoker.es/la-gran-final-cnp-winamax-madrid-2026-se-prepara-para-recibir-a-mas-de-3-000-jugadores/",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "pokerindustrypro.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/10/ggpoker-will-not-launch-alberta-time-being/",
+      "enlace": "https://pokerindustrypro.com/news/article/226049-ggpoker-will-not-enter-alberta-online-poker",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/jungleman-writes-poker-book-52703.htm",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=r&n=147438",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "simonandschuster.com",
+      "articulo": "https://www.pokernews.com/news/2026/10/jungleman-writes-poker-book-52703.htm",
+      "enlace": "https://www.simonandschuster.com/books/Pokerworld/Dan-Cates/9798902681502",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "playwsop.com",
+      "articulo": "https://www.wsop.com/news/wsop-super-circuit-kings-highlights-major-circuit-series-lineup/",
+      "enlace": "https://www.playwsop.com/",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "pokerindustrypro.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/10/stake-poker-signs-farid-jattin-first-poker/",
+      "enlace": "https://pokerindustrypro.com/news/article/225995-stake-poker-signs-its-first-poker-ambassador",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/jhon-grisales-conquista-el-progresivo-k-o-de-las-wps/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "redstarpoker.com",
+      "articulo": "https://br.pokernews.com/noticias/2026/10/avatar-hunt-vampire-redstar-poker-67982.htm",
+      "enlace": "https://www.redstarpoker.com/promotions/avatar_vampire",
+      "fecha": "2026-10-30"
     }
   ]
 }

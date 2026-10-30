@@ -54,7 +54,7 @@
         "Purple Jacket."
       ],
       "alta": "2026-10-18",
-      "ultima_novedad": "2026-10-27",
+      "ultima_novedad": "2026-10-30",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -79,7 +79,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-10-26",
+      "ultima_novedad": "2026-10-30",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -210,14 +210,16 @@
     {
       "nombre": "Tema: Lucas Jumalon",
       "palabras_clave": [
+        "Daniel Negreanu",
         "Lucas Jumalon"
       ],
       "alta": "2026-10-28",
-      "ultima_novedad": "2026-10-29",
+      "ultima_novedad": "2026-10-30",
       "fuentes": [
         "codigopoker.com",
         "poker-red.com",
         "poker.org",
+        "pokernews.com",
         "pokernoticias.com",
         "wsop.com"
       ],
@@ -244,6 +246,20 @@
         "Crown Melbourne"
       ],
       "alta": "2026-10-29",
+      "ultima_novedad": "2026-10-28",
+      "fuentes": [
+        "cardplayer.com",
+        "pokermedia.com.au",
+        "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Hun Wei Lee",
+      "palabras_clave": [
+        "Hun Wei Lee"
+      ],
+      "alta": "2026-10-30",
       "ultima_novedad": "2026-10-28",
       "fuentes": [
         "cardplayer.com",
