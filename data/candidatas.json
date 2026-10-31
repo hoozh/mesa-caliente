@@ -129,48 +129,6 @@
   ],
   "menciones": [
     {
-      "dominio": "ggpoker.com",
-      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
-      "enlace": "https://ggpoker.com/network/security-ecology-policy/",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "betmgmpartners.com",
-      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
-      "enlace": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1747263",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "octopipoker.ai",
-      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
-      "enlace": "https://octopipoker.ai/signup?linkId=lp_286471&sourceId=pokerorg&tenantId=octopipoker",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "pairrd.com",
-      "articulo": "https://www.poker.org/latest-news/ggpoker-drops-the-hammer-on-all-huds-after-superuser-scandal-aiaxn4s3wF4n/",
-      "enlace": "https://pairrd.com/?via=pokerorg",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/ggpoker-endurece-sus-reglas-adios-a-los-programas-externos/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "wsop.com",
-      "articulo": "https://codigopoker.com/aprende-poker/satelites-en-poker-que-son",
-      "enlace": "https://www.wsop.com/about/wsop-circuit/",
-      "fecha": "2026-10-17"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://codigopoker.com/aprende-poker/satelites-en-poker-que-son",
-      "enlace": "https://promo-latam.ggpoker.com/free-bonus-landing-page-test/?qtag=a42689_t9885_c13746Q20260601123822209690_s#038;incoming_url=",
-      "fecha": "2026-10-17"
-    },
-    {
       "dominio": "kkpoker.club",
       "articulo": "https://codigopoker.com/poker-online/hallowin-de-kkpoker",
       "enlace": "https://kkpoker.club/CODIGOCLUB",
@@ -1057,6 +1015,90 @@
       "articulo": "https://br.pokernews.com/noticias/2026/10/avatar-hunt-vampire-redstar-poker-67982.htm",
       "enlace": "https://www.redstarpoker.com/promotions/avatar_vampire",
       "fecha": "2026-10-30"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/junglemans-memoir-pokerworld-set-release-via-49238/",
+      "enlace": "https://www.pokernews.com/news/2026/10/jungleman-writes-poker-book-52703.htm",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "poker.org",
+      "articulo": "https://www.wsop.com/news/poker-live-reporter-liam-gannon-headed-to-wsop-paradise/",
+      "enlace": "http://poker.org",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "ggpoker.com",
+      "articulo": "https://www.wsop.com/news/poker-live-reporter-liam-gannon-headed-to-wsop-paradise/",
+      "enlace": "https://ggpoker.com/",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "bggtrack.cfd",
+      "articulo": "https://www.pokerlistings.com/news/another-250000-drops-at-mystery-battle-royale-but-this-time-for-japanese-top-reg",
+      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1768972-leaderboard-darren-elias-tops-world-poker-tour-cashes-list",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "pokerindustrypro.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/10/pokerstars-network-expands-paddy-power-becomes/",
+      "enlace": "https://pokerindustrypro.com/news/article/226050-after-betfair-paddy-power-moves-new-pokerstars",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "raig.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/20-million-plo-series-returns-to-ggpoker-from-november-1-52708.htm",
+      "enlace": "https://www.raig.org/",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "gamblingtherapy.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/20-million-plo-series-returns-to-ggpoker-from-november-1-52708.htm",
+      "enlace": "https://www.gamblingtherapy.org/en",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "responsiblegambling.org",
+      "articulo": "https://www.pokernews.com/news/2026/10/20-million-plo-series-returns-to-ggpoker-from-november-1-52708.htm",
+      "enlace": "https://www.responsiblegambling.org/",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1768508-guccinike-and-giselle54-are-down-to-the-wire-to-be-2026s-biggest-cash-game-winners",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "railbird.vip",
+      "articulo": "https://www.cardplayer.com/poker-news/1768508-guccinike-and-giselle54-are-down-to-the-wire-to-be-2026s-biggest-cash-game-winners",
+      "enlace": "https://railbird.vip/",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/mesa-y-lobo-lideran-los-vuelos-1d-y-1e-turbo-del-main-event-de-las-wps/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/ecuador-celebra-un-segundo-puesto-de-us200-000-sacude-el-poker-online/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-10-31"
+    },
+    {
+      "dominio": "wired.com",
+      "articulo": "https://codigopoker.com/noticias/hacker-espio-cartas-poker-online-millones",
+      "enlace": "https://es.wired.com/",
+      "fecha": "2026-10-31"
     }
   ]
 }
