@@ -11,7 +11,9 @@
     {"nombre": "YaPoker", "alias": ["Ya Poker"]},
     {"nombre": "ACR", "alias": ["ACR Poker", "Americas Cardroom"]},
     {"nombre": "PokerKing", "alias": ["Poker King"]},
-    {"nombre": "Ignition Poker", "alias": []}
+    {"nombre": "Ignition Poker", "alias": []},
+    {"nombre": "KKPoker", "alias": ["KK Poker"]},
+    {"nombre": "Black Chip Poker", "alias": ["BlackChip Poker"]}
   ],
   "temas": {
     "bonos_promociones": "Bonos y promociones",

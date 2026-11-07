@@ -260,11 +260,23 @@ SALAS = json.loads((RAIZ / "config" / "salas_vigiladas.json").read_text(encoding
 def test_salas_vigiladas_de_la_configuracion():
     nombres = [s["nombre"] for s in SALAS["salas"]]
     assert nombres == ["CoinPoker", "RedStar Poker", "WPT Global", "GGPoker", "PokerStars", "BC Poker",
-                       "Phenom Poker", "YaPoker", "ACR", "PokerKing", "Ignition Poker"]
+                       "Phenom Poker", "YaPoker", "ACR", "PokerKing", "Ignition Poker", "KKPoker", "Black Chip Poker"]
     acr = next(s for s in SALAS["salas"] if s["nombre"] == "ACR")
     assert acr["alias"] == ["ACR Poker", "Americas Cardroom"]
     assert list(SALAS["temas"]) == ["bonos_promociones", "rake_rakeback", "hud_software", "pagos_retiros",
                                     "app_plataformas", "licencia_paises", "series_torneos"]
+
+
+def test_detecta_kkpoker_y_black_chip_poker_por_nombre_y_alias():
+    assert registro.detectar_salas("KKPoker raises rakeback for its clubs", SALAS) == ["KKPoker"]
+    assert registro.detectar_salas("La app de KK Poker cambia los retiros", SALAS) == ["KKPoker"]
+    assert registro.detectar_salas("Black Chip Poker adds a new deposit method", SALAS) == ["Black Chip Poker"]
+    assert registro.detectar_salas("BlackChip Poker anuncia su serie", SALAS) == ["Black Chip Poker"]
+    # No se confunde con BC Poker ni con una ficha negra.
+    assert registro.detectar_salas("BC Poker y Black Chip Poker", SALAS) == ["BC Poker", "Black Chip Poker"]
+    assert registro.detectar_salas("He bet one black chip on the river", SALAS) == []
+    assert registro.sala_vigilada("kk poker", SALAS)["nombre"] == "KKPoker"
+    assert registro.sala_vigilada("BlackChip Poker", SALAS)["nombre"] == "Black Chip Poker"
 
 
 def test_detecta_salas_por_nombre_y_alias_como_palabra_completa():
