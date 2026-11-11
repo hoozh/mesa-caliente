@@ -120,7 +120,7 @@ En el historial, el país de un jugador queda casi siempre pendiente: el resumen
 
 ### Cambios en salas
 
-Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lápiz ✏️; cada sala tiene `alias` para otras formas de nombrarla; Ignition figura solo como «Ignition Poker», nunca «Ignition» suelto). Si una nota trae un cambio de una sala vigilada sobre bonos y promociones, rake y rakeback, HUD y software permitido, pagos y retiros, app y plataformas, licencia o países, o series y torneos insignia, se agrega a `data/registro/cambios_salas.jsonl` (`fecha`, `sala`, `tema`, `dato`, `fuente`).
+Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lápiz ✏️; cada sala tiene `alias` para otras formas de nombrarla; Ignition figura solo como «Ignition Poker», nunca «Ignition» suelto; KKPoker también se reconoce como «KK Poker» y Black Chip Poker como «BlackChip Poker»). Si una nota trae un cambio de una sala vigilada sobre bonos y promociones, rake y rakeback, HUD y software permitido, pagos y retiros, app y plataformas, licencia o países, o series y torneos insignia, se agrega a `data/registro/cambios_salas.jsonl` (`fecha`, `sala`, `tema`, `dato`, `fuente`).
 
 - El `dato` debe estar copiado **tal cual** del texto de la nota (en su idioma) y la sala debe estar nombrada en esa nota; si no, se descarta y queda anotado en `controles`.
 - Las promociones siguen fuera de las tarjetas. La selección las puede elegir en una sección aparte, «salas» (hasta `max_hechos_salas`, 6), que solo alimenta este registro.
@@ -131,7 +131,9 @@ Las salas vigiladas están en `config/salas_vigiladas.json` (se edita con el lá
 El flujo **Brief semanal** corre los **lunes a las 12:30 UTC** (y con el botón **Run workflow**, con una semana opcional `AAAA-Wnn`). Lee el registro de la semana anterior (lunes a domingo) y hace **una sola llamada** al modelo. Trae: temas de la semana, cambios en salas, jugadores y torneos latinos destacados, fuentes nuevas que rindieron e ideas de artículos.
 
 - **Ideas de artículos** y **fuentes nuevas** las decide el programa con el registro. Es idea, con su motivo, un hecho o tema que en la semana tuvo 3 o más fuentes distintas, o apareció en 2 o más días (el mismo tema caliente, el mismo torneo o un título casi igual), o un tema caliente que siguió 2 semanas seguidas o más. Una fuente es nueva si aparece por primera vez en el registro esa semana. El modelo solo agrega una oración a cada idea.
-- **Nombre de cada idea**: un tema caliente manual conserva su nombre. Un tema automático («Tema: …») puede llevar el nombre de una modalidad o una base de datos («No-Limit Hold'em», «Hendon Mob»), así que la idea se nombra por el torneo escrito en el registro (el más repetido en el grupo) o, si es un solo hecho, por su título. Si no hay torneo y son varios hechos, queda el nombre del tema.
+- **Grupos**: dos hechos van juntos si comparten un tema caliente que agrupa, si su campo `torneo` es el mismo (sin distinguir mayúsculas ni tildes) o si tienen un título casi igual **y** el mismo campo `torneo` (los dos vacíos cuentan como iguales). Dos torneos distintos nunca se juntan por el título. Las tarjetas de tema caliente tienen por título el nombre del tema, así que no se agrupan por título.
+- **Origen de cada tema**: se decide por el archivo, no por el nombre. Es manual si está en `config/temas_calientes.json` y automático si está en `data/temas_auto.json`. Un tema automático no agrupa ni da nombre a una idea si es **general** (su nombre es un juego, un formato, una base, una herramienta o una sala; ver «Temas demasiado generales») o si es **de jugador** (su nombre figura en el campo `jugadores` del registro).
+- **Nombre de cada idea**: un tema manual conserva su nombre. Con un tema automático que agrupa, la idea se nombra por el torneo del registro (el más repetido) o, si es un solo hecho, por su título; sin torneo y con varios hechos, por el nombre del tema. Si el nombre resultante es el de un tema general o de jugador (el título de su tarjeta), se usa el torneo y, si no hay, no es idea.
 - **Cambios en salas** del brief: las líneas de `data/registro/cambios_salas.jsonl` de esa semana, con el dato tal cual. Las escribe el programa, no el modelo, así que el encabezado («N cambios en salas») y la sección cuentan siempre lo mismo.
 - **Lo que recibe el modelo**: por hecho, solo fecha, título, clasificación (si no es «confirmado») y los campos con dato (salas, jugadores, torneo, país del evento, temas calientes). Sin fuentes, tipo ni sección.
 - **Reintento**: si la respuesta no es un JSON válido o la llamada falla, se reintenta **una vez**. Si la salida se cortó por el tope (`max_tokens_brief`, 2000), el reintento tiene el doble de tope, siempre que las dos llamadas juntas no pasen `max_costo_usd_por_corrida`. Si el reintento también falla, el brief sale solo con lo que arma el programa y la nota dice el motivo. Cada intento (tope, tokens de salida, si se cortó y el error) queda en `intentos` del JSON del brief y en el registro de la ejecución.
@@ -179,6 +181,15 @@ Un **tema caliente** es una historia que se sigue de cerca, por ejemplo el caso 
 Hay dos clases de temas:
 - **Manuales:** los elige usted, en `config/temas_calientes.json`.
 - **Automáticos:** el programa los crea solo cuando un mismo hecho aparece en 3 o más medios distintos en los últimos 3 días. Se apagan solos tras 7 días sin novedades y se guardan en `data/temas_auto.json`.
+
+### Temas demasiado generales
+
+Un tema automático nunca se arma con un nombre de juego o formato (No-Limit Hold'em, PLO, MTT, Spin & Go…), de base de datos o herramienta (Hendon Mob, PokerCraft, SharkScope…) ni de sala. Las listas están en `config/temas_generales.json` (se editan con el lápiz ✏️; las salas son las de `config/salas_vigiladas.json` más `otras_salas`). Se comparan sin mayúsculas, tildes ni signos y como palabras completas.
+
+- Esas palabras no se usan como palabras clave de un tema nuevo.
+- En cada barrido, a los temas automáticos ya creados se les quitan esas palabras. Si el nombre del tema es general, o no le queda ninguna palabra, pasa a inactivo con el motivo en `excluido` y no se vuelve a activar. Sus tarjetas ya publicadas no cambian.
+- Los temas de **jugadores** se siguen creando: agrupan las notas de esa persona en una tarjeta de la página. Solo quedan fuera de las ideas de artículos del brief.
+- Los temas **manuales** no se tocan.
 
 ### Agregar, desactivar o quitar un tema con el botón (recomendado)
 
