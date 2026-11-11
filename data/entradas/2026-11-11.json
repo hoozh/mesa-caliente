@@ -1,0 +1,715 @@
+{
+  "fecha": "2026-11-11",
+  "corridas": [
+    {
+      "id": "2026-11-11T12:00:27Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
+          "titular": "Player Stages Impressive Comeback to Win the 888 Mystery Bounty Main Event",
+          "primera_frase": "The champion was sixth from eight in chips at the start of the final table."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/pokerstars-or-paddypower-where-qualify-ipt/",
+          "titular": "PokerStars or PaddyPower - Where to Qualify for IPT Galway?",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/choctaw-and-the-reserve-declare-new-wsop-circuit-champions/",
+          "titular": "CHOCTAW AND THE RESERVE DECLARE NEW WSOP CIRCUIT CHAMPIONS",
+          "primera_frase": "Simon Britton wins his first WSOP Circuit ring at Choctaw, while Cody Fisher claims the inaugural Main Event title at The Reserve Poker Club in Toledo."
+        },
+        {
+          "n": 4,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/evolution-launches-its-largest-live-dealer-studio-yet/",
+          "titular": "Evolution Launches Its Largest Live Dealer Studio Yet",
+          "primera_frase": "Evolution is expanding its presence in New Jersey with a new live dealer studio at Atlantic City’s Showboat, marking the company’s largest iGaming studio to date."
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/poker-bankroll-management-risk-of-ruin-49211/",
+          "titular": "Poker Bankroll Management: What a Simulation Shows",
+          "primera_frase": "Monte Carlo results for poker risk of ruin by bankroll size, for cash games and tournaments, with parameters and code published."
+        },
+        {
+          "n": 6,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775245-record-numbers-at-the-coinpoker-nosebleeds",
+          "titular": "Record numbers at the CoinPoker nosebleeds",
+          "primera_frase": "We recap the biggest winners of the week at a time when the high-stakes scene is particularly vibrant at CoinPoker."
+        },
+        {
+          "n": 7,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226328-pokerstars-on-fanduel-adds-long-missing-run-it",
+          "titular": "PokerStars on FanDuel Adds Long-Missing Run It Twice Feature",
+          "primera_frase": "PokerStars on FanDuel, which operates across North American markets using Playtech’s poker platform, has added the Run It Twice ( RIT ) feature to its cash game tables."
+        },
+        {
+          "n": 8,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xtdnq9/50nl_and_below_qq_ak_jj_what_the_am_i_supposed_to/",
+          "titular": "50NL and Below - QQ AK JJ What the **** am i supposed to do?",
+          "primera_frase": "Ive been playing mostly 25NL and im going insane with AKs AKo QQ and JJ."
+        },
+        {
+          "n": 9,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/simon-britton-wins-wsop-circuit-choctaw-main-event-208295/",
+          "titular": "Simon Britton Wins WSOP Circuit Choctaw Main Event for $208,295",
+          "primera_frase": "Simon Britton has finally shed the runner-up tag."
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/pokerstars-anuncia-calendario-del-ept-2027-reduce-buyin-main-54251.htm",
+          "titular": "PokerStars anuncia el calendario completo del EPT 2027; reduce el buy-in del Main Event a 5.000 €",
+          "primera_frase": "Cinco paradas, incluido Barcelona, y un Main Event que baja de 5.300 € a 5.000 €."
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-ept-calendario-2027-programacao-68083.htm",
+          "titular": "PokerStars revela calendário do EPT 2027 e diminui buy-in do Main Event; confira",
+          "primera_frase": "Serão cinco paradas do circuito, que agora tem um Main Event de €5.000"
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/jherson-yeyo-alvarez-conquista-su-segundo-anillo-de-la-wsop-circuit-en-panama/",
+          "titular": "Jherson «Yeyo» Álvarez conquista su segundo anillo de la WSOP Circuit en Panamá",
+          "primera_frase": "El poker colombiano vuelve a celebrar en la WSOP Circuit Panamá 2026."
+        },
+        {
+          "n": 13,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-argentina/wsop-rosario-main-event-nueve-finalistas",
+          "titular": "WSOP Rosario: el chino Mengshi lidera a los nueve que van por el anillo",
+          "primera_frase": ""
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/dauchvid-runner-up-del-main-event-de-las-galactic-series-por-20.052-eu",
+          "titular": "Dauchvid, runner-up del Main Event de las Galactic Series por 20.052 €",
+          "primera_frase": "Galactic Series"
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/11/allen-kessler-hits-grand-jackpot-on-80-cent-slot-machine-52782.htm",
+          "titular": "Allen Kessler Hits Grand Jackpot on 80-Cent Slot Machine Spin",
+          "primera_frase": "The jackpot came on the Money in the Bank Bacon Blvd."
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/tobias-schwecht-wins-301133-ggpokers-10k-49262/",
+          "titular": "Tobias Schwecht Wins $301,133 in $10,000 GGMillion$ PLO Bounty Event on GGPoker",
+          "primera_frase": "Tobias Schwecht has claimed the $10,000 GGMillion$ Pot-Limit Omaha Bounty title on GGPoker, topping an 80-player field to take home $301,133."
+        },
+        {
+          "n": 17,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775170-pokerstars-announces-european-poker-tour-schedule-changes-to-main-event-buy-ins",
+          "titular": "PokerStars Announces European Poker Tour Schedule, Changes To Main Event Buy-Ins",
+          "primera_frase": "PokerStars revealed its 2027 European Poker Tour schedule, featuring five stops and a new main event price point."
+        },
+        {
+          "n": 18,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xtc64h/tools_to_help_poker_beginners/",
+          "titular": "Tools to help poker beginners?",
+          "primera_frase": "https://preview.redd.it/uoq74x2rxx0i1.png?width=2314&format=png&auto=webp&s=baf2e319faf1ad5e651a19096c2a561bd6340463 I created a website to help myself get better at just basic game theory, was wonder"
+        },
+        {
+          "n": 19,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/phil-hellmuth-goes-deep-in-wpt-venetian-las-vegas-fall-event/",
+          "titular": "Phil Hellmuth Goes Deep in WPT Venetian Las Vegas Fall Event",
+          "primera_frase": "The 17-time WSOP bracelet winner Phil Hellmuth Jnr."
+        },
+        {
+          "n": 20,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/murilo-santos-sunday-million-spooky-season-68081.htm",
+          "titular": "Murilo Santos é vice em FT com quatro brasileiros no Sunday Million da Spooky Season",
+          "primera_frase": "O dono do nick \"Izinmsr\" levou mais de US$ 73 mil pelo resultado"
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/michael-hou-conquista-el-mystery-bounty-de-la-wsopc-panama-y-deja-el-anillo-en-casa/",
+          "titular": "Michael Hou conquista el Mystery Bounty de la WSOPC Panamá y deja el anillo en casa",
+          "primera_frase": "Panamá vuelve a celebrar en la WSOP Circuit 2026."
+        },
+        {
+          "n": 22,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/mal-foldeado-la-polemica-queja-de-martin-kabrhel-en-un-torneo",
+          "titular": "¿Mal foldeado? La polémica queja de Martin Kabrhel en un torneo",
+          "primera_frase": ""
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/abriran-raul-y-zeros-el-gold-chest-en-el-ultimo-episodio-de-la-temporada",
+          "titular": "¿Abrirán Raúl y Zeros el Gold Chest en el último episodio de la temporada?",
+          "primera_frase": "Golden Button"
+        },
+        {
+          "n": 24,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/sascha-wilhelm-wins-borgata-plo-championship-52781.htm",
+          "titular": "German Omaha Specialist Wins Borgata PLO Championship for $20,360",
+          "primera_frase": "Sascha Wilhelmis taking a trophy back home to Germany."
+        },
+        {
+          "n": 25,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775161-quan-zhou-seizes-triton-one-cyprus-mystery-bounty-title",
+          "titular": "Quan Zhou Seizes Triton ONE Cyprus Mystery Bounty Title",
+          "primera_frase": "Chinese pro Quan Zhou topped 607 entries to win the Triton ONE North Cyprus $5,000 mystery bounty for $293,000."
+        },
+        {
+          "n": 26,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xtc10t/its_only_a_hit_and_run_if_the_table_thinks_you/",
+          "titular": "Its only a hit and run if the table thinks you are a fish!",
+          "primera_frase": "I was playing 10/20 in my local casino and a new face sat in with a modest stack."
+        },
+        {
+          "n": 27,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/bcpoker-rakeback-cash-games",
+          "titular": "200% Rakeback Rush, la promo de BCPoker que duplica los puntos de jugadores de cash games",
+          "primera_frase": ""
+        },
+        {
+          "n": 28,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/gana-rb-extra-del-30-por-ciento--en-cash-con-happy-hour-rakeback-de-888.es-noviembre26",
+          "titular": "Gana RB extra del 30% en cash con Happy Hour Rakeback de 888.es noviembre'26",
+          "primera_frase": "888.es"
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/poker-player-blatant-angle-shoot-52780.htm",
+          "titular": "Poker Player Makes a Blatant Angle-Shoot Only to Chop the Pot",
+          "primera_frase": "This is one of the weirdest angle-shoots ever."
+        },
+        {
+          "n": 30,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775155-freeroll-winner-almost-takes-down-the-coinmillion",
+          "titular": "Freeroll winner almost takes down the CoinMillion",
+          "primera_frase": "A player who won his seat in a free roll almost takes down one of the biggest tournaments in online poker."
+        },
+        {
+          "n": 31,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-argentina/wsop-rosario-cesarini-gano-mystery-bounty",
+          "titular": "WSOP Rosario: Adrián Cesarini se quedó con el Mystery Bounty",
+          "primera_frase": ""
+        },
+        {
+          "n": 32,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/gana-rb-extra-del-30-por-ciento--en-cash-con-happy-hour-rakeback-de-888-noviembre26",
+          "titular": "Gana RB extra del 30% en cash con Happy Hour Rakeback de 888 noviembre'26",
+          "primera_frase": "888"
+        },
+        {
+          "n": 33,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/quan-zhou-triton-one-north-cyprus-mystery-bounty-52779.htm",
+          "titular": "Quan Zhou Wins $5K Mystery Bounty at Triton ONE North Cyprus",
+          "primera_frase": "An extra day was needed to crown a winner."
+        },
+        {
+          "n": 34,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama/wsop-panama-se-define-el-mystery-bounty",
+          "titular": "[EN VIVO] WSOP Panamá: se definen el Mystery Bounty y los sobres",
+          "primera_frase": ""
+        },
+        {
+          "n": 35,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-reveals-2027-ept-schedule-buy-in-changes-52777.htm",
+          "titular": "PokerStars Unveils Full 2027 EPT Schedule; Reduces Main Event Buy-In to €5,000",
+          "primera_frase": "PokerStars unveils the 2027 EPT schedule with 5 stops and a new €5,000 Main Event buy-in"
+        },
+        {
+          "n": 36,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-millones-extra",
+          "titular": "El BSOP Millions entregará 2 millones de reales extra en premios",
+          "primera_frase": ""
+        },
+        {
+          "n": 37,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/finding-our-space-at-the-table-kerryjane-craigie-52766.htm",
+          "titular": "Finding Our Space at the Table: Kerryjane Craigie on Making Every Moment Count",
+          "primera_frase": "Kerryjane Craigie shares record-breaking updates from London, Malta, Aix, and EPT Prague"
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-rosario-facundo-gil-comanda-el-dia-final-del-mystery-bounty",
+          "titular": "WSOP Rosario: Facundo Gil comanda el Día Final del Mystery Bounty",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/kings-of-vilnius-2026-schedule-preview-52776.htm",
+          "titular": "OlyBet's Kings of Vilnius 2026 Features 30+ Tournaments & €250K GTD Main Event",
+          "primera_frase": "Kings of Vilnius returns December 4-13 with a €250K Main Event and 35 tournaments."
+        },
+        {
+          "n": 40,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/soria-main-event-wsop-rosario",
+          "titular": "Rolando Soria lidera a los clasificados del Día 3 en el Main Event de la WSOP Rosario",
+          "primera_frase": ""
+        },
+        {
+          "n": 41,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama-gaspar-fernandez-llega-como-chipleader-al-dia-final-del-mystery-bounty",
+          "titular": "WSOP Panamá: Gaspar Fernández llega como chipleader al Día Final del Mystery Bounty",
+          "primera_frase": ""
+        },
+        {
+          "n": 42,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/brazilians-dominate-the-spooky-season-sunday-million-52774.htm",
+          "titular": "Brazilians Dominate the Sunday Million as PokerStars Spooky Season Concludes",
+          "primera_frase": "Five of the Spooky Season Sunday Million's nine finalists hailed from Brazil."
+        },
+        {
+          "n": 43,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/freerolls-festival-brings-8000-prizes-888poker/",
+          "titular": "Freerolls Festival Brings $8,000 in Poker Prizes to 888 Alberta Every Week",
+          "primera_frase": ""
+        },
+        {
+          "n": 44,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/adam-wilkinson-wins-gukpt-blackpool-main-49260/",
+          "titular": "Adam Wilkinson Wins GUKPT Blackpool Main Event for £55,035",
+          "primera_frase": "Adam Wilkinson has claimed victory in the GUKPT Blackpool Main Event, according to PokerNews."
+        },
+        {
+          "n": 45,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/mystery-bounty-is-live-on-coinpoker",
+          "titular": "Mystery Bounty Is Live on CoinPoker",
+          "primera_frase": "Keeping pace with trends in the poker industry, the fastest-growing poker room of the 2020s has decided to offer players a format that has already proven popular: Mystery Bounty tournaments.…"
+        },
+        {
+          "n": 46,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226299-ipoker-launches-progressive-mystery-bounty",
+          "titular": "iPoker Launches Progressive Mystery Bounty Tournaments in Southern Europe",
+          "primera_frase": "iPoker has launched progressive mystery bounty tournaments on its Southern European network."
+        },
+        {
+          "n": 47,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xt09qm/the_worst_things_to_hear_when_youre_bluffing/",
+          "titular": "The worst things to hear when you’re bluffing 😂",
+          "primera_frase": "submitted by /u/FlatGuarantee5793 [link] [comentarios]"
+        },
+        {
+          "n": 48,
+          "fuente": "blog.gtowizard.com",
+          "url": "https://blog.gtowizard.com/the-biggest-failure-of-modern-poker-theory/",
+          "titular": "The Biggest Failure of Modern Poker Theory",
+          "primera_frase": "Give 3 solvers the same spot and you'll get 3 different strategies, all near-unexploitable."
+        },
+        {
+          "n": 49,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/el-cep-por-pokerstars-coronara-a-su-campeon-en-peralada-54242.htm",
+          "titular": "El CEP por PokerStars coronará a su campeón de España en Peralada del 25 al 29 de noviembre",
+          "primera_frase": "Casino Peralada acogerá la gran final del CEP en el año de su 20.º aniversario."
+        },
+        {
+          "n": 50,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-big-game-on-tour-polk-esfandiari-68068.htm",
+          "titular": "Nova temporada do PokerStars Big Game on Tour tem Polk e Esfandiari; saiba mais",
+          "primera_frase": "A dupla de peso promete uma mesa bem falante e extrovertida"
+        },
+        {
+          "n": 51,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/ggpoker/reyes-espinoza-obtuvo-triunfo-dominical-en-el-sunday-hundred-grand",
+          "titular": "Reyes Espinoza obtuvo un triunfo dominical en el Sunday Hundred Grand",
+          "primera_frase": ""
+        },
+        {
+          "n": 52,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/la-gran-final-del-cnp-winamax-apunta-alto-se-esperan-mas-de-3.000-registros",
+          "titular": "La Gran Final del CNP Winamax apunta alto: se esperan más de 3.000 registros",
+          "primera_frase": "CNP Winamax 2026"
+        },
+        {
+          "n": 53,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/tony-hinchcliffe-pokerstars-big-game-52764.htm",
+          "titular": "WATCH: Did Comedian Inappropriately Influence Action After He'd Already Folded?",
+          "primera_frase": "Was the star of \"Kill Tony\" out of line?"
+        },
+        {
+          "n": 54,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/doug-polk-sets-tone-big-game-on-tour-return/",
+          "titular": "Doug Polk Sets the Tone for the Big Game on Tour Return",
+          "primera_frase": ""
+        },
+        {
+          "n": 55,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xtae1w/dont_get_pot_committed_billy/",
+          "titular": "Don't get pot committed Billy!!!",
+          "primera_frase": "submitted by /u/thank_U_based_God [link] [comentarios]"
+        },
+        {
+          "n": 56,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/alex-y-kristen-foxen-se-asocian-con-solana-de-cara-a-las-wso-54233.htm",
+          "titular": "Alex y Kristen Foxen se asocian con Solana de cara a las WSOP Paradise",
+          "primera_frase": "La pareja de jugadores se une a Solana para facilitar las inscripciones con criptomonedas en las WSOP."
+        },
+        {
+          "n": 57,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/twin-lions-tiene-proximo-su-19-aniversario-con-mxn1-000-000-garantizados",
+          "titular": "Twin Lions tiene próximo su 19 aniversario con MXN$1.000.000 garantizados",
+          "primera_frase": ""
+        },
+        {
+          "n": 58,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/poker-red-ya-tiene-liga-en-triton-fantasy-unete-y-prepara-tu-equipo",
+          "titular": "Poker-Red ya tiene liga en Triton Fantasy: ¡únete y prepara tu equipo!",
+          "primera_frase": "Triton Fantasy"
+        },
+        {
+          "n": 59,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xsv00s/this_is_pretty_much_the_most_ridiculous_angle/",
+          "titular": "This is pretty much the most ridiculous angle shoot ever",
+          "primera_frase": "Congrats on ruining your reputation all to chop a pot..."
+        },
+        {
+          "n": 60,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/polk-y-esfandiari-tuvieron-una-jornada-dificil-en-the-big-game-on-tour",
+          "titular": "Polk y Esfandiari tuvieron una jornada difícil en The Big Game On Tour",
+          "primera_frase": ""
+        },
+        {
+          "n": 61,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/alex-y-kristen-foxen-se-unen-a-solana-antes-de-wsop-paradise",
+          "titular": "Alex y Kristen Foxen se unen a Solana antes de WSOP Paradise",
+          "primera_frase": "WSOP Paradise 2026"
+        },
+        {
+          "n": 62,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/costo-viajar-a-las-vegas",
+          "titular": "El costo de viajar a Las Vegas con el dólar de hoy: ¿conviene ir?",
+          "primera_frase": ""
+        },
+        {
+          "n": 63,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/como-piensa-lucia-navarro-cuando-juega-el-main-event-de-las-wsop",
+          "titular": "¿Cómo piensa Lucía Navarro cuando juega el Main Event de las WSOP?",
+          "primera_frase": "WSOP 2026"
+        },
+        {
+          "n": 64,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama-luis-ramirez-y-justin-fawcett-lideraron-el-inicio-del-main-event",
+          "titular": "WSOP Panamá: Luis Ramírez y Justin Fawcett lideraron el inicio del Main Event",
+          "primera_frase": ""
+        },
+        {
+          "n": 65,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/david-camara-luzago-celebro-el-programa-400-con-justo-velardos",
+          "titular": "David Cámara \"Luzago\" celebró el programa 400 con Justo Velardos",
+          "primera_frase": "MarcaPóker"
+        },
+        {
+          "n": 66,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/diego-sanchez-ya-tiene-su-anillo-de-la-wsop-rosario",
+          "titular": "Diego Sánchez ya tiene su anillo de la WSOP Rosario",
+          "primera_frase": ""
+        },
+        {
+          "n": 67,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/mario-diaz-peleara-por-los-138.264-USD-del-ggmasters-high-rollers",
+          "titular": "Mario Díaz peleará por los 138.264 $ del GGMasters High Rollers",
+          "primera_frase": "GGpoker"
+        },
+        {
+          "n": 68,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/festivales-de-poker-en-vivo-latam",
+          "titular": "Los 5 festivales de poker imperdibles para cerrar el año sin salir de Latinoamérica",
+          "primera_frase": ""
+        },
+        {
+          "n": 69,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/wesley-wiemes-campeon-sin-discusion-en-el-noche-de-poker-el-festival-murcia",
+          "titular": "Wesley Wiemes, campeón sin discusión en el Noche de Poker: El Festival Murcia",
+          "primera_frase": "Noche de Poker El Festival"
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-11T12:00:27Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/lex-veldhuis-you-are-not-indestructible",
+          "titular": "Lex Veldhuis: “You Are Not Indestructible”",
+          "primera_frase": "On November 3rd, 2026, following more than half of the year of whispers and anticipation, legendary poker streamer Lex Veldhuis finally joined the GGPoker team as a Global Streaming Ambassador.…",
+          "tema": "Tema: Lex Veldhuis"
+        },
+        {
+          "n": 2,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/choctaw-and-the-reserve-declare-new-wsop-circuit-champions/",
+          "titular": "CHOCTAW AND THE RESERVE DECLARE NEW WSOP CIRCUIT CHAMPIONS",
+          "primera_frase": "Simon Britton wins his first WSOP Circuit ring at Choctaw, while Cody Fisher claims the inaugural Main Event title at The Reserve Poker Club in Toledo.",
+          "con_extracto": true
+        },
+        {
+          "n": 3,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/simon-britton-wins-wsop-circuit-choctaw-main-event-208295/",
+          "titular": "Simon Britton Wins WSOP Circuit Choctaw Main Event for $208,295",
+          "primera_frase": "Simon Britton has finally shed the runner-up tag."
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/tobias-schwecht-wins-301133-ggpokers-10k-49262/",
+          "titular": "Tobias Schwecht Wins $301,133 in $10,000 GGMillion$ PLO Bounty Event on GGPoker",
+          "primera_frase": "Tobias Schwecht has claimed the $10,000 GGMillion$ Pot-Limit Omaha Bounty title on GGPoker, topping an 80-player field to take home $301,133.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775161-quan-zhou-seizes-triton-one-cyprus-mystery-bounty-title",
+          "titular": "Quan Zhou Seizes Triton ONE Cyprus Mystery Bounty Title",
+          "primera_frase": "Chinese pro Quan Zhou topped 607 entries to win the Triton ONE North Cyprus $5,000 mystery bounty for $293,000.",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/quan-zhou-triton-one-north-cyprus-mystery-bounty-52779.htm",
+          "titular": "Quan Zhou Wins $5K Mystery Bounty at Triton ONE North Cyprus",
+          "primera_frase": "An extra day was needed to crown a winner."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/sascha-wilhelm-wins-borgata-plo-championship-52781.htm",
+          "titular": "German Omaha Specialist Wins Borgata PLO Championship for $20,360",
+          "primera_frase": "Sascha Wilhelmis taking a trophy back home to Germany.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
+          "titular": "Player Stages Impressive Comeback to Win the 888 Mystery Bounty Main Event",
+          "primera_frase": "The champion was sixth from eight in chips at the start of the final table.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/pokerstars-anuncia-calendario-del-ept-2027-reduce-buyin-main-54251.htm",
+          "titular": "PokerStars anuncia el calendario completo del EPT 2027; reduce el buy-in del Main Event a 5.000 €",
+          "primera_frase": "Cinco paradas, incluido Barcelona, y un Main Event que baja de 5.300 € a 5.000 €.",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775170-pokerstars-announces-european-poker-tour-schedule-changes-to-main-event-buy-ins",
+          "titular": "PokerStars Announces European Poker Tour Schedule, Changes To Main Event Buy-Ins",
+          "primera_frase": "PokerStars revealed its 2027 European Poker Tour schedule, featuring five stops and a new main event price point."
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-reveals-2027-ept-schedule-buy-in-changes-52777.htm",
+          "titular": "PokerStars Unveils Full 2027 EPT Schedule; Reduces Main Event Buy-In to €5,000",
+          "primera_frase": "PokerStars unveils the 2027 EPT schedule with 5 stops and a new €5,000 Main Event buy-in"
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226328-pokerstars-on-fanduel-adds-long-missing-run-it",
+          "titular": "PokerStars on FanDuel Adds Long-Missing Run It Twice Feature",
+          "primera_frase": "PokerStars on FanDuel, which operates across North American markets using Playtech’s poker platform, has added the Run It Twice ( RIT ) feature to its cash game tables."
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/kings-of-vilnius-2026-schedule-preview-52776.htm",
+          "titular": "OlyBet's Kings of Vilnius 2026 Features 30+ Tournaments & €250K GTD Main Event",
+          "primera_frase": "Kings of Vilnius returns December 4-13 with a €250K Main Event and 35 tournaments.",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/adam-wilkinson-wins-gukpt-blackpool-main-49260/",
+          "titular": "Adam Wilkinson Wins GUKPT Blackpool Main Event for £55,035",
+          "primera_frase": "Adam Wilkinson has claimed victory in the GUKPT Blackpool Main Event, according to PokerNews.",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/finding-our-space-at-the-table-kerryjane-craigie-52766.htm",
+          "titular": "Finding Our Space at the Table: Kerryjane Craigie on Making Every Moment Count",
+          "primera_frase": "Kerryjane Craigie shares record-breaking updates from London, Malta, Aix, and EPT Prague",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/brazilians-dominate-the-spooky-season-sunday-million-52774.htm",
+          "titular": "Brazilians Dominate the Sunday Million as PokerStars Spooky Season Concludes",
+          "primera_frase": "Five of the Spooky Season Sunday Million's nine finalists hailed from Brazil.",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-big-game-on-tour-polk-esfandiari-68068.htm",
+          "titular": "Nova temporada do PokerStars Big Game on Tour tem Polk e Esfandiari; saiba mais",
+          "primera_frase": "A dupla de peso promete uma mesa bem falante e extrovertida",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/doug-polk-sets-tone-big-game-on-tour-return/",
+          "titular": "Doug Polk Sets the Tone for the Big Game on Tour Return",
+          "primera_frase": ""
+        },
+        {
+          "n": 19,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/alex-y-kristen-foxen-se-asocian-con-solana-de-cara-a-las-wso-54233.htm",
+          "titular": "Alex y Kristen Foxen se asocian con Solana de cara a las WSOP Paradise",
+          "primera_frase": "La pareja de jugadores se une a Solana para facilitar las inscripciones con criptomonedas en las WSOP.",
+          "con_extracto": true
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/alex-y-kristen-foxen-se-unen-a-solana-antes-de-wsop-paradise",
+          "titular": "Alex y Kristen Foxen se unen a Solana antes de WSOP Paradise",
+          "primera_frase": "WSOP Paradise 2026"
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/jherson-yeyo-alvarez-conquista-su-segundo-anillo-de-la-wsop-circuit-en-panama/",
+          "titular": "Jherson «Yeyo» Álvarez conquista su segundo anillo de la WSOP Circuit en Panamá",
+          "primera_frase": "El poker colombiano vuelve a celebrar en la WSOP Circuit Panamá 2026.",
+          "con_extracto": true
+        },
+        {
+          "n": 22,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/michael-hou-conquista-el-mystery-bounty-de-la-wsopc-panama-y-deja-el-anillo-en-casa/",
+          "titular": "Michael Hou conquista el Mystery Bounty de la WSOPC Panamá y deja el anillo en casa",
+          "primera_frase": "Panamá vuelve a celebrar en la WSOP Circuit 2026."
+        },
+        {
+          "n": 23,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/murilo-santos-sunday-million-spooky-season-68081.htm",
+          "titular": "Murilo Santos é vice em FT com quatro brasileiros no Sunday Million da Spooky Season",
+          "primera_frase": "O dono do nick \"Izinmsr\" levou mais de US$ 73 mil pelo resultado",
+          "con_extracto": true
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-argentina/wsop-rosario-cesarini-gano-mystery-bounty",
+          "titular": "WSOP Rosario: Adrián Cesarini se quedó con el Mystery Bounty",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/el-cep-por-pokerstars-coronara-a-su-campeon-en-peralada-54242.htm",
+          "titular": "El CEP por PokerStars coronará a su campeón de España en Peralada del 25 al 29 de noviembre",
+          "primera_frase": "Casino Peralada acogerá la gran final del CEP en el año de su 20.º aniversario.",
+          "con_extracto": true
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-millones-extra",
+          "titular": "El BSOP Millions entregará 2 millones de reales extra en premios",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 27,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/mystery-bounty-is-live-on-coinpoker",
+          "titular": "Mystery Bounty Is Live on CoinPoker",
+          "primera_frase": "Keeping pace with trends in the poker industry, the fastest-growing poker room of the 2020s has decided to offer players a format that has already proven popular: Mystery Bounty tournaments.…",
+          "con_extracto": true
+        },
+        {
+          "n": 28,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226299-ipoker-launches-progressive-mystery-bounty",
+          "titular": "iPoker Launches Progressive Mystery Bounty Tournaments in Southern Europe",
+          "primera_frase": "iPoker has launched progressive mystery bounty tournaments on its Southern European network."
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

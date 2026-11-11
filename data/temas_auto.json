@@ -302,7 +302,7 @@
         "pokernews.com",
         "pokernewsdaily.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Michael Mizrachi.",
@@ -341,7 +341,7 @@
         "Lex Veldhuis"
       ],
       "alta": "2026-11-06",
-      "ultima_novedad": "2026-11-04",
+      "ultima_novedad": "2026-11-11",
       "fuentes": [
         "codigopoker.com",
         "pokerfuse.com",
@@ -356,6 +356,20 @@
         "John Rezzonico"
       ],
       "alta": "2026-11-10",
+      "ultima_novedad": "2026-11-10",
+      "fuentes": [
+        "cardplayer.com",
+        "poker-red.com",
+        "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Christopher Marcadet",
+      "palabras_clave": [
+        "Christopher Marcadet"
+      ],
+      "alta": "2026-11-11",
       "ultima_novedad": "2026-11-10",
       "fuentes": [
         "cardplayer.com",
