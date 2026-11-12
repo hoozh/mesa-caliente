@@ -81,7 +81,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-07",
+      "ultima_novedad": "2026-11-12",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -228,7 +228,7 @@
         "pokernoticias.com",
         "wsop.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Turning Stone",
@@ -317,7 +317,7 @@
         "pokerindustrypro.com",
         "pokernews.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Vladimir Minko",
@@ -375,6 +375,20 @@
         "cardplayer.com",
         "poker-red.com",
         "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Matt Affleck.",
+      "palabras_clave": [
+        "Matt Affleck."
+      ],
+      "alta": "2026-11-12",
+      "ultima_novedad": "2026-11-12",
+      "fuentes": [
+        "cardplayer.com",
+        "pokernews.com",
+        "tightpoker.com"
       ],
       "estado": "activo"
     }
