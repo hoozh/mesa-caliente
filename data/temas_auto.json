@@ -81,7 +81,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-12",
+      "ultima_novedad": "2026-11-14",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -217,7 +217,7 @@
         "Lucas Jumalon"
       ],
       "alta": "2026-10-28",
-      "ultima_novedad": "2026-11-13",
+      "ultima_novedad": "2026-11-14",
       "fuentes": [
         "codigopoker.com",
         "poker-red.com",
@@ -333,7 +333,7 @@
         "pokernews.com",
         "pokernoticias.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Lex Veldhuis",
@@ -398,10 +398,11 @@
         "Vito Branciforte"
       ],
       "alta": "2026-11-13",
-      "ultima_novedad": "2026-11-13",
+      "ultima_novedad": "2026-11-14",
       "fuentes": [
         "cardplayer.com",
         "pokernews.com",
+        "pokernewsdaily.com",
         "wsop.com"
       ],
       "estado": "activo"
