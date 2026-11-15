@@ -134,57 +134,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://bsop.com.br/monte-sua-grade",
       "origen": "automatica"
+    },
+    {
+      "nombre": "gorillagaming.net",
+      "dominio": "gorillagaming.net",
+      "detectada": "2026-11-15",
+      "detectada_texto": "detectada el 15 de noviembre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://gorillagaming.net/",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "once.run",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xkf66c/the_quiz_of_horror_do_you_dare/",
-      "enlace": "https://once.run/QuizOfHorror",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "runitonce.com",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xkf66c/the_quiz_of_horror_do_you_dare/",
-      "enlace": "https://www.runitonce.com/omahalloween/",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1769296-sergei-kislinskii-captures-pgt-sprint-event-no-4-title",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/nevada-governor-candidate-danielle-ford-credits-49240/",
-      "enlace": "https://www.pokernews.com/news/2026/10/nevada-governor-candidate-poker-roots-52574.htm",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "pokerindustrypro.com",
-      "articulo": "https://pokerfuse.com/latest-news/2026/10/pokerstars-fanduels-spin-field-goal-cheapest-way/",
-      "enlace": "https://pokerindustrypro.com/news/article/224807-pokerstars-on-fanduel-swaps-spin-field-goal-nfl",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/miguel-el-chory-rodal-y-salvador-roca-lideran-los-vuelos-del-second-chance-mystery-bounty-en-la-wps/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/daniele-primerano-lidera-a-los-33-sobrevivientes-del-main-event-de-las-wps-medellin/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-01"
-    },
-    {
-      "dominio": "wsop.com",
-      "articulo": "https://codigopoker.com/noticias/torneos/wsop/nacho-barbero-final-wsop-circuit-madrid",
-      "enlace": "https://www.wsop.com/",
-      "fecha": "2026-11-01"
-    },
     {
       "dominio": "raig.org",
       "articulo": "https://www.pokernews.com/news/2026/11/bo-hoebe-wins-wsopc-madrid-main-event-52718.htm",
@@ -934,6 +895,60 @@
       "articulo": "https://www.pokerlistings.com/news/ggpoker-hosts-black-friday-week-ggmillion-festival-at-the-same-time",
       "enlace": "https://ggpoker.com/tournaments/black-friday-week/",
       "fecha": "2026-11-14"
+    },
+    {
+      "dominio": "globalpokersites.com",
+      "articulo": "https://www.reddit.com/r/poker/comments/1xw82fb/ggpoker_data_breach_what_leaked_and_who_likely/",
+      "enlace": "https://globalpokersites.com/articles/ggpoker-supplier-breach-what-leaked",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "poker.org",
+      "articulo": "https://www.wsop.com/news/wsop-circuit-caesars-new-orleans-500-k-gtd-main-event/",
+      "enlace": "https://www.poker.org/instant/",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "gorillagaming.net",
+      "articulo": "https://www.wsop.com/news/wsop-circuit-caesars-new-orleans-500-k-gtd-main-event/",
+      "enlace": "https://gorillagaming.net/",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1775942-new-texas-democrat-leadership-could-legalize-casinos-sports-betting",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "texas.gov",
+      "articulo": "https://www.cardplayer.com/poker-news/1775942-new-texas-democrat-leadership-could-legalize-casinos-sports-betting",
+      "enlace": "https://capitol.texas.gov/tlodocs/90R/billtext/pdf/HJ00052I.pdf",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "click2houston.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1775942-new-texas-democrat-leadership-could-legalize-casinos-sports-betting",
+      "enlace": "https://www.click2houston.com/news/local/2026/11/10/texas-casino-push-gets-new-life-heres-what-house-joint-resolution-52-would-do/",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/daniel-negreanu-es-papa-por-primera-vez-kidpoker-le-da-paso-a-una-nueva-etapa-en-su-carrera/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/nueve-finalistas-y-un-sueno-el-main-event-de-la-wsopc-panama-2026-entra-en-su-recta-final/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-15"
+    },
+    {
+      "dominio": "pokerstarslive.com",
+      "articulo": "https://codigopoker.com/noticias/torneos/ept/ept-2027-redujo-buy-in-main",
+      "enlace": "https://www.pokerstarslive.com/es/ept/?&no_redirect=1",
+      "fecha": "2026-11-15"
     }
   ]
 }

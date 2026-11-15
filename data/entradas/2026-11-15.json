@@ -1,0 +1,437 @@
+{
+  "fecha": "2026-11-15",
+  "corridas": [
+    {
+      "id": "2026-11-15T12:00:30Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/new-york-city-getting-first-poker-room-52734.htm",
+          "titular": "First Casino-Based New York City Poker Room Expected to Open in December",
+          "primera_frase": "This is a huge deal for poker, not just New York City poker players."
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/yall-poker-reality-series-set-debut-49273/",
+          "titular": "Poker Reality Series ‘Y’All In’ Set for YouTube Debut in November 2026",
+          "primera_frase": "A new poker-themed reality series is heading to YouTube later this month."
+        },
+        {
+          "n": 3,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1776153-poker-strategy-with-alex-fitzgerald-five-subtle-tells-you-should-look-for-at-the-table",
+          "titular": "Poker Strategy With Alex Fitzgerald: Five Subtle Tells You Should Look For At The Table",
+          "primera_frase": "These five bad habits at the poker table are giving off subtle tells that may reveal a lot more information than you realize."
+        },
+        {
+          "n": 4,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xwsqwd/poker_coaches_how_do_you_manage_your_students_day/",
+          "titular": "Poker coaches: how do you manage your students day to day?",
+          "primera_frase": "Hi everyone, I'm a software developer (and a micro-stakes player) researching how poker coaches run the day-to-day side of coaching: students, hand reviews, notes, homework."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/nueve-finalistas-y-un-sueno-el-main-event-de-la-wsopc-panama-2026-entra-en-su-recta-final/",
+          "titular": "Nueve finalistas y un sueño: el Main Event de la WSOPC Panamá 2026 entra en su recta final",
+          "primera_frase": "El torneo más importante de la WSOP Circuit Panamá 2026 ya tiene a sus nueve finalistas."
+        },
+        {
+          "n": 6,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-fernando-romano-lidero-el-dia-1-del-super-high-roller-invitational",
+          "titular": "BSOP Millions: Fernando Romano lideró el Día 1 del Super High Roller Invitational",
+          "primera_frase": ""
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/sridhar-sangannagari-wins-500-betmgm-hybrid-52806.htm",
+          "titular": "Most Accomplished Player at Final Table Wins $500 BetMGM Hybrid for $22,050",
+          "primera_frase": "The cream rises to the top."
+        },
+        {
+          "n": 8,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xwro8g/my_buddy_is_so_bad_at_poker_he_thinks_he_got/",
+          "titular": "my buddy is so bad at poker he thinks he got scammed by college kids",
+          "primera_frase": "For context my buddy hits me up for this poker game, turns out it's in a college dorm room with a wooden table in the middle."
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-es-papa-por-primera-vez-kidpoker-le-da-paso-a-una-nueva-etapa-en-su-carrera/",
+          "titular": "Daniel Negreanu es papá por primera vez: “KidPoker” le da paso a una nueva etapa en su carrera",
+          "primera_frase": "Después de ocho brazaletes, incontables mesas finales y más de tres décadas siendo “el niño” del poker mundial, Daniel Negreanu estrena un título que ningún torneo puede entregarle."
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/hertsel-levy-lidera-a-los-finalistas-del-wsop-panama-main-event",
+          "titular": "Hertsel Levy manda entre los finalistas del WSOP Panamá Main Event",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/rampage-poker-golf-youtube-channel-52805.htm",
+          "titular": "'Rampage' is Now a Golf Vlogger and He's Taking on High-Stakes Competitions",
+          "primera_frase": "Rampage has a new YouTube channel."
+        },
+        {
+          "n": 12,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xwri0c/i_think_i_just_got_hustled_out_of_1k_by_a_bunch/",
+          "titular": "I think I just got hustled out of $1k by a bunch of college kids in a dorm lobby playing 5/10/25/50",
+          "primera_frase": "So I think I just paid $1,000 for a lesson in game selection."
+        },
+        {
+          "n": 13,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/daniel-negreanu-recibe-a-roman-su-primer-hijo-en-un-viernes-13-de-buena-suerte",
+          "titular": "Daniel Negreanu presentó a Roman, su primer hijo, nacido el viernes 13 de buena suerte",
+          "primera_frase": ""
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/11/new-york-man-allegedly-gambled-using-a-5-7m-real-estate-scam-52797.htm",
+          "titular": "New York Man Allegedly Gambled Using a $5.7M Real Estate Scam",
+          "primera_frase": "The man allegedly gambled some of the ill-gotten $5.7 million."
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/gerardo-hernandez-se-corono-campeon-del-plo4-5-en-wsopc-panama",
+          "titular": "Gerardo Hernández se coronó campeón del PLO4/5 en WSOPC Panamá",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/dan-jungleman-cates-se-cruzo-con-mariano-grandoli-en-hustler-casino-live-que-ma-estas-haciendo",
+          "titular": "Dan «Jungleman» Cates se cruzó con Mariano Grandoli en Hustler Casino Live: «¿Qué m*@#a estás haciendo?»",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/un-clasificado-online-gano-el-main-event-del-wsop-super-circuit-rozvadov",
+          "titular": "Un clasificado online ganó el Main Event del WSOP Super Circuit Rozvadov",
+          "primera_frase": ""
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/texas-poker-reality-tv-show-52803.htm",
+          "titular": "New Poker Reality Competition Show Combines Poker, Comedy, and Texas Culture",
+          "primera_frase": "Jared Bleznick and other poker stars will take on celebs in an epic challenge."
+        },
+        {
+          "n": 19,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/888-poker-adds-ai-feature-estimate-tournament/",
+          "titular": "888 Poker Adds AI Feature to Estimate Tournament Duration",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-circuit-caesars-new-orleans-500-k-gtd-main-event/",
+          "titular": "WSOP CIRCUIT CAESARS NEW ORLEANS: $500K GTD MAIN EVENT",
+          "primera_frase": "The WSOP Circuit hits Caesars New Orleans Nov."
+        },
+        {
+          "n": 21,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/ggpoker-hosts-black-friday-week-ggmillion-festival-at-the-same-time",
+          "titular": "GGPoker Hosts Black Friday Week & GGMillion$ Festival at the Same Time",
+          "primera_frase": "From November 15th to 30th, 2026 players on the GG Network can look forward to the GGMillion$ series, as well as discounts on GEMs exchanges and buy-ins for regular tournaments.…"
+        },
+        {
+          "n": 22,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775942-new-texas-democrat-leadership-could-legalize-casinos-sports-betting",
+          "titular": "New Texas Democrat Leadership Could Legalize Casinos, Sports Betting",
+          "primera_frase": "Gamblers are hoping that the blue wave in Texas will finally lead to the legalization of casinos and sports betting."
+        },
+        {
+          "n": 23,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xw9k30/club_in_toronto_refuses_to_pay_bad_beat/",
+          "titular": "Club in Toronto refuses to pay bad beat",
+          "primera_frase": "Bad Beat is $30k AAAQQ+ losing minimum $20 pot."
+        },
+        {
+          "n": 24,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/daniel-negreanu-amanda-primeiro-filho-68116.htm",
+          "titular": "Daniel Negreanu e sua esposa, Amanda, anunciam chegada do primeiro filho",
+          "primera_frase": "Roman Negreanu nasceu com 4,17 kg, nesta sexta-feira"
+        },
+        {
+          "n": 25,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/tickets-wsop-punta-cana-ggpoker",
+          "titular": "Todo sobre tus tickets: ¿Ganaste un satélite para la WSOP Punta Cana en GGPoker y no puedes viajar?",
+          "primera_frase": ""
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/wsop-champion-lucas-jumalon-turned-down-negreanu-cash-game-52794.htm",
+          "titular": "Why WSOP Main Event Champ Turned Down Huge Cash Game With Negreanu",
+          "primera_frase": "Could you say no to playing poker with Daniel Negreanu?"
+        },
+        {
+          "n": 27,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/ggpoker-sees-another-million-jackpot-on-its-spin/",
+          "titular": "GGPoker Sees Another Million Jackpot Won on Its Spin & Gold Game",
+          "primera_frase": ""
+        },
+        {
+          "n": 28,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xw7dgu/big_news_about_nyc_poker_room/",
+          "titular": "Big news about NYC poker room",
+          "primera_frase": "Resorts world nyc will open their first live poker room on December 17th."
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/ggpoker-gta-vi-playstation-5-68113.htm",
+          "titular": "PlayStation 5 e GTA VI de graça? GGPoker oferece promoção em lançamento épico",
+          "primera_frase": "Serão quatro torneios gratuitos com prêmios generosos"
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-martini-25k",
+          "titular": "BSOP Millions: Gabriel Martini remontó y brindó en el primer High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xwmehn/did_fanduel_kill_pokerstars_play_money/",
+          "titular": "Did FanDuel kill PokerStars Play Money?",
+          "primera_frase": "I'm a United States™️ resident, and reside in a state which doesn't allow real money online poker."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama/wsop-panama-me-1d",
+          "titular": "WSOP Panamá: Mario Del Valle mandó en el vuelo más grande",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/texas-redada-katy-poker-cuatro-detenidos",
+          "titular": "Otra redada sacude al poker de Texas: cuatro detenidos",
+          "primera_frase": ""
+        },
+        {
+          "n": 34,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/ept/ept-2027-redujo-buy-in-main",
+          "titular": "El EPT anunció su agenda para el 2027 y redujo el buy-in de sus Main Events",
+          "primera_frase": ""
+        },
+        {
+          "n": 35,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/kristen-foxen-high-stakes-no-solo-hombres",
+          "titular": "Kristen Foxen quiere demostrar que los high stakes no son solo para hombres",
+          "primera_frase": ""
+        },
+        {
+          "n": 36,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/jacson-rodriguez-se-quedo-con-el-plo4-championship-de-la-wsop-panama",
+          "titular": "Jacson Rodríguez se quedó con el PLO4 Championship de la WSOP Panamá",
+          "primera_frase": ""
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/arranca-bsop-millions-neymar-streaming-codigopoker",
+          "titular": "Arranca el BSOP Millions: Neymar, millones y CodigoPoker",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/wsop-panama-gerardo-hernandez-lidero-a-los-clasificados-del-dia-1c",
+          "titular": "WSOP Panamá: Gerardo Hernández lideró a los clasificados del Día 1C",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/adrian-romeo-se-despidio-de-la-wsop-rosario-ganando-el-evento-the-closer",
+          "titular": "Adrián Romeo se despidió de la WSOP Rosario ganando el evento The Closer",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-15T12:00:30Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/new-york-city-getting-first-poker-room-52734.htm",
+          "titular": "First Casino-Based New York City Poker Room Expected to Open in December",
+          "primera_frase": "This is a huge deal for poker, not just New York City poker players.",
+          "con_extracto": true
+        },
+        {
+          "n": 2,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xw7dgu/big_news_about_nyc_poker_room/",
+          "titular": "Big news about NYC poker room",
+          "primera_frase": "Resorts world nyc will open their first live poker room on December 17th."
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/sridhar-sangannagari-wins-500-betmgm-hybrid-52806.htm",
+          "titular": "Most Accomplished Player at Final Table Wins $500 BetMGM Hybrid for $22,050",
+          "primera_frase": "The cream rises to the top.",
+          "con_extracto": true
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/texas-poker-reality-tv-show-52803.htm",
+          "titular": "New Poker Reality Competition Show Combines Poker, Comedy, and Texas Culture",
+          "primera_frase": "Jared Bleznick and other poker stars will take on celebs in an epic challenge.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/888-poker-adds-ai-feature-estimate-tournament/",
+          "titular": "888 Poker Adds AI Feature to Estimate Tournament Duration",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-circuit-caesars-new-orleans-500-k-gtd-main-event/",
+          "titular": "WSOP CIRCUIT CAESARS NEW ORLEANS: $500K GTD MAIN EVENT",
+          "primera_frase": "The WSOP Circuit hits Caesars New Orleans Nov.",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775942-new-texas-democrat-leadership-could-legalize-casinos-sports-betting",
+          "titular": "New Texas Democrat Leadership Could Legalize Casinos, Sports Betting",
+          "primera_frase": "Gamblers are hoping that the blue wave in Texas will finally lead to the legalization of casinos and sports betting.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xw9k30/club_in_toronto_refuses_to_pay_bad_beat/",
+          "titular": "Club in Toronto refuses to pay bad beat",
+          "primera_frase": "Bad Beat is $30k AAAQQ+ losing minimum $20 pot."
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/wsop-champion-lucas-jumalon-turned-down-negreanu-cash-game-52794.htm",
+          "titular": "Why WSOP Main Event Champ Turned Down Huge Cash Game With Negreanu",
+          "primera_frase": "Could you say no to playing poker with Daniel Negreanu?",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-es-papa-por-primera-vez-kidpoker-le-da-paso-a-una-nueva-etapa-en-su-carrera/",
+          "titular": "Daniel Negreanu es papá por primera vez: “KidPoker” le da paso a una nueva etapa en su carrera",
+          "primera_frase": "Después de ocho brazaletes, incontables mesas finales y más de tres décadas siendo “el niño” del poker mundial, Daniel Negreanu estrena un título que ningún torneo puede entregarle.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/daniel-negreanu-recibe-a-roman-su-primer-hijo-en-un-viernes-13-de-buena-suerte",
+          "titular": "Daniel Negreanu presentó a Roman, su primer hijo, nacido el viernes 13 de buena suerte",
+          "primera_frase": ""
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/daniel-negreanu-amanda-primeiro-filho-68116.htm",
+          "titular": "Daniel Negreanu e sua esposa, Amanda, anunciam chegada do primeiro filho",
+          "primera_frase": "Roman Negreanu nasceu com 4,17 kg, nesta sexta-feira"
+        },
+        {
+          "n": 13,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/nueve-finalistas-y-un-sueno-el-main-event-de-la-wsopc-panama-2026-entra-en-su-recta-final/",
+          "titular": "Nueve finalistas y un sueño: el Main Event de la WSOPC Panamá 2026 entra en su recta final",
+          "primera_frase": "El torneo más importante de la WSOP Circuit Panamá 2026 ya tiene a sus nueve finalistas.",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/gerardo-hernandez-se-corono-campeon-del-plo4-5-en-wsopc-panama",
+          "titular": "Gerardo Hernández se coronó campeón del PLO4/5 en WSOPC Panamá",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/jacson-rodriguez-se-quedo-con-el-plo4-championship-de-la-wsop-panama",
+          "titular": "Jacson Rodríguez se quedó con el PLO4 Championship de la WSOP Panamá",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/ept/ept-2027-redujo-buy-in-main",
+          "titular": "El EPT anunció su agenda para el 2027 y redujo el buy-in de sus Main Events",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/texas-redada-katy-poker-cuatro-detenidos",
+          "titular": "Otra redada sacude al poker de Texas: cuatro detenidos",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/ggpoker-hosts-black-friday-week-ggmillion-festival-at-the-same-time",
+          "titular": "GGPoker Hosts Black Friday Week & GGMillion$ Festival at the Same Time",
+          "primera_frase": "From November 15th to 30th, 2026 players on the GG Network can look forward to the GGMillion$ series, as well as discounts on GEMs exchanges and buy-ins for regular tournaments.…",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/ggpoker-sees-another-million-jackpot-on-its-spin/",
+          "titular": "GGPoker Sees Another Million Jackpot Won on Its Spin & Gold Game",
+          "primera_frase": "",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}
