@@ -1,0 +1,482 @@
+{
+  "fecha": "2026-11-16",
+  "corridas": [
+    {
+      "id": "2026-11-16T12:00:23Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pedro-silva-wins-the-first-irish-open-marrakech-main-event-52809.htm",
+          "titular": "Poker Player Celebrates Anniversary of Last Tournament Win With Another Title",
+          "primera_frase": "Pedro Silva won the first ever the Irish Open Marrakech Main Event"
+        },
+        {
+          "n": 2,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/texas-raids-a-card-room-arrests-four-alleges-illegal-gambling/",
+          "titular": "Texas Raids a Card Room, Arrests Four, Alleges Illegal Gambling",
+          "primera_frase": "A card room in Texas was raided on Thursday, with four people arrested over what was alleged to be an illegal gambling operation."
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/resorts-world-york-city-add-poker-49275/",
+          "titular": "Resorts World New York City Offers Live Table Games on Third Floor Following Casino Expansion",
+          "primera_frase": "Resorts World New York City, located in Queens near JFK Airport, now features a live table-game area on its third floor — the building’s top level."
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1776166-raoul-kanme-scores-seven-figure-win-in-triton-one-north-cyprus-main-event",
+          "titular": "Raoul Kanme Scores Seven-Figure Win In Triton ONE North Cyprus Main Event",
+          "primera_frase": "Dutch pro Raoul Kanme topped 1,006 entries in the 2026 Triton ONE North Cyprus $8,000 main event to earn $1,320,000."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226452-wpt-global-first-announce-new-zealand-exit",
+          "titular": "WPT Global First to Announce New Zealand Exit",
+          "primera_frase": "WPT Global will stop serving players in New Zealand on December 1, the date by which the country’s new online casino law requires providers that have not applied for a license to leave the market, PRO"
+        },
+        {
+          "n": 6,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxneul/bad_play_or_cooler_at_bubble_bb_vs_btn_with/",
+          "titular": "Bad play or cooler at bubble? BB vs BTN with bottom pair + nut flush draw",
+          "primera_frase": "€0.50 Rebuy Turbo MTT, 5-handed. 10 payouts, 11 player left."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/lucas-jumalon-confiesa-su-primer-capricho-tras-ganar-10-mill-54287.htm",
+          "titular": "Lucas Jumalon confiesa su primer capricho tras ganar 10 millones en las WSOP",
+          "primera_frase": "El campeón de 22 años se compró un Corvette azul con el que soñaba desde hacía años."
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/gabriel-nobrega-vence-dois-torneios-bsop-millions-68124.htm",
+          "titular": "Gabriel Nóbrega vence dois torneios e começa BSOP Millions de forma incrível",
+          "primera_frase": "O profissional começou a etapa da melhor forma possível"
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/francis-cruz-conquista-su-primer-anillo-y-cierra-con-broche-de-oro-la-wsop-circuit-panama-2026/",
+          "titular": "Francis Cruz conquista su primer anillo y cierra con broche de oro la WSOP Circuit Panamá 2026",
+          "primera_frase": "El poker dominicano tiene un nuevo motivo para celebrar."
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/en-vivo-sigue-la-accion-del-dia-2-del-50k-shr-invitational-del-bsop-millions",
+          "titular": "[EN VIVO] Sigue la acción del Día 2 del 50k SHR Invitational del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/inaki-sole-se-trae-de-marrakech-el-trofeo-del-mini-irish-open",
+          "titular": "Iñaki Solé se trae de Marrakech el trofeo del Mini Irish Open",
+          "primera_frase": "Irish Open Marrakech"
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/raoul-kanme-wins-triton-one-north-cyprus-main-event-52808.htm",
+          "titular": "Poker Player's Incredible Run Continues With Second $1M+ Score",
+          "primera_frase": "Kanme topped a field of 1,006 entries"
+        },
+        {
+          "n": 13,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxmr9j/where_to_start/",
+          "titular": "Where to start?",
+          "primera_frase": "Hey everyone, I’ve played NLHE super casually my whole life."
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/la-increible-racha-de-raoul-kanme-sigue-gana-triton-one-main-54286.htm",
+          "titular": "La increíble racha de Raoul Kanme sigue tras ganar el Main Event de las Triton ONE por 1.320.000 $",
+          "primera_frase": "El neerlandés superó 1.006 entradas y se llevó 1.320.000 $."
+        },
+        {
+          "n": 15,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/eduardo-ventura-conquista-su-primer-anillo-de-la-wsop-circuit-panama-2026/",
+          "titular": "Eduardo Ventura conquista su primer anillo de la WSOP Circuit Panamá 2026",
+          "primera_frase": "El poker salvadoreño tiene un nuevo motivo para celebrar."
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/montes-main-event-wsop-panama",
+          "titular": "WSOP Panamá: con una remontada de campeón, Santiago Montes es el rey del Main Event",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/jon-ander-vallinas-se-corona-jugador-del-ano-de-triton-one",
+          "titular": "Jon Ander Vallinas se corona jugador del año de Triton ONE",
+          "primera_frase": "Triton One Chipre"
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/wsop-main-event-champion-lucas-jumalon-first-purchase-52793.htm",
+          "titular": "WSOP Champion Lucas Jumalon Reveals First Big Purchase After $10M Win",
+          "primera_frase": "Jumalon was the latest guest on the PokerNews Podcast"
+        },
+        {
+          "n": 19,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxmo36/anyone_played_poker_at_corona_casino_phu_quoc/",
+          "titular": "Anyone played poker at Corona Casino Phu Quoc?",
+          "primera_frase": "Might check it out when I’m in Phu Quoc. Do I just need my passport or is there more to it?"
+        },
+        {
+          "n": 20,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/daniel-negreanu-y-su-esposa-amanda-dan-la-bienvenida-a-su-pr-54285.htm",
+          "titular": "Daniel Negreanu y su esposa Amanda dan la bienvenida a su primer hijo",
+          "primera_frase": "Daniel y Amanda Negreanu anuncian el nacimiento de Roman, su primer hijo en común."
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/santiago-montes-hace-historia-en-la-wsopc-panama-conquista-el-main-event-y-celebra-su-segundo-anillo/",
+          "titular": "Santiago Montes hace historia en la WSOPC Panamá: conquista el Main Event y celebra su segundo anillo",
+          "primera_frase": "Con una remontada memorable, Santiago Montes se consagró campeón del Main Event de la WSOP Circuit Panamá 2026."
+        },
+        {
+          "n": 22,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/nacho-barbero-paso-entre-los-mejores-del-nlh-titi-poker-en-las-triton-de-chipre",
+          "titular": "Nacho Barbero pasó entre los mejores del NLH Titi Poker en las Triton de Chipre",
+          "primera_frase": ""
+        },
+        {
+          "n": 23,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lautaro-guerra-gana-el-plo-sunday-classic-hr-main-por-29.872-USD",
+          "titular": "Lautaro Guerra gana el PLO Sunday Classic HR Main por 29.872 $",
+          "primera_frase": "Pinchazos .com"
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/poker-wwe-y-comedia-se-viene",
+          "titular": "¡Poker, WWE y comedia! Se viene un nuevo reality que promete romper esquemas",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/entrevista-a-esperanza-fernandez-en-el-episodio-401",
+          "titular": "Entrevista a Esperanza Fernández en el episodio 401",
+          "primera_frase": "MarcaPóker"
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/los-5-secretos-del-preflop-q",
+          "titular": "Los 5 secretos del preflop que todo jugador debería conocer",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/nacho-sanchez-campeon-del-6o-episodio-de-noche-de-poker",
+          "titular": "Nacho Sánchez, campeón del 6º episodio de Noche de Poker",
+          "primera_frase": "Noche de Poker"
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/una-locura-de-us-hu-triton",
+          "titular": "¡Una locura de US$1 millón! Triton anuncia el heads-up más caro de la historia",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/nueva-york-hace-historia-la-gran",
+          "titular": "¡Nueva York hace historia! La Gran Manzana tendrá su primera sala de poker en un casino",
+          "primera_frase": ""
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/rampage-poker-golf-youtube-channel-52805.htm",
+          "titular": "'Rampage' is Now a Golf Vlogger and He's Taking on High-Stakes Competitions",
+          "primera_frase": "Rampage has a new YouTube channel."
+        },
+        {
+          "n": 31,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/yall-poker-reality-series-set-debut-49273/",
+          "titular": "Poker Reality Series ‘Y’All In’ Set for YouTube Debut in November 2026",
+          "primera_frase": "A new poker-themed reality series is heading to YouTube later this month."
+        },
+        {
+          "n": 32,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1776153-poker-strategy-with-alex-fitzgerald-five-subtle-tells-you-should-look-for-at-the-table",
+          "titular": "Poker Strategy With Alex Fitzgerald: Five Subtle Tells You Should Look For At The Table",
+          "primera_frase": "These five bad habits at the poker table are giving off subtle tells that may reveal a lot more information than you realize."
+        },
+        {
+          "n": 33,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxbjb9/shuffle_up_and_deal/",
+          "titular": "Shuffle up and deal",
+          "primera_frase": "submitted by /u/Low_Pop1115 [link] [comentarios]"
+        },
+        {
+          "n": 34,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-es-papa-por-primera-vez-kidpoker-le-da-paso-a-una-nueva-etapa-en-su-carrera/",
+          "titular": "Daniel Negreanu es papá por primera vez: “KidPoker” le da paso a una nueva etapa en su carrera",
+          "primera_frase": "Después de ocho brazaletes, incontables mesas finales y más de tres décadas siendo “el niño” del poker mundial, Daniel Negreanu estrena un título que ningún torneo puede entregarle."
+        },
+        {
+          "n": 35,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/hertsel-levy-lidera-a-los-finalistas-del-wsop-panama-main-event",
+          "titular": "Hertsel Levy manda entre los finalistas del WSOP Panamá Main Event",
+          "primera_frase": ""
+        },
+        {
+          "n": 36,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/oihan-abarzuza-revisa-una-de-sus-sesiones-live",
+          "titular": "Oihan Abarzuza revisa una de sus sesiones live",
+          "primera_frase": "EducaPoker"
+        },
+        {
+          "n": 37,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1775940-op-ed-professional-poker-isnt-for-most-people-and-thats-okay",
+          "titular": "Op-ed: Professional Poker Isn’t For Most People, And That’s Okay",
+          "primera_frase": "Poker can be a path to financial success and freedom from a traditional job, but at what cost?"
+        },
+        {
+          "n": 38,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxjxd4/poker_dealers_is_this_an_acceptable_shuffle_at_a/",
+          "titular": "Poker dealers: Is this an acceptable shuffle at a Triton $8K Main Event final table?",
+          "primera_frase": "Came across this footage from the Triton ONE $8K Main Event final table in Northern Cyprus."
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-fernando-romano-lidero-el-dia-1-del-super-high-roller-invitational",
+          "titular": "BSOP Millions: Fernando Romano lideró el Día 1 del Super High Roller Invitational",
+          "primera_frase": ""
+        },
+        {
+          "n": 40,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/rui-cao-perdono-14.000.000-USD-a-un-amigo-a-cambio-de-un-bolso-para-su-esposa",
+          "titular": "Rui Cao perdonó 14.000.000 $ a un amigo a cambio de un bolso para su esposa",
+          "primera_frase": "Salsa"
+        },
+        {
+          "n": 41,
+          "fuente": "Reddit r/poker",
+          "url": "https://www.reddit.com/r/poker/comments/1xxeio0/im_a_few_hours_out_of_melbourne_my_pop_is_from/",
+          "titular": "I'm a few hours out of Melbourne. My pop is from there and visits quite a bit. The other day he gave me this chip. I have no idea if it's worth taking down to the casino or not. Please help",
+          "primera_frase": "submitted by /u/MacaroonBitter2105 [link] [comentarios]"
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/daniel-negreanu-recibe-a-roman-su-primer-hijo-en-un-viernes-13-de-buena-suerte",
+          "titular": "Daniel Negreanu presentó a Roman, su primer hijo, nacido el viernes 13 de buena suerte",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/gerardo-hernandez-se-corono-campeon-del-plo4-5-en-wsopc-panama",
+          "titular": "Gerardo Hernández se coronó campeón del PLO4/5 en WSOPC Panamá",
+          "primera_frase": ""
+        },
+        {
+          "n": 44,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/dan-jungleman-cates-se-cruzo-con-mariano-grandoli-en-hustler-casino-live-que-ma-estas-haciendo",
+          "titular": "Dan «Jungleman» Cates se cruzó con Mariano Grandoli en Hustler Casino Live: «¿Qué m*@#a estás haciendo?»",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/un-clasificado-online-gano-el-main-event-del-wsop-super-circuit-rozvadov",
+          "titular": "Un clasificado online ganó el Main Event del WSOP Super Circuit Rozvadov",
+          "primera_frase": ""
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/satelites-de-acr-poker-guia",
+          "titular": "Satélites de ACR Poker: Guía para clasificar a lo grande con buy-ins pequeños",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/descarga-de-la-app-de-stake-poker",
+          "titular": "Así puedes empezar a jugar con o sin descarga de la app de Stake Poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/torneo-jugadores-de-plo5-ggpoker",
+          "titular": "El Torneo del Año para los jugadores de PLO5 llega a GGPoker: ¿de qué se trata?",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/tickets-wsop-punta-cana-ggpoker",
+          "titular": "Todo sobre tus tickets: ¿Ganaste un satélite para la WSOP Punta Cana en GGPoker y no puedes viajar?",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-16T12:00:23Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pedro-silva-wins-the-first-irish-open-marrakech-main-event-52809.htm",
+          "titular": "Poker Player Celebrates Anniversary of Last Tournament Win With Another Title",
+          "primera_frase": "Pedro Silva won the first ever the Irish Open Marrakech Main Event",
+          "con_extracto": true
+        },
+        {
+          "n": 2,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/texas-raids-a-card-room-arrests-four-alleges-illegal-gambling/",
+          "titular": "Texas Raids a Card Room, Arrests Four, Alleges Illegal Gambling",
+          "primera_frase": "A card room in Texas was raided on Thursday, with four people arrested over what was alleged to be an illegal gambling operation.",
+          "con_extracto": true
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/resorts-world-york-city-add-poker-49275/",
+          "titular": "Resorts World New York City Offers Live Table Games on Third Floor Following Casino Expansion",
+          "primera_frase": "Resorts World New York City, located in Queens near JFK Airport, now features a live table-game area on its third floor — the building’s top level.",
+          "con_extracto": true
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1776166-raoul-kanme-scores-seven-figure-win-in-triton-one-north-cyprus-main-event",
+          "titular": "Raoul Kanme Scores Seven-Figure Win In Triton ONE North Cyprus Main Event",
+          "primera_frase": "Dutch pro Raoul Kanme topped 1,006 entries in the 2026 Triton ONE North Cyprus $8,000 main event to earn $1,320,000.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/raoul-kanme-wins-triton-one-north-cyprus-main-event-52808.htm",
+          "titular": "Poker Player's Incredible Run Continues With Second $1M+ Score",
+          "primera_frase": "Kanme topped a field of 1,006 entries"
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/la-increible-racha-de-raoul-kanme-sigue-gana-triton-one-main-54286.htm",
+          "titular": "La increíble racha de Raoul Kanme sigue tras ganar el Main Event de las Triton ONE por 1.320.000 $",
+          "primera_frase": "El neerlandés superó 1.006 entradas y se llevó 1.320.000 $."
+        },
+        {
+          "n": 7,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226452-wpt-global-first-announce-new-zealand-exit",
+          "titular": "WPT Global First to Announce New Zealand Exit",
+          "primera_frase": "WPT Global will stop serving players in New Zealand on December 1, the date by which the country’s new online casino law requires providers that have not applied for a license to leave the market, PRO"
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/lucas-jumalon-confiesa-su-primer-capricho-tras-ganar-10-mill-54287.htm",
+          "titular": "Lucas Jumalon confiesa su primer capricho tras ganar 10 millones en las WSOP",
+          "primera_frase": "El campeón de 22 años se compró un Corvette azul con el que soñaba desde hacía años.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/wsop-main-event-champion-lucas-jumalon-first-purchase-52793.htm",
+          "titular": "WSOP Champion Lucas Jumalon Reveals First Big Purchase After $10M Win",
+          "primera_frase": "Jumalon was the latest guest on the PokerNews Podcast"
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/gabriel-nobrega-vence-dois-torneios-bsop-millions-68124.htm",
+          "titular": "Gabriel Nóbrega vence dois torneios e começa BSOP Millions de forma incrível",
+          "primera_frase": "O profissional começou a etapa da melhor forma possível",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/francis-cruz-conquista-su-primer-anillo-y-cierra-con-broche-de-oro-la-wsop-circuit-panama-2026/",
+          "titular": "Francis Cruz conquista su primer anillo y cierra con broche de oro la WSOP Circuit Panamá 2026",
+          "primera_frase": "El poker dominicano tiene un nuevo motivo para celebrar.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/eduardo-ventura-conquista-su-primer-anillo-de-la-wsop-circuit-panama-2026/",
+          "titular": "Eduardo Ventura conquista su primer anillo de la WSOP Circuit Panamá 2026",
+          "primera_frase": "El poker salvadoreño tiene un nuevo motivo para celebrar.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/daniel-negreanu-y-su-esposa-amanda-dan-la-bienvenida-a-su-pr-54285.htm",
+          "titular": "Daniel Negreanu y su esposa Amanda dan la bienvenida a su primer hijo",
+          "primera_frase": "Daniel y Amanda Negreanu anuncian el nacimiento de Roman, su primer hijo en común.",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/daniel-negreanu-es-papa-por-primera-vez-kidpoker-le-da-paso-a-una-nueva-etapa-en-su-carrera/",
+          "titular": "Daniel Negreanu es papá por primera vez: “KidPoker” le da paso a una nueva etapa en su carrera",
+          "primera_frase": "Después de ocho brazaletes, incontables mesas finales y más de tres décadas siendo “el niño” del poker mundial, Daniel Negreanu estrena un título que ningún torneo puede entregarle."
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/daniel-negreanu-recibe-a-roman-su-primer-hijo-en-un-viernes-13-de-buena-suerte",
+          "titular": "Daniel Negreanu presentó a Roman, su primer hijo, nacido el viernes 13 de buena suerte",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/santiago-montes-hace-historia-en-la-wsopc-panama-conquista-el-main-event-y-celebra-su-segundo-anillo/",
+          "titular": "Santiago Montes hace historia en la WSOPC Panamá: conquista el Main Event y celebra su segundo anillo",
+          "primera_frase": "Con una remontada memorable, Santiago Montes se consagró campeón del Main Event de la WSOP Circuit Panamá 2026.",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}
