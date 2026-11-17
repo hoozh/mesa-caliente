@@ -37,7 +37,7 @@
         "Britney Jing"
       ],
       "alta": "2026-10-07",
-      "ultima_novedad": "2026-10-05",
+      "ultima_novedad": "2026-11-17",
       "fuentes": [
         "poker.org",
         "pokernews.com",
@@ -81,7 +81,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-16",
+      "ultima_novedad": "2026-11-17",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -418,6 +418,20 @@
         "cardplayer.com",
         "pokernews.com",
         "tightpoker.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Ye Ye",
+      "palabras_clave": [
+        "Ye Ye"
+      ],
+      "alta": "2026-11-17",
+      "ultima_novedad": "2026-11-17",
+      "fuentes": [
+        "codigopoker.com",
+        "poker-red.com",
+        "pokernews.com"
       ],
       "estado": "activo"
     }
