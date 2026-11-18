@@ -15,7 +15,7 @@
         "pokernoticias.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Sam Soverel",
@@ -64,7 +64,7 @@
         "pokernewsdaily.com",
         "pokernoticias.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: No-Limit Hold'em",
@@ -362,7 +362,7 @@
         "poker-red.com",
         "pokernews.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Christopher Marcadet",
@@ -376,7 +376,7 @@
         "poker-red.com",
         "pokernews.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Matt Affleck.",
