@@ -1,0 +1,534 @@
+{
+  "fecha": "2026-11-19",
+  "corridas": [
+    {
+      "id": "2026-11-19T12:00:30Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/can-you-play-poker-in-gta-6-52836.htm",
+          "titular": "Does GTA 6 Have Poker? Everything We Know About Gambling in Vice City",
+          "primera_frase": "Does GTA 6 have poker or casinos? Here's what we know ahead of Thursday's release."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/asking-real-questions-on-latest-tough-call/",
+          "titular": "Asking Real Questions on the Latest Tough Call Podcast: Is More Always Better?",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/gal-yifrach-pleads-guilty-federal-gambling-49279/",
+          "titular": "Gal Yifrach Wins PokerStars NAPT Main Event for $543,025",
+          "primera_frase": "Gal Yifrach captured the PokerStars North American Poker Tour Main Event in November 2025, according to PokerNews, taking home $543,025 from the $5,300 buy-in tournament."
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777462-houston-poker-room-raided-over-alleged-illegal-gambling",
+          "titular": "Houston Poker Room Raided Over Alleged Illegal Gambling",
+          "primera_frase": "Texas law enforcement raided a Houston-area poker room last week, claiming the property was taking illegal rakes on games."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226543-sky-poker-moves-pokerstars-completing-flutters",
+          "titular": "Sky Poker Moves to PokerStars, Completing Flutter's Network Migration",
+          "primera_frase": "Sky Poker has moved from Playtech’s iPoker network to the PokerStars Network ( PSN )."
+        },
+        {
+          "n": 6,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/former-world-champion-wins-2026-borgata-fall-poker-open/",
+          "titular": "Former World Champion Wins 2026 Borgata Fall Poker Open",
+          "primera_frase": "The Borgata Fall Poker Open in Atlantic City is of the East Coast’s biggest tournaments of the year and it was won last night by the former 2015 world champion Joe McKeehen."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/el-loose-cannon-caza-un-farol-de-40-000-a-doug-polk-y-roza-l-54354.htm",
+          "titular": "El Loose Cannon caza un farol de 40.000 $ a Doug Polk y roza los 100.000 $ de beneficio",
+          "primera_frase": "Scott Gaughan desactivó el farol de Polk y cerró el episodio con 98.800 $ de ganancias."
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/jennifer-ritter-podio-ggpoker-68219.htm",
+          "titular": "Jêniffer Ritter brilha com pódio e leva big hit na GGPoker; confira resultados",
+          "primera_frase": "A profissional faturou mais de US$ 75 mil"
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wilson-gutierrez-el-colombiano-que-abrio-el-sobre-de-r1-millon-en-el-bsop-millions-2026/",
+          "titular": "Wilson Gutiérrez, el colombiano que abrió el sobre de R$1 millón en el BSOP Millions 2026",
+          "primera_frase": "Con apenas 22 dólares invertidos en un satélite, el colombiano Wilson Gutiérrez se quedó con la recompensa más grande del Start-Up Mystery Million, uno de los torneos centrales del BSOP Millions 2026."
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/legion-main-event-de-la-bsop-millions",
+          "titular": "Nuestra Legión se refuerza en el Día 1E del Main Event del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/miguel-ruiz-conquista-el-high-roller-de-la-final-del-cnp-winamax-y-se-lleva-75.750-eu",
+          "titular": "Miguel Ruiz conquista el High Roller de La Final del CNP Winamax y se lleva 75.750 €",
+          "primera_frase": "CNPW Madrid 2026"
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/xiang-zou-wins-borgata-mini-main-52833.htm",
+          "titular": "Traveling Poker Player Continues Breakout Year with $80K Score at Borgata",
+          "primera_frase": "2023 GPI Player of the Year Bin Weng finished fifth."
+        },
+        {
+          "n": 13,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777121-big-plo5-hands-from-guccinikes-600k-win-against-jared-bleznick",
+          "titular": "Big PLO5 Hands From GucciNIKE’s $600K Win Against Jared Bleznick",
+          "primera_frase": "Jared Bleznick took on top endboss 'GucciNIKE' in 5-card PLO, and the two traded six-figure pots until Bleznick was down almost $600K."
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/bi-fabiano-kovalski-envelope-milionario-bsop-millions-68217.htm",
+          "titular": "Bi de Fabiano Kovalski e envelope milionário marcam terça no BSOP Millions",
+          "primera_frase": "O dia foi cheio de momentos importantes no WTC Sheraton"
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/triton-europa/nacho-barbero-triton-mystery-bounty-chipre",
+          "titular": "Un bad beat le impidió a Nacho Barbero ir por el título en las Triton",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/gano-1-3-millones-de-dolares.-y-lo-primero-que-sintio-fue-alivio",
+          "titular": "Ganó 1,3 millones de dólares. Y lo primero que sintió fue alivio",
+          "primera_frase": "ASSES"
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/ept-prague-2026-schedule-preview-52832.htm",
+          "titular": "EPT Prague 2026 Closes Out the Season With a Packed December Schedule",
+          "primera_frase": "Check out the full EPT Prague 2026 schedule..."
+        },
+        {
+          "n": 18,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777514-ignition-casino-launches-poker-comedy-series-featuring-jared-bleznick-lexy-gavin-mather-and-more",
+          "titular": "Ignition Casino Launches Poker Comedy Series Featuring Jared Bleznick, Lexy Gavin-Mather, And More",
+          "primera_frase": "Ignition Casino launches Y’All In, a comedy road trip series featuring poker pros, celebrity guests, and Texas challenges."
+        },
+        {
+          "n": 19,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-50-x-50-series-novembro-68215.htm",
+          "titular": "PokerStars tem retorno da 50 x 50 Series como atração em novembro; saiba mais",
+          "primera_frase": "50 torneios com buy-in de US$ 50: o conceito da série é simples"
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/streamer-apuesta-casi-fortuna",
+          "titular": "Streamer apuesta casi la mitad de su fortuna en una partida de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/rafael-aslanli-firma-una-remontada-imposible-ante-dan-dvoress-por-1.149.000-USD",
+          "titular": "Rafael Aslanli firma una remontada imposible ante Dan Dvoress por 1.149.000 $",
+          "primera_frase": "Triton Cyprus"
+        },
+        {
+          "n": 22,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777460-mystery-man-artsiom-lasouski-wins-triton-cyprus-40000-bounty-event",
+          "titular": "Mystery Man: Artsiom Lasouski Wins Triton Cyprus $40,000 Bounty Event",
+          "primera_frase": "Artsiom Lasouski won in North Cyprus for his second career Triton Poker $40,000 mystery bounty title, locking up $679,000 and nine bounties."
+        },
+        {
+          "n": 23,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/all-in-top-pair-hustler",
+          "titular": "Un all-in con top pair fue todo lo que necesitó para ganar US$78K en Hustler",
+          "primera_frase": ""
+        },
+        {
+          "n": 24,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/triton-y-duel-lanzan-en-chipre-un-torneo-heads-up-de-1-millon-de-dolares",
+          "titular": "Triton y Duel lanzan en Chipre un torneo heads-up de 1 millón de dólares",
+          "primera_frase": "Triton Poker Chipre"
+        },
+        {
+          "n": 25,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777262-joe-mckeehen-scores-second-big-title-of-november",
+          "titular": "Joe McKeehen Scores Second Big Title Of November",
+          "primera_frase": "Joe McKeehen captured his sixth title of 2026, topping 482 in the Borgata Fall Poker Open main event to earn $210,500."
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/negreanu-hellmuth-global-poker-awards",
+          "titular": "Negreanu y Hellmuth compiten en la misma categoría de los Global Poker Awards",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/sagra-super-high-rollers-del-bsop-millions",
+          "titular": "Nacho Sagra sigue dando pelea en los Super High Rollers del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-el-start-up-mesa-final",
+          "titular": "BSOP Millions: el Start Up Mystery tuvo fuerte presencia hispanoamericana en la Mesa Final",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/habra-mesas-de-poker-en-el-videojuego-gta-6",
+          "titular": "¿Habrá mesas de poker en el videojuego GTA 6?",
+          "primera_frase": ""
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/joe-mckeehen-gana-el-borgata-fall",
+          "titular": "Joe McKeehen gana el Borgata Fall Poker Open y admite: “Jugué terrible”",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/gabriel-tavares-busca-su-segundo-cobro-en-las-triton-de-chipre",
+          "titular": "Gabriel Tavares busca su segundo cobro en las Triton de Chipre",
+          "primera_frase": ""
+        },
+        {
+          "n": 32,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/poker-dream-27-sri-lanka-schedule-early-bird-packages-52829.htm",
+          "titular": "Big Prizes, Small Buy-Ins and Free Hotels? Poker Dream 27 Has It All",
+          "primera_frase": "Poker Dream 27 brings affordable buy-ins, a $500K Main Event and free hotel deals to Sri Lanka."
+        },
+        {
+          "n": 33,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/pokerstars-on-fanduel-adds-high-hand-and-spin/",
+          "titular": "Join Cash Game Action on PokerStars on FanDuel & Win Big With High Hand",
+          "primera_frase": ""
+        },
+        {
+          "n": 34,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/pokerstars-50-x-50-series-brings-49277/",
+          "titular": "PokerStars 50 x 50 Series Set for November 22–29 with $200K Main Event Guarantee",
+          "primera_frase": "PokerStars is set to run a 50-event online series built around $50 buy-ins, with the schedule kicking off November 22 and running through November 29, 2026, according to PokerNews."
+        },
+        {
+          "n": 35,
+          "fuente": "PokerListings",
+          "url": "https://www.pokerlistings.com/news/black-friday-on-jackpoker-massive-series-and-cash-drops",
+          "titular": "Black Friday on JackPoker: Massive Series and Cash Drops!",
+          "primera_frase": "To wrap up November 2026, JackPoker ran promotions for both tournament players and cash game players."
+        },
+        {
+          "n": 36,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226508-tonybet-plans-online-poker-launch-netherlands",
+          "titular": "Tonybet Plans Online Poker Launch in Netherlands Following Recent Relaunch",
+          "primera_frase": "Tonybet, which recently brought back its poker offering after a six-year absence across several markets, is now preparing to launch online poker in the Netherlands."
+        },
+        {
+          "n": 37,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/lucas-jumalon-compra-10-milhoes-68206.htm",
+          "titular": "O que você compraria com US$ 10 milhões? Veja a escolha de Lucas Jumalon",
+          "primera_frase": "O jogador falou sobre seu momento no PokerNews Podcast"
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-rodrigo-morales-y-nicolas-palma-lideran-en-la-definicion-del-start-up-mystery-million",
+          "titular": "BSOP Millions: Rodrigo Morales y Nicolás Palma lideran en la definición del Start-Up Mystery Million",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/f.-javier-mendez-abre-la-gran-final-del-cnpw-ganando-el-trebol-del-apertura",
+          "titular": "F. Javier Méndez abre la Gran Final del CNPW ganando el Trébol del Apertura",
+          "primera_frase": "CNPW Madrid"
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/the-tough-call-episode-four-52826.htm",
+          "titular": "Latest 'The Tough Call' Podcast Tackles Why Fewer Options Lead to Better Decisions",
+          "primera_frase": "Check out Episode 4 of the PokerStars-sponsored podcast."
+        },
+        {
+          "n": 41,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226507-market-monitor-connecticut-october-2026",
+          "titular": "Market Monitor: Connecticut October 2026",
+          "primera_frase": "Connecticut online casinos smashed all previous records in October 2026, with a reported total of $65.7 million in revenue."
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/sobre-millon-bsop-millions",
+          "titular": "Clasificó online al BSOP Millions, abrió el sobre misterioso y se llevó 1 millón de reales",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/lucia-navarro-se-acerca-a-los-premios-en-el-main-event-de-las-wsop",
+          "titular": "Lucía Navarro se acerca a los premios en el Main Event de las WSOP",
+          "primera_frase": "WSOP 2026"
+        },
+        {
+          "n": 44,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/pokerstars-fanduel-high-hands-bonus-52807.htm",
+          "titular": "FanDuel Poker Launches Unlimited High Hands Cash Game Bonus Through Nov. 23",
+          "primera_frase": "FanDuel Poker players can earn up to $100 cash for Quads or better"
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-asia/erik-seidel-primera-mesa-final-apt-taipei",
+          "titular": "A los 67 años, Erik Seidel todavía tiene primeras veces en el poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 46,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/marknyet-analiza-como-responder-al-delayed-en-turn-de-un-recreacional",
+          "titular": "'MarkNyet' analiza cómo responder al delayed en turn de un recreacional",
+          "primera_frase": "16/11/26 13:48"
+        },
+        {
+          "n": 47,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/ian-auvil-wins-bar-poker-open-atlantic-city-championship-52825.htm",
+          "titular": "Poker Dad Overcomes Cracked Aces to Win $30K for Daughter's Disneyland Trip",
+          "primera_frase": "Ian Auvil came back with a vengeance to win $30,000."
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/el-nuevo-vallarta-tour-duplicara-su-main-event-con-mxn6-000-000-gtd",
+          "titular": "El Nuevo Vallarta Tour duplicará su Main Event con MXN$6.000.000 GTD",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/raoul-kanme-se-proclama-campeon-del-main-event-de-triton-one-por-1.320.000-USD",
+          "titular": "Raoul Kanme se proclama campeón del Main Event de Triton ONE por 1.320.000 $",
+          "primera_frase": "Triton One Chipre"
+        },
+        {
+          "n": 50,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/poker-streamer-takes-massive-gamble-52823.htm",
+          "titular": "Poker Streamer Risks Big Chunk of His Net Worth on $100k Poker Buy-In",
+          "primera_frase": "Kevin Martin's risking half of it all on just one poker game."
+        },
+        {
+          "n": 51,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/kovalski-bicampeon-serrano-5-bsop-millions",
+          "titular": "Kovalski repitió un título y Serrano volvió a destacarse en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 52,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/almeida-bsop-millions",
+          "titular": "Gonzalo Almeida se metió entre los campeones de los pesos pesados en BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 53,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/main-event-bsop-millions-vivo",
+          "titular": "[EN VIVO] BSOP Millions: Adauto Viana Junior lideró el Día 1E del Main Event y se juega el 1F",
+          "primera_frase": ""
+        },
+        {
+          "n": 54,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-eeuu/del-bar-a-disneyland-ian-auvil",
+          "titular": "Ganó el torneo de bares en Estados Unidos y ahora se irá a Disney",
+          "primera_frase": ""
+        },
+        {
+          "n": 55,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/dejara-de-transmitir-cash-games-de-poker-para-jugar-al-gta-vi",
+          "titular": "Dejará de transmitir cash games de poker para jugar al GTA VI",
+          "primera_frase": ""
+        },
+        {
+          "n": 56,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/se-declaro-culpable-por-juego-ilegal-y-ahora-podria-ser-deportado",
+          "titular": "Se declaró culpable por juego ilegal y ahora podría ser deportado",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-19T12:00:30Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/gal-yifrach-pleads-guilty-federal-gambling-49279/",
+          "titular": "Gal Yifrach Wins PokerStars NAPT Main Event for $543,025",
+          "primera_frase": "Gal Yifrach captured the PokerStars North American Poker Tour Main Event in November 2025, according to PokerNews, taking home $543,025 from the $5,300 buy-in tournament.",
+          "con_extracto": true
+        },
+        {
+          "n": 2,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777262-joe-mckeehen-scores-second-big-title-of-november",
+          "titular": "Joe McKeehen Scores Second Big Title Of November",
+          "primera_frase": "Joe McKeehen captured his sixth title of 2026, topping 482 in the Borgata Fall Poker Open main event to earn $210,500."
+        },
+        {
+          "n": 3,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/former-world-champion-wins-2026-borgata-fall-poker-open/",
+          "titular": "Former World Champion Wins 2026 Borgata Fall Poker Open",
+          "primera_frase": "The Borgata Fall Poker Open in Atlantic City is of the East Coast’s biggest tournaments of the year and it was won last night by the former 2015 world champion Joe McKeehen.",
+          "con_extracto": true
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777460-mystery-man-artsiom-lasouski-wins-triton-cyprus-40000-bounty-event",
+          "titular": "Mystery Man: Artsiom Lasouski Wins Triton Cyprus $40,000 Bounty Event",
+          "primera_frase": "Artsiom Lasouski won in North Cyprus for his second career Triton Poker $40,000 mystery bounty title, locking up $679,000 and nine bounties.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777462-houston-poker-room-raided-over-alleged-illegal-gambling",
+          "titular": "Houston Poker Room Raided Over Alleged Illegal Gambling",
+          "primera_frase": "Texas law enforcement raided a Houston-area poker room last week, claiming the property was taking illegal rakes on games.",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226543-sky-poker-moves-pokerstars-completing-flutters",
+          "titular": "Sky Poker Moves to PokerStars, Completing Flutter's Network Migration",
+          "primera_frase": "Sky Poker has moved from Playtech’s iPoker network to the PokerStars Network ( PSN )."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/ept-prague-2026-schedule-preview-52832.htm",
+          "titular": "EPT Prague 2026 Closes Out the Season With a Packed December Schedule",
+          "primera_frase": "Check out the full EPT Prague 2026 schedule...",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777514-ignition-casino-launches-poker-comedy-series-featuring-jared-bleznick-lexy-gavin-mather-and-more",
+          "titular": "Ignition Casino Launches Poker Comedy Series Featuring Jared Bleznick, Lexy Gavin-Mather, And More",
+          "primera_frase": "Ignition Casino launches Y’All In, a comedy road trip series featuring poker pros, celebrity guests, and Texas challenges.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226508-tonybet-plans-online-poker-launch-netherlands",
+          "titular": "Tonybet Plans Online Poker Launch in Netherlands Following Recent Relaunch",
+          "primera_frase": "Tonybet, which recently brought back its poker offering after a six-year absence across several markets, is now preparing to launch online poker in the Netherlands."
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/poker-dream-27-sri-lanka-schedule-early-bird-packages-52829.htm",
+          "titular": "Big Prizes, Small Buy-Ins and Free Hotels? Poker Dream 27 Has It All",
+          "primera_frase": "Poker Dream 27 brings affordable buy-ins, a $500K Main Event and free hotel deals to Sri Lanka.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/wilson-gutierrez-el-colombiano-que-abrio-el-sobre-de-r1-millon-en-el-bsop-millions-2026/",
+          "titular": "Wilson Gutiérrez, el colombiano que abrió el sobre de R$1 millón en el BSOP Millions 2026",
+          "primera_frase": "Con apenas 22 dólares invertidos en un satélite, el colombiano Wilson Gutiérrez se quedó con la recompensa más grande del Start-Up Mystery Million, uno de los torneos centrales del BSOP Millions 2026.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/jennifer-ritter-podio-ggpoker-68219.htm",
+          "titular": "Jêniffer Ritter brilha com pódio e leva big hit na GGPoker; confira resultados",
+          "primera_frase": "A profissional faturou mais de US$ 75 mil",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/bi-fabiano-kovalski-envelope-milionario-bsop-millions-68217.htm",
+          "titular": "Bi de Fabiano Kovalski e envelope milionário marcam terça no BSOP Millions",
+          "primera_frase": "O dia foi cheio de momentos importantes no WTC Sheraton",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Red",
+          "url": "https://www.poker-red.com/noticias/raoul-kanme-se-proclama-campeon-del-main-event-de-triton-one-por-1.320.000-USD",
+          "titular": "Raoul Kanme se proclama campeón del Main Event de Triton ONE por 1.320.000 $",
+          "primera_frase": "Triton One Chipre",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/kovalski-bicampeon-serrano-5-bsop-millions",
+          "titular": "Kovalski repitió un título y Serrano volvió a destacarse en el BSOP Millions",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/almeida-bsop-millions",
+          "titular": "Gonzalo Almeida se metió entre los campeones de los pesos pesados en BSOP Millions",
+          "primera_frase": "",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

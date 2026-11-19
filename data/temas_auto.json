@@ -39,11 +39,13 @@
       "alta": "2026-10-07",
       "ultima_novedad": "2026-11-17",
       "fuentes": [
+        "codigopoker.com",
+        "poker-red.com",
         "poker.org",
         "pokernews.com",
         "reddit.com"
       ],
-      "estado": "inactivo"
+      "estado": "activo"
     },
     {
       "nombre": "Tema: Adrián Mateos",
@@ -348,7 +350,7 @@
         "pokerindustrypro.com",
         "pokernews.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: John Rezzonico",
@@ -432,6 +434,22 @@
         "codigopoker.com",
         "poker-red.com",
         "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: McKeehen",
+      "palabras_clave": [
+        "Borgata Fall",
+        "Joe McKeehen",
+        "McKeehen"
+      ],
+      "alta": "2026-11-19",
+      "ultima_novedad": "2026-11-19",
+      "fuentes": [
+        "cardplayer.com",
+        "pokernews.com",
+        "tightpoker.com"
       ],
       "estado": "activo"
     }
