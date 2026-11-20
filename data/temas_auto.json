@@ -83,7 +83,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-17",
+      "ultima_novedad": "2026-11-20",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -328,7 +328,7 @@
         "Vladimir Minko"
       ],
       "alta": "2026-11-06",
-      "ultima_novedad": "2026-11-06",
+      "ultima_novedad": "2026-11-20",
       "fuentes": [
         "poker-red.com",
         "pokerlistings.com",
@@ -392,7 +392,7 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Vito Branciforte",
@@ -421,7 +421,7 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Ye Ye",
@@ -445,11 +445,43 @@
         "McKeehen"
       ],
       "alta": "2026-11-19",
-      "ultima_novedad": "2026-11-19",
+      "ultima_novedad": "2026-11-20",
       "fuentes": [
         "cardplayer.com",
         "pokernews.com",
         "tightpoker.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Flutter Entertainment",
+      "palabras_clave": [
+        "Flutter Entertainment"
+      ],
+      "alta": "2026-11-20",
+      "ultima_novedad": "2026-11-20",
+      "fuentes": [
+        "gamblingnews.com",
+        "pokerindustrypro.com",
+        "pokernews.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Carlos Serrano",
+      "palabras_clave": [
+        "Alisson Piekazewicz",
+        "André Moreira",
+        "Carlos Serrano",
+        "Fabiano Kovalski",
+        "Sebastián Fonseca"
+      ],
+      "alta": "2026-11-20",
+      "ultima_novedad": "2026-11-20",
+      "fuentes": [
+        "codigopoker.com",
+        "pokernews.com",
+        "pokernoticias.com"
       ],
       "estado": "activo"
     }

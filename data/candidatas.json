@@ -143,81 +143,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://gorillagaming.net/",
       "origen": "automatica"
+    },
+    {
+      "nombre": "opgr.org",
+      "dominio": "opgr.org",
+      "detectada": "2026-11-20",
+      "detectada_texto": "detectada el 20 de noviembre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://opgr.org",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "bggtrack.cfd",
-      "articulo": "https://www.pokerlistings.com/news/aleksandar-kosarkoski-wins-the-600-malta-poker-festival-grand-event",
-      "enlace": "https://bggtrack.cfd/rfwhhYE?type=pokerlistings_banners",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "bggtrack.cfd",
-      "articulo": "https://www.pokerlistings.com/news/vladimir-minko-wins-his-second-ggmillion-title-beating-juan-pardo-heads-up-for-440k",
-      "enlace": "https://bggtrack.cfd/rfwhhYE?type=pokerlistings_banners",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "empc.live",
-      "articulo": "https://www.pokernews.com/news/2026/11/european-mixed-poker-championship-results-52723.htm",
-      "enlace": "https://empc.live/tapani-pulkkinen-wins-the-empc-2026-main-event/",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "raig.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/gabi-livshitz-wins-ps-open-aix-en-provence-high-roller-52745.htm",
-      "enlace": "https://www.raig.org/",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "gamblingtherapy.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/gabi-livshitz-wins-ps-open-aix-en-provence-high-roller-52745.htm",
-      "enlace": "https://www.gamblingtherapy.org/en",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "responsiblegambling.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/gabi-livshitz-wins-ps-open-aix-en-provence-high-roller-52745.htm",
-      "enlace": "https://www.responsiblegambling.org/",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "poker.org",
-      "articulo": "https://www.wsop.com/news/wsop-circuit-series-underway-at-the-grand-victoria/",
-      "enlace": "https://www.poker.org/instant/",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://www.wsop.com/news/wsop-circuit-series-underway-at-the-grand-victoria/",
-      "enlace": "https://ggpoker.com/",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/la-wsopc-panama-enciende-la-accion-19-jugadores-aseguran-su-lugar-en-el-dia-2-del-mini-main-event/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/juan-pardo-supera-los-us109-millones-en-el-ggmillion-tras-una-nueva-mesa-final/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1774115-high-stakes-hunl-is-back",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-06"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://br.pokernews.com/noticias/2026/11/ggpoker-14-milhoes-black-friday-novembro-68044.htm",
-      "enlace": "https://ggpoker.com/pt-br/promotions/november-giveaway/",
-      "fecha": "2026-11-06"
-    },
     {
       "dominio": "pokernews.com",
       "articulo": "https://www.pokernewsdaily.com/wpt-venetian-las-vegas-fall-championship-49254/",
@@ -877,6 +814,48 @@
       "articulo": "https://codigopoker.com/brazilian-series-of-poker/kovalski-bicampeon-serrano-5-bsop-millions",
       "enlace": "https://bsop.com.br/bsop-millions/",
       "fecha": "2026-11-19"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1777326-resorts-world-set-to-open-nycs-first-casino-poker-room",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1777890-jonathan-jaffe-wins-1-6-million-at-triton-north-cyprus",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1777895-maurice-hawkins-expands-lead-in-wsop-circuit-rings-race-with-27th-win",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "opgr.org",
+      "articulo": "https://pokerfuse.com/latest-news/2026/11/wpt-global-sponsoring-new-season-kpc-live-high/",
+      "enlace": "https://opgr.org",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1778961-coinpoker-pgt-kickoff-online-series-has-already-paid-out-26-million",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/carlos-serrano-y-sebastian-fonseca-destacan-en-el-bsop-millions-2026-de-brasil/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1777121-big-plo5-hands-from-guccinikes-600k-win-against-jared-bleznick",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-20"
     }
   ]
 }

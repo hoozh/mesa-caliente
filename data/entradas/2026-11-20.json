@@ -1,0 +1,550 @@
+{
+  "fecha": "2026-11-20",
+  "corridas": [
+    {
+      "id": "2026-11-20T12:00:40Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/alex-anton-on-bracelets-expectations-and-a-first-apt-trip-52845.htm",
+          "titular": "Alex Anton on Bracelets, Expectations and a First Asian Poker Tour Trip",
+          "primera_frase": "Anton talks his breakout 2026, two bracelets and a Triton title, in Taipei at APT."
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/wpt-global-sponsoring-new-season-kpc-live-high/",
+          "titular": "WPT Global Sponsoring New Season of KPC Live High Stakes Poker Show",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/pokerstars-confirms-exit-from-new-zealand-as-company-doesnt-secure-right-to-license/",
+          "titular": "PokerStars Confirms Exit from New Zealand as Company Doesn’t Secure Right to License",
+          "primera_frase": "PokerStars will not be part of the newly regulated New Zealand iGaming market after the brand’s parent company, Flutter Entertainment, failed to secure the right to apply for a license."
+        },
+        {
+          "n": 4,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/florida-ag-targets-draftkings-21-rivals-49283/",
+          "titular": "Florida Attorney General Targets DraftKings Over 21 Rivals Skill Game",
+          "primera_frase": "Florida Attorney General James Uthmeier has announced plans to take action against DraftKings over its 21 Rivals game, according to Legal Sports Report."
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777326-resorts-world-set-to-open-nycs-first-casino-poker-room",
+          "titular": "Resorts World Set To Open NYC’s First Casino Poker Room",
+          "primera_frase": "Resorts World New York City will open a 30-table poker room in December, the first casino poker hall in New York City."
+        },
+        {
+          "n": 6,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226571-ggpoker-pokerstars-and-888-confirm-new-zealand",
+          "titular": "GGPoker, PokerStars, and 888 Confirm New Zealand Exit Ahead of December 1 Deadline",
+          "primera_frase": "Days after WPT Global announced that it would stop serving players in New Zealand, more operators have followed suit, PRO can exclusively report."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/juan-pardo-puertas-podio-triton-chipre-gana-602000-54367.htm",
+          "titular": "Juan Pardo se queda a las puertas del podio en las Triton de Chipre y se embolsa 602.000 $",
+          "primera_frase": "El malagueño fue cuarto en el 50.000 $ NLH, que ganó Jonathan Jaffe por 1.627.000 $."
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/maurice-hawkins-27-anel-wsop-circuit-recorde-68226.htm",
+          "titular": "Maurice Hawkins conquista o 27º anel do WSOP Circuit e amplia recorde histórico",
+          "primera_frase": "Esse foi o sexto anel do norte-americano neste ano"
+        },
+        {
+          "n": 9,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/carlos-serrano-y-sebastian-fonseca-destacan-en-el-bsop-millions-2026-de-brasil/",
+          "titular": "Carlos Serrano y Sebastián Fonseca destacan en el BSOP Millions 2026 de Brasil",
+          "primera_frase": "El WTC Sheraton, en São Paulo, Brasil, recibe una nueva edición del BSOP Millions, festival que se desarrolla del 13 al 28 de noviembre y reúne a jugadores de diferentes nacionalidades."
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/guerreros-pelea-main-event-bsop-millions",
+          "titular": "Más de nuestros guerreros dan pelea en el Main Event del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/partypoker-tour-heads-to-murcia-for-penultimate-stop-of-the-52819.htm",
+          "titular": "PartyPoker Tour Heads to Murcia for Penultimate Stop of the Year",
+          "primera_frase": "The PartyPoker Tour's penultimate stop of the year is at Casino Odiseo in Murcia"
+        },
+        {
+          "n": 12,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/could-jackpot-pkos-be-next-tournament-format/",
+          "titular": "Could Jackpot PKOs Be the Next Tournament Format to Reach US Online Poker?",
+          "primera_frase": ""
+        },
+        {
+          "n": 13,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1778961-coinpoker-pgt-kickoff-online-series-has-already-paid-out-26-million",
+          "titular": "CoinPoker PGT KickOff Online Series Has Already Paid Out $26 Million",
+          "primera_frase": "CoinPoker’s PGT KickOff Online has paid out nearly $26 million through the halfway point, with a $5 million finale still ahead."
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226552-betsson-joins-ipoker-europe-network-france-market",
+          "titular": "Betsson Joins iPoker Europe Network in France as Market Sees Ninth Poker Room",
+          "primera_frase": "Swedish online gambling company Betsson has launched online poker in France, becoming the ninth licensed operator to enter the country’s regulated market."
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/rafael-aslanli-remontada-epica-ante-dan-dvoress-triton-chipr-54359.htm",
+          "titular": "Rafael Aslanli firma una remontada épica ante Dan Dvoress en las Triton de Chipre",
+          "primera_frase": "Remontó frente a Dan Dvoress para ganar su primer tridente y 1.149.000 $."
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/darci-fantin-dia-2-100k-super-high-roller-bsop-millions-68223.htm",
+          "titular": "Darci Fantin puxa fila ao Dia 2 do 100K Super High Roller no BSOP Millions",
+          "primera_frase": "O recreativo lidera um field estrelado no torneio de seis dígitos"
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/latinos-millionaire-maker-bsop-millions",
+          "titular": "BSOP Millions: cuatro jugadores de la Armada pasaron en el Millonaire Maker",
+          "primera_frase": ""
+        },
+        {
+          "n": 18,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/the-hendon-mob-championship-heads-to-london-52844.htm",
+          "titular": "The Hendon Mob Championship Heads to London for 2026 Season Finale",
+          "primera_frase": "THMC London returns to Genting Stratford Dec 1-6 with a £150K GTD Main Event and a SA prize"
+        },
+        {
+          "n": 19,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777890-jonathan-jaffe-wins-1-6-million-at-triton-north-cyprus",
+          "titular": "Jonathan Jaffe Wins $1.6 Million At Triton North Cyprus",
+          "primera_frase": "Jonathan Jaffe topped 140 entries in the 2026 Triton North Cyprus $50,000 eight-max event to earn $1,627,000 and his third trident trophy."
+        },
+        {
+          "n": 20,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/se-puede-jugar-al-poker-en-gta-6-todo-lo-que-sabemos-sobre-54358.htm",
+          "titular": "¿Se puede jugar a poker en GTA 6? Todo lo que sabemos sobre los casinos de Vice City",
+          "primera_frase": "Rockstar no ha confirmado mesas de póker ni casinos jugables en el estreno de GTA 6."
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/investigacao-hustler-casino-live-suspensao-68218.htm",
+          "titular": "Investigação do Hustler Casino Live não vê trapaça, mas gera suspensões; entenda",
+          "primera_frase": "Duas jogadoras se envolveram em um conflito de interesses"
+        },
+        {
+          "n": 22,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/liga-codigopoker-club-rusia-acr-poker",
+          "titular": "La Liga del CodigoPoker Club en ACR Poker se fue para Rusia",
+          "primera_frase": ""
+        },
+        {
+          "n": 23,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/jonathan-jaffe-takes-down-50k-buy-in-for-third-triton-title-52843.htm",
+          "titular": "Jonathan Jaffe Takes Down $50K Buy-In for Third Triton Title and $1.6M",
+          "primera_frase": "What a start to the series!"
+        },
+        {
+          "n": 24,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777895-maurice-hawkins-expands-lead-in-wsop-circuit-rings-race-with-27th-win",
+          "titular": "Maurice Hawkins Expands Lead In WSOP Circuit Rings Race With 27th Win",
+          "primera_frase": "Maurice Hawkins won his record-extending 27th WSOP Circuit gold ring in a $600 event at Caesars New Orleans, restoring his five-ring lead."
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/jogar-poker-gta-6-68222.htm",
+          "titular": "Dá para jogar poker no GTA 6? Saiba tudo sobre as apostas em Vice City",
+          "primera_frase": "Dá para jogar poker ou em cassinos no GTA 6?"
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/100k-super-high-roller-bsop-millions-pedro-cassar",
+          "titular": "En el 100K Super High Roller del BSOP Millions, el que festejó fue Pedro Cassar",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-to-leave-new-zealand-after-missing-out-on-license-52842.htm",
+          "titular": "PokerStars to Leave New Zealand After Missing Out on Gambling Licence",
+          "primera_frase": "Parent company Flutter failed to secure a gambling licence."
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/eduardo-antimo-lidera-el-espejo-humeante-del-casino-palace-en-cdmx",
+          "titular": "Eduardo Antimo lidera el Espejo Humeante del Casino Palace en CDMX",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/complete-guide-to-2026-wsop-paradise-52835.htm",
+          "titular": "Complete Guide to 2026 WSOP Paradise - Everything You Need to Know",
+          "primera_frase": "WSOP Paradise returns with $120M guaranteed, Solana buy-ins and a close POY race."
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/jaffe-titulo-triton-chipre-tavares-sexto",
+          "titular": "Triton Poker Series: hat-trick de Jaffe y otro gran cobro de Tavares",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/maurice-hawkins-wins-record-extending-27th-wsopc-ring-52841.htm",
+          "titular": "Maurice Hawkins' Insane WSOP Circuit Heater Continues With 27th Ring",
+          "primera_frase": "A 6th ring of 2026 continues an almighty heater for Hawkins..."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/zaminhan-bi-bsop-torres-de-belaustegui",
+          "titular": "Zaminhan, tercer bicampeón del BSOP Millions; Torres y De Belaustegui, finalistas",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/video/wrestling-legend-chris-jericho-wants-to-bring-poker-to-the-h-13516.htm",
+          "titular": "Wrestling Legend Chris Jericho Wants to Bring Poker to the High Seas! | PokerNews Podcast #1017",
+          "primera_frase": "This week on the PokerNews Podcast, Chad talks to wrestling legend Chris Jericho to discuss his upcoming Jericho Cruise poker plans!"
+        },
+        {
+          "n": 34,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/como-usar-astropay",
+          "titular": "Cómo usar AstroPay: guía paso a paso para descargar la app, crear tu cuenta y hacer pagos",
+          "primera_frase": ""
+        },
+        {
+          "n": 35,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/podcast/pokernews-podcast/pokernews-podcast-chris-jericho-wrestling-cruise-52840.htm",
+          "titular": "Wrestling Legend Chris Jericho Wants to Bring Poker to the High Seas! | PokerNews Podcast #1017",
+          "primera_frase": "Other stories include the Foxen's partnering with Solana, Lex Veldhuis w/ GGPoker & more!"
+        },
+        {
+          "n": 36,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/estrategia-y-basicos/cinco-tells-sile",
+          "titular": "Cinco tells silenciosos que pueden delatarte en una mesa",
+          "primera_frase": ""
+        },
+        {
+          "n": 37,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/can-you-play-poker-in-gta-6-52836.htm",
+          "titular": "Does GTA 6 Have Poker? Everything We Know About Gambling in Vice City",
+          "primera_frase": "Does GTA 6 have poker or casinos? Here's what we know ahead of Thursday's release."
+        },
+        {
+          "n": 38,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/asking-real-questions-on-latest-tough-call/",
+          "titular": "Asking Real Questions on the Latest Tough Call Podcast: Is More Always Better?",
+          "primera_frase": ""
+        },
+        {
+          "n": 39,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777121-big-plo5-hands-from-guccinikes-600k-win-against-jared-bleznick",
+          "titular": "Big PLO5 Hands From GucciNIKE’s $600K Win Against Jared Bleznick",
+          "primera_frase": "Jared Bleznick took on top endboss 'GucciNIKE' in 5-card PLO, and the two traded six-figure pots until Bleznick was down almost $600K."
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/el-loose-cannon-caza-un-farol-de-40-000-a-doug-polk-y-roza-l-54354.htm",
+          "titular": "El Loose Cannon caza un farol de 40.000 $ a Doug Polk y roza los 100.000 $ de beneficio",
+          "primera_frase": "Scott Gaughan desactivó el farol de Polk y cerró el episodio con 98.800 $ de ganancias."
+        },
+        {
+          "n": 41,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/bi-fabiano-kovalski-envelope-milionario-bsop-millions-68217.htm",
+          "titular": "Bi de Fabiano Kovalski e envelope milionário marcam terça no BSOP Millions",
+          "primera_frase": "O dia foi cheio de momentos importantes no WTC Sheraton"
+        },
+        {
+          "n": 42,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/streamer-apuesta-casi-fortuna",
+          "titular": "Streamer apuesta casi la mitad de su fortuna en una partida de poker",
+          "primera_frase": ""
+        },
+        {
+          "n": 43,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/xiang-zou-wins-borgata-mini-main-52833.htm",
+          "titular": "Traveling Poker Player Continues Breakout Year with $80K Score at Borgata",
+          "primera_frase": "2023 GPI Player of the Year Bin Weng finished fifth."
+        },
+        {
+          "n": 44,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-50-x-50-series-novembro-68215.htm",
+          "titular": "PokerStars tem retorno da 50 x 50 Series como atração em novembro; saiba mais",
+          "primera_frase": "50 torneios com buy-in de US$ 50: o conceito da série é simples"
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/all-in-top-pair-hustler",
+          "titular": "Un all-in con top pair fue todo lo que necesitó para ganar US$78K en Hustler",
+          "primera_frase": ""
+        },
+        {
+          "n": 46,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/industria/negreanu-hellmuth-global-poker-awards",
+          "titular": "Negreanu y Hellmuth compiten en la misma categoría de los Global Poker Awards",
+          "primera_frase": ""
+        },
+        {
+          "n": 47,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/sagra-super-high-rollers-del-bsop-millions",
+          "titular": "Nacho Sagra sigue dando pelea en los Super High Rollers del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-el-start-up-mesa-final",
+          "titular": "BSOP Millions: el Start Up Mystery tuvo fuerte presencia hispanoamericana en la Mesa Final",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/legion-main-event-de-la-bsop-millions",
+          "titular": "Nuestra Legión se refuerza en el Día 1E del Main Event del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias-generales/habra-mesas-de-poker-en-el-videojuego-gta-6",
+          "titular": "¿Habrá mesas de poker en el videojuego GTA 6?",
+          "primera_frase": ""
+        },
+        {
+          "n": 51,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/gabriel-tavares-busca-su-segundo-cobro-en-las-triton-de-chipre",
+          "titular": "Gabriel Tavares busca su segundo cobro en las Triton de Chipre",
+          "primera_frase": ""
+        },
+        {
+          "n": 52,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-rodrigo-morales-y-nicolas-palma-lideran-en-la-definicion-del-start-up-mystery-million",
+          "titular": "BSOP Millions: Rodrigo Morales y Nicolás Palma lideran en la definición del Start-Up Mystery Million",
+          "primera_frase": ""
+        },
+        {
+          "n": 53,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/triton-europa/nacho-barbero-triton-mystery-bounty-chipre",
+          "titular": "Un bad beat le impidió a Nacho Barbero ir por el título en las Triton",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-20T12:00:40Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "GamblingNews",
+          "url": "https://www.gamblingnews.com/news/pokerstars-confirms-exit-from-new-zealand-as-company-doesnt-secure-right-to-license/",
+          "titular": "PokerStars Confirms Exit from New Zealand as Company Doesn’t Secure Right to License",
+          "primera_frase": "PokerStars will not be part of the newly regulated New Zealand iGaming market after the brand’s parent company, Flutter Entertainment, failed to secure the right to apply for a license.",
+          "con_extracto": true
+        },
+        {
+          "n": 2,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226571-ggpoker-pokerstars-and-888-confirm-new-zealand",
+          "titular": "GGPoker, PokerStars, and 888 Confirm New Zealand Exit Ahead of December 1 Deadline",
+          "primera_frase": "Days after WPT Global announced that it would stop serving players in New Zealand, more operators have followed suit, PRO can exclusively report."
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-to-leave-new-zealand-after-missing-out-on-license-52842.htm",
+          "titular": "PokerStars to Leave New Zealand After Missing Out on Gambling Licence",
+          "primera_frase": "Parent company Flutter failed to secure a gambling licence."
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777326-resorts-world-set-to-open-nycs-first-casino-poker-room",
+          "titular": "Resorts World Set To Open NYC’s First Casino Poker Room",
+          "primera_frase": "Resorts World New York City will open a 30-table poker room in December, the first casino poker hall in New York City.",
+          "con_extracto": true
+        },
+        {
+          "n": 5,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777890-jonathan-jaffe-wins-1-6-million-at-triton-north-cyprus",
+          "titular": "Jonathan Jaffe Wins $1.6 Million At Triton North Cyprus",
+          "primera_frase": "Jonathan Jaffe topped 140 entries in the 2026 Triton North Cyprus $50,000 eight-max event to earn $1,627,000 and his third trident trophy.",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/jonathan-jaffe-takes-down-50k-buy-in-for-third-triton-title-52843.htm",
+          "titular": "Jonathan Jaffe Takes Down $50K Buy-In for Third Triton Title and $1.6M",
+          "primera_frase": "What a start to the series!"
+        },
+        {
+          "n": 7,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777895-maurice-hawkins-expands-lead-in-wsop-circuit-rings-race-with-27th-win",
+          "titular": "Maurice Hawkins Expands Lead In WSOP Circuit Rings Race With 27th Win",
+          "primera_frase": "Maurice Hawkins won his record-extending 27th WSOP Circuit gold ring in a $600 event at Caesars New Orleans, restoring his five-ring lead.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/maurice-hawkins-wins-record-extending-27th-wsopc-ring-52841.htm",
+          "titular": "Maurice Hawkins' Insane WSOP Circuit Heater Continues With 27th Ring",
+          "primera_frase": "A 6th ring of 2026 continues an almighty heater for Hawkins..."
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/alex-anton-on-bracelets-expectations-and-a-first-apt-trip-52845.htm",
+          "titular": "Alex Anton on Bracelets, Expectations and a First Asian Poker Tour Trip",
+          "primera_frase": "Anton talks his breakout 2026, two bracelets and a Triton title, in Taipei at APT.",
+          "con_extracto": true
+        },
+        {
+          "n": 10,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/wpt-global-sponsoring-new-season-kpc-live-high/",
+          "titular": "WPT Global Sponsoring New Season of KPC Live High Stakes Poker Show",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1778961-coinpoker-pgt-kickoff-online-series-has-already-paid-out-26-million",
+          "titular": "CoinPoker PGT KickOff Online Series Has Already Paid Out $26 Million",
+          "primera_frase": "CoinPoker’s PGT KickOff Online has paid out nearly $26 million through the halfway point, with a $5 million finale still ahead.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226552-betsson-joins-ipoker-europe-network-france-market",
+          "titular": "Betsson Joins iPoker Europe Network in France as Market Sees Ninth Poker Room",
+          "primera_frase": "Swedish online gambling company Betsson has launched online poker in France, becoming the ninth licensed operator to enter the country’s regulated market."
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/the-hendon-mob-championship-heads-to-london-52844.htm",
+          "titular": "The Hendon Mob Championship Heads to London for 2026 Season Finale",
+          "primera_frase": "THMC London returns to Genting Stratford Dec 1-6 with a £150K GTD Main Event and a SA prize",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/investigacao-hustler-casino-live-suspensao-68218.htm",
+          "titular": "Investigação do Hustler Casino Live não vê trapaça, mas gera suspensões; entenda",
+          "primera_frase": "Duas jogadoras se envolveram em um conflito de interesses",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/juan-pardo-puertas-podio-triton-chipre-gana-602000-54367.htm",
+          "titular": "Juan Pardo se queda a las puertas del podio en las Triton de Chipre y se embolsa 602.000 $",
+          "primera_frase": "El malagueño fue cuarto en el 50.000 $ NLH, que ganó Jonathan Jaffe por 1.627.000 $.",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/rafael-aslanli-remontada-epica-ante-dan-dvoress-triton-chipr-54359.htm",
+          "titular": "Rafael Aslanli firma una remontada épica ante Dan Dvoress en las Triton de Chipre",
+          "primera_frase": "Remontó frente a Dan Dvoress para ganar su primer tridente y 1.149.000 $."
+        },
+        {
+          "n": 17,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/maurice-hawkins-27-anel-wsop-circuit-recorde-68226.htm",
+          "titular": "Maurice Hawkins conquista o 27º anel do WSOP Circuit e amplia recorde histórico",
+          "primera_frase": "Esse foi o sexto anel do norte-americano neste ano",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/carlos-serrano-y-sebastian-fonseca-destacan-en-el-bsop-millions-2026-de-brasil/",
+          "titular": "Carlos Serrano y Sebastián Fonseca destacan en el BSOP Millions 2026 de Brasil",
+          "primera_frase": "El WTC Sheraton, en São Paulo, Brasil, recibe una nueva edición del BSOP Millions, festival que se desarrolla del 13 al 28 de noviembre y reúne a jugadores de diferentes nacionalidades.",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/darci-fantin-dia-2-100k-super-high-roller-bsop-millions-68223.htm",
+          "titular": "Darci Fantin puxa fila ao Dia 2 do 100K Super High Roller no BSOP Millions",
+          "primera_frase": "O recreativo lidera um field estrelado no torneio de seis dígitos",
+          "con_extracto": true
+        },
+        {
+          "n": 20,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1777121-big-plo5-hands-from-guccinikes-600k-win-against-jared-bleznick",
+          "titular": "Big PLO5 Hands From GucciNIKE’s $600K Win Against Jared Bleznick",
+          "primera_frase": "Jared Bleznick took on top endboss 'GucciNIKE' in 5-card PLO, and the two traded six-figure pots until Bleznick was down almost $600K.",
+          "con_extracto": true
+        },
+        {
+          "n": 21,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/xiang-zou-wins-borgata-mini-main-52833.htm",
+          "titular": "Traveling Poker Player Continues Breakout Year with $80K Score at Borgata",
+          "primera_frase": "2023 GPI Player of the Year Bin Weng finished fifth.",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}
