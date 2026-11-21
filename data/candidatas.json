@@ -156,48 +156,6 @@
   ],
   "menciones": [
     {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/wpt-venetian-las-vegas-fall-championship-49254/",
-      "enlace": "https://www.pokernews.com/news/2026/11/world-poker-tour-vegas-slide-dealing-52748.htm",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1774152-daniel-lowery-wins-22nd-wsop-circuit-ring-climbs-to-second-in-title-race",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/tereza-vernerova-makes-history-first-woman-49250/",
-      "enlace": "https://www.pokernews.com/news/2026/11/tereza-vernerova-makes-history-battle-of-malta-victory-52743.htm",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "grosvenorcasinos.com",
-      "articulo": "https://www.pokernews.com/news/2026/11/gukpt-reveals-2027-schedule-as-tour-celebrates-20-years-of-u-52742.htm",
-      "enlace": "https://www.grosvenorcasinos.com/poker/live-poker/2027-npl-event-schedule",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "ggpoker.co.uk",
-      "articulo": "https://www.pokernews.com/news/2026/11/gukpt-reveals-2027-schedule-as-tour-celebrates-20-years-of-u-52742.htm",
-      "enlace": "https://promo.ggpoker.co.uk/grosvenor/",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/47-jugadores-siguen-en-carrera-por-el-primer-anillo-de-la-wsopc-panama-2026/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-07"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1774186-coinpoker-kicks-off-250-million-pgt-online-series-with-50-million-guaranteed-festival",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-07"
-    },
-    {
       "dominio": "ig.me",
       "articulo": "https://pokernoticias.com/thomas-heine-conquista-el-primer-anillo-de-la-wsopc-panama/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
@@ -856,6 +814,54 @@
       "articulo": "https://www.cardplayer.com/poker-news/1777121-big-plo5-hands-from-guccinikes-600k-win-against-jared-bleznick",
       "enlace": "https://cardplayer.pokercoaching.com/courses",
       "fecha": "2026-11-20"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1778240-gal-yifrach-pleads-guilty-to-running-illegal-gambling-business-money-laundering",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1779476-santhosh-suvarna-speeds-to-second-triton-poker-title",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "theasianpokertour.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/heads-up-cooler-rozova-record-breaking-aptc-womens-champ-52847.htm",
+      "enlace": "https://www.theasianpokertour.com/series/apt-championship-taipei-2026/events/626e1192-5730-4f40-bb74-344e251479a0/live-reports",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/poker-dream-27-sri-lanka-opens-49286/",
+      "enlace": "https://www.pokernews.com/news/2026/11/poker-dream-27-sri-lanka-round-2-early-bird-packages-52846.htm",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/maurice-hawkins-conquista-su-anillo-numero-27-y-amplia-su-record-en-la-wsop-circuit/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "bsop.com.br",
+      "articulo": "https://codigopoker.com/brazilian-series-of-poker/zaminhan-bi-bsop-torres-de-belaustegui",
+      "enlace": "https://bsop.com.br/bsop-millions/",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1779731-coinpoker-announces-15-million-cashmas-holiday-promotion",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "wptglobal.com",
+      "articulo": "https://www.pokernews.com/news/promotions/2026/11/winter-wonderland-5-million-giveaway-wpt-global-52851.htm",
+      "enlace": "https://wptglobal.com/en-ca/poker/promotions/winter-wonderland-2026",
+      "fecha": "2026-11-21"
     }
   ]
 }
