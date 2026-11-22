@@ -156,36 +156,6 @@
   ],
   "menciones": [
     {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/thomas-heine-conquista-el-primer-anillo-de-la-wsopc-panama/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-08"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/luis-ore-ramirez-lidera-el-primer-vuelo-del-main-event-de-la-wsopc-panama-2026/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-08"
-    },
-    {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/tough-call-episode-two-brings-media-49256/",
-      "enlace": "https://www.pokernews.com/news/2026/11/the-tough-call-episode-two-52753.htm",
-      "fecha": "2026-11-08"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/triton-poker-plus-rompe-la-barrera-del-idioma-y-llega-a-la-comunidad-hispanohablante/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-08"
-    },
-    {
-      "dominio": "winamax.es",
-      "articulo": "https://www.poker-red.com/noticias/winamax-abre-las-puertas-del-expresso-saloon",
-      "enlace": "https://www.winamax.es/expresso-saloon",
-      "fecha": "2026-11-08"
-    },
-    {
       "dominio": "raig.org",
       "articulo": "https://www.pokernews.com/news/2026/11/adam-wilkinson-wins-gukpt-blackpool-main-event-52765.htm",
       "enlace": "https://www.raig.org/",
@@ -862,6 +832,18 @@
       "articulo": "https://www.pokernews.com/news/promotions/2026/11/winter-wonderland-5-million-giveaway-wpt-global-52851.htm",
       "enlace": "https://wptglobal.com/en-ca/poker/promotions/winter-wonderland-2026",
       "fecha": "2026-11-21"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/triton-invitational-x-alcanza-los-us214-millones-en-premios-y-reune-a-la-elite-mundial-del-poker/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-22"
+    },
+    {
+      "dominio": "bsop.com.br",
+      "articulo": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-argentinos-grand-high-roller",
+      "enlace": "https://bsop.com.br/bsop-millions/",
+      "fecha": "2026-11-22"
     }
   ]
 }

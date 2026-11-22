@@ -1,0 +1,483 @@
+{
+  "fecha": "2026-11-22",
+  "corridas": [
+    {
+      "id": "2026-11-22T12:00:33Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/soccer-superstar-neymar-neymar-bsop-high-roller-title-52856.htm",
+          "titular": "Soccer Superstar Neymar Neymar Captures Maiden BSOP Title in High Roller",
+          "primera_frase": "Neymar Jr. outlasted friend Gil Cebola heads-up to win the BSOP Millions 1-Day High Roller"
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/sunday-sale-back-888-poker-play-your-favorite/",
+          "titular": "Sunday Sale Is Back at 888 Poker: Play Your Favorite Tournaments at Half the Price",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/neymar-jr-campeao-1-day-high-roller-bsop-millions-68247.htm",
+          "titular": "Neymar Jr. é campeão do 1-Day High Roller do BSOP Millions em HU de amigos",
+          "primera_frase": "O craque dos gramados venceu pela primeira vez no circuito"
+        },
+        {
+          "n": 4,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/triton-invitational-x-alcanza-los-us214-millones-en-premios-y-reune-a-la-elite-mundial-del-poker/",
+          "titular": "Triton Invitational X alcanza los US$21,4 millones en premios y reúne a la élite mundial del poker",
+          "primera_frase": "Con un buy-in de US$200.000 y 107 registros, el prestigioso torneo se convierte en uno de los grandes protagonistas de la Triton Super High Roller Series en Chipre del Norte."
+        },
+        {
+          "n": 5,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/cobo-main-event-del-bsop-millions",
+          "titular": "Sergio Cobo comanda a los 100 sobrevivientes del Main Event del BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/it-makes-my-heart-happy-linda-johnson-on-seeing-women-fill-52855.htm",
+          "titular": "\"It Makes My Heart Happy\": Linda Johnson on Seeing Women Fill Poker Fields",
+          "primera_frase": "Poker Hall of Famer Johnson has cashed four times at the APT Championship so far"
+        },
+        {
+          "n": 7,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/neymar-jr-conquista-su-primer-titulo-en-el-bsop-millions-y-se-lleva-r380-000/",
+          "titular": "Neymar Jr. conquista su primer título en el BSOP Millions y se lleva R$380.000",
+          "primera_frase": "El astro brasileño del fútbol demostró su talento en las mesas de poker tras consagrarse campeón del 1-Day High Roller en São Paulo."
+        },
+        {
+          "n": 8,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/triton-europa/papo-mesa-final-triton-invitational-chipre",
+          "titular": "¡Tremendo Papo! De estar eliminado a jugar por el título y 5 millones en las Triton Invitational",
+          "primera_frase": ""
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/texas-poker-docuseries-preview-52839.htm",
+          "titular": "Poker Docuseries Aims to Reshape Texas Poker Laws",
+          "primera_frase": "The timing on this docuseries couldn't be more perfect."
+        },
+        {
+          "n": 10,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-finalistas-250k-shr",
+          "titular": "BSOP Millions: ya están los finalistas del 250K Super High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/strategy/thanksgiving-poker-home-game-survival-guide-52852.htm",
+          "titular": "Teach MeeMaw How to Check-Raise This Thanksgiving: Your Poker Home Game Guide",
+          "primera_frase": "Teach MeeMaw to check-raise with our fun Thanksgiving poker home game guide."
+        },
+        {
+          "n": 12,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/erasmo-velazquez-lidera-el-espejo-humeante-en-casino-palace-cdmx",
+          "titular": "Erasmo Velázquez lidera el Espejo Humeante en Casino Palace CDMX",
+          "primera_frase": ""
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/best-black-friday-poker-deals-52853.htm",
+          "titular": "Top 5 Black Friday Poker Deals",
+          "primera_frase": "Sunglasses, hoodies, poker chips and more."
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/lafaya-mitchell-s-poker-a-womans-game-52824.htm",
+          "titular": "Lafaya Mitchell’s “Poker A Woman’s Game” Brings Therapist-Level Insight to Poker",
+          "primera_frase": "PokerNews spoke with the author to learn more about her women-centric poker book."
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/clubwpt-gold-poker-site-sets-world-record-52850.htm",
+          "titular": "Sweeps Poker Site's $5M Freeroll Sets World Record With Over 420,000 Entries",
+          "primera_frase": "ClubWPT Gold set out to set the record, and they did."
+        },
+        {
+          "n": 16,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/galacticgiraffe-dominates-week-2-clubs-poker/",
+          "titular": "GalacticGiraffe Dominates Week 2 of Clubs Poker Championship with Seven Wins",
+          "primera_frase": ""
+        },
+        {
+          "n": 17,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/subscribe-on-youtube-to-win-an-exclusive-wsop-jacket/",
+          "titular": "SUBSCRIBE ON YOUTUBE TO WIN AN EXCLUSIVE WSOP JACKET",
+          "primera_frase": "Win one of five exclusive WSOP jackets! Subscribe to the WSOP YouTube channel and comment “2003” on any video posted after Oct."
+        },
+        {
+          "n": 18,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1778240-gal-yifrach-pleads-guilty-to-running-illegal-gambling-business-money-laundering",
+          "titular": "Gal Yifrach Pleads Guilty To Running Illegal Gambling Business, Money Laundering",
+          "primera_frase": "Israeli poker player Gal Yifrach has pleaded guilty to charges related to an illegal California gambling business he ran from 2018 to 2022."
+        },
+        {
+          "n": 19,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-spingo-premios-68238.htm",
+          "titular": "Spingo traz chance de prêmios extras ao Spin & Go do PokerStars; confira",
+          "primera_frase": "É a segunda vez que a promoção acontece em 2026"
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/clubwpt-gold-hace-historia-y-supera-el-record-mundial-de-inscripciones-de-ggpoker/",
+          "titular": "ClubWPT Gold hace historia y supera el récord mundial de inscripciones de GGPoker",
+          "primera_frase": "Con más de 420.000 registros y un millón de dólares reservado para el campeón, la plataforma establece una nueva marca en el poker online."
+        },
+        {
+          "n": 21,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/clubwpt-gold-record-mundial-poker-online",
+          "titular": "Poker online: el torneo gratis que batió un récord mundial",
+          "primera_frase": ""
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/winter-wonderland-5-million-giveaway-wpt-global-52851.htm",
+          "titular": "Unwrap Daily Rewards With WPT Global's Winter Wonderland's $5 Million Giveaway",
+          "primera_frase": "Winter Wonderland offers daily gifts and up to $600 in minimum total reward value."
+        },
+        {
+          "n": 23,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/eric-and-lauren-bunch-get-ready-for-wsop-paradise/",
+          "titular": "ERIC AND LAUREN BUNCH GET READY FOR WSOP PARADISE",
+          "primera_frase": "Married couple Eric and Lauren Bunch both won WSOP Circuit rings in Tulsa."
+        },
+        {
+          "n": 24,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1779731-coinpoker-announces-15-million-cashmas-holiday-promotion",
+          "titular": "CoinPoker Announces $15 Million Cashmas Holiday Promotion",
+          "primera_frase": "Cash Game Leaderboards, Random Splash Pots, And Daily Social Media Challenges Will Award More Than $15 Million In December."
+        },
+        {
+          "n": 25,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/maurice-hawkins-conquista-su-anillo-numero-27-y-amplia-su-record-en-la-wsop-circuit/",
+          "titular": "Maurice Hawkins conquista su anillo número 27 y amplía su récord en la WSOP Circuit",
+          "primera_frase": "El estadounidense se consagró campeón en Nueva Orleans, sumó su sexto título de 2026 y continúa consolidándose como el jugador más ganador en la historia del circuito."
+        },
+        {
+          "n": 26,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/torres-casares-mystery-bounty-bsopmillions",
+          "titular": "Torres Casares, a un paso del título en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/casino/news/2026/11/fact-or-fiction-7-common-myths-about-online-slots-debunked-52834.htm",
+          "titular": "Fact or Fiction - 7 Common Myths About Online Slots (DEBUNKED?)",
+          "primera_frase": "Whether you're playing sports, poker or slot machines, everyone has their own theories or habits they adopt."
+        },
+        {
+          "n": 28,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-argentinos-grand-high-roller",
+          "titular": "BSOP Millions: tres argentinos en la final del Grand High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/888-poker-sunday-sale-half-price-buy-ins-52849.htm",
+          "titular": "888 Brings Back Sunday Sale With Half-Price Buy-ins and $90k in Guarantees",
+          "primera_frase": "888 Poker's Sunday Sale returns November 22 with 50% off buy-ins across $90K GTD events."
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/triton-europa/papo-mc-farol-triton-chipre",
+          "titular": "[VIDEO] El farol más caro de Papo MC: 70.000 fichas con 10 high en las Triton",
+          "primera_frase": ""
+        },
+        {
+          "n": 31,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/hellmuths-home-game-season-2-episode-5-recap-52813.htm",
+          "titular": "Rampage on Hellmuth's Home Game: \" I Didn’t Think I’d Lose $300K, But Here We Are.\"",
+          "primera_frase": "Others in the game included Charlie Hook, Dan \"Jungleman\" Cates, and Stanley Tang."
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-250k-shr",
+          "titular": "BSOP Millions: los tiburones se miden en el 250K Super High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-2027-power-path-live-event-packages-52848.htm",
+          "titular": "PokerStars Power Path Unlocks Packages for Irish Open, EPT Paris & More",
+          "primera_frase": "PokerStars reveals new 2027 Power Path live packages for Paris, Dublin, and Campione."
+        },
+        {
+          "n": 34,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/neymar-jr-campeon-bsop-millions",
+          "titular": "Neymar Jr ahora ya puede lucir su trofeo de campeón de BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 35,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/main-event-bsop-millions-sebastian-medina",
+          "titular": "El Día 1I del Main Event del BSOP Millions quedó en manos de Sebastián Medina",
+          "primera_frase": ""
+        },
+        {
+          "n": 36,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/dos-balas-bastaron-para-que-papo-mc-avance-al-dia-2-del-triton-invitational",
+          "titular": "Dos balas bastaron para que Papo MC avance al Día 2 del Triton Invitational",
+          "primera_frase": ""
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/un-estudio-de-una-sesion-de-poker",
+          "titular": "Un estudio de una sesión de poker por dentro: lo que nadie ve detrás de las pantallas",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/aprende-poker/estrategia-y-basicos/martin-zamani-co",
+          "titular": "Martin Zamani revela la mejor inversión de su carrera: un coach mental",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-22T12:00:33Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/jonathan-jaffe-wins-50k-triton-super-49288/",
+          "titular": "Jonathan Jaffe Wins $50,000 Triton Super High Roller in North Cyprus for $1,627,000",
+          "primera_frase": "Jonathan Jaffe captured the $50,000 eight-handed no-limit hold’em event at the Triton Super High Roller Series North Cyprus, taking home $1,627,000 from a $7,000,000 prize pool.",
+          "tema": "Tema: No-Limit Hold'em"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/soccer-superstar-neymar-neymar-bsop-high-roller-title-52856.htm",
+          "titular": "Soccer Superstar Neymar Neymar Captures Maiden BSOP Title in High Roller",
+          "primera_frase": "Neymar Jr. outlasted friend Gil Cebola heads-up to win the BSOP Millions 1-Day High Roller",
+          "con_extracto": true
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/neymar-jr-campeao-1-day-high-roller-bsop-millions-68247.htm",
+          "titular": "Neymar Jr. é campeão do 1-Day High Roller do BSOP Millions em HU de amigos",
+          "primera_frase": "O craque dos gramados venceu pela primeira vez no circuito"
+        },
+        {
+          "n": 4,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/neymar-jr-conquista-su-primer-titulo-en-el-bsop-millions-y-se-lleva-r380-000/",
+          "titular": "Neymar Jr. conquista su primer título en el BSOP Millions y se lleva R$380.000",
+          "primera_frase": "El astro brasileño del fútbol demostró su talento en las mesas de poker tras consagrarse campeón del 1-Day High Roller en São Paulo."
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/triton-invitational-x-alcanza-los-us214-millones-en-premios-y-reune-a-la-elite-mundial-del-poker/",
+          "titular": "Triton Invitational X alcanza los US$21,4 millones en premios y reúne a la élite mundial del poker",
+          "primera_frase": "Con un buy-in de US$200.000 y 107 registros, el prestigioso torneo se convierte en uno de los grandes protagonistas de la Triton Super High Roller Series en Chipre del Norte.",
+          "con_extracto": true
+        },
+        {
+          "n": 6,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1778240-gal-yifrach-pleads-guilty-to-running-illegal-gambling-business-money-laundering",
+          "titular": "Gal Yifrach Pleads Guilty To Running Illegal Gambling Business, Money Laundering",
+          "primera_frase": "Israeli poker player Gal Yifrach has pleaded guilty to charges related to an illegal California gambling business he ran from 2018 to 2022.",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/clubwpt-gold-poker-site-sets-world-record-52850.htm",
+          "titular": "Sweeps Poker Site's $5M Freeroll Sets World Record With Over 420,000 Entries",
+          "primera_frase": "ClubWPT Gold set out to set the record, and they did.",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/clubwpt-gold-hace-historia-y-supera-el-record-mundial-de-inscripciones-de-ggpoker/",
+          "titular": "ClubWPT Gold hace historia y supera el récord mundial de inscripciones de GGPoker",
+          "primera_frase": "Con más de 420.000 registros y un millón de dólares reservado para el campeón, la plataforma establece una nueva marca en el poker online."
+        },
+        {
+          "n": 9,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/clubwpt-gold-record-mundial-poker-online",
+          "titular": "Poker online: el torneo gratis que batió un récord mundial",
+          "primera_frase": ""
+        },
+        {
+          "n": 10,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/maurice-hawkins-conquista-su-anillo-numero-27-y-amplia-su-record-en-la-wsop-circuit/",
+          "titular": "Maurice Hawkins conquista su anillo número 27 y amplía su récord en la WSOP Circuit",
+          "primera_frase": "El estadounidense se consagró campeón en Nueva Orleans, sumó su sexto título de 2026 y continúa consolidándose como el jugador más ganador en la historia del circuito.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/texas-poker-docuseries-preview-52839.htm",
+          "titular": "Poker Docuseries Aims to Reshape Texas Poker Laws",
+          "primera_frase": "The timing on this docuseries couldn't be more perfect.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/pokerstars-2027-power-path-live-event-packages-52848.htm",
+          "titular": "PokerStars Power Path Unlocks Packages for Irish Open, EPT Paris & More",
+          "primera_frase": "PokerStars reveals new 2027 Power Path live packages for Paris, Dublin, and Campione.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/it-makes-my-heart-happy-linda-johnson-on-seeing-women-fill-52855.htm",
+          "titular": "\"It Makes My Heart Happy\": Linda Johnson on Seeing Women Fill Poker Fields",
+          "primera_frase": "Poker Hall of Famer Johnson has cashed four times at the APT Championship so far",
+          "con_extracto": true
+        },
+        {
+          "n": 14,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/lafaya-mitchell-s-poker-a-womans-game-52824.htm",
+          "titular": "Lafaya Mitchell’s “Poker A Woman’s Game” Brings Therapist-Level Insight to Poker",
+          "primera_frase": "PokerNews spoke with the author to learn more about her women-centric poker book.",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-argentinos-grand-high-roller",
+          "titular": "BSOP Millions: tres argentinos en la final del Grand High Roller",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/triton/triton-europa/papo-mesa-final-triton-invitational-chipre",
+          "titular": "¡Tremendo Papo! De estar eliminado a jugar por el título y 5 millones en las Triton Invitational",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/cobo-main-event-del-bsop-millions",
+          "titular": "Sergio Cobo comanda a los 100 sobrevivientes del Main Event del BSOP Millions",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-finalistas-250k-shr",
+          "titular": "BSOP Millions: ya están los finalistas del 250K Super High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 19,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/torres-casares-mystery-bounty-bsopmillions",
+          "titular": "Torres Casares, a un paso del título en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-250k-shr",
+          "titular": "BSOP Millions: los tiburones se miden en el 250K Super High Roller",
+          "primera_frase": ""
+        },
+        {
+          "n": 21,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/main-event-bsop-millions-sebastian-medina",
+          "titular": "El Día 1I del Main Event del BSOP Millions quedó en manos de Sebastián Medina",
+          "primera_frase": ""
+        },
+        {
+          "n": 22,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/erasmo-velazquez-lidera-el-espejo-humeante-en-casino-palace-cdmx",
+          "titular": "Erasmo Velázquez lidera el Espejo Humeante en Casino Palace CDMX",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 23,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/pokerstars-spingo-premios-68238.htm",
+          "titular": "Spingo traz chance de prêmios extras ao Spin & Go do PokerStars; confira",
+          "primera_frase": "É a segunda vez que a promoção acontece em 2026",
+          "con_extracto": true
+        },
+        {
+          "n": 24,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/winter-wonderland-5-million-giveaway-wpt-global-52851.htm",
+          "titular": "Unwrap Daily Rewards With WPT Global's Winter Wonderland's $5 Million Giveaway",
+          "primera_frase": "Winter Wonderland offers daily gifts and up to $600 in minimum total reward value.",
+          "con_extracto": true
+        },
+        {
+          "n": 25,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1779731-coinpoker-announces-15-million-cashmas-holiday-promotion",
+          "titular": "CoinPoker Announces $15 Million Cashmas Holiday Promotion",
+          "primera_frase": "Cash Game Leaderboards, Random Splash Pots, And Daily Social Media Challenges Will Award More Than $15 Million In December.",
+          "con_extracto": true
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/888-poker-sunday-sale-half-price-buy-ins-52849.htm",
+          "titular": "888 Brings Back Sunday Sale With Half-Price Buy-ins and $90k in Guarantees",
+          "primera_frase": "888 Poker's Sunday Sale returns November 22 with 50% off buy-ins across $90K GTD events.",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

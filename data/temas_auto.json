@@ -83,7 +83,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-21",
+      "ultima_novedad": "2026-11-22",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -407,7 +407,7 @@
         "pokernewsdaily.com",
         "wsop.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Craig Mason",
@@ -482,6 +482,36 @@
         "codigopoker.com",
         "pokernews.com",
         "pokernoticias.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: ClubWPT",
+      "palabras_clave": [
+        "ClubWPT"
+      ],
+      "alta": "2026-11-22",
+      "ultima_novedad": "2026-11-22",
+      "fuentes": [
+        "codigopoker.com",
+        "pokernews.com",
+        "pokernoticias.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Triton North Cyprus",
+      "palabras_clave": [
+        "Jonathan Jaffe",
+        "North Cyprus",
+        "Triton North Cyprus"
+      ],
+      "alta": "2026-11-22",
+      "ultima_novedad": "2026-11-22",
+      "fuentes": [
+        "cardplayer.com",
+        "pokernews.com",
+        "pokernewsdaily.com"
       ],
       "estado": "activo"
     }
