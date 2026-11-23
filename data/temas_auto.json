@@ -459,7 +459,7 @@
         "Flutter Entertainment"
       ],
       "alta": "2026-11-20",
-      "ultima_novedad": "2026-11-20",
+      "ultima_novedad": "2026-11-23",
       "fuentes": [
         "gamblingnews.com",
         "pokerindustrypro.com",
@@ -503,15 +503,33 @@
       "nombre": "Tema: Triton North Cyprus",
       "palabras_clave": [
         "Jonathan Jaffe",
+        "Nicolás Sagra",
         "North Cyprus",
+        "Paulius Plausinaitis",
+        "Triton Invitational",
         "Triton North Cyprus"
       ],
       "alta": "2026-11-22",
-      "ultima_novedad": "2026-11-22",
+      "ultima_novedad": "2026-11-23",
       "fuentes": [
         "cardplayer.com",
+        "codigopoker.com",
         "pokernews.com",
         "pokernewsdaily.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: Neymar Jr",
+      "palabras_clave": [
+        "Neymar Jr"
+      ],
+      "alta": "2026-11-23",
+      "ultima_novedad": "2026-11-23",
+      "fuentes": [
+        "pokernews.com",
+        "pokernewsdaily.com",
+        "pokernoticias.com"
       ],
       "estado": "activo"
     }

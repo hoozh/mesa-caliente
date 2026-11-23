@@ -156,36 +156,6 @@
   ],
   "menciones": [
     {
-      "dominio": "raig.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/adam-wilkinson-wins-gukpt-blackpool-main-event-52765.htm",
-      "enlace": "https://www.raig.org/",
-      "fecha": "2026-11-09"
-    },
-    {
-      "dominio": "gamblingtherapy.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/adam-wilkinson-wins-gukpt-blackpool-main-event-52765.htm",
-      "enlace": "https://www.gamblingtherapy.org/en",
-      "fecha": "2026-11-09"
-    },
-    {
-      "dominio": "responsiblegambling.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/adam-wilkinson-wins-gukpt-blackpool-main-event-52765.htm",
-      "enlace": "https://www.responsiblegambling.org/",
-      "fecha": "2026-11-09"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1774222-alin-ivan-hero-calls-his-way-to-triton-one-title-in-north-cyprus",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-09"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/justin-fawcett-toma-el-mando-del-main-event-de-la-wsopc-panama-tras-un-intenso-dia-1b/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-09"
-    },
-    {
       "dominio": "pokernews.com",
       "articulo": "https://www.reddit.com/r/poker/comments/1xs40hm/almost_20_years_in_the_making_adam_wilkinson/",
       "enlace": "https://www.pokernews.com/news/2026/11/adam-wilkinson-wins-gukpt-blackpool-main-event-52765.htm",
@@ -844,6 +814,24 @@
       "articulo": "https://codigopoker.com/brazilian-series-of-poker/bsop-millions-argentinos-grand-high-roller",
       "enlace": "https://bsop.com.br/bsop-millions/",
       "fecha": "2026-11-22"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/neymar-jr-wins-bsop-millions-r15000-49291/",
+      "enlace": "https://www.pokernews.com/news/2026/11/soccer-superstar-neymar-neymar-bsop-high-roller-title-52856.htm",
+      "fecha": "2026-11-23"
+    },
+    {
+      "dominio": "pokerindustrypro.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/11/pokerstars-set-leave-new-zealand-countrys-online/",
+      "enlace": "https://pokerindustrypro.com/news/article/226571-ggpoker-pokerstars-and-888-confirm-new-zealand",
+      "fecha": "2026-11-23"
+    },
+    {
+      "dominio": "octopipoker.ai",
+      "articulo": "https://www.pokernews.com/news/2026/11/octopi-poker-launch-women-s-poker-learning-community-52768.htm",
+      "enlace": "https://octopipoker.ai",
+      "fecha": "2026-11-23"
     }
   ]
 }
