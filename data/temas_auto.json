@@ -56,7 +56,7 @@
         "Purple Jacket."
       ],
       "alta": "2026-10-18",
-      "ultima_novedad": "2026-11-10",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -83,7 +83,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-22",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -219,7 +219,7 @@
         "Lucas Jumalon"
       ],
       "alta": "2026-10-28",
-      "ultima_novedad": "2026-11-15",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
         "codigopoker.com",
         "poker-red.com",
@@ -328,7 +328,7 @@
         "Vladimir Minko"
       ],
       "alta": "2026-11-06",
-      "ultima_novedad": "2026-11-20",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
         "poker-red.com",
         "pokerlistings.com",
@@ -506,16 +506,19 @@
         "Nicolás Sagra",
         "North Cyprus",
         "Paulius Plausinaitis",
+        "Pieter Aerts",
         "Triton Invitational",
         "Triton North Cyprus"
       ],
       "alta": "2026-11-22",
-      "ultima_novedad": "2026-11-23",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
         "pokernews.com",
-        "pokernewsdaily.com"
+        "pokernewsdaily.com",
+        "pokernoticias.com",
+        "tightpoker.com"
       ],
       "estado": "activo"
     },
@@ -525,10 +528,25 @@
         "Neymar Jr"
       ],
       "alta": "2026-11-23",
-      "ultima_novedad": "2026-11-23",
+      "ultima_novedad": "2026-11-24",
       "fuentes": [
+        "cardplayer.com",
         "pokernews.com",
         "pokernewsdaily.com",
+        "pokernoticias.com"
+      ],
+      "estado": "activo"
+    },
+    {
+      "nombre": "Tema: ClubWPT Gold",
+      "palabras_clave": [
+        "ClubWPT Gold"
+      ],
+      "alta": "2026-11-24",
+      "ultima_novedad": "2026-11-22",
+      "fuentes": [
+        "codigopoker.com",
+        "pokernews.com",
         "pokernoticias.com"
       ],
       "estado": "activo"
