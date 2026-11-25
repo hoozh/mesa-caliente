@@ -156,72 +156,6 @@
   ],
   "menciones": [
     {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xsv00s/this_is_pretty_much_the_most_ridiculous_angle/",
-      "enlace": "https://www.pokernews.com/news/2026/11/poker-player-blatant-angle-shoot-52780.htm",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "clubwptgold.com",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xt0hgw/club_wpt_gold_microstakes_now_charging_10bbhour/",
-      "enlace": "https://support.clubwptgold.com/portal/en/kb/articles/time-based-tables#Ring_Games_Time-Based_Tables",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "bahamar.com",
-      "articulo": "https://www.wsop.com/news/choctaw-and-the-reserve-declare-new-wsop-circuit-champions/",
-      "enlace": "https://bahamar.com/",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://www.wsop.com/news/choctaw-and-the-reserve-declare-new-wsop-circuit-champions/",
-      "enlace": "https://ggpoker.com/",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/tobias-schwecht-wins-301133-ggpokers-10k-49262/",
-      "enlace": "https://www.pokernews.com/news/2026/11/tobias-schwecht-defeats-ept-champion-to-claim-301k-52773.htm",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1775161-quan-zhou-seizes-triton-one-cyprus-mystery-bounty-title",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "raig.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
-      "enlace": "https://www.raig.org/",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "gamblingtherapy.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
-      "enlace": "https://www.gamblingtherapy.org/en",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "responsiblegambling.org",
-      "articulo": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
-      "enlace": "https://www.responsiblegambling.org/",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/jherson-yeyo-alvarez-conquista-su-segundo-anillo-de-la-wsop-circuit-en-panama/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-11"
-    },
-    {
-      "dominio": "wsop.com",
-      "articulo": "https://codigopoker.com/noticias/torneos/wsop/wsop-argentina/wsop-rosario-cesarini-gano-mystery-bounty",
-      "enlace": "https://www.wsop.com/",
-      "fecha": "2026-11-11"
-    },
-    {
       "dominio": "walmart.com",
       "articulo": "https://www.reddit.com/r/poker/comments/1xtuodu/is_this_a_good_table_for_occasional_home_games/",
       "enlace": "http://www.walmart.com/ip/55465427?sid=75F7CCEB-D638-456F-AD94-1287E6F77AC3",
@@ -790,6 +724,66 @@
       "articulo": "https://pokernoticias.com/el-millionaire-maker-del-bsop-millions-rompe-el-record-del-torneo-de-poker-mas-grande-de-la-historia-de-brasil/",
       "enlace": "https://ig.me/m/pokernoticiaslatam_",
       "fecha": "2026-11-24"
+    },
+    {
+      "dominio": "copagusa.com",
+      "articulo": "https://www.wsop.com/news/ryan-brown-wins-caesars-new-orleans-wsop-circuit-main-event/",
+      "enlace": "https://www.copagusa.com/",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "thehendonmob.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/26-year-old-poker-prodigy-takes-2026-earnings-to-10m-52889.htm",
+      "enlace": "https://pokerdb.thehendonmob.com/player.php?a=s&n=989789",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "raig.org",
+      "articulo": "https://www.pokernews.com/news/2026/11/pokerstars-ept-prague-to-debut-some-exciting-new-formats-52885.htm",
+      "enlace": "https://www.raig.org/",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "gamblingtherapy.org",
+      "articulo": "https://www.pokernews.com/news/2026/11/pokerstars-ept-prague-to-debut-some-exciting-new-formats-52885.htm",
+      "enlace": "https://www.gamblingtherapy.org/en",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "responsiblegambling.org",
+      "articulo": "https://www.pokernews.com/news/2026/11/pokerstars-ept-prague-to-debut-some-exciting-new-formats-52885.htm",
+      "enlace": "https://www.responsiblegambling.org/",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "spadepoker.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/the-slide-takes-over-how-poker-s-dealing-method-is-changing-52863.htm",
+      "enlace": "https://www.spadepoker.com/en/news/fraudsters-robbed-poker-players-of-hundreds-of-thousands-of-euros-arrested-by-french-police",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "pokerfuse.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/the-slide-takes-over-how-poker-s-dealing-method-is-changing-52863.htm",
+      "enlace": "https://pokerfuse.com/features/interviews/222084-slide-dealing-no-smart-glasses-stricter-seating",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "casinos.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/the-slide-takes-over-how-poker-s-dealing-method-is-changing-52863.htm",
+      "enlace": "https://www.casinos.com/us/news/slide-hustle-south-point-poker-experiments-with-new-ish-dealer-method-to-prevent-cheating",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "nolandalla.com",
+      "articulo": "https://www.pokernews.com/news/2026/11/beloved-barge-player-mark-old-bear-hughes-passes-away-52876.htm",
+      "enlace": "https://www.nolandalla.com/dinner-dickie-brennans-bear/",
+      "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "bsop.com.br",
+      "articulo": "https://codigopoker.com/brazilian-series-of-poker/carlos-serrano-cuarto-50k-pko-bsop",
+      "enlace": "https://bsop.com.br/bsop-millions/",
+      "fecha": "2026-11-25"
     }
   ]
 }

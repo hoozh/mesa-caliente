@@ -45,7 +45,7 @@
         "pokernews.com",
         "reddit.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Adrián Mateos",
@@ -83,7 +83,7 @@
         "Purple Jacket"
       ],
       "alta": "2026-10-21",
-      "ultima_novedad": "2026-11-24",
+      "ultima_novedad": "2026-11-25",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
@@ -435,7 +435,7 @@
         "poker-red.com",
         "pokernews.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: McKeehen",
@@ -506,12 +506,13 @@
         "Nicolás Sagra",
         "North Cyprus",
         "Paulius Plausinaitis",
+        "Phil Ivey",
         "Pieter Aerts",
         "Triton Invitational",
         "Triton North Cyprus"
       ],
       "alta": "2026-11-22",
-      "ultima_novedad": "2026-11-24",
+      "ultima_novedad": "2026-11-25",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",
