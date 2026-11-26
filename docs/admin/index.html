@@ -54,6 +54,7 @@ td.titulo { min-width: 220px; }
     <button data-v="noticias">Noticias</button>
     <button data-v="sitio">Menú y secciones</button>
     <button data-v="instagram">Instagram</button>
+    <button data-v="videos">Videos</button>
     <div class="grupo">Barrido</div>
     <button data-v="claves">Palabras clave prioritarias</button>
     <button data-v="busquedas">Búsquedas activas</button>
@@ -123,6 +124,14 @@ td.titulo { min-width: 220px; }
     if (!r.ok) throw new Error('No se pudo guardar ' + ruta + '.');
     return (await r.json()).content.sha;
   }
+  async function leerBlob(ruta, priv = false) { // archivo binario (imagen, video) del repositorio
+    const r = await gh('/contents/' + ruta + '?ref=main&t=' + Date.now(), { headers: { Accept: 'application/vnd.github.raw+json' } }, priv);
+    if (r.status === 404) return null; return await r.blob(); }
+  async function guardarBinario(ruta, buffer, mensaje, priv = false) {
+    let bin = ''; const bytes = new Uint8Array(buffer); for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    const previo = await gh('/contents/' + ruta + '?ref=main', {}, priv); const sha = previo.status === 404 ? null : (await previo.json()).sha;
+    const cuerpo = { message: mensaje, content: btoa(bin), branch: 'main' }; if (sha) cuerpo.sha = sha;
+    const r = await gh('/contents/' + ruta, { method: 'PUT', body: JSON.stringify(cuerpo) }, priv); if (!r.ok) throw new Error('No se pudo subir ' + ruta + '.'); }
   const leerJSONL = async (ruta, priv = false) => ((await leer(ruta, priv)).texto || '').split('\n').filter(Boolean)
     .map(l => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean);
   async function leerJSON(ruta, vacio, priv = false) { const x = await leer(ruta, priv); return { datos: x.texto ? JSON.parse(x.texto) : vacio, sha: x.sha }; }
@@ -138,7 +147,7 @@ td.titulo { min-width: 220px; }
   const VISTAS = {};
   const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido',
     personalidades: 'Personalidades', bases: 'Consultar registros', archivos: 'Archivos de SEI', conexion: 'Conexión',
-    sitio: 'Menú y secciones', instagram: 'Instagram', propuestas: 'Propuestas' };
+    sitio: 'Menú y secciones', instagram: 'Instagram', propuestas: 'Propuestas', videos: 'Videos' };
   const slugId = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   async function ir(v) {
     document.querySelectorAll('.side button').forEach(b => b.classList.toggle('activo', b.dataset.v === v));
@@ -245,7 +254,8 @@ td.titulo { min-width: 220px; }
         <div class="d-flex flex-wrap gap-4 mb-3">
           <label class="form-check"><input class="form-check-input" type="checkbox" id="e-des" ${x.destacada ? 'checked' : ''}> <span class="form-check-label">Destacar</span></label>
           <label class="form-check"><input class="form-check-input" type="checkbox" id="e-ocu" ${x.oculta ? 'checked' : ''}> <span class="form-check-label">Ocultar de la página</span></label>
-          <label class="form-check"><input class="form-check-input" type="checkbox" id="e-ig" ${x.instagram ? 'checked' : ''}> <span class="form-check-label">Marcar para Instagram</span></label></div>
+          <label class="form-check"><input class="form-check-input" type="checkbox" id="e-ig" ${x.instagram ? 'checked' : ''}> <span class="form-check-label">Marcar para Instagram</span></label>
+          <label class="form-check"><input class="form-check-input" type="checkbox" id="e-vid" ${x.video ? 'checked' : ''}> <span class="form-check-label">Proponer para video</span></label></div>
         <div><label class="form-label" for="e-mot">Qué se corrigió y por qué (opcional, sirve para que SEI aprenda)</label><input class="form-control" id="e-mot" value="" placeholder="Ej.: el premio era $110,938, no el buy-in"></div>`;
       const filaImg = (im = {}) => { const d = document.createElement('div'); d.className = 'row g-1 align-items-center fila-img';
         d.innerHTML = `<div class="col-12 col-md-5"><input class="form-control form-control-sm" data-k="url" type="url" placeholder="Dirección de la imagen (https://…)" value="${esc(im.url || '')}"></div>
@@ -286,9 +296,9 @@ td.titulo { min-width: 220px; }
       const secs = [...document.querySelectorAll('#e-secs input:checked')].map(i => i.value);
       if (secs.length) nuevo.secciones = secs;
       if (v('e-eti')) nuevo.etiqueta = v('e-eti');
-      if (c('e-des')) nuevo.destacada = true; if (c('e-ocu')) nuevo.oculta = true; if (c('e-ig')) nuevo.instagram = true;
+      if (c('e-des')) nuevo.destacada = true; if (c('e-ocu')) nuevo.oculta = true; if (c('e-ig')) nuevo.instagram = true; if (c('e-vid')) nuevo.video = true;
       nuevo.historial.push({ fecha: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', motivo: v('e-mot'),
-        campos: ['titulo', 'resumen', 'cuerpo', 'imagen', 'imagenes', 'secciones', 'etiqueta', 'destacada', 'oculta', 'instagram'].filter(k => nuevo[k] !== undefined && JSON.stringify(nuevo[k]) !== JSON.stringify(previo[k])) });
+        campos: ['titulo', 'resumen', 'cuerpo', 'imagen', 'imagenes', 'secciones', 'etiqueta', 'destacada', 'oculta', 'instagram', 'video'].filter(k => nuevo[k] !== undefined && JSON.stringify(nuevo[k]) !== JSON.stringify(previo[k])) });
       try { await persistir(nuevo, 'Edición: ' + actual.titulo.slice(0, 60)); modal.hide(); aviso('Guardado. La página se actualiza en uno o dos minutos.'); pintar(); }
       catch (e) { aviso(e.message, 'danger'); } };
     document.getElementById('m-restaurar').onclick = async () => {
@@ -588,9 +598,21 @@ td.titulo { min-width: 220px; }
     cuentas: [], nota: 'Marca y cuentas para los posteos de Instagram. Nunca guarde contraseñas aquí.' };
   const ESTADOS_IG = { borrador: 'Borrador', listo: 'Listo para publicar', publicado: 'Publicado', descartado: 'Descartado' };
   const PLANTILLAS = { noticia: 'Noticia (título grande)', dato: 'Dato destacado (cifra grande)', cita: 'Cita' };
-  function dibujarPosteo(canvas, p, m) {
-    const c = canvas.getContext('2d'), W = 1080, H = 1350; canvas.width = W; canvas.height = H;
+  const IMG_CACHE = {};
+  async function imagenIG(nombre) { if (!nombre) return null; if (IMG_CACHE[nombre]) return IMG_CACHE[nombre];
+    const b = await leerBlob('instagram/imagenes/' + nombre, true); if (!b) return null; const url = URL.createObjectURL(b);
+    const img = new Image(); await new Promise((ok, mal) => { img.onload = ok; img.onerror = mal; img.src = url; }); return (IMG_CACHE[nombre] = { img, url }); }
+  async function subirImagenIG(input) { const f = input.files[0]; if (!f) return null; if (f.size > 8 * 1024 * 1024) throw new Error('La imagen supera los 8 MB.');
+    const nombre = Date.now().toString(36) + '-' + f.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w.\-]+/g, '-').toLowerCase();
+    await guardarBinario('instagram/imagenes/' + nombre, await f.arrayBuffer(), 'Imagen para Instagram: ' + nombre, true); return nombre; }
+  async function listaImagenesIG() { const r = await gh('/contents/instagram/imagenes?ref=main&t=' + Date.now(), {}, true); return r.status === 404 ? [] : (await r.json()).filter(x => x.type === 'file').map(x => x.name); }
+  function dibujarPosteo(canvas, p, m, foto) {
+    const c = canvas.getContext('2d'), W = 1080, H = p.formato === '9:16' ? 1920 : 1350; canvas.width = W; canvas.height = H;
     c.fillStyle = m.fondo; c.fillRect(0, 0, W, H);
+    if (foto) { const z = (+p.zoom || 100) / 100, k = Math.max(W / foto.width, H / foto.height) * z, w = foto.width * k, h = foto.height * k;
+      c.drawImage(foto, (W - w) * ((+p.posx || 50) / 100), (H - h) * ((+p.posy || 50) / 100), w, h);
+      const g = c.createLinearGradient(0, 0, 0, H); const o = (+p.velo || 60) / 100;
+      g.addColorStop(0, `rgba(0,0,0,${o * .4})`); g.addColorStop(.5, `rgba(0,0,0,${o * .75})`); g.addColorStop(1, `rgba(0,0,0,${o})`); c.fillStyle = g; c.fillRect(0, 0, W, H); }
     c.fillStyle = m.acento; c.fillRect(0, 0, W, 14); c.fillRect(80, 130, 90, 10);
     c.fillStyle = m.texto; c.font = '700 40px "Roboto Condensed", "Arial Narrow", sans-serif'; c.textBaseline = 'top';
     c.fillText((m.nombre || '').toUpperCase(), 80, 64);
@@ -598,7 +620,7 @@ td.titulo { min-width: 220px; }
     const lineas = (texto, fuente, ancho) => { c.font = fuente; const out = []; let l = '';
       for (const w of String(texto || '').split(/\s+/)) { const prueba = l ? l + ' ' + w : w; if (c.measureText(prueba).width > ancho && l) { out.push(l); l = w; } else l = prueba; }
       if (l) out.push(l); return out; };
-    let y = 240;
+    let y = p.formato === '9:16' ? (foto ? 900 : 520) : (foto ? 560 : 240);
     if (p.plantilla === 'dato' && p.dato) {
       c.fillStyle = m.acento; const f = '700 150px "PT Serif", Georgia, serif'; for (const l of lineas(p.dato, f, 920).slice(0, 2)) { c.font = f; c.fillText(l, 80, y); y += 165; }
       y += 20; }
@@ -616,6 +638,7 @@ td.titulo { min-width: 220px; }
     const [pr, mr, tj, ed] = await Promise.all([leerJSON(RUTA_IG, { posteos: [] }, true), leerJSON(RUTA_MARCA, MARCA_BASE, true),
       leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('data/ediciones.json', { tarjetas: {} })]);
     let P = pr.datos, shaP = pr.sha, M = { ...MARCA_BASE, ...mr.datos }, shaM = mr.sha;
+    const IMGS = await listaImagenesIG().catch(() => []);
     P.nota = P.nota || 'Posteos de Instagram en preparación. Se editan desde el administrador (Instagram).';
     const marcadas = tj.datos.tarjetas.filter(t => (ed.datos.tarjetas[t.id] || {}).instagram && !P.posteos.some(x => x.noticia === t.id));
     try { await document.fonts.load('700 40px "PT Serif"'); await document.fonts.load('700 40px "Roboto Condensed"'); } catch (e) {}
@@ -625,6 +648,7 @@ td.titulo { min-width: 220px; }
         <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th>Posteo</th><th class="d-none d-md-table-cell">Fecha prevista</th><th>Estado</th><th></th></tr></thead><tbody>
           ${P.posteos.map((x, i) => `<tr><td>${esc(x.titulo)}</td><td class="d-none d-md-table-cell text-nowrap">${esc(fechaLarga(x.fecha))}</td><td>${esc(ESTADOS_IG[x.estado] || x.estado)}</td><td><button class="btn btn-sm btn-outline-dark" data-ig="${i}" type="button">Abrir</button></td></tr>`).join('') || '<tr><td colspan="4" class="ayuda">Todavía no hay posteos.</td></tr>'}
         </tbody></table></div></div></div>
+      <div class="bloque"><div class="bh"><h2>Videos (stories y reels)</h2><button class="btn btn-sm btn-mc ms-auto" id="ig-videos" type="button">Abrir el editor de videos</button></div><div class="bc"><p class="ayuda mb-0">Proponga una noticia para video desde «Noticias», genere la primera versión con Claude y pídale cambios hasta que quede bien.</p></div></div>
       <div class="bloque"><div class="bh"><h2>Marca y cuentas</h2><span class="badge text-bg-dark">Privado</span></div><div class="bc">
         <p class="ayuda">Para las pruebas, use una marca ficticia que no se parezca a ningún medio real. Las imágenes de los posteos son de diseño propio (texto sobre color): no usan fotos de medios, que no tenemos permiso para publicar en redes.</p>
         <div class="row g-2">
@@ -644,6 +668,7 @@ td.titulo { min-width: 220px; }
         <div class="d-flex gap-2 mt-2"><button class="btn btn-sm btn-outline-dark" id="mk-cuenta-add" type="button">+ Cuenta</button><button class="btn btn-sm btn-mc" id="mk-guardar" type="button">Guardar marca y cuentas</button></div>
         <details class="mt-3"><summary class="small">Publicación automática (segunda etapa)</summary><p class="ayuda mt-2 mb-0">Para publicar desde aquí hace falta: la cuenta de prueba como cuenta profesional (de empresa o de creador), una app en Meta for Developers con permiso de publicación de contenido, y su clave guardada como secreto de GitHub. Las imágenes se publicarían desde la página (una dirección pública). Cuando tenga la cuenta, Claude arma el flujo y le da los pasos.</p></details>
       </div></div>`;
+      document.getElementById('ig-videos').onclick = () => ir('videos');
       document.getElementById('ig-vacio').onclick = () => editar({ id: Date.now().toString(36), plantilla: 'noticia', titulo: '', seccion: 'Noticias', bajada: '', dato: '', credito: '', texto: '', hashtags: '#poker', estado: 'borrador', fecha: hoyISO() }, -1);
       vista.querySelectorAll('[data-desde]').forEach(b => b.onclick = () => { const t = tj.datos.tarjetas.find(x => x.id === b.dataset.desde), e = ed.datos.tarjetas[t.id] || {};
         const tit = e.titulo || t.titulo, baj = e.resumen || t.resumen || '';
@@ -661,6 +686,13 @@ td.titulo { min-width: 220px; }
         <div class="col-lg-6">
           <div class="row g-2 mb-2"><div class="col-6"><label class="form-label small" for="pe-pl">Diseño</label><select class="form-select form-select-sm" id="pe-pl">${Object.entries(PLANTILLAS).map(([k, n]) => `<option value="${k}" ${x.plantilla === k ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
             <div class="col-6"><label class="form-label small" for="pe-sec">Sección</label><input class="form-control form-control-sm" id="pe-sec" value="${esc(x.seccion)}"></div></div>
+          <div class="row g-2 mb-2"><div class="col-6"><label class="form-label small" for="pe-fmt">Formato</label><select class="form-select form-select-sm" id="pe-fmt"><option value="4:5" ${x.formato !== '9:16' ? 'selected' : ''}>Posteo (4:5)</option><option value="9:16" ${x.formato === '9:16' ? 'selected' : ''}>Story (9:16)</option></select></div>
+            <div class="col-6"><label class="form-label small" for="pe-img">Foto de fondo (propia)</label><select class="form-select form-select-sm" id="pe-img"><option value="">Sin foto</option>${IMGS.map(n => `<option ${x.imagen === n ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select></div></div>
+          <div class="mb-2"><input class="form-control form-control-sm" id="pe-subir" type="file" accept="image/jpeg,image/png,image/webp"><div class="ayuda">Suba fotos propias o con permiso; quedan en el repositorio privado.</div></div>
+          <div class="row g-2 mb-2" id="pe-ajustes"><div class="col-3"><label class="form-label small" for="pe-zoom">Zoom</label><input class="form-range" id="pe-zoom" type="range" min="100" max="250" value="${x.zoom || 100}"></div>
+            <div class="col-3"><label class="form-label small" for="pe-posx">Horizontal</label><input class="form-range" id="pe-posx" type="range" min="0" max="100" value="${x.posx ?? 50}"></div>
+            <div class="col-3"><label class="form-label small" for="pe-posy">Vertical</label><input class="form-range" id="pe-posy" type="range" min="0" max="100" value="${x.posy ?? 50}"></div>
+            <div class="col-3"><label class="form-label small" for="pe-velo">Oscurecer</label><input class="form-range" id="pe-velo" type="range" min="0" max="95" value="${x.velo ?? 60}"></div></div>
           <div class="mb-2"><label class="form-label small" for="pe-tit">Título de la imagen</label><textarea class="form-control form-control-sm" id="pe-tit" rows="2">${esc(x.titulo)}</textarea></div>
           <div class="mb-2"><label class="form-label small" for="pe-dato">Dato destacado (cifra, para el diseño «Dato»)</label><input class="form-control form-control-sm" id="pe-dato" value="${esc(x.dato)}" placeholder="Ej.: $110,938"></div>
           <div class="mb-2"><label class="form-label small" for="pe-baj">Bajada de la imagen</label><textarea class="form-control form-control-sm" id="pe-baj" rows="3">${esc(x.bajada)}</textarea></div>
@@ -672,15 +704,20 @@ td.titulo { min-width: 220px; }
           <div class="mb-3"><label class="form-label small" for="pe-url">Enlace del posteo publicado (opcional)</label><input class="form-control form-control-sm" id="pe-url" type="url" value="${esc(x.publicado_url || '')}"></div>
           <div class="d-flex flex-wrap gap-2"><button class="btn btn-mc" id="pe-guardar" type="button">Guardar</button><button class="btn btn-outline-dark" id="pe-png" type="button">Descargar imagen</button><button class="btn btn-outline-dark" id="pe-copiar" type="button">Copiar texto</button>${idx >= 0 ? '<button class="btn btn-outline-danger ms-auto" id="pe-borrar" type="button">Borrar</button>' : ''}</div>
         </div>
-        <div class="col-lg-6"><p class="ayuda mb-2">Vista previa (1080 × 1350, formato 4:5 de Instagram)</p><canvas id="pe-canvas" style="width:100%;max-width:460px;aspect-ratio:4/5;border-radius:6px;box-shadow:0 2px 10px rgb(0 0 0 / .2)"></canvas></div>
+        <div class="col-lg-6"><p class="ayuda mb-2" id="pe-medida">Vista previa</p><canvas id="pe-canvas" style="width:100%;max-width:460px;border-radius:6px;box-shadow:0 2px 10px rgb(0 0 0 / .2)"></canvas></div>
       </div></div></div>`;
       const v = id => document.getElementById(id).value;
-      const leerX = () => Object.assign(x, { plantilla: v('pe-pl'), seccion: v('pe-sec').trim(), titulo: v('pe-tit').trim(), dato: v('pe-dato').trim(), bajada: v('pe-baj').trim(),
+      const leerX = () => Object.assign(x, { formato: v('pe-fmt'), imagen: v('pe-img'), zoom: +v('pe-zoom'), posx: +v('pe-posx'), posy: +v('pe-posy'), velo: +v('pe-velo'), plantilla: v('pe-pl'), seccion: v('pe-sec').trim(), titulo: v('pe-tit').trim(), dato: v('pe-dato').trim(), bajada: v('pe-baj').trim(),
         credito: v('pe-cred').trim(), texto: v('pe-txt'), hashtags: v('pe-hash').trim(), fecha: v('pe-fecha'), estado: v('pe-est'), publicado_url: v('pe-url').trim() });
       const cv = document.getElementById('pe-canvas');
-      const refrescar = () => { leerX(); dibujarPosteo(cv, x, M); const n = (x.texto + '\n\n' + x.hashtags).length, h = (x.hashtags.match(/#/g) || []).length;
+      const refrescar = async () => { leerX(); document.getElementById('pe-ajustes').hidden = !x.imagen;
+        document.getElementById('pe-medida').textContent = x.formato === '9:16' ? 'Vista previa (1080 × 1920, story)' : 'Vista previa (1080 × 1350, posteo 4:5)';
+        let foto = null; try { foto = x.imagen ? (await imagenIG(x.imagen)).img : null; } catch (e) { aviso('No se pudo cargar la foto.', 'warning'); }
+        dibujarPosteo(cv, x, M, foto); const n = (x.texto + '\n\n' + x.hashtags).length, h = (x.hashtags.match(/#/g) || []).length;
         const cnt = document.getElementById('pe-cnt'); cnt.textContent = `${n} de 2200 caracteres · ${h} de 30 hashtags`; cnt.className = n > 2200 || h > 30 ? 'estado-error' : 'ayuda'; };
-      vista.querySelectorAll('input, textarea, select').forEach(el => el.addEventListener('input', refrescar)); refrescar();
+      vista.querySelectorAll('input:not([type=file]), textarea, select').forEach(el => el.addEventListener('input', refrescar)); refrescar();
+      document.getElementById('pe-subir').onchange = async e => { try { const n = await subirImagenIG(e.target); if (!n) return; IMGS.push(n);
+        document.getElementById('pe-img').insertAdjacentHTML('beforeend', `<option selected>${esc(n)}</option>`); aviso('Foto subida.'); refrescar(); } catch (er) { aviso(er.message, 'danger'); } };
       document.getElementById('pe-volver').onclick = pintar;
       document.getElementById('pe-png').onclick = () => cv.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `posteo-${x.id}.png`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }, 'image/png');
       document.getElementById('pe-copiar').onclick = async () => { leerX(); try { await navigator.clipboard.writeText(x.texto + '\n\n' + x.hashtags); aviso('Texto copiado.'); } catch (e) { aviso('No se pudo copiar: selecciónelo a mano.', 'warning'); } };
@@ -691,6 +728,102 @@ td.titulo { min-width: 220px; }
         try { shaP = await guardar(RUTA_IG, json(P), shaP, 'Posteo de Instagram borrado', true); aviso('Borrado.'); pintar(); } catch (e) { aviso(e.message, 'danger'); } };
     };
     pintar();
+  };
+
+  // ---------------------------------------------------------------- Videos (repositorio privado + flujo «Generar video»)
+  const RUTA_VID = 'videos/videos.json';
+  const TIPOS_ESC = { portada: 'Portada', texto: 'Texto', dato: 'Dato (cifra)', cierre: 'Cierre' };
+  async function estadoFlujoVideo() { const r = await gh('/actions/workflows/video.yml/runs?per_page=1&t=' + Date.now()); if (!r.ok) return null; const j = await r.json(); return (j.workflow_runs || [])[0] || null; }
+  async function lanzarVideo(id, pedido, solo) { const r = await gh('/actions/workflows/video.yml/dispatches', { method: 'POST',
+      body: JSON.stringify({ ref: 'main', inputs: { id, pedido: pedido || '', solo_render: solo ? 'true' : 'false' } }) });
+    if (r.status !== 204) throw new Error('GitHub no aceptó el pedido (' + r.status + '). ¿Está fusionado el flujo «Generar video»?'); }
+  VISTAS.videos = async () => {
+    const [vd, tj, ed, mr] = await Promise.all([leerJSON(RUTA_VID, { videos: [] }, true), leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }),
+      leerJSON('data/ediciones.json', { tarjetas: {} }), leerJSON(RUTA_MARCA, MARCA_BASE, true)]);
+    let V = vd.datos, shaV = vd.sha; const M = { ...MARCA_BASE, ...mr.datos };
+    V.nota = V.nota || 'Videos de Instagram (stories y reels). Se piden desde el administrador; los genera el flujo «Generar video».';
+    const IMGS = await listaImagenesIG().catch(() => []);
+    const propuestas = tj.datos.tarjetas.filter(t => (ed.datos.tarjetas[t.id] || {}).video && !V.videos.some(v => v.noticia === t.id));
+    const guardarV = async msg => { const f = await leerJSON(RUTA_VID, { videos: [] }, true); const otros = f.datos.videos.filter(x => !V.videos.some(y => y.id === x.id));
+      V.videos = [...V.videos, ...otros]; shaV = await guardar(RUTA_VID, json(V), f.sha, msg, true); };
+    const lista = () => { vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Videos</h2></div><div class="bc">
+      <p class="ayuda">Formato vertical 9:16 (1080 × 1920) para stories y reels, de 15 a 30 segundos. Claude escribe el guion solo con datos de la noticia; el render a MP4 tarda unos 2 o 3 minutos en GitHub. Cada versión con Claude cuesta alrededor de US$ 0,01; renderizar un guion editado a mano no usa el modelo.</p>
+      ${propuestas.length ? `<p class="mb-2"><b>Noticias propuestas para video</b></p><ul class="mb-3">${propuestas.map(t => `<li>${esc((ed.datos.tarjetas[t.id] || {}).titulo || t.titulo)} <button class="btn btn-sm btn-link p-0 align-baseline" data-nuevo="${esc(t.id)}" type="button">Crear video</button></li>`).join('')}</ul>`
+        : '<p class="ayuda">Para proponer una noticia, en «Noticias» → Editar marque «Proponer para video».</p>'}
+      <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th>Video</th><th>Versiones</th><th>Estado</th><th></th></tr></thead><tbody>
+        ${V.videos.map((v, i) => `<tr><td>${esc(v.titulo)}</td><td>${(v.versiones || []).length}</td><td>${esc({ nuevo: 'Sin generar', generando: 'Generando…', listo: 'Listo', publicado: 'Publicado' }[v.estado] || v.estado)}</td><td><button class="btn btn-sm btn-outline-dark" data-v2="${i}" type="button">Abrir</button></td></tr>`).join('') || '<tr><td colspan="4" class="ayuda">Todavía no hay videos.</td></tr>'}
+      </tbody></table></div></div></div>`;
+      vista.querySelectorAll('[data-nuevo]').forEach(b => b.onclick = async () => { const t = tj.datos.tarjetas.find(x => x.id === b.dataset.nuevo);
+        const v = { id: 'v' + Date.now().toString(36), noticia: t.id, titulo: (ed.datos.tarjetas[t.id] || {}).titulo || t.titulo, estado: 'nuevo', creado: hoyISO(), versiones: [] };
+        V.videos.unshift(v); try { await guardarV('Video nuevo: ' + v.titulo.slice(0, 50)); abrir(v); } catch (e) { aviso(e.message, 'danger'); } });
+      vista.querySelectorAll('[data-v2]').forEach(b => b.onclick = () => abrir(V.videos[+b.dataset.v2]));
+    };
+    const abrir = v => {
+      const g = JSON.parse(JSON.stringify(v.guion || { formato: '9:16', escenas: [] }));
+      const versiones = (v.versiones || []).slice().reverse();
+      vista.innerHTML = `<div class="bloque"><div class="bh"><h2>${esc(v.titulo)}</h2><button class="btn btn-sm btn-outline-secondary ms-auto" id="vv-volver" type="button">← Videos</button></div><div class="bc"><div class="row g-4">
+        <div class="col-lg-5">
+          <div style="position:relative;width:100%;max-width:340px;aspect-ratio:9/16;background:#000;border-radius:8px;overflow:hidden"><iframe id="vv-prev" src="../video/reproductor.html" title="Vista previa del video" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>
+          <div class="d-flex gap-2 mt-2"><button class="btn btn-sm btn-outline-dark" id="vv-play" type="button">▶ Vista previa del guion</button></div>
+          <p class="ayuda mt-1">La vista previa usa el mismo dibujo que el MP4, al instante y sin costo.</p>
+          <div id="vv-estado" class="mt-3"></div>
+          <h6 class="text-uppercase fw-bold small mt-3">Versiones renderizadas</h6><div id="vv-versiones" class="small">${versiones.map(x => `<div class="border rounded p-2 mb-2"><b>Versión ${x.n}</b> · ${esc(x.fecha)}${x.pedido ? `<div class="ayuda">Pedido: ${esc(x.pedido)}</div>` : x.solo_render ? '<div class="ayuda">Guion editado a mano</div>' : ''}${(x.avisos || []).map(a => `<div class="estado-error">${esc(a)}</div>`).join('')}
+            <div class="mt-1"><button class="btn btn-sm btn-link p-0" data-ver="${esc(x.archivo)}" type="button">Ver MP4</button> · <button class="btn btn-sm btn-link p-0" data-bajar="${esc(x.archivo)}" type="button">Descargar</button></div></div>`).join('') || '<p class="ayuda">Todavía no hay versiones.</p>'}</div>
+          <video id="vv-mp4" controls playsinline hidden style="width:100%;max-width:340px;border-radius:8px;background:#000"></video>
+        </div>
+        <div class="col-lg-7">
+          <div class="border rounded p-3 mb-3"><label class="form-label fw-semibold" for="vv-pedido">${versiones.length || v.guion ? 'Pedirle cambios a Claude' : 'Primera versión'}</label>
+            <textarea class="form-control" id="vv-pedido" rows="3" placeholder="${versiones.length || v.guion ? 'Ej.: que el dato del premio vaya primero, menos texto en la tercera escena y usar la foto de la mesa final.' : 'Opcional: indicaciones para la primera versión (tono, qué destacar, qué foto usar).'}"></textarea>
+            <button class="btn btn-mc mt-2" id="vv-claude" type="button">${versiones.length || v.guion ? 'Pedir cambios y renderizar' : 'Generar con Claude'}</button></div>
+          <div class="d-flex align-items-center mb-2"><h6 class="text-uppercase fw-bold small mb-0">Guion (editable a mano)</h6><button class="btn btn-sm btn-outline-dark ms-auto" id="vv-add" type="button">+ Escena</button></div>
+          <div id="vv-escenas" class="d-grid gap-2"></div>
+          <div class="mt-2"><input class="form-control form-control-sm" id="vv-subir" type="file" accept="image/jpeg,image/png,image/webp"><div class="ayuda">Subir una foto propia para usar de fondo en las escenas (repositorio privado).</div></div>
+          <div class="d-flex flex-wrap gap-2 mt-3"><button class="btn btn-outline-dark" id="vv-guardar" type="button">Guardar guion</button><button class="btn btn-outline-dark" id="vv-render" type="button">Guardar y renderizar sin Claude</button>
+            <select class="form-select form-select-sm w-auto ms-auto" id="vv-est">${['nuevo', 'listo', 'publicado'].map(e => `<option value="${e}" ${v.estado === e ? 'selected' : ''}>${{ nuevo: 'Sin generar', listo: 'Listo', publicado: 'Publicado' }[e]}</option>`).join('')}</select></div>
+        </div></div></div></div>`;
+      const caja = document.getElementById('vv-escenas');
+      const pintarEscenas = () => { caja.innerHTML = g.escenas.map((e, i) => `<div class="border rounded p-2" data-e="${i}"><div class="row g-1 align-items-center">
+          <div class="col-4 col-md-3"><select class="form-select form-select-sm" data-k="tipo">${Object.entries(TIPOS_ESC).map(([k, n]) => `<option value="${k}" ${e.tipo === k ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
+          <div class="col-3 col-md-2"><input class="form-control form-control-sm" data-k="duracion" type="number" min="2" max="8" step="0.5" value="${e.duracion || 4}" title="Segundos"></div>
+          <div class="col-5 col-md-4"><select class="form-select form-select-sm" data-k="imagen"><option value="">Sin foto</option>${IMGS.map(n => `<option ${e.imagen === n ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select></div>
+          <div class="col-12 col-md-3 text-md-end"><button class="btn btn-sm btn-outline-secondary" data-m="-1" type="button" aria-label="Subir">↑</button> <button class="btn btn-sm btn-outline-secondary" data-m="1" type="button" aria-label="Bajar">↓</button> <button class="btn btn-sm btn-outline-danger" data-x type="button" aria-label="Quitar escena">×</button></div>
+          <div class="col-md-4"><input class="form-control form-control-sm" data-k="seccion" placeholder="Sección" value="${esc(e.seccion || '')}"></div>
+          <div class="col-md-4"><input class="form-control form-control-sm" data-k="dato" placeholder="Dato (cifra)" value="${esc(e.dato || '')}"></div>
+          <div class="col-md-4"><input class="form-control form-control-sm" data-k="fuente" placeholder="Fuente" value="${esc(e.fuente || '')}"></div>
+          <div class="col-12"><input class="form-control form-control-sm" data-k="titulo" placeholder="Título" value="${esc(e.titulo || '')}"></div>
+          <div class="col-12"><textarea class="form-control form-control-sm" data-k="texto" rows="2" placeholder="Texto">${esc(e.texto || '')}</textarea></div></div></div>`).join('') || '<p class="ayuda">Sin escenas: genere la primera versión con Claude o agregue escenas a mano.</p>';
+        caja.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { leerG(); const i = +b.closest('[data-e]').dataset.e, j = i + +b.dataset.m; if (j < 0 || j >= g.escenas.length) return; [g.escenas[i], g.escenas[j]] = [g.escenas[j], g.escenas[i]]; pintarEscenas(); });
+        caja.querySelectorAll('[data-x]').forEach(b => b.onclick = () => { leerG(); g.escenas.splice(+b.closest('[data-e]').dataset.e, 1); pintarEscenas(); }); };
+      const leerG = () => { g.escenas = [...caja.querySelectorAll('[data-e]')].map(el => { const e = {}; el.querySelectorAll('[data-k]').forEach(i => { const val = i.value.trim(); if (val) e[i.dataset.k] = i.dataset.k === 'duracion' ? +val : val; }); return e; }); };
+      pintarEscenas();
+      const prev = document.getElementById('vv-prev');
+      const vistaPrevia = async () => { leerG(); const imgs = {}; for (const e of g.escenas) if (e.imagen) { try { imgs[e.imagen] = (await imagenIG(e.imagen)).url; } catch (er) {} }
+        prev.contentWindow.postMessage({ tipo: 'cargar', guion: g, marca: M, imagenes: imgs, reproducir: true }, location.origin); };
+      prev.onload = () => { if (g.escenas.length) vistaPrevia(); };
+      document.getElementById('vv-play').onclick = vistaPrevia;
+      document.getElementById('vv-volver').onclick = () => { clearInterval(sondeo); lista(); };
+      document.getElementById('vv-add').onclick = () => { leerG(); g.escenas.push({ tipo: 'texto', duracion: 4 }); pintarEscenas(); };
+      document.getElementById('vv-subir').onchange = async e => { try { const n = await subirImagenIG(e.target); if (!n) return; IMGS.push(n); leerG(); pintarEscenas(); aviso('Foto subida: elíjala en la escena.'); } catch (er) { aviso(er.message, 'danger'); } };
+      const guardarGuion = async () => { leerG(); v.guion = g; v.estado = document.getElementById('vv-est').value; v.actualizado = hoyISO(); await guardarV('Guion de video: ' + v.titulo.slice(0, 50)); };
+      document.getElementById('vv-guardar').onclick = async () => { try { await guardarGuion(); aviso('Guion guardado.'); } catch (e) { aviso(e.message, 'danger'); } };
+      document.getElementById('vv-est').onchange = async () => { try { await guardarGuion(); aviso('Estado guardado.'); } catch (e) { aviso(e.message, 'danger'); } };
+      let sondeo = null;
+      const seguir = () => { const el = document.getElementById('vv-estado'); el.innerHTML = '<div class="alert alert-info py-2 mb-0">Generando el video en GitHub (2 o 3 minutos)…</div>';
+        clearInterval(sondeo); const inicio = Date.now();
+        sondeo = setInterval(async () => { if (!document.getElementById('vv-estado')) return clearInterval(sondeo);
+          const run = await estadoFlujoVideo().catch(() => null); if (!run || Date.parse(run.created_at) < inicio - 60000 || run.status !== 'completed') return;
+          clearInterval(sondeo);
+          if (run.conclusion !== 'success') { el.innerHTML = `<div class="alert alert-danger py-2 mb-0">No se pudo generar. <a href="${esc(run.html_url)}" target="_blank" rel="noopener">Ver el detalle en GitHub</a></div>`; return; }
+          const f = await leerJSON(RUTA_VID, { videos: [] }, true); V = f.datos; shaV = f.sha; abrir(V.videos.find(x => x.id === v.id) || v); aviso('Nueva versión lista.'); }, 10000); };
+      const lanzar = async (pedido, solo) => { try { if (solo) await guardarGuion(); await lanzarVideo(v.id, pedido, solo); seguir(); } catch (e) { aviso(e.message, 'danger'); } };
+      document.getElementById('vv-claude').onclick = () => lanzar(document.getElementById('vv-pedido').value.trim(), false);
+      document.getElementById('vv-render').onclick = () => { leerG(); if (!g.escenas.length) return aviso('Agregue al menos una escena.', 'warning'); lanzar('', true); };
+      vista.querySelectorAll('[data-ver], [data-bajar]').forEach(b => b.onclick = async () => { try { const blob = await leerBlob(b.dataset.ver || b.dataset.bajar, true); if (!blob) throw new Error('No se encontró el archivo.');
+        const url = URL.createObjectURL(new Blob([blob], { type: 'video/mp4' }));
+        if (b.dataset.ver) { const el = document.getElementById('vv-mp4'); el.src = url; el.hidden = false; el.play().catch(() => {}); }
+        else { const a = document.createElement('a'); a.href = url; a.download = (b.dataset.bajar.split('/').slice(-2).join('-')); document.body.appendChild(a); a.click(); a.remove(); } } catch (e) { aviso(e.message, 'danger'); } });
+    };
+    lista();
   };
 
   // ---------------------------------------------------------------- inicio
