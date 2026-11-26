@@ -1,0 +1,1129 @@
+{
+  "fecha": "2026-11-26",
+  "titulo": "26 de noviembre de 2026",
+  "corridas": [
+    {
+      "id": "2026-11-26T07:45:47Z",
+      "origen": "manual",
+      "estado": "ok",
+      "motivo": null,
+      "tarjetas": [
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26 nov 2026",
+          "titulo": "WSOP anuncia a Stake como socio oficial de WSOP Paradise 2026",
+          "resumen": "La WSOP anunció a Stake como socio oficial de WSOP Paradise 2026 en Baha Mar, Bahamas. Stake transmitirá en vivo el Super Main Event a través de KICK.com del 13 al 17 de diciembre y financiará una Stake Players Party para todos los jugadores.",
+          "fuentes": [
+            {
+              "nombre": "WSOP.com",
+              "fecha": "2026-11-26",
+              "url": "https://www.wsop.com/news/wsop-partners-with-stake-for-wsop-paradise-2026/"
+            }
+          ],
+          "cuerpo": "Según WSOP.com, esta asociación reúne la marca con un gigante del sector i-gaming y streaming.\n\nStake llevará a cabo dos iniciativas principales: la cobertura en vivo exclusiva del Super Main Event en KICK.com del 13 al 17 de diciembre, y el financiamiento de una Stake Players Party para todos los participantes. Stake ya cuenta con asociaciones de alto perfil con UFC, X Games League y el club de fútbol Everton.\n\nLa fuente no precisa el monto de la inversión ni detalles adicionales del evento.",
+          "imagen": "https://assets.wsopcdn.com/wsop/2666c72a-99c9-4d94-8985-9c89ad64c1df.png",
+          "imagenes": [
+            {
+              "url": "https://assets.wsopcdn.com/wsop/2666c72a-99c9-4d94-8985-9c89ad64c1df.png",
+              "fuente": "WSOP.com",
+              "enlace": "https://www.wsop.com/news/wsop-partners-with-stake-for-wsop-paradise-2026/"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "25 nov 2026",
+          "titulo": "Michael Mizrachi se suma a Solana días antes del inicio de WSOP Paradise",
+          "resumen": "Michael Mizrachi, conocido como «The Grinder», anunció su asociación con la plataforma Solana. Se une a otros del poker como Alex Foxen y Kristen Foxen en el respaldo de la plataforma de criptomonedas.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-25",
+              "url": "https://www.pokernews.com/news/2026/11/michael-mizrachi-joins-solana-52898.htm",
+              "hora": "22:43"
+            }
+          ],
+          "cuerpo": "El anuncio llega días antes del inicio de la serie WSOP Paradise 2026 en Bahamas, según PokerNews.\n\nMizrachi se suma a otras figuras del poker que respaldan a Solana, incluidos Alex Foxen y Kristen Foxen. PokerNews señala que Solana ha generado un impacto significativo en la comunidad de poker, especialmente en la WSOP reciente, donde los jugadores pudieron comprar fichas en eventos de brazalete usando criptomonedas gracias a la asociación con Solana.\n\nEn un video de Solana, Mizrachi explicó el origen de su apodo «The Grinder»: según cuenta, durante un viaje en auto con Phil Ivey, este último comentó: «Grinder, huh? That's the best nickname in poker». El apodo se refiere a un jugador paciente que espera las buenas cartas.",
+          "imagen": "https://pnimg.net/w/articles/0/6b0/72c0f11313.jpg",
+          "imagenes": [
+            {
+              "url": "https://pnimg.net/w/articles/0/6b0/72c0f11313.jpg",
+              "fuente": "PokerNews",
+              "enlace": "https://www.pokernews.com/news/2026/11/michael-mizrachi-joins-solana-52898.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "26 nov 2026",
+          "titulo": "Tyler Willse lidera la operación del piso de Asian Poker Tour tras trabajar con Effel y Stone",
+          "resumen": "Tyler Willse, Executive Tournament Director de Asian Poker Tour, habla sobre su rol y su formación bajo directores como Jack Effel y Toby Stone. El piso del APT se ha adaptado recientemente al slide dealing.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-26",
+              "url": "https://www.pokernews.com/news/2026/11/learning-from-effel-and-stone-tyler-willse-leads-apt-floor-52862.htm",
+              "hora": "02:00"
+            }
+          ],
+          "cuerpo": "Tyler Willse es el Executive Tournament Director del Asian Poker Tour, cargo que lo posiciona liderando las operaciones del piso en el principal circuito asiático. Según PokerNews, Willse trabajó como dealer durante 15 años antes de pasar a la dirección de torneos, una trayectoria que continúa influyendo en su enfoque.\n\nWillse ha aprendido de algunos de los directores más respetados de la industria. Trabajó bajo la dirección de Jack Effel y Toby Stone, figuras en el tournament management del poker. PokerNews cita a Willse: «I've worked under a few of the greats in the industry. It's a really interesting dichotomy, because I really like my privacy and working on things behind the scenes». Sin embargo, explica que también quiere que los jugadores sepan que alguien tiene su respaldo cuando llega a una mesa a tomar una decisión.\n\nEn el último año, el piso del APT se ha adaptado a uno de los cambios más significativos del poker: el slide dealing, un método que busca prevenir fraude. La fuente no precisa otros detalles del rol de Willse ni cambios operacionales recientes.",
+          "imagen": "https://pnimg.net/w/articles/0/6b0/68e519dd51.jpg",
+          "imagenes": [
+            {
+              "url": "https://pnimg.net/w/articles/0/6b0/68e519dd51.jpg",
+              "fuente": "PokerNews",
+              "enlace": "https://www.pokernews.com/news/2026/11/learning-from-effel-and-stone-tyler-willse-leads-apt-floor-52862.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "25-26 nov 2026",
+          "titulo": "Andrew Robl desafía a Eric Wasserson en High Stakes Poker tras perder tres sesiones consecutivas",
+          "resumen": "Andrew Robl publicó un desafío en redes contra Eric Wasserson, el jugador con mayores ganancias en cash games televisados, tras perder en las últimas sesiones de High Stakes Poker. En una mano reciente, Robl dejó el resultado de un bote de US$ 1.2 millones al azar.",
+          "fuentes": [
+            {
+              "nombre": "Código Poker",
+              "fecha": "2026-11-26",
+              "url": "https://codigopoker.com/noticias/industria/andrew-robl-sigue-sin-poder-ganarle-a-eric-wasserson-en-high-stakes-poker-live"
+            },
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-25",
+              "url": "https://www.pokernews.com/news/2026/11/robl-randomizes-in-high-stakes-poker-pot-52891.htm",
+              "hora": "05:03"
+            }
+          ],
+          "cuerpo": "Andrew Robl publicó un desafío público en X (Twitter) contra Eric Wasserson, el jugador con las mayores ganancias en la historia de los cash games televisados, según Código Poker. Wasserson acumula alrededor de US$ 10 millones de ganancias en estos programas, gran parte proveniente de enfrentamientos contra Robl.\n\nSegún Código Poker, tras las primeras dos sesiones de la nueva temporada de High Stakes Poker LIVE, Robl decidió desafiar públicamente a Wasserson: «Eric Wasserson, tenemos un problema. Escuché que estuviste caminando por ahí diciendo que te tengo miedo. No tengo miedo de sentarme con ningún hombre en una mesa de cartas. El asiento está abierto, amigo. $1M de buy-in, a las 3pm. Veamos qué pasa cuando no recibes AA y seteas todas las manos».",
+          "imagen": "https://images.codigopoker.com/wp-content/uploads/2026/11/25100151/robl-vs-wasserson.webp",
+          "imagenes": [
+            {
+              "url": "https://images.codigopoker.com/wp-content/uploads/2026/11/25100151/robl-vs-wasserson.webp",
+              "fuente": "Código Poker",
+              "enlace": "https://codigopoker.com/noticias/industria/andrew-robl-sigue-sin-poder-ganarle-a-eric-wasserson-en-high-stakes-poker-live"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "26 nov 2026",
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special Triton tras remontada",
+          "resumen": "Kristen Foxen cerró el primer día del $150.000 NLH 10th Anniversary Special Triton con 798.000 fichas (80 big blinds) tras una remontada en un triple all-in contra Daniel Dvoress y Nikita Kuznetsov.",
+          "fuentes": [
+            {
+              "nombre": "Código Poker",
+              "fecha": "2026-11-26",
+              "url": "https://codigopoker.com/noticias/kristen-foxen-destroza-ases-triton"
+            }
+          ],
+          "cuerpo": "El momento decisivo llegó durante el séptimo nivel de juego con un triple all-in que reunió tres de las manos iniciales más poderosas del Texas Hold'em. Daniel Dvoress tenía A-A, Foxen Q-Q y Nikita Kuznetsov J-J. Dvoress tenía a ambos rivales cubiertos y partía como favorito para ganar el enorme pozo. Sin embargo, el flop trajo una dama que modificó el destino de la mano.\n\nFoxen ha tenido una carrera profesional extraordinaria pero aún no ha ganado un título de Triton, un trofeo que busca conquistar. La fuente no precisa el resultado final de la mano ni otras jugadas importantes del día.",
+          "imagen": "https://images.codigopoker.com/wp-content/uploads/2026/11/25000950/kfoxen.webp",
+          "imagenes": [
+            {
+              "url": "https://images.codigopoker.com/wp-content/uploads/2026/11/25000950/kfoxen.webp",
+              "fuente": "Código Poker",
+              "enlace": "https://codigopoker.com/noticias/kristen-foxen-destroza-ases-triton"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 nov 2026",
+          "titulo": "EPT Prague 2026 presenta nuevos formatos de mixed games: Sviten Special y S.O.R.B.E.T.",
+          "resumen": "El EPT Prague 2026 de PokerStars incluirá por primera vez torneos de Sviten Special (mezcla de 5-Card Omaha y 5-Card Draw) y S.O.R.B.E.T. (rotación de Stud, Omaha Hi-Lo, Razz, Badugi, Stud Hi-Lo y 2-7 Triple Draw). Los torneos buscan expandir opciones para jugadores de mixed games.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-24",
+              "url": "https://www.pokernews.com/news/2026/11/pokerstars-ept-prague-to-debut-some-exciting-new-formats-52885.htm",
+              "hora": "14:15"
+            }
+          ],
+          "cuerpo": "El EPT Prague 2026, que comienza el 2 de diciembre, presentará dos nuevos formatos de mixed games, según PokerNews. S.O.R.B.E.T. es una rotación de Stud, Omaha Hi-Lo, Razz, Badugi, Stud Hi-Lo y 2-7 Triple Draw con estructura de fixed limit betting.\n\nSegún PokerNews, el EPT Tournament Director Toby Stone explicó el razonamiento detrás de estos nuevos torneos: «If you're a…» (la cita queda incompleta en el material). La innovación forma parte de los esfuerzos del EPT por mantener variedad y atracción para jugadores de mixed games. La fuente no precisa números de inscripciones esperadas ni prize pools para estos nuevos formatos.",
+          "imagen": "https://pnimg.net/w/articles/0/6b0/59a439d030.jpg",
+          "imagenes": [
+            {
+              "url": "https://pnimg.net/w/articles/0/6b0/59a439d030.jpg",
+              "fuente": "PokerNews",
+              "enlace": "https://www.pokernews.com/news/2026/11/pokerstars-ept-prague-to-debut-some-exciting-new-formats-52885.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "confirmado",
+          "fecha": "24 nov 2026",
+          "titulo": "Dos hombres de California evitan cárcel tras admitir fraude de card-marking en Mississippi Stud",
+          "resumen": "Vaagn Galustyan y Armin Martirosian, de Southern California, recibieron dos años de probatoria tras confesar un esquema de card-marking en Mississippi Stud en Pala Casino y Harrah's Resort Southern California.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-24",
+              "url": "https://www.pokernews.com/casino/news/2026/11/californian-mississippi-stud-card-markers-avoid-prison-52882.htm",
+              "hora": "11:30"
+            }
+          ],
+          "cuerpo": "Un juez de la Corte Superior de San Diego los sentó a dos años de probatoria, según PokerNews.\n\nSegún cámaras de seguridad, Galustyan y Martirosian doblaban cartas de forma clandestina mientras jugaban Mississippi Stud en Pala Casino y Harrah's Resort Southern California. Marcaban ases y cartas de alto valor doblándolas, luego aumentaban sus apuestas cuando podían ver las probabilidades a su favor.\n\nLa pareja intentó evitar detección entrando en los casinos por separado antes de sentarse en la misma mesa. Tras el robo en Pala Casino, salieron del casino y regresaron en las primeras horas de la madrugada con ropa diferente, cobrando parcialmente sus ganancias ilícitas. Ambos enfrentaban dos cargos de conspiración por felonía que podrían haber resultado en sentencia carcelaria. PokerNews no precisa si habrá restitución ordenada a los casinos.",
+          "imagen": "https://pnimg.net/w/articles/0/6b0/5750cd20bc.jpg",
+          "imagenes": [
+            {
+              "url": "https://pnimg.net/w/articles/0/6b0/5750cd20bc.jpg",
+              "fuente": "PokerNews",
+              "enlace": "https://www.pokernews.com/casino/news/2026/11/californian-mississippi-stud-card-markers-avoid-prison-52882.htm"
+            }
+          ]
+        },
+        {
+          "clasificacion": "discusion",
+          "fecha": "24 nov 2026",
+          "titulo": "Matthias Eibinger llama un overbet masivo de Bryn Kenney en el Triton Invitational $200K",
+          "resumen": "Matthias Eibinger enfrentó un overbet de 178% del pot de Bryn Kenney en el river con bottom pair en el Triton Invitational $200.000 de North Cyprus. Tras deliberación, Eibinger llamó y vio el overpair de Kenney.",
+          "fuentes": [
+            {
+              "nombre": "PokerNews",
+              "fecha": "2026-11-24",
+              "url": "https://www.pokernews.com/strategy/bryn-kenney-bets-nearly-twice-the-pot-would-you-call-52872.htm",
+              "hora": "17:00"
+            }
+          ],
+          "cuerpo": "Con solo bottom pair, Eibinger fue confrontado por un overbet masivo de Kenney en el river: 178% del pot, según PokerNews.\n\nEibinger ocupaba el lojack con 289.000 fichas (192 big blinds) y abrió con A ♠ 3 ♠. Kenney, en big blind con 231.000 fichas (154 big blinds), defendió con J ♥ J ♣. El flop fue 10 ♥ 5 ♦ 3 ♣, dando a Eibinger bottom pair mientras Kenney sostenía overpair. Las ciegas eran 1.000/1.500 con 1.500 big blind ante.\n\nTras una larga deliberación, Eibinger hizo el call, solo para ver el overpair de Kenney. Kenney ganó un bote de 102.500. PokerNews analiza la mano con GTO Wizard para examinar si el overbet de Kenney funciona estratégicamente y si el call de Eibinger con bottom pair fue correcta. La fuente no precisa el resultado final del torneo ni otros detalles de Eibinger o Kenney en la serie.",
+          "imagen": "https://pnimg.net/w/articles/0/6b0/4a6678910a.png",
+          "imagenes": [
+            {
+              "url": "https://pnimg.net/w/articles/0/6b0/4a6678910a.png",
+              "fuente": "PokerNews",
+              "enlace": "https://www.pokernews.com/strategy/bryn-kenney-bets-nearly-twice-the-pot-would-you-call-52872.htm"
+            }
+          ]
+        }
+      ],
+      "escena_latam": {
+        "tarjetas": [
+          {
+            "clasificacion": "confirmado",
+            "fecha": "25-26 nov 2026",
+            "titulo": "Felipe Boianovsky [nacionalidad a confirmar] suma dos mesas finales valiosas en APT Championship Taipéi; João Victor Menezes gana Millionaire Maker en BSOP Millions",
+            "resumen": "João Victor Menezes venció el Millionaire Maker record del BSOP Millions.",
+            "fuentes": [
+              {
+                "nombre": "PokerNews Brasil",
+                "fecha": "2026-11-26",
+                "url": "https://br.pokernews.com/noticias/2026/11/felipe-boianovsky-apt-championship-68293.htm",
+                "hora": "01:00"
+              },
+              {
+                "nombre": "PokerNews Brasil",
+                "fecha": "2026-11-25",
+                "url": "https://br.pokernews.com/noticias/2026/11/joao-victor-menezes-millionaire-maker-bsop-millions-68292.htm",
+                "hora": "20:44"
+              }
+            ],
+            "cuerpo": "Felipe Boianovsky, de Brasil, tuvo desempeño destacado en el APT Championship 2026 disputado en Taipéi, según PokerNews Brasil.\n\nEn el Superstar Championship de US$ 50.000 buy-in, Boianovsky terminó tercero y embolsó US$ 254.415 (NT$ 8.293.900). El torneo reunió 35 entradas de 28 jugadores únicos y generó approximately US$ 1.69 millones en premios. En el día anterior, Boianovsky había alcanzado cuarto lugar en el Super High Roller Championship de US$ 25.000 buy-in, que contó 81 entradas y pagó más de US$ 1.9 millones. Por ese resultado cobró US$ 159.655.\n\nSegún Hendon Mob, Boianovsky acumula más de US$ 8 millones en ganancias en vivo, posicionándose tercero en la lista de ganadores de Brasil.",
+            "imagen": "https://pnimg.net/w/articles/0/6b0/7881a55469.jpg",
+            "imagenes": [
+              {
+                "url": "https://pnimg.net/w/articles/0/6b0/7881a55469.jpg",
+                "fuente": "PokerNews Brasil",
+                "enlace": "https://br.pokernews.com/noticias/2026/11/felipe-boianovsky-apt-championship-68293.htm"
+              }
+            ]
+          }
+        ],
+        "texto": null
+      },
+      "notas": [],
+      "uso": {
+        "tokens_entrada": 22313,
+        "tokens_salida": 10304,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.073833
+      },
+      "recoleccion": {
+        "corte": "2026-11-24T21:08:36Z",
+        "motivo_corte": "última corrida exitosa (2026-11-25 00:08 UTC) menos 3 horas",
+        "descartes": {
+          "totales": {
+            "por_fecha": 125,
+            "por_orden": 63,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "ya_vistos": 1,
+            "por_tematica": 13
+          },
+          "por_fuente": {
+            "PokerNews": {
+              "modo": "fecha",
+              "por_fecha": 9,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 1,
+              "por_tematica": 0,
+              "enviados": 10
+            },
+            "Pokerfuse": {
+              "modo": "fecha",
+              "por_fecha": 8,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 4
+            },
+            "WSOP.com": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 8,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 2
+            },
+            "GamblingNews": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 10,
+              "enviados": 0
+            },
+            "PokerNewsDaily": {
+              "modo": "fecha",
+              "por_fecha": 9,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 1
+            },
+            "CardPlayer": {
+              "modo": "fecha",
+              "por_fecha": 5,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 3,
+              "enviados": 2
+            },
+            "Poker Industry PRO": {
+              "modo": "fecha",
+              "por_fecha": 8,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 4
+            },
+            "blog.gtowizard.com": {
+              "modo": "fecha",
+              "por_fecha": 15,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 0
+            },
+            "Poker Media Australia": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 0
+            },
+            "tightpoker.com": {
+              "modo": "fecha",
+              "por_fecha": 9,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 1
+            },
+            "PokerNews en español": {
+              "modo": "fecha",
+              "por_fecha": 18,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 2
+            },
+            "PokerNews Brasil": {
+              "modo": "fecha",
+              "por_fecha": 17,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 3
+            },
+            "Poker Noticias": {
+              "modo": "fecha",
+              "por_fecha": 7,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 3
+            },
+            "Código Poker": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 22,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 10
+            },
+            "Circuito Argentino de Poker": {
+              "modo": "fecha",
+              "por_fecha": 10,
+              "por_orden": 0,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 0
+            },
+            "Casino Club Liga Patagónica": {
+              "modo": "orden",
+              "por_fecha": 0,
+              "por_orden": 33,
+              "por_tope": 0,
+              "por_dia1": 0,
+              "ya_vistos": 0,
+              "por_tematica": 0,
+              "enviados": 0
+            }
+          }
+        },
+        "titulares_recogidos": 244,
+        "titulares_nuevos": 42,
+        "titulares_enviados": 42,
+        "pendientes_enviados": 30,
+        "articulos_abiertos": 20,
+        "enlaces_compartidos": 0,
+        "fuentes_ok": 16,
+        "fuentes_con_fallo": 1,
+        "fuentes_en_pausa": 4,
+        "detalle": [
+          {
+            "fuente": "PokerNews",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 10,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 9,
+            "por_orden": 0,
+            "ya_vistos": 1,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 10
+          },
+          {
+            "fuente": "Pokerfuse",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 4,
+            "modo": "fecha",
+            "leidos": 12,
+            "por_fecha": 8,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "WSOP.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 2,
+            "modo": "orden",
+            "leidos": 10,
+            "por_fecha": 0,
+            "por_orden": 8,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "GamblingNews",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "orden",
+            "leidos": 0,
+            "por_fecha": 0,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": true,
+            "prioritarios": 0,
+            "por_tematica": 10,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "PokerNewsDaily",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 1,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 9,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 1
+          },
+          {
+            "fuente": "PokerListings",
+            "resultado": "en_pausa",
+            "motivo": "sin contenido (no se encontraron titulares)"
+          },
+          {
+            "fuente": "CardPlayer",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 2,
+            "modo": "fecha",
+            "leidos": 7,
+            "por_fecha": 5,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 1,
+            "por_tematica": 3,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "Poker.org",
+            "resultado": "fallo",
+            "motivo": "la dirección ya no existe (HTTP 404)"
+          },
+          {
+            "fuente": "Poker Industry PRO",
+            "resultado": "ok",
+            "titulares": 12,
+            "nuevos": 4,
+            "modo": "fecha",
+            "leidos": 12,
+            "por_fecha": 8,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 4
+          },
+          {
+            "fuente": "Reddit r/poker",
+            "resultado": "en_pausa",
+            "motivo": "la dirección ya no existe (HTTP 404)"
+          },
+          {
+            "fuente": "Two Plus Two",
+            "resultado": "en_pausa",
+            "motivo": "bloqueo del sitio (HTTP 403)"
+          },
+          {
+            "fuente": "blog.gtowizard.com",
+            "resultado": "ok",
+            "titulares": 15,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 15,
+            "por_fecha": 15,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "Poker Media Australia",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "tightpoker.com",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 1,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 9,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 1,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 1
+          },
+          {
+            "fuente": "PokerNews en español",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 2,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 18,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 2
+          },
+          {
+            "fuente": "PokerNews Brasil",
+            "resultado": "ok",
+            "titulares": 20,
+            "nuevos": 3,
+            "modo": "fecha",
+            "leidos": 20,
+            "por_fecha": 17,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 3
+          },
+          {
+            "fuente": "Poker Noticias",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 3,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 7,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 3
+          },
+          {
+            "fuente": "Código Poker",
+            "resultado": "ok",
+            "titulares": 32,
+            "nuevos": 10,
+            "modo": "orden",
+            "leidos": 32,
+            "por_fecha": 0,
+            "por_orden": 22,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 10
+          },
+          {
+            "fuente": "Poker Red",
+            "resultado": "en_pausa",
+            "motivo": "bloqueo del sitio (HTTP 403)"
+          },
+          {
+            "fuente": "Circuito Argentino de Poker",
+            "resultado": "ok",
+            "titulares": 10,
+            "nuevos": 0,
+            "modo": "fecha",
+            "leidos": 10,
+            "por_fecha": 10,
+            "por_orden": 0,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          },
+          {
+            "fuente": "Casino Club Liga Patagónica",
+            "resultado": "ok",
+            "titulares": 33,
+            "nuevos": 0,
+            "modo": "orden",
+            "leidos": 33,
+            "por_fecha": 0,
+            "por_orden": 33,
+            "ya_vistos": 0,
+            "por_tope": 0,
+            "por_dia1": 0,
+            "primera_vez": false,
+            "prioritarios": 0,
+            "por_tematica": 0,
+            "por_tope_total": 0,
+            "enviados": 0
+          }
+        ]
+      },
+      "controles": [
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews",
+          "modo": "fecha",
+          "por_fecha": 9,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 1,
+          "por_tematica": 0,
+          "enviados": 10
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Pokerfuse",
+          "modo": "fecha",
+          "por_fecha": 8,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "WSOP.com",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 8,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "GamblingNews",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 10,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNewsDaily",
+          "modo": "fecha",
+          "por_fecha": 9,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 1
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "CardPlayer",
+          "modo": "fecha",
+          "por_fecha": 5,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 3,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Industry PRO",
+          "modo": "fecha",
+          "por_fecha": 8,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 4
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "blog.gtowizard.com",
+          "modo": "fecha",
+          "por_fecha": 15,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Media Australia",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "tightpoker.com",
+          "modo": "fecha",
+          "por_fecha": 9,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 1
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews en español",
+          "modo": "fecha",
+          "por_fecha": 18,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 2
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "PokerNews Brasil",
+          "modo": "fecha",
+          "por_fecha": 17,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 3
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Poker Noticias",
+          "modo": "fecha",
+          "por_fecha": 7,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 3
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Código Poker",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 22,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 10
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Circuito Argentino de Poker",
+          "modo": "fecha",
+          "por_fecha": 10,
+          "por_orden": 0,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "descartes",
+          "fuente": "Casino Club Liga Patagónica",
+          "modo": "orden",
+          "por_fecha": 0,
+          "por_orden": 33,
+          "por_tope": 0,
+          "por_dia1": 0,
+          "ya_vistos": 0,
+          "por_tematica": 0,
+          "enviados": 0
+        },
+        {
+          "motivo": "salida cortada por el tope de tokens: se conservaron las tarjetas completas; 5 tarjetas perdidas",
+          "perdidas": 5
+        },
+        {
+          "titulo": "Emilien Pitavy gana el GGMillion$ Festival por US$ 1.516.801",
+          "motivo": "nacionalidad no indicada por la fuente quitada (Francia)",
+          "fuentes": [
+            "PokerNewsDaily",
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Christopher Nguyen gana el Main Event de Triton North Cyprus y supera US$ 10 millones en 2026",
+          "motivo": "oración quitada (cifra «24», fecha «noviembre»): «El alemán Christopher Nguyen capturó el Main Event $100.000 »",
+          "fuentes": [
+            "PokerNews en español",
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Michael Mizrachi se suma a Solana días antes del inicio de WSOP Paradise",
+          "motivo": "superlativo quitado: «legendarios»",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "High Stakes Poker: controversy en torno a la esposa de Kevin Hart en la mesa",
+          "motivo": "repetida",
+          "fuentes": [
+            "PokerNews en español",
+            "PokerNews",
+            "Código Poker"
+          ],
+          "previo": "Kevin Hart rechaza call en mano de más de US$ 5 millones en High Stakes Poker"
+        },
+        {
+          "titulo": "Tyler Willse lidera la operación del piso de Asian Poker Tour tras trabajar con Effel y Stone",
+          "motivo": "superlativo quitado: «legendarios»",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Andrew Robl desafía a Eric Wasserson en High Stakes Poker tras perder tres sesiones consecutivas",
+          "motivo": "párrafo del cuerpo sin respaldo en la fuente (quitado)",
+          "fuentes": [
+            "Código Poker",
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "EPT Prague 2026 presenta nuevos formatos de torneo: Fast Track y múltiples cobros en un mismo evento",
+          "motivo": "título con datos que no están en la fuente (nombre propio «Prague»)",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special de Triton North Cyprus tras remontada espectacular",
+          "motivo": "nombre corregido: «Anniversary Special Triton North Cyprus» → «Anniversary Special Triton» (se quitó: North, Cyprus)",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special de Triton North Cyprus tras remontada espectacular",
+          "motivo": "nombre corregido: «Anniversary Special Triton North Cyprus» → «Anniversary Special Triton» (se quitó: North, Cyprus)",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special de Triton North Cyprus tras remontada espectacular",
+          "motivo": "superlativo quitado: «espectacular»",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special de Triton North Cyprus tras remontada espectacular",
+          "motivo": "superlativo quitado: «espectacular»",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special Triton tras remontada",
+          "motivo": "párrafo del cuerpo sin respaldo en la fuente (quitado)",
+          "fuentes": [
+            "Código Poker"
+          ]
+        },
+        {
+          "titulo": "Dos hombres de California evitan cárcel tras admitir fraude de card-marking en Mississippi Stud",
+          "motivo": "oración quitada (cifra «32.660»): «Ganaron US$ 32.660 con cartas marcadas.»",
+          "fuentes": [
+            "PokerNews"
+          ]
+        },
+        {
+          "titulo": "Felipe Boianovsky suma dos mesas finales valiosas en APT Championship Taipéi; João Victor Menezes gana Millionaire Maker en BSOP Millions",
+          "motivo": "oración quitada (cifra «414.615»): «El brasileño Felipe Boianovsky logró dos final tables en APT»",
+          "fuentes": [
+            "PokerNews Brasil",
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Felipe Boianovsky [nacionalidad a confirmar] suma dos mesas finales valiosas en APT Championship Taipéi; João Victor Menezes gana Millionaire Maker en BSOP Millions",
+          "motivo": "marca de nacionalidad agregada",
+          "fuentes": [
+            "PokerNews Brasil",
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Felipe Boianovsky [nacionalidad a confirmar] suma dos mesas finales valiosas en APT Championship Taipéi; João Victor Menezes gana Millionaire Maker en BSOP Millions",
+          "motivo": "párrafo del cuerpo sin respaldo en la fuente (quitado)",
+          "fuentes": [
+            "PokerNews Brasil",
+            "PokerNews Brasil"
+          ]
+        },
+        {
+          "titulo": "Ramin Hajiyev gana su tercer trofeo Triton con US$ 2.827.663 en el $150K Anniversary Special",
+          "motivo": "resultado fuera de la regla de resultados (al archivo)"
+        },
+        {
+          "titulo": "Emilien Pitavy gana el GGMillion$ Festival por US$ 1.516.801",
+          "motivo": "resultado fuera de la regla de resultados (al archivo)"
+        },
+        {
+          "titulo": "Christopher Nguyen gana el Main Event de Triton North Cyprus y supera US$ 10 millones en 2026",
+          "motivo": "resultado fuera de la regla de resultados (al archivo)"
+        },
+        {
+          "tema": "Tema: Triton North Cyprus",
+          "url": "https://www.cardplayer.com/poker-news/1782425-ramin-hajiyev-wins-2-8-million-at-triton-north-cyprus",
+          "motivo": "oración quitada (cifra «1», cifra «11.700.000», nombre propio «Anniversary», nombre propio «Special», nombre propio «Klemens», nombre propio «Roiter»): «Ramin Hajiyev (Azerbaiyán) gana el $150.000 NLH 10th Anniver»"
+        },
+        {
+          "tema": "Tema: Triton North Cyprus",
+          "url": "https://www.cardplayer.com/poker-news/1782425-ramin-hajiyev-wins-2-8-million-at-triton-north-cyprus",
+          "motivo": "novedad sin datos rastreables en su fuente"
+        },
+        {
+          "tema": "Tema: Triton North Cyprus",
+          "url": "https://www.tightpoker.com/news/christopher-nguyen-wins-triton-north-cyprus-main-event-3-41m/",
+          "motivo": "oración quitada (cifra «55», cifra «15.400.000», cifra «10»): «Christopher Nguyen (Alemania) gana el $100.000 Main Event co»"
+        },
+        {
+          "tema": "Tema: Triton North Cyprus",
+          "url": "https://www.tightpoker.com/news/christopher-nguyen-wins-triton-north-cyprus-main-event-3-41m/",
+          "motivo": "novedad sin datos rastreables en su fuente"
+        }
+      ],
+      "meta": {
+        "meta": 10,
+        "publicadas_antes": 0,
+        "publicadas": 9,
+        "recuperacion": null
+      },
+      "uso_seleccion": {
+        "tokens_entrada": 7471,
+        "tokens_salida": 1304,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.013991
+      },
+      "seleccion": {
+        "estado": "ok",
+        "hechos": 19,
+        "enviadas": 70,
+        "archivo": 28,
+        "rescatada": false,
+        "costo_usd": 0.013991,
+        "salas": 5
+      },
+      "uso_redaccion": {
+        "tokens_entrada": 14842,
+        "tokens_salida": 9000,
+        "truncado": true,
+        "modelo": "claude-haiku-4-5",
+        "costo_usd": 0.059842
+      },
+      "salida_cortada": {
+        "perdidas": 5
+      },
+      "registro": {
+        "hechos": 9,
+        "cambios_salas": 0,
+        "paises_confirmados": 0
+      }
+    }
+  ]
+}

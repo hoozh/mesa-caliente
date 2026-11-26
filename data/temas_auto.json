@@ -78,7 +78,6 @@
         "John Krpan",
         "Justin Vaysman",
         "Nick Palma",
-        "No-Limit Hold'em",
         "PokerGO Studio",
         "Purple Jacket"
       ],
@@ -91,13 +90,12 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo",
+      "excluido": "juego o formato"
     },
     {
       "nombre": "Tema: Hendon Mob",
-      "palabras_clave": [
-        "Hendon Mob"
-      ],
+      "palabras_clave": [],
       "alta": "2026-10-23",
       "ultima_novedad": "2026-11-21",
       "fuentes": [
@@ -106,7 +104,8 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "inactivo"
+      "estado": "inactivo",
+      "excluido": "base de datos o herramienta"
     },
     {
       "nombre": "Tema: Oykhan PushLightYear Abarzuza",
@@ -502,7 +501,9 @@
     {
       "nombre": "Tema: Triton North Cyprus",
       "palabras_clave": [
+        "Alex Foxen",
         "Jonathan Jaffe",
+        "Kristen Foxen",
         "Nicolás Sagra",
         "North Cyprus",
         "Paulius Plausinaitis",
@@ -512,7 +513,7 @@
         "Triton North Cyprus"
       ],
       "alta": "2026-11-22",
-      "ultima_novedad": "2026-11-25",
+      "ultima_novedad": "2026-11-26",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",

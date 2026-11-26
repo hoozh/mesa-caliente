@@ -152,57 +152,18 @@
       "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
       "ejemplo": "https://opgr.org",
       "origen": "automatica"
+    },
+    {
+      "nombre": "copagusa.com",
+      "dominio": "copagusa.com",
+      "detectada": "2026-11-26",
+      "detectada_texto": "detectada el 26 de noviembre de 2026",
+      "motivo": "Enlazada desde 3 artículos distintos en los últimos 14 días.",
+      "ejemplo": "https://www.copagusa.com/",
+      "origen": "automatica"
     }
   ],
   "menciones": [
-    {
-      "dominio": "walmart.com",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xtuodu/is_this_a_good_table_for_occasional_home_games/",
-      "enlace": "http://www.walmart.com/ip/55465427?sid=75F7CCEB-D638-456F-AD94-1287E6F77AC3",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "pokernews.com",
-      "articulo": "https://www.pokernewsdaily.com/6ejlbluz-wins-888-109-mystery-bounty-49265/",
-      "enlace": "https://www.pokernews.com/news/2026/11/impressive-comeback-to-win-the-888-mystery-bounty-main-52783.htm",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1775282-benedek-farkas-scores-comeback-win-in-triton-one-north-cyprus-high-roller",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "pokercoaching.com",
-      "articulo": "https://www.cardplayer.com/poker-news/1775198-best-high-stakes-poker-hands-from-kayhan-mokris-1-million-week",
-      "enlace": "https://cardplayer.pokercoaching.com/courses",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "bggtrack.cfd",
-      "articulo": "https://www.pokerlistings.com/news/artem-osmirko-wins-his-second-10k-ggmillion-title-of-2026",
-      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "quintace.ai",
-      "articulo": "https://www.pokermedia.com.au/2026/11/11/poker-ecology-report-highlights-online-pokers-biggest-winners-and-shifting-nature-of-high-stakes-games/",
-      "enlace": "https://quintace.ai/ecology/",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "bggtrack.cfd",
-      "articulo": "https://www.pokerlistings.com/news/million-dollar-jackpot-drops-in-spingold-on-ggpoker",
-      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
-      "fecha": "2026-11-12"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/daniel-villalta-conquista-su-primer-anillo-de-la-wsop-circuit-panama-y-lleva-a-costa-rica-a-lo-mas-alto/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-12"
-    },
     {
       "dominio": "pokernews.com",
       "articulo": "https://www.reddit.com/r/poker/comments/1xuya3c/cops_are_no_longer_messing_around_in_houston_tx/",
@@ -784,6 +745,60 @@
       "articulo": "https://codigopoker.com/brazilian-series-of-poker/carlos-serrano-cuarto-50k-pko-bsop",
       "enlace": "https://bsop.com.br/bsop-millions/",
       "fecha": "2026-11-25"
+    },
+    {
+      "dominio": "copagusa.com",
+      "articulo": "https://www.wsop.com/news/wsop-partners-with-stake-for-wsop-paradise-2026/",
+      "enlace": "https://www.copagusa.com/",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/emilien-pitavy-wins-ggmillion-festival-1516801-49295/",
+      "enlace": "https://www.pokernews.com/news/2026/11/emilien-pitavy-snaps-off-triple-barrel-bluff-to-bank-1-5m-52893.htm",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "pokerstarslive.com",
+      "articulo": "https://codigopoker.com/noticias/torneos/ept/el-ept-rompe-el-molde",
+      "enlace": "https://www.pokerstarslive.com/ept/prague/schedule/?&no_redirect=1",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "raig.org",
+      "articulo": "https://www.pokernews.com/casino/news/2026/11/californian-mississippi-stud-card-markers-avoid-prison-52882.htm",
+      "enlace": "https://www.raig.org/",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "gamblingtherapy.org",
+      "articulo": "https://www.pokernews.com/casino/news/2026/11/californian-mississippi-stud-card-markers-avoid-prison-52882.htm",
+      "enlace": "https://www.gamblingtherapy.org/en",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "responsiblegambling.org",
+      "articulo": "https://www.pokernews.com/casino/news/2026/11/californian-mississippi-stud-card-markers-avoid-prison-52882.htm",
+      "enlace": "https://www.responsiblegambling.org/",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/julian-pineda-sube-al-podio-del-ggmillion-festival-y-cobra-us901-995/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/camilo-florez-y-alex-arias-lideran-los-ultimos-vuelos-clasificatorios-del-open-del-clsop-poker-festival/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-26"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1782242-coinpoker-guarantees-1-million-first-place-prize-in-5-million-pgt-kickoff-online-main-event",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-26"
     }
   ]
 }
