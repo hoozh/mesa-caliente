@@ -12,6 +12,10 @@ on:
         type: string
         required: false
         default: ""
+      medir_sei:
+        description: "Medición: redactar dos veces (sin y con los documentos de SEI) y registrar el costo de cada una"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -27,6 +31,8 @@ jobs:
     env:
       # El archivo de resultados no publicados va al repositorio privado hoozh/mesa-caliente-privado.
       TIENE_PRIVADO: ${{ secrets.MESA_PRIVADO_TOKEN != '' }}
+      # Documentos vigentes de SEI (hoozh/SEO-Articles, docs/estandares/) para la redacción. Clave de solo lectura.
+      TIENE_SEI: ${{ secrets.SEI_LECTURA_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -39,6 +45,28 @@ jobs:
           repository: hoozh/mesa-caliente-privado
           token: ${{ secrets.MESA_PRIVADO_TOKEN }}
           path: privado
+
+      # Privacidad: los documentos van a una carpeta temporal fuera del repositorio y nunca se imprimen.
+      # Si falta el secreto o un archivo, el barrido sigue como siempre y lo avisa en el pie y en los costos.
+      - name: Descargar los documentos de SEI
+        if: env.TIENE_SEI == 'true'
+        env:
+          SEI_LECTURA_TOKEN: ${{ secrets.SEI_LECTURA_TOKEN }}
+        run: |
+          set +x
+          carpeta="$RUNNER_TEMP/sei"
+          mkdir -p "$carpeta"
+          for f in guia-traduccion-poker.md reglas-comunes-sei.md estandar-editorial-notas.md redaccion-natural-anti-ia.md; do
+            if curl -sf -o "$carpeta/$f" \
+                 -H "Authorization: Bearer $SEI_LECTURA_TOKEN" \
+                 -H "Accept: application/vnd.github.raw+json" \
+                 "https://api.github.com/repos/hoozh/SEO-Articles/contents/docs/estandares/$f"; then
+              echo "Documento de SEI descargado: $f"
+            else
+              rm -f "$carpeta/$f"
+              echo "::warning::Falta el documento de SEI $f (la redacción sigue sin él)."
+            fi
+          done
 
       - uses: actions/setup-python@v7
         with:
@@ -55,6 +83,8 @@ jobs:
           EVENTO: ${{ github.event_name }}
           ORIGEN_ENTRADA: ${{ inputs.origen }}
           MESA_DIR_PRIVADO: ${{ env.TIENE_PRIVADO == 'true' && format('{0}/privado', github.workspace) || '' }}
+          MESA_DIR_SEI: ${{ env.TIENE_SEI == 'true' && format('{0}/sei', runner.temp) || '' }}
+          MESA_MEDIR_SEI: ${{ inputs.medir_sei && '1' || '' }}
         # Programadas y externas se omiten si hoy ya hubo una corrida exitosa; las manuales siempre corren.
         run: |
           origen="${ORIGEN_ENTRADA,,}"   # en minúsculas

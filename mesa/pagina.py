@@ -216,6 +216,12 @@ def tipos_del_registro(raiz: Path) -> dict:
     return tipos
 
 
+def avisos_sei(dia: dict | None) -> list[str]:
+    """Avisos de documentos de SEI faltantes en las corridas del día (solo el estado, nunca el contenido)."""
+    return list(dict.fromkeys(c["documentos_sei"]["aviso"] for c in (dia or {}).get("corridas", [])
+                              if (c.get("documentos_sei") or {}).get("aviso")))
+
+
 def secciones_de(t: dict, sitio: dict) -> list[str]:
     """Secciones de una tarjeta: las asignadas a mano y las que cumplen alguna condición de su regla."""
     salida = list(t.get("secciones") or [])
@@ -332,6 +338,7 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
         "costos": _costos(costos, hoy),
         "descartes": _ultimo_registro(dias),
         "salida_cortada": salidas_cortadas(next((d for d in dias if d["fecha"] == hoy.isoformat()), None)),
+        "aviso_sei": avisos_sei(next((d for d in dias if d["fecha"] == hoy.isoformat()), None)),
         "meta_hoy": meta_del_dia(next((d for d in dias if d["fecha"] == hoy.isoformat()), None),
                                  ajustes.get("meta_diaria", 10)),
         "temas_vigilancia": temas_mod.activos(raiz),
@@ -367,7 +374,8 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
     if (plantillas / "portada.html.j2").exists():
         tarjetas = datos_portada(ctx, sitio, tipos)
         escribir_texto(salida / "index.html", entorno.get_template("portada.html.j2").render(
-            sitio=sitio, tarjetas=tarjetas, hoy_texto=ctx["hoy_texto"], salud=ctx["salud"], generado=ctx["generado"]))
+            sitio=sitio, tarjetas=tarjetas, hoy_texto=ctx["hoy_texto"], salud=ctx["salud"], generado=ctx["generado"],
+            aviso_sei=ctx.get("aviso_sei", [])))
         shutil.copyfile(plantillas / "portada.css", salida / "portada.css")
     else:
         escribir_texto(salida / "index.html", entorno.get_template("index.html.j2").render(**ctx))
@@ -412,6 +420,7 @@ def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path, seccio
               "imagen": t.get("imagen"), "region": t.get("region"), "oculta": bool(t.get("oculta")),
               "cuerpo": t.get("original_cuerpo") or "", "imagenes": t.get("original_imagenes") or [],
               "tipo": t.get("tipo") or "", "secs": (secciones_por_id or {}).get(t["nid"], []),
+              "revisar": t.get("revisar") or [],
               "fuentes": [{"nombre": f.get("nombre"), "url": f.get("url")} for f in t.get("fuentes", [])]
                          or [{"nombre": n.get("fuente"), "url": n.get("url")} for n in t.get("novedades", [])]}
              for t in tarjetas + ctx.get("ocultas", []) if t["dia"] >= limite]

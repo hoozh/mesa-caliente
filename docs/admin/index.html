@@ -215,7 +215,7 @@ td.titulo { min-width: 220px; }
       <select class="form-select form-select-sm w-auto" id="n-sec"><option value="">Todo el barrido</option><option value="general">Escena mundial</option><option value="latam">Latinoamérica</option><option value="europa">Europa</option><option value="tema">Temas calientes</option></select>
       <select class="form-select form-select-sm w-auto" id="n-secc"><option value="">Todas las secciones del sitio</option>${(SITIO.secciones || []).map(sc => `<option value="${esc(sc.id)}">${esc(sc.nombre)}</option>`).join('')}</select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="n-q" type="search" placeholder="Buscar…">
-      <select class="form-select form-select-sm w-auto" id="n-est"><option value="">Todas</option><option value="ed">Editadas</option><option value="ocu">Ocultas</option><option value="ig">Marcadas para Instagram</option></select>
+      <select class="form-select form-select-sm w-auto" id="n-est"><option value="">Todas</option><option value="ed">Editadas</option><option value="ocu">Ocultas</option><option value="ig">Marcadas para Instagram</option><option value="rev">Para revisar</option></select>
     </div><div class="bc"><p class="ayuda">Haga clic en «Editar» para corregir título, resumen o texto de la noticia, cambiar la foto, destacarla, ocultarla o marcarla para Instagram. Cada corrección queda registrada con el texto original, para que SEI aprenda de ella. La página se actualiza sola en uno o dos minutos.</p>
     <div class="tabla-wrap"><table class="table table-hover align-middle mb-0"><thead><tr><th class="d-none d-md-table-cell">Fecha</th><th class="d-none d-md-table-cell">Sección</th><th>Título</th><th class="d-none d-md-table-cell">Estado</th><th></th></tr></thead><tbody id="n-filas"></tbody></table></div></div></div>
     <div class="modal fade" id="m-ed" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-scrollable"><div class="modal-content">
@@ -228,9 +228,9 @@ td.titulo { min-width: 220px; }
       const secc = document.getElementById('n-secc').value;
       const dia = document.getElementById('n-dia').value, sec = document.getElementById('n-sec').value, q = norm(document.getElementById('n-q').value), est = document.getElementById('n-est').value;
       const r = T.filter(t => (!secc || (t.secs || []).includes(secc) || ((E.tarjetas[t.id] || {}).secciones || []).includes(secc)) && (!dia || t.dia === dia) && (!sec || (sec === 'europa' ? t.region === 'europa' : t.seccion === sec)) &&
-        (!q || norm(t.titulo + ' ' + (t.resumen || '')).includes(q)) && (!est || (est === 'ed' ? E.tarjetas[t.id] : est === 'ocu' ? (E.tarjetas[t.id] || {}).oculta : (E.tarjetas[t.id] || {}).instagram)));
+        (!q || norm(t.titulo + ' ' + (t.resumen || '')).includes(q)) && (!est || (est === 'rev' ? (t.revisar || []).length && !(E.tarjetas[t.id] || {}).revisada : est === 'ed' ? E.tarjetas[t.id] : est === 'ocu' ? (E.tarjetas[t.id] || {}).oculta : (E.tarjetas[t.id] || {}).instagram)));
       filas.innerHTML = r.slice(0, 300).map(t => { const e = E.tarjetas[t.id] || {};
-        const estado = [e.oculta && '<span class="badge text-bg-secondary">Oculta</span>', e.destacada && '<span class="badge text-bg-danger">Destacada</span>', e.instagram && '<span class="badge text-bg-info">Instagram</span>', Object.keys(e).length && !e.oculta && '<span class="badge text-bg-light border">Editada</span>'].filter(Boolean).join(' ');
+        const estado = [(t.revisar || []).length && !e.revisada && `<span class="badge text-bg-warning" title="${esc(t.revisar.join(' · '))}">Revisar</span>`, e.oculta && '<span class="badge text-bg-secondary">Oculta</span>', e.destacada && '<span class="badge text-bg-danger">Destacada</span>', e.instagram && '<span class="badge text-bg-info">Instagram</span>', Object.keys(e).length && !e.oculta && '<span class="badge text-bg-light border">Editada</span>'].filter(Boolean).join(' ');
         const sec = esc(t.region === 'europa' ? 'Europa' : SECC[t.seccion] || t.seccion);
         return `<tr><td class="text-nowrap d-none d-md-table-cell">${esc(fechaLarga(t.dia))}</td><td class="d-none d-md-table-cell"><span class="badge text-bg-light border badge-sec">${sec}</span></td>
           <td class="titulo"><a href="../n/${esc(t.id)}.html" target="_blank" rel="noopener">${esc(e.titulo || t.titulo)}</a><div class="d-md-none ayuda mt-1">${esc(fechaLarga(t.dia))} · ${sec} ${estado}</div></td><td class="d-none d-md-table-cell">${estado}</td>
@@ -243,6 +243,7 @@ td.titulo { min-width: 220px; }
     filas.addEventListener('click', e => { const b = e.target.closest('[data-id]'); if (!b) return;
       actual = T.find(t => t.id === b.dataset.id); const x = E.tarjetas[actual.id] || {};
       document.getElementById('m-cuerpo').innerHTML = `
+        ${(actual.revisar || []).length ? `<div class="alert alert-warning py-2"><b>Para revisar:</b><ul class="mb-1">${actual.revisar.map(m => `<li>${esc(m)}</li>`).join('')}</ul><label class="form-check mb-0"><input class="form-check-input" type="checkbox" id="e-revisada" ${x.revisada ? 'checked' : ''}> <span class="form-check-label">Revisada (quita la marca)</span></label></div>` : ''}
         <p class="ayuda mb-3">${esc(fechaLarga(actual.dia))} · Fuentes: ${actual.fuentes.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ')}</p>
         <div class="mb-3"><label class="form-label" for="e-tit">Título</label><input class="form-control" id="e-tit" value="${esc(x.titulo || actual.titulo)}"></div>
         <div class="mb-3"><label class="form-label" for="e-res">Bajada (resumen corto de la tarjeta)</label><textarea class="form-control" id="e-res" rows="3">${esc(x.resumen || actual.resumen || '')}</textarea></div>
@@ -299,6 +300,7 @@ td.titulo { min-width: 220px; }
       if (secs.length) nuevo.secciones = secs;
       if (v('e-eti')) nuevo.etiqueta = v('e-eti');
       if (c('e-des')) nuevo.destacada = true; if (c('e-ocu')) nuevo.oculta = true; if (c('e-ig')) nuevo.instagram = true; if (c('e-vid')) nuevo.video = true;
+      if (document.getElementById('e-revisada') && c('e-revisada')) nuevo.revisada = true;
       nuevo.historial.push({ fecha: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', motivo: v('e-mot'),
         campos: ['titulo', 'resumen', 'cuerpo', 'imagen', 'imagenes', 'secciones', 'etiqueta', 'destacada', 'oculta', 'instagram', 'video'].filter(k => nuevo[k] !== undefined && JSON.stringify(nuevo[k]) !== JSON.stringify(previo[k])) });
       try { await persistir(nuevo, 'Edición: ' + actual.titulo.slice(0, 60)); modal.hide(); aviso('Guardado. La página se actualiza en uno o dos minutos.'); pintar(); }
