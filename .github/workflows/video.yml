@@ -2,6 +2,7 @@ name: Generar video
 
 # Video para Instagram (story o reel) a partir de una noticia. Se dispara desde el administrador (Instagram → Videos).
 # Con pedido: Claude escribe o corrige el guion (unos US$ 0,01). Con «solo_render»: renderiza el guion editado a mano, sin modelo.
+# Voz en off con Piper (voces libres, sin costo); música y videos de fondo propios desde el repositorio privado.
 on:
   workflow_dispatch:
     inputs:
@@ -47,9 +48,15 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install -r requirements.txt playwright==1.56.0
+          pip install -r requirements.txt playwright==1.56.0 piper-tts==1.8.0
           python -m playwright install --with-deps chromium
           sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+
+      - name: Voces guardadas (Piper)
+        uses: actions/cache@v4
+        with:
+          path: .voces
+          key: voces-piper-v1
 
       - name: Escribir el guion y renderizar
         env:
