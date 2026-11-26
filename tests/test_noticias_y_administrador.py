@@ -30,7 +30,7 @@ def _dia(raiz):
 def test_el_titulo_abre_la_noticia_interna_que_cierra_con_las_fuentes(raiz_temporal):
     nid = _dia(raiz_temporal)
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     assert sopa.select_one("a.titulo-noticia")["href"] == f"n/{nid}.html"
     nota = BeautifulSoup((raiz_temporal / "docs" / "n" / f"{nid}.html").read_text(encoding="utf-8"), "html.parser")
     assert nota.h1.get_text() == TITULO
@@ -49,12 +49,13 @@ def test_ediciones_del_administrador_se_aplican_y_guardan_el_original(raiz_tempo
               "original": {"titulo": TITULO}, "historial": [{"motivo": "el nombre estaba mal"}]},
         otra: {"oculta": True}}}), encoding="utf-8")
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     titulos = [a.get_text() for a in sopa.select("a.titulo-noticia")]
     assert titulos == ["Título corregido a mano"]  # la oculta no se muestra
     assert sopa.select_one("article.card-destacada")
     nota = BeautifulSoup((raiz_temporal / "docs" / "n" / f"{nid}.html").read_text(encoding="utf-8"), "html.parser")
-    assert [p.get_text() for p in nota.select(".cuerpo p")] == ["Primer párrafo.", "Segundo párrafo."]
+    assert [p.get_text() for p in nota.select(".cuerpo p:not(.bajada)")] == ["Primer párrafo.", "Segundo párrafo."]
+    assert nota.select_one(".cuerpo p.bajada").get_text() == "Fulano Inventado criticó la regla."
     assert not (raiz_temporal / "docs" / "n" / f"{otra}.html").exists()
     # El dato del día no se toca y el administrador ve el texto original, también de la oculta.
     dia = leer_json(ruta_dia(raiz_temporal, AHORA.date()))
@@ -98,3 +99,31 @@ def test_administrador_y_archivos_de_configuracion():
         assert set(p) >= {"id", "nombre", "alias", "historica", "resumen"} and "perfil" not in p
     ids = [p["id"] for p in leer_json(RAIZ / "config" / "personalidades.json")["personalidades"]]
     assert len(ids) == len(set(ids))
+
+
+def test_portada_con_menu_y_secciones_de_sitio(raiz_temporal):
+    nid = _dia(raiz_temporal)
+    (raiz_temporal / "config" / "sitio.json").write_text(json.dumps({
+        "marca": {"nombre": "Marca Inventada", "lema": "Lema"},
+        "secciones": [{"id": "reglas", "nombre": "Reglas", "menu": True, "portada": True, "visible": True,
+                       "regla": {"palabras": ["regla de tiempo"]}},
+                      {"id": "apagada", "nombre": "Apagada", "menu": True, "visible": False, "regla": {"seccion": ["general"]}}],
+        "botones": [{"texto": "Historial por día", "enlace": "historial.html", "visible": True}]}), encoding="utf-8")
+    pagina.generar(raiz_temporal, AHORA.date(), AHORA)
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    assert [b.get_text() for b in sopa.select("nav button")] == ["Portada", "Reglas"]
+    assert sopa.select_one('nav a[href="historial.html"]')
+    datos = json.loads(sopa.select_one("#datos").string)
+    tarjeta = next(t for t in datos["tarjetas"] if t["id"] == nid)
+    assert tarjeta["secs"] == ["reglas"] and tarjeta["foto"] == "https://medio.com/foto.jpg"
+    assert (raiz_temporal / "docs" / "historial.html").exists() and (raiz_temporal / "docs" / "portada.css").exists()
+
+
+def test_cuerpo_largo_se_verifica_parrafo_por_parrafo_e_imagenes_con_fuente():
+    items = [{"fuente": "Medio A", "url": "https://a.com/1", "imagen": "https://a.com/f.jpg", "titulo": "Fulano Inventado gana",
+              "primera_linea": "Fulano Inventado ganó $50,000 en el Ficticio Open.", "extracto": "", "clase": "medio"},
+             {"fuente": "Medio B", "url": "https://b.com/1", "imagen": "https://a.com/f.jpg", "titulo": "", "primera_linea": "", "extracto": ""}]
+    assert modelo.imagenes_de_fuentes(items) == [{"url": "https://a.com/f.jpg", "fuente": "Medio A", "enlace": "https://a.com/1"}]
+    cuerpo, cambios = modelo.verificar_cuerpo("Fulano Inventado ganó $50,000 en el Ficticio Open.\n\nMengano Falso ganó $900,000 en otro lado.",
+                                              "Fulano Inventado gana", items)
+    assert cuerpo == "Fulano Inventado ganó $50,000 en el Ficticio Open." and cambios

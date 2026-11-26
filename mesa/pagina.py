@@ -185,7 +185,79 @@ def unir_temas(corridas: list[dict]) -> list[dict]:
 
 # ---------------------------------------------------------------- ediciones manuales y páginas de noticia
 
-CAMPOS_EDITABLES = ("titulo", "resumen", "cuerpo", "imagen", "etiqueta", "oculta", "destacada", "instagram")
+CAMPOS_EDITABLES = ("titulo", "resumen", "cuerpo", "imagen", "imagenes", "etiqueta", "secciones", "oculta", "destacada",
+                    "instagram")
+
+CATEGORIAS = {"resultado": "Resultados", "anuncio_evento": "Torneos y eventos", "industria_polemica": "Polémica e industria",
+              "software": "Software", "obituario": "Obituario", "oferta": "Ofertas", "otro": "Noticias"}
+
+
+def cargar_sitio(raiz: Path) -> dict:
+    """config/sitio.json: menú, secciones y botones de la portada (se editan desde el administrador)."""
+    sitio = leer_json(Path(raiz) / "config" / "sitio.json", {}) or {}
+    sitio.setdefault("marca", {"nombre": "Mesa Caliente", "lema": ""})
+    sitio.setdefault("secciones", [])
+    sitio.setdefault("botones", [])
+    return sitio
+
+
+def tipos_del_registro(raiz: Path) -> dict:
+    """id de tarjeta -> tipo (resultado, oferta…), desde data/registro/hechos.jsonl."""
+    ruta = Path(raiz) / "data" / "registro" / "hechos.jsonl"
+    tipos = {}
+    if ruta.exists():
+        for linea in ruta.read_text(encoding="utf-8").splitlines():
+            try:
+                h = json.loads(linea)
+            except ValueError:
+                continue
+            if h.get("id"):
+                tipos[h["id"]] = h.get("tipo") or "otro"
+    return tipos
+
+
+def secciones_de(t: dict, sitio: dict) -> list[str]:
+    """Secciones de una tarjeta: las asignadas a mano y las que cumplen alguna condición de su regla."""
+    salida = list(t.get("secciones") or [])
+    texto = f"{t.get('titulo', '')} {t.get('resumen', '')}".lower()
+    valores = {"seccion": t.get("seccion"), "region": t.get("region") or ("europa" if t.get("seccion") == "europa" else ""),
+               "tipo": t.get("tipo"), "clasificacion": t.get("clasificacion")}
+    for sec in sitio.get("secciones", []):
+        if not sec.get("visible", True) or sec["id"] in salida:
+            continue
+        regla = sec.get("regla") or {}
+        if any(valores.get(k) in (v or []) for k, v in regla.items() if k != "palabras") or \
+                any(p.lower() in texto for p in regla.get("palabras") or [] if p.strip()):
+            salida.append(sec["id"])
+    visibles = {s["id"] for s in sitio.get("secciones", []) if s.get("visible", True)}
+    return [x for x in salida if x in visibles]
+
+
+def datos_portada(ctx: dict, sitio: dict, tipos: dict) -> list[dict]:
+    """Noticias de los últimos días para la portada (JSON dentro de la página; la portada filtra por sección)."""
+    dias = sitio.get("dias_en_portada", 30)
+    limite = (date.fromisoformat(ctx["dias"][0]["fecha"]) - timedelta(days=dias)).isoformat() if ctx["dias"] else ""
+    nombres = {s["id"]: s["nombre"] for s in sitio.get("secciones", [])}
+    salida = []
+    for t in todas_las_tarjetas(ctx):
+        if t["dia"] < limite:
+            continue
+        t["tipo"] = "tema" if t["seccion"] == "tema" else tipos.get(t["nid"], t.get("tipo") or "otro")
+        secs = secciones_de(t, sitio)
+        imagenes = t.get("imagenes") or ([{"url": t["imagen"], "fuente": (t.get("fuentes") or [{}])[0].get("nombre", "")}]
+                                         if t.get("imagen") else [])
+        fuentes = [f.get("nombre") for f in t.get("fuentes", []) if f.get("nombre")] or \
+                  [n.get("fuente") for n in t.get("novedades", []) if n.get("fuente")]
+        manual = [nombres[x] for x in t.get("secciones") or [] if x in nombres]
+        salida.append({"id": t["nid"], "dia": t["dia"], "titulo": t["titulo"], "bajada": t.get("resumen") or "",
+                       "foto": imagenes[0]["url"] if imagenes else "", "credito": imagenes[0].get("fuente", "") if imagenes else "",
+                       "cat": t.get("etiqueta") or (manual[0] if manual else ("Tema caliente" if t["tipo"] == "tema" else
+                                                                              CATEGORIAS.get(t["tipo"], "Noticias"))),
+                       "sec": t["seccion"], "region": t.get("region") or "", "secs": secs,
+                       "destacada": bool(t.get("destacada")), "fuente": fuentes[0] if fuentes else "",
+                       "nf": len(dict.fromkeys(fuentes))})
+    salida.sort(key=lambda x: x["dia"], reverse=True)
+    return salida
 
 
 def id_tema(fecha: str, tema: str) -> str:
@@ -201,7 +273,9 @@ def cargar_ediciones(raiz: Path) -> dict:
 def preparar_tarjeta(t: dict, nid: str, seccion: str, fecha: str, ediciones: dict) -> dict:
     """Copia de la tarjeta con su id, su sección y las ediciones manuales aplicadas (el dato del día no se toca)."""
     x = {**t, "nid": nid, "seccion": seccion, "dia": fecha, "original_titulo": t.get("titulo") or t.get("tema"),
-         "original_resumen": t.get("resumen") or ""}
+         "original_resumen": t.get("resumen") or "", "original_cuerpo": t.get("cuerpo") or "",
+         "original_imagenes": t.get("imagenes") or ([{"url": t["imagen"], "fuente": (t.get("fuentes") or [{}])[0].get("nombre", ""),
+                                                      "enlace": (t.get("fuentes") or [{}])[0].get("url", "")}] if t.get("imagen") else [])}
     ed = ediciones.get(nid) or {}
     for campo in CAMPOS_EDITABLES:
         if campo in ed and ed[campo] not in (None, ""):
@@ -279,9 +353,18 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
                           autoescape=select_autoescape(["html", "j2"]),
                           trim_blocks=True, lstrip_blocks=True)
     ctx = contexto(raiz, hoy, generado)
-    html = entorno.get_template("index.html.j2").render(**ctx)
-    escribir_texto(salida / "index.html", html)
+    # historial.html: la vista completa por día (la página de siempre, con salud de fuentes, costos y registro).
+    escribir_texto(salida / "historial.html", entorno.get_template("index.html.j2").render(**ctx))
     escribir_noticias(entorno, ctx, salida, plantillas)
+    # index.html: la portada estilo portal, con el menú y las secciones de config/sitio.json.
+    if (plantillas / "portada.html.j2").exists():
+        sitio = cargar_sitio(raiz)
+        tarjetas = datos_portada(ctx, sitio, tipos_del_registro(raiz))
+        escribir_texto(salida / "index.html", entorno.get_template("portada.html.j2").render(
+            sitio=sitio, tarjetas=tarjetas, hoy_texto=ctx["hoy_texto"], salud=ctx["salud"], generado=ctx["generado"]))
+        shutil.copyfile(plantillas / "portada.css", salida / "portada.css")
+    else:
+        escribir_texto(salida / "index.html", entorno.get_template("index.html.j2").render(**ctx))
     shutil.copyfile(plantillas / "estilo.css", salida / "estilo.css")
     if (plantillas / "secciones" / "secciones.css").exists():
         shutil.copyfile(plantillas / "secciones" / "secciones.css", salida / "secciones.css")
@@ -321,6 +404,7 @@ def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path) -> int
     datos = [{"id": t["nid"], "dia": t["dia"], "seccion": t["seccion"], "titulo": t.get("original_titulo"),
               "resumen": t.get("original_resumen"), "clasificacion": t.get("clasificacion"),
               "imagen": t.get("imagen"), "region": t.get("region"), "oculta": bool(t.get("oculta")),
+              "cuerpo": t.get("original_cuerpo") or "", "imagenes": t.get("original_imagenes") or [],
               "fuentes": [{"nombre": f.get("nombre"), "url": f.get("url")} for f in t.get("fuentes", [])]
                          or [{"nombre": n.get("fuente"), "url": n.get("url")} for n in t.get("novedades", [])]}
              for t in tarjetas + ctx.get("ocultas", []) if t["dia"] >= limite]

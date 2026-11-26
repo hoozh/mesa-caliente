@@ -17,7 +17,10 @@ Clave: en GitHub, foto → **Settings** → **Developer settings** → **Persona
 
 | Sección | Qué edita |
 |---|---|
-| Noticias | `data/ediciones.json`: título, bajada, texto de la noticia, foto, sección mostrada, destacar, ocultar, marcar para Instagram. Guarda el texto original y el historial con el motivo de cada corrección (material para que SEI aprenda). Al guardar, el flujo **Aplicar ediciones** regenera la página sin usar el modelo (sin costo). El dato del día (`data/dias/`) no se toca. |
+| Menú y secciones | `config/sitio.json`: marca, secciones (nombre, orden, en el menú, en portada, cantidad, regla por sección del barrido, región, tipo o palabras) y botones con enlace. |
+| Instagram | Repositorio privado (`instagram/`): marca de prueba, cuentas y accesos (sin contraseñas), posteos con vista previa 1080×1350 e imagen descargable. Sin fotos de medios. |
+| Propuestas | Botón «+ Propuesta» en todas las vistas; base de ideas en el repositorio privado (`propuestas/propuestas.json`). |
+| Noticias | `data/ediciones.json`: título, bajada, texto de la noticia, imágenes con fuente, secciones (y secciones nuevas), encabezado, destacar, ocultar, marcar para Instagram. Guarda el texto original y el historial con el motivo de cada corrección (material para que SEI aprenda). Al guardar, el flujo **Aplicar ediciones** regenera la página sin usar el modelo (sin costo). El dato del día (`data/dias/`) no se toca. |
 | Palabras clave prioritarias | `config/temas_calientes.json` (los temas calientes). |
 | Búsquedas activas | `config/busquedas.json`: consulta, alta, hasta, estado. |
 | Correr el barrido | Dispara **Barrido diario** (unos US$ 0,03), con confirmación. |
@@ -106,6 +109,8 @@ Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía s
 - **Figuras históricas y récords:** un resultado de una figura histórica (`"historica": true` en `config/personalidades.json`, por ejemplo Negreanu o Hellmuth) o un resultado que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes) sí lleva tarjeta, en la escena mundial.
 - **Personalidades:** `config/personalidades.json` se envía a la selección; sus noticias tienen prioridad. Cada persona tiene `id` (fijo, aunque se corrija el nombre), `nombre`, `alias`, `historica` y `resumen` (público, corto). El perfil completo está en el repositorio privado; SEI puede leerlo en otros trabajos.
 - **Búsquedas activas:** cada consulta vigente de `config/busquedas.json` se busca en Google Noticias (últimos 3 días) y sus titulares se suman como una fuente más, sin quitar lugar a las fuentes habituales. Los sitios de GipsyTeam se descartan.
+- **Portada:** `docs/index.html` es un portal con menú y secciones de `config/sitio.json` (nota principal, «Lo último», bloques por sección, buscador, claro y oscuro). La vista completa por día, con salud de fuentes y costos, quedó en `docs/historial.html`.
+- **Texto de la noticia:** la redacción escribe además un `cuerpo` de 2 a 4 párrafos, solo con datos del texto recibido; cada párrafo pasa los mismos controles que la bajada y el que no tiene respaldo se quita. Las imágenes (`imagenes`) son la foto que declara cada medio, con su nombre y enlace. Topes: `max_tokens_salida` 9000 y `max_costo_usd_por_corrida` US$ 0,08.
 - **Noticia propia:** el título de cada tarjeta abre `docs/n/<id>.html`, una página dentro de Mesa Caliente con el resumen de la noticia, la foto con su crédito y, al final, las fuentes. El id es el mismo del registro.
 - **Foto de la nota:** al abrir el artículo de cada hecho se guarda la imagen que el medio declara para compartir (`og:image`) en el campo `imagen` de la tarjeta, para el diseño nuevo.
 - **Respaldos de GitHub:** un respaldo programado que llega antes de las 12:00 UTC (pasada la medianoche) se omite, para que no le quite su lugar al barrido de la mañana que dispara cron-job.org.

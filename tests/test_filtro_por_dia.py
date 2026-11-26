@@ -171,7 +171,7 @@ def test_tope_total_se_cuenta_por_fuente(raiz_temporal):
 
 def test_pie_muestra_descartes(raiz_temporal):
     corrida.ejecutar(raiz_temporal, AHORA, "automatica", _descarga_grande(), _llamador({"tarjetas": []}))
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"),
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"),
                         "html.parser").footer.get_text(" ")
     assert "0 por fecha, 0 por orden de la lista, 5 por tope" in pie
     assert "2026-10-01 12:45:00 UTC" in pie

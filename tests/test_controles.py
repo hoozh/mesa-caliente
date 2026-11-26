@@ -193,6 +193,6 @@ def test_pagina_muestra_que_cambio(raiz_temporal):
                       "fuentes": [{"nombre": "A", "fecha": None, "url": "https://a.com"}]}],
         "escena_latam": {"tarjetas": [], "texto": None}})
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     nota = sopa.select_one(".update-note").get_text(" ")
     assert "Qué cambió:" in nota and "Se conoce el premio final." in nota and AIDO_PREVIO in nota

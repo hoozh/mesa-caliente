@@ -286,7 +286,7 @@ def test_costos_de_seleccion_y_redaccion_se_registran_y_se_muestran(raiz_tempora
     costos = leer_json(raiz_temporal / "data" / "costos.json")["corridas"]
     assert [c["tipo"] for c in costos] == ["seleccion", "redaccion"]
     assert costos[0]["costo_usd"] == round(3000 / 1e6 + 200 * 5 / 1e6, 6)
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"),
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"),
                         "html.parser").footer.get_text(" ")
     assert "costo estimado US$ 0.0120" in pie  # 0,004 + 0,008
     assert "US$ 0.0040 corresponden a la selección de hechos" in pie
@@ -309,7 +309,7 @@ def test_pie_muestra_n_notas_hoy_con_motivos_por_regla_y_por_fuente(raiz_tempora
         "meta": {"meta": 10, "publicadas": 5, "recuperacion": {"enviadas": 7, "tarjetas": 0, "segundo_nivel": 0,
                                                                "costo_usd": 0.004, "omitida": None}}})
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"),
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"),
                         "html.parser").footer.get_text(" ")
     assert "5 notas hoy" in pie and "la meta diaria es 10" in pie
     assert "161 titulares por fecha" in pie and "175 por orden" in pie
@@ -324,7 +324,7 @@ def test_pie_con_meta_alcanzada_no_da_motivos(raiz_temporal):
         "tarjetas": [{"clasificacion": "confirmado", "fecha": "", "titulo": f"T{n}", "resumen": "r", "fuentes": []}
                      for n in range(10)]})
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"),
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"),
                         "html.parser").footer.get_text(" ")
     assert "10 notas hoy" in pie and "Motivo" not in pie
 

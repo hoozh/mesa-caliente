@@ -361,7 +361,7 @@ def test_seccion_cambios_en_salas_ultimos_30_dias(raiz_temporal):
         {"fecha": "2026-08-01", "sala": "ACR", "tema": "pagos_retiros", "dato": "Dato viejo de agosto", "fuente": fuente_c},
     ])
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     seccion = sopa.find("section", class_="sec-cambios")
     assert seccion.h2.get_text() == "Cambios en salas"
     texto = seccion.get_text(" ")
@@ -441,7 +441,7 @@ def test_salida_cortada_avisa_cuantas_tarjetas_se_perdieron(raiz_temporal):
     assert len(c["tarjetas"]) == 1 and c["salida_cortada"] == {"perdidas": 1}
     aviso = next(x for x in c["controles"] if x["motivo"].startswith("salida cortada"))
     assert aviso["perdidas"] == 1 and "1 tarjeta perdida" in aviso["motivo"]
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser").footer
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser").footer
     texto = pie.find("p", class_="sec-aviso").get_text(" ")
     assert "se cortó por el tope de tokens" in texto and "1 tarjeta perdida" in texto
 
@@ -449,17 +449,17 @@ def test_salida_cortada_avisa_cuantas_tarjetas_se_perdieron(raiz_temporal):
 def test_sin_salida_cortada_no_hay_aviso(raiz_temporal):
     c = corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo())
     assert "salida_cortada" not in c
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser").footer
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser").footer
     assert pie.find("p", class_="sec-aviso") is None
 
 
 def test_tope_de_salida_de_la_redaccion():
-    assert leer_json(RAIZ / "config" / "ajustes.json")["max_tokens_salida"] == 5500
+    assert leer_json(RAIZ / "config" / "ajustes.json")["max_tokens_salida"] == 9000
 
 
 def test_enlace_al_brief_semanal_en_la_pagina(raiz_temporal):
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     enlace = sopa.find("a", string="Brief semanal")
     assert enlace["href"] == "semanal/"
     # El índice existe aunque todavía no haya briefs: el enlace nunca queda roto.

@@ -1,0 +1,28 @@
+{
+  "nota": "Menú, secciones y botones de la portada. Se edita desde el administrador (Sitio). Cada sección junta noticias por regla (cualquiera de las condiciones alcanza: sección del barrido, región, tipo, clasificación o palabras del título) y por asignación manual desde Noticias. 'menu': tiene botón en el menú; 'portada': aparece como bloque en la portada (con 'cantidad' noticias); 'visible': false la apaga del todo. 'botones': enlaces extra del menú (texto y dirección).",
+  "marca": {
+    "nombre": "Mesa Caliente",
+    "lema": "Noticias de poker, cada mañana"
+  },
+  "dias_en_portada": 30,
+  "secciones": [
+    {"id": "latam", "nombre": "Latinoamérica", "menu": true, "portada": true, "cantidad": 6, "visible": true,
+     "regla": {"seccion": ["latam"]}},
+    {"id": "mundial", "nombre": "Escena mundial", "menu": true, "portada": true, "cantidad": 8, "visible": true,
+     "regla": {"seccion": ["general"]}},
+    {"id": "europa", "nombre": "Europa", "menu": true, "portada": false, "cantidad": 6, "visible": true,
+     "regla": {"region": ["europa"]}},
+    {"id": "polemicas", "nombre": "Polémicas", "menu": true, "portada": false, "cantidad": 6, "visible": true,
+     "regla": {"tipo": ["industria_polemica"]}},
+    {"id": "eventos", "nombre": "Torneos y eventos", "menu": true, "portada": false, "cantidad": 6, "visible": true,
+     "regla": {"tipo": ["anuncio_evento", "resultado"]}},
+    {"id": "temas", "nombre": "Temas calientes", "menu": true, "portada": false, "cantidad": 6, "visible": true,
+     "regla": {"seccion": ["tema"]}},
+    {"id": "ofertas", "nombre": "Ofertas", "menu": true, "portada": false, "cantidad": 6, "visible": true,
+     "regla": {"tipo": ["oferta"]}}
+  ],
+  "botones": [
+    {"texto": "Brief semanal", "enlace": "semanal/", "visible": true},
+    {"texto": "Historial por día", "enlace": "historial.html", "visible": true}
+  ]
+}

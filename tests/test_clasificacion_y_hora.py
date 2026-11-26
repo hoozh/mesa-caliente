@@ -47,7 +47,7 @@ def test_hora_solo_cuando_la_fuente_la_da(tmp_path):
     from mesa.util import RAIZ
     shutil.copytree(RAIZ / "templates", tmp_path / "templates")
     pagina.generar(tmp_path, HOY, AHORA)
-    sopa = BeautifulSoup((tmp_path / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((tmp_path / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     filas = [" ".join(li.get_text(" ").split()) for li in sopa.select("ul.sources-list li")]
     assert any("Con hora" in f and "14:30 UTC" in f for f in filas)
     assert any("Sin hora" in f and "UTC" not in f and "vista" not in f and "sin fecha" not in f for f in filas)
