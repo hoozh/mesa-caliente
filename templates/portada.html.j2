@@ -34,6 +34,7 @@
 
 <footer class="site"><div class="wrap">
   <span>Actualizado el {{ hoy_texto }}</span>
+  {% for a in aviso_sei %}<span><b>Aviso:</b> {{ a }}</span>{% endfor %}
   <span>{{ salud.activas }} de {{ salud.total }} fuentes activas</span>
   {% for b in sitio.botones if b.visible is not sameas false %}<a href="{{ b.enlace }}">{{ b.texto }}</a>{% endfor %}
 </div></footer>

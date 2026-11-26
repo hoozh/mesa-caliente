@@ -20,7 +20,7 @@ from pathlib import Path
 from . import candidatas as cand
 from . import temas as temas_mod
 from . import torneos
-from . import modelo, pagina, recoleccion
+from . import modelo, pagina, recoleccion, revision, sei
 from . import registro as registro_mod
 from .dias import agregar_corrida, cargar_dias, ruta_dia
 from .util import (RAIZ, ahora_utc, escribir_json, esta_bloqueado, leer_json,
@@ -322,6 +322,8 @@ def sumar_uso(*usos: dict | None) -> dict | None:
     if not usos:
         return None
     total = {"tokens_entrada": sum(u.get("tokens_entrada", 0) for u in usos),
+             "tokens_cache_escritura": sum(u.get("tokens_cache_escritura", 0) for u in usos),
+             "tokens_cache_lectura": sum(u.get("tokens_cache_lectura", 0) for u in usos),
              "tokens_salida": sum(u.get("tokens_salida", 0) for u in usos),
              "modelo": usos[-1].get("modelo"),
              "costo_usd": round(sum(u.get("costo_usd", 0.0) for u in usos), 6)}
@@ -339,6 +341,16 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
         "costo_usd": uso.get("costo_usd", 0.0),
         "estado": corrida["estado"],
     })
+    if tipo == "redaccion":
+        for k in ("tokens_cache_escritura", "tokens_cache_lectura"):
+            if uso.get(k):
+                costos["corridas"][-1][k] = uso[k]
+        if corrida.get("documentos_sei"):
+            costos["corridas"][-1]["documentos_sei"] = corrida["documentos_sei"]["estado"]
+            if corrida["documentos_sei"].get("aviso"):
+                costos["corridas"][-1]["aviso"] = corrida["documentos_sei"]["aviso"]
+        if corrida.get("medicion_sei"):
+            costos["corridas"][-1]["medicion_sei"] = corrida["medicion_sei"]
 
 
 def cargar_personalidades(raiz: Path, solo_historicas: bool = False) -> list[str]:
@@ -558,20 +570,48 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                     abiertos = _abrir_articulos(redaccion, ajustes, descargar, estado_cand, hoy)
                 corrida["recoleccion"]["articulos_abiertos"] = abiertos
                 guardar_entradas(raiz, hoy, corrida["id"], redaccion, tipo="redaccion")
-                # 2.ª llamada: redacción, dentro del tope de costo de la corrida.
+                # Documentos vigentes de SEI (solo para la redacción; su contenido nunca se registra).
+                docs = sei.cargar()
+                corrida["documentos_sei"] = {**sei.resumen_estado(docs), "aviso": sei.aviso(docs)}
+                # 2.ª llamada: redacción, dentro del tope de costo de la corrida y del día.
                 max_salida = ajustes.get("max_tokens_salida", 4500)
                 costo_sel = (corrida.get("uso_seleccion") or {}).get("costo_usd", 0.0)
-                disponible = ajustes.get("max_costo_usd_por_corrida", 0.05) - costo_sel
+                gastado_hoy = sum(x.get("costo_usd", 0.0) for x in costos.get("corridas", []) if x.get("fecha") == hoy.isoformat())
+                disponible = min(ajustes.get("max_costo_usd_por_corrida", 0.05),
+                                 ajustes.get("max_costo_usd_por_dia", 1.0) - gastado_hoy) - costo_sel
                 nombre_modelo = modelo.modelo_configurado(ajustes)
                 entrada_est = (len(modelo.SISTEMA) + sum(len(it.get("titulo") or "") + len(it.get("primera_linea") or "")
                                                          + len(it.get("extracto") or "") + 120 for it in redaccion)
                                + 60 * ajustes.get("max_titulos_previos", 80)) // 4
-                while max_salida > 1500 and modelo.costo_estimado(nombre_modelo, entrada_est, max_salida, ajustes) > disponible:
-                    max_salida -= 500
+                cache_est = docs["caracteres"] // 4
+                medir = os.environ.get("MESA_MEDIR_SEI", "").strip() == "1" and docs["texto"]
+                if medir:  # medición pedida por Hoozh: sin recortar la salida, con y sin documentos
+                    max_salida = ajustes.get("max_tokens_salida_medicion", 16000)
+                else:
+                    while max_salida > 1500 and modelo.costo_estimado(nombre_modelo, entrada_est, max_salida, ajustes,
+                                                                      cache_est) > disponible:
+                        max_salida -= 500
+                    if max_salida < ajustes.get("max_tokens_salida", 4500):
+                        corrida["notas"].append(f"La salida de la redacción se limitó a {max_salida} tokens por el tope de costo.")
+                if medir:
+                    sin_docs = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
+                                              publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
+                                              faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida,
+                                              salas=salas, historicas=cargar_personalidades(raiz, solo_historicas=True))
+                    corrida["medicion_sei"] = {"sin_documentos": {k: sin_docs["uso"].get(k) for k in (
+                        "tokens_entrada", "tokens_salida", "costo_usd", "truncado")},
+                        "tarjetas_sin_documentos": len(sin_docs["tarjetas"]) + len(sin_docs["escena_latam"])}
+                    corrida["uso_medicion"] = sin_docs["uso"]
                 resultado = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
                                            publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
                                            faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida,
-                                           salas=salas, historicas=cargar_personalidades(raiz, solo_historicas=True))
+                                           salas=salas, historicas=cargar_personalidades(raiz, solo_historicas=True),
+                                           documentos=docs["texto"])
+                del docs  # el contenido no sale de esta función
+                if corrida.get("medicion_sei"):
+                    corrida["medicion_sei"]["con_documentos"] = {k: resultado["uso"].get(k) for k in (
+                        "tokens_entrada", "tokens_cache_escritura", "tokens_cache_lectura", "tokens_salida", "costo_usd", "truncado")}
+                    corrida["medicion_sei"]["tarjetas_con_documentos"] = len(resultado["tarjetas"]) + len(resultado["escena_latam"])
                 if resultado.get("temas"):
                     corrida["temas"] = resultado["temas"]
                 corrida["controles"] += resultado.get("controles", [])
@@ -579,6 +619,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 if resultado.get("salida_cortada"):
                     corrida["salida_cortada"] = resultado["salida_cortada"]  # aviso en el pie de la página
                 corrida["tarjetas"] = resultado["tarjetas"]
+                corrida["controles"] += revision.marcar(resultado["tarjetas"] + resultado["escena_latam"])
                 if resultado.get("archivo"):
                     archivar_resultados(raiz, hoy, corrida["id"], resultado["archivo"])
                 corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
@@ -592,7 +633,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 except Exception as e:
                     corrida["registro"] = {"error": f"{type(e).__name__}: {e}"}
                     traceback.print_exc()
-            corrida["uso"] = sumar_uso(corrida.get("uso_seleccion"), corrida.get("uso_redaccion"))
+            corrida["uso"] = sumar_uso(corrida.get("uso_seleccion"), corrida.get("uso_medicion"), corrida.get("uso_redaccion"))
         corrida["meta"]["publicadas"] = tarjetas_publicadas_hoy(raiz, hoy, corrida)
         if corrida["tarjetas"] or corrida["escena_latam"]["tarjetas"]:
             corrida["estado"] = "ok"
@@ -628,6 +669,8 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         _registrar_costo(costos, hoy, corrida, corrida["uso_seleccion"], "seleccion")
     if corrida.get("uso_redaccion"):
         _registrar_costo(costos, hoy, corrida, corrida["uso_redaccion"], "redaccion")
+    if corrida.get("uso_medicion"):
+        _registrar_costo(costos, hoy, corrida, corrida["uso_medicion"], "medicion_sin_documentos")
 
     try:
         cand.actualizar(estado_cand, fuentes, hoy, ajustes.get("candidatas_ventana_dias", 14),

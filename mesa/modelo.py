@@ -188,7 +188,9 @@ def modelo_configurado(ajustes: dict) -> str:
     return (os.environ.get("MESA_MODELO") or "").strip() or ajustes.get("modelo_por_defecto", "claude-haiku-4-5")
 
 
-def costo_estimado(modelo: str, entrada: int, salida: int, ajustes: dict) -> float:
+def costo_estimado(modelo: str, entrada: int, salida: int, ajustes: dict, cache_escritura: int = 0,
+                   cache_lectura: int = 0) -> float:
+    """Costo en dólares. La caché de prompt cobra la escritura a 1,25 veces el precio de entrada y la lectura a 0,1."""
     precios = ajustes.get("precios_usd_por_millon", {})
     p = precios.get(modelo)
     if p is None:
@@ -200,7 +202,7 @@ def costo_estimado(modelo: str, entrada: int, salida: int, ajustes: dict) -> flo
         salida_p = float(os.environ.get("MESA_PRECIO_SALIDA") or p["salida"])
     except ValueError:
         entrada_p, salida_p = p["entrada"], p["salida"]
-    return round(entrada * entrada_p / 1e6 + salida * salida_p / 1e6, 6)
+    return round((entrada + 1.25 * cache_escritura + 0.1 * cache_lectura) * entrada_p / 1e6 + salida * salida_p / 1e6, 6)
 
 
 class ErrorModelo(Exception):
@@ -212,8 +214,8 @@ class ErrorModelo(Exception):
 Llamador = Callable[[str, str, str, int], tuple[str, dict]]
 
 
-def llamar_anthropic(sistema: str, mensaje: str, modelo: str, max_tokens: int) -> tuple[str, dict]:
-    """Llamada real a la API. Devuelve (texto, uso)."""
+def llamar_anthropic(sistema: str | list, mensaje: str, modelo: str, max_tokens: int) -> tuple[str, dict]:
+    """Llamada real a la API. Devuelve (texto, uso). `sistema` puede ser una lista de bloques (con caché de prompt)."""
     import anthropic
 
     clave = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -238,6 +240,10 @@ def llamar_anthropic(sistema: str, mensaje: str, modelo: str, max_tokens: int) -
     except anthropic.APIConnectionError as e:
         raise ErrorModelo("No se pudo conectar con la API de Anthropic.") from e
     uso = {"tokens_entrada": r.usage.input_tokens, "tokens_salida": r.usage.output_tokens}
+    for campo, clave_uso in (("cache_creation_input_tokens", "tokens_cache_escritura"), ("cache_read_input_tokens", "tokens_cache_lectura")):
+        valor = getattr(r.usage, campo, 0) or 0
+        if valor:
+            uso[clave_uso] = int(valor)
     texto = "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
     if r.stop_reason == "refusal":
         raise ErrorModelo("El modelo rechazó la solicitud.", uso)
@@ -641,7 +647,8 @@ def _leer_respuesta(texto: str, uso: dict) -> tuple[dict, bool]:
 def _con_costo(uso: dict, modelo: str, ajustes: dict) -> dict:
     uso = dict(uso)
     uso["modelo"] = modelo
-    uso["costo_usd"] = costo_estimado(modelo, uso.get("tokens_entrada", 0), uso.get("tokens_salida", 0), ajustes)
+    uso["costo_usd"] = costo_estimado(modelo, uso.get("tokens_entrada", 0), uso.get("tokens_salida", 0), ajustes,
+                                      uso.get("tokens_cache_escritura", 0), uso.get("tokens_cache_lectura", 0))
     return uso
 
 
@@ -701,8 +708,9 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
             previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
             grupos: list[dict] | None = None, faltan: int | None = None, max_tokens: int | None = None,
-            salas: dict | None = None, historicas: list[str] | None = None) -> dict:
-    """Redacción. Devuelve {'tarjetas', 'escena_latam', 'temas', 'controles', 'uso'} o lanza ErrorModelo.
+            salas: dict | None = None, historicas: list[str] | None = None, documentos: str = "") -> dict:
+    """Redacción. `documentos`: los documentos vigentes de SEI (mesa/sei.py); van primero en las instrucciones,
+    marcados para la caché de prompt, y nunca se registran. Devuelve {'tarjetas', 'escena_latam', 'temas', 'controles', 'uso'} o lanza ErrorModelo.
     Además devuelve, para el registro permanente, 'fichas' (una por tarjeta o tema publicado, con lo que propuso
     el modelo y las notas que cita) y 'cambios_salas' (crudos): los verifica mesa/registro.py.
 
@@ -713,6 +721,9 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
     sistema = SISTEMA.format(max_tarjetas=ajustes.get("max_tarjetas", 14),
                              max_latam=ajustes.get("max_tarjetas_latam", 6), **textos_salas(salas))
     mensaje = construir_mensaje(items, previos, corte, grupos)
+    if documentos:
+        sistema = [{"type": "text", "text": documentos, "cache_control": {"type": "ephemeral"}},
+                   {"type": "text", "text": sistema}]
     texto, uso = llamar(sistema, mensaje, modelo, max_tokens or ajustes.get("max_tokens_salida", 4500))
     uso = _con_costo(uso, modelo, ajustes)
     datos, rescatado = _leer_respuesta(texto, uso)

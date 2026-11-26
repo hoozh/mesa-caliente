@@ -462,7 +462,7 @@ def test_sin_salida_cortada_no_hay_aviso(raiz_temporal):
     c = corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo())
     assert "salida_cortada" not in c
     pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser").footer
-    assert pie.find("p", class_="sec-aviso") is None
+    assert not [p for p in pie.find_all("p", class_="sec-aviso") if "se cortó" in p.get_text()]
 
 
 def test_tope_de_salida_de_la_redaccion():
