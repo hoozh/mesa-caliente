@@ -72,7 +72,7 @@ class Modelo:
         uso = {"tokens_entrada": 3000, "tokens_salida": 400}
         n_res, n_promo, n_rake = (self._n(mensaje, x[0]) for x in (RESULTADO, PROMO, RAKE))
         if "solo elige" in sistema:
-            hechos = [{"ids": [n_res], "seccion": "general"}]
+            hechos = [{"ids": [n_res], "seccion": "latam"}]  # resultado latino (regla de resultados)
             if n_rake:
                 hechos.append({"ids": [n_rake], "seccion": "general"})
             if n_promo:
@@ -96,7 +96,8 @@ class Modelo:
                 "torneo": "Ficticia Open Main Event", "pais_evento": "Uruguay"}
             if n_rake:
                 tarjetas[1]["registro"] = {"tipo": "industria_polemica", "salas": ["PokerStars"]}
-        datos = {"temas": [], "tarjetas": tarjetas, "escena_latam": []}
+        # El resultado va en la escena latina (regla de resultados del 26 nov); el resto, en tarjetas.
+        datos = {"temas": [], "tarjetas": tarjetas[1:], "escena_latam": tarjetas[:1]}
         if self.con_registro:
             datos["cambios_salas"] = self.cambios if self.cambios is not None else [
                 {"ids": [n_promo], "sala": "CoinPoker", "tema": "bonos_promociones",
@@ -105,6 +106,13 @@ class Modelo:
                  "dato": "the rake cap at NL2 drops to $0.30 starting November 1"},
             ]
         return json.dumps(datos), uso
+
+
+TITULO_RESULTADO = "Fulano Inventado gana el Ficticia Open Main Event"
+
+
+def _hecho_resultado(raiz):
+    return next(h for h in _hechos(raiz) if h["titulo"] == TITULO_RESULTADO)
 
 
 def _hechos(raiz):
@@ -120,7 +128,7 @@ def _cambios(raiz):
 def test_una_linea_por_tarjeta_publicada_con_todos_los_campos(raiz_temporal):
     c = corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo())
     hechos = _hechos(raiz_temporal)
-    publicadas = [t["titulo"] for t in c["tarjetas"]]
+    publicadas = [t["titulo"] for t in c["tarjetas"] + c["escena_latam"]["tarjetas"]]
     assert [h["titulo"] for h in hechos] == publicadas
     texto = (raiz_temporal / "data" / "registro" / "hechos.jsonl").read_text(encoding="utf-8")
     assert len(texto.splitlines()) == len(publicadas)  # JSON Lines: una línea por tarjeta
@@ -129,13 +137,13 @@ def test_una_linea_por_tarjeta_publicada_con_todos_los_campos(raiz_temporal):
         assert h["fecha"] == AHORA.date().isoformat() and h["id"].startswith(h["fecha"] + "-")
         assert h["tipo"] in registro.TIPOS and h["clasificacion"] in ("confirmado", "discusion", "rumor")
         assert all(set(f) == {"nombre", "url", "clase"} and f["url"] for f in h["fuentes"])
-    assert hechos[0]["fuentes"] == [{"nombre": "Medio Inventado", "url": URL_RESULTADO, "clase": "medio"}]
+    assert _hecho_resultado(raiz_temporal)["fuentes"] == [{"nombre": "Medio Inventado", "url": URL_RESULTADO, "clase": "medio"}]
     assert c["registro"] == {"hechos": 2, "cambios_salas": 2, "paises_confirmados": 0}
 
 
 def test_el_registro_no_inventa_datos(raiz_temporal):
     corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo())
-    h = _hechos(raiz_temporal)[0]
+    h = _hecho_resultado(raiz_temporal)
     assert h["tipo"] == "resultado"
     # GGPoker figura en la nota; WPT Global no.
     assert h["salas"] == ["GGPoker"]
@@ -148,7 +156,7 @@ def test_pais_torneo_y_tipo_que_no_estan_en_la_fuente_quedan_vacios(raiz_tempora
     ficha = {"tipo": "noticia rara", "jugadores": [["Fulano Inventado", "Brasil"]],
              "torneo": "Serie Imaginaria", "pais_evento": "Chile"}
     corrida.ejecutar(raiz_temporal, AHORA, "manual", _preparar(raiz_temporal), Modelo(ficha=ficha))
-    h = _hechos(raiz_temporal)[0]
+    h = _hecho_resultado(raiz_temporal)
     assert h["tipo"] == "otro"
     assert h["jugadores"] == [{"nombre": "Fulano Inventado", "pais": ""}]
     assert h["torneo"] == "" and h["pais_evento"] == ""
@@ -382,7 +390,7 @@ def test_las_tarjetas_no_cambian_con_o_sin_ficha_del_registro(tmp_path, raiz_tem
     dia_b = _sin_variables(leer_json(otra / "data" / "dias" / f"{AHORA.date()}.json"))
     assert dia_a == dia_b
     # Sin ficha, igual hay una línea por tarjeta (con los campos vacíos que no se pueden verificar).
-    assert [h["titulo"] for h in _hechos(otra)] == [t["titulo"] for t in b["tarjetas"]]
+    assert [h["titulo"] for h in _hechos(otra)] == [t["titulo"] for t in b["tarjetas"] + b["escena_latam"]["tarjetas"]]
 
 
 def test_un_error_del_registro_no_rompe_la_corrida(raiz_temporal, monkeypatch):
@@ -395,9 +403,9 @@ def test_un_error_del_registro_no_rompe_la_corrida(raiz_temporal, monkeypatch):
 
 
 def test_reglas_del_barrido_intactas_en_los_mensajes():
-    for regla in ("REGLA MÁXIMA", "Notas puramente promocionales", "sin voseo", "nunca la deduzca"):
+    for regla in ("REGLA MÁXIMA", "Satélites y calendarios comerciales", "sin voseo", "nunca la deduzca"):
         assert regla in modelo.SISTEMA
-    assert "Promociones, satélites, bonos" in modelo.SELECCION
+    assert "Satélites y calendarios comerciales" in modelo.SELECCION
     sistema = modelo.SISTEMA.format(max_tarjetas=14, max_latam=6, **modelo.textos_salas(SALAS))
     assert "CoinPoker" in sistema and "rake_rakeback" in sistema
     # Sin salas configuradas, la selección no pide la sección «salas».

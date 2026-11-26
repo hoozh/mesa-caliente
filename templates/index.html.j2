@@ -18,6 +18,7 @@
   <div class="card-top">
     <span class="badge {{ t.clasificacion }}">{{ etiquetas.get(t.clasificacion, t.clasificacion) }}</span>
     {% if t.nivel == 2 %}<span class="badge nivel2">Segundo nivel</span>{% endif %}
+    {% if t.region == 'europa' %}<span class="badge nivel2">Europa</span>{% endif %}
     <span class="card-date">{{ t.fecha }}</span>
   </div>
   <h2>{{ t.titulo }}</h2>

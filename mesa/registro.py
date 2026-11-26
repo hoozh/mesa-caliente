@@ -25,6 +25,7 @@ TIPOS = {
     "industria_polemica": "Industria o polémica",
     "software": "Software",
     "obituario": "Obituario",
+    "oferta": "Oferta",
     "otro": "Otro",
 }
 

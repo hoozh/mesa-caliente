@@ -420,9 +420,23 @@ def seleccionar(items: list[dict], tope: int) -> list[dict]:
 
 # ---------------------------------------------------------------- artículos
 
-def extraer_articulo(texto: str, url_base: str, max_caracteres: int) -> tuple[str, list[str]]:
-    """Devuelve (extracto del cuerpo, enlaces externos citados en el cuerpo)."""
+def imagen_de_portada(sopa, url_base: str) -> str | None:
+    """La imagen que el medio declara para compartir la nota (og:image o twitter:image), si es una URL https."""
+    for attr, nombre in (("property", "og:image"), ("name", "og:image"), ("name", "twitter:image"),
+                         ("property", "twitter:image")):
+        etiqueta = sopa.find("meta", attrs={attr: nombre})
+        if etiqueta and etiqueta.get("content"):
+            url = urljoin(url_base, etiqueta["content"].strip())
+            if url.startswith("http"):
+                return url.replace("http://", "https://", 1)
+    return None
+
+
+def extraer_articulo(texto: str, url_base: str, max_caracteres: int, con_imagen: bool = False):
+    """Devuelve (extracto del cuerpo, enlaces externos citados en el cuerpo) y, con `con_imagen`,
+    también la imagen de portada de la nota."""
     sopa = BeautifulSoup(texto, "html.parser")
+    imagen = imagen_de_portada(sopa, url_base) if con_imagen else None
     for basura in sopa(["script", "style", "noscript", "nav", "footer", "header", "aside", "form", "iframe"]):
         basura.decompose()
     cuerpo = sopa.find("article") or sopa.find("main") or sopa.body or sopa
@@ -434,6 +448,8 @@ def extraer_articulo(texto: str, url_base: str, max_caracteres: int) -> tuple[st
         url = urljoin(url_base, a["href"])
         if url.startswith("http") and dominio_base(url) != propio:
             enlaces.append(url)
+    if con_imagen:
+        return extracto, enlaces, imagen
     return extracto, enlaces
 
 

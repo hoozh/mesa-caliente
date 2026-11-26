@@ -74,6 +74,17 @@ Si la selección falla (error o respuesta inválida), la redacción recibe la ve
 
 Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía solo si el día no llegaba a la meta y que a menudo se cortaba por falta de tokens).
 
+### Qué entra y qué no (desde el 26 nov 2026)
+
+- **Resultados de torneos:** solo (a) la definición de un circuito o torneo nacional de América Latina, o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton). Se publican en la escena latina.
+- **Los demás resultados** no se publican: la selección los manda a la sección "archivo" y quedan guardados con título y fuentes en `data/registro/resultados_archivo.jsonl`, para tenerlos a mano en una investigación. Si la redacción igual escribe un resultado fuera de la escena latina, el programa lo pasa al archivo.
+- **Escena mundial:** polémicas, personalidades, cambios de reglas o políticas, temas del momento, regulación, novedades de salas, entrevistas, opinión y artículos interesantes.
+- **Ofertas de salas de poker** (bonos, promociones, rakeback): se publican, con tipo "oferta". Los satélites y los calendarios comerciales, no.
+- **Europa:** los hechos de España y de la escena europea llevan la etiqueta "Europa" (los resultados siguen la misma regla).
+- **Personalidades:** `config/personalidades.json` (lista editable) se envía a la selección; sus noticias tienen prioridad, salvo un simple resultado fuera de la regla.
+- **Foto de la nota:** al abrir el artículo de cada hecho se guarda la imagen que el medio declara para compartir (`og:image`) en el campo `imagen` de la tarjeta, para el diseño nuevo.
+- **Respaldos de GitHub:** un respaldo programado que llega antes de las 12:00 UTC (pasada la medianoche) se omite, para que no le quite su lugar al barrido de la mañana que dispara cron-job.org.
+
 ### Meta diaria de 10 notas
 
 El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). La meta es solo una medida del pie: **la selección no la conoce** y elige todos los hechos relevantes que haya, sin apuntar a un número. Desde el 20 de octubre de 2026 ya no hay "segundo nivel" (relleno con torneos menores para completar la meta); las tarjetas viejas con esa etiqueta se siguen mostrando como estaban.

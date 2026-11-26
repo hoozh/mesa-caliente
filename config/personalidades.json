@@ -1,0 +1,95 @@
+{
+  "nota": "Personalidades muy reconocidas del poker: sus noticias tienen prioridad en la selección (salvo un simple resultado fuera de la regla de resultados). Lista editable a mano; más adelante, desde el administrador. Cada persona: nombre y, si se quiere, alias.",
+  "personalidades": [
+    {
+      "nombre": "Daniel Negreanu"
+    },
+    {
+      "nombre": "Phil Hellmuth"
+    },
+    {
+      "nombre": "Phil Ivey"
+    },
+    {
+      "nombre": "Doug Polk"
+    },
+    {
+      "nombre": "Tom Dwan"
+    },
+    {
+      "nombre": "Phil Galfond"
+    },
+    {
+      "nombre": "Dan Cates"
+    },
+    {
+      "nombre": "Fedor Holz"
+    },
+    {
+      "nombre": "Justin Bonomo"
+    },
+    {
+      "nombre": "Jason Koon"
+    },
+    {
+      "nombre": "Kristen Foxen"
+    },
+    {
+      "nombre": "Alex Foxen"
+    },
+    {
+      "nombre": "Maria Konnikova"
+    },
+    {
+      "nombre": "Garrett Adelstein"
+    },
+    {
+      "nombre": "Alan Keating"
+    },
+    {
+      "nombre": "Shaun Deeb"
+    },
+    {
+      "nombre": "Erik Seidel"
+    },
+    {
+      "nombre": "Stephen Chidwick"
+    },
+    {
+      "nombre": "Lex Veldhuis"
+    },
+    {
+      "nombre": "Andrew Robl"
+    },
+    {
+      "nombre": "Ryan Feldman"
+    },
+    {
+      "nombre": "Mike Matusow"
+    },
+    {
+      "nombre": "Adrián Mateos"
+    },
+    {
+      "nombre": "Leo Margets"
+    },
+    {
+      "nombre": "Sergio Aido"
+    },
+    {
+      "nombre": "Damián Salas"
+    },
+    {
+      "nombre": "Nacho Barbero"
+    },
+    {
+      "nombre": "Felipe Ramos"
+    },
+    {
+      "nombre": "Yuri Martins"
+    },
+    {
+      "nombre": "Rafael Moraes"
+    }
+  ]
+}

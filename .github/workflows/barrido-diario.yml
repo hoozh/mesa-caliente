@@ -48,6 +48,13 @@ jobs:
           origen="${ORIGEN_ENTRADA,,}"   # en minúsculas
           origen="${origen// /}"          # sin espacios
           if [ "$EVENTO" = "schedule" ]; then
+            # GitHub entrega los horarios con horas de atraso. Un respaldo que llega antes de las 12:00 UTC
+            # (después de medianoche) pertenece al día anterior: no corre, así no le quita su lugar
+            # al barrido de la mañana que dispara cron-job.org.
+            if [ "$(date -u +%H)" -lt 12 ]; then
+              echo "Respaldo atrasado (llegó a las $(date -u +%H:%M) UTC): se omite."
+              exit 0
+            fi
             python -m mesa.corrida --origen automatica --omitir-si-hubo-exito-hoy
           elif [ "$origen" = "externo" ]; then
             python -m mesa.corrida --origen externo --omitir-si-hubo-exito-hoy
