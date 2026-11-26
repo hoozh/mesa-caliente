@@ -276,7 +276,7 @@ def test_la_redaccion_respeta_el_tope_de_costo(raiz_temporal):
     descarga = _preparar(raiz_temporal, ajustes_extra={"max_costo_usd_por_corrida": 0.025})
     llamar = Modelo()
     corrida.ejecutar(raiz_temporal, AHORA, "manual", descarga, llamar)
-    assert llamar.llamadas[0]["max_tokens"] == 1200
+    assert llamar.llamadas[0]["max_tokens"] == 1800
     assert llamar.llamadas[1]["max_tokens"] < 4500  # se achica la salida para no pasar el tope
 
 
@@ -369,10 +369,17 @@ def test_flujo_elige_los_argumentos_segun_evento_y_origen(tmp_path):
     falso.write_text('#!/bin/sh\necho "$@"\n')
     falso.chmod(falso.stat().st_mode | stat.S_IEXEC)
 
-    def correr(evento, origen):
-        env = {"PATH": f"{falso.parent}:{os.environ['PATH']}", "EVENTO": evento, "ORIGEN_ENTRADA": origen}
+    # Hora UTC simulada: los respaldos que llegan antes de las 12:00 UTC se omiten (26 nov 2026).
+    reloj = tmp_path / "bin" / "date"
+    reloj.write_text('#!/bin/sh\ncase "$2" in +%H) echo "$HORA";; *) echo "$HORA:00";; esac\n')
+    reloj.chmod(reloj.stat().st_mode | stat.S_IEXEC)
+
+    def correr(evento, origen, hora="13"):
+        env = {"PATH": f"{falso.parent}:{os.environ['PATH']}", "EVENTO": evento, "ORIGEN_ENTRADA": origen, "HORA": hora}
         return subprocess.run(["bash", "-c", paso["run"]], env=env, capture_output=True, text=True).stdout.strip()
     assert correr("schedule", "") == "-m mesa.corrida --origen automatica --omitir-si-hubo-exito-hoy"
+    assert correr("schedule", "", hora="00") == "Respaldo atrasado (llegó a las 00:00 UTC): se omite."
+    assert correr("workflow_dispatch", " Externo ", hora="00") == "-m mesa.corrida --origen externo --omitir-si-hubo-exito-hoy"
     assert correr("workflow_dispatch", " Externo ") == "-m mesa.corrida --origen externo --omitir-si-hubo-exito-hoy"
     assert correr("workflow_dispatch", "") == "-m mesa.corrida --origen manual"
     assert correr("workflow_dispatch", "otro; rm -rf /") == "-m mesa.corrida --origen manual"
