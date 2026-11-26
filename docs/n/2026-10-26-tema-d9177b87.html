@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema: Adrián Mateos · Mesa Caliente</title>
+<meta name="description" content="Adrián Mateos se proclama campeón del Poker Masters 2026 al conquistar la Purple Jacket con 451 puntos PGT y US$ 467.700 en premios, a pesar de sufrir cinco eli">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../noticia.css">
+<script>try { var tema = localStorage.getItem('mc-tema'); if (tema) document.documentElement.setAttribute('data-theme', tema); } catch (e) {}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap top">
+    <a class="logo" href="../index.html"><span class="chip" aria-hidden="true"></span><b>Mesa Caliente</b></a>
+    <span class="spacer"></span>
+    <button class="iconbtn" id="b-tema" type="button" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+</header>
+
+<main class="wrap nota">
+  <p class="sec">Tema caliente</p>
+  <h1>Tema: Adrián Mateos</h1>
+  <p class="fecha">26 de octubre de 2026</p>
+
+
+  <div class="cuerpo">
+<p>Adrián Mateos se proclama campeón del Poker Masters 2026 al conquistar la Purple Jacket con 451 puntos PGT y US$ 467.700 en premios, a pesar de sufrir cinco eliminaciones en burbuja durante los diez eventos disputados del 12 al 23 de octubre en Las Vegas.</p>  </div>
+
+  <h2>Novedades</h2>
+  <ul class="novedades">
+    <li>PokerNews en español confirma que Adrián Mateos ganó la Purple Jacket del Poker Masters 2026 con 451 puntos PGT y US$ 467.700 en premios, además de recibir un PGT Passport valorado en US$ 25.000; consiguió tres mesas finales con resultados destacados pese a caer en la burbuja de premios cinco veces en diez eventos. <a href="https://es.pokernews.com/noticias/2026/10/adrian-mateos-conquista-chaqueta-purpura-poker-masters-54114.htm" target="_blank" rel="noopener">PokerNews en español ↗</a></li>
+    <li>Poker Red precisa que el madrileño cerró con 451 puntos PGT y US$ 467.700, que su única victoria fue en el Evento #5 de US$ 10.500 (heads-up contra Nick Schulman, ganando US$ 229.500 y 230 puntos), y que fue runner-up en el Evento #2 de US$ 10.500 por US$ 151.200 y 151 puntos. <a href="https://www.poker-red.com/noticias/adrian-mateos-luce-por-fin-la-chaqueta-purpura-del-poker-masters" target="_blank" rel="noopener">Poker Red ↗</a></li>
+  </ul>
+
+  <p class="volver"><a href="../index.html">← Volver a Mesa Caliente</a></p>
+</main>
+<script>
+document.getElementById('b-tema').onclick = function () {
+  var r = document.documentElement, actual = r.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var nuevo = actual === 'dark' ? 'light' : 'dark'; r.setAttribute('data-theme', nuevo);
+  try { localStorage.setItem('mc-tema', nuevo); } catch (e) {}
+};
+</script>
+</body>
+</html>

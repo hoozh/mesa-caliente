@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema: Sammy Farha · Mesa Caliente</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../noticia.css">
+<script>try { var tema = localStorage.getItem('mc-tema'); if (tema) document.documentElement.setAttribute('data-theme', tema); } catch (e) {}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap top">
+    <a class="logo" href="../index.html"><span class="chip" aria-hidden="true"></span><b>Mesa Caliente</b></a>
+    <span class="spacer"></span>
+    <button class="iconbtn" id="b-tema" type="button" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+</header>
+
+<main class="wrap nota">
+  <p class="sec">Tema caliente</p>
+  <h1>Tema: Sammy Farha</h1>
+  <p class="fecha">28 de octubre de 2026</p>
+
+
+  <div class="cuerpo">
+  </div>
+
+  <h2>Novedades</h2>
+  <ul class="novedades">
+    <li>PokerNews Podcast #1013 reporta altercado entre Sammy Farha y un dealer, junto con otras noticias de seguridad en salas de póker de Texas. <a href="https://www.pokernews.com/video/is-texas-poker-safe-pokernews-podcast-1013-13512.htm" target="_blank" rel="noopener">PokerNews ↗</a></li>
+    <li>Doug Caillier, dealer de largo plazo en Houston Social Cardroom, afirma haber perdido su empleo tras ser empujado por Farha. <a href="https://www.cardplayer.com/poker-news/1766939-poker-dealer-shoved-by-sammy-farha-says-he-lost-his-job" target="_blank" rel="noopener">CardPlayer ↗</a></li>
+    <li>Video de seguridad muestra empujón y al crupier siendo apartado de su puesto en altercado ocurrido en Texas. <a href="https://es.pokernews.com/noticias/2026/10/un-video-muestra-el-altercado-entre-sammy-farha-y-un-crupier-54124.htm" target="_blank" rel="noopener">PokerNews en español ↗</a></li>
+  </ul>
+
+  <p class="volver"><a href="../index.html">← Volver a Mesa Caliente</a></p>
+</main>
+<script>
+document.getElementById('b-tema').onclick = function () {
+  var r = document.documentElement, actual = r.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var nuevo = actual === 'dark' ? 'light' : 'dark'; r.setAttribute('data-theme', nuevo);
+  try { localStorage.setItem('mc-tema', nuevo); } catch (e) {}
+};
+</script>
+</body>
+</html>
