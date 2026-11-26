@@ -9,6 +9,24 @@ Barrido diario de noticias de poker. Todos los días, de forma automática:
 
 El costo estimado es de unos US$ 0,02 a 0,03 por día (alrededor de US$ 1 por mes). El pie de la página muestra los tokens y el costo de la última corrida y del mes.
 
+## Administrador (desde el 26 nov 2026)
+
+Página: https://hoozh.github.io/mesa-caliente/admin/ (no la indexan los buscadores y no está enlazada desde la portada). Funciona con una clave personal de GitHub (fine-grained token) que queda guardada **solo en el navegador** de quien la carga: sin esa clave la página no muestra ni cambia nada. Compartir Mesa Caliente no da acceso al administrador ni a correr barridos.
+
+Clave: en GitHub, foto → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**; **Repository access**: *Only select repositories* → `hoozh/mesa-caliente`; **Permissions** → *Contents*: Read and write, *Actions*: Read and write.
+
+| Sección | Qué edita |
+|---|---|
+| Noticias | `data/ediciones.json`: título, bajada, texto de la noticia, foto, sección mostrada, destacar, ocultar, marcar para Instagram. Guarda el texto original y el historial con el motivo de cada corrección (material para que SEI aprenda). Al guardar, el flujo **Aplicar ediciones** regenera la página sin usar el modelo (sin costo). El dato del día (`data/dias/`) no se toca. |
+| Palabras clave prioritarias | `config/temas_calientes.json` (los temas calientes). |
+| Búsquedas activas | `config/busquedas.json`: consulta, alta, hasta, estado. |
+| Correr el barrido | Dispara **Barrido diario** (unos US$ 0,03), con confirmación. |
+| Personalidades | `config/personalidades.json`: nombre, alias, histórica, perfil. |
+| Consultar registros | Búsqueda en `resultados_archivo.jsonl`, `hechos.jsonl` y `cambios_salas.jsonl`. |
+| Archivos de SEI | Sube .md, .txt, .csv o .json a `data/archivos/`. **El repositorio es público: lo que se sube es visible.** |
+
+Cada guardado es un commit en `main` con un mensaje que dice qué se cambió, así que todo cambio queda en el historial y se puede deshacer.
+
 ---
 
 ## Puesta en marcha (una sola vez)
@@ -74,13 +92,27 @@ Si la selección falla (error o respuesta inválida), la redacción recibe la ve
 
 Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía solo si el día no llegaba a la meta y que a menudo se cortaba por falta de tokens).
 
+### Qué entra y qué no (desde el 26 nov 2026)
+
+- **Resultados de torneos:** solo (a) la definición de un circuito o torneo nacional de América Latina, o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton). Se publican en la escena latina.
+- **Los demás resultados** no se publican: la selección los manda a la sección "archivo" y quedan guardados con título y fuentes en `data/registro/resultados_archivo.jsonl`, para tenerlos a mano en una investigación. Si la redacción igual escribe un resultado fuera de la escena latina, el programa lo pasa al archivo.
+- **Escena mundial:** polémicas, personalidades, cambios de reglas o políticas, temas del momento, regulación, novedades de salas, entrevistas, opinión y artículos interesantes.
+- **Ofertas de salas de poker** (bonos, promociones, rakeback): se publican, con tipo "oferta". Los satélites y los calendarios comerciales, no.
+- **Europa:** los hechos de España y de la escena europea llevan la etiqueta "Europa" (los resultados siguen la misma regla).
+- **Figuras históricas y récords:** un resultado de una figura histórica (`"historica": true` en `config/personalidades.json`, por ejemplo Negreanu o Hellmuth) o un resultado que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes) sí lleva tarjeta, en la escena mundial.
+- **Personalidades:** `config/personalidades.json` se envía a la selección; sus noticias tienen prioridad. Cada persona tiene `nombre`, `alias`, `historica` y `perfil` (datos que Hoozh agrega a mano; SEI puede leerlos en otros trabajos).
+- **Búsquedas activas:** cada consulta vigente de `config/busquedas.json` se busca en Google Noticias (últimos 3 días) y sus titulares se suman como una fuente más, sin quitar lugar a las fuentes habituales. Los sitios de GipsyTeam se descartan.
+- **Noticia propia:** el título de cada tarjeta abre `docs/n/<id>.html`, una página dentro de Mesa Caliente con el resumen de la noticia, la foto con su crédito y, al final, las fuentes. El id es el mismo del registro.
+- **Foto de la nota:** al abrir el artículo de cada hecho se guarda la imagen que el medio declara para compartir (`og:image`) en el campo `imagen` de la tarjeta, para el diseño nuevo.
+- **Respaldos de GitHub:** un respaldo programado que llega antes de las 12:00 UTC (pasada la medianoche) se omite, para que no le quite su lugar al barrido de la mañana que dispara cron-job.org.
+
 ### Meta diaria de 10 notas
 
 El objetivo es publicar 10 tarjetas por día, sumando todas las corridas del día (las tarjetas de la escena latina cuentan, y cada tema caliente cuenta una vez). La meta es solo una medida del pie: **la selección no la conoce** y elige todos los hechos relevantes que haya, sin apuntar a un número. Desde el 20 de octubre de 2026 ya no hay "segundo nivel" (relleno con torneos menores para completar la meta); las tarjetas viejas con esa etiqueta se siguen mostrando como estaban.
 
 Las reglas fijas no cambian nunca: se siguen descartando las promociones, los avances de día 1 fuera de `config/torneos_relevantes.json`, las tarjetas sin dato concreto, los datos que no figuran en el texto enviado al modelo y las repeticiones sin dato nuevo. **Nada se inventa ni se completa para llegar a la meta.** Si no se llega, se publica lo que hay y el pie dice "N notas hoy" con el motivo: titulares que la recolección dejó fuera, cuántos hechos eligió la selección y los descartes por regla y por fuente.
 
-Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1200), `max_tokens_salida` (5500, redacción; era 4500 hasta que la redacción empezó a devolver la ficha del registro). Si la salida igual se corta, se conservan las tarjetas completas y el pie de la página y `controles` avisan cuántas tarjetas se perdieron (hechos elegidos sin tarjeta completa) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
+Topes de costo (`config/ajustes.json`): `max_tokens_seleccion` (1800), `max_tokens_salida` (5500, redacción; era 4500 hasta que la redacción empezó a devolver la ficha del registro). Si la salida igual se corta, se conservan las tarjetas completas y el pie de la página y `controles` avisan cuántas tarjetas se perdieron (hechos elegidos sin tarjeta completa) y `max_costo_usd_por_corrida` (US$ 0,05): si hace falta, la redacción achica su salida para no pasar el tope. El costo de cada llamada se guarda aparte en `data/costos.json` (`"tipo": "seleccion"` y `"tipo": "redaccion"`). Con Haiku y las notas del 19 de octubre de 2026, la estimación es de unos US$ 0,009 para la selección y US$ 0,023 a 0,028 para la redacción: alrededor de US$ 0,03 por corrida.
 
 ### Cambiar el modelo (opcional)
 

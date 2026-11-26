@@ -1,0 +1,185 @@
+{
+  "nota": "Personalidades muy reconocidas del poker, editables a mano o desde el administrador. Cada persona: nombre, alias (lista), historica (true si sus resultados merecen tarjeta aunque no sea latinoamericana: figuras históricas como Negreanu o Hellmuth) y perfil (resumen con datos que Hoozh quiera dejar; SEI puede leerlo). Sus noticias tienen prioridad en la selección.",
+  "personalidades": [
+    {
+      "nombre": "Daniel Negreanu",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Phil Hellmuth",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Phil Ivey",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Doug Polk",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Tom Dwan",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Phil Galfond",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Dan Cates",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Fedor Holz",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Justin Bonomo",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Jason Koon",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Kristen Foxen",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Alex Foxen",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Maria Konnikova",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Garrett Adelstein",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Alan Keating",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Shaun Deeb",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Erik Seidel",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Stephen Chidwick",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Lex Veldhuis",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Andrew Robl",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Ryan Feldman",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Mike Matusow",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
+    },
+    {
+      "nombre": "Adrián Mateos",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Leo Margets",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Sergio Aido",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Damián Salas",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Nacho Barbero",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Felipe Ramos",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Yuri Martins",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    },
+    {
+      "nombre": "Rafael Moraes",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
+    }
+  ]
+}

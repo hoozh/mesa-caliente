@@ -5,6 +5,8 @@ Para cambiar el diseño basta con editar templates/index.html.j2 y templates/est
 
 from __future__ import annotations
 
+import hashlib
+import json
 import shutil
 import sys
 from datetime import date, datetime, timedelta
@@ -181,6 +183,35 @@ def unir_temas(corridas: list[dict]) -> list[dict]:
     return [t for t in temas.values() if t["novedades"]]
 
 
+# ---------------------------------------------------------------- ediciones manuales y páginas de noticia
+
+CAMPOS_EDITABLES = ("titulo", "resumen", "cuerpo", "imagen", "etiqueta", "oculta", "destacada", "instagram")
+
+
+def id_tema(fecha: str, tema: str) -> str:
+    return f"{fecha}-tema-{hashlib.sha1(tema.encode('utf-8')).hexdigest()[:8]}"
+
+
+def cargar_ediciones(raiz: Path) -> dict:
+    """data/ediciones.json: cambios hechos a mano desde el administrador, por id de tarjeta.
+    Cada edición guarda también el texto original, para que SEI aprenda de las correcciones."""
+    return (leer_json(Path(raiz) / "data" / "ediciones.json", {}) or {}).get("tarjetas", {})
+
+
+def preparar_tarjeta(t: dict, nid: str, seccion: str, fecha: str, ediciones: dict) -> dict:
+    """Copia de la tarjeta con su id, su sección y las ediciones manuales aplicadas (el dato del día no se toca)."""
+    x = {**t, "nid": nid, "seccion": seccion, "dia": fecha, "original_titulo": t.get("titulo") or t.get("tema"),
+         "original_resumen": t.get("resumen") or ""}
+    ed = ediciones.get(nid) or {}
+    for campo in CAMPOS_EDITABLES:
+        if campo in ed and ed[campo] not in (None, ""):
+            x[campo] = ed[campo]
+    if "oculta" in ed:
+        x["oculta"] = bool(ed["oculta"])
+    x["editada"] = bool(ed)
+    return x
+
+
 def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
     raiz = Path(raiz)
     ajustes = leer_json(raiz / "config" / "ajustes.json", {})
@@ -189,22 +220,37 @@ def contexto(raiz: Path, hoy: date, generado: datetime) -> dict:
     costos = leer_json(raiz / "data" / "costos.json", {"corridas": []})
     abiertos = ajustes.get("dias_abiertos_en_pagina", 3)
 
+    ediciones = cargar_ediciones(raiz)
+    ocultas = []  # siguen en el administrador (para poder mostrarlas de nuevo), no en la página
+    def visibles(lista):
+        lista = list(lista)
+        ocultas.extend(x for x in lista if x.get("oculta"))
+        return [x for x in lista if not x.get("oculta")]
     dias = []
     total_tarjetas = 0
     for n, d in enumerate(cargar_dias(raiz)):
         corridas = []
         for c in reversed(d.get("corridas", [])):  # la más reciente primero
-            corridas.append({**c, "titulo_mostrar": _titulo_corrida(c)})
+            c = {**c, "titulo_mostrar": _titulo_corrida(c)}
+            prep = lambda lista, sec: visibles(preparar_tarjeta(t, registro.id_hecho(d["fecha"], c.get("id", ""), t["titulo"]),
+                                                                sec, d["fecha"], ediciones) for t in lista)
+            c["tarjetas"] = prep(c.get("tarjetas", []), "general")
+            if c.get("escena_latam"):
+                c["escena_latam"] = {**c["escena_latam"], "tarjetas": prep(c["escena_latam"].get("tarjetas", []), "latam")}
+            corridas.append(c)
         cantidad = sum(len(c.get("tarjetas", [])) + len((c.get("escena_latam") or {}).get("tarjetas", []))
                        for c in corridas)
         total_tarjetas += cantidad
-        temas_dia = unir_temas(d.get("corridas", []))
+        temas_dia = visibles(preparar_tarjeta({**t, "titulo": t["tema"], "resumen": t.get("linea", "")},
+                                              id_tema(d["fecha"], t["tema"]), "tema", d["fecha"], ediciones)
+                             for t in unir_temas(d.get("corridas", [])))
         cantidad += len(temas_dia)
         total_tarjetas += len(temas_dia)
         dias.append({**d, "corridas": corridas, "abierto": n < abiertos, "cantidad": cantidad, "temas": temas_dia})
 
     return {
         "dias": dias,
+        "ocultas": ocultas,
         "total_tarjetas": total_tarjetas,
         "fuentes_activas": [f["nombre"] for f in fuentes if f.get("estado") != "en_pausa"],
         "salud": _salud(fuentes, ajustes.get("dias_pausa_reintento", 7)),
@@ -232,8 +278,10 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
     entorno = Environment(loader=FileSystemLoader(str(plantillas)),
                           autoescape=select_autoescape(["html", "j2"]),
                           trim_blocks=True, lstrip_blocks=True)
-    html = entorno.get_template("index.html.j2").render(**contexto(raiz, hoy, generado))
+    ctx = contexto(raiz, hoy, generado)
+    html = entorno.get_template("index.html.j2").render(**ctx)
     escribir_texto(salida / "index.html", html)
+    escribir_noticias(entorno, ctx, salida, plantillas)
     shutil.copyfile(plantillas / "estilo.css", salida / "estilo.css")
     if (plantillas / "secciones" / "secciones.css").exists():
         shutil.copyfile(plantillas / "secciones" / "secciones.css", salida / "secciones.css")
@@ -242,6 +290,50 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
         escribir_indice(raiz)
     (salida / ".nojekyll").touch()
     return salida / "index.html"
+
+
+def todas_las_tarjetas(ctx: dict) -> list[dict]:
+    lista = []
+    for d in ctx["dias"]:
+        for c in d["corridas"]:
+            lista += c.get("tarjetas", []) + (c.get("escena_latam") or {}).get("tarjetas", [])
+        lista += d.get("temas", [])
+    return lista
+
+
+def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path) -> int:
+    """Una página por noticia (docs/n/<id>.html): resumen dentro de Mesa Caliente que cierra con las fuentes.
+    Además, docs/datos/tarjetas.json para el administrador (últimos 60 días, con el texto original)."""
+    if not (plantillas / "noticia.html.j2").exists():
+        return 0
+    plantilla = entorno.get_template("noticia.html.j2")
+    tarjetas = todas_las_tarjetas(ctx)
+    carpeta = salida / "n"
+    for t in ctx.get("ocultas", []):
+        (carpeta / f"{t['nid']}.html").unlink(missing_ok=True)
+    for t in tarjetas:
+        escribir_texto(carpeta / f"{t['nid']}.html", plantilla.render(t=t, etiquetas=ctx["etiquetas"],
+                                                                      fecha_larga_iso=_fecha_larga_iso,
+                                                                      generado=ctx["generado"]))
+    if (plantillas / "noticia.css").exists():
+        shutil.copyfile(plantillas / "noticia.css", salida / "noticia.css")
+    limite = (date.fromisoformat(ctx["dias"][0]["fecha"]) - timedelta(days=60)).isoformat() if ctx["dias"] else ""
+    datos = [{"id": t["nid"], "dia": t["dia"], "seccion": t["seccion"], "titulo": t.get("original_titulo"),
+              "resumen": t.get("original_resumen"), "clasificacion": t.get("clasificacion"),
+              "imagen": t.get("imagen"), "region": t.get("region"), "oculta": bool(t.get("oculta")),
+              "fuentes": [{"nombre": f.get("nombre"), "url": f.get("url")} for f in t.get("fuentes", [])]
+                         or [{"nombre": n.get("fuente"), "url": n.get("url")} for n in t.get("novedades", [])]}
+             for t in tarjetas + ctx.get("ocultas", []) if t["dia"] >= limite]
+    datos.sort(key=lambda x: x["dia"], reverse=True)
+    escribir_texto(salida / "datos" / "tarjetas.json", json.dumps({"tarjetas": datos}, ensure_ascii=False))
+    return len(tarjetas)
+
+
+def _fecha_larga_iso(iso: str) -> str:
+    try:
+        return fecha_larga(date.fromisoformat(iso))
+    except (TypeError, ValueError):
+        return iso or ""
 
 
 if __name__ == "__main__":

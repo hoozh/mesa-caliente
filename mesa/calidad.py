@@ -88,6 +88,13 @@ _RESULTADO = re.compile(
     r"se qued[aoó] con|venc[eií]\w*|triunf\w*|corona\w*|titulo|lidera\w*|elimin\w*)\b")
 
 
+_SATELITE = re.compile(r"\b(satelites?|satellites?|clasificatorios?|qualifiers?|steps?)\b")
+
+
+def es_satelite(tarjeta: dict) -> bool:
+    return bool(_SATELITE.search(sin_tildes(f"{tarjeta['titulo']} {tarjeta['resumen']}")))
+
+
 def es_promocional(tarjeta: dict) -> bool:
     texto = sin_tildes(f"{tarjeta['titulo']} {tarjeta['resumen']}")
     if _RESULTADO.search(texto):

@@ -25,16 +25,16 @@ Escriba siempre en español neutro y formal, sin voseo (use "usted" o formas imp
 Recibirá una lista numerada de titulares recientes. Cada línea tiene: número, fuente (con su región y su clase: oficial, medio o comunidad), fecha, titular y primera línea; algunos traen además un extracto del artículo.
 
 Tareas:
-1. Elija hasta {max_tarjetas} hechos relevantes para la comunidad de poker (torneos importantes, resultados destacados, regulación del poker, salas online, escándalos, industria del poker).
+1. Elija hasta {max_tarjetas} hechos relevantes para la comunidad de poker (polémicas, personalidades, cambios de reglas, regulación, salas online, ofertas, entrevistas, opinión, industria del poker). Resultados de torneos solo en "escena_latam" (vea la regla de resultados más abajo).
 2. Agrupe por hecho: si varias fuentes cuentan el mismo hecho, van en una sola tarjeta con todos sus números.
 3. Clasifique cada tarjeta:
    - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
    - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
    - "rumor": sin confirmación.
 4. Escriba un título en español y un resumen de 2 a 3 líneas. La jerga del poker y los nombres propios quedan en inglés dentro del título en español (por ejemplo: "César García, runner-up en el GGMillion$ PLO"; "Ivelin Kolev gana el WPT Prime Cyprus Championship").
-5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos como CAP, WCOOP, WSOP Online, SCOOP, CLSOP o BSOP con protagonistas latinos. Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
+5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos latinoamericanos (CAP, BSOP, CLSOP, LAPT y similares). Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 6. En cada tarjeta y en cada tema agregue "registro", una ficha breve para el archivo interno, solo con datos escritos en las notas que cita. Omita los campos que no figuren:
-   - "tipo": resultado, anuncio_evento, industria_polemica, software, obituario u otro.
+   - "tipo": resultado, anuncio_evento, industria_polemica, software, obituario, oferta u otro.
    - "salas": salas de poker online nombradas.
    - "jugadores": lista de [nombre, país]. El país solo si la nota lo dice de esa persona; si no, "". Nunca lo deduzca del nombre, del alias ni de la sala.
    - "torneo": torneo o serie, con el nombre que da la fuente.
@@ -48,9 +48,12 @@ Temas calientes:
 
 Qué no publicar:
 - Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker, celebridades ajenas al poker).
-- Notas puramente promocionales: satélites, promociones, bonos, ofertas, rakeback, freerolls, anuncios de garantizados o calendarios comerciales.
+- Satélites y calendarios comerciales. Las ofertas de salas de poker (bonos, promociones, rakeback) sí se publican: en su ficha, "tipo": "oferta".
+- Resultados de torneos fuera de la regla de resultados (vea "Regla de resultados").
 - Notas sin dato concreto: un resultado debe nombrar al ganador; toda tarjeta necesita al menos un nombre, un monto o un evento con nombre. Si el titular no los trae ("campeón francés en Marrakesh", "una mano decide al campeón"), no cree la tarjeta salvo que el extracto los dé.
 - Hechos ya publicados (ver más abajo), salvo con un desarrollo nuevo y concreto.
+
+Regla de resultados: un resultado de torneo solo se publica si es (a) la definición de un circuito o torneo nacional de América Latina (campeón o mesa final), o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton); esos van en "escena_latam". También (c) un resultado de una figura histórica del poker o uno que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes o títulos); esos van en "tarjetas". Ningún otro resultado se publica, tampoco avances de días iniciales.
 
 Reglas estrictas:
 - REGLA MÁXIMA: nunca invente datos. Toda cifra, nombre, cargo, edad, nacionalidad, fecha, lugar, cita o hecho que escriba debe estar en el texto de las notas que cita esa tarjeta (o esa novedad). Si una fuente no precisa algo, escriba "la fuente no precisa …"; nunca lo complete con su conocimiento. El programa borra lo que no pueda rastrear y descarta la tarjeta si pierde su dato principal.
@@ -76,26 +79,39 @@ Responda únicamente con un objeto JSON, sin texto adicional, con esta forma (en
  "cambios_salas": [{{"ids": [5], "sala": "...", "tema": "rake_rakeback", "dato": "..."}}]}}"""
 
 
-SELECCION = """Usted es el editor de "Mesa Caliente", un resumen diario de noticias de poker. En este paso solo elige: no escribe tarjetas.
+SELECCION = """Usted es el editor de "Mesa Caliente", un resumen diario de noticias de poker para un público hispanohablante. En este paso solo elige: no escribe tarjetas.
 
 Recibirá una lista numerada de titulares. Cada línea tiene: número, fuente (con su región y su clase: oficial, medio o comunidad), fecha, titular y primera línea. Los marcados "(pendiente)" son de las últimas 48 horas y todavía no se publicaron.
 
+Qué buscamos (escena mundial): debates y polémicas, chismes y novedades de grandes personalidades del poker, cambios de reglas o de políticas importantes o discutidos, temas del momento, regulación y mercados, novedades de salas y operadores, ofertas de salas de poker, entrevistas, artículos de opinión, artículos interesantes, escándalos e integridad, historia y figuras del poker.
+Personalidades muy reconocidas (sus noticias tienen prioridad, salvo que sean solo un resultado fuera de la regla): {personalidades}.
+
+Regla de resultados de torneos: un resultado solo se publica si es
+  (a) la definición de un circuito o torneo nacional de América Latina (campeón o mesa final), o
+  (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial: WSOP (todas sus variantes), WPT, LAPT, EPT o Triton, o
+  (c) un resultado de una figura histórica del poker ({historicas}) o un resultado que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes o títulos y similares). Estos van en "general".
+Todos los demás resultados (de cualquier país, también avances de días iniciales y líderes de fichas) van a la sección "archivo": no se publican, pero quedan guardados con sus fuentes.
+
 Tareas:
 1. Agrupe por hecho: todos los números que cuentan el mismo hecho van juntos en un solo elemento.
-2. Elija TODOS los hechos relevantes, hasta {max_general} para la sección "general" y hasta {max_latam} para la sección "latam". Relevante: resultados con ganador y premio (también de circuitos regionales y torneos online destacados), escándalos e integridad, regulación y mercados, novedades de salas y operadores, historia y figuras del poker. No se detenga en una cantidad: si hay más hechos relevantes, elíjalos; si hay menos, elija menos.
-3. La sección "latam" es para hechos con protagonistas argentinos o latinoamericanos, o torneos latinos (CAP, LAPT, BSOP, CLSOP y similares). Que la fuente sea latinoamericana no basta. Cada hecho va en una sola sección.
-4. Los pendientes valen igual que los de la ventana: si son relevantes y no se publicaron, elíjalos.
-5. Sección "salas" (no se publica: solo alimenta un registro interno): hasta {max_salas} notas que cambian un dato de una sala vigilada ({salas}) sobre estos temas: {temas_salas}. Aquí sí entran las promociones de esas salas. Si el hecho merece tarjeta, va en "general" o "latam", no aquí.
+2. Elija TODOS los hechos relevantes; no se detenga en una cantidad. Secciones:
+   - "general" (hasta {max_general}): escena mundial.
+   - "latam" (hasta {max_latam}): protagonistas argentinos o latinoamericanos, o torneos latinoamericanos. Que la fuente sea latinoamericana no basta.
+   - "europa" (hasta {max_europa}): hechos de España o de la escena europea (jugadores, circuitos, regulación). Los resultados siguen la regla de resultados.
+   - "salas" (hasta {max_salas}; no se publica, alimenta un registro interno): notas que cambian un dato de una sala vigilada ({salas}) sobre estos temas: {temas_salas}. Si el hecho merece tarjeta, va en otra sección, no aquí.
+   - "archivo" (hasta {max_archivo}; no se publica): resultados de torneos que no cumplen la regla de resultados.
+   Cada hecho va en una sola sección.
+3. Los pendientes valen igual que los de la ventana: si son relevantes y no se publicaron, elíjalos.
 
 No elija:
 - Notas sin relación con el poker (otros deportes, apuestas deportivas o casino sin poker).
-- Promociones, satélites, bonos, ofertas, rakeback, freerolls, anuncios de garantizados o calendarios comerciales (salvo en la sección "salas").
+- Satélites y calendarios comerciales.
 - Titulares sin nombre de persona, cifra ni evento con nombre.
 - Hechos ya publicados (lista P al final), salvo un desarrollo nuevo y concreto (resultado final, cifra nueva, confirmación oficial, respuesta de los involucrados): en ese caso agregue "actualiza": "P3".
-- Notas de comunidad (Reddit, foros) solas, salvo que traten un hecho de alto impacto para el poker (escándalo, trampas, seguridad, regulación).
+- Notas de comunidad (Reddit, foros) solas, salvo que traten un hecho de alto impacto para el poker (escándalo, trampas, seguridad, regulación) o una polémica muy comentada.
 
 Responda únicamente con un objeto JSON, sin texto adicional:
-{{"hechos": [{{"ids": [3, 17], "seccion": "general"}}, {{"ids": [8], "seccion": "latam"}}, {{"ids": [11], "seccion": "salas"}}]}}"""
+{{"hechos": [{{"ids": [3, 17], "seccion": "general"}}, {{"ids": [8], "seccion": "latam"}}, {{"ids": [4], "seccion": "europa"}}, {{"ids": [11], "seccion": "salas"}}, {{"ids": [21, 22], "seccion": "archivo"}}]}}"""
 
 
 def textos_salas(salas: dict | None) -> dict:
@@ -140,7 +156,8 @@ def construir_mensaje(items: list[dict], previos=None, corte: datetime | None = 
     if grupos:
         filas = []
         for g in grupos:
-            destino = {"latam": "escena_latam", "salas": "solo cambios_salas (sin tarjeta)"}.get(g["seccion"], "tarjetas")
+            destino = {"latam": "escena_latam", "salas": "solo cambios_salas (sin tarjeta)",
+                       "europa": "tarjetas (etiqueta Europa)"}.get(g["seccion"], "tarjetas")
             fila = f"- {g['ids']} → {destino}"
             if g.get("actualiza"):
                 fila += f" (actualiza {g['actualiza']})"
@@ -370,8 +387,11 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
             descartar(titulo, cambio)
         if not conservar:
             continue
-        # 5. Promocionales y superlativos.
-        if calidad.es_promocional(tarjeta):
+        # 5. Promocionales y superlativos. Las ofertas de salas se publican (decisión del 26 nov); los satélites no.
+        tipo_crudo = str((c.get("registro") or {}).get("tipo") or "") if isinstance(c.get("registro"), dict) else ""
+        if tipo_crudo == "oferta" and not calidad.es_satelite(tarjeta):
+            pass
+        elif calidad.es_promocional(tarjeta):
             descartar(titulo, "nota promocional")
             continue
         for cambio in calidad.quitar_superlativos(tarjeta):
@@ -483,6 +503,7 @@ def _limitar_segundo_nivel(tarjetas: list[dict], latam: list[dict], faltan: int,
 
 CATEGORIAS_DESCARTE = {
     "promociones": ("nota promocional",),
+    "archivo": ("resultado fuera de la regla",),
     "dia1": ("avance de día 1",),
     "sin_dato": ("sin dato concreto", "resultado sin nombre del ganador"),
     "sin_respaldo": ("título con datos", "«qué cambió» con datos", "resumen vacío", "nombre no presente",
@@ -493,7 +514,8 @@ CATEGORIAS_DESCARTE = {
 }
 NOMBRES_CATEGORIAS = {"promociones": "promociones", "dia1": "avances de día 1", "sin_dato": "sin dato concreto",
                       "sin_respaldo": "sin respaldo en la fuente", "repetidas": "repetidas sin dato nuevo",
-                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido"}
+                      "sin_poker": "sin relación con el poker", "segundo_nivel": "segundo nivel no admitido",
+                      "archivo": "resultados al archivo"}
 
 
 def categoria_descarte(motivo: str) -> str | None:
@@ -502,6 +524,19 @@ def categoria_descarte(motivo: str) -> str | None:
         if any(motivo.startswith(p) or (p == "en el título" and p in motivo) for p in prefijos):
             return categoria
     return None
+
+
+_RECORD = re.compile(r"\b(r[eé]cords?|all[- ]time|hist[oó]ric[oa]s?|lista hist[oó]rica|money list|m[aá]s brazaletes|"
+                     r"m[aá]s t[ií]tulos|iguala|supera a|leaderboard de todos los tiempos)\b", re.I)
+
+
+def resultado_excepcional(tarjeta: dict, historicas: list[str] | None) -> bool:
+    """Resultado que se publica aunque no sea latino: figura histórica o récord / lista histórica."""
+    texto = f"{tarjeta.get('titulo', '')} {tarjeta.get('resumen', '')}"
+    if _RECORD.search(texto):
+        return True
+    nombres = [re.sub(r"\s*\(.*\)$", "", h) for h in historicas or []]
+    return any(n and n.lower() in texto.lower() for n in nombres)
 
 
 def _rescatar_json(texto: str) -> dict:
@@ -566,7 +601,8 @@ def _con_costo(uso: dict, modelo: str, ajustes: dict) -> dict:
 
 
 def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, previos=None,
-                       corte: datetime | None = None, publicadas: int = 0, salas: dict | None = None) -> dict:
+                       corte: datetime | None = None, publicadas: int = 0, salas: dict | None = None,
+                       personalidades: list[str] | None = None, historicas: list[str] | None = None) -> dict:
     """Primera llamada: elige y agrupa hechos a partir de titulares y primeras líneas (sin extractos).
     Devuelve {'hechos': [{'ids', 'seccion', 'nivel', 'actualiza'}], 'uso', 'descartados'}."""
     previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
@@ -574,6 +610,10 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
     sistema = SELECCION.format(max_general=ajustes.get("max_hechos_general", 14),
                                max_latam=ajustes.get("max_hechos_latam", 6),
                                max_salas=ajustes.get("max_hechos_salas", 6) if salas else 0,
+                               max_europa=ajustes.get("max_hechos_europa", 6),
+                               max_archivo=ajustes.get("max_hechos_archivo", 40),
+                               personalidades=", ".join(personalidades or []) or "(lista vacía)",
+                               historicas=", ".join(historicas or []) or "Daniel Negreanu, Phil Hellmuth",
                                **textos_salas(salas))
     mensaje = construir_mensaje(items, previos, corte, con_extractos=False)
     texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_seleccion", 1200))
@@ -582,8 +622,9 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
     if "hechos" not in datos or not isinstance(datos["hechos"], list):
         raise ErrorModelo("La selección no devolvió la lista de hechos.", uso)
     maximos = {"general": ajustes.get("max_hechos_general", 14), "latam": ajustes.get("max_hechos_latam", 6),
-               "salas": ajustes.get("max_hechos_salas", 6) if salas else 0}
-    cuenta = {"general": 0, "latam": 0, "salas": 0}
+               "salas": ajustes.get("max_hechos_salas", 6) if salas else 0,
+               "europa": ajustes.get("max_hechos_europa", 6), "archivo": ajustes.get("max_hechos_archivo", 40)}
+    cuenta = {k: 0 for k in maximos}
     hechos, usados, descartados = [], set(), []
     for h in datos["hechos"]:
         if not isinstance(h, dict):
@@ -599,7 +640,8 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
         if not ids:
             continue
         seccion = str(h.get("seccion") or "").lower()
-        seccion = "latam" if seccion.startswith("lat") else "salas" if seccion.startswith("sala") else "general"
+        seccion = ("latam" if seccion.startswith("lat") else "salas" if seccion.startswith("sala") else
+                   "europa" if seccion.startswith("europ") else "archivo" if seccion.startswith("archiv") else "general")
         if cuenta[seccion] >= maximos[seccion]:
             continue
         usados.update(ids)
@@ -614,7 +656,7 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
             previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
             grupos: list[dict] | None = None, faltan: int | None = None, max_tokens: int | None = None,
-            salas: dict | None = None) -> dict:
+            salas: dict | None = None, historicas: list[str] | None = None) -> dict:
     """Redacción. Devuelve {'tarjetas', 'escena_latam', 'temas', 'controles', 'uso'} o lanza ErrorModelo.
     Además devuelve, para el registro permanente, 'fichas' (una por tarjeta o tema publicado, con lo que propuso
     el modelo y las notas que cita) y 'cambios_salas' (crudos): los verifica mesa/registro.py.
@@ -650,6 +692,29 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
                                 previos_latam, True, registro, niveles=niveles, excluir=solo_salas, fichas=fichas)
     if faltan is not None:
         tarjetas, latam = _limitar_segundo_nivel(tarjetas, latam, faltan, registro)
+    # Europa: etiqueta de las tarjetas generales que la selección puso en esa sección.
+    ids_europa = {i for g in grupos or [] if g.get("seccion") == "europa" for i in g["ids"]}
+    for f in fichas:
+        if f["seccion"] == "general" and {items.index(it) + 1 for it in f["items"]} & ids_europa:
+            f["seccion"] = "europa"
+            f["tarjeta"]["region"] = "europa"
+    # Regla de resultados: un resultado solo se publica en la escena latina; el resto va al archivo.
+    archivo = []
+    for f in list(fichas):
+        crudo = f.get("crudo") if isinstance(f.get("crudo"), dict) else {}
+        if f["seccion"] in ("general", "europa") and str(crudo.get("tipo") or "") == "resultado":
+            t = f["tarjeta"]
+            if resultado_excepcional(t, historicas):
+                continue  # figura histórica o récord: se publica (decisión del 26 nov)
+            tarjetas = [x for x in tarjetas if x is not t]
+            fichas.remove(f)
+            archivo.append({"titulo": t["titulo"], "resumen": t["resumen"], "fuentes": t["fuentes"], "motivo": "redaccion"})
+            registro.append({"titulo": t["titulo"], "motivo": "resultado fuera de la regla de resultados (al archivo)"})
+    # Foto: la imagen que el medio declara para compartir su nota (la primera fuente que la tenga).
+    for f in fichas:
+        foto = next((it.get("imagen") for it in f["items"] if it.get("imagen")), None)
+        if foto:
+            f["tarjeta"]["imagen"] = foto
     temas = construir_temas(datos.get("temas"), items, hoy, publicado_temas, registro)
     publicadas = {id(t) for t in tarjetas + latam}
     fichas = [f for f in fichas if id(f["tarjeta"]) in publicadas]
@@ -662,4 +727,4 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
                        "seccion": "tema"})
     cambios = datos.get("cambios_salas") if isinstance(datos.get("cambios_salas"), list) else []
     return {"tarjetas": tarjetas, "escena_latam": latam, "temas": temas, "controles": registro, "uso": uso,
-            "fichas": fichas, "cambios_salas": cambios, "salida_cortada": cortada}
+            "fichas": fichas, "cambios_salas": cambios, "salida_cortada": cortada, "archivo": archivo}

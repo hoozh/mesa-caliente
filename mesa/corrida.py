@@ -10,6 +10,7 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 import traceback
@@ -222,12 +223,15 @@ def _abrir_para_redaccion(redaccion: list[dict], grupos: list[dict], ajustes: di
         if r.estado != 200:
             continue
         try:
-            extracto, enlaces = recoleccion.extraer_articulo(r.texto, r.url or it["url"],
-                                                             ajustes.get("max_caracteres_extracto", 1200))
+            extracto, enlaces, imagen = recoleccion.extraer_articulo(r.texto, r.url or it["url"],
+                                                                     ajustes.get("max_caracteres_extracto", 1200),
+                                                                     con_imagen=True)
         except Exception:
             continue
         if extracto:
             it["extracto"] = extracto
+        if imagen:
+            it["imagen"] = imagen
         cand.registrar_menciones(estado_cand, it["url"], enlaces, hoy)
     return abiertos
 
@@ -337,6 +341,45 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
     })
 
 
+def cargar_personalidades(raiz: Path, solo_historicas: bool = False) -> list[str]:
+    datos = leer_json(Path(raiz) / "config" / "personalidades.json", {}) or {}
+    nombres = []
+    for p in datos.get("personalidades", []):
+        if isinstance(p, dict) and p.get("nombre") and (p.get("historica") or not solo_historicas):
+            alias = [a for a in p.get("alias") or [] if a]
+            nombres.append(p["nombre"] + (f" ({', '.join(alias)})" if alias else ""))
+    return nombres
+
+
+def archivar_resultados(raiz: Path, hoy: date, corrida_id: str, entradas: list[dict]) -> int:
+    """Base interna de resultados que no se publican (regla de resultados): título, fuentes y enlaces,
+    para tenerlos a mano en una investigación. Un error aquí nunca afecta la corrida."""
+    if not entradas:
+        return 0
+    try:
+        ruta = Path(raiz) / "data" / "registro" / "resultados_archivo.jsonl"
+        ruta.parent.mkdir(parents=True, exist_ok=True)
+        with ruta.open("a", encoding="utf-8") as f:
+            for e in entradas:
+                if "notas" in e:  # desde la selección: solo titulares
+                    notas = e["notas"]
+                    linea = {"fecha": hoy.isoformat(), "corrida": corrida_id, "origen": e.get("motivo", "seleccion"),
+                             "titulo": notas[0].get("titulo") or "",
+                             "fuentes": [{"nombre": n["fuente"], "url": n["url"], "fecha": (n.get("fecha") or "")[:10],
+                                          "titular": n.get("titulo") or "", "primera_linea": n.get("primera_linea") or ""}
+                                         for n in notas]}
+                else:  # desde la redacción: tarjeta ya escrita
+                    linea = {"fecha": hoy.isoformat(), "corrida": corrida_id, "origen": "redaccion",
+                             "titulo": e["titulo"], "resumen": e.get("resumen", ""),
+                             "fuentes": [{"nombre": x.get("nombre"), "url": x.get("url"), "fecha": x.get("fecha")}
+                                         for x in e.get("fuentes", [])]}
+                f.write(json.dumps(linea, ensure_ascii=False) + "\n")
+        return len(entradas)
+    except Exception:
+        traceback.print_exc()
+        return 0
+
+
 def registrar_hechos(raiz: Path, hoy: date, corrida: dict, resultado: dict, redaccion: list[dict],
                      salas: dict, temas_activos: list[dict]) -> dict:
     """Registro permanente: una línea por tarjeta o tema publicado y los cambios de las salas vigiladas.
@@ -398,7 +441,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         vistos_antes = dict(vistos["urls"])
         leidos: list[dict] = []
         items, informe, recogidos = recoleccion.recolectar(
-            fuentes, hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
+            fuentes + recoleccion.fuentes_de_busquedas(raiz, hoy), hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
             prioridad=prioridad, descartar_dia1=descartar_dia1, leidos=leidos)
         ventana = recoleccion.seleccionar(items, ajustes.get("max_titulares_enviados", 120))
         descartes = contar_descartes(informe, items, ventana)
@@ -453,11 +496,19 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 guardar_entradas(raiz, hoy, corrida["id"], a_elegir, tipo="seleccion")
                 try:
                     sel = modelo.seleccionar_hechos(a_elegir, ajustes, llamar, previos, corte, publicadas_antes,
-                                                    salas=salas)
+                                                    salas=salas, personalidades=cargar_personalidades(raiz),
+                                                    historicas=cargar_personalidades(raiz, solo_historicas=True))
                     corrida["uso_seleccion"] = sel["uso"]
-                    grupos_sel = sel["hechos"]
+                    # Resultados fuera de la regla: no se redactan; quedan en el archivo con sus fuentes.
+                    al_archivo = [g for g in sel["hechos"] if g["seccion"] == "archivo"]
+                    grupos_sel = [g for g in sel["hechos"] if g["seccion"] != "archivo"]
+                    archivar_resultados(raiz, hoy, corrida["id"],
+                                        [{"notas": [a_elegir[i - 1] for i in g["ids"]], "motivo": "seleccion"}
+                                         for g in al_archivo])
                     # «hechos» cuenta solo lo que puede ser tarjeta; las notas de salas van aparte.
                     n_salas = sum(1 for g in grupos_sel if g["seccion"] == "salas")
+                    if al_archivo:
+                        seleccion["archivo"] = len(al_archivo)
                     seleccion.update(estado="ok", hechos=len(grupos_sel) - n_salas, rescatada=sel["rescatado"],
                                      costo_usd=sel["uso"].get("costo_usd", 0.0))
                     if n_salas:
@@ -507,7 +558,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 resultado = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
                                            publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
                                            faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida,
-                                           salas=salas)
+                                           salas=salas, historicas=cargar_personalidades(raiz, solo_historicas=True))
                 if resultado.get("temas"):
                     corrida["temas"] = resultado["temas"]
                 corrida["controles"] += resultado.get("controles", [])
@@ -515,6 +566,8 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 if resultado.get("salida_cortada"):
                     corrida["salida_cortada"] = resultado["salida_cortada"]  # aviso en el pie de la página
                 corrida["tarjetas"] = resultado["tarjetas"]
+                if resultado.get("archivo"):
+                    archivar_resultados(raiz, hoy, corrida["id"], resultado["archivo"])
                 corrida["escena_latam"] = {"tarjetas": resultado["escena_latam"],
                                            "texto": None if resultado["escena_latam"] else TEXTO_LATAM_VACIO}
                 # Un error del registro nunca afecta la corrida: queda anotado y el día se publica igual.
