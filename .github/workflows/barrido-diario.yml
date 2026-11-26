@@ -24,10 +24,21 @@ jobs:
   barrido:
     runs-on: ubuntu-24.04   # versión fija: no cambia sola cuando ubuntu-latest pase a 26.04
     timeout-minutes: 20
+    env:
+      # El archivo de resultados no publicados va al repositorio privado hoozh/mesa-caliente-privado.
+      TIENE_PRIVADO: ${{ secrets.MESA_PRIVADO_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v7
         with:
           ref: main
+
+      - name: Descargar el repositorio privado
+        if: env.TIENE_PRIVADO == 'true'
+        uses: actions/checkout@v7
+        with:
+          repository: hoozh/mesa-caliente-privado
+          token: ${{ secrets.MESA_PRIVADO_TOKEN }}
+          path: privado
 
       - uses: actions/setup-python@v7
         with:
@@ -43,6 +54,7 @@ jobs:
           MESA_MODELO: ${{ vars.MESA_MODELO }}
           EVENTO: ${{ github.event_name }}
           ORIGEN_ENTRADA: ${{ inputs.origen }}
+          MESA_DIR_PRIVADO: ${{ env.TIENE_PRIVADO == 'true' && format('{0}/privado', github.workspace) || '' }}
         # Programadas y externas se omiten si hoy ya hubo una corrida exitosa; las manuales siempre corren.
         run: |
           origen="${ORIGEN_ENTRADA,,}"   # en minúsculas
@@ -77,4 +89,23 @@ jobs:
             sleep $((intento * 5))
           done
           echo "No se pudo guardar en main." >&2
+          exit 1
+
+      - name: Guardar el archivo de resultados en el repositorio privado
+        if: ${{ !cancelled() && env.TIENE_PRIVADO == 'true' }}
+        working-directory: privado
+        run: |
+          git config user.name "mesa-caliente-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultados
+          if git diff --cached --quiet; then
+            echo "Sin resultados nuevos para el archivo."
+            exit 0
+          fi
+          git commit -m "Archivo de resultados $(date -u +%Y-%m-%d) ($(date -u +%H:%M) UTC)"
+          for intento in 1 2 3 4; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((intento * 5))
+          done
+          echo "No se pudo guardar el archivo en el repositorio privado." >&2
           exit 1

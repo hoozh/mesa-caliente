@@ -48,7 +48,7 @@ jobs:
             echo "Sin cambios para guardar."
             exit 0
           fi
-          git commit -m "Ediciones aplicadas ($(date -u +%Y-%m-%d %H:%M) UTC)"
+          git commit -m "Ediciones aplicadas ($(date -u '+%Y-%m-%d %H:%M') UTC)"
           for intento in 1 2 3 4; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             sleep $((intento * 5))

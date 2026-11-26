@@ -78,7 +78,9 @@ td.titulo { min-width: 220px; }
 <script>
 (function () {
   const REPO = 'hoozh/mesa-caliente';
-  const API = 'https://api.github.com/repos/' + REPO;
+  const REPO_PRIV = 'hoozh/mesa-caliente-privado'; // perfiles completos, archivo de resultados y archivos de SEI
+  const API = 'https://api.github.com/repos/' + REPO, API_PRIV = 'https://api.github.com/repos/' + REPO_PRIV;
+  const RUTA_ARCHIVO = 'resultados/archivo.jsonl';
   let TOKEN = '';
   try { TOKEN = localStorage.getItem('mc-admin-token') || ''; } catch (e) {}
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -90,30 +92,33 @@ td.titulo { min-width: 220px; }
   // ---------------------------------------------------------------- GitHub
   const b64 = txt => { const bytes = new TextEncoder().encode(txt); let s = ''; bytes.forEach(b => s += String.fromCharCode(b)); return btoa(s); };
   const deb64 = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, '')), c => c.charCodeAt(0)));
-  async function gh(ruta, opciones = {}) {
+  async function gh(ruta, opciones = {}, priv = false) {
     if (!TOKEN) throw new Error('Falta conectar el administrador: vaya a «Conexión» y pegue su clave de GitHub.');
-    const r = await fetch(API + ruta, { ...opciones, headers: { Authorization: 'Bearer ' + TOKEN, Accept: 'application/vnd.github+json', ...(opciones.headers || {}) } });
+    const r = await fetch((priv ? API_PRIV : API) + ruta, { ...opciones, headers: { Authorization: 'Bearer ' + TOKEN, Accept: 'application/vnd.github+json', ...(opciones.headers || {}) } });
     if (r.status === 401) throw new Error('GitHub rechazó la clave. Revise que esté bien copiada y que no haya vencido.');
-    if (r.status === 403) throw new Error('La clave no tiene permiso para esto. Revise los permisos en «Conexión».');
+    if (r.status === 403) throw new Error('La clave no tiene permiso para esto' + (priv ? ' en el repositorio privado' : '') + '. Revise los permisos en «Conexión».');
     if (r.status === 409) throw new Error('El archivo cambió mientras usted editaba (por ejemplo, terminó un barrido). Vuelva a abrir la sección e intente otra vez.');
+    if (r.status === 404 && priv && ruta === '') throw new Error('La clave no llega al repositorio privado: agréguelo en «Repository access» de la clave (ver «Conexión»).');
     if (!r.ok && r.status !== 404) throw new Error('GitHub respondió con un error (' + r.status + ').');
     return r;
   }
-  async function leer(ruta) { // {texto, sha} o {texto: null} si no existe
-    const r = await gh('/contents/' + ruta + '?ref=main&t=' + Date.now());
+  async function leer(ruta, priv = false) { // {texto, sha} o {texto: null} si no existe
+    const r = await gh('/contents/' + ruta + '?ref=main&t=' + Date.now(), {}, priv);
     if (r.status === 404) return { texto: null, sha: null };
     const j = await r.json();
     if (j.content) return { texto: deb64(j.content), sha: j.sha };
-    const raw = await gh('/contents/' + ruta + '?ref=main', { headers: { Accept: 'application/vnd.github.raw+json' } });
+    const raw = await gh('/contents/' + ruta + '?ref=main', { headers: { Accept: 'application/vnd.github.raw+json' } }, priv);
     return { texto: await raw.text(), sha: j.sha };
   }
-  async function guardar(ruta, texto, sha, mensaje) {
+  async function guardar(ruta, texto, sha, mensaje, priv = false) {
     const cuerpo = { message: mensaje, content: b64(texto), branch: 'main' };
     if (sha) cuerpo.sha = sha;
-    const r = await gh('/contents/' + ruta, { method: 'PUT', body: JSON.stringify(cuerpo) });
+    const r = await gh('/contents/' + ruta, { method: 'PUT', body: JSON.stringify(cuerpo) }, priv);
     if (!r.ok) throw new Error('No se pudo guardar ' + ruta + '.');
     return (await r.json()).content.sha;
   }
+  const leerJSONL = async (ruta, priv = false) => ((await leer(ruta, priv)).texto || '').split('\n').filter(Boolean)
+    .map(l => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean);
   async function leerJSON(ruta, vacio) { const x = await leer(ruta); return { datos: x.texto ? JSON.parse(x.texto) : vacio, sha: x.sha }; }
   const json = d => JSON.stringify(d, null, 2) + '\n';
 
@@ -143,11 +148,11 @@ td.titulo { min-width: 220px; }
   VISTAS.conexion = async () => {
     vista.innerHTML = `
     <div class="bloque"><div class="bh"><h2>Clave de GitHub</h2></div><div class="bc">
-      <p class="ayuda">El administrador guarda los cambios directamente en el repositorio con una clave suya. La clave queda solo en este navegador; quien abra la página pública no puede editar nada ni correr el barrido.</p>
+      <p class="ayuda">El administrador guarda los cambios directamente en los repositorios con una clave suya: el público (la página) y el privado (perfiles completos, archivo de resultados y archivos de SEI, que solo ve quien tiene la clave). La clave queda solo en este navegador; quien abra la página pública no puede editar nada ni correr el barrido.</p>
       <ol class="ayuda">
         <li>En GitHub, haga clic en su foto (arriba a la derecha) → <b>Settings</b> → <b>Developer settings</b> (abajo, a la izquierda) → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>.</li>
         <li>Nombre: «Administrador Mesa Caliente». Vencimiento: el que prefiera (por ejemplo, 1 año).</li>
-        <li>En <b>Repository access</b> elija <b>Only select repositories</b> y marque <b>hoozh/mesa-caliente</b>.</li>
+        <li>En <b>Repository access</b> elija <b>Only select repositories</b> y marque <b>hoozh/mesa-caliente</b> y <b>hoozh/mesa-caliente-privado</b>.</li>
         <li>En <b>Permissions</b> → <b>Repository permissions</b>: <b>Contents</b> = Read and write y <b>Actions</b> = Read and write.</li>
         <li>Haga clic en <b>Generate token</b>, copie la clave y péguela aquí abajo.</li>
       </ol>
@@ -167,8 +172,12 @@ td.titulo { min-width: 220px; }
     const est = document.getElementById('c-estado'), cab = document.getElementById('estado-conexion');
     if (!TOKEN) { cab.textContent = 'Sin conectar'; if (est) est.textContent = ''; return false; }
     try { const r = await gh(''); const j = await r.json(); const ok = j.permissions && j.permissions.push;
-      cab.textContent = ok ? 'Conectado' : 'Conectado (sin permiso de escritura)';
-      if (est) { est.className = ok ? 'estado-ok' : 'estado-error'; est.textContent = ok ? 'Conectado: puede editar.' : 'La clave funciona pero no tiene permiso de escritura (Contents = Read and write).'; }
+      let priv = '';
+      try { const jp = await (await gh('', {}, true)).json(); priv = jp.permissions && jp.permissions.push ? '' : ' El repositorio privado se puede leer pero no editar (Contents = Read and write).'; }
+      catch (e) { priv = ' ' + e.message; }
+      cab.textContent = ok && !priv ? 'Conectado' : 'Conectado (revisar permisos)';
+      if (est) { est.className = ok && !priv ? 'estado-ok' : 'estado-error';
+        est.textContent = (ok ? 'Conectado: puede editar la página.' : 'La clave funciona pero no tiene permiso de escritura (Contents = Read and write).') + (priv || ' Repositorio privado: conectado.'); }
       return ok;
     } catch (e) { cab.textContent = 'Error de conexión'; if (est) { est.className = 'estado-error'; est.textContent = e.message; } return false; }
   }
@@ -316,43 +325,80 @@ td.titulo { min-width: 220px; }
   VISTAS.personalidades = async () => {
     let { datos, sha } = await leerJSON('config/personalidades.json', { personalidades: [] });
     let filtro = '';
+    const slug = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const nombres = p => [p.nombre, ...(p.alias || [])].filter(Boolean).map(norm);
+    let archivo = null, hechos = null; // se cargan una vez, al abrir la primera ficha
     const pintar = () => { const P = datos.personalidades;
       vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Personalidades</h2><input class="form-control form-control-sm w-auto ms-auto" id="p-q" type="search" placeholder="Buscar…" value="${esc(filtro)}"><button class="btn btn-sm btn-mc" id="p-nueva" type="button">Agregar persona</button></div><div class="bc">
-        <p class="ayuda">Sus noticias tienen prioridad en el barrido. «Histórica»: sus resultados merecen tarjeta aunque no sea latinoamericana (Negreanu, Hellmuth). El perfil es para datos que usted encuentre fuera de los barridos; SEI puede leerlo en otros trabajos.</p>
-        <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th>Nombre</th><th>Alias</th><th>Histórica</th><th>Perfil</th><th></th></tr></thead><tbody>
-        ${P.map((p, i) => ({ p, i })).filter(({ p }) => !filtro || norm(p.nombre + ' ' + (p.alias || []).join(' ')).includes(norm(filtro))).map(({ p, i }) => `<tr><td>${esc(p.nombre)}</td><td>${esc((p.alias || []).join(', '))}</td>
-          <td>${p.historica ? 'Sí' : ''}</td><td class="ayuda" style="max-width:340px">${esc((p.perfil || '').slice(0, 120))}${(p.perfil || '').length > 120 ? '…' : ''}</td>
-          <td class="text-nowrap"><button class="btn btn-sm btn-outline-dark" data-p="${i}" type="button">Editar</button></td></tr>`).join('')}
+        <p class="ayuda">Sus noticias tienen prioridad en el barrido. «Histórica»: sus resultados merecen tarjeta aunque no sea latinoamericana (Negreanu, Hellmuth). El <b>resumen</b> es público (una o dos líneas); el <b>perfil completo</b> y los resultados archivados están en el repositorio privado, y SEI puede leerlos en otros trabajos.</p>
+        <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th>Nombre</th><th class="d-none d-md-table-cell">Alias</th><th>Histórica</th><th class="d-none d-md-table-cell">Resumen público</th><th></th></tr></thead><tbody>
+        ${P.map((p, i) => ({ p, i })).filter(({ p }) => !filtro || nombres(p).some(n => n.includes(norm(filtro)))).map(({ p, i }) => `<tr><td>${esc(p.nombre)}</td><td class="d-none d-md-table-cell">${esc((p.alias || []).join(', '))}</td>
+          <td>${p.historica ? 'Sí' : ''}</td><td class="ayuda d-none d-md-table-cell" style="max-width:340px">${esc((p.resumen || '').slice(0, 120))}${(p.resumen || '').length > 120 ? '…' : ''}</td>
+          <td class="text-nowrap"><button class="btn btn-sm btn-outline-dark" data-p="${i}" type="button">Ficha</button></td></tr>`).join('')}
         </tbody></table></div></div></div>
-      <div class="modal fade" id="m-p" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title">Persona</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
-        <div class="modal-body"><div class="mb-3"><label class="form-label" for="p-nom">Nombre</label><input class="form-control" id="p-nom"></div>
+      <div class="modal fade" id="m-p" tabindex="-1"><div class="modal-dialog modal-xl modal-dialog-scrollable"><div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" id="p-titulo">Persona</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+        <div class="modal-body"><div class="row g-4"><div class="col-lg-6">
+          <div class="mb-3"><label class="form-label" for="p-nom">Nombre</label><input class="form-control" id="p-nom"></div>
           <div class="mb-3"><label class="form-label" for="p-ali">Alias (separados por coma)</label><input class="form-control" id="p-ali"></div>
           <label class="form-check mb-3"><input class="form-check-input" type="checkbox" id="p-his"> <span class="form-check-label">Figura histórica (sus resultados merecen tarjeta)</span></label>
-          <div><label class="form-label" for="p-per">Perfil</label><textarea class="form-control" id="p-per" rows="6" placeholder="Datos importantes, con la fuente y la fecha."></textarea></div></div>
+          <div class="mb-3"><label class="form-label" for="p-res">Resumen público (una o dos líneas)</label><textarea class="form-control" id="p-res" rows="2"></textarea></div>
+          <div><label class="form-label" for="p-per">Perfil completo <span class="badge text-bg-dark">Privado</span></label><textarea class="form-control" id="p-per" rows="12" placeholder="Datos con su fuente y fecha. Se guarda en el repositorio privado."></textarea></div>
+        </div><div class="col-lg-6">
+          <h6 class="text-uppercase fw-bold small">Resultados archivados <span class="badge text-bg-dark">Privado</span></h6><div id="p-arch" class="small mb-4"></div>
+          <h6 class="text-uppercase fw-bold small">Noticias publicadas</h6><div id="p-pub" class="small"></div>
+        </div></div></div>
         <div class="modal-footer"><button class="btn btn-outline-danger me-auto" id="p-borrar" type="button">Quitar de la lista</button><button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancelar</button><button class="btn btn-mc" id="p-guardar" type="button">Guardar</button></div>
       </div></div></div>`;
       document.getElementById('p-q').oninput = e => { filtro = e.target.value; const pos = e.target.selectionStart; pintar(); const q = document.getElementById('p-q'); q.focus(); q.setSelectionRange(pos, pos); };
-      const modal = new bootstrap.Modal(document.getElementById('m-p')); let idx = -1;
-      const abrir = i => { idx = i; const p = i >= 0 ? P[i] : { nombre: '', alias: [], historica: false, perfil: '' };
+      const modal = new bootstrap.Modal(document.getElementById('m-p')); let idx = -1, perfil = { texto: null, sha: null };
+      const lista = (filas, vacio) => filas.length ? '<ul class="ps-3 mb-0">' + filas.slice(0, 60).map(x => `<li class="mb-1"><span class="text-nowrap">${esc(fechaLarga(x.fecha))}</span> · ${x.enlace}</li>`).join('') + '</ul>' + (filas.length > 60 ? `<p class="ayuda">y ${filas.length - 60} más (ver «Consultar registros»).</p>` : '') : `<p class="ayuda">${vacio}</p>`;
+      const abrir = async i => { idx = i; const p = i >= 0 ? P[i] : { id: '', nombre: '', alias: [], historica: false, resumen: '' };
+        document.getElementById('p-titulo').textContent = p.nombre || 'Nueva persona';
         document.getElementById('p-nom').value = p.nombre; document.getElementById('p-ali').value = (p.alias || []).join(', ');
-        document.getElementById('p-his').checked = !!p.historica; document.getElementById('p-per').value = p.perfil || '';
-        document.getElementById('p-borrar').hidden = i < 0; modal.show(); };
+        document.getElementById('p-his').checked = !!p.historica; document.getElementById('p-res').value = p.resumen || '';
+        const per = document.getElementById('p-per'); per.value = ''; per.disabled = i >= 0;
+        document.getElementById('p-borrar').hidden = i < 0;
+        document.getElementById('p-arch').innerHTML = document.getElementById('p-pub').innerHTML = i >= 0 ? '<p class="ayuda">Cargando…</p>' : '<p class="ayuda">Se busca al guardar la persona.</p>';
+        perfil = { texto: null, sha: null }; modal.show();
+        if (i < 0) return;
+        try { perfil = await leer('personalidades/' + p.id + '.md', true); per.value = perfil.texto || ''; per.disabled = false; }
+        catch (e) { per.value = ''; per.placeholder = e.message; }
+        const n = nombres(p), menciona = t => n.some(x => x && norm(t).includes(x));
+        try { archivo = archivo || await leerJSONL(RUTA_ARCHIVO, true);
+          document.getElementById('p-arch').innerHTML = lista(archivo.filter(x => menciona(x.titulo + ' ' + (x.resumen || '') + ' ' + (x.fuentes || []).map(f => f.titular || '').join(' '))).reverse()
+            .map(x => ({ fecha: x.fecha, enlace: esc(x.titulo) + ' ' + (x.fuentes || []).map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ') })), 'Sin resultados archivados con este nombre.'); }
+        catch (e) { document.getElementById('p-arch').innerHTML = `<p class="estado-error">${esc(e.message)}</p>`; }
+        try { hechos = hechos || await leerJSONL('data/registro/hechos.jsonl');
+          document.getElementById('p-pub').innerHTML = lista(hechos.filter(x => menciona(x.titulo + ' ' + (x.jugadores || []).map(j => j.nombre).join(' '))).reverse()
+            .map(x => ({ fecha: x.fecha, enlace: x.seccion === 'tema' ? esc(x.titulo) : `<a href="../n/${esc(x.id)}.html" target="_blank" rel="noopener">${esc(x.titulo)}</a>` })), 'Sin noticias publicadas con este nombre.'); }
+        catch (e) { document.getElementById('p-pub').innerHTML = `<p class="estado-error">${esc(e.message)}</p>`; } };
       document.getElementById('p-nueva').onclick = () => abrir(-1);
       vista.querySelectorAll('[data-p]').forEach(b => b.onclick = () => abrir(+b.dataset.p));
-      const g = async msg => { try { sha = await guardar('config/personalidades.json', json(datos), sha, msg); modal.hide(); aviso('Guardado.'); pintar(); } catch (e) { aviso(e.message, 'danger'); } };
-      document.getElementById('p-guardar').onclick = () => { const nombre = document.getElementById('p-nom').value.trim(); if (!nombre) return aviso('Escriba el nombre.', 'warning');
-        const p = { nombre, alias: document.getElementById('p-ali').value.split(',').map(x => x.trim()).filter(Boolean), historica: document.getElementById('p-his').checked,
-          perfil: document.getElementById('p-per').value.trim(), actualizado: hoyISO() };
-        if (idx >= 0) P[idx] = { ...P[idx], ...p }; else P.push(p); g('Personalidad: ' + nombre); };
-      document.getElementById('p-borrar').onclick = () => { const x = P.splice(idx, 1)[0]; g('Personalidad quitada: ' + x.nombre); };
+      document.getElementById('p-guardar').onclick = async () => { const nombre = document.getElementById('p-nom').value.trim(); if (!nombre) return aviso('Escriba el nombre.', 'warning');
+        const previo = idx >= 0 ? P[idx] : null;
+        // El id no cambia al corregir el nombre: así el perfil privado sigue enlazado.
+        let id = previo && previo.id || slug(nombre); if (!previo) { let k = 2; const base = id; while (P.some(x => x.id === id)) id = base + '-' + k++; }
+        const p = { id, nombre, alias: document.getElementById('p-ali').value.split(',').map(x => x.trim()).filter(Boolean), historica: document.getElementById('p-his').checked,
+          resumen: document.getElementById('p-res').value.trim(), actualizado: hoyISO() };
+        if (previo && previo.nombre !== nombre && !p.alias.includes(previo.nombre)) p.alias.push(previo.nombre); // el nombre viejo queda como alias
+        const texto = document.getElementById('p-per').value.trim();
+        try {
+          const cambioPublico = !previo || ['nombre', 'historica', 'resumen'].some(k => previo[k] !== p[k]) || (previo.alias || []).join('|') !== p.alias.join('|');
+          if (cambioPublico) { if (previo) P[idx] = { ...previo, ...p }; else P.push(p); sha = await guardar('config/personalidades.json', json(datos), sha, 'Personalidad: ' + nombre); }
+          if (texto !== (perfil.texto || '').trim() && !document.getElementById('p-per').disabled)
+            perfil.sha = await guardar('personalidades/' + id + '.md', texto.startsWith('#') ? texto + '\n' : `# ${nombre}\n\n${texto}\n`, perfil.sha, 'Perfil: ' + nombre, true);
+          modal.hide(); aviso('Guardado.'); pintar();
+        } catch (e) { aviso(e.message, 'danger'); } };
+      document.getElementById('p-borrar').onclick = async () => { const x = P.splice(idx, 1)[0];
+        try { sha = await guardar('config/personalidades.json', json(datos), sha, 'Personalidad quitada: ' + x.nombre); modal.hide(); aviso('Quitada de la lista. Su perfil privado se conserva.'); pintar(); } catch (e) { aviso(e.message, 'danger'); } };
     };
     pintar();
   };
 
   // ---------------------------------------------------------------- Consultar registros
   const BASES = {
-    archivo: { n: 'Archivo de resultados', ruta: 'data/registro/resultados_archivo.jsonl', col: x => [x.fecha, x.titulo, (x.fuentes || []).map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ')] , cab: ['Fecha', 'Resultado', 'Fuentes'] },
+    archivo: { n: 'Archivo de resultados (privado)', ruta: RUTA_ARCHIVO, priv: true, col: x => [x.fecha, x.titulo, (x.fuentes || []).map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ')] , cab: ['Fecha', 'Resultado', 'Fuentes'] },
     hechos: { n: 'Registro de noticias', ruta: 'data/registro/hechos.jsonl', col: x => [x.fecha, (x.seccion === 'tema' ? esc(x.titulo) : `<a href="../n/${esc(x.id)}.html" target="_blank" rel="noopener">${esc(x.titulo)}</a>`) + ((x.fuentes || []).length ? ' <span class="ayuda">· ' + x.fuentes.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ') + '</span>' : ''), esc([x.tipo, x.torneo, (x.salas || []).join(', '), (x.jugadores || []).map(j => j.nombre + (j.pais ? ' (' + j.pais + ')' : '')).join(', ')].filter(Boolean).join(' · '))], cab: ['Fecha', 'Noticia', 'Datos'], crudo: true },
     salas: { n: 'Cambios en salas', ruta: 'data/registro/cambios_salas.jsonl', col: x => [x.fecha, esc(x.sala + ' · ' + x.tema), esc(x.dato) + (x.fuente ? ` <a href="${esc(x.fuente.url)}" target="_blank" rel="noopener">${esc(x.fuente.nombre)}</a>` : '')], cab: ['Fecha', 'Sala y tema', 'Dato'], crudo: true }
   };
@@ -360,10 +406,10 @@ td.titulo { min-width: 220px; }
     vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Registros</h2>
       <select class="form-select form-select-sm w-auto" id="d-base">${Object.entries(BASES).map(([k, b]) => `<option value="${k}">${b.n}</option>`).join('')}</select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="d-q" type="search" placeholder="Buscar jugador, torneo, sala, fuente…"><span class="ayuda" id="d-n"></span></div>
-      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación. Se muestran hasta 300 filas, las más recientes primero.</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
+      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Se muestran hasta 300 filas, las más recientes primero.</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
     const cache = {};
     const cargar = async () => { const k = document.getElementById('d-base').value, b = BASES[k];
-      if (!cache[k]) { const x = await leer(b.ruta); cache[k] = (x.texto || '').split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean).reverse(); }
+      if (!cache[k]) cache[k] = (await leerJSONL(b.ruta, b.priv)).reverse();
       const q = norm(document.getElementById('d-q').value); const r = cache[k].filter(x => !q || norm(JSON.stringify(x)).includes(q));
       document.getElementById('d-n').textContent = r.length + ' de ' + cache[k].length;
       document.getElementById('d-tabla').innerHTML = `<table class="table table-sm align-middle mb-0"><thead><tr>${b.cab.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${r.slice(0, 300).map(x => `<tr>${b.col(x).map((c, i) => `<td class="${i === 0 ? 'text-nowrap' : ''}">${i === 0 ? esc(fechaLarga(c)) : (k === 'archivo' && i === 1 ? esc(c) : c)}</td>`).join('')}</tr>`).join('') || `<tr><td colspan="3" class="ayuda">${cache[k].length ? 'Sin coincidencias.' : 'Todavía no hay datos en este registro.'}</td></tr>`}</tbody></table>`; };
@@ -374,17 +420,19 @@ td.titulo { min-width: 220px; }
 
   // ---------------------------------------------------------------- Archivos de SEI
   VISTAS.archivos = async () => {
-    const r = await gh('/contents/data/archivos?ref=main&t=' + Date.now()); const lista = r.status === 404 ? [] : (await r.json()).filter(x => x.type === 'file' && x.name !== 'LEEME.md');
-    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Subir un archivo</h2></div><div class="bc">
-      <div class="alert alert-warning py-2">El repositorio de Mesa Caliente es público: todo lo que suba aquí puede verlo cualquiera que conozca la dirección. No suba listas internas ni datos sensibles.</div>
-      <p class="ayuda">Listas o notas de SEI en texto (.md, .txt, .csv o .json), por ejemplo de TORRE CENTRAL. Quedan en la carpeta data/archivos del repositorio, donde SEI puede leerlas.</p>
+    const r = await gh('/contents/archivos?ref=main&t=' + Date.now(), {}, true); const lista = r.status === 404 ? [] : (await r.json()).filter(x => x.type === 'file' && x.name !== 'LEEME.md');
+    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Subir un archivo</h2><span class="badge text-bg-dark">Privado</span></div><div class="bc">
+      <p class="ayuda">Listas o notas de SEI en texto (.md, .txt, .csv o .json), por ejemplo de TORRE CENTRAL. Se guardan en la carpeta <code>archivos/</code> del repositorio privado: no se ven en la página pública y SEI puede leerlas.</p>
       <div class="row g-2 align-items-end"><div class="col-md-8"><label class="form-label" for="a-file">Archivo</label><input class="form-control" id="a-file" type="file" accept=".md,.txt,.csv,.json"></div>
       <div class="col-md-4"><button class="btn btn-mc w-100" id="a-subir" type="button">Subir</button></div></div></div></div>
-      <div class="bloque"><div class="bh"><h2>Archivos subidos</h2></div><div class="bc"><ul class="mb-0">${lista.map(x => `<li><a href="${esc(x.html_url)}" target="_blank" rel="noopener">${esc(x.name)}</a> <span class="ayuda">(${Math.ceil(x.size / 1024)} KB)</span></li>`).join('') || '<li class="ayuda">Todavía no hay archivos.</li>'}</ul></div></div>`;
+      <div class="bloque"><div class="bh"><h2>Archivos subidos</h2></div><div class="bc"><ul class="mb-0" id="a-lista">${lista.map(x => `<li><button class="btn btn-link p-0 align-baseline" data-a="${esc(x.path)}" type="button">${esc(x.name)}</button> <span class="ayuda">(${Math.ceil(x.size / 1024)} KB)</span></li>`).join('') || '<li class="ayuda">Todavía no hay archivos.</li>'}</ul>
+      <pre class="mt-3 mb-0 p-3 bg-light border rounded small" id="a-ver" hidden style="white-space:pre-wrap;max-height:60vh;overflow:auto"></pre></div></div>`;
+    document.getElementById('a-lista').onclick = async e => { const b = e.target.closest('[data-a]'); if (!b) return;
+      try { const x = await leer(b.dataset.a, true); const pre = document.getElementById('a-ver'); pre.textContent = x.texto || ''; pre.hidden = false; } catch (er) { aviso(er.message, 'danger'); } };
     document.getElementById('a-subir').onclick = async () => { const f = document.getElementById('a-file').files[0]; if (!f) return aviso('Elija un archivo.', 'warning');
       if (f.size > 900 * 1024) return aviso('El archivo es demasiado grande (máximo 900 KB).', 'warning');
       const nombre = f.name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w.\-]+/g, '-');
-      try { const previo = await leer('data/archivos/' + nombre); await guardar('data/archivos/' + nombre, await f.text(), previo.sha, 'Archivo de SEI: ' + nombre); aviso(previo.sha ? 'Archivo reemplazado.' : 'Archivo subido.'); VISTAS.archivos(); }
+      try { const previo = await leer('archivos/' + nombre, true); await guardar('archivos/' + nombre, await f.text(), previo.sha, 'Archivo de SEI: ' + nombre, true); aviso(previo.sha ? 'Archivo reemplazado.' : 'Archivo subido.'); VISTAS.archivos(); }
       catch (e) { aviso(e.message, 'danger'); } };
   };
 
