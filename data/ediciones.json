@@ -1,0 +1,27 @@
+{
+  "tarjetas": {
+    "2026-11-26-e741540e": {
+      "original": {
+        "titulo": "WSOP anuncia a Stake como socio oficial de WSOP Paradise 2026",
+        "resumen": "La WSOP anunció a Stake como socio oficial de WSOP Paradise 2026 en Baha Mar, Bahamas. Stake transmitirá en vivo el Super Main Event a través de KICK.com del 13 al 17 de diciembre y financiará una Stake Players Party para todos los jugadores.",
+        "imagen": "https://assets.wsopcdn.com/wsop/2666c72a-99c9-4d94-8985-9c89ad64c1df.png"
+      },
+      "historial": [
+        {
+          "fecha": "2026-11-26 10:14 UTC",
+          "motivo": "",
+          "campos": [
+            "secciones",
+            "etiqueta"
+          ]
+        }
+      ],
+      "secciones": [
+        "mundial",
+        "eventos"
+      ],
+      "etiqueta": "WORLD SERIES"
+    }
+  },
+  "nota": "Ediciones manuales del administrador por id de tarjeta (el mismo id del registro). Cada una guarda el original y el historial de correcciones: SEI lo usa para aprender."
+}
