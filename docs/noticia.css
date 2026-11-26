@@ -38,3 +38,6 @@ h2 { font: 700 16px/1 var(--cond); text-transform: uppercase; letter-spacing: .0
 .fuentes span { color: var(--ink-2); font-size: 14px; }
 .volver { margin: 26px 0 0; font-size: 14px; }
 .volver a { color: var(--ink-2); }
+.cuerpo p.bajada { font: 500 19px/1.5 var(--sans); color: var(--ink-2); }
+.cuerpo .foto { margin: 6px 0 18px; }
+.foto figcaption a { color: inherit; }
