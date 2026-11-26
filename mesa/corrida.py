@@ -351,13 +351,26 @@ def cargar_personalidades(raiz: Path, solo_historicas: bool = False) -> list[str
     return nombres
 
 
+def ruta_archivo_resultados(raiz: Path) -> Path:
+    """El archivo de resultados vive en el repositorio privado (hoozh/mesa-caliente-privado), que el flujo
+    descarga en la carpeta de MESA_DIR_PRIVADO. Sin esa carpeta (pruebas, o falta el secreto
+    MESA_PRIVADO_TOKEN) se guarda en el repositorio público, como antes, y la corrida lo avisa."""
+    privado = os.environ.get("MESA_DIR_PRIVADO", "").strip()
+    if privado and Path(privado).is_dir():
+        return Path(privado) / "resultados" / "archivo.jsonl"
+    return Path(raiz) / "data" / "registro" / "resultados_archivo.jsonl"
+
+
 def archivar_resultados(raiz: Path, hoy: date, corrida_id: str, entradas: list[dict]) -> int:
     """Base interna de resultados que no se publican (regla de resultados): título, fuentes y enlaces,
     para tenerlos a mano en una investigación. Un error aquí nunca afecta la corrida."""
     if not entradas:
         return 0
     try:
-        ruta = Path(raiz) / "data" / "registro" / "resultados_archivo.jsonl"
+        ruta = ruta_archivo_resultados(raiz)
+        if os.environ.get("GITHUB_ACTIONS") and "privado" not in str(ruta):
+            print("Aviso: no está el repositorio privado (secreto MESA_PRIVADO_TOKEN); "
+                  "el archivo de resultados se guarda en el repositorio público.")
         ruta.parent.mkdir(parents=True, exist_ok=True)
         with ruta.open("a", encoding="utf-8") as f:
             for e in entradas:

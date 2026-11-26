@@ -13,7 +13,7 @@ El costo estimado es de unos US$ 0,02 a 0,03 por día (alrededor de US$ 1 por me
 
 Página: https://hoozh.github.io/mesa-caliente/admin/ (no la indexan los buscadores y no está enlazada desde la portada). Funciona con una clave personal de GitHub (fine-grained token) que queda guardada **solo en el navegador** de quien la carga: sin esa clave la página no muestra ni cambia nada. Compartir Mesa Caliente no da acceso al administrador ni a correr barridos.
 
-Clave: en GitHub, foto → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**; **Repository access**: *Only select repositories* → `hoozh/mesa-caliente`; **Permissions** → *Contents*: Read and write, *Actions*: Read and write.
+Clave: en GitHub, foto → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**; **Repository access**: *Only select repositories* → `hoozh/mesa-caliente` y `hoozh/mesa-caliente-privado`; **Permissions** → *Contents*: Read and write, *Actions*: Read and write.
 
 | Sección | Qué edita |
 |---|---|
@@ -21,9 +21,13 @@ Clave: en GitHub, foto → **Settings** → **Developer settings** → **Persona
 | Palabras clave prioritarias | `config/temas_calientes.json` (los temas calientes). |
 | Búsquedas activas | `config/busquedas.json`: consulta, alta, hasta, estado. |
 | Correr el barrido | Dispara **Barrido diario** (unos US$ 0,03), con confirmación. |
-| Personalidades | `config/personalidades.json`: nombre, alias, histórica, perfil. |
-| Consultar registros | Búsqueda en `resultados_archivo.jsonl`, `hechos.jsonl` y `cambios_salas.jsonl`. |
-| Archivos de SEI | Sube .md, .txt, .csv o .json a `data/archivos/`. **El repositorio es público: lo que se sube es visible.** |
+| Personalidades | `config/personalidades.json` (público): id, nombre, alias, histórica, resumen corto. Perfil completo en el repositorio privado (`personalidades/<id>.md`), con sus resultados archivados y sus noticias publicadas. |
+| Consultar registros | Búsqueda en el archivo de resultados (privado), `hechos.jsonl` y `cambios_salas.jsonl`. |
+| Archivos de SEI | Sube .md, .txt, .csv o .json a `archivos/` del repositorio privado. |
+
+### Repositorio privado
+
+`hoozh/mesa-caliente-privado` guarda lo que no se publica: perfiles completos, el archivo de resultados (`resultados/archivo.jsonl`) y los archivos de SEI. El barrido lo descarga en `privado/` con el secreto `MESA_PRIVADO_TOKEN` (clave de GitHub con *Contents*: Read and write solo sobre ese repositorio) y guarda allí el archivo de resultados. Si falta el secreto, el archivo vuelve a `data/registro/resultados_archivo.jsonl` (público) y la corrida lo avisa en el registro.
 
 Cada guardado es un commit en `main` con un mensaje que dice qué se cambió, así que todo cambio queda en el historial y se puede deshacer.
 
@@ -95,12 +99,12 @@ Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía s
 ### Qué entra y qué no (desde el 26 nov 2026)
 
 - **Resultados de torneos:** solo (a) la definición de un circuito o torneo nacional de América Latina, o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton). Se publican en la escena latina.
-- **Los demás resultados** no se publican: la selección los manda a la sección "archivo" y quedan guardados con título y fuentes en `data/registro/resultados_archivo.jsonl`, para tenerlos a mano en una investigación. Si la redacción igual escribe un resultado fuera de la escena latina, el programa lo pasa al archivo.
+- **Los demás resultados** no se publican: la selección los manda a la sección "archivo" y quedan guardados con título y fuentes en el repositorio privado (`resultados/archivo.jsonl`), para tenerlos a mano en una investigación. Si la redacción igual escribe un resultado fuera de la escena latina, el programa lo pasa al archivo.
 - **Escena mundial:** polémicas, personalidades, cambios de reglas o políticas, temas del momento, regulación, novedades de salas, entrevistas, opinión y artículos interesantes.
 - **Ofertas de salas de poker** (bonos, promociones, rakeback): se publican, con tipo "oferta". Los satélites y los calendarios comerciales, no.
 - **Europa:** los hechos de España y de la escena europea llevan la etiqueta "Europa" (los resultados siguen la misma regla).
 - **Figuras históricas y récords:** un resultado de una figura histórica (`"historica": true` en `config/personalidades.json`, por ejemplo Negreanu o Hellmuth) o un resultado que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes) sí lleva tarjeta, en la escena mundial.
-- **Personalidades:** `config/personalidades.json` se envía a la selección; sus noticias tienen prioridad. Cada persona tiene `nombre`, `alias`, `historica` y `perfil` (datos que Hoozh agrega a mano; SEI puede leerlos en otros trabajos).
+- **Personalidades:** `config/personalidades.json` se envía a la selección; sus noticias tienen prioridad. Cada persona tiene `id` (fijo, aunque se corrija el nombre), `nombre`, `alias`, `historica` y `resumen` (público, corto). El perfil completo está en el repositorio privado; SEI puede leerlo en otros trabajos.
 - **Búsquedas activas:** cada consulta vigente de `config/busquedas.json` se busca en Google Noticias (últimos 3 días) y sus titulares se suman como una fuente más, sin quitar lugar a las fuentes habituales. Los sitios de GipsyTeam se descartan.
 - **Noticia propia:** el título de cada tarjeta abre `docs/n/<id>.html`, una página dentro de Mesa Caliente con el resumen de la noticia, la foto con su crédito y, al final, las fuentes. El id es el mismo del registro.
 - **Foto de la nota:** al abrir el artículo de cada hecho se guarda la imagen que el medio declara para compartir (`og:image`) en el campo `imagen` de la tarjeta, para el diseño nuevo.

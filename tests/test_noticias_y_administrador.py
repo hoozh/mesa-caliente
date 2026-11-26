@@ -85,7 +85,8 @@ def test_figuras_historicas_y_records_merecen_tarjeta():
 def test_administrador_y_archivos_de_configuracion():
     admin = (RAIZ / "docs" / "admin" / "index.html").read_text(encoding="utf-8")
     for ruta in ("data/ediciones.json", "config/temas_calientes.json", "config/busquedas.json",
-                 "config/personalidades.json", "data/registro/resultados_archivo.jsonl", "data/archivos/",
+                 "config/personalidades.json", "hoozh/mesa-caliente-privado", "resultados/archivo.jsonl",
+                 "'/contents/archivos", "'personalidades/' + id + '.md'", "data/registro/hechos.jsonl",
                  "barrido-diario.yml/dispatches"):
         assert ruta in admin
     assert 'name="robots" content="noindex' in admin
@@ -94,4 +95,6 @@ def test_administrador_y_archivos_de_configuracion():
     # La página pública no tiene botón para correr el barrido.
     assert "dispatches" not in (RAIZ / "templates" / "index.html.j2").read_text(encoding="utf-8")
     for p in leer_json(RAIZ / "config" / "personalidades.json")["personalidades"]:
-        assert set(p) >= {"nombre", "alias", "historica", "perfil"}
+        assert set(p) >= {"id", "nombre", "alias", "historica", "resumen"} and "perfil" not in p
+    ids = [p["id"] for p in leer_json(RAIZ / "config" / "personalidades.json")["personalidades"]]
+    assert len(ids) == len(set(ids))

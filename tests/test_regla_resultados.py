@@ -68,12 +68,26 @@ def test_resultado_fuera_de_la_escena_latina_va_al_archivo_y_europa_se_etiqueta(
     assert modelo.categoria_descarte("resultado fuera de la regla de resultados (al archivo)") == "archivo"
 
 
-def test_archivo_de_resultados_guarda_titulos_y_fuentes(raiz_temporal):
+def test_archivo_de_resultados_guarda_titulos_y_fuentes(raiz_temporal, monkeypatch):
+    monkeypatch.delenv("MESA_DIR_PRIVADO", raising=False)
     notas = _items()[:1]
     assert corrida.archivar_resultados(raiz_temporal, AHORA.date(), "c1", [{"notas": notas, "motivo": "seleccion"}]) == 1
     linea = json.loads((raiz_temporal / "data" / "registro" / "resultados_archivo.jsonl").read_text(encoding="utf-8"))
     assert linea["titulo"] == notas[0]["titulo"] and linea["origen"] == "seleccion"
     assert linea["fuentes"][0]["url"] == notas[0]["url"] and linea["fuentes"][0]["nombre"] == "Medio Inventado"
+
+
+def test_archivo_de_resultados_va_al_repositorio_privado(raiz_temporal, tmp_path, monkeypatch):
+    privado = tmp_path / "privado"
+    privado.mkdir()
+    monkeypatch.setenv("MESA_DIR_PRIVADO", str(privado))
+    corrida.archivar_resultados(raiz_temporal, AHORA.date(), "c1", [{"notas": _items()[:1], "motivo": "seleccion"}])
+    assert (privado / "resultados" / "archivo.jsonl").exists()
+    assert not (raiz_temporal / "data" / "registro" / "resultados_archivo.jsonl").exists()
+    flujo = (RAIZ / ".github" / "workflows" / "barrido-diario.yml").read_text(encoding="utf-8")
+    assert "repository: hoozh/mesa-caliente-privado" in flujo and "secrets.MESA_PRIVADO_TOKEN" in flujo
+    assert "MESA_DIR_PRIVADO" in flujo and "git add resultados" in flujo
+    assert "privado/" in (RAIZ / ".gitignore").read_text(encoding="utf-8")
 
 
 def test_foto_de_la_nota():
