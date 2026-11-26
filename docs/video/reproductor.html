@@ -6,23 +6,27 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Reproductor de videos · Mesa Caliente</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=PT+Serif:wght@700&family=Roboto+Condensed:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=PT+Serif:wght@700&family=Roboto+Condensed:wght@700&family=Montserrat:wght@500;800&family=Oswald:wght@600&family=Bebas+Neue&display=swap">
 <style>
 /* Reproductor de los videos de Instagram (stories y reels). El mismo archivo sirve para la vista previa del
-   administrador y para el render a MP4 en GitHub Actions: todo depende del tiempo t (mcIr), sin animaciones CSS. */
+   administrador y para el render a MP4 en GitHub Actions: todo depende del tiempo t (mcIr), sin animaciones CSS.
+   En el render (?render=1) las escenas con video de fondo quedan transparentes: ffmpeg pone el video debajo. */
 html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
-#escenario { position: absolute; left: 0; top: 0; transform-origin: 0 0; overflow: hidden; font-family: Inter, Arial, sans-serif; }
+html.render, html.render body { background: transparent; }
+#escenario { position: absolute; left: 0; top: 0; transform-origin: 0 0; overflow: hidden; }
 .escena { position: absolute; inset: 0; }
 .fondo { position: absolute; inset: -2%; background-size: cover; background-position: center; }
-.velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / .15) 0%, rgb(0 0 0 / .55) 55%, rgb(0 0 0 / .85) 100%); }
+video.fondo { width: 104%; height: 104%; object-fit: cover; }
+.velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(0 0 0 / .15) 0%, rgb(0 0 0 / .5) 55%, rgb(0 0 0 / .82) 100%); }
 .capa { position: absolute; left: 90px; right: 90px; display: grid; gap: 34px; }
-.marca { position: absolute; left: 90px; top: 110px; font: 700 46px/1 "Roboto Condensed", "Arial Narrow", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.marca { position: absolute; left: 90px; top: 110px; font-size: 46px; line-height: 1; letter-spacing: .04em; text-transform: uppercase; display: flex; align-items: center; gap: 18px; }
+.marca img { height: 84px; width: auto; }
 .raya { width: 110px; height: 12px; }
-.sec { font: 700 40px/1 "Roboto Condensed", "Arial Narrow", sans-serif; letter-spacing: .05em; text-transform: uppercase; }
-.tit { font: 700 92px/1.12 "PT Serif", Georgia, serif; }
-.txt { font: 400 52px/1.35 Inter, Arial, sans-serif; }
-.dato { font: 700 190px/1 "PT Serif", Georgia, serif; }
-.pie { position: absolute; left: 90px; right: 90px; bottom: 120px; display: flex; justify-content: space-between; font: 600 38px/1.2 Inter, Arial, sans-serif; opacity: .85; }
+.sec { font-size: 40px; line-height: 1; letter-spacing: .05em; text-transform: uppercase; }
+.tit { font-size: 92px; line-height: 1.12; }
+.txt { font-size: 52px; line-height: 1.35; }
+.dato { font-size: 190px; line-height: 1; }
+.pie { position: absolute; left: 90px; right: 90px; bottom: 120px; display: flex; justify-content: space-between; font-size: 38px; line-height: 1.2; opacity: .85; }
 .barras { position: absolute; left: 40px; right: 40px; top: 40px; display: flex; gap: 10px; z-index: 5; }
 .barras div { flex: 1; height: 8px; border-radius: 4px; background: rgb(255 255 255 / .3); overflow: hidden; }
 .barras i { display: block; height: 100%; background: #fff; }
@@ -32,49 +36,65 @@ html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
 <div id="escenario"></div>
 <script>
 (function () {
+  const RENDER = /render=1/.test(location.search);
+  if (RENDER) document.documentElement.classList.add('render');
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const FORMATOS = { '9:16': [1080, 1920], '4:5': [1080, 1350], '1:1': [1080, 1080] };
-  const est = { guion: null, marca: {}, imagenes: {}, escenas: [], total: 0, W: 1080, H: 1920 };
+  // Fuentes disponibles para las marcas (cargadas arriba desde Google Fonts).
+  const FUENTES = { 'PT Serif': '700 1em \'PT Serif\', Georgia, serif', 'Inter': '700 1em Inter, Arial, sans-serif',
+    'Montserrat': '800 1em Montserrat, Arial, sans-serif', 'Oswald': '600 1em Oswald, \'Arial Narrow\', sans-serif',
+    'Bebas Neue': '400 1em \'Bebas Neue\', \'Arial Narrow\', sans-serif', 'Roboto Condensed': '700 1em \'Roboto Condensed\', \'Arial Narrow\', sans-serif' };
+  const fuente = (n, peso) => (FUENTES[n] || FUENTES.Inter).replace(/^\d+/, peso || (FUENTES[n] || '700').match(/^\d+/)[0]);
+  const est = { escenas: [], total: 0, W: 1080, H: 1920 };
   const escenario = document.getElementById('escenario');
   const suave = x => x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 3);
 
   function ajustar() {
     escenario.style.width = est.W + 'px'; escenario.style.height = est.H + 'px';
-    const k = /render=1/.test(location.search) ? 1 : Math.min(innerWidth / est.W, innerHeight / est.H);
+    const k = RENDER ? 1 : Math.min(innerWidth / est.W, innerHeight / est.H);
     escenario.style.transform = `scale(${k})`;
     escenario.style.left = ((innerWidth - est.W * k) / 2) + 'px'; escenario.style.top = ((innerHeight - est.H * k) / 2) + 'px';
   }
   addEventListener('resize', ajustar);
 
   window.mcCargar = function (datos) {
-    est.guion = datos.guion || { escenas: [] }; est.marca = datos.marca || {}; est.imagenes = datos.imagenes || {};
-    [est.W, est.H] = FORMATOS[est.guion.formato] || FORMATOS['9:16'];
-    const m = est.marca, fondo = m.fondo || '#16171a', acento = m.acento || '#d9262c', tinta = m.texto || '#f1f2f4';
-    escenario.style.color = tinta; escenario.style.background = fondo;
-    est.escenas = (est.guion.escenas || []).map(e => ({ ...e, duracion: Math.max(1.5, Math.min(12, +e.duracion || 4)) }));
+    const guion = datos.guion || { escenas: [] }, m = datos.marca || {}, imgs = datos.imagenes || {}, vids = datos.videos || {};
+    [est.W, est.H] = FORMATOS[guion.formato] || FORMATOS['9:16'];
+    const fondo = m.fondo || '#16171a', acento = m.acento || '#d9262c', tinta = m.texto || '#f1f2f4';
+    const fT = fuente(m.fuente_titulo || 'PT Serif'), fX = fuente(m.fuente_texto || 'Inter', '400'), fE = fuente(m.fuente_etiquetas || 'Roboto Condensed');
+    escenario.style.color = tinta; escenario.style.font = fX; escenario.style.background = RENDER ? 'transparent' : fondo;
+    est.escenas = (guion.escenas || []).map(e => ({ ...e, duracion: Math.max(1.5, Math.min(15, +e.duracion || 4)) }));
     est.total = est.escenas.reduce((a, e) => a + e.duracion, 0);
     const vertical = est.H > 1500;
+    const logo = m.logo_url ? `<img src="${esc(m.logo_url)}" alt="">` : '';
     escenario.innerHTML = est.escenas.map((e, i) => {
-      const img = e.imagen && est.imagenes[e.imagen];
+      const img = e.imagen && imgs[e.imagen], vid = e.video && vids[e.video], conVideo = !!e.video;
       const abajo = e.tipo === 'portada' || e.tipo === 'texto' ? (vertical ? 330 : 200) : null;
       const pos = abajo ? `bottom:${abajo}px` : `top:${vertical ? 520 : 300}px`;
-      let cuerpo = '';
+      let fondoHtml;
+      if (conVideo) fondoHtml = RENDER || !vid ? (RENDER ? '' : `<div class="fondo" style="background:#222"></div>`) : `<video class="fondo" src="${esc(vid)}" muted playsinline preload="auto"></video>`;
+      else fondoHtml = `<div class="fondo" style="${img ? `background-image:url('${img}')` : `background:${e.fondo || fondo}`}"></div>`;
+      let cuerpo;
       if (e.tipo === 'cierre') cuerpo = `<div class="capa" style="top:${vertical ? 700 : 420}px;text-align:center;justify-items:center">
-          <div class="raya" data-a="0" style="background:${acento}"></div><div class="tit" data-a="1">${esc(e.titulo || m.nombre || '')}</div>
-          <div class="txt" data-a="2">${esc(e.texto || '')}</div><div class="sec" data-a="3" style="color:${acento}">${esc(m.usuario || '')}</div></div>`;
-      else cuerpo = `<div class="capa" style="${pos}">${e.seccion ? `<div class="sec" data-a="0" style="color:${acento}">${esc(e.seccion)}</div>` : ''}
-          ${e.dato ? `<div class="dato" data-a="1" style="color:${acento}">${esc(e.dato)}</div>` : ''}
-          ${e.titulo ? `<div class="tit" data-a="2">${esc(e.titulo)}</div>` : ''}${e.texto ? `<div class="txt" data-a="3">${esc(e.texto)}</div>` : ''}</div>`;
-      return `<section class="escena" data-i="${i}" style="opacity:0">
-        <div class="fondo" style="${img ? `background-image:url('${img}')` : `background:${e.fondo || fondo}`}"></div>${img ? '<div class="velo"></div>' : ''}
-        <div class="marca">${esc(m.nombre || '')}</div>${cuerpo}
+          <div class="raya" data-a="0" style="background:${acento}"></div><div class="tit" data-a="1" style="font:${fT}">${esc(e.titulo || m.nombre || '')}</div>
+          <div class="txt" data-a="2">${esc(e.texto || '')}</div><div class="sec" data-a="3" style="color:${acento};font:${fE}">${esc(m.usuario || '')}</div></div>`;
+      else cuerpo = `<div class="capa" style="${pos}">${e.seccion ? `<div class="sec" data-a="0" style="color:${acento};font:${fE}">${esc(e.seccion)}</div>` : ''}
+          ${e.dato ? `<div class="dato" data-a="1" style="color:${acento};font:${fT}">${esc(e.dato)}</div>` : ''}
+          ${e.titulo ? `<div class="tit" data-a="2" style="font:${fT}">${esc(e.titulo)}</div>` : ''}${e.texto ? `<div class="txt" data-a="3">${esc(e.texto)}</div>` : ''}</div>`;
+      return `<section class="escena" data-i="${i}" style="opacity:0">${fondoHtml}${img || conVideo ? '<div class="velo"></div>' : ''}
+        <div class="marca" style="font:${fE}">${logo}${m.ocultar_nombre && logo ? '' : esc(m.nombre || '')}</div>${cuerpo}
         ${e.fuente ? `<div class="pie"><span>Fuente: ${esc(e.fuente)}</span><span>${esc(m.usuario || '')}</span></div>` : ''}</section>`;
     }).join('') + `<div class="barras">${est.escenas.map(() => '<div><i></i></div>').join('')}</div>`;
+    escenario.querySelectorAll('.marca, .pie').forEach(el => { el.style.fontSize = el.classList.contains('marca') ? '46px' : '38px'; });
+    escenario.querySelectorAll('.sec').forEach(el => { el.style.fontSize = '40px'; el.style.lineHeight = '1'; });
+    escenario.querySelectorAll('.tit').forEach(el => { el.style.fontSize = '92px'; el.style.lineHeight = '1.12'; });
+    escenario.querySelectorAll('.dato').forEach(el => { el.style.fontSize = '190px'; el.style.lineHeight = '1'; });
     ajustar(); window.mcIr(0);
     return est.total;
   };
 
-  window.mcIr = function (t) {
+  window.mcDuraciones = () => est.escenas.map(e => e.duracion);
+  window.mcIr = function (t, reproduciendo) {
     let ini = 0;
     est.escenas.forEach((e, i) => {
       const sec = escenario.querySelector(`.escena[data-i="${i}"]`), lt = t - ini, dentro = lt >= 0 && lt < e.duracion;
@@ -82,7 +102,9 @@ html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
       sec.style.opacity = dentro || (ultima && t >= est.total) ? (lt < 0.35 && i > 0 ? suave(lt / 0.35) : 1) : 0;
       sec.style.zIndex = dentro ? 2 : 1;
       const p = Math.max(0, Math.min(1, lt / e.duracion));
-      const fondo = sec.querySelector('.fondo'); fondo.style.transform = `scale(${1 + 0.08 * p})`;
+      const fondo = sec.querySelector('.fondo');
+      if (fondo && fondo.tagName === 'VIDEO') { if (dentro) { if (reproduciendo) { if (fondo.paused) { fondo.currentTime = Math.max(0, lt); fondo.play().catch(() => {}); } } else fondo.currentTime = Math.max(0, lt); } else if (!fondo.paused) fondo.pause(); }
+      else if (fondo) fondo.style.transform = `scale(${1 + 0.08 * p})`;
       sec.querySelectorAll('[data-a]').forEach(el => { const k = suave((lt - 0.15 - 0.18 * +el.dataset.a) / 0.5);
         el.style.opacity = k; el.style.transform = `translateY(${(1 - k) * 40}px)`; });
       const barra = escenario.querySelectorAll('.barras i')[i]; if (barra) barra.style.width = (t >= ini + e.duracion ? 100 : dentro ? p * 100 : 0) + '%';
@@ -92,7 +114,7 @@ html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
 
   let anim = null;
   window.mcReproducir = function () { cancelAnimationFrame(anim); const t0 = performance.now();
-    const paso = () => { const t = (performance.now() - t0) / 1000; window.mcIr(Math.min(t, est.total)); if (t < est.total) anim = requestAnimationFrame(paso); };
+    const paso = () => { const t = (performance.now() - t0) / 1000; window.mcIr(Math.min(t, est.total), true); if (t < est.total) anim = requestAnimationFrame(paso); };
     anim = requestAnimationFrame(paso); };
   addEventListener('message', ev => { if (ev.origin !== location.origin) return; const d = ev.data || {};
     if (d.tipo === 'cargar') { window.mcCargar(d); if (d.reproducir) window.mcReproducir(); }

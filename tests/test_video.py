@@ -16,7 +16,7 @@ def test_guion_sin_cifras_inventadas():
         {"tipo": "dato", "duracion": 3, "dato": "$900,000", "texto": "Inventado."},
         {"tipo": "cierre", "duracion": 20, "titulo": "Más noticias de poker"}]}, NOTICIA)
     assert [e["tipo"] for e in guion["escenas"]] == ["portada", "dato", "texto", "cierre"]
-    assert "dato" not in guion["escenas"][2] and avisos and guion["escenas"][3]["duracion"] == 8.0
+    assert "dato" not in guion["escenas"][2] and avisos and guion["escenas"][3]["duracion"] == 12.0
 
 
 def test_version_nueva_con_pedido_de_cambios(tmp_path, monkeypatch):
@@ -32,7 +32,7 @@ def test_version_nueva_con_pedido_de_cambios(tmp_path, monkeypatch):
     def llamar(sistema, mensaje, modelo, max_tokens):
         vistos["mensaje"] = mensaje
         return json.dumps({"escenas": [{"tipo": "portada", "duracion": 4, "titulo": "Fulano Inventado gana"}]}), {"tokens_entrada": 10, "tokens_salida": 10}
-    monkeypatch.setattr(video, "renderizar", lambda g, m, i, salida: salida)
+    monkeypatch.setattr(video, "renderizar", lambda g, m, i, salida, **kw: salida)
     v = video.ejecutar(raiz, privado, "v1", "", False, llamar)
     assert v["n"] == 1 and v["archivo"] == "videos/v1/v1.mp4"
     v = video.ejecutar(raiz, privado, "v1", "menos texto", False, llamar)
@@ -41,3 +41,33 @@ def test_version_nueva_con_pedido_de_cambios(tmp_path, monkeypatch):
     assert len(datos["videos"][0]["versiones"]) == 2 and datos["videos"][0]["estado"] == "listo"
     v = video.ejecutar(raiz, privado, "v1", "", True, None)  # sin modelo: renderiza el guion guardado
     assert v["n"] == 3 and v["costo_usd"] == 0.0
+
+
+def test_marca_formato_voz_y_musica_del_video(tmp_path, monkeypatch):
+    raiz, privado = tmp_path / "pub", tmp_path / "priv"
+    (raiz / "docs" / "datos").mkdir(parents=True)
+    (raiz / "config").mkdir()
+    (raiz / "config" / "ajustes.json").write_text("{}", encoding="utf-8")
+    (raiz / "docs" / "datos" / "tarjetas.json").write_text(json.dumps({"tarjetas": [NOTICIA]}), encoding="utf-8")
+    (privado / "videos").mkdir(parents=True)
+    (privado / "instagram" / "audio").mkdir(parents=True)
+    (privado / "instagram" / "audio" / "tema.mp3").write_bytes(b"x")
+    (privado / "instagram" / "marcas.json").write_text(json.dumps({"activa": "a", "marcas": [
+        {"id": "a", "nombre": "Marca A", "voz": "es_AR-daniela-high"}, {"id": "b", "nombre": "Marca B"}]}), encoding="utf-8")
+    (privado / "videos" / "videos.json").write_text(json.dumps({"videos": [{"id": "v1", "noticia": NOTICIA["id"], "titulo": "x",
+        "formato": "polemica", "marca": "a", "voz": True, "musica": "tema.mp3", "volumen_musica": 0.3, "versiones": []}]}), encoding="utf-8")
+    vistos, render = {}, {}
+
+    def llamar(sistema, mensaje, modelo, max_tokens):
+        vistos["sistema"] = sistema
+        return json.dumps({"escenas": [{"tipo": "portada", "duracion": 4, "titulo": "Fulano Inventado gana", "voz": "Fulano Inventado ganó."}]}), {}
+
+    def renderizar(g, marca, imgs, salida, **kw):
+        render.update(kw, marca=marca)
+        return salida
+    monkeypatch.setattr(video, "renderizar", renderizar)
+    v = video.ejecutar(raiz, privado, "v1", "", False, llamar)
+    assert "Polémica" in vistos["sistema"] and "voz en off" in vistos["sistema"]
+    assert render["marca"]["nombre"] == "Marca A" and render["voz"] == "es_AR-daniela-high"
+    assert render["musica"].name == "tema.mp3" and render["volumen_musica"] == 0.3
+    assert v["guion"]["escenas"][0]["voz"] == "Fulano Inventado ganó." and v["marca"] == "a"
