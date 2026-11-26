@@ -1134,6 +1134,56 @@
       "tokens_salida": 9000,
       "costo_usd": 0.059842,
       "estado": "ok"
+    },
+    {
+      "fecha": "2026-11-26",
+      "id": "2026-11-26T14:11:21Z",
+      "tipo": "seleccion",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 7351,
+      "tokens_salida": 1029,
+      "costo_usd": 0.012496,
+      "estado": "ok"
+    },
+    {
+      "fecha": "2026-11-26",
+      "id": "2026-11-26T14:11:21Z",
+      "tipo": "redaccion",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 13411,
+      "tokens_salida": 7837,
+      "costo_usd": 0.185972,
+      "estado": "ok",
+      "tokens_cache_escritura": 106701,
+      "documentos_sei": "completos",
+      "medicion_sei": {
+        "sin_documentos": {
+          "tokens_entrada": 13412,
+          "tokens_salida": 9602,
+          "costo_usd": 0.061422,
+          "truncado": null
+        },
+        "tarjetas_sin_documentos": 9,
+        "con_documentos": {
+          "tokens_entrada": 13411,
+          "tokens_cache_escritura": 106701,
+          "tokens_cache_lectura": null,
+          "tokens_salida": 7837,
+          "costo_usd": 0.185972,
+          "truncado": null
+        },
+        "tarjetas_con_documentos": 8
+      }
+    },
+    {
+      "fecha": "2026-11-26",
+      "id": "2026-11-26T14:11:21Z",
+      "tipo": "medicion_sin_documentos",
+      "modelo": "claude-haiku-4-5",
+      "tokens_entrada": 13412,
+      "tokens_salida": 9602,
+      "costo_usd": 0.061422,
+      "estado": "ok"
     }
   ]
 }

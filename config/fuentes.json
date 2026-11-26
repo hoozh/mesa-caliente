@@ -55,13 +55,14 @@
       "idioma": "en",
       "region": "internacional",
       "estado": "activa",
-      "fallos_consecutivos": 0,
+      "fallos_consecutivos": 1,
       "ultimo_ok": "2026-11-26",
       "ultimo_intento": "2026-11-26",
-      "ultimos_titulares": 10,
+      "ultimos_titulares": 0,
       "clase": "medio",
       "tematica": "juego",
-      "ultimo_fallo": "2026-11-18"
+      "ultimo_fallo": "2026-11-26",
+      "ultimo_motivo": "sin contenido (no se encontraron titulares)"
     },
     {
       "nombre": "PokerNewsDaily",
