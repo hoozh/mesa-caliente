@@ -19,6 +19,7 @@ Clave: en GitHub, foto → **Settings** → **Developer settings** → **Persona
 |---|---|
 | Menú y secciones | `config/sitio.json`: marca, secciones (nombre, orden, en el menú, en portada, cantidad, regla por sección del barrido, región, tipo o palabras) y botones con enlace. |
 | Instagram | Repositorio privado (`instagram/`): marca de prueba, cuentas y accesos (sin contraseñas), posteos con vista previa 1080×1350 e imagen descargable. Sin fotos de medios. |
+| Videos | Repositorio privado (`videos/`): noticias propuestas para video, guion por escenas editable a mano con vista previa instantánea (`docs/video/reproductor.html`), «Pedirle cambios a Claude» y versiones en MP4 1080×1920. Los genera el flujo **Generar video** (`mesa/video.py`): Claude escribe o corrige el guion (unos US$ 0,01; las cifras se controlan contra la noticia) y Chromium + ffmpeg lo renderizan. Fotos propias en `instagram/imagenes/`. |
 | Propuestas | Botón «+ Propuesta» en todas las vistas; base de ideas en el repositorio privado (`propuestas/propuestas.json`). |
 | Noticias | `data/ediciones.json`: título, bajada, texto de la noticia, imágenes con fuente, secciones (y secciones nuevas), encabezado, destacar, ocultar, marcar para Instagram. Guarda el texto original y el historial con el motivo de cada corrección (material para que SEI aprenda). Al guardar, el flujo **Aplicar ediciones** regenera la página sin usar el modelo (sin costo). El dato del día (`data/dias/`) no se toca. |
 | Palabras clave prioritarias | `config/temas_calientes.json` (los temas calientes). |

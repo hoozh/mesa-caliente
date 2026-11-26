@@ -1,0 +1,78 @@
+name: Generar video
+
+# Video para Instagram (story o reel) a partir de una noticia. Se dispara desde el administrador (Instagram → Videos).
+# Con pedido: Claude escribe o corrige el guion (unos US$ 0,01). Con «solo_render»: renderiza el guion editado a mano, sin modelo.
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "Id del video (videos/videos.json del repositorio privado)"
+        required: true
+      pedido:
+        description: "Pedido de cambios para Claude (vacío: primera versión)"
+        required: false
+        default: ""
+      solo_render:
+        description: "Renderizar el guion actual sin llamar al modelo"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mesa-caliente-video
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Descargar el repositorio privado
+        uses: actions/checkout@v7
+        with:
+          repository: hoozh/mesa-caliente-privado
+          token: ${{ secrets.MESA_PRIVADO_TOKEN }}
+          path: privado
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt playwright==1.56.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+
+      - name: Escribir el guion y renderizar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MESA_MODELO: ${{ vars.MESA_MODELO }}
+          ID: ${{ inputs.id }}
+          PEDIDO: ${{ inputs.pedido }}
+          SOLO: ${{ inputs.solo_render }}
+        run: |
+          if [ "$SOLO" = "true" ]; then extra="--solo-render"; else extra=""; fi
+          python -m mesa.video --id "$ID" --pedido "$PEDIDO" $extra
+
+      - name: Guardar en el repositorio privado
+        working-directory: privado
+        env:
+          ID: ${{ inputs.id }}
+        run: |
+          git config user.name "mesa-caliente-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add videos
+          git commit -m "Video $ID ($(date -u '+%Y-%m-%d %H:%M') UTC)"
+          for intento in 1 2 3 4; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((intento * 5))
+          done
+          exit 1
