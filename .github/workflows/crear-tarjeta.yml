@@ -1,0 +1,98 @@
+name: Crear tarjeta desde el registro
+
+# Se dispara desde el administrador («Consultar registros» → «Crear tarjeta»). Una sola llamada al modelo,
+# con los documentos de SEI; la tarjeta queda oculta hasta que Hoozh la revise y la publique.
+on:
+  workflow_dispatch:
+    inputs:
+      origen:
+        description: "hechos (registro de noticias) o archivo (resultados no publicados)"
+        required: true
+      clave:
+        description: "Id del hecho o clave de la línea del archivo"
+        required: true
+      tamano:
+        description: "small, medium o large"
+        required: true
+        default: "medium"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mesa-caliente-barrido
+  cancel-in-progress: false
+
+jobs:
+  tarjeta:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      TIENE_PRIVADO: ${{ secrets.MESA_PRIVADO_TOKEN != '' }}
+      TIENE_SEI: ${{ secrets.SEI_LECTURA_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Descargar el repositorio privado
+        if: env.TIENE_PRIVADO == 'true'
+        uses: actions/checkout@v7
+        with:
+          repository: hoozh/mesa-caliente-privado
+          token: ${{ secrets.MESA_PRIVADO_TOKEN }}
+          path: privado
+
+      # Privacidad: igual que en el barrido (carpeta temporal fuera del repositorio; nada se imprime).
+      - name: Descargar los documentos de SEI
+        if: env.TIENE_SEI == 'true'
+        env:
+          SEI_LECTURA_TOKEN: ${{ secrets.SEI_LECTURA_TOKEN }}
+        run: |
+          set +x
+          carpeta="$RUNNER_TEMP/sei"
+          mkdir -p "$carpeta"
+          for f in guia-traduccion-poker.md reglas-comunes-sei.md estandar-editorial-notas.md redaccion-natural-anti-ia.md; do
+            if curl -sf -o "$carpeta/$f" \
+                 -H "Authorization: Bearer $SEI_LECTURA_TOKEN" \
+                 -H "Accept: application/vnd.github.raw+json" \
+                 "https://api.github.com/repos/hoozh/SEO-Articles/contents/docs/estandares/$f"; then
+              echo "Documento de SEI descargado: $f"
+            else
+              rm -f "$carpeta/$f"
+              echo "::warning::Falta el documento de SEI $f (la tarjeta se escribe sin él)."
+            fi
+          done
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Crear la tarjeta
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MESA_MODELO: ${{ vars.MESA_MODELO }}
+          MESA_DIR_PRIVADO: ${{ env.TIENE_PRIVADO == 'true' && format('{0}/privado', github.workspace) || '' }}
+          MESA_DIR_SEI: ${{ env.TIENE_SEI == 'true' && format('{0}/sei', runner.temp) || '' }}
+          ORIGEN: ${{ inputs.origen }}
+          CLAVE: ${{ inputs.clave }}
+          TAMANO: ${{ inputs.tamano }}
+        run: |
+          python -m mesa.crear_tarjeta --origen "$ORIGEN" --clave "$CLAVE" --tamano "$TAMANO"
+          python -m mesa.pagina
+
+      - name: Guardar en main
+        run: |
+          git config user.name "mesa-caliente-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          git commit -m "Tarjeta creada desde el registro (oculta, $(date -u '+%Y-%m-%d %H:%M') UTC)"
+          for intento in 1 2 3 4; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((intento * 5))
+          done
+          exit 1
