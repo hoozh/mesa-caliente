@@ -62,6 +62,7 @@ td.titulo { min-width: 220px; }
     <button data-v="personalidades">Personalidades</button>
     <button data-v="bases">Consultar registros</button>
     <button data-v="archivos">Archivos de SEI</button>
+    <a href="../historial.html" target="_blank" rel="noopener" style="display:block;padding:9px 20px;color:var(--mc-side-ink);text-decoration:none;font-weight:500">Historial por día ↗</a>
     <div class="grupo">Proyecto</div>
     <button data-v="propuestas">Propuestas</button>
     <div class="grupo">Cuenta</div>
@@ -200,7 +201,8 @@ td.titulo { min-width: 220px; }
     vista.innerHTML = `
     <div class="bloque"><div class="bh"><h2>Noticias publicadas</h2>
       <select class="form-select form-select-sm w-auto" id="n-dia"><option value="">Últimos 60 días</option>${dias.map(d => `<option value="${d}">${fechaLarga(d)}</option>`).join('')}</select>
-      <select class="form-select form-select-sm w-auto" id="n-sec"><option value="">Todas las secciones</option><option value="general">Escena mundial</option><option value="latam">Latinoamérica</option><option value="europa">Europa</option><option value="tema">Temas calientes</option></select>
+      <select class="form-select form-select-sm w-auto" id="n-sec"><option value="">Todo el barrido</option><option value="general">Escena mundial</option><option value="latam">Latinoamérica</option><option value="europa">Europa</option><option value="tema">Temas calientes</option></select>
+      <select class="form-select form-select-sm w-auto" id="n-secc"><option value="">Todas las secciones del sitio</option>${(SITIO.secciones || []).map(sc => `<option value="${esc(sc.id)}">${esc(sc.nombre)}</option>`).join('')}</select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="n-q" type="search" placeholder="Buscar…">
       <select class="form-select form-select-sm w-auto" id="n-est"><option value="">Todas</option><option value="ed">Editadas</option><option value="ocu">Ocultas</option><option value="ig">Marcadas para Instagram</option></select>
     </div><div class="bc"><p class="ayuda">Haga clic en «Editar» para corregir título, resumen o texto de la noticia, cambiar la foto, destacarla, ocultarla o marcarla para Instagram. Cada corrección queda registrada con el texto original, para que SEI aprenda de ella. La página se actualiza sola en uno o dos minutos.</p>
@@ -212,8 +214,9 @@ td.titulo { min-width: 220px; }
     </div></div></div>`;
     const filas = document.getElementById('n-filas');
     const pintar = () => {
+      const secc = document.getElementById('n-secc').value;
       const dia = document.getElementById('n-dia').value, sec = document.getElementById('n-sec').value, q = norm(document.getElementById('n-q').value), est = document.getElementById('n-est').value;
-      const r = T.filter(t => (!dia || t.dia === dia) && (!sec || (sec === 'europa' ? t.region === 'europa' : t.seccion === sec)) &&
+      const r = T.filter(t => (!secc || (t.secs || []).includes(secc) || ((E.tarjetas[t.id] || {}).secciones || []).includes(secc)) && (!dia || t.dia === dia) && (!sec || (sec === 'europa' ? t.region === 'europa' : t.seccion === sec)) &&
         (!q || norm(t.titulo + ' ' + (t.resumen || '')).includes(q)) && (!est || (est === 'ed' ? E.tarjetas[t.id] : est === 'ocu' ? (E.tarjetas[t.id] || {}).oculta : (E.tarjetas[t.id] || {}).instagram)));
       filas.innerHTML = r.slice(0, 300).map(t => { const e = E.tarjetas[t.id] || {};
         const estado = [e.oculta && '<span class="badge text-bg-secondary">Oculta</span>', e.destacada && '<span class="badge text-bg-danger">Destacada</span>', e.instagram && '<span class="badge text-bg-info">Instagram</span>', Object.keys(e).length && !e.oculta && '<span class="badge text-bg-light border">Editada</span>'].filter(Boolean).join(' ');
@@ -222,7 +225,7 @@ td.titulo { min-width: 220px; }
           <td class="titulo"><a href="../n/${esc(t.id)}.html" target="_blank" rel="noopener">${esc(e.titulo || t.titulo)}</a><div class="d-md-none ayuda mt-1">${esc(fechaLarga(t.dia))} · ${sec} ${estado}</div></td><td class="d-none d-md-table-cell">${estado}</td>
           <td><button class="btn btn-sm btn-outline-dark" data-id="${esc(t.id)}" type="button">Editar</button></td></tr>`; }).join('') || '<tr><td colspan="5" class="ayuda">No hay noticias con estos filtros.</td></tr>';
     };
-    ['n-dia', 'n-sec', 'n-q', 'n-est'].forEach(id => document.getElementById(id).addEventListener('input', pintar));
+    ['n-dia', 'n-sec', 'n-secc', 'n-q', 'n-est'].forEach(id => document.getElementById(id).addEventListener('input', pintar));
     pintar();
     const modal = new bootstrap.Modal(document.getElementById('m-ed'));
     let actual = null;
@@ -439,16 +442,22 @@ td.titulo { min-width: 220px; }
   VISTAS.bases = async () => {
     vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Registros</h2>
       <select class="form-select form-select-sm w-auto" id="d-base">${Object.entries(BASES).map(([k, b]) => `<option value="${k}">${b.n}</option>`).join('')}</select>
+      <select class="form-select form-select-sm w-auto" id="d-secc"><option value="">Todas las secciones</option></select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="d-q" type="search" placeholder="Buscar jugador, torneo, sala, fuente…"><span class="ayuda" id="d-n"></span></div>
       <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Se muestran hasta 300 filas, las más recientes primero.</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
     const cache = {};
+    const [tjB, stB] = await Promise.all([leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('config/sitio.json', { secciones: [] })]);
+    const mapaSecs = Object.fromEntries(tjB.datos.tarjetas.map(t => [t.id, t.secs || []]));
+    document.getElementById('d-secc').insertAdjacentHTML('beforeend', (stB.datos.secciones || []).map(sc => `<option value="${esc(sc.id)}">${esc(sc.nombre)}</option>`).join(''));
     const cargar = async () => { const k = document.getElementById('d-base').value, b = BASES[k];
       if (!cache[k]) cache[k] = (await leerJSONL(b.ruta, b.priv)).reverse();
-      const q = norm(document.getElementById('d-q').value); const r = cache[k].filter(x => !q || norm(JSON.stringify(x)).includes(q));
+      const q = norm(document.getElementById('d-q').value); const secc = document.getElementById('d-secc').value;
+      const r = cache[k].filter(x => (!q || norm(JSON.stringify(x)).includes(q)) && (!secc || k !== 'hechos' || (mapaSecs[x.id] || []).includes(secc)));
       document.getElementById('d-n').textContent = r.length + ' de ' + cache[k].length;
       document.getElementById('d-tabla').innerHTML = `<table class="table table-sm align-middle mb-0"><thead><tr>${b.cab.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${r.slice(0, 300).map(x => `<tr>${b.col(x).map((c, i) => `<td class="${i === 0 ? 'text-nowrap' : ''}">${i === 0 ? esc(fechaLarga(c)) : (k === 'archivo' && i === 1 ? esc(c) : c)}</td>`).join('')}</tr>`).join('') || `<tr><td colspan="3" class="ayuda">${cache[k].length ? 'Sin coincidencias.' : 'Todavía no hay datos en este registro.'}</td></tr>`}</tbody></table>`; };
     document.getElementById('d-base').onchange = () => cargar().catch(e => aviso(e.message, 'danger'));
     document.getElementById('d-q').oninput = () => cargar().catch(e => aviso(e.message, 'danger'));
+    document.getElementById('d-secc').onchange = () => { if (document.getElementById('d-base').value !== 'hechos') { document.getElementById('d-base').value = 'hechos'; } cargar().catch(e => aviso(e.message, 'danger')); };
     await cargar();
   };
 

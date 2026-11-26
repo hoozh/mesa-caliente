@@ -355,11 +355,17 @@ def generar(raiz: Path, hoy: date, generado: datetime, plantillas: Path | None =
     ctx = contexto(raiz, hoy, generado)
     # historial.html: la vista completa por día (la página de siempre, con salud de fuentes, costos y registro).
     escribir_texto(salida / "historial.html", entorno.get_template("index.html.j2").render(**ctx))
-    escribir_noticias(entorno, ctx, salida, plantillas)
+    # Secciones de cada noticia (regla de config/sitio.json + asignación manual): van en docs/datos/tarjetas.json
+    # para filtrar en el administrador y para que BIBLIO y SEI puedan buscar por sección.
+    sitio, tipos = cargar_sitio(raiz), tipos_del_registro(raiz)
+    secciones_por_id = {}
+    for t in todas_las_tarjetas(ctx) + ctx.get("ocultas", []):
+        t["tipo"] = "tema" if t["seccion"] == "tema" else tipos.get(t["nid"], t.get("tipo") or "otro")
+        secciones_por_id[t["nid"]] = secciones_de(t, sitio)
+    escribir_noticias(entorno, ctx, salida, plantillas, secciones_por_id)
     # index.html: la portada estilo portal, con el menú y las secciones de config/sitio.json.
     if (plantillas / "portada.html.j2").exists():
-        sitio = cargar_sitio(raiz)
-        tarjetas = datos_portada(ctx, sitio, tipos_del_registro(raiz))
+        tarjetas = datos_portada(ctx, sitio, tipos)
         escribir_texto(salida / "index.html", entorno.get_template("portada.html.j2").render(
             sitio=sitio, tarjetas=tarjetas, hoy_texto=ctx["hoy_texto"], salud=ctx["salud"], generado=ctx["generado"]))
         shutil.copyfile(plantillas / "portada.css", salida / "portada.css")
@@ -384,7 +390,7 @@ def todas_las_tarjetas(ctx: dict) -> list[dict]:
     return lista
 
 
-def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path) -> int:
+def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path, secciones_por_id: dict | None = None) -> int:
     """Una página por noticia (docs/n/<id>.html): resumen dentro de Mesa Caliente que cierra con las fuentes.
     Además, docs/datos/tarjetas.json para el administrador (últimos 60 días, con el texto original)."""
     if not (plantillas / "noticia.html.j2").exists():
@@ -405,6 +411,7 @@ def escribir_noticias(entorno, ctx: dict, salida: Path, plantillas: Path) -> int
               "resumen": t.get("original_resumen"), "clasificacion": t.get("clasificacion"),
               "imagen": t.get("imagen"), "region": t.get("region"), "oculta": bool(t.get("oculta")),
               "cuerpo": t.get("original_cuerpo") or "", "imagenes": t.get("original_imagenes") or [],
+              "tipo": t.get("tipo") or "", "secs": (secciones_por_id or {}).get(t["nid"], []),
               "fuentes": [{"nombre": f.get("nombre"), "url": f.get("url")} for f in t.get("fuentes", [])]
                          or [{"nombre": n.get("fuente"), "url": n.get("url")} for n in t.get("novedades", [])]}
              for t in tarjetas + ctx.get("ocultas", []) if t["dia"] >= limite]
