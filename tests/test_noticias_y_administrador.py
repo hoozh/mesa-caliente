@@ -127,3 +127,13 @@ def test_cuerpo_largo_se_verifica_parrafo_por_parrafo_e_imagenes_con_fuente():
     cuerpo, cambios = modelo.verificar_cuerpo("Fulano Inventado ganó $50,000 en el Ficticio Open.\n\nMengano Falso ganó $900,000 en otro lado.",
                                               "Fulano Inventado gana", items)
     assert cuerpo == "Fulano Inventado ganó $50,000 en el Ficticio Open." and cambios
+
+
+def test_redaccion_pide_formato_gipsyteam_y_tarjetas_con_secciones(raiz_temporal):
+    assert "3 o 4 párrafos" in modelo.SISTEMA and '"$110,938"' in modelo.SISTEMA and "2.310 inscripciones" in modelo.SISTEMA
+    nid = _dia(raiz_temporal)
+    (raiz_temporal / "config" / "sitio.json").write_text(json.dumps({"secciones": [
+        {"id": "reglas", "nombre": "Reglas", "visible": True, "regla": {"palabras": ["regla de tiempo"]}}]}), encoding="utf-8")
+    pagina.generar(raiz_temporal, AHORA.date(), AHORA)
+    datos = {t["id"]: t for t in leer_json(raiz_temporal / "docs" / "datos" / "tarjetas.json")["tarjetas"]}
+    assert datos[nid]["secs"] == ["reglas"]
