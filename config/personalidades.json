@@ -1,95 +1,185 @@
 {
-  "nota": "Personalidades muy reconocidas del poker: sus noticias tienen prioridad en la selección (salvo un simple resultado fuera de la regla de resultados). Lista editable a mano; más adelante, desde el administrador. Cada persona: nombre y, si se quiere, alias.",
+  "nota": "Personalidades muy reconocidas del poker, editables a mano o desde el administrador. Cada persona: nombre, alias (lista), historica (true si sus resultados merecen tarjeta aunque no sea latinoamericana: figuras históricas como Negreanu o Hellmuth) y perfil (resumen con datos que Hoozh quiera dejar; SEI puede leerlo). Sus noticias tienen prioridad en la selección.",
   "personalidades": [
     {
-      "nombre": "Daniel Negreanu"
+      "nombre": "Daniel Negreanu",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Phil Hellmuth"
+      "nombre": "Phil Hellmuth",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Phil Ivey"
+      "nombre": "Phil Ivey",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Doug Polk"
+      "nombre": "Doug Polk",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Tom Dwan"
+      "nombre": "Tom Dwan",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Phil Galfond"
+      "nombre": "Phil Galfond",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Dan Cates"
+      "nombre": "Dan Cates",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Fedor Holz"
+      "nombre": "Fedor Holz",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Justin Bonomo"
+      "nombre": "Justin Bonomo",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Jason Koon"
+      "nombre": "Jason Koon",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Kristen Foxen"
+      "nombre": "Kristen Foxen",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Alex Foxen"
+      "nombre": "Alex Foxen",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Maria Konnikova"
+      "nombre": "Maria Konnikova",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Garrett Adelstein"
+      "nombre": "Garrett Adelstein",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Alan Keating"
+      "nombre": "Alan Keating",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Shaun Deeb"
+      "nombre": "Shaun Deeb",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Erik Seidel"
+      "nombre": "Erik Seidel",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Stephen Chidwick"
+      "nombre": "Stephen Chidwick",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Lex Veldhuis"
+      "nombre": "Lex Veldhuis",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Andrew Robl"
+      "nombre": "Andrew Robl",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Ryan Feldman"
+      "nombre": "Ryan Feldman",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Mike Matusow"
+      "nombre": "Mike Matusow",
+      "alias": [],
+      "historica": true,
+      "perfil": ""
     },
     {
-      "nombre": "Adrián Mateos"
+      "nombre": "Adrián Mateos",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Leo Margets"
+      "nombre": "Leo Margets",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Sergio Aido"
+      "nombre": "Sergio Aido",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Damián Salas"
+      "nombre": "Damián Salas",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Nacho Barbero"
+      "nombre": "Nacho Barbero",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Felipe Ramos"
+      "nombre": "Felipe Ramos",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Yuri Martins"
+      "nombre": "Yuri Martins",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     },
     {
-      "nombre": "Rafael Moraes"
+      "nombre": "Rafael Moraes",
+      "alias": [],
+      "historica": false,
+      "perfil": ""
     }
   ]
 }

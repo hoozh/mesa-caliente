@@ -1,0 +1,4 @@
+{
+  "nota": "Búsquedas activas: cada consulta se busca en Google Noticias (últimos 3 días) y sus titulares se suman al barrido como una fuente más, sin quitar lugar a las fuentes habituales. Se editan desde el administrador. Campos: consulta, alta, hasta (fecha AAAA-MM-DD en que deja de buscarse), estado (activa o inactiva).",
+  "busquedas": []
+}

@@ -341,11 +341,11 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
     })
 
 
-def cargar_personalidades(raiz: Path) -> list[str]:
+def cargar_personalidades(raiz: Path, solo_historicas: bool = False) -> list[str]:
     datos = leer_json(Path(raiz) / "config" / "personalidades.json", {}) or {}
     nombres = []
     for p in datos.get("personalidades", []):
-        if isinstance(p, dict) and p.get("nombre"):
+        if isinstance(p, dict) and p.get("nombre") and (p.get("historica") or not solo_historicas):
             alias = [a for a in p.get("alias") or [] if a]
             nombres.append(p["nombre"] + (f" ({', '.join(alias)})" if alias else ""))
     return nombres
@@ -441,7 +441,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
         vistos_antes = dict(vistos["urls"])
         leidos: list[dict] = []
         items, informe, recogidos = recoleccion.recolectar(
-            fuentes, hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
+            fuentes + recoleccion.fuentes_de_busquedas(raiz, hoy), hoy, ahora, set(vistos["urls"]), ajustes, descargar, corte,
             prioridad=prioridad, descartar_dia1=descartar_dia1, leidos=leidos)
         ventana = recoleccion.seleccionar(items, ajustes.get("max_titulares_enviados", 120))
         descartes = contar_descartes(informe, items, ventana)
@@ -496,7 +496,8 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 guardar_entradas(raiz, hoy, corrida["id"], a_elegir, tipo="seleccion")
                 try:
                     sel = modelo.seleccionar_hechos(a_elegir, ajustes, llamar, previos, corte, publicadas_antes,
-                                                    salas=salas, personalidades=cargar_personalidades(raiz))
+                                                    salas=salas, personalidades=cargar_personalidades(raiz),
+                                                    historicas=cargar_personalidades(raiz, solo_historicas=True))
                     corrida["uso_seleccion"] = sel["uso"]
                     # Resultados fuera de la regla: no se redactan; quedan en el archivo con sus fuentes.
                     al_archivo = [g for g in sel["hechos"] if g["seccion"] == "archivo"]
@@ -557,7 +558,7 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 resultado = modelo.resumir(redaccion, ajustes, llamar, hoy, previos, corte,
                                            publicado_por_tema(raiz, hoy, temas_activos), grupos=grupos or None,
                                            faltan=max(0, meta_n - publicadas_antes), max_tokens=max_salida,
-                                           salas=salas)
+                                           salas=salas, historicas=cargar_personalidades(raiz, solo_historicas=True))
                 if resultado.get("temas"):
                     corrida["temas"] = resultado["temas"]
                 corrida["controles"] += resultado.get("controles", [])

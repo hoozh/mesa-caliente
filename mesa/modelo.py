@@ -53,7 +53,7 @@ Qué no publicar:
 - Notas sin dato concreto: un resultado debe nombrar al ganador; toda tarjeta necesita al menos un nombre, un monto o un evento con nombre. Si el titular no los trae ("campeón francés en Marrakesh", "una mano decide al campeón"), no cree la tarjeta salvo que el extracto los dé.
 - Hechos ya publicados (ver más abajo), salvo con un desarrollo nuevo y concreto.
 
-Regla de resultados: un resultado de torneo solo se publica si es (a) la definición de un circuito o torneo nacional de América Latina (campeón o mesa final), o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton). Esos van en "escena_latam". Ningún otro resultado se publica, tampoco avances de días iniciales.
+Regla de resultados: un resultado de torneo solo se publica si es (a) la definición de un circuito o torneo nacional de América Latina (campeón o mesa final), o (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial (WSOP en todas sus variantes, WPT, LAPT, EPT, Triton); esos van en "escena_latam". También (c) un resultado de una figura histórica del poker o uno que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes o títulos); esos van en "tarjetas". Ningún otro resultado se publica, tampoco avances de días iniciales.
 
 Reglas estrictas:
 - REGLA MÁXIMA: nunca invente datos. Toda cifra, nombre, cargo, edad, nacionalidad, fecha, lugar, cita o hecho que escriba debe estar en el texto de las notas que cita esa tarjeta (o esa novedad). Si una fuente no precisa algo, escriba "la fuente no precisa …"; nunca lo complete con su conocimiento. El programa borra lo que no pueda rastrear y descarta la tarjeta si pierde su dato principal.
@@ -88,7 +88,8 @@ Personalidades muy reconocidas (sus noticias tienen prioridad, salvo que sean so
 
 Regla de resultados de torneos: un resultado solo se publica si es
   (a) la definición de un circuito o torneo nacional de América Latina (campeón o mesa final), o
-  (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial: WSOP (todas sus variantes), WPT, LAPT, EPT o Triton.
+  (b) una mesa final o mejor de un jugador latinoamericano en una serie de marca mundial: WSOP (todas sus variantes), WPT, LAPT, EPT o Triton, o
+  (c) un resultado de una figura histórica del poker ({historicas}) o un resultado que bate un récord o mueve una lista histórica (all-time money list, cantidad de brazaletes o títulos y similares). Estos van en "general".
 Todos los demás resultados (de cualquier país, también avances de días iniciales y líderes de fichas) van a la sección "archivo": no se publican, pero quedan guardados con sus fuentes.
 
 Tareas:
@@ -525,6 +526,19 @@ def categoria_descarte(motivo: str) -> str | None:
     return None
 
 
+_RECORD = re.compile(r"\b(r[eé]cords?|all[- ]time|hist[oó]ric[oa]s?|lista hist[oó]rica|money list|m[aá]s brazaletes|"
+                     r"m[aá]s t[ií]tulos|iguala|supera a|leaderboard de todos los tiempos)\b", re.I)
+
+
+def resultado_excepcional(tarjeta: dict, historicas: list[str] | None) -> bool:
+    """Resultado que se publica aunque no sea latino: figura histórica o récord / lista histórica."""
+    texto = f"{tarjeta.get('titulo', '')} {tarjeta.get('resumen', '')}"
+    if _RECORD.search(texto):
+        return True
+    nombres = [re.sub(r"\s*\(.*\)$", "", h) for h in historicas or []]
+    return any(n and n.lower() in texto.lower() for n in nombres)
+
+
 def _rescatar_json(texto: str) -> dict:
     """Si la salida se cortó, rescata los elementos completos de cada lista (temas, tarjetas, escena_latam)."""
     decodificador = json.JSONDecoder()
@@ -588,7 +602,7 @@ def _con_costo(uso: dict, modelo: str, ajustes: dict) -> dict:
 
 def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, previos=None,
                        corte: datetime | None = None, publicadas: int = 0, salas: dict | None = None,
-                       personalidades: list[str] | None = None) -> dict:
+                       personalidades: list[str] | None = None, historicas: list[str] | None = None) -> dict:
     """Primera llamada: elige y agrupa hechos a partir de titulares y primeras líneas (sin extractos).
     Devuelve {'hechos': [{'ids', 'seccion', 'nivel', 'actualiza'}], 'uso', 'descartados'}."""
     previos = normalizar_previos(previos)[: ajustes.get("max_titulos_previos", 80)]
@@ -599,6 +613,7 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
                                max_europa=ajustes.get("max_hechos_europa", 6),
                                max_archivo=ajustes.get("max_hechos_archivo", 40),
                                personalidades=", ".join(personalidades or []) or "(lista vacía)",
+                               historicas=", ".join(historicas or []) or "Daniel Negreanu, Phil Hellmuth",
                                **textos_salas(salas))
     mensaje = construir_mensaje(items, previos, corte, con_extractos=False)
     texto, uso = llamar(sistema, mensaje, modelo, ajustes.get("max_tokens_seleccion", 1200))
@@ -641,7 +656,7 @@ def seleccionar_hechos(items: list[dict], ajustes: dict, llamar: Llamador = llam
 def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropic, hoy=None,
             previos=None, corte: datetime | None = None, publicado_temas: dict[str, str] | None = None,
             grupos: list[dict] | None = None, faltan: int | None = None, max_tokens: int | None = None,
-            salas: dict | None = None) -> dict:
+            salas: dict | None = None, historicas: list[str] | None = None) -> dict:
     """Redacción. Devuelve {'tarjetas', 'escena_latam', 'temas', 'controles', 'uso'} o lanza ErrorModelo.
     Además devuelve, para el registro permanente, 'fichas' (una por tarjeta o tema publicado, con lo que propuso
     el modelo y las notas que cita) y 'cambios_salas' (crudos): los verifica mesa/registro.py.
@@ -689,6 +704,8 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
         crudo = f.get("crudo") if isinstance(f.get("crudo"), dict) else {}
         if f["seccion"] in ("general", "europa") and str(crudo.get("tipo") or "") == "resultado":
             t = f["tarjeta"]
+            if resultado_excepcional(t, historicas):
+                continue  # figura histórica o récord: se publica (decisión del 26 nov)
             tarjetas = [x for x in tarjetas if x is not t]
             fichas.remove(f)
             archivo.append({"titulo": t["titulo"], "resumen": t["resumen"], "fuentes": t["fuentes"], "motivo": "redaccion"})

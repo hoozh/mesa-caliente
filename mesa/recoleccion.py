@@ -101,6 +101,13 @@ def parsear_rss(texto: str, fuente: dict) -> list[dict]:
             resumen = resumen[len(titulo):]
         if not re.search(r"[^\W\d_]{3}", resumen):  # solo números o símbolos
             resumen = ""
+        if fuente.get("busqueda"):
+            medio = (e.get("source") or {}).get("title") or (titulo.rsplit(" - ", 1)[-1] if " - " in titulo else "")
+            if "gipsyteam" in medio.lower().replace(" ", ""):
+                continue  # ningún sitio de GipsyTeam como fuente
+            if medio and titulo.endswith(f" - {medio}"):
+                titulo = titulo[: -len(medio) - 3]
+            resumen = ""
         item = _item(fuente, url, titulo, _fecha_entrada(e), primera_oracion(resumen))
         if fuente.get("uso") == "descubrimiento":
             item["enlaces"] = _enlaces_externos(html_resumen, url)
@@ -242,6 +249,34 @@ def _item(fuente: dict, url: str, titulo: str, fecha: datetime | None, linea: st
         "clase": fuente.get("clase", "medio"),
         "tematica": fuente.get("tematica", "poker"),
     }
+
+
+# ---------------------------------------------------------------- búsquedas activas (administrador)
+
+def fuentes_de_busquedas(raiz, hoy: date) -> list[dict]:
+    """Búsquedas activas de config/busquedas.json convertidas en fuentes temporales (Google Noticias por RSS).
+    Se suman a las fuentes habituales sin quitarles lugar; no se guardan en config/fuentes.json."""
+    from pathlib import Path
+    from urllib.parse import quote_plus
+    from .util import leer_json
+    datos = leer_json(Path(raiz) / "config" / "busquedas.json", {}) or {}
+    fuentes = []
+    for b in datos.get("busquedas", []):
+        consulta = str(b.get("consulta") or "").strip()
+        if not consulta or b.get("estado", "activa") != "activa":
+            continue
+        if b.get("hasta") and str(b["hasta"]) < hoy.isoformat():
+            continue
+        fuentes.append({
+            "nombre": f"Búsqueda: {consulta}",
+            "tipo": "rss",
+            "url": f"https://news.google.com/rss/search?q={quote_plus(consulta)}+when:3d&hl=es-419&gl=US&ceid=US:es-419",
+            "region": "internacional",
+            "clase": "medio",
+            "max_titulares": int(b.get("max_titulares") or 5),
+            "busqueda": True,
+        })
+    return fuentes
 
 
 def es_nota_de_poker(item: dict) -> bool:

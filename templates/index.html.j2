@@ -14,14 +14,14 @@
 <body>
 <main>
 {% macro tarjeta(t) %}
-<article class="card">
+<article class="card{% if t.destacada %} card-destacada{% endif %}">
   <div class="card-top">
     <span class="badge {{ t.clasificacion }}">{{ etiquetas.get(t.clasificacion, t.clasificacion) }}</span>
     {% if t.nivel == 2 %}<span class="badge nivel2">Segundo nivel</span>{% endif %}
     {% if t.region == 'europa' %}<span class="badge nivel2">Europa</span>{% endif %}
     <span class="card-date">{{ t.fecha }}</span>
   </div>
-  <h2>{{ t.titulo }}</h2>
+  <h2><a class="titulo-noticia" href="n/{{ t.nid }}.html">{{ t.titulo }}</a></h2>
   {% if t.novedad %}
   <p class="update-note"><b>Qué cambió:</b> {{ t.novedad }}{% if t.actualiza %} <span class="update-prev">(actualiza «{{ t.actualiza }}»)</span>{% endif %}</p>
   {% endif %}
@@ -47,13 +47,13 @@
 {% endmacro %}
 
 {% macro tarjeta_tema(t) %}
-<article class="card card-tema">
+<article class="card card-tema{% if t.destacada %} card-destacada{% endif %}">
   <div class="card-top">
     <span class="badge tema">Tema caliente</span>
     <span class="card-date">{{ t.novedades | length }} novedad{{ '' if t.novedades | length == 1 else 'es' }}</span>
   </div>
-  <h2>{{ t.tema }}</h2>
-  {% if t.linea %}<p class="summary">{{ t.linea }}</p>{% endif %}
+  <h2><a class="titulo-noticia" href="n/{{ t.nid }}.html">{{ t.titulo }}</a></h2>
+  {% if t.resumen %}<p class="summary">{{ t.resumen }}</p>{% endif %}
   <ul class="tema-novedades">
   {% for n in t.novedades %}
     <li>
