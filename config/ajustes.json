@@ -10,7 +10,7 @@
   "max_articulos_abiertos": 20,
   "max_caracteres_extracto": 1200,
   "max_tokens_salida": 9000,
-  "max_costo_usd_por_corrida": 0.12,
+  "max_costo_usd_por_corrida": 0.18,
   "max_tarjetas": 14,
   "max_tarjetas_latam": 6,
   "meta_diaria": 10,
@@ -48,6 +48,6 @@
   "max_tokens_brief": 2000,
   "max_hechos_europa": 6,
   "max_hechos_archivo": 40,
-  "max_costo_usd_por_dia": 0.12,
+  "max_costo_usd_por_dia": 0.18,
   "max_tokens_salida_medicion": 16000
 }
