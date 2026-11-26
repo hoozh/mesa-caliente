@@ -23,8 +23,23 @@ def _hecho(fecha, titulo, fuentes, temas=(), seccion="general", jugadores=(), to
             "torneo": torneo, "pais_evento": "", "temas_calientes": list(temas), "fuentes": fuentes}
 
 
+def _manuales(raiz, *nombres):
+    (raiz / "config").mkdir(exist_ok=True)
+    (raiz / "config" / "temas_calientes.json").write_text(json.dumps({"temas": [
+        {"nombre": n, "palabras_clave": [n], "alta": "2026-10-01", "estado": "activo"} for n in nombres]}),
+        encoding="utf-8")
+
+
+def _automaticos(raiz, *nombres):
+    (raiz / "data").mkdir(exist_ok=True)
+    (raiz / "data" / "temas_auto.json").write_text(json.dumps({"temas": [
+        {"nombre": n, "palabras_clave": [n[6:]], "alta": "2026-10-01", "estado": "activo"} for n in nombres]}),
+        encoding="utf-8")
+
+
 def _registro(raiz):
     shutil.copy(RAIZ / "config" / "salas_vigiladas.json", raiz / "config" / "salas_vigiladas.json")
+    _manuales(raiz, "Caso Ficticio")
     hechos = [
         # Semana anterior (W42): el tema ya estaba.
         _hecho("2026-10-14", "Caso Ficticio: primera denuncia", [_f("Medio Uno", 1)], temas=["Caso Ficticio"]),
@@ -239,25 +254,91 @@ def test_el_reintento_respeta_el_tope_de_costo(raiz_temporal):
     assert "no alcanza el tope de costo" in brief["intentos"][0]["error"]
 
 
-def test_idea_de_tema_automatico_se_nombra_por_el_torneo_o_el_hecho():
+def _ideas(raiz, hechos):
+    shutil.copy(RAIZ / "config" / "salas_vigiladas.json", raiz / "config" / "salas_vigiladas.json")
+    shutil.copy(RAIZ / "config" / "temas_generales.json", raiz / "config" / "temas_generales.json")
+    clases = semanal.clases_de_temas(raiz, hechos)
+    return clases, semanal.ideas_candidatas(hechos, date(2026, 10, 19), date(2026, 10, 25), clases)
+
+
+def test_idea_de_tema_automatico_se_nombra_por_el_torneo_o_el_hecho(raiz_temporal):
+    _manuales(raiz_temporal, "Tema: Caso con prefijo")  # manual aunque empiece con «Tema: »
+    _automaticos(raiz_temporal, "Tema: Ocean Ficticio", "Tema: Ficticia Rush", "Caso Ficticio")
     hechos = [
         _hecho("2026-10-20", "Fulano Inventado gana el Evento #1", [_f("Medio Uno", 1)],
-               temas=["Tema: No-Limit Hold'em"], torneo="Serie Ficticia 2026"),
+               temas=["Tema: Ocean Ficticio"], torneo="Serie Ficticia 2026"),
         _hecho("2026-10-21", "Mengana Ficticia gana el Evento #2", [_f("Medio Dos", 2)],
-               temas=["Tema: No-Limit Hold'em"], torneo="Serie Ficticia 2026"),
+               temas=["Tema: Ocean Ficticio"], torneo="Serie Ficticia 2026"),
         _hecho("2026-10-22", "Zutano Imaginario gana el Evento #3", [_f("Medio Uno", 3)],
-               temas=["Tema: No-Limit Hold'em"], torneo="Serie Ficticia"),
+               temas=["Tema: Ocean Ficticio"]),
         # Un solo hecho, sin torneo: la idea es el hecho.
         _hecho("2026-10-23", "Perengano Supuesto derrota a Fulano Real en el Evento #9",
-               [_f("Medio Uno", 4), _f("Medio Dos", 5), _f("Medio Tres", 6)], temas=["Tema: Hendon Mob"]),
-        # Un tema manual conserva su nombre.
-        _hecho("2026-10-20", "Caso Ficticio: la sala responde", [_f("Medio Uno", 7)], temas=["Caso Ficticio"],
+               [_f("Medio Uno", 4), _f("Medio Dos", 5), _f("Medio Tres", 6)], temas=["Tema: Ficticia Rush"]),
+        # El origen decide, no el prefijo: un tema manual con «Tema: » conserva su nombre y uno automático
+        # sin prefijo se nombra por el hecho.
+        _hecho("2026-10-20", "Primera novedad del caso", [_f("Medio Uno", 7)], temas=["Tema: Caso con prefijo"],
                torneo="Otra Serie"),
-        _hecho("2026-10-24", "Caso Ficticio: segunda denuncia", [_f("Medio Uno", 8)], temas=["Caso Ficticio"]),
+        _hecho("2026-10-24", "Segunda novedad del caso", [_f("Medio Uno", 8)], temas=["Tema: Caso con prefijo"]),
+        _hecho("2026-10-24", "Caso Ficticio: la sala responde",
+               [_f("Medio Uno", 9), _f("Medio Dos", 10), _f("Medio Tres", 11)], temas=["Caso Ficticio"]),
     ]
-    ideas = [i["tema"] for i in semanal.ideas_candidatas(hechos, date(2026, 10, 19), date(2026, 10, 25))]
-    assert sorted(ideas) == sorted(["Serie Ficticia 2026", "Perengano Supuesto derrota a Fulano Real en el Evento #9",
-                                    "Caso Ficticio"])
+    clases, ideas = _ideas(raiz_temporal, hechos)
+    assert clases == {"Tema: Caso con prefijo": "manual", "Tema: Ocean Ficticio": "automatico",
+                      "Tema: Ficticia Rush": "automatico", "Caso Ficticio": "automatico"}
+    assert sorted(i["tema"] for i in ideas) == sorted([
+        "Serie Ficticia 2026", "Perengano Supuesto derrota a Fulano Real en el Evento #9",
+        "Tema: Caso con prefijo", "Caso Ficticio: la sala responde"])
+
+
+def test_temas_generales_y_de_jugador_no_agrupan_ni_son_idea(raiz_temporal):
+    _automaticos(raiz_temporal, "Tema: No-Limit Hold'em", "Tema: Hendon Mob", "Tema: KK Poker",
+                 "Tema: Fulano Inventado", "Tema: Mengana Ficticia")
+    hechos = [
+        # Un tema de juego junta dos torneos distintos: ya no los agrupa.
+        _hecho("2026-10-20", "Primer evento de la Serie Ficticia", [_f("Medio Uno", 1), _f("Medio Dos", 2)],
+               temas=["Tema: No-Limit Hold'em"], torneo="Serie Ficticia 2026"),
+        _hecho("2026-10-22", "Segundo evento de la Serie Ficticia", [_f("Medio Tres", 3)],
+               temas=["Tema: No-Limit Hold'em"], torneo="Serie Ficticia 2026"),
+        _hecho("2026-10-21", "Otro circuito abre su temporada", [_f("Medio Uno", 4), _f("Medio Dos", 5), _f("Medio Tres", 19)],
+               temas=["Tema: No-Limit Hold'em"], torneo="Circuito Ficticio"),
+        # Base de datos y sala: solo un hecho cada uno, sin torneo; la idea es el hecho.
+        _hecho("2026-10-23", "Perengano Supuesto suma su décimo título",
+               [_f("Medio Uno", 6), _f("Medio Dos", 7), _f("Medio Tres", 8)], temas=["Tema: Hendon Mob"]),
+        _hecho("2026-10-23", "Tema: KK Poker", [_f("Medio Uno", 9), _f("Medio Dos", 10), _f("Medio Tres", 11)],
+               temas=["Tema: KK Poker"], seccion="tema"),
+        # Jugador (figura en el campo «jugadores» del registro): su tarjeta de tema no es idea por sí sola…
+        _hecho("2026-10-24", "Tema: Fulano Inventado", [_f("Medio Uno", 12), _f("Medio Dos", 13),
+               _f("Medio Tres", 14)], temas=["Tema: Fulano Inventado"], seccion="tema",
+               jugadores=[{"nombre": "Fulano Inventado", "pais": ""}]),
+        _hecho("2026-10-25", "Tema: Fulano Inventado", [_f("Medio Uno", 15)], temas=["Tema: Fulano Inventado"],
+               seccion="tema", jugadores=[{"nombre": "Fulano Inventado", "pais": ""}]),
+        # …y con torneo, la idea es el torneo.
+        _hecho("2026-10-24", "Tema: Mengana Ficticia", [_f("Medio Uno", 16), _f("Medio Dos", 17),
+               _f("Medio Tres", 18)], temas=["Tema: Mengana Ficticia"], seccion="tema", torneo="Copa Ficticia",
+               jugadores=[{"nombre": "Mengana Ficticia", "pais": ""}]),
+    ]
+    clases, ideas = _ideas(raiz_temporal, hechos)
+    assert clases == {"Tema: No-Limit Hold'em": "general", "Tema: Hendon Mob": "general", "Tema: KK Poker": "general",
+                      "Tema: Fulano Inventado": "jugador", "Tema: Mengana Ficticia": "jugador"}
+    por_nombre = {i["tema"]: i for i in ideas}
+    assert sorted(por_nombre) == sorted(["Serie Ficticia 2026", "Otro circuito abre su temporada",
+                                         "Perengano Supuesto suma su décimo título", "Copa Ficticia"])
+    assert {h["torneo"] for h in por_nombre["Serie Ficticia 2026"]["hechos"]} == {"Serie Ficticia 2026"}
+    assert all("tema caliente" not in i["motivo"] for i in ideas)
+
+
+def test_titulo_parecido_no_junta_torneos_distintos():
+    hechos = [
+        _hecho("2026-10-20", "Fulano Inventado gana el Main Event por US$ 50.000", [_f("Medio Uno", 1)],
+               torneo="Serie Ficticia"),
+        _hecho("2026-10-22", "Fulano Inventado gana el Main Event por US$ 50.000", [_f("Medio Dos", 2)],
+               torneo="Circuito Ficticio"),
+        # El mismo torneo escrito con otras mayúsculas o tildes sí es el mismo.
+        _hecho("2026-10-21", "Mengana Ficticia lidera", [_f("Medio Uno", 3)], torneo="Copa Ficticia"),
+        _hecho("2026-10-23", "Zutano Imaginario gana", [_f("Medio Uno", 4)], torneo="COPA FICTÍCIA"),
+    ]
+    ideas = semanal.ideas_candidatas(hechos, date(2026, 10, 19), date(2026, 10, 25))
+    assert [i["tema"] for i in ideas] == ["Copa Ficticia"]
 
 
 # ---------------------------------------------------------------- carga del historial

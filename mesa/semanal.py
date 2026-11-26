@@ -22,6 +22,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from . import calidad, control, modelo
 from . import registro as registro_mod
+from . import temas as temas_mod
 from .util import RAIZ, ahora_utc, escribir_json, escribir_texto, fecha_corta, leer_json, limpiar_texto
 
 SISTEMA_BRIEF = """Usted prepara el brief semanal interno de "Mesa Caliente" para el equipo editorial. Escriba en español neutro y formal, sin voseo (use "usted" o formas impersonales).
@@ -98,8 +99,48 @@ def fuentes_nuevas(todos: list[dict], desde: date, hasta: date) -> list[dict]:
     return sorted(nuevas.values(), key=lambda f: -len(f["hechos"]))
 
 
-def _agrupar(semana: list[dict]) -> list[list[dict]]:
-    """Grupos del mismo hecho o tema: comparten un tema caliente, el mismo torneo o un título casi igual."""
+def clases_de_temas(raiz: Path, todos: list[dict]) -> dict[str, str]:
+    """Clase de cada tema caliente del registro, según el archivo de donde viene:
+    - «manual»: está en config/temas_calientes.json (conserva su nombre);
+    - «general»: automático (data/temas_auto.json) con nombre de juego, formato, base, herramienta o sala;
+    - «jugador»: automático con el nombre de una persona del campo «jugadores» del registro;
+    - «automatico»: los demás automáticos;
+    - «sin_origen»: no figura en ninguno de los dos archivos (por ejemplo, un tema manual ya quitado).
+    Los temas «general» y «jugador» no agrupan hechos ni dan nombre a una idea de artículo."""
+    manuales = {t.get("nombre") for t in temas_mod.cargar_manual(raiz).get("temas", [])}
+    automaticos = {t.get("nombre") for t in (leer_json(temas_mod.ruta_auto(raiz), {}) or {}).get("temas", [])}
+    generales = temas_mod.cargar_generales(raiz)
+    jugadores = {calidad.sin_tildes(j["nombre"]).strip() for h in todos for j in h.get("jugadores") or []
+                 if j.get("nombre")}
+    clases = {}
+    for nombre in {t for h in todos for t in h.get("temas_calientes") or []}:
+        base = temas_mod.nombre_sin_prefijo(nombre)
+        if nombre in manuales:
+            clases[nombre] = "manual"
+        elif nombre not in automaticos:
+            clases[nombre] = "sin_origen"
+        elif temas_mod.categoria_general(base, generales):
+            clases[nombre] = "general"
+        elif calidad.sin_tildes(base).strip() in jugadores:
+            clases[nombre] = "jugador"
+        else:
+            clases[nombre] = "automatico"
+    return clases
+
+
+NO_AGRUPAN = {"general", "jugador"}
+
+
+def _torneo(h: dict) -> str:
+    return " ".join(calidad.sin_tildes(h.get("torneo") or "").split())
+
+
+def _agrupar(semana: list[dict], clases: dict[str, str]) -> list[list[dict]]:
+    """Grupos del mismo hecho o tema: comparten un tema caliente que agrupa (no «general» ni «jugador»),
+    el mismo torneo o serie (el campo «torneo» igual, sin distinguir mayúsculas ni tildes), o tienen un título
+    casi igual y el mismo campo «torneo» (los dos vacíos cuentan como igual): dos hechos de torneos distintos
+    nunca se juntan por el título. Las tarjetas de tema caliente (sección «tema») tienen por título el nombre
+    del tema, así que no se agrupan por título."""
     padre = list(range(len(semana)))
 
     def raiz(i):
@@ -107,13 +148,14 @@ def _agrupar(semana: list[dict]) -> list[list[dict]]:
             padre[i] = padre[padre[i]]
             i = padre[i]
         return i
+    temas = [{t for t in h.get("temas_calientes") or [] if clases.get(t) not in NO_AGRUPAN} for h in semana]
     for i, a in enumerate(semana):
         for j in range(i + 1, len(semana)):
             b = semana[j]
-            mismo = (set(a.get("temas_calientes") or []) & set(b.get("temas_calientes") or [])
-                     or (a.get("torneo") and registro_mod.figura(a["torneo"], b.get("torneo") or "")
-                         and registro_mod.figura(b["torneo"], a["torneo"]))
-                     or calidad.misma_noticia(a["titulo"], b["titulo"]))
+            mismo = (temas[i] & temas[j]
+                     or (_torneo(a) == _torneo(b)
+                         and (_torneo(a) or ("tema" not in (a.get("seccion"), b.get("seccion"))
+                                             and calidad.misma_noticia(a["titulo"], b["titulo"])))))
             if mismo:
                 padre[raiz(j)] = raiz(i)
     grupos: dict[int, list[dict]] = {}
@@ -132,37 +174,49 @@ def _semanas_seguidas(tema: str, todos: list[dict], desde: date, hasta: date) ->
     return seguidas
 
 
-PREFIJO_TEMA_AUTO = "Tema: "  # así nombra mesa/temas.py a los temas calientes automáticos
+def _mas_repetido(valores: list[str]) -> str:
+    return max(valores, key=lambda v: (valores.count(v), -valores.index(v)))
 
 
-def _nombre_idea(grupo: list[dict], temas: list[str], torneos: list[str]) -> str:
-    """Nombre de la idea. Un tema caliente manual conserva su nombre. Un tema automático se nombra por un
-    nombre propio que se repitió (puede ser una modalidad o una base de datos, como «No-Limit Hold'em» o
-    «Hendon Mob»), así que la idea se nombra por el torneo escrito en el registro (el más repetido) o, si el
-    grupo es un solo hecho, por su título. Sin torneo y con varios hechos, queda el nombre del tema."""
-    if not temas:
-        return torneos[0] if len(grupo) > 1 and torneos else grupo[0]["titulo"]  # como antes
-    if not temas[0].startswith(PREFIJO_TEMA_AUTO):
-        return temas[0]
-    if torneos:
-        return max(torneos, key=lambda t: (torneos.count(t), -torneos.index(t)))
-    return grupo[0]["titulo"] if len(grupo) == 1 else temas[0]
+def _nombre_idea(grupo: list[dict], temas: list[str], clases: dict[str, str]) -> str | None:
+    """Nombre de la idea (None: no es idea). `temas` son solo los que agrupan.
+    - Un tema manual conserva su nombre.
+    - Con un tema automático: el torneo escrito en el registro (el más repetido) o, si es un solo hecho, su
+      título; sin torneo y con varios hechos, el nombre del tema.
+    - Sin tema: el torneo si son varios hechos, si no el título.
+    Si el nombre resulta ser el de un tema «general» o «jugador» (el título de su tarjeta), se usa el torneo
+    del registro y, si no hay, no es idea."""
+    torneos = [h["torneo"] for h in grupo if h.get("torneo")]
+    manual = next((t for t in temas if clases.get(t) == "manual"), None)
+    if manual:
+        return manual
+    if temas:
+        nombre = _mas_repetido(torneos) if torneos else grupo[0]["titulo"] if len(grupo) == 1 else temas[0]
+    else:
+        nombre = torneos[0] if len(grupo) > 1 and torneos else grupo[0]["titulo"]
+    if clases.get(nombre) in NO_AGRUPAN:
+        return _mas_repetido(torneos) if torneos else None
+    return nombre
 
 
-def ideas_candidatas(todos: list[dict], desde: date, hasta: date) -> list[dict]:
+def ideas_candidatas(todos: list[dict], desde: date, hasta: date, clases: dict[str, str] | None = None) -> list[dict]:
     """Ideas de artículos, con su motivo. Un hecho o tema entra si en la semana:
     - lo contaron 3 o más fuentes distintas, o
     - apareció en 2 o más días (el mismo hecho, tema caliente o torneo), o
-    - es un tema caliente que siguió 2 semanas seguidas o más (hasta esta)."""
+    - es un tema caliente que siguió 2 semanas seguidas o más (hasta esta).
+    `clases`: la de cada tema (ver clases_de_temas); sin ella, ningún tema es manual."""
+    clases = clases or {}
     semana = sorted((h for h in todos if _en(h, desde, hasta)), key=lambda h: h.get("fecha") or "")
     ideas = []
-    for grupo in _agrupar(semana):
-        temas = [t for h in grupo for t in h.get("temas_calientes") or []]
-        torneos = [h["torneo"] for h in grupo if h.get("torneo")]
-        nombre = _nombre_idea(grupo, temas, torneos)
+    for grupo in _agrupar(semana, clases):
+        temas = list(dict.fromkeys(t for h in grupo for t in h.get("temas_calientes") or []
+                                   if clases.get(t) not in NO_AGRUPAN))
+        nombre = _nombre_idea(grupo, temas, clases)
+        if not nombre:
+            continue
         dias = sorted({h["fecha"] for h in grupo})
         fuentes = {f.get("nombre") for h in grupo for f in h.get("fuentes") or []}
-        seguidas = max((_semanas_seguidas(t, todos, desde, hasta) for t in set(temas)), default=0)
+        seguidas = max((_semanas_seguidas(t, todos, desde, hasta) for t in temas), default=0)
         motivos = []
         if len(fuentes) >= 3:
             motivos.append(f"{len(fuentes)} fuentes distintas")
@@ -285,7 +339,7 @@ def generar_brief(raiz: Path, hoy: date, ahora: datetime, llamar=modelo.llamar_a
     todos = registro_mod.leer_jsonl(raiz / registro_mod.HECHOS)
     hechos = [h for h in todos if _en(h, desde, hasta)]
     cambios = [c for c in registro_mod.leer_jsonl(raiz / registro_mod.CAMBIOS) if _en(c, desde, hasta)]
-    ideas = ideas_candidatas(todos, desde, hasta)
+    ideas = ideas_candidatas(todos, desde, hasta, clases_de_temas(raiz, todos))
     brief = {
         "semana": etiqueta, "desde": desde.isoformat(), "hasta": hasta.isoformat(),
         "generado": ahora.strftime("%Y-%m-%d %H:%M UTC"), "hechos": len(hechos), "cambios_registrados": len(cambios),

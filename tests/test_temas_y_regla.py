@@ -265,3 +265,58 @@ def test_nombre_con_apostrofo_no_se_corta_y_el_posesivo_no_cambia():
     assert "No-Limit Hold'em" in calidad.personas("Fulano Inventado gana un No-Limit Hold'em en la Serie Ficticia")
     assert "No-Limit Hold’em" in calidad.personas("No-Limit Hold’em Main Event")
     assert calidad.personas("Fulano Inventado's run") == ["Fulano Inventado"]
+
+
+def _config_generales(raiz):
+    (raiz / "config").mkdir(exist_ok=True)
+    for archivo in ("temas_generales.json", "salas_vigiladas.json"):
+        shutil.copy(RAIZ / "config" / archivo, raiz / "config" / archivo)
+
+
+def test_no_se_crean_temas_automaticos_de_juegos_herramientas_ni_salas(tmp_path):
+    _config_generales(tmp_path)
+    for n, medio in enumerate(("medio-uno", "medio-dos", "medio-tres")):
+        _tarjeta_dia(tmp_path, HOY, f"Nota {n}: el No-Limit Hold'em de la Hendon Mob en KK Poker y Black Chip Poker",
+                     f"https://{medio}.com/{n}")
+    assert temas.detectar_auto(tmp_path, HOY)["temas"] == []
+
+
+def test_los_jugadores_siguen_creando_temas_automaticos(tmp_path):
+    _config_generales(tmp_path)
+    for n, medio in enumerate(("medio-uno", "medio-dos", "medio-tres")):
+        _tarjeta_dia(tmp_path, HOY, f"Fulano Inventado gana un No-Limit Hold'em (nota {n})", f"https://{medio}.com/{n}")
+    tema = temas.detectar_auto(tmp_path, HOY)["temas"][0]
+    assert tema["nombre"] == "Tema: Fulano Inventado" and tema["palabras_clave"] == ["Fulano Inventado"]
+
+
+def test_tema_automatico_general_ya_creado_queda_inactivo_y_no_vuelve(tmp_path):
+    _config_generales(tmp_path)
+    (tmp_path / "data").mkdir()
+    (tmp_path / "data" / "temas_auto.json").write_text(json.dumps({"temas": [
+        {"nombre": "Tema: No-Limit Hold'em", "palabras_clave": ["Fulano Inventado", "No-Limit Hold'em"],
+         "alta": "2026-10-01", "ultima_novedad": HOY.isoformat(), "fuentes": [], "estado": "activo"},
+        {"nombre": "Tema: Mengana Ficticia", "palabras_clave": ["Mengana Ficticia", "SharkScope"],
+         "alta": "2026-10-01", "ultima_novedad": HOY.isoformat(), "fuentes": [], "estado": "activo"},
+    ]}), encoding="utf-8")
+    for n, medio in enumerate(("medio-uno", "medio-dos", "medio-tres")):
+        _tarjeta_dia(tmp_path, HOY, f"Fulano Inventado gana otra vez (nota {n})", f"https://{medio}.com/{n}")
+    datos = {t["nombre"]: t for t in temas.detectar_auto(tmp_path, HOY)["temas"]}
+    general = datos["Tema: No-Limit Hold'em"]
+    assert general["estado"] == "inactivo" and general["excluido"] == "juego o formato"
+    assert general["palabras_clave"] == ["Fulano Inventado"]
+    # Sus jugadores no lo reactivan: se crea un tema propio.
+    assert datos["Tema: Fulano Inventado"]["estado"] == "activo"
+    # Al tema de jugador solo se le quita la palabra general.
+    assert datos["Tema: Mengana Ficticia"]["palabras_clave"] == ["Mengana Ficticia"]
+    assert datos["Tema: Mengana Ficticia"]["estado"] == "activo"
+    assert "Tema: No-Limit Hold'em" not in [t["nombre"] for t in temas.activos(tmp_path)]
+
+
+def test_los_temas_manuales_no_se_excluyen(tmp_path):
+    _config_generales(tmp_path)
+    (tmp_path / "config" / "temas_calientes.json").write_text(json.dumps({"temas": [
+        {"nombre": "Caso PokerCraft", "palabras_clave": ["PokerCraft"], "alta": "2026-10-01", "estado": "activo"}]}),
+        encoding="utf-8")
+    temas.detectar_auto(tmp_path, HOY)
+    assert [t["nombre"] for t in temas.activos(tmp_path)] == ["Caso PokerCraft"]
+    assert leer_json(tmp_path / "config" / "temas_calientes.json")["temas"][0]["palabras_clave"] == ["PokerCraft"]

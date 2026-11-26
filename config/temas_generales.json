@@ -1,0 +1,21 @@
+{
+  "nota": "Nombres demasiado generales para ser un tema caliente automático (mesa/temas.py) o una idea de artículo del brief semanal. Se comparan sin distinguir mayúsculas, tildes ni signos, como palabras completas: «Hold'em» también excluye «No-Limit Hold'em». Las salas de config/salas_vigiladas.json (nombre y alias) se excluyen siempre; aquí van las otras salas. Los temas manuales (config/temas_calientes.json) no se tocan. Se edita con el lápiz ✏️.",
+  "juegos_formatos": [
+    "No-Limit Hold'em", "Hold'em", "NLH", "NLHE", "Limit Hold'em", "Pot-Limit Omaha", "PLO", "PLO5", "PLO6", "Omaha",
+    "Short Deck", "Six Plus", "Razz", "Stud", "Seven Card Stud", "Badugi", "Mixed Games", "HORSE", "8-Game",
+    "MTT", "Spin & Go", "Spin and Go", "Sit & Go", "Sit and Go", "SNG", "Heads-Up", "Cash Game",
+    "Turbo", "Hyper Turbo", "Deepstack", "Freezeout", "PKO", "Progressive Knockout", "Mystery Bounty",
+    "Bounty", "Satellite", "Flip & Go", "All-in or Fold", "Rush & Cash", "Fast Fold"
+  ],
+  "bases_herramientas": [
+    "Hendon Mob", "PokerCraft", "SharkScope", "GTO Wizard", "PokerTracker", "PokerTracker 4", "Hold'em Manager",
+    "HM3", "Holdem Manager", "PioSolver", "GTO+", "Poker Copilot", "PokerSnowie", "Hand2Note", "DriveHUD",
+    "ICMIZER", "Flopzilla", "Equilab", "PokerStove", "Run It Once Vision", "HUD"
+  ],
+  "otras_salas": [
+    "888poker", "partypoker", "Winamax", "iPoker", "Natural8", "WSOP.com", "BetMGM Poker", "Borgata Poker",
+    "Unibet Poker", "Bovada", "Bodog", "Chico Poker", "Tiger Gaming", "SportsBetting.ag", "Run It Once Poker",
+    "PPPoker", "PokerBros", "ClubGG", "X-Poker", "Upoker", "iPoker Network", "Winning Poker Network",
+    "Chico Poker Network", "Merge Gaming", "Betsson Poker", "Bet365 Poker", "William Hill Poker", "Pokerdom"
+  ]
+}

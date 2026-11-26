@@ -31,6 +31,52 @@ def ruta_auto(raiz: Path) -> Path:
     return Path(raiz) / "data" / "temas_auto.json"
 
 
+PREFIJO_AUTO = "Tema: "  # nombre de los temas automáticos: «Tema: <nombre propio>»
+CATEGORIAS_GENERALES = {"juegos_formatos": "juego o formato", "bases_herramientas": "base de datos o herramienta",
+                        "salas": "sala"}
+
+
+def cargar_generales(raiz: Path) -> dict[str, list[str]]:
+    """Términos demasiado generales para un tema automático, por categoría: config/temas_generales.json
+    (juegos y formatos, bases y herramientas, otras salas) más las salas vigiladas (nombre y alias)."""
+    raiz = Path(raiz)
+    datos = leer_json(raiz / "config" / "temas_generales.json", {}) or {}
+    vigiladas = leer_json(raiz / "config" / "salas_vigiladas.json", {}) or {}
+    salas = [n for s in vigiladas.get("salas", []) for n in [s.get("nombre") or "", *s.get("alias", [])]]
+    return {"juegos_formatos": list(datos.get("juegos_formatos", [])),
+            "bases_herramientas": list(datos.get("bases_herramientas", [])),
+            "salas": [n for n in salas + list(datos.get("otras_salas", [])) if n.strip()]}
+
+
+def categoria_general(texto: str, generales: dict[str, list[str]]) -> str | None:
+    """Categoría («juegos_formatos», «bases_herramientas» o «salas») si el texto nombra un término general.
+    En las salas también cuenta la parte de un nombre: la detección de nombres corta «Poker», así que de
+    «Black Chip Poker» queda «Black Chip»."""
+    for categoria, terminos in generales.items():
+        if coincide(texto, terminos):
+            return categoria
+        if categoria == "salas" and any(coincide(t, [texto]) for t in terminos):
+            return categoria
+    return None
+
+
+def nombre_sin_prefijo(nombre: str) -> str:
+    return nombre[len(PREFIJO_AUTO):] if nombre.startswith(PREFIJO_AUTO) else nombre
+
+
+def excluir_generales(temas: list[dict], generales: dict[str, list[str]]) -> None:
+    """Temas automáticos ya creados: se quitan las palabras clave generales. Si el nombre es general o no queda
+    ninguna palabra, el tema pasa a inactivo con el motivo en «excluido» y no se vuelve a activar."""
+    for t in temas:
+        categoria = categoria_general(nombre_sin_prefijo(t["nombre"]), generales)
+        claves = [c for c in t.get("palabras_clave", []) if not categoria_general(c, generales)]
+        if claves != t.get("palabras_clave", []):
+            t["palabras_clave"] = claves
+        if categoria or not claves:
+            t["estado"] = "inactivo"
+            t["excluido"] = CATEGORIAS_GENERALES.get(categoria, "sin palabras clave propias")
+
+
 def _normalizar(texto: str) -> str:
     return " " + re.sub(r"[^\w$]+", " ", calidad.sin_tildes(texto)) + " "
 
@@ -152,6 +198,8 @@ def detectar_auto(raiz: Path, hoy: date) -> dict:
     datos = leer_json(ruta_auto(raiz), {"temas": []}) or {"temas": []}
     temas = datos.setdefault("temas", [])
     manuales = [t for t in cargar_manual(raiz).get("temas", []) if t.get("estado", "activo") == "activo"]
+    generales = cargar_generales(raiz)
+    excluir_generales(temas, generales)
     tarjetas = _tarjetas_recientes(raiz, hoy, DIAS_DETECCION)
 
     for grupo in _agrupar(tarjetas):
@@ -162,6 +210,8 @@ def detectar_auto(raiz: Path, hoy: date) -> dict:
         conteo: dict[str, int] = {}
         for m in miembros:
             for p in set(calidad.personas(m["texto"])):
+                if categoria_general(p, generales):
+                    continue  # juego, formato, base, herramienta o sala: no identifica un tema
                 conteo[p] = conteo.get(p, 0) + 1
         claves = sorted(p for p, n in conteo.items() if n >= 2) or sorted(conteo, key=conteo.get, reverse=True)[:1]
         if not claves:
@@ -169,7 +219,7 @@ def detectar_auto(raiz: Path, hoy: date) -> dict:
         if any(coincide(" ".join(claves), t.get("palabras_clave", [])) for t in manuales):
             continue  # ya está en la lista manual
         ultima = max(m["fecha"] for m in miembros)
-        existente = next((t for t in temas if set(t["palabras_clave"]) & set(claves)), None)
+        existente = next((t for t in temas if not t.get("excluido") and set(t["palabras_clave"]) & set(claves)), None)
         if existente:
             existente["palabras_clave"] = sorted(set(existente["palabras_clave"]) | set(claves))
             existente["ultima_novedad"] = max(existente.get("ultima_novedad", ultima), ultima)
@@ -177,11 +227,13 @@ def detectar_auto(raiz: Path, hoy: date) -> dict:
             existente["estado"] = "activo"
         else:
             principal = max(conteo, key=conteo.get)
-            temas.append({"nombre": f"Tema: {principal}", "palabras_clave": claves, "alta": hoy.isoformat(),
+            temas.append({"nombre": f"{PREFIJO_AUTO}{principal}", "palabras_clave": claves, "alta": hoy.isoformat(),
                           "ultima_novedad": ultima, "fuentes": sorted(dominios), "estado": "activo"})
 
     # Novedades de temas ya existentes y apagado tras 7 días sin novedades.
     for t in temas:
+        if t.get("excluido"):
+            continue
         fechas = [m["fecha"] for m in tarjetas if coincide(m["texto"], t["palabras_clave"])]
         if fechas:
             t["ultima_novedad"] = max([t.get("ultima_novedad", fechas[0])] + fechas)
