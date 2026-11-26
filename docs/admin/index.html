@@ -458,7 +458,7 @@ td.titulo { min-width: 220px; }
       <select class="form-select form-select-sm w-auto" id="d-base">${Object.entries(BASES).map(([k, b]) => `<option value="${k}">${b.n}</option>`).join('')}</select>
       <select class="form-select form-select-sm w-auto" id="d-secc"><option value="">Todas las secciones</option></select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="d-q" type="search" placeholder="Buscar jugador, torneo, sala, fuente…"><span class="ayuda" id="d-n"></span></div>
-      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Se muestran hasta 300 filas, las más recientes primero.</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
+      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Se muestran hasta 300 filas, las más recientes primero. «Crear tarjeta» escribe una tarjeta con los datos y las fuentes de esa fila (S: titular y bajada; M: más un párrafo; L: más dos párrafos), con una sola llamada al modelo y los documentos de SEI; queda oculta para revisarla en «Noticias» (filtro «Ocultas»).</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
     const cache = {};
     const [tjB, stB] = await Promise.all([leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('config/sitio.json', { secciones: [] })]);
     const mapaSecs = Object.fromEntries(tjB.datos.tarjetas.map(t => [t.id, t.secs || []]));
@@ -468,7 +468,23 @@ td.titulo { min-width: 220px; }
       const q = norm(document.getElementById('d-q').value); const secc = document.getElementById('d-secc').value;
       const r = cache[k].filter(x => (!q || norm(JSON.stringify(x)).includes(q)) && (!secc || k !== 'hechos' || (mapaSecs[x.id] || []).includes(secc)));
       document.getElementById('d-n').textContent = r.length + ' de ' + cache[k].length;
-      document.getElementById('d-tabla').innerHTML = `<table class="table table-sm align-middle mb-0"><thead><tr>${b.cab.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${r.slice(0, 300).map(x => `<tr>${b.col(x).map((c, i) => `<td class="${i === 0 ? 'text-nowrap' : ''}">${i === 0 ? esc(fechaLarga(c)) : (k === 'archivo' && i === 1 ? esc(c) : c)}</td>`).join('')}</tr>`).join('') || `<tr><td colspan="3" class="ayuda">${cache[k].length ? 'Sin coincidencias.' : 'Todavía no hay datos en este registro.'}</td></tr>`}</tbody></table>`; };
+      const crea = k === 'hechos' || k === 'archivo';
+      const filas = r.slice(0, 300);
+      document.getElementById('d-tabla').innerHTML = `<table class="table table-sm align-middle mb-0"><thead><tr>${b.cab.map(c => `<th>${c}</th>`).join('')}${crea ? '<th class="text-nowrap">Crear tarjeta</th>' : ''}</tr></thead><tbody>${filas.map((x, n) => `<tr>${b.col(x).map((c, i) => `<td class="${i === 0 ? 'text-nowrap' : ''}">${i === 0 ? esc(fechaLarga(c)) : (k === 'archivo' && i === 1 ? esc(c) : c)}</td>`).join('')}${crea && !(k === 'hechos' && x.seccion === 'tema') ? `<td class="text-nowrap"><div class="btn-group btn-group-sm">${['small', 'medium', 'large'].map(t => `<button class="btn btn-outline-dark" data-crear="${n}" data-tam="${t}" type="button" title="${{ small: 'Titular y bajada', medium: 'Titular, bajada y un párrafo', large: 'Titular, bajada y dos párrafos' }[t]}">${t[0].toUpperCase()}</button>`).join('')}</div></td>` : crea ? '<td></td>' : ''}</tr>`).join('') || `<tr><td colspan="4" class="ayuda">${cache[k].length ? 'Sin coincidencias.' : 'Todavía no hay datos en este registro.'}</td></tr>`}</tbody></table>`;
+      document.querySelectorAll('#d-tabla [data-crear]').forEach(bt => bt.onclick = () => crearTarjeta(k, filas[+bt.dataset.crear], bt.dataset.tam)); };
+    const claveArchivo = async x => { const h = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(`${x.fecha || ''}|${x.titulo || ''}`));
+      return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 12); };
+    const crearTarjeta = async (k, x, tam) => {
+      try { const clave = k === 'hechos' ? x.id : await claveArchivo(x);
+        const r = await gh('/actions/workflows/crear-tarjeta.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { origen: k, clave, tamano: tam } }) });
+        if (r.status !== 204) throw new Error('GitHub no aceptó el pedido (' + r.status + '). ¿Está fusionado el flujo «Crear tarjeta desde el registro»?');
+        aviso(`Creando la tarjeta (${tam}): tarda uno o dos minutos. Quedará oculta en «Noticias».`, 'info');
+        const inicio = Date.now(); const t = setInterval(async () => {
+          const rr = await gh('/actions/workflows/crear-tarjeta.yml/runs?per_page=1&t=' + Date.now()).catch(() => null); if (!rr || !rr.ok) return;
+          const run = ((await rr.json()).workflow_runs || [])[0]; if (!run || Date.parse(run.created_at) < inicio - 60000 || run.status !== 'completed') return;
+          clearInterval(t); if (run.conclusion === 'success') aviso('Tarjeta creada y oculta: revísela en «Noticias» con el filtro «Ocultas» y publíquela quitando «Ocultar».');
+          else aviso('No se pudo crear la tarjeta. Detalle: ' + run.html_url, 'danger'); }, 10000);
+      } catch (e) { aviso(e.message, 'danger'); } };
     document.getElementById('d-base').onchange = () => cargar().catch(e => aviso(e.message, 'danger'));
     document.getElementById('d-q').oninput = () => cargar().catch(e => aviso(e.message, 'danger'));
     document.getElementById('d-secc').onchange = () => { if (document.getElementById('d-base').value !== 'hechos') { document.getElementById('d-base').value = 'hechos'; } cargar().catch(e => aviso(e.message, 'danger')); };

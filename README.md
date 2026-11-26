@@ -115,6 +115,7 @@ Esto reemplaza a la antigua "recuperación" (una segunda llamada que se hacía s
 - **Documentos de SEI en la redacción:** el barrido descarga en cada corrida `guia-traduccion-poker.md`, `reglas-comunes-sei.md`, `estandar-editorial-notas.md` y `redaccion-natural-anti-ia.md` de `hoozh/SEO-Articles` (`docs/estandares/`) con el secreto `SEI_LECTURA_TOKEN` (solo lectura) a una carpeta temporal fuera del repositorio. Van primero en las instrucciones de la redacción, con caché de prompt; la selección no los recibe. Su contenido nunca se imprime ni se guarda (el repositorio y los registros son públicos): solo se registra qué archivos se usaron o faltaron. Sin secreto o sin algún archivo, el barrido sigue y lo avisa en el pie y en `data/costos.json`. Medición: «Run workflow» con «medir_sei» redacta dos veces (sin y con documentos) y registra el costo de cada una.
 - **Controles de estilo** (`mesa/revision.py`, sin modelo): comillas « », frases que hablan de la fuente («la fuente no precisa», «según la información disponible») y citas en inglés marcan la tarjeta «para revisar» en el administrador.
 - **Tope de costo:** `max_costo_usd_por_dia` US$ 0,18 (y por corrida, el mismo valor; Hoozh, 26 nov).
+- **Crear tarjeta desde el registro** (`mesa/crear_tarjeta.py`, flujo **Crear tarjeta desde el registro**): en «Consultar registros» (registro de noticias y archivo de resultados), botones S, M y L (titular y bajada; más un párrafo; más dos párrafos). Una sola llamada al modelo por tarjeta, con los documentos de SEI y solo con los datos del registro y el texto de las notas que cita; pasa los controles del barrido y los de estilo. Queda oculta (`data/ediciones.json`) para revisarla y publicarla desde «Noticias». Costo en `data/costos.json` (tipo `tarjeta_registro`).
 - **Portada:** `docs/index.html` es un portal con menú y secciones de `config/sitio.json` (nota principal, «Lo último», bloques por sección, buscador, claro y oscuro). La vista completa por día, con salud de fuentes y costos, quedó en `docs/historial.html`.
 - **Texto de la noticia:** la redacción escribe además un `cuerpo` de 2 a 4 párrafos, solo con datos del texto recibido; cada párrafo pasa los mismos controles que la bajada y el que no tiene respaldo se quita. Las imágenes (`imagenes`) son la foto que declara cada medio, con su nombre y enlace. Topes: `max_tokens_salida` 9000 y `max_costo_usd_por_corrida` US$ 0,08.
 - **Noticia propia:** el título de cada tarjeta abre `docs/n/<id>.html`, una página dentro de Mesa Caliente con el resumen de la noticia, la foto con su crédito y, al final, las fuentes. El id es el mismo del registro.
@@ -397,3 +398,26 @@ python -m mesa.corrida                      # corrida completa (necesita ANTHROP
 ```
 
 El historial de la versión anterior (`mesa_caliente_historial.json`, 21 bloques y 159 tarjetas) ya está importado en `data/dias/`. El comando `python -m mesa.importar` no pisa días existentes.
+
+
+## Editor de imágenes y videos: en pausa, pasa a SEI (26 nov 2026)
+
+Hoozh decidió (26 nov) que el creador y editor de imágenes y videos se desarrolle aparte, como herramienta de SEI; Mesa Caliente la tomará cuando esté lista. Aquí no se sigue construyendo. Lo hecho ya está en `main` (PR #26 y #27, fusionados antes de la decisión) y funciona; no se quitó para no romper el administrador.
+
+**Qué quedó hecho**
+- Posteos de Instagram 4:5 y stories 9:16 en el navegador (canvas), con foto propia de fondo (zoom, encuadre, oscurecido) y descarga en PNG. Tres diseños: noticia, dato destacado, cita.
+- Videos verticales 1080 × 1920 (`mesa/video.py`, flujo **Generar video**, `docs/video/reproductor.html`): guion por escenas (portada, texto, dato, cierre) que Claude escribe o corrige con un pedido de cambios, con cifras controladas contra la noticia; vista previa instantánea en el administrador; render con Chromium (30 cuadros por segundo) y ffmpeg; versiones guardadas en el repositorio privado (`videos/`).
+- Voz en off con Piper (voces libres: `es_MX-claude-high`, `es_MX-ald-medium`, `es_AR-daniela-high`), música propia con fundido, videos propios de fondo por escena, formatos de video editables (`instagram/formatos.json`) y marcas intercambiables (`instagram/marcas.json`: colores, fuentes, logo, voz, cuentas).
+- Biblioteca de fotos, videos y música propios en el repositorio privado (`instagram/`).
+
+**Decisiones tomadas**
+- Sin fotos de medios en redes (sin permiso); solo fotos y videos propios o con licencia, y música con licencia para redes.
+- Marca de prueba ficticia (cuenta `thin.value`, antes de FELT) para no exponer a GipsyTeam; GipsyTeam será otra marca con su logo y colores.
+- Claude escribe solo con datos de la noticia; cifras que no están se quitan con aviso. Un video cuesta unos US$ 0,01 por versión con Claude; renderizar es gratis.
+- Todo lo de Instagram y videos vive en el repositorio privado `hoozh/mesa-caliente-privado`.
+
+**Qué falta**
+- Probar la voz en Actions (la descarga de voces no se pudo probar fuera de GitHub) y revisar la calidad de las voces libres.
+- Publicación automática en Instagram (cuenta profesional, app de Meta, secreto en GitHub).
+- Editor de imágenes más completo (capas, recortes, textos libres) y edición de video real (cortes, transiciones, subtítulos).
+- Que Mesa Caliente use la herramienta de SEI cuando exista, en lugar de este prototipo.
