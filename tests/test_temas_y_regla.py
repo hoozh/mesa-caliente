@@ -183,7 +183,7 @@ def test_una_tarjeta_por_tema_y_dia_con_sus_novedades(tmp_path):
                 {"aporta": f"Novedad {n}.", "clasificacion": "confirmado" if n == 1 else "discusion", "fuente": "Poker Red",
                  "fecha": "2026-10-06", "hora": "10:00" if n == 1 else None, "url": f"https://ejemplo.com/{n}"}]}]})
     pagina.generar(tmp_path, HOY, datetime(2026, 10, 6, 16, tzinfo=timezone.utc))
-    sopa = BeautifulSoup((tmp_path / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((tmp_path / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     tarjetas = sopa.select("article.card-tema")
     assert len(tarjetas) == 1
     texto = " ".join(tarjetas[0].get_text(" ").split())

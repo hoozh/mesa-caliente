@@ -7,7 +7,7 @@
 <title>Administrador · Mesa Caliente</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:wght@700&family=Roboto+Condensed:wght@700&display=swap">
 <style>
 /* Administrador de Mesa Caliente: menú lateral oscuro, cabecera y bloques (organización tipo panel). */
 :root { --mc-side: #2c343f; --mc-side-ink: #c9d1dc; --mc-red: #d9262c; --mc-bg: #f2f4f7; }
@@ -52,6 +52,8 @@ td.titulo { min-width: 220px; }
     <div class="marca"><i></i>Mesa Caliente</div>
     <div class="grupo">Contenido</div>
     <button data-v="noticias">Noticias</button>
+    <button data-v="sitio">Menú y secciones</button>
+    <button data-v="instagram">Instagram</button>
     <div class="grupo">Barrido</div>
     <button data-v="claves">Palabras clave prioritarias</button>
     <button data-v="busquedas">Búsquedas activas</button>
@@ -60,6 +62,8 @@ td.titulo { min-width: 220px; }
     <button data-v="personalidades">Personalidades</button>
     <button data-v="bases">Consultar registros</button>
     <button data-v="archivos">Archivos de SEI</button>
+    <div class="grupo">Proyecto</div>
+    <button data-v="propuestas">Propuestas</button>
     <div class="grupo">Cuenta</div>
     <button data-v="conexion">Conexión</button>
   </aside>
@@ -68,6 +72,7 @@ td.titulo { min-width: 220px; }
       <button class="btn btn-sm btn-outline-secondary menu-movil" id="b-menu" type="button">Menú</button>
       <h1 id="titulo-vista" class="text-truncate">Noticias</h1>
       <span class="ms-auto ayuda" id="estado-conexion">Sin conectar</span>
+      <button class="btn btn-sm btn-mc" id="b-propuesta" type="button">+ Propuesta</button>
       <a class="btn btn-sm btn-outline-secondary" href="../index.html" target="_blank" rel="noopener">Ver página ↗</a>
     </header>
     <main class="contenido" id="vista"></main>
@@ -119,7 +124,7 @@ td.titulo { min-width: 220px; }
   }
   const leerJSONL = async (ruta, priv = false) => ((await leer(ruta, priv)).texto || '').split('\n').filter(Boolean)
     .map(l => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean);
-  async function leerJSON(ruta, vacio) { const x = await leer(ruta); return { datos: x.texto ? JSON.parse(x.texto) : vacio, sha: x.sha }; }
+  async function leerJSON(ruta, vacio, priv = false) { const x = await leer(ruta, priv); return { datos: x.texto ? JSON.parse(x.texto) : vacio, sha: x.sha }; }
   const json = d => JSON.stringify(d, null, 2) + '\n';
 
   // ---------------------------------------------------------------- avisos y navegación
@@ -131,7 +136,9 @@ td.titulo { min-width: 220px; }
   const vista = document.getElementById('vista');
   const VISTAS = {};
   const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido',
-    personalidades: 'Personalidades', bases: 'Consultar registros', archivos: 'Archivos de SEI', conexion: 'Conexión' };
+    personalidades: 'Personalidades', bases: 'Consultar registros', archivos: 'Archivos de SEI', conexion: 'Conexión',
+    sitio: 'Menú y secciones', instagram: 'Instagram', propuestas: 'Propuestas' };
+  const slugId = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   async function ir(v) {
     document.querySelectorAll('.side button').forEach(b => b.classList.toggle('activo', b.dataset.v === v));
     document.getElementById('titulo-vista').textContent = TITULOS[v];
@@ -185,7 +192,9 @@ td.titulo { min-width: 220px; }
   // ---------------------------------------------------------------- Noticias
   const SECC = { general: 'Escena mundial', latam: 'Latinoamérica', tema: 'Tema caliente' };
   VISTAS.noticias = async () => {
-    const [tj, ed] = await Promise.all([leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('data/ediciones.json', { tarjetas: {} })]);
+    const [tj, ed, st] = await Promise.all([leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('data/ediciones.json', { tarjetas: {} }),
+      leerJSON('config/sitio.json', { secciones: [], botones: [] })]);
+    let SITIO = st.datos, shaSitio = st.sha;
     const T = tj.datos.tarjetas; let E = ed.datos; let sha = ed.sha;
     const dias = [...new Set(T.map(t => t.dia))].sort().reverse();
     vista.innerHTML = `
@@ -223,14 +232,35 @@ td.titulo { min-width: 220px; }
         <p class="ayuda mb-3">${esc(fechaLarga(actual.dia))} · Fuentes: ${actual.fuentes.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.nombre)}</a>`).join(', ')}</p>
         <div class="mb-3"><label class="form-label" for="e-tit">Título</label><input class="form-control" id="e-tit" value="${esc(x.titulo || actual.titulo)}"></div>
         <div class="mb-3"><label class="form-label" for="e-res">Bajada (resumen corto de la tarjeta)</label><textarea class="form-control" id="e-res" rows="3">${esc(x.resumen || actual.resumen || '')}</textarea></div>
-        <div class="mb-3"><label class="form-label" for="e-cue">Texto de la noticia (página propia; deje vacío para usar la bajada)</label><textarea class="form-control" id="e-cue" rows="7" placeholder="Un párrafo por línea.">${esc(x.cuerpo || '')}</textarea></div>
-        <div class="row g-3 mb-3"><div class="col-md-8"><label class="form-label" for="e-img">Foto (dirección de la imagen)</label><input class="form-control" id="e-img" type="url" value="${esc(x.imagen || actual.imagen || '')}" placeholder="https://…"></div>
-          <div class="col-md-4"><label class="form-label" for="e-eti">Sección que se muestra</label><input class="form-control" id="e-eti" value="${esc(x.etiqueta || '')}" placeholder="(automática)"></div></div>
+        <div class="mb-3"><label class="form-label" for="e-cue">Texto de la noticia (página propia: dos párrafos o más, separados por una línea en blanco)</label><textarea class="form-control" id="e-cue" rows="9" placeholder="Si queda vacío, la página usa la bajada.">${esc(x.cuerpo || actual.cuerpo || '')}</textarea></div>
+        <div class="mb-3"><label class="form-label">Imágenes (la primera va arriba; las demás, entre párrafos)</label><div id="e-imgs" class="d-grid gap-2"></div>
+          <button class="btn btn-sm btn-outline-dark mt-2" id="e-img-add" type="button">+ Agregar imagen</button></div>
+        <div class="mb-3"><label class="form-label">Secciones</label><div class="d-flex flex-wrap gap-3" id="e-secs">${(SITIO.secciones || []).map(sc => `<label class="form-check"><input class="form-check-input" type="checkbox" value="${esc(sc.id)}" ${(x.secciones || []).includes(sc.id) ? 'checked' : ''}> <span class="form-check-label">${esc(sc.nombre)}</span></label>`).join('')}</div>
+          <div class="input-group input-group-sm mt-2" style="max-width:420px"><input class="form-control" id="e-sec-nueva" placeholder="Nueva sección (ej.: Entrevistas)"><button class="btn btn-outline-dark" id="e-sec-add" type="button">Crear y marcar</button></div>
+          <p class="ayuda mt-1 mb-0">Las secciones también suman noticias solas, por su regla (se edita en «Menú y secciones»). Aquí se agregan a mano.</p></div>
+        <div class="mb-3" style="max-width:340px"><label class="form-label" for="e-eti">Encabezado de la tarjeta</label><input class="form-control" id="e-eti" value="${esc(x.etiqueta || '')}" placeholder="(automático)"></div>
         <div class="d-flex flex-wrap gap-4 mb-3">
           <label class="form-check"><input class="form-check-input" type="checkbox" id="e-des" ${x.destacada ? 'checked' : ''}> <span class="form-check-label">Destacar</span></label>
           <label class="form-check"><input class="form-check-input" type="checkbox" id="e-ocu" ${x.oculta ? 'checked' : ''}> <span class="form-check-label">Ocultar de la página</span></label>
           <label class="form-check"><input class="form-check-input" type="checkbox" id="e-ig" ${x.instagram ? 'checked' : ''}> <span class="form-check-label">Marcar para Instagram</span></label></div>
         <div><label class="form-label" for="e-mot">Qué se corrigió y por qué (opcional, sirve para que SEI aprenda)</label><input class="form-control" id="e-mot" value="" placeholder="Ej.: el premio era $110,938, no el buy-in"></div>`;
+      const filaImg = (im = {}) => { const d = document.createElement('div'); d.className = 'row g-1 align-items-center fila-img';
+        d.innerHTML = `<div class="col-12 col-md-5"><input class="form-control form-control-sm" data-k="url" type="url" placeholder="Dirección de la imagen (https://…)" value="${esc(im.url || '')}"></div>
+          <div class="col-6 col-md-2"><input class="form-control form-control-sm" data-k="fuente" placeholder="Fuente" value="${esc(im.fuente || '')}"></div>
+          <div class="col-6 col-md-2"><input class="form-control form-control-sm" data-k="enlace" type="url" placeholder="Enlace de la fuente" value="${esc(im.enlace || '')}"></div>
+          <div class="col-10 col-md-2"><input class="form-control form-control-sm" data-k="pie" placeholder="Pie (opcional)" value="${esc(im.pie || '')}"></div>
+          <div class="col-2 col-md-1"><button class="btn btn-sm btn-outline-danger w-100" type="button" aria-label="Quitar imagen">×</button></div>`;
+        d.querySelector('button').onclick = () => d.remove(); document.getElementById('e-imgs').appendChild(d); };
+      (x.imagenes || actual.imagenes || (x.imagen ? [{ url: x.imagen }] : [])).forEach(filaImg);
+      document.getElementById('e-img-add').onclick = () => filaImg();
+      document.getElementById('e-sec-add').onclick = async () => { const nombre = document.getElementById('e-sec-nueva').value.trim(); if (!nombre) return;
+        let id = slugId(nombre); if ((SITIO.secciones || []).some(sc => sc.id === id)) return aviso('Esa sección ya existe.', 'warning');
+        SITIO.secciones = SITIO.secciones || []; SITIO.secciones.push({ id, nombre, menu: true, portada: false, cantidad: 6, visible: true, regla: {} });
+        try { const f = await leerJSON('config/sitio.json', { secciones: [] }); f.datos.secciones = SITIO.secciones; SITIO = f.datos;
+          shaSitio = await guardar('config/sitio.json', json(SITIO), f.sha, 'Sección nueva: ' + nombre);
+          document.getElementById('e-secs').insertAdjacentHTML('beforeend', `<label class="form-check"><input class="form-check-input" type="checkbox" value="${esc(id)}" checked> <span class="form-check-label">${esc(nombre)}</span></label>`);
+          document.getElementById('e-sec-nueva').value = ''; aviso('Sección creada (con botón en el menú). Guarde la noticia para asignarla.'); }
+        catch (e) { aviso(e.message, 'danger'); } };
       modal.show(); });
     const persistir = async (nuevo, mensaje) => {
       const fresco = await leerJSON('data/ediciones.json', { tarjetas: {} }); E = fresco.datos; sha = fresco.sha;
@@ -246,12 +276,16 @@ td.titulo { min-width: 220px; }
         historial: previo.historial || [] };
       if (v('e-tit') !== actual.titulo) nuevo.titulo = v('e-tit');
       if (v('e-res') !== (actual.resumen || '')) nuevo.resumen = v('e-res');
-      if (v('e-cue')) nuevo.cuerpo = v('e-cue');
-      if (v('e-img') && v('e-img') !== (actual.imagen || '')) nuevo.imagen = v('e-img');
+      if (v('e-cue') && v('e-cue') !== (actual.cuerpo || '')) nuevo.cuerpo = v('e-cue');
+      const imgs = [...document.querySelectorAll('#e-imgs .fila-img')].map(f => Object.fromEntries([...f.querySelectorAll('[data-k]')].map(i => [i.dataset.k, i.value.trim()])))
+        .filter(im => im.url).map(im => Object.fromEntries(Object.entries(im).filter(([, val]) => val)));
+      if (JSON.stringify(imgs) !== JSON.stringify(actual.imagenes || [])) { nuevo.imagenes = imgs; if (imgs[0]) nuevo.imagen = imgs[0].url; }
+      const secs = [...document.querySelectorAll('#e-secs input:checked')].map(i => i.value);
+      if (secs.length) nuevo.secciones = secs;
       if (v('e-eti')) nuevo.etiqueta = v('e-eti');
       if (c('e-des')) nuevo.destacada = true; if (c('e-ocu')) nuevo.oculta = true; if (c('e-ig')) nuevo.instagram = true;
       nuevo.historial.push({ fecha: new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC', motivo: v('e-mot'),
-        campos: ['titulo', 'resumen', 'cuerpo', 'imagen', 'etiqueta', 'destacada', 'oculta', 'instagram'].filter(k => nuevo[k] !== undefined && nuevo[k] !== previo[k]) });
+        campos: ['titulo', 'resumen', 'cuerpo', 'imagen', 'imagenes', 'secciones', 'etiqueta', 'destacada', 'oculta', 'instagram'].filter(k => nuevo[k] !== undefined && JSON.stringify(nuevo[k]) !== JSON.stringify(previo[k])) });
       try { await persistir(nuevo, 'Edición: ' + actual.titulo.slice(0, 60)); modal.hide(); aviso('Guardado. La página se actualiza en uno o dos minutos.'); pintar(); }
       catch (e) { aviso(e.message, 'danger'); } };
     document.getElementById('m-restaurar').onclick = async () => {
@@ -434,6 +468,220 @@ td.titulo { min-width: 220px; }
       const nombre = f.name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w.\-]+/g, '-');
       try { const previo = await leer('archivos/' + nombre, true); await guardar('archivos/' + nombre, await f.text(), previo.sha, 'Archivo de SEI: ' + nombre, true); aviso(previo.sha ? 'Archivo reemplazado.' : 'Archivo subido.'); VISTAS.archivos(); }
       catch (e) { aviso(e.message, 'danger'); } };
+  };
+
+  // ---------------------------------------------------------------- Menú y secciones (config/sitio.json)
+  const TIPOS = { resultado: 'Resultados', anuncio_evento: 'Anuncios de eventos', industria_polemica: 'Polémica e industria', software: 'Software',
+    obituario: 'Obituarios', oferta: 'Ofertas', otro: 'Otras' };
+  const SECC_BARRIDO = { general: 'Escena mundial', latam: 'Latinoamérica', tema: 'Temas calientes' };
+  VISTAS.sitio = async () => {
+    let { datos, sha } = await leerJSON('config/sitio.json', { marca: { nombre: 'Mesa Caliente', lema: '' }, secciones: [], botones: [] });
+    datos.marca = datos.marca || { nombre: 'Mesa Caliente', lema: '' }; datos.secciones = datos.secciones || []; datos.botones = datos.botones || [];
+    const chk = (nombre, valor, marcado) => `<label class="form-check form-check-inline me-2"><input class="form-check-input" type="checkbox" data-r="${nombre}" value="${valor}" ${marcado ? 'checked' : ''}> <span class="form-check-label small">${esc(nombre === 'tipo' ? TIPOS[valor] : nombre === 'seccion' ? SECC_BARRIDO[valor] : 'Europa')}</span></label>`;
+    const pintar = () => { vista.innerHTML = `
+      <div class="bloque"><div class="bh"><h2>Marca</h2></div><div class="bc"><div class="row g-2">
+        <div class="col-md-4"><label class="form-label" for="s-nom">Nombre</label><input class="form-control" id="s-nom" value="${esc(datos.marca.nombre)}"></div>
+        <div class="col-md-8"><label class="form-label" for="s-lema">Lema (debajo del nombre)</label><input class="form-control" id="s-lema" value="${esc(datos.marca.lema)}"></div></div></div></div>
+      <div class="bloque"><div class="bh"><h2>Secciones y botones del menú</h2><button class="btn btn-sm btn-outline-dark ms-auto" id="s-sec-add" type="button">+ Sección</button></div><div class="bc">
+        <p class="ayuda">El orden es el del menú. Cada sección junta sola las noticias que cumplen <b>alguna</b> de las condiciones marcadas, más las que usted le asigne a mano desde «Noticias». «En portada» la muestra como bloque en la portada, con esa cantidad de noticias.</p>
+        <div class="d-grid gap-3" id="s-secs">${datos.secciones.map((sc, i) => { const r = sc.regla || {}; return `<div class="border rounded p-3" data-i="${i}">
+          <div class="row g-2 align-items-end">
+            <div class="col-md-4"><label class="form-label small">Nombre del botón</label><input class="form-control form-control-sm" data-c="nombre" value="${esc(sc.nombre)}"></div>
+            <div class="col-md-5 d-flex flex-wrap gap-3 pb-1">
+              <label class="form-check"><input class="form-check-input" type="checkbox" data-c="menu" ${sc.menu ? 'checked' : ''}> <span class="form-check-label small">En el menú</span></label>
+              <label class="form-check"><input class="form-check-input" type="checkbox" data-c="portada" ${sc.portada ? 'checked' : ''}> <span class="form-check-label small">En portada</span></label>
+              <label class="form-check"><input class="form-check-input" type="checkbox" data-c="visible" ${sc.visible !== false ? 'checked' : ''}> <span class="form-check-label small">Activa</span></label></div>
+            <div class="col-md-1"><label class="form-label small">Cantidad</label><input class="form-control form-control-sm" data-c="cantidad" type="number" min="1" max="30" value="${sc.cantidad || 6}"></div>
+            <div class="col-md-2 text-md-end"><button class="btn btn-sm btn-outline-secondary" data-mover="-1" type="button" aria-label="Subir">↑</button> <button class="btn btn-sm btn-outline-secondary" data-mover="1" type="button" aria-label="Bajar">↓</button> <button class="btn btn-sm btn-outline-danger" data-quitar type="button" aria-label="Quitar sección">×</button></div>
+          </div>
+          <div class="mt-2 small"><span class="ayuda me-2">Del barrido:</span>${Object.keys(SECC_BARRIDO).map(k => chk('seccion', k, (r.seccion || []).includes(k))).join('')}${chk('region', 'europa', (r.region || []).includes('europa'))}</div>
+          <div class="mt-1 small"><span class="ayuda me-2">Tipo:</span>${Object.keys(TIPOS).map(k => chk('tipo', k, (r.tipo || []).includes(k))).join('')}</div>
+          <div class="mt-2"><input class="form-control form-control-sm" data-c="palabras" placeholder="Palabras del título o la bajada (separadas por coma)" value="${esc((r.palabras || []).join(', '))}"></div>
+        </div>`; }).join('')}</div></div></div>
+      <div class="bloque"><div class="bh"><h2>Botones con enlace</h2><button class="btn btn-sm btn-outline-dark ms-auto" id="s-bot-add" type="button">+ Botón</button></div><div class="bc">
+        <p class="ayuda">Van al final del menú y en el pie de la portada (por ejemplo, el brief semanal o el historial por día).</p>
+        <div class="d-grid gap-2" id="s-bots">${datos.botones.map((b, i) => `<div class="row g-2 align-items-center" data-b="${i}">
+          <div class="col-md-4"><input class="form-control form-control-sm" data-c="texto" value="${esc(b.texto)}" placeholder="Texto"></div>
+          <div class="col-md-5"><input class="form-control form-control-sm" data-c="enlace" value="${esc(b.enlace)}" placeholder="Dirección (semanal/, historial.html, https://…)"></div>
+          <div class="col-md-3 d-flex gap-2 align-items-center"><label class="form-check mb-0"><input class="form-check-input" type="checkbox" data-c="visible" ${b.visible !== false ? 'checked' : ''}> <span class="form-check-label small">Visible</span></label>
+            <button class="btn btn-sm btn-outline-secondary" data-mover="-1" type="button" aria-label="Subir">↑</button><button class="btn btn-sm btn-outline-danger" data-quitar type="button" aria-label="Quitar botón">×</button></div></div>`).join('')}</div></div></div>
+      <div class="d-flex gap-2"><button class="btn btn-mc" id="s-guardar" type="button">Guardar menú y secciones</button><span class="ayuda align-self-center">La portada se actualiza en uno o dos minutos.</span></div>`;
+      const leerForm = () => {
+        datos.marca = { nombre: document.getElementById('s-nom').value.trim() || 'Mesa Caliente', lema: document.getElementById('s-lema').value.trim() };
+        datos.secciones = [...document.querySelectorAll('#s-secs [data-i]')].map(el => { const sc = datos.secciones[+el.dataset.i], c = k => el.querySelector(`[data-c="${k}"]`);
+          const regla = {}; el.querySelectorAll('[data-r]:checked').forEach(x => (regla[x.dataset.r] = regla[x.dataset.r] || []).push(x.value));
+          const pal = c('palabras').value.split(',').map(x => x.trim()).filter(Boolean); if (pal.length) regla.palabras = pal;
+          return { ...sc, nombre: c('nombre').value.trim() || sc.nombre, menu: c('menu').checked, portada: c('portada').checked, visible: c('visible').checked,
+            cantidad: Math.max(1, Math.min(30, +c('cantidad').value || 6)), regla }; });
+        datos.botones = [...document.querySelectorAll('#s-bots [data-b]')].map(el => ({ texto: el.querySelector('[data-c="texto"]').value.trim(),
+          enlace: el.querySelector('[data-c="enlace"]').value.trim(), visible: el.querySelector('[data-c="visible"]').checked })).filter(b => b.texto && b.enlace);
+      };
+      const mover = (lista, i, d) => { const j = i + d; if (j < 0 || j >= lista.length) return; [lista[i], lista[j]] = [lista[j], lista[i]]; };
+      vista.querySelectorAll('#s-secs [data-mover]').forEach(b => b.onclick = () => { leerForm(); mover(datos.secciones, +b.closest('[data-i]').dataset.i, +b.dataset.mover); pintar(); });
+      vista.querySelectorAll('#s-bots [data-mover]').forEach(b => b.onclick = () => { leerForm(); mover(datos.botones, +b.closest('[data-b]').dataset.b, +b.dataset.mover); pintar(); });
+      vista.querySelectorAll('#s-secs [data-quitar]').forEach(b => b.onclick = () => { leerForm(); datos.secciones.splice(+b.closest('[data-i]').dataset.i, 1); pintar(); });
+      vista.querySelectorAll('#s-bots [data-quitar]').forEach(b => b.onclick = () => { leerForm(); datos.botones.splice(+b.closest('[data-b]').dataset.b, 1); pintar(); });
+      document.getElementById('s-sec-add').onclick = () => { leerForm(); let n = 1; while (datos.secciones.some(x => x.id === 'seccion-' + n)) n++;
+        datos.secciones.push({ id: 'seccion-' + n, nombre: 'Sección nueva', menu: true, portada: false, cantidad: 6, visible: true, regla: {} }); pintar(); };
+      document.getElementById('s-bot-add').onclick = () => { leerForm(); datos.botones.push({ texto: 'Botón nuevo', enlace: '', visible: true }); pintar(); };
+      document.getElementById('s-guardar').onclick = async () => { leerForm();
+        datos.secciones.forEach(x => { if (/^seccion-\d+$/.test(x.id) && !datos.secciones.some(y => y !== x && y.id === slugId(x.nombre))) x.id = slugId(x.nombre) || x.id; });
+        try { sha = await guardar('config/sitio.json', json(datos), sha, 'Menú y secciones'); aviso('Guardado. La portada se actualiza en uno o dos minutos.'); pintar(); }
+        catch (e) { aviso(e.message, 'danger'); } };
+    };
+    pintar();
+  };
+
+  // ---------------------------------------------------------------- Propuestas (repositorio privado)
+  const RUTA_PROP = 'propuestas/propuestas.json';
+  const AREAS = ['Barrido y fuentes', 'Redacción', 'Portada y diseño', 'Administrador', 'Instagram y redes', 'SEI', 'Otra'];
+  const ESTADOS_PROP = { nueva: 'Nueva', aprobada: 'Aprobada', en_curso: 'En curso', hecha: 'Hecha', descartada: 'Descartada' };
+  async function guardarPropuesta(p) {
+    const { datos, sha } = await leerJSON(RUTA_PROP, { nota: 'Ideas para seguir construyendo Mesa Caliente. Se cargan desde el administrador (botón «+ Propuesta»).', propuestas: [] }, true);
+    datos.propuestas.unshift(p); await guardar(RUTA_PROP, json(datos), sha, 'Propuesta: ' + p.titulo.slice(0, 60), true);
+  }
+  document.body.insertAdjacentHTML('beforeend', `<div class="modal fade" id="m-prop" tabindex="-1"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Nueva propuesta</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+    <div class="modal-body"><p class="ayuda">Ideas para seguir construyendo Mesa Caliente. Quedan en el repositorio privado, donde Claude las lee en la próxima sesión.</p>
+      <div class="mb-3"><label class="form-label" for="pr-tit">Idea</label><input class="form-control" id="pr-tit" placeholder="Ej.: avisar por correo cuando aparece un tema caliente"></div>
+      <div class="mb-3"><label class="form-label" for="pr-det">Detalle (opcional)</label><textarea class="form-control" id="pr-det" rows="4"></textarea></div>
+      <div><label class="form-label" for="pr-area">Área</label><select class="form-select" id="pr-area">${AREAS.map(a => `<option>${a}</option>`).join('')}</select></div></div>
+    <div class="modal-footer"><button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancelar</button><button class="btn btn-mc" id="pr-guardar" type="button">Guardar propuesta</button></div>
+  </div></div></div>`);
+  document.getElementById('b-propuesta').onclick = () => { if (!TOKEN) return ir('conexion'); document.getElementById('pr-tit').value = ''; document.getElementById('pr-det').value = ''; bootstrap.Modal.getOrCreateInstance(document.getElementById('m-prop')).show(); };
+  document.getElementById('pr-guardar').onclick = async () => { const titulo = document.getElementById('pr-tit').value.trim(); if (!titulo) return aviso('Escriba la idea.', 'warning');
+    const p = { id: Date.now().toString(36), fecha: hoyISO(), titulo, detalle: document.getElementById('pr-det').value.trim(), area: document.getElementById('pr-area').value, estado: 'nueva' };
+    try { await guardarPropuesta(p); bootstrap.Modal.getInstance(document.getElementById('m-prop')).hide(); aviso('Propuesta guardada.'); if (location.hash === '#propuestas') VISTAS.propuestas(); }
+    catch (e) { aviso(e.message, 'danger'); } };
+  VISTAS.propuestas = async () => {
+    let { datos, sha } = await leerJSON(RUTA_PROP, { propuestas: [] }, true);
+    let filtro = 'abiertas';
+    const pintar = () => { const L = datos.propuestas.filter(p => filtro === 'todas' || (filtro === 'abiertas' ? !['hecha', 'descartada'].includes(p.estado) : p.estado === filtro));
+      vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Propuestas</h2>
+        <select class="form-select form-select-sm w-auto" id="pp-f"><option value="abiertas">Abiertas</option><option value="todas">Todas</option>${Object.entries(ESTADOS_PROP).map(([k, n]) => `<option value="${k}">${n}</option>`).join('')}</select>
+        <button class="btn btn-sm btn-mc ms-auto" id="pp-nueva" type="button">+ Propuesta</button></div><div class="bc">
+        <p class="ayuda">Base de ideas para Mesa Caliente, en el repositorio privado (<code>propuestas/propuestas.json</code>). Cambie el estado cuando una idea se aprueba, se hace o se descarta.</p>
+        <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th class="d-none d-md-table-cell">Fecha</th><th>Idea</th><th class="d-none d-md-table-cell">Área</th><th>Estado</th></tr></thead><tbody>
+        ${L.map(p => `<tr><td class="text-nowrap d-none d-md-table-cell">${esc(fechaLarga(p.fecha))}</td><td><b>${esc(p.titulo)}</b>${p.detalle ? `<div class="ayuda" style="white-space:pre-wrap">${esc(p.detalle)}</div>` : ''}</td>
+          <td class="d-none d-md-table-cell">${esc(p.area)}</td><td><select class="form-select form-select-sm" data-id="${esc(p.id)}">${Object.entries(ESTADOS_PROP).map(([k, n]) => `<option value="${k}" ${p.estado === k ? 'selected' : ''}>${n}</option>`).join('')}</select></td></tr>`).join('')
+          || '<tr><td colspan="4" class="ayuda">No hay propuestas con este filtro.</td></tr>'}</tbody></table></div></div></div>`;
+      document.getElementById('pp-f').value = filtro; document.getElementById('pp-f').onchange = e => { filtro = e.target.value; pintar(); };
+      document.getElementById('pp-nueva').onclick = () => document.getElementById('b-propuesta').click();
+      vista.querySelectorAll('select[data-id]').forEach(sel => sel.onchange = async () => { const p = datos.propuestas.find(x => x.id === sel.dataset.id); p.estado = sel.value; p.actualizada = hoyISO();
+        try { sha = await guardar(RUTA_PROP, json(datos), sha, 'Propuesta ' + ESTADOS_PROP[p.estado].toLowerCase() + ': ' + p.titulo.slice(0, 50), true); aviso('Guardado.'); } catch (e) { aviso(e.message, 'danger'); } });
+    };
+    pintar();
+  };
+
+  // ---------------------------------------------------------------- Instagram (repositorio privado)
+  const RUTA_IG = 'instagram/posteos.json', RUTA_MARCA = 'instagram/marca.json';
+  const MARCA_BASE = { nombre: 'Marca de prueba', usuario: '@marca.de.prueba', lema: 'Noticias de poker', fondo: '#16171a', acento: '#d9262c', texto: '#f1f2f4',
+    cuentas: [], nota: 'Marca y cuentas para los posteos de Instagram. Nunca guarde contraseñas aquí.' };
+  const ESTADOS_IG = { borrador: 'Borrador', listo: 'Listo para publicar', publicado: 'Publicado', descartado: 'Descartado' };
+  const PLANTILLAS = { noticia: 'Noticia (título grande)', dato: 'Dato destacado (cifra grande)', cita: 'Cita' };
+  function dibujarPosteo(canvas, p, m) {
+    const c = canvas.getContext('2d'), W = 1080, H = 1350; canvas.width = W; canvas.height = H;
+    c.fillStyle = m.fondo; c.fillRect(0, 0, W, H);
+    c.fillStyle = m.acento; c.fillRect(0, 0, W, 14); c.fillRect(80, 130, 90, 10);
+    c.fillStyle = m.texto; c.font = '700 40px "Roboto Condensed", "Arial Narrow", sans-serif'; c.textBaseline = 'top';
+    c.fillText((m.nombre || '').toUpperCase(), 80, 64);
+    c.fillStyle = m.acento; c.font = '700 34px "Roboto Condensed", "Arial Narrow", sans-serif'; c.fillText((p.seccion || '').toUpperCase(), 80, 170);
+    const lineas = (texto, fuente, ancho) => { c.font = fuente; const out = []; let l = '';
+      for (const w of String(texto || '').split(/\s+/)) { const prueba = l ? l + ' ' + w : w; if (c.measureText(prueba).width > ancho && l) { out.push(l); l = w; } else l = prueba; }
+      if (l) out.push(l); return out; };
+    let y = 240;
+    if (p.plantilla === 'dato' && p.dato) {
+      c.fillStyle = m.acento; const f = '700 150px "PT Serif", Georgia, serif'; for (const l of lineas(p.dato, f, 920).slice(0, 2)) { c.font = f; c.fillText(l, 80, y); y += 165; }
+      y += 20; }
+    const grande = p.plantilla === 'noticia' ? 76 : 60, fT = `700 ${grande}px "PT Serif", Georgia, serif`;
+    c.fillStyle = m.texto;
+    const tit = p.plantilla === 'cita' ? '«' + (p.titulo || '') + '»' : p.titulo;
+    for (const l of lineas(tit, fT, 920).slice(0, 7)) { c.font = fT; c.fillText(l, 80, y); y += grande * 1.22; }
+    if (p.bajada) { y += 26; const fB = '400 36px Inter, Arial, sans-serif'; c.globalAlpha = .82;
+      for (const l of lineas(p.bajada, fB, 920).slice(0, Math.max(0, Math.floor((H - 230 - y) / 50)))) { c.font = fB; c.fillText(l, 80, y); y += 50; } c.globalAlpha = 1; }
+    c.fillStyle = m.acento; c.fillRect(80, H - 150, 920, 3);
+    c.fillStyle = m.texto; c.font = '500 30px Inter, Arial, sans-serif'; c.globalAlpha = .8; c.fillText(p.credito ? 'Fuente: ' + p.credito : '', 80, H - 118); c.globalAlpha = 1;
+    c.font = '700 30px Inter, Arial, sans-serif'; const u = m.usuario || ''; c.fillText(u, W - 80 - c.measureText(u).width, H - 118);
+  }
+  VISTAS.instagram = async () => {
+    const [pr, mr, tj, ed] = await Promise.all([leerJSON(RUTA_IG, { posteos: [] }, true), leerJSON(RUTA_MARCA, MARCA_BASE, true),
+      leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('data/ediciones.json', { tarjetas: {} })]);
+    let P = pr.datos, shaP = pr.sha, M = { ...MARCA_BASE, ...mr.datos }, shaM = mr.sha;
+    P.nota = P.nota || 'Posteos de Instagram en preparación. Se editan desde el administrador (Instagram).';
+    const marcadas = tj.datos.tarjetas.filter(t => (ed.datos.tarjetas[t.id] || {}).instagram && !P.posteos.some(x => x.noticia === t.id));
+    try { await document.fonts.load('700 40px "PT Serif"'); await document.fonts.load('700 40px "Roboto Condensed"'); } catch (e) {}
+    const pintar = () => { vista.innerHTML = `
+      <div class="bloque"><div class="bh"><h2>Posteos</h2><button class="btn btn-sm btn-outline-dark ms-auto" id="ig-vacio" type="button">+ Posteo en blanco</button></div><div class="bc">
+        ${marcadas.length ? `<p class="mb-2"><b>Noticias marcadas para Instagram</b> <span class="ayuda">(desde «Noticias» → Editar → Marcar para Instagram)</span></p><ul class="mb-3">${marcadas.map(t => `<li>${esc(t.titulo)} <button class="btn btn-sm btn-link p-0 align-baseline" data-desde="${esc(t.id)}" type="button">Crear posteo</button></li>`).join('')}</ul>` : '<p class="ayuda">Para empezar un posteo desde una noticia, márquela «para Instagram» en «Noticias».</p>'}
+        <div class="tabla-wrap"><table class="table align-middle mb-0"><thead><tr><th>Posteo</th><th class="d-none d-md-table-cell">Fecha prevista</th><th>Estado</th><th></th></tr></thead><tbody>
+          ${P.posteos.map((x, i) => `<tr><td>${esc(x.titulo)}</td><td class="d-none d-md-table-cell text-nowrap">${esc(fechaLarga(x.fecha))}</td><td>${esc(ESTADOS_IG[x.estado] || x.estado)}</td><td><button class="btn btn-sm btn-outline-dark" data-ig="${i}" type="button">Abrir</button></td></tr>`).join('') || '<tr><td colspan="4" class="ayuda">Todavía no hay posteos.</td></tr>'}
+        </tbody></table></div></div></div>
+      <div class="bloque"><div class="bh"><h2>Marca y cuentas</h2><span class="badge text-bg-dark">Privado</span></div><div class="bc">
+        <p class="ayuda">Para las pruebas, use una marca ficticia que no se parezca a ningún medio real. Las imágenes de los posteos son de diseño propio (texto sobre color): no usan fotos de medios, que no tenemos permiso para publicar en redes.</p>
+        <div class="row g-2">
+          <div class="col-md-4"><label class="form-label small" for="mk-nom">Nombre de la marca</label><input class="form-control form-control-sm" id="mk-nom" value="${esc(M.nombre)}"></div>
+          <div class="col-md-4"><label class="form-label small" for="mk-usu">Usuario de Instagram</label><input class="form-control form-control-sm" id="mk-usu" value="${esc(M.usuario)}"></div>
+          <div class="col-md-4"><label class="form-label small" for="mk-lema">Lema</label><input class="form-control form-control-sm" id="mk-lema" value="${esc(M.lema)}"></div>
+          <div class="col-4 col-md-2"><label class="form-label small" for="mk-fondo">Fondo</label><input class="form-control form-control-color" id="mk-fondo" type="color" value="${esc(M.fondo)}"></div>
+          <div class="col-4 col-md-2"><label class="form-label small" for="mk-acento">Acento</label><input class="form-control form-control-color" id="mk-acento" type="color" value="${esc(M.acento)}"></div>
+          <div class="col-4 col-md-2"><label class="form-label small" for="mk-texto">Texto</label><input class="form-control form-control-color" id="mk-texto" type="color" value="${esc(M.texto)}"></div>
+        </div>
+        <p class="mt-3 mb-2"><b>Cuentas y accesos</b> <span class="ayuda">(quién maneja cada cuenta y en qué estado está; nunca escriba contraseñas aquí)</span></p>
+        <div class="d-grid gap-2" id="mk-cuentas">${(M.cuentas || []).map(ct => `<div class="row g-2 fila-cuenta">
+          <div class="col-md-3"><input class="form-control form-control-sm" data-k="red" value="${esc(ct.red)}" placeholder="Red (Instagram)"></div>
+          <div class="col-md-3"><input class="form-control form-control-sm" data-k="usuario" value="${esc(ct.usuario)}" placeholder="Usuario"></div>
+          <div class="col-md-2"><select class="form-select form-select-sm" data-k="estado">${['prueba', 'activa', 'pausada'].map(e => `<option ${ct.estado === e ? 'selected' : ''}>${e}</option>`).join('')}</select></div>
+          <div class="col-md-4"><input class="form-control form-control-sm" data-k="notas" value="${esc(ct.notas)}" placeholder="Quién tiene acceso, conexión con la API…"></div></div>`).join('')}</div>
+        <div class="d-flex gap-2 mt-2"><button class="btn btn-sm btn-outline-dark" id="mk-cuenta-add" type="button">+ Cuenta</button><button class="btn btn-sm btn-mc" id="mk-guardar" type="button">Guardar marca y cuentas</button></div>
+        <details class="mt-3"><summary class="small">Publicación automática (segunda etapa)</summary><p class="ayuda mt-2 mb-0">Para publicar desde aquí hace falta: la cuenta de prueba como cuenta profesional (de empresa o de creador), una app en Meta for Developers con permiso de publicación de contenido, y su clave guardada como secreto de GitHub. Las imágenes se publicarían desde la página (una dirección pública). Cuando tenga la cuenta, Claude arma el flujo y le da los pasos.</p></details>
+      </div></div>`;
+      document.getElementById('ig-vacio').onclick = () => editar({ id: Date.now().toString(36), plantilla: 'noticia', titulo: '', seccion: 'Noticias', bajada: '', dato: '', credito: '', texto: '', hashtags: '#poker', estado: 'borrador', fecha: hoyISO() }, -1);
+      vista.querySelectorAll('[data-desde]').forEach(b => b.onclick = () => { const t = tj.datos.tarjetas.find(x => x.id === b.dataset.desde), e = ed.datos.tarjetas[t.id] || {};
+        const tit = e.titulo || t.titulo, baj = e.resumen || t.resumen || '';
+        editar({ id: Date.now().toString(36), noticia: t.id, plantilla: 'noticia', titulo: tit, seccion: t.region === 'europa' ? 'Europa' : ({ latam: 'Latinoamérica', tema: 'Tema caliente' }[t.seccion] || 'Escena mundial'),
+          bajada: baj, dato: '', credito: (t.fuentes[0] || {}).nombre || '', texto: `${tit}\n\n${baj}\n\nFuente: ${(t.fuentes || []).map(f => f.nombre).join(', ')}`, hashtags: '#poker #pokernews', estado: 'borrador', fecha: hoyISO() }, -1); });
+      vista.querySelectorAll('[data-ig]').forEach(b => b.onclick = () => editar({ ...P.posteos[+b.dataset.ig] }, +b.dataset.ig));
+      document.getElementById('mk-cuenta-add').onclick = () => document.getElementById('mk-cuentas').insertAdjacentHTML('beforeend', `<div class="row g-2 fila-cuenta"><div class="col-md-3"><input class="form-control form-control-sm" data-k="red" value="Instagram"></div><div class="col-md-3"><input class="form-control form-control-sm" data-k="usuario" placeholder="Usuario"></div><div class="col-md-2"><select class="form-select form-select-sm" data-k="estado"><option>prueba</option><option>activa</option><option>pausada</option></select></div><div class="col-md-4"><input class="form-control form-control-sm" data-k="notas" placeholder="Quién tiene acceso, conexión con la API…"></div></div>`);
+      document.getElementById('mk-guardar').onclick = async () => { const v = id => document.getElementById(id).value.trim();
+        M = { ...M, nombre: v('mk-nom'), usuario: v('mk-usu'), lema: v('mk-lema'), fondo: v('mk-fondo'), acento: v('mk-acento'), texto: v('mk-texto'),
+          cuentas: [...document.querySelectorAll('.fila-cuenta')].map(f => Object.fromEntries([...f.querySelectorAll('[data-k]')].map(i => [i.dataset.k, i.value.trim()]))).filter(ct => ct.usuario) };
+        try { shaM = await guardar(RUTA_MARCA, json(M), shaM, 'Marca de Instagram', true); aviso('Guardado.'); } catch (e) { aviso(e.message, 'danger'); } };
+    };
+    const editar = (x, idx) => {
+      vista.innerHTML = `<div class="bloque"><div class="bh"><h2>${idx < 0 ? 'Nuevo posteo' : 'Posteo'}</h2><button class="btn btn-sm btn-outline-secondary ms-auto" id="pe-volver" type="button">← Volver</button></div><div class="bc"><div class="row g-4">
+        <div class="col-lg-6">
+          <div class="row g-2 mb-2"><div class="col-6"><label class="form-label small" for="pe-pl">Diseño</label><select class="form-select form-select-sm" id="pe-pl">${Object.entries(PLANTILLAS).map(([k, n]) => `<option value="${k}" ${x.plantilla === k ? 'selected' : ''}>${n}</option>`).join('')}</select></div>
+            <div class="col-6"><label class="form-label small" for="pe-sec">Sección</label><input class="form-control form-control-sm" id="pe-sec" value="${esc(x.seccion)}"></div></div>
+          <div class="mb-2"><label class="form-label small" for="pe-tit">Título de la imagen</label><textarea class="form-control form-control-sm" id="pe-tit" rows="2">${esc(x.titulo)}</textarea></div>
+          <div class="mb-2"><label class="form-label small" for="pe-dato">Dato destacado (cifra, para el diseño «Dato»)</label><input class="form-control form-control-sm" id="pe-dato" value="${esc(x.dato)}" placeholder="Ej.: $110,938"></div>
+          <div class="mb-2"><label class="form-label small" for="pe-baj">Bajada de la imagen</label><textarea class="form-control form-control-sm" id="pe-baj" rows="3">${esc(x.bajada)}</textarea></div>
+          <div class="mb-2"><label class="form-label small" for="pe-cred">Fuente que se muestra</label><input class="form-control form-control-sm" id="pe-cred" value="${esc(x.credito)}"></div>
+          <div class="mb-2"><label class="form-label small" for="pe-txt">Texto del posteo <span class="ayuda" id="pe-cnt"></span></label><textarea class="form-control form-control-sm" id="pe-txt" rows="6">${esc(x.texto)}</textarea></div>
+          <div class="mb-2"><label class="form-label small" for="pe-hash">Hashtags</label><input class="form-control form-control-sm" id="pe-hash" value="${esc(x.hashtags)}"></div>
+          <div class="row g-2 mb-3"><div class="col-6"><label class="form-label small" for="pe-fecha">Fecha prevista</label><input class="form-control form-control-sm" id="pe-fecha" type="date" value="${esc(x.fecha)}"></div>
+            <div class="col-6"><label class="form-label small" for="pe-est">Estado</label><select class="form-select form-select-sm" id="pe-est">${Object.entries(ESTADOS_IG).map(([k, n]) => `<option value="${k}" ${x.estado === k ? 'selected' : ''}>${n}</option>`).join('')}</select></div></div>
+          <div class="mb-3"><label class="form-label small" for="pe-url">Enlace del posteo publicado (opcional)</label><input class="form-control form-control-sm" id="pe-url" type="url" value="${esc(x.publicado_url || '')}"></div>
+          <div class="d-flex flex-wrap gap-2"><button class="btn btn-mc" id="pe-guardar" type="button">Guardar</button><button class="btn btn-outline-dark" id="pe-png" type="button">Descargar imagen</button><button class="btn btn-outline-dark" id="pe-copiar" type="button">Copiar texto</button>${idx >= 0 ? '<button class="btn btn-outline-danger ms-auto" id="pe-borrar" type="button">Borrar</button>' : ''}</div>
+        </div>
+        <div class="col-lg-6"><p class="ayuda mb-2">Vista previa (1080 × 1350, formato 4:5 de Instagram)</p><canvas id="pe-canvas" style="width:100%;max-width:460px;aspect-ratio:4/5;border-radius:6px;box-shadow:0 2px 10px rgb(0 0 0 / .2)"></canvas></div>
+      </div></div></div>`;
+      const v = id => document.getElementById(id).value;
+      const leerX = () => Object.assign(x, { plantilla: v('pe-pl'), seccion: v('pe-sec').trim(), titulo: v('pe-tit').trim(), dato: v('pe-dato').trim(), bajada: v('pe-baj').trim(),
+        credito: v('pe-cred').trim(), texto: v('pe-txt'), hashtags: v('pe-hash').trim(), fecha: v('pe-fecha'), estado: v('pe-est'), publicado_url: v('pe-url').trim() });
+      const cv = document.getElementById('pe-canvas');
+      const refrescar = () => { leerX(); dibujarPosteo(cv, x, M); const n = (x.texto + '\n\n' + x.hashtags).length, h = (x.hashtags.match(/#/g) || []).length;
+        const cnt = document.getElementById('pe-cnt'); cnt.textContent = `${n} de 2200 caracteres · ${h} de 30 hashtags`; cnt.className = n > 2200 || h > 30 ? 'estado-error' : 'ayuda'; };
+      vista.querySelectorAll('input, textarea, select').forEach(el => el.addEventListener('input', refrescar)); refrescar();
+      document.getElementById('pe-volver').onclick = pintar;
+      document.getElementById('pe-png').onclick = () => cv.toBlob(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `posteo-${x.id}.png`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }, 'image/png');
+      document.getElementById('pe-copiar').onclick = async () => { leerX(); try { await navigator.clipboard.writeText(x.texto + '\n\n' + x.hashtags); aviso('Texto copiado.'); } catch (e) { aviso('No se pudo copiar: selecciónelo a mano.', 'warning'); } };
+      document.getElementById('pe-guardar').onclick = async () => { leerX(); if (!x.titulo) return aviso('Escriba el título de la imagen.', 'warning');
+        x.actualizado = hoyISO(); if (idx >= 0) P.posteos[idx] = x; else { P.posteos.unshift(x); idx = 0; }
+        try { shaP = await guardar(RUTA_IG, json(P), shaP, 'Posteo de Instagram: ' + x.titulo.slice(0, 50), true); aviso('Guardado.'); } catch (e) { aviso(e.message, 'danger'); } };
+      const bb = document.getElementById('pe-borrar'); if (bb) bb.onclick = async () => { P.posteos.splice(idx, 1);
+        try { shaP = await guardar(RUTA_IG, json(P), shaP, 'Posteo de Instagram borrado', true); aviso('Borrado.'); pintar(); } catch (e) { aviso(e.message, 'danger'); } };
+    };
+    pintar();
   };
 
   // ---------------------------------------------------------------- inicio

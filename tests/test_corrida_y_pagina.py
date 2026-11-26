@@ -65,7 +65,7 @@ def test_fallo_del_modelo_queda_registrado_y_no_marca_vistos(raiz_temporal, desc
     assert c["estado"] == "fallida" and "529" in c["motivo"]
     assert leer_json(raiz_temporal / "data" / "vistos.json")["urls"] == {}
     assert _huella(raiz_temporal / "data" / "dias")["2026-10-03.json"] == antes["2026-10-03.json"]
-    html = (raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8")
+    html = (raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8")
     assert "Corrida fallida: La API respondió con error 529." in html
     assert "Previa" in html  # el historial sigue en la página
 
@@ -124,7 +124,7 @@ def test_pagina_tres_dias_abiertos_resto_plegado(raiz_temporal):
     (raiz_temporal / "config" / "fuentes.json").write_text(json.dumps(fuentes), encoding="utf-8")
 
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    sopa = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser")
+    sopa = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser")
     bloques = sopa.select("details.day-block")
     assert len(bloques) == 5
     assert [b.has_attr("open") for b in bloques] == [True, True, True, False, False]
@@ -144,7 +144,7 @@ def test_pie_muestra_costos_del_mes(raiz_temporal):
         {"fecha": "2026-10-03", "modelo": "claude-haiku-4-5", "tokens_entrada": 12000, "tokens_salida": 2500, "costo_usd": 0.0245},
     ]}), encoding="utf-8")
     pagina.generar(raiz_temporal, AHORA.date(), AHORA)
-    pie = BeautifulSoup((raiz_temporal / "docs" / "index.html").read_text(encoding="utf-8"), "html.parser").footer.get_text(" ")
+    pie = BeautifulSoup((raiz_temporal / "docs" / "historial.html").read_text(encoding="utf-8"), "html.parser").footer.get_text(" ")
     assert "US$ 0.0245" in pie            # última corrida
     assert "2 llamadas" in pie and "US$ 0.0445" in pie  # solo octubre
     assert "22.000 tokens de entrada" in pie

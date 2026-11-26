@@ -1,6 +1,6 @@
 name: Aplicar ediciones
 
-# Regenera la página cuando el administrador guarda una edición (data/ediciones.json)
+# Regenera la página cuando el administrador guarda una edición (data/ediciones.json), el menú y las secciones (config/sitio.json)
 # o cuando cambia el diseño de la página (plantillas o mesa/pagina.py).
 # No usa el modelo: no tiene costo de API.
 on:
@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - "data/ediciones.json"
+      - "config/sitio.json"
       - "templates/**"
       - "mesa/pagina.py"
   workflow_dispatch:

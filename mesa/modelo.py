@@ -31,7 +31,7 @@ Tareas:
    - "confirmado": solo si lo informa una fuente oficial o un medio especializado con fecha, y se trata de un resultado, un anuncio oficial o un hecho verificado.
    - "discusion": tema abierto, polémica, versiones encontradas, o cualquier hecho respaldado solo por fuentes de clase "comunidad" (Reddit, foros) o por fuentes sin fecha.
    - "rumor": sin confirmación.
-4. Escriba un título en español y un resumen de 2 a 3 líneas. La jerga del poker y los nombres propios quedan en inglés dentro del título en español (por ejemplo: "César García, runner-up en el GGMillion$ PLO"; "Ivelin Kolev gana el WPT Prime Cyprus Championship").
+4. Escriba un título en español, un resumen de 2 a 3 líneas (la bajada de la tarjeta) y un "cuerpo": la noticia contada en 2 a 4 párrafos separados por una línea en blanco ("\n\n"), para la página propia de la noticia. El cuerpo usa solo datos del titular, la primera línea y el extracto de las notas que cita: quién, qué, cuándo, dónde, cifras, contexto y qué dijeron los involucrados, sin opiniones propias ni relleno. Si el texto recibido no alcanza para dos párrafos con datos, escriba uno solo; nunca complete con suposiciones. La jerga del poker y los nombres propios quedan en inglés dentro del título en español (por ejemplo: "César García, runner-up en el GGMillion$ PLO"; "Ivelin Kolev gana el WPT Prime Cyprus Championship").
 5. Aparte, complete "escena_latam" con hasta {max_latam} hechos sobre jugadores argentinos o latinoamericanos, o torneos latinoamericanos (CAP, BSOP, CLSOP, LAPT y similares). Dé prioridad a las fuentes de región latam y argentina. Un hecho no debe repetirse en "tarjetas" y "escena_latam".
 6. En cada tarjeta y en cada tema agregue "registro", una ficha breve para el archivo interno, solo con datos escritos en las notas que cita. Omita los campos que no figuren:
    - "tipo": resultado, anuncio_evento, industria_polemica, software, obituario, oferta u otro.
@@ -73,7 +73,7 @@ Reglas estrictas:
 
 Responda únicamente con un objeto JSON, sin texto adicional, con esta forma (en este orden: temas, tarjetas, escena_latam, cambios_salas):
 {{"temas": [{{"tema": "NOMBRE", "linea_principal": "...", "novedades": [{{"id": 2, "clasificacion": "confirmado", "aporta": "..."}}], "registro": {{"tipo": "industria_polemica"}}}}],
- "tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "registro": {{"tipo": "resultado", "jugadores": [["...", "..."]], "torneo": "..."}}}},
+ "tarjetas": [{{"ids": [1, 4], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "cuerpo": "...\n\n...", "registro": {{"tipo": "resultado", "jugadores": [["...", "..."]], "torneo": "..."}}}},
               {{"ids": [9], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "actualiza": "P3", "novedad": "...", "registro": {{"tipo": "otro"}}}}],
  "escena_latam": [{{"ids": [7], "clasificacion": "confirmado", "titulo": "...", "resumen": "...", "registro": {{"tipo": "resultado"}}}}],
  "cambios_salas": [{{"ids": [5], "sala": "...", "tema": "rake_rakeback", "dato": "..."}}]}}"""
@@ -416,6 +416,11 @@ def _construir_tarjetas(crudas, items: list[dict], maximo: int, usados: set[int]
         cambio = calidad.ajustar_clasificacion(tarjeta, fuentes_items)
         if cambio:
             descartar(tarjeta["titulo"], cambio)
+        cuerpo, cambios = verificar_cuerpo(str(c.get("cuerpo") or ""), tarjeta["titulo"], fuentes_items, es_latam)
+        for cambio in cambios:
+            descartar(tarjeta["titulo"], cambio)
+        if cuerpo and cuerpo != tarjeta["resumen"]:
+            tarjeta["cuerpo"] = cuerpo
         tarjetas.append(tarjeta)
         if fichas is not None:  # ficha para el registro permanente (no se guarda en la tarjeta)
             fichas.append({"tarjeta": tarjeta, "crudo": c.get("registro"), "items": fuentes_items,
@@ -528,6 +533,40 @@ def categoria_descarte(motivo: str) -> str | None:
 
 _RECORD = re.compile(r"\b(r[eé]cords?|all[- ]time|hist[oó]ric[oa]s?|lista hist[oó]rica|money list|m[aá]s brazaletes|"
                      r"m[aá]s t[ií]tulos|iguala|supera a|leaderboard de todos los tiempos)\b", re.I)
+
+
+def imagenes_de_fuentes(items: list[dict], maximo: int = 4) -> list[dict]:
+    """Una imagen por fuente (sin repetir), con el nombre del medio y el enlace a la nota."""
+    vistas, salida = set(), []
+    for it in items:
+        url = it.get("imagen")
+        if url and url not in vistas:
+            vistas.add(url)
+            salida.append({"url": url, "fuente": it.get("fuente") or "", "enlace": it.get("url") or ""})
+    return salida[:maximo]
+
+
+def verificar_cuerpo(cuerpo: str, titulo: str, items: list[dict], es_latam: bool = False) -> tuple[str, list[str]]:
+    """El cuerpo pasa los mismos controles que la bajada, párrafo por párrafo. Un párrafo con datos que no
+    están en el texto enviado se quita; si no queda ninguno, la página usa la bajada."""
+    texto = calidad.texto_items(items)
+    parrafos, cambios = [], []
+    for crudo in re.split(r"\n\s*\n|\n", cuerpo or ""):
+        parrafo = limpiar_texto(crudo)
+        if not parrafo:
+            continue
+        prueba = {"titulo": titulo, "resumen": parrafo, "clasificacion": "confirmado"}
+        ok, _ = control.verificar_nombres(prueba, texto)
+        if ok:
+            ok, _ = calidad.aplicar_regla_maxima(prueba, texto)
+        if not ok or not prueba.get("resumen"):
+            cambios.append("párrafo del cuerpo sin respaldo en la fuente (quitado)")
+            continue
+        calidad.quitar_superlativos(prueba)
+        control.corregir_terminos(prueba, items)
+        calidad.corregir_monedas(prueba, items)
+        parrafos.append(prueba["resumen"])
+    return "\n\n".join(parrafos), cambios
 
 
 def resultado_excepcional(tarjeta: dict, historicas: list[str] | None) -> bool:
@@ -710,11 +749,12 @@ def resumir(items: list[dict], ajustes: dict, llamar: Llamador = llamar_anthropi
             fichas.remove(f)
             archivo.append({"titulo": t["titulo"], "resumen": t["resumen"], "fuentes": t["fuentes"], "motivo": "redaccion"})
             registro.append({"titulo": t["titulo"], "motivo": "resultado fuera de la regla de resultados (al archivo)"})
-    # Foto: la imagen que el medio declara para compartir su nota (la primera fuente que la tenga).
+    # Fotos: la imagen que cada medio declara para compartir su nota, con su crédito y enlace.
     for f in fichas:
-        foto = next((it.get("imagen") for it in f["items"] if it.get("imagen")), None)
-        if foto:
-            f["tarjeta"]["imagen"] = foto
+        imagenes = imagenes_de_fuentes(f["items"])
+        if imagenes:
+            f["tarjeta"]["imagen"] = imagenes[0]["url"]
+            f["tarjeta"]["imagenes"] = imagenes
     temas = construir_temas(datos.get("temas"), items, hoy, publicado_temas, registro)
     publicadas = {id(t) for t in tarjetas + latam}
     fichas = [f for f in fichas if id(f["tarjeta"]) in publicadas]

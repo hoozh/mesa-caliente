@@ -27,16 +27,21 @@
   <h1>{{ t.titulo }}</h1>
   <p class="fecha">{{ fecha_larga_iso(t.dia) }}</p>
 
-  {% if t.imagen %}
+  {% set imagenes = t.imagenes or ([{'url': t.imagen, 'fuente': (t.fuentes[0].nombre if t.fuentes else ''), 'enlace': (t.fuentes[0].url if t.fuentes else '')}] if t.imagen else []) %}
+  {% macro figura(im) %}
   <figure class="foto">
-    <img src="{{ t.imagen }}" alt="" loading="lazy" referrerpolicy="no-referrer">
-    {% if t.fuentes %}<figcaption>Foto: {{ t.fuentes[0].nombre }}</figcaption>{% endif %}
+    <img src="{{ im.url }}" alt="{{ im.pie or '' }}" loading="lazy" referrerpolicy="no-referrer">
+    {% if im.pie or im.fuente %}<figcaption>{% if im.pie %}{{ im.pie }}{% if im.fuente %} · {% endif %}{% endif %}{% if im.fuente %}Foto: {% if im.enlace %}<a href="{{ im.enlace }}" target="_blank" rel="noopener">{{ im.fuente }}</a>{% else %}{{ im.fuente }}{% endif %}{% endif %}</figcaption>{% endif %}
   </figure>
-  {% endif %}
+  {% endmacro %}
+  {% if imagenes %}{{ figura(imagenes[0]) }}{% endif %}
 
   {% if t.novedad %}<p class="novedad"><b>Qué cambió:</b> {{ t.novedad }}</p>{% endif %}
+  {% set parrafos = (t.cuerpo or t.resumen or '').split('\n') | select('ne', '') | map('trim') | select | list %}
   <div class="cuerpo">
-    {% for parrafo in (t.cuerpo or t.resumen or '').split('\n') if parrafo.strip() %}<p>{{ parrafo }}</p>{% endfor %}
+    {% if t.cuerpo and t.resumen %}<p class="bajada">{{ t.resumen }}</p>{% endif %}
+    {% for parrafo in parrafos %}<p>{{ parrafo }}</p>{% if imagenes[loop.index] is defined %}{{ figura(imagenes[loop.index]) }}{% endif %}{% endfor %}
+    {% for im in imagenes[parrafos | length + 1:] %}{{ figura(im) }}{% endfor %}
   </div>
 
   {% if t.novedades %}
