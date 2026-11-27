@@ -84,6 +84,15 @@ def contar_descartes(informe: list[dict], items: list[dict], enviados: list[dict
     return {"totales": totales, "por_fuente": por_fuente}
 
 
+TIPOS_DE_BARRIDO = (None, "seleccion", "redaccion", "principal", "recuperacion")
+
+
+def gasto_de_barridos(costos: dict, dia: date) -> float:
+    """USD que gastaron los barridos del día (selección y redacción). Excluye tarjetas manuales, videos y mediciones."""
+    return sum(x.get("costo_usd", 0.0) for x in costos.get("corridas", [])
+               if x.get("fecha") == dia.isoformat() and x.get("tipo") in TIPOS_DE_BARRIDO)
+
+
 def guardar_entradas(raiz: Path, dia: date, corrida_id: str, enviados: list[dict], tipo: str = "principal") -> None:
     """Auditoría: lo que se envió al modelo, por nota (fuente, URL, titular y primera frase, máx. 200 caracteres)."""
     ruta = Path(raiz) / "data" / "entradas" / f"{dia.isoformat()}.json"
@@ -341,7 +350,11 @@ def _registrar_costo(costos: dict, hoy: date, corrida: dict, uso: dict, tipo: st
         "costo_usd": uso.get("costo_usd", 0.0),
         "estado": corrida["estado"],
     })
+    if uso.get("truncado"):
+        costos["corridas"][-1]["truncado"] = True  # la salida se cortó por el tope de tokens
     if tipo == "redaccion":
+        if any(str(n).startswith("La salida de la redacción se limitó") for n in corrida.get("notas", [])):
+            costos["corridas"][-1]["salida_limitada"] = True  # el tope de costo acortó la redacción
         for k in ("tokens_cache_escritura", "tokens_cache_lectura"):
             if uso.get(k):
                 costos["corridas"][-1][k] = uso[k]
@@ -576,7 +589,9 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
                 # 2.ª llamada: redacción, dentro del tope de costo de la corrida y del día.
                 max_salida = ajustes.get("max_tokens_salida", 4500)
                 costo_sel = (corrida.get("uso_seleccion") or {}).get("costo_usd", 0.0)
-                gastado_hoy = sum(x.get("costo_usd", 0.0) for x in costos.get("corridas", []) if x.get("fecha") == hoy.isoformat())
+                # El tope del barrido cuenta solo lo que gastaron los barridos: las tarjetas creadas a mano, los videos,
+                # los briefs y las mediciones no le quitan presupuesto (pedido de Hoozh, 27 nov 2026).
+                gastado_hoy = gasto_de_barridos(costos, hoy)
                 disponible = min(ajustes.get("max_costo_usd_por_corrida", 0.05),
                                  ajustes.get("max_costo_usd_por_dia", 1.0) - gastado_hoy) - costo_sel
                 nombre_modelo = modelo.modelo_configurado(ajustes)

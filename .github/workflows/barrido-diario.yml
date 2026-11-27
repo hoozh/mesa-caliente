@@ -89,6 +89,14 @@ jobs:
         run: |
           origen="${ORIGEN_ENTRADA,,}"   # en minúsculas
           origen="${origen// /}"          # sin espacios
+          # Medición semanal: los lunes (UTC), en barridos programados o externos, se redacta dos veces (sin y con los
+          # documentos de SEI) para ver la evolución del costo. Se apaga con "medicion_semanal_lunes": false en config/ajustes.json.
+          if [ "$EVENTO" = "schedule" ] || [ "$origen" = "externo" ]; then
+            if [ "$(date -u +%u)" = "1" ] && [ "$(jq -r '.medicion_semanal_lunes // false' config/ajustes.json)" = "true" ]; then
+              export MESA_MEDIR_SEI=1
+              echo "Lunes: se mide el costo de la redacción sin y con los documentos de SEI."
+            fi
+          fi
           if [ "$EVENTO" = "schedule" ]; then
             # GitHub entrega los horarios con horas de atraso. Un respaldo que llega antes de las 12:00 UTC
             # (después de medianoche) pertenece al día anterior: no corre, así no le quita su lugar

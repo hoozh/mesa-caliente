@@ -49,5 +49,6 @@
   "max_hechos_europa": 6,
   "max_hechos_archivo": 40,
   "max_costo_usd_por_dia": 0.21,
-  "max_tokens_salida_medicion": 16000
+  "max_tokens_salida_medicion": 16000,
+  "medicion_semanal_lunes": true
 }
