@@ -61,6 +61,7 @@ td.titulo { min-width: 220px; }
     <button data-v="claves">Palabras clave prioritarias</button>
     <button data-v="busquedas">Búsquedas activas</button>
     <button data-v="barrido">Correr el barrido</button>
+    <button data-v="costos">Costos</button>
     <div class="grupo">Bases de datos</div>
     <button data-v="personalidades">Personalidades</button>
     <button data-v="bases">Consultar registros</button>
@@ -147,7 +148,7 @@ td.titulo { min-width: 220px; }
   }
   const vista = document.getElementById('vista');
   const VISTAS = {};
-  const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido',
+  const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido', costos: 'Costos',
     personalidades: 'Personalidades', bases: 'Consultar registros', archivos: 'Archivos de SEI', conexion: 'Conexión',
     sitio: 'Menú y secciones', instagram: 'Instagram', propuestas: 'Propuestas', videos: 'Videos', marcas: 'Marcas', biblioteca: 'Biblioteca' };
   const slugId = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -445,6 +446,38 @@ td.titulo { min-width: 220px; }
         try { sha = await guardar('config/personalidades.json', json(datos), sha, 'Personalidad quitada: ' + x.nombre); modal.hide(); aviso('Quitada de la lista. Su perfil privado se conserva.'); pintar(); } catch (e) { aviso(e.message, 'danger'); } };
     };
     pintar();
+  };
+
+  // ---------------------------------------------------------------- Costos (solo lee data/costos.json; no usa el modelo)
+  const TIPOS_COSTO = { barrido: ['', 'seleccion', 'redaccion', 'principal', 'recuperacion'], tarjeta: ['tarjeta_registro'], video: ['video'],
+    otros: ['brief', 'historial', 'medicion_sin_documentos'] };
+  const grupoCosto = t => Object.keys(TIPOS_COSTO).find(g => TIPOS_COSTO[g].includes(t || '')) || 'otros';
+  const usd = n => 'US$ ' + (+n || 0).toFixed(3).replace('.', ',');
+  VISTAS.costos = async () => {
+    const [cs, aj, tj] = await Promise.all([leerJSON('data/costos.json', { corridas: [] }), leerJSON('config/ajustes.json', {}), leerJSON('docs/datos/tarjetas.json', { tarjetas: [] })]);
+    const tope = +aj.datos.max_costo_usd_por_dia || 0, dias = {};
+    for (const x of cs.datos.corridas) { if (!x.fecha) continue;
+      const d = dias[x.fecha] || (dias[x.fecha] = { barrido: 0, tarjeta: 0, video: 0, otros: 0, salida: 0, cortes: 0, conDocs: false, medicion: null });
+      d[grupoCosto(x.tipo)] += x.costo_usd || 0;
+      if (grupoCosto(x.tipo) === 'barrido') d.salida += x.tokens_salida || 0;
+      if (x.truncado || x.salida_limitada || (x.estado && x.estado !== 'ok' && grupoCosto(x.tipo) === 'barrido')) d.cortes++;
+      if (x.tipo === 'redaccion' && x.documentos_sei === 'completos') d.conDocs = true;
+      if (x.medicion_sei) d.medicion = x.medicion_sei; }
+    const publicadas = {}; tj.datos.tarjetas.forEach(t => { publicadas[t.dia] = (publicadas[t.dia] || 0) + 1; });
+    const filas = Object.entries(dias).sort((a, b) => b[0].localeCompare(a[0])).slice(0, 60);
+    const mediciones = filas.filter(([, d]) => d.medicion);
+    const proms = filas.filter(([, d]) => d.barrido > 0), prom = proms.length ? proms.reduce((a, [, d]) => a + d.barrido, 0) / proms.length : 0;
+    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Costo por día</h2><span class="ayuda">Tope del barrido: ${tope ? usd(tope) : 'sin dato'} por día</span></div><div class="bc">
+      <p class="ayuda">El tope compara solo el gasto de los barridos (selección y redacción). Las tarjetas creadas a mano, los videos, los briefs y las mediciones se muestran aparte y no le quitan presupuesto al barrido. Promedio del barrido en los últimos ${proms.length} días con datos: <b>${usd(prom)}</b>. Los datos vienen de <code>data/costos.json</code>; esta vista no usa el modelo y no cuesta nada.</p>
+      <div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr><th>Día</th><th class="text-end">Barrido</th><th class="text-end">Tarjetas manuales</th><th class="text-end">Otros</th><th class="text-end">Total</th><th>Contra el tope</th><th class="text-end">Tokens de salida</th><th class="text-end">Tarjetas publicadas</th><th>Documentos de SEI</th><th>Cortes</th></tr></thead><tbody>${filas.map(([f, d]) => {
+        const pct = tope ? Math.min(100, d.barrido / tope * 100) : 0, rojo = tope && d.barrido > tope;
+        return `<tr><td class="text-nowrap">${esc(fechaLarga(f))}</td><td class="text-end">${usd(d.barrido)}</td><td class="text-end">${d.tarjeta ? usd(d.tarjeta) : '–'}</td><td class="text-end">${d.video + d.otros ? usd(d.video + d.otros) : '–'}</td><td class="text-end">${usd(d.barrido + d.tarjeta + d.video + d.otros)}</td>
+          <td style="min-width:120px"><div class="progress" style="height:8px" title="${Math.round(pct)}% del tope"><div class="progress-bar ${rojo ? 'bg-danger' : 'bg-secondary'}" style="width:${pct}%"></div></div></td>
+          <td class="text-end">${d.salida || '–'}</td><td class="text-end">${publicadas[f] || '–'}</td><td>${d.conDocs ? 'Sí' : 'No'}</td><td>${d.cortes ? `<span class="text-danger fw-bold">${d.cortes}</span>` : '–'}</td></tr>`; }).join('') || '<tr><td colspan="10" class="ayuda">Todavía no hay costos registrados.</td></tr>'}</tbody></table></div></div></div>
+      <div class="bloque"><div class="bh"><h2>Mediciones con y sin documentos de SEI</h2></div><div class="bc">
+      <p class="ayuda">Una medición redacta dos veces el mismo día, sin y con los documentos, y compara el costo y la cantidad de tarjetas. Se corre los lunes (también se puede pedir a mano en «Correr el barrido»).</p>
+      <div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr><th>Día</th><th class="text-end">Sin documentos</th><th class="text-end">Con documentos</th><th class="text-end">Tarjetas sin / con</th><th class="text-end">Diferencia</th></tr></thead><tbody>${mediciones.map(([f, d]) => { const m = d.medicion, a = m.sin_documentos || {}, c = m.con_documentos || {};
+        return `<tr><td class="text-nowrap">${esc(fechaLarga(f))}</td><td class="text-end">${usd(a.costo_usd)}</td><td class="text-end">${usd(c.costo_usd)}</td><td class="text-end">${m.tarjetas_sin_documentos ?? '–'} / ${m.tarjetas_con_documentos ?? '–'}</td><td class="text-end">${usd((c.costo_usd || 0) - (a.costo_usd || 0))}</td></tr>`; }).join('') || '<tr><td colspan="5" class="ayuda">Todavía no hay mediciones.</td></tr>'}</tbody></table></div></div></div>`;
   };
 
   // ---------------------------------------------------------------- Consultar registros

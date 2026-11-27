@@ -136,3 +136,51 @@ def test_controles_marcan_para_revision():
     assert "cita en inglés" in t[3]["revisar"][0]
     assert "revisar" not in t[4]  # nombrar la fuente («según PokerNews») está bien
     assert len(controles) == 4
+
+
+# ---------------------------------------------------------------- costos: tope solo de barridos y medición semanal (27 nov 2026)
+
+def test_el_tope_cuenta_solo_el_gasto_de_los_barridos():
+    from datetime import date
+    hoy = date(2026, 11, 27)
+    costos = {"corridas": [
+        {"fecha": "2026-11-27", "tipo": "seleccion", "costo_usd": 0.01},
+        {"fecha": "2026-11-27", "tipo": "redaccion", "costo_usd": 0.10},
+        {"fecha": "2026-11-27", "tipo": "tarjeta_registro", "costo_usd": 0.14},
+        {"fecha": "2026-11-27", "tipo": "video", "costo_usd": 0.05},
+        {"fecha": "2026-11-27", "tipo": "medicion_sin_documentos", "costo_usd": 0.06},
+        {"fecha": "2026-11-27", "tipo": "brief", "costo_usd": 0.02},
+        {"fecha": "2026-11-26", "tipo": "redaccion", "costo_usd": 0.50},
+        {"fecha": "2026-11-27", "costo_usd": 0.03}]}  # registros viejos, sin tipo, eran de barridos
+    assert round(corrida.gasto_de_barridos(costos, hoy), 6) == 0.14
+
+
+def test_tarjetas_manuales_previas_no_acortan_la_redaccion(raiz_temporal, descarga_ejemplo):
+    costos = raiz_temporal / "data" / "costos.json"
+    costos.parent.mkdir(exist_ok=True)
+    costos.write_text(json.dumps({"corridas": [{"fecha": AHORA.date().isoformat(), "id": "x", "tipo": "tarjeta_registro",
+                                                "costo_usd": 5.0}]}), encoding="utf-8")
+    c = corrida.ejecutar(raiz_temporal, AHORA, "manual", descarga_ejemplo, llamador_ok)
+    assert c["estado"] == "ok"
+    assert not any("se limitó" in n for n in c["notas"])
+
+
+def test_el_registro_de_costos_anota_cortes():
+    c = {"corridas": []}
+    from datetime import date
+    corrida._registrar_costo(c, date(2026, 11, 27), {"id": "a", "estado": "ok", "notas": ["La salida de la redacción se limitó a 2000 tokens por el tope de costo."]},
+                             {"costo_usd": 0.1, "truncado": True}, "redaccion")
+    assert c["corridas"][0]["truncado"] is True and c["corridas"][0]["salida_limitada"] is True
+
+
+def test_medicion_los_lunes_en_barridos_programados_y_apagable():
+    flujo = yaml.safe_load((RAIZ / ".github" / "workflows" / "barrido-diario.yml").read_text(encoding="utf-8"))
+    paso = next(p for p in flujo["jobs"]["barrido"]["steps"] if p.get("name") == "Correr el barrido")
+    assert 'date -u +%u)" = "1"' in paso["run"] and "medicion_semanal_lunes" in paso["run"] and "export MESA_MEDIR_SEI=1" in paso["run"]
+    assert leer_json(RAIZ / "config" / "ajustes.json")["medicion_semanal_lunes"] is True
+
+
+def test_vista_costos_en_el_administrador():
+    html = (RAIZ / "docs" / "admin" / "index.html").read_text(encoding="utf-8")
+    assert 'data-v="costos"' in html and "VISTAS.costos" in html and "data/costos.json" in html
+    assert "max_costo_usd_por_dia" in html and "Tarjetas manuales" in html and "Mediciones con y sin documentos de SEI" in html
