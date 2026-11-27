@@ -18,6 +18,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from . import candidatas as cand
+from . import candidatos as candidatos_mod
 from . import temas as temas_mod
 from . import torneos
 from . import modelo, pagina, recoleccion, revision, sei
@@ -704,6 +705,10 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
     agregar_corrida(raiz, hoy, corrida)
     try:
         temas_mod.detectar_auto(raiz, hoy)
+    except Exception:
+        traceback.print_exc()
+    try:  # candidatos de Personalidades y palabras clave para el administrador (sin modelo, sin costo)
+        candidatos_mod.generar(raiz, hoy)
     except Exception:
         traceback.print_exc()
 

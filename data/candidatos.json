@@ -1,0 +1,1240 @@
+{
+  "fecha": "2026-11-27",
+  "ventana_dias": 30,
+  "hechos_revisados": 302,
+  "personalidades": [
+    {
+      "texto": "Vladimir Minko",
+      "apariciones": 5,
+      "dias": 4,
+      "fuentes": 6,
+      "primera": "2026-11-04",
+      "ultima": "2026-11-27",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-27-d925c8be",
+          "titulo": "Iuri Ribeiro cobra US$ 695.597 como cuarto en GGMillion$ Festival de GGPoker; mayor premio online de su carrera",
+          "fecha": "2026-11-27"
+        },
+        {
+          "id": "2026-11-06-c9599031",
+          "titulo": "Vladimir Minko gana segundo título GGMillion$ High Roller, venciendo a Juan Pardo heads-up por US$ 440K",
+          "fecha": "2026-11-06"
+        },
+        {
+          "id": "2026-11-06-acb32eb7",
+          "titulo": "Juan Pardo pierde heads-up GGMillion$ contra Vladimir Minko; suma US$ 311.806",
+          "fecha": "2026-11-06"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Juan Pardo",
+      "apariciones": 5,
+      "dias": 4,
+      "fuentes": 4,
+      "primera": "2026-11-04",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-d0c30cb7",
+          "titulo": "Sergio Aido y Juan Pardo cobran en el Triton $60.000 7-Handed de Chipre; Pieter Aerts gana y logra su tercer título Triton en 34 eventos",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-20-71d1c81d",
+          "titulo": "Juan Pardo [nacionalidad a confirmar], cuarto en el Triton North Cyprus $50.000 eight-max por US$ 602.000",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-06-c9599031",
+          "titulo": "Vladimir Minko gana segundo título GGMillion$ High Roller, venciendo a Juan Pardo heads-up por US$ 440K",
+          "fecha": "2026-11-06"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Neymar Jr.",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 5,
+      "primera": "2026-11-17",
+      "ultima": "2026-11-23",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-23-f42f63fc",
+          "titulo": "Neymar Jr. gana el BSOP Millions R$ 15.000 1-Day High Roller",
+          "fecha": "2026-11-23"
+        },
+        {
+          "id": "2026-11-22-b8d45191",
+          "titulo": "Neymar Jr. gana su primer título en el BSOP Millions, 1-Day High Roller por R$ 380.000",
+          "fecha": "2026-11-22"
+        },
+        {
+          "id": "2026-11-17-cd61c1fc",
+          "titulo": "Neymar Jr [nacionalidad a confirmar]. lleva a compañeros del Santos al BSOP Millions 2026; Rodinei se coloca en dinero",
+          "fecha": "2026-11-17"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Lucas Jumalon",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 5,
+      "primera": "2026-10-28",
+      "ultima": "2026-11-15",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-15-66ad66b4",
+          "titulo": "Lucas Jumalon rechazó jugar en enorme cash game de Hustler Casino Live con Negreanu",
+          "fecha": "2026-11-15"
+        },
+        {
+          "id": "2026-11-13-47ce23d0",
+          "titulo": "Lucas Jumalon habla sobre su vida tras ganar el WSOP Main Event 2026 por US$ 10 millones",
+          "fecha": "2026-11-13"
+        },
+        {
+          "id": "2026-10-28-070e7c9c",
+          "titulo": "Lucas Jumalon, campeón WSOP 2026 por US$ 10 millones, designado embajador global de WSOP Academy",
+          "fecha": "2026-10-28"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Fabiano Kovalski",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-10-29",
+      "ultima": "2026-11-20",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-20-27c5906e",
+          "titulo": "Darci Fantin [nacionalidad a confirmar] lidera Día 2 del 100K Super High Roller en BSOP Millions",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-19-573be004",
+          "titulo": "Fabiano Kovalski y Carlos Serrano destacados en BSOP Millions con dos títulos y mesa final",
+          "fecha": "2026-11-19"
+        },
+        {
+          "id": "2026-10-29-bb6e14cd",
+          "titulo": "Fabiano Kovalski gana GGMillion$ US$ 10.000 por US$ 464.794 en su intento 91",
+          "fecha": "2026-10-29"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Carlos Serrano",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-16",
+      "ultima": "2026-11-20",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-20-dad10284",
+          "titulo": "Carlos Serrano y Sebastián Fonseca destacan en BSOP Millions 2026 en São Paulo",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-19-573be004",
+          "titulo": "Fabiano Kovalski y Carlos Serrano destacados en BSOP Millions con dos títulos y mesa final",
+          "fecha": "2026-11-19"
+        },
+        {
+          "id": "2026-11-16-22f4ac05",
+          "titulo": "Gabriel Nóbrega [nacionalidad a confirmar] gana dos torneos en el BSOP Millions 2026",
+          "fecha": "2026-11-16"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Joe McKeehen",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-06",
+      "ultima": "2026-11-19",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-19-99537d20",
+          "titulo": "Joe McKeehen gana el Borgata Fall Poker Open con 482 entradas por US$ 210.500",
+          "fecha": "2026-11-19"
+        },
+        {
+          "id": "2026-11-18-0fd89f2e",
+          "titulo": "Joe McKeehen gana el Borgata Fall Poker Open Championship por US$ 210.500",
+          "fecha": "2026-11-18"
+        },
+        {
+          "id": "2026-11-06-28db849b",
+          "titulo": "Joe McKeehen gana el último evento de la serie PGT Sprint en Las Vegas",
+          "fecha": "2026-11-06"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "André Moreira",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 2,
+      "primera": "2026-11-18",
+      "ultima": "2026-11-21",
+      "paises": [
+        "Portugal"
+      ],
+      "ejemplos": [
+        {
+          "id": "2026-11-21-e50c1a11",
+          "titulo": "Pedro Cassar gana el 100K Super High Roller del BSOP Millions por R$ 1.475.000",
+          "fecha": "2026-11-21"
+        },
+        {
+          "id": "2026-11-20-27c5906e",
+          "titulo": "Darci Fantin [nacionalidad a confirmar] lidera Día 2 del 100K Super High Roller en BSOP Millions",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-18-d26c3dda",
+          "titulo": "André Moreira gana el 75K Super High Roller del BSOP Millions 2026 por R$ 920.000",
+          "fecha": "2026-11-18"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Santiago Montes",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 2,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-17",
+      "paises": [
+        "Colombia"
+      ],
+      "ejemplos": [
+        {
+          "id": "2026-11-17-e8f23a86",
+          "titulo": "Santiago Montes remonta en heads-up para ganar Main Event WSOP Circuit Panamá con US$ 223.200",
+          "fecha": "2026-11-17"
+        },
+        {
+          "id": "2026-11-15-d72a736e",
+          "titulo": "Main Event WSOP Circuit Panamá 2026 avanza con nueve finalistas tras duplicar garantía",
+          "fecha": "2026-11-15"
+        },
+        {
+          "id": "2026-11-12-b77edb4d",
+          "titulo": "Santiago Montes conquista su primer anillo WSOP Circuit en Panamá",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Eric Wasserson",
+      "apariciones": 3,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-26",
+      "ultima": "2026-11-27",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-27-b1a457d9",
+          "titulo": "Jason Mercier comparte en podcast su historia de ser apuñalado en Italia la noche que ganó EPT Sanremo",
+          "fecha": "2026-11-27"
+        },
+        {
+          "id": "2026-11-26-284aacc5",
+          "titulo": "Andrew Robl desafía a Eric Wasserson en High Stakes Poker tras perder tres sesiones consecutivas",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-26-551089b9",
+          "titulo": "Andrew Robl [nacionalidad a confirmar] pierde $1.241.000 (moneda a confirmar) en High Stakes Poker tras dejar decisión clave al azar",
+          "fecha": "2026-11-26"
+        }
+      ],
+      "nuevo": true
+    },
+    {
+      "texto": "Gabriel Tavares",
+      "apariciones": 3,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-3ca03845",
+          "titulo": "Gabriel Tavares, Brasil, sixth en el Triton $50.000 eight-max de Chipre por US$ 375.000",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-12-5421dbd0",
+          "titulo": "Artem Osmirko gana su segundo GGMillion$ de 2026",
+          "fecha": "2026-11-12"
+        },
+        {
+          "id": "2026-11-12-cd875133",
+          "titulo": "Brasileños dominan GGMillion$ High Rollers: Padilha runner-up, Tavares cuarto",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Jonathan Jaffe",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-20",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-3ca03845",
+          "titulo": "Gabriel Tavares, Brasil, sixth en el Triton $50.000 eight-max de Chipre por US$ 375.000",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-20-9dd0852f",
+          "titulo": "Jonathan Jaffe gana el Triton North Cyprus $50.000 eight-max por US$ 1.627.000",
+          "fecha": "2026-11-20"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Umut Ozturk",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-10",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-ae1dfd8e",
+          "titulo": "Umut Ozturk gana su tercer MSPT Main Event de 2026",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-10-563f550b",
+          "titulo": "Umut Ozturk gana su tercer MSPT Main Event de 2026",
+          "fecha": "2026-11-10"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Martin Zamani",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-03862615",
+          "titulo": "Martin Zamani iguala el récord con su quinto brazalete WSOP online",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-dceca8e4",
+          "titulo": "Martin Zamani gana su quinto brazalete WSOP online",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Shane Martin",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-03862615",
+          "titulo": "Martin Zamani iguala el récord con su quinto brazalete WSOP online",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-dceca8e4",
+          "titulo": "Martin Zamani gana su quinto brazalete WSOP online",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "David Peters",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-03862615",
+          "titulo": "Martin Zamani iguala el récord con su quinto brazalete WSOP online",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-dceca8e4",
+          "titulo": "Martin Zamani gana su quinto brazalete WSOP online",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "James Collopy",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-03862615",
+          "titulo": "Martin Zamani iguala el récord con su quinto brazalete WSOP online",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-dceca8e4",
+          "titulo": "Martin Zamani gana su quinto brazalete WSOP online",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Daniel Maor",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-14",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-14-03862615",
+          "titulo": "Martin Zamani iguala el récord con su quinto brazalete WSOP online",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-dceca8e4",
+          "titulo": "Martin Zamani gana su quinto brazalete WSOP online",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Jorge Guzmán Flórez",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 1,
+      "primera": "2026-11-07",
+      "ultima": "2026-11-13",
+      "paises": [
+        "Colombia"
+      ],
+      "ejemplos": [
+        {
+          "id": "2026-11-13-a44a6efa",
+          "titulo": "Jacson Rodríguez gana su primer anillo WSOP Circuit Panamá en PLO 4 Championship",
+          "fecha": "2026-11-13"
+        },
+        {
+          "id": "2026-11-12-74c4db06",
+          "titulo": "Daniel Villalta gana su primer anillo WSOP Circuit en Panamá",
+          "fecha": "2026-11-12"
+        },
+        {
+          "id": "2026-11-07-55d76ef1",
+          "titulo": "47 jugadores avanzan en Mini Main Event WSOP Circuit Panamá tras cuatro vuelos",
+          "fecha": "2026-11-07"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Pierre Calamusa",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-10-30",
+      "ultima": "2026-11-01",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-01-8a56da9e",
+          "titulo": "Nacho Barbero (Argentina) es finalista en WSOP Circuit Madrid; Pierre Calamusa gana primer anillo en High Roller",
+          "fecha": "2026-11-01"
+        },
+        {
+          "id": "2026-10-30-e23d6faf",
+          "titulo": "Pierre Calamusa gana High Roller WSOP Circuit Madrid por €77.000, primer anillo",
+          "fecha": "2026-10-30"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Pablo Reynoso",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-08",
+      "ultima": "2026-11-26",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-26-9a9ee53a",
+          "titulo": "Pablo Reynoso [nacionalidad a confirmar] gana el título de Jugador del Año en la Liga Patagónica de Poker",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-08-bfe58dd6",
+          "titulo": "Julián Ventura [nacionalidad a confirmar] lidera Día 1A del Main Event WSOP Circuit Rosario",
+          "fecha": "2026-11-08"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Bryn Kenney",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-13",
+      "ultima": "2026-11-26",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-26-b40d89b8",
+          "titulo": "Matthias Eibinger llama un overbet masivo de Bryn Kenney en el Triton Invitational $200K",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-13-9b81f9be",
+          "titulo": "Jason Koon lidera el ranking de trofeos Triton con 12 victorias",
+          "fecha": "2026-11-13"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Daniel Dvoress",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-18",
+      "ultima": "2026-11-26",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-26-ac880b9a",
+          "titulo": "Kristen Foxen lidera el $150K NLH 10th Anniversary Special Triton tras remontada",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-18-15aff767",
+          "titulo": "Rafael Aslanli gana el Triton North Cyprus $30.000 High Roller por US$ 1.149.000",
+          "fecha": "2026-11-18"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Bryan Taylor",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-267007c7",
+          "titulo": "Bryan Taylor gana el GUKPT Grand Final Midi Main del Grosvenor Victoria por £52.780",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-ff9ccbc3",
+          "titulo": "Bryan Taylor gana su tercer título en el Grosvenor Victoria en 2026",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Kelvin Kerber",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-7f8e6afd",
+          "titulo": "Kelvin Kerber, Brasil, gana el 250K Super High Roller del BSOP Millions por R$ 3.217.500",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-9e0cbb0b",
+          "titulo": "Kelvin Kerber gana el 250K Super High Roller del BSOP Millions",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "nuevo": false
+    }
+  ],
+  "palabras_clave": [
+    {
+      "texto": "WSOP Circuit Panamá",
+      "apariciones": 10,
+      "dias": 9,
+      "fuentes": 2,
+      "primera": "2026-11-04",
+      "ultima": "2026-11-16",
+      "ejemplos": [
+        {
+          "id": "2026-11-16-bc4851c5",
+          "titulo": "Eduardo Ventura gana su primer anillo WSOP Circuit Panamá en The Closer US$ 500",
+          "fecha": "2026-11-16"
+        },
+        {
+          "id": "2026-11-14-36fc1127",
+          "titulo": "Gerardo Hernández Olivares conquista su primer anillo WSOP Circuit Panamá",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-14-d31ef2b0",
+          "titulo": "Renny Barrett gana su primer anillo WSOP Circuit Panamá por Jamaica",
+          "fecha": "2026-11-14"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "BSOP Millions",
+      "apariciones": 12,
+      "dias": 7,
+      "fuentes": 4,
+      "primera": "2026-11-19",
+      "ultima": "2026-11-26",
+      "ejemplos": [
+        {
+          "id": "2026-11-26-a9b98a9b",
+          "titulo": "Felipe Boianovsky [nacionalidad a confirmar] suma dos mesas finales valiosas en APT Championship Taipéi; João Victor Menezes gana Millionaire Maker en BSOP Millions",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-24-7f8e6afd",
+          "titulo": "Kelvin Kerber, Brasil, gana el 250K Super High Roller del BSOP Millions por R$ 3.217.500",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-9e0cbb0b",
+          "titulo": "Kelvin Kerber gana el 250K Super High Roller del BSOP Millions",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "BSOP Millions 2026",
+      "apariciones": 9,
+      "dias": 7,
+      "fuentes": 3,
+      "primera": "2026-11-11",
+      "ultima": "2026-11-22",
+      "ejemplos": [
+        {
+          "id": "2026-11-22-9c5d6ecd",
+          "titulo": "BSOP Millions 2026: finalistas del 250K Super High Roller y desarrollo del Main Event",
+          "fecha": "2026-11-22"
+        },
+        {
+          "id": "2026-11-20-dad10284",
+          "titulo": "Carlos Serrano y Sebastián Fonseca destacan en BSOP Millions 2026 en São Paulo",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-18-5f47713c",
+          "titulo": "Emanuel Maluf [nacionalidad a confirmar] gana el 2-Day High Roller del BSOP Millions 2026 por R$ 265.000",
+          "fecha": "2026-11-18"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "EPT 2027",
+      "apariciones": 5,
+      "dias": 5,
+      "fuentes": 7,
+      "primera": "2026-11-11",
+      "ultima": "2026-11-15",
+      "ejemplos": [
+        {
+          "id": "2026-11-15-32387cc9",
+          "titulo": "EPT 2027 reduce buy-in de Main Events a €5.000 y unifica PokerStars Open",
+          "fecha": "2026-11-15"
+        },
+        {
+          "id": "2026-11-14-a7099353",
+          "titulo": "PokerStars anuncia calendario del EPT 2027 con cinco paradas principales",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-13-a6729809",
+          "titulo": "PokerStars anuncia calendario completo del EPT 2027 con cinco paradas",
+          "fecha": "2026-11-13"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "WSOP Paradise 2026",
+      "apariciones": 5,
+      "dias": 5,
+      "fuentes": 4,
+      "primera": "2026-10-28",
+      "ultima": "2026-11-27",
+      "ejemplos": [
+        {
+          "id": "2026-11-27-c796f869",
+          "titulo": "Alex Foxen y Kristen Foxen se alían con Solana como rostros oficiales para WSOP Paradise",
+          "fecha": "2026-11-27"
+        },
+        {
+          "id": "2026-11-26-e741540e",
+          "titulo": "WSOP anuncia a Stake como socio oficial de WSOP Paradise 2026",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-03-c8c59298",
+          "titulo": "WSOP Paradise 2026 acepta buy-ins en Solana para evitar comisiones y filas",
+          "fecha": "2026-11-03"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "WSOP Paradise",
+      "apariciones": 6,
+      "dias": 5,
+      "fuentes": 3,
+      "primera": "2026-11-08",
+      "ultima": "2026-11-27",
+      "ejemplos": [
+        {
+          "id": "2026-11-27-c796f869",
+          "titulo": "Alex Foxen y Kristen Foxen se alían con Solana como rostros oficiales para WSOP Paradise",
+          "fecha": "2026-11-27"
+        },
+        {
+          "id": "2026-11-26-a4108d2f",
+          "titulo": "Michael Mizrachi se suma a Solana días antes del inicio de WSOP Paradise",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-23-f7e562e0",
+          "titulo": "WSOP Paradise acogerá segundo Solana Showdown con influenciadores cripto",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "PGT Sprint",
+      "apariciones": 4,
+      "dias": 4,
+      "fuentes": 2,
+      "primera": "2026-10-30",
+      "ultima": "2026-11-06",
+      "ejemplos": [
+        {
+          "id": "2026-11-06-28db849b",
+          "titulo": "Joe McKeehen gana el último evento de la serie PGT Sprint en Las Vegas",
+          "fecha": "2026-11-06"
+        },
+        {
+          "id": "2026-11-04-bace1731",
+          "titulo": "Sam Soverel gana su 18º título PGT Sprint, extendiendo récord de la serie",
+          "fecha": "2026-11-04"
+        },
+        {
+          "id": "2026-10-31-e01dae0f",
+          "titulo": "Brock Wilson y Jesse Lonis ganan eventos PGT Sprint con sumas de seis dígitos",
+          "fecha": "2026-10-31"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "GGMillion$ Festival",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-27",
+      "ejemplos": [
+        {
+          "id": "2026-11-27-d925c8be",
+          "titulo": "Iuri Ribeiro cobra US$ 695.597 como cuarto en GGMillion$ Festival de GGPoker; mayor premio online de su carrera",
+          "fecha": "2026-11-27"
+        },
+        {
+          "id": "2026-11-26-bc81dcb9",
+          "titulo": "Julián Pineda cobra US$ 901.995 como tercero en GGMillion$ Festival de GGPoker",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-23-cacb1988",
+          "titulo": "GGMillion$ Festival ofrece US$ 50 millones garantizados con paquetes a WSOP Paradise",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "High Stakes",
+      "apariciones": 4,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-24",
+      "ultima": "2026-11-26",
+      "ejemplos": [
+        {
+          "id": "2026-11-26-284aacc5",
+          "titulo": "Andrew Robl desafía a Eric Wasserson en High Stakes Poker tras perder tres sesiones consecutivas",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-26-551089b9",
+          "titulo": "Andrew Robl [nacionalidad a confirmar] pierde $1.241.000 (moneda a confirmar) en High Stakes Poker tras dejar decisión clave al azar",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-25-3fb9c091",
+          "titulo": "Ryan Feldman remonta en High Stakes Poker tras perder US$ 900.000 en dos días",
+          "fecha": "2026-11-25"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "Borgata Fall Poker Open",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-15",
+      "ultima": "2026-11-20",
+      "ejemplos": [
+        {
+          "id": "2026-11-20-1cd5262d",
+          "titulo": "Xiang Zou gana el Borgata Fall Poker Open $350 Mini Main Event por US$ 80.000",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-19-99537d20",
+          "titulo": "Joe McKeehen gana el Borgata Fall Poker Open con 482 entradas por US$ 210.500",
+          "fecha": "2026-11-19"
+        },
+        {
+          "id": "2026-11-15-c1421767",
+          "titulo": "Sridhar Sangannagari gana el BetMGM Hybrid $500 del Borgata Fall Poker Open por US$ 22.050",
+          "fecha": "2026-11-15"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "WSOP Main Event 2026",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 5,
+      "primera": "2026-10-28",
+      "ultima": "2026-11-13",
+      "ejemplos": [
+        {
+          "id": "2026-11-13-47ce23d0",
+          "titulo": "Lucas Jumalon habla sobre su vida tras ganar el WSOP Main Event 2026 por US$ 10 millones",
+          "fecha": "2026-11-13"
+        },
+        {
+          "id": "2026-10-28-070e7c9c",
+          "titulo": "Lucas Jumalon, campeón WSOP 2026 por US$ 10 millones, designado embajador global de WSOP Academy",
+          "fecha": "2026-10-28"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "WSOP Circuit Panamá 2026",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 2,
+      "primera": "2026-11-12",
+      "ultima": "2026-11-17",
+      "ejemplos": [
+        {
+          "id": "2026-11-17-e8f23a86",
+          "titulo": "Santiago Montes remonta en heads-up para ganar Main Event WSOP Circuit Panamá con US$ 223.200",
+          "fecha": "2026-11-17"
+        },
+        {
+          "id": "2026-11-14-a5b7cf66",
+          "titulo": "Rafael Pardo gana su primer anillo WSOP Circuit Panamá 2026",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-12-b77edb4d",
+          "titulo": "Santiago Montes conquista su primer anillo WSOP Circuit en Panamá",
+          "fecha": "2026-11-12"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "Hustler Casino Live",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 4,
+      "primera": "2026-11-15",
+      "ultima": "2026-11-17",
+      "ejemplos": [
+        {
+          "id": "2026-11-17-7beac128",
+          "titulo": "Hustler Casino Live descarta trampas en Britney Jing pero suspende a dos jugadores por conflicto de intereses",
+          "fecha": "2026-11-17"
+        },
+        {
+          "id": "2026-11-15-66ad66b4",
+          "titulo": "Lucas Jumalon rechazó jugar en enorme cash game de Hustler Casino Live con Negreanu",
+          "fecha": "2026-11-15"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "GGMillion$ High Rollers",
+      "apariciones": 3,
+      "dias": 2,
+      "fuentes": 4,
+      "primera": "2026-10-28",
+      "ultima": "2026-11-12",
+      "ejemplos": [
+        {
+          "id": "2026-11-12-5421dbd0",
+          "titulo": "Artem Osmirko gana su segundo GGMillion$ de 2026",
+          "fecha": "2026-11-12"
+        },
+        {
+          "id": "2026-11-12-cd875133",
+          "titulo": "Brasileños dominan GGMillion$ High Rollers: Padilha runner-up, Tavares cuarto",
+          "fecha": "2026-11-12"
+        },
+        {
+          "id": "2026-10-28-3d99770a",
+          "titulo": "Jon Ánder Vallinas, 2º en GGMillion$ High Rollers US$ 10.300 por US$ 358.405",
+          "fecha": "2026-10-28"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "Resorts World NYC",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-15",
+      "ultima": "2026-11-20",
+      "ejemplos": [
+        {
+          "id": "2026-11-20-3ebc5ac3",
+          "titulo": "Resorts World NYC abre sala de poker de 30 mesas en diciembre",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-15-fe22ef52",
+          "titulo": "Resorts World NYC planea abrir sala de poker en diciembre",
+          "fecha": "2026-11-15"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "MSPT Main Event",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 3,
+      "primera": "2026-11-10",
+      "ultima": "2026-11-14",
+      "ejemplos": [
+        {
+          "id": "2026-11-14-ae1dfd8e",
+          "titulo": "Umut Ozturk gana su tercer MSPT Main Event de 2026",
+          "fecha": "2026-11-14"
+        },
+        {
+          "id": "2026-11-10-563f550b",
+          "titulo": "Umut Ozturk gana su tercer MSPT Main Event de 2026",
+          "fecha": "2026-11-10"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "Main Event WPS Medellín",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 1,
+      "primera": "2026-10-31",
+      "ultima": "2026-11-02",
+      "ejemplos": [
+        {
+          "id": "2026-11-02-a1cb4ac7",
+          "titulo": "Eduardo Osorio (Venezuela) lidera mesa final Main Event WPS Medellín con $250 millones COP en juego",
+          "fecha": "2026-11-02"
+        },
+        {
+          "id": "2026-11-01-5e18fd54",
+          "titulo": "Daniele Primerano [nacionalidad a confirmar] lidera Main Event WPS Medellín con 2.625.000 fichas tras reunir 671 registros",
+          "fecha": "2026-11-01"
+        },
+        {
+          "id": "2026-10-31-01071a68",
+          "titulo": "Santiago Mesa y Daniel Bernal lideran vuelos clasificatorios del Main Event WPS Medellín",
+          "fecha": "2026-10-31"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "WSOP Circuit Main Event",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-04",
+      "ultima": "2026-11-25",
+      "ejemplos": [
+        {
+          "id": "2026-11-25-09c107b3",
+          "titulo": "Ryan Brown gana su segundo WSOP Circuit Main Event ring en Caesars New Orleans con US$ 110.938",
+          "fecha": "2026-11-25"
+        },
+        {
+          "id": "2026-11-04-267590dc",
+          "titulo": "Hamid Izadi e Izadi defiende título en WSOP Circuit Southern Indiana; Scott Stewart gana Lake Tahoe",
+          "fecha": "2026-11-04"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "GUKPT Grand Final Midi Main",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-24",
+      "ejemplos": [
+        {
+          "id": "2026-11-24-267007c7",
+          "titulo": "Bryan Taylor gana el GUKPT Grand Final Midi Main del Grosvenor Victoria por £52.780",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-ff9ccbc3",
+          "titulo": "Bryan Taylor gana su tercer título en el Grosvenor Victoria en 2026",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "Grosvenor Victoria",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-24",
+      "ejemplos": [
+        {
+          "id": "2026-11-24-267007c7",
+          "titulo": "Bryan Taylor gana el GUKPT Grand Final Midi Main del Grosvenor Victoria por £52.780",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-ff9ccbc3",
+          "titulo": "Bryan Taylor gana su tercer título en el Grosvenor Victoria en 2026",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "GGMillion$ Pot-Limit Omaha Bounty",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-10",
+      "ultima": "2026-11-11",
+      "ejemplos": [
+        {
+          "id": "2026-11-11-9bc7fd33",
+          "titulo": "Tobias Schwecht gana el GGMillion$ Pot-Limit Omaha Bounty por US$ 301.133",
+          "fecha": "2026-11-11"
+        },
+        {
+          "id": "2026-11-10-89aa1396",
+          "titulo": "Tobias Schwecht gana el GGMillion$ Pot-Limit Omaha Bounty por US$ 301.000",
+          "fecha": "2026-11-10"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "YY Poker Club",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-05",
+      "ultima": "2026-11-09",
+      "ejemplos": [
+        {
+          "id": "2026-11-09-e73988e8",
+          "titulo": "WPT Seúl en YY Poker Club cierra con 1.033 entradas y pozo de aproximadamente US$ 1,17 millones",
+          "fecha": "2026-11-09"
+        },
+        {
+          "id": "2026-11-05-8be96463",
+          "titulo": "WPT Seúl destaca nueva sala YY Poker Club en INSPIRE Resort con diseño de lujo",
+          "fecha": "2026-11-05"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "WPT Seúl",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-05",
+      "ultima": "2026-11-09",
+      "ejemplos": [
+        {
+          "id": "2026-11-09-e73988e8",
+          "titulo": "WPT Seúl en YY Poker Club cierra con 1.033 entradas y pozo de aproximadamente US$ 1,17 millones",
+          "fecha": "2026-11-09"
+        },
+        {
+          "id": "2026-11-05-8be96463",
+          "titulo": "WPT Seúl destaca nueva sala YY Poker Club en INSPIRE Resort con diseño de lujo",
+          "fecha": "2026-11-05"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "Tough Call",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-10-28",
+      "ultima": "2026-11-08",
+      "ejemplos": [
+        {
+          "id": "2026-11-08-2c905420",
+          "titulo": "The Tough Call: podcast de PokerStars aborda confianza mediática y desinformación",
+          "fecha": "2026-11-08"
+        },
+        {
+          "id": "2026-10-28-756e4a7f",
+          "titulo": "Maria Konnikova y James Hartigan lanzan podcast \"The Tough Call\" patrocinado por PokerStars",
+          "fecha": "2026-10-28"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "$5.000 WPT Venetian Las Vegas Fall Championship",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-06",
+      "ultima": "2026-11-07",
+      "ejemplos": [
+        {
+          "id": "2026-11-07-6ca554b4",
+          "titulo": "Cherish Andrews lidera el Día 1a del $5.000 WPT Venetian Las Vegas Fall Championship",
+          "fecha": "2026-11-07"
+        },
+        {
+          "id": "2026-11-06-cec85381",
+          "titulo": "WPT Venetian Las Vegas usa slide dealing por primera vez en evento WPT de EE.UU.",
+          "fecha": "2026-11-06"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    }
+  ]
+}
