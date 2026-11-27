@@ -62,6 +62,7 @@ td.titulo { min-width: 220px; }
     <button data-v="busquedas">Búsquedas activas</button>
     <button data-v="barrido">Correr el barrido</button>
     <button data-v="costos">Costos</button>
+    <button data-v="candidatos">Candidatos del día</button>
     <div class="grupo">Bases de datos</div>
     <button data-v="personalidades">Personalidades</button>
     <button data-v="bases">Consultar registros</button>
@@ -148,7 +149,7 @@ td.titulo { min-width: 220px; }
   }
   const vista = document.getElementById('vista');
   const VISTAS = {};
-  const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido', costos: 'Costos',
+  const TITULOS = { noticias: 'Noticias', claves: 'Palabras clave prioritarias', busquedas: 'Búsquedas activas', barrido: 'Correr el barrido', costos: 'Costos', candidatos: 'Candidatos del día',
     personalidades: 'Personalidades', bases: 'Consultar registros', archivos: 'Archivos de SEI', conexion: 'Conexión',
     sitio: 'Menú y secciones', instagram: 'Instagram', propuestas: 'Propuestas', videos: 'Videos', marcas: 'Marcas', biblioteca: 'Biblioteca' };
   const slugId = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -163,6 +164,26 @@ td.titulo { min-width: 220px; }
   }
   document.getElementById('side').addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (b) ir(b.dataset.v); });
   document.getElementById('b-menu').onclick = () => document.getElementById('side').classList.toggle('abierto');
+
+  // ---------------------------------------------------------------- Gemini: resumen breve con búsqueda (consulta desde el navegador, con la clave de Hoozh)
+  const GEMINI_MODELO = 'gemini-3.8-flash';
+  const gemini = () => { try { return { clave: localStorage.getItem('mc-gemini-clave') || '', modelo: localStorage.getItem('mc-gemini-modelo') || GEMINI_MODELO }; } catch (e) { return { clave: '', modelo: GEMINI_MODELO }; } };
+  const textosGemini = o => { // el texto de la respuesta, sea cual sea la forma (candidates/parts o salidas de la API Interactions)
+    const partes = (((o || {}).candidates || [])[0] || {}).content; if (partes && partes.parts) return partes.parts.map(p => p.text || '').join('').trim();
+    const hallados = []; const rec = x => { if (Array.isArray(x)) x.forEach(rec); else if (x && typeof x === 'object') { if (typeof x.text === 'string' && x.type !== 'thought') hallados.push(x.text); Object.values(x).forEach(rec); } };
+    rec(o); return (hallados[hallados.length - 1] || '').trim(); };
+  async function resumenGemini(nombre) {
+    const { clave, modelo } = gemini(); if (!clave) throw new Error('Falta la clave de Gemini: cárguela en «Conexión».');
+    const pedido = `Busca información pública y verificable sobre «${nombre}» en el mundo del póker. Escribe en español neutro un resumen de una o dos oraciones (máximo 280 caracteres) que diga quién es y por qué es conocido en el póker. Usa solo datos que encuentres en las fuentes; no inventes nada ni agregues premios, países o fechas que no confirmes. Si no encuentras información fiable sobre una persona del póker con ese nombre, responde exactamente: SIN DATOS. Devuelve solo el texto del resumen, sin comillas ni formato.`;
+    const llamar = (url, cuerpo) => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': clave }, body: JSON.stringify(cuerpo) });
+    let r = await llamar('https://generativelanguage.googleapis.com/v1beta/interactions', { model: modelo, input: pedido, tools: [{ type: 'google_search' }] });
+    if (!r.ok) r = await llamar(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelo)}:generateContent`, { contents: [{ parts: [{ text: pedido }] }], tools: [{ google_search: {} }] });
+    if (!r.ok) { let m = ''; try { m = ((await r.json()).error || {}).message || ''; } catch (e) {} throw new Error(`Gemini respondió con un error (${r.status}). ${m}`.trim()); }
+    let t = textosGemini(await r.json()).replace(/^["«“]+|["»”]+$/g, '').replace(/[*_#`]/g, '').replace(/\s+/g, ' ').trim();
+    if (!t || /^SIN DATOS/i.test(t)) throw new Error('Gemini no encontró datos fiables sobre esa persona.');
+    if (t.length > 300) { const corte = t.slice(0, 300), punto = corte.lastIndexOf('. '); t = punto > 120 ? corte.slice(0, punto + 1) : corte.replace(/\s\S*$/, '') + '…'; }
+    return t;
+  }
 
   // ---------------------------------------------------------------- Conexión
   VISTAS.conexion = async () => {
@@ -180,7 +201,15 @@ td.titulo { min-width: 220px; }
         <input class="form-control" id="c-token" type="password" autocomplete="off" placeholder="github_pat_…" value="${esc(TOKEN)}"></div>
         <div class="col-md-4 d-flex gap-2"><button class="btn btn-mc" id="c-guardar" type="button">Conectar</button><button class="btn btn-outline-secondary" id="c-borrar" type="button">Olvidar clave</button></div></div>
       <p class="mt-3 mb-0" id="c-estado"></p>
+    </div></div>
+    <div class="bloque"><div class="bh"><h2>Gemini (opcional)</h2></div><div class="bc">
+      <p class="ayuda">Sirve para sugerir un resumen breve de una personalidad con una búsqueda rápida (en «Candidatos del día»). La consulta sale desde este navegador a Google con su clave de Gemini: no pasa por el repositorio ni por el modelo del barrido, y el nombre del modelo se puede cambiar si Google lo renombra. La clave queda solo en este navegador. El texto sugerido siempre se puede corregir antes de guardarlo.</p>
+      <div class="row g-2 align-items-end"><div class="col-md-5"><label class="form-label" for="c-gem">Clave de Gemini</label><input class="form-control" id="c-gem" type="password" autocomplete="off" placeholder="AIza…" value="${esc(gemini().clave)}"></div>
+        <div class="col-md-4"><label class="form-label" for="c-gemmod">Modelo</label><input class="form-control" id="c-gemmod" value="${esc(gemini().modelo)}"></div>
+        <div class="col-md-3 d-flex gap-2"><button class="btn btn-mc" id="c-gemguardar" type="button">Guardar</button><button class="btn btn-outline-secondary" id="c-gemborrar" type="button">Olvidar</button></div></div>
     </div></div>`;
+    document.getElementById('c-gemguardar').onclick = () => { try { localStorage.setItem('mc-gemini-clave', document.getElementById('c-gem').value.trim()); localStorage.setItem('mc-gemini-modelo', document.getElementById('c-gemmod').value.trim() || GEMINI_MODELO); } catch (e) {} aviso('Guardado en este navegador.'); };
+    document.getElementById('c-gemborrar').onclick = () => { try { localStorage.removeItem('mc-gemini-clave'); } catch (e) {} document.getElementById('c-gem').value = ''; aviso('Clave de Gemini olvidada.'); };
     document.getElementById('c-guardar').onclick = async () => {
       TOKEN = document.getElementById('c-token').value.trim();
       try { localStorage.setItem('mc-admin-token', TOKEN); } catch (e) {}
@@ -448,6 +477,40 @@ td.titulo { min-width: 220px; }
     pintar();
   };
 
+  // ---------------------------------------------------------------- Gráficos (SVG propio, sin librerías ni costo: solo dibujan datos que ya están en los registros)
+  const PALETA = ['#d9262c', '#2c343f', '#8a94a3', '#e0a526', '#2f8f83'];
+  const semana = iso => { const d = new Date(iso + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d.toISOString().slice(0, 10); };
+  const mes = iso => iso.slice(0, 7) + '-01';
+  const desdeHace = n => n ? new Date(Date.now() - n * 864e5).toISOString().slice(0, 10) : '';
+  const corto = iso => { const [, m, d] = iso.split('-'); return +d + '/' + +m; };
+  const redondeo = n => { const e = Math.pow(10, Math.floor(Math.log10(n || 1))); return Math.ceil(n / e * 2) / 2 * e || 1; };
+  // Barras por día, apiladas si hay varias series. series: [{nombre, valores}]; linea: valor horizontal de referencia (por ejemplo el tope).
+  function graficoDias(dias, series, { formato = n => String(Math.round(n * 1000) / 1000), linea = null, lineaNombre = '', alto = 190, prefijo = '' } = {}) {
+    if (!dias.length) return '<p class="ayuda">Todavía no hay datos para graficar.</p>';
+    const W = 680, H = alto, mi = 38, md = 8, ms = 10, mb = 24, n = dias.length, anchoB = (W - mi - md) / n;
+    const total = dias.map((_, i) => series.reduce((a, se) => a + (se.valores[i] || 0), 0));
+    const tope = redondeo(Math.max(...total, linea || 0, 0.000001)), y = v => H - mb - (H - mb - ms) * v / tope;
+    let g = `<svg viewBox="0 0 ${W} ${H}" role="img" style="width:100%;height:auto;max-height:${H + 40}px" aria-label="Gráfico por día">`;
+    for (let k = 0; k <= 4; k++) { const v = tope * k / 4; g += `<line x1="${mi}" x2="${W - md}" y1="${y(v)}" y2="${y(v)}" stroke="#e3e7ec"/><text x="${mi - 4}" y="${y(v) + 4}" text-anchor="end" font-size="10" fill="#6b7380">${formato(v)}</text>`; }
+    dias.forEach((d, i) => { let base = 0;
+      series.forEach((se, j) => { const v = se.valores[i] || 0; if (!v) return;
+        g += `<rect x="${mi + i * anchoB + anchoB * .15}" y="${y(base + v)}" width="${anchoB * .7}" height="${Math.max(0.5, y(base) - y(base + v))}" fill="${PALETA[j % PALETA.length]}"><title>${esc(prefijo + fechaLarga(d))} · ${esc(se.nombre)}: ${formato(v)}</title></rect>`; base += v; });
+      if (n <= 16 || i % Math.ceil(n / 12) === 0 || i === n - 1) g += `<text x="${mi + i * anchoB + anchoB / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#6b7380">${corto(d)}</text>`; });
+    if (linea) g += `<line x1="${mi}" x2="${W - md}" y1="${y(linea)}" y2="${y(linea)}" stroke="#d9262c" stroke-dasharray="5 4"/><text x="${mi + 4}" y="${y(linea) - 4}" text-anchor="start" font-size="10" fill="#d9262c">${esc(lineaNombre)}</text>`;
+    g += '</svg>';
+    const leyenda = series.length > 1 ? `<div class="ayuda mb-1">${series.map((se, j) => `<span class="me-3"><i style="display:inline-block;width:10px;height:10px;background:${PALETA[j % PALETA.length]};margin-right:5px"></i>${esc(se.nombre)}</span>`).join('')}</div>` : '';
+    return leyenda + g;
+  }
+  // Barras horizontales por categoría: items [[etiqueta, cantidad]], las más grandes primero.
+  function graficoCategorias(items, { max = 10, color = '#2c343f' } = {}) {
+    const f = items.slice(0, max); if (!f.length) return '<p class="ayuda">Sin datos.</p>';
+    const tope = Math.max(...f.map(x => x[1]));
+    return f.map(([e, v]) => `<div class="d-flex align-items-center gap-2 mb-1" style="font-size:12.5px"><span class="text-truncate" style="flex:0 0 38%;text-align:right" title="${esc(e)}">${esc(e || '(sin dato)')}</span><span style="flex:1;background:#eef0f3;border-radius:3px"><span style="display:block;height:14px;width:${Math.max(2, v / tope * 100)}%;background:${color};border-radius:3px"></span></span><b style="flex:0 0 34px">${v}</b></div>`).join('');
+  }
+  const contar = (filas, clave) => { const m = {}; filas.forEach(x => [].concat(clave(x) || []).forEach(k => { if (k !== undefined && k !== null) m[k] = (m[k] || 0) + 1; })); return Object.entries(m).sort((a, b) => b[1] - a[1]); };
+  const ultimosDias = (filas, dia, cuantos = 30) => { const c = Object.fromEntries(contar(filas, dia)); const ds = Object.keys(c).sort().slice(-cuantos); return { dias: ds, valores: ds.map(d => c[d]) }; };
+  const caja = (titulo, html) => `<div class="col-lg-6"><div class="border rounded p-3 h-100 bg-white"><h6 class="text-uppercase fw-bold small mb-2">${esc(titulo)}</h6>${html}</div></div>`;
+
   // ---------------------------------------------------------------- Costos (solo lee data/costos.json; no usa el modelo)
   const TIPOS_COSTO = { barrido: ['', 'seleccion', 'redaccion', 'principal', 'recuperacion'], tarjeta: ['tarjeta_registro'], video: ['video'],
     otros: ['brief', 'historial', 'medicion_sin_documentos'] };
@@ -456,6 +519,7 @@ td.titulo { min-width: 220px; }
   VISTAS.costos = async () => {
     const [cs, aj, tj] = await Promise.all([leerJSON('data/costos.json', { corridas: [] }), leerJSON('config/ajustes.json', {}), leerJSON('docs/datos/tarjetas.json', { tarjetas: [] })]);
     const tope = +aj.datos.max_costo_usd_por_dia || 0, dias = {};
+    const publicadas = {}; tj.datos.tarjetas.forEach(t => { publicadas[t.dia] = (publicadas[t.dia] || 0) + 1; });
     for (const x of cs.datos.corridas) { if (!x.fecha) continue;
       const d = dias[x.fecha] || (dias[x.fecha] = { barrido: 0, tarjeta: 0, video: 0, otros: 0, salida: 0, cortes: 0, conDocs: false, medicion: null });
       d[grupoCosto(x.tipo)] += x.costo_usd || 0;
@@ -463,11 +527,27 @@ td.titulo { min-width: 220px; }
       if (x.truncado || x.salida_limitada || (x.estado && x.estado !== 'ok' && grupoCosto(x.tipo) === 'barrido')) d.cortes++;
       if (x.tipo === 'redaccion' && x.documentos_sei === 'completos') d.conDocs = true;
       if (x.medicion_sei) d.medicion = x.medicion_sei; }
-    const publicadas = {}; tj.datos.tarjetas.forEach(t => { publicadas[t.dia] = (publicadas[t.dia] || 0) + 1; });
     const filas = Object.entries(dias).sort((a, b) => b[0].localeCompare(a[0])).slice(0, 60);
     const mediciones = filas.filter(([, d]) => d.medicion);
     const proms = filas.filter(([, d]) => d.barrido > 0), prom = proms.length ? proms.reduce((a, [, d]) => a + d.barrido, 0) / proms.length : 0;
-    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Costo por día</h2><span class="ayuda">Tope del barrido: ${tope ? usd(tope) : 'sin dato'} por día</span></div><div class="bc">
+    const GC = { dias: 30, agrupar: 'dia', series: { barrido: true, tarjeta: true, otros: true } };
+    const bucketsCostos = () => { const lim = desdeHace(GC.dias), b = {};
+      for (const [f, d] of Object.entries(dias)) { if (f < lim) continue; const k = GC.agrupar === 'semana' ? semana(f) : GC.agrupar === 'mes' ? mes(f) : f;
+        const x = b[k] || (b[k] = { barrido: 0, tarjeta: 0, otros: 0, salida: 0, pub: 0 }); x.barrido += d.barrido; x.tarjeta += d.tarjeta; x.otros += d.video + d.otros; x.salida += d.salida; x.pub += publicadas[f] || 0; }
+      return Object.entries(b).sort((x, y) => x[0].localeCompare(y[0])); };
+    const pintarCostos = () => { const o = bucketsCostos(), dd = o.map(x => x[0]), pref = { semana: 'Semana del ', mes: 'Mes de ' }[GC.agrupar] || '', v = k => o.map(([, x]) => x[k]);
+      const sr = [GC.series.barrido && { nombre: 'Barrido', valores: v('barrido') }, GC.series.tarjeta && { nombre: 'Tarjetas manuales', valores: v('tarjeta') }, GC.series.otros && { nombre: 'Otros (videos, briefs, mediciones)', valores: v('otros') }].filter(Boolean);
+      document.getElementById('g-costos').innerHTML = [
+        caja('Costo, en US$' + (GC.agrupar === 'dia' ? ' por día' : GC.agrupar === 'semana' ? ' por semana' : ' por mes'), sr.length ? graficoDias(dd, sr, { formato: n => n.toFixed(2).replace('.', ','), linea: GC.agrupar === 'dia' && tope ? tope : null, lineaNombre: 'tope ' + usd(tope), prefijo: pref }) : '<p class="ayuda">Marque al menos una serie.</p>'),
+        caja('Tarjetas publicadas', graficoDias(dd, [{ nombre: 'Tarjetas publicadas', valores: v('pub') }], { formato: n => String(Math.round(n)), prefijo: pref })),
+        caja('Costo del barrido por tarjeta publicada, en US$', graficoDias(dd, [{ nombre: 'Costo por tarjeta', valores: o.map(([, x]) => x.pub ? x.barrido / x.pub : 0) }], { formato: n => n.toFixed(3).replace('.', ','), prefijo: pref })),
+        caja('Tokens de salida del barrido', graficoDias(dd, [{ nombre: 'Tokens de salida', valores: v('salida') }], { formato: n => String(Math.round(n)), prefijo: pref }))].join(''); };
+    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Evolución</h2>
+        <select class="form-select form-select-sm w-auto" id="gc-dias" aria-label="Período">${[[14, 'Últimos 14 días'], [30, 'Últimos 30 días'], [60, 'Últimos 60 días'], [90, 'Últimos 90 días'], [0, 'Todo']].map(([n, t]) => `<option value="${n}"${n === GC.dias ? ' selected' : ''}>${t}</option>`).join('')}</select>
+        <select class="form-select form-select-sm w-auto" id="gc-agr" aria-label="Agrupar"><option value="dia">Por día</option><option value="semana">Por semana</option><option value="mes">Por mes</option></select>
+        ${[['barrido', 'Barrido'], ['tarjeta', 'Tarjetas manuales'], ['otros', 'Otros']].map(([k, t]) => `<label class="form-check form-check-inline mb-0 small"><input class="form-check-input" type="checkbox" data-serie="${k}" checked> ${t}</label>`).join('')}
+        <span class="ayuda ms-auto">Los gráficos cambian al instante con estos datos; no usan el modelo.</span></div><div class="bc"><div class="row g-3" id="g-costos"></div></div></div>
+      <div class="bloque"><div class="bh"><h2>Costo por día</h2><span class="ayuda">Tope del barrido: ${tope ? usd(tope) : 'sin dato'} por día</span></div><div class="bc">
       <p class="ayuda">El tope compara solo el gasto de los barridos (selección y redacción). Las tarjetas creadas a mano, los videos, los briefs y las mediciones se muestran aparte y no le quitan presupuesto al barrido. Promedio del barrido en los últimos ${proms.length} días con datos: <b>${usd(prom)}</b>. Los datos vienen de <code>data/costos.json</code>; esta vista no usa el modelo y no cuesta nada.</p>
       <div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr><th>Día</th><th class="text-end">Barrido</th><th class="text-end">Tarjetas manuales</th><th class="text-end">Otros</th><th class="text-end">Total</th><th>Contra el tope</th><th class="text-end">Tokens de salida</th><th class="text-end">Tarjetas publicadas</th><th>Documentos de SEI</th><th>Cortes</th></tr></thead><tbody>${filas.map(([f, d]) => {
         const pct = tope ? Math.min(100, d.barrido / tope * 100) : 0, rojo = tope && d.barrido > tope;
@@ -478,6 +558,90 @@ td.titulo { min-width: 220px; }
       <p class="ayuda">Una medición redacta dos veces el mismo día, sin y con los documentos, y compara el costo y la cantidad de tarjetas. Se corre los lunes (también se puede pedir a mano en «Correr el barrido»).</p>
       <div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr><th>Día</th><th class="text-end">Sin documentos</th><th class="text-end">Con documentos</th><th class="text-end">Tarjetas sin / con</th><th class="text-end">Diferencia</th></tr></thead><tbody>${mediciones.map(([f, d]) => { const m = d.medicion, a = m.sin_documentos || {}, c = m.con_documentos || {};
         return `<tr><td class="text-nowrap">${esc(fechaLarga(f))}</td><td class="text-end">${usd(a.costo_usd)}</td><td class="text-end">${usd(c.costo_usd)}</td><td class="text-end">${m.tarjetas_sin_documentos ?? '–'} / ${m.tarjetas_con_documentos ?? '–'}</td><td class="text-end">${usd((c.costo_usd || 0) - (a.costo_usd || 0))}</td></tr>`; }).join('') || '<tr><td colspan="5" class="ayuda">Todavía no hay mediciones.</td></tr>'}</tbody></table></div></div></div>`;
+    document.getElementById('gc-dias').onchange = e => { GC.dias = +e.target.value; pintarCostos(); };
+    document.getElementById('gc-agr').onchange = e => { GC.agrupar = e.target.value; pintarCostos(); };
+    vista.querySelectorAll('[data-serie]').forEach(c => c.onchange = () => { GC.series[c.dataset.serie] = c.checked; pintarCostos(); });
+    pintarCostos();
+  };
+
+  // ---------------------------------------------------------------- Crear tarjeta desde el registro (Consultar registros y Candidatos)
+  const claveArchivo = async x => { const h = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(`${x.fecha || ''}|${x.titulo || ''}`));
+    return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 12); };
+  const crearTarjeta = async (k, x, tam) => {
+    try { const clave = k === 'hechos' ? x.id : await claveArchivo(x);
+      const r = await gh('/actions/workflows/crear-tarjeta.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { origen: k, clave, tamano: tam } }) });
+      if (r.status !== 204) throw new Error('GitHub no aceptó el pedido (' + r.status + '). ¿Está fusionado el flujo «Crear tarjeta desde el registro»?');
+      aviso(`Creando la tarjeta (${tam}): tarda uno o dos minutos. Quedará oculta en «Noticias».`, 'info');
+      const inicio = Date.now(); const t = setInterval(async () => {
+        const rr = await gh('/actions/workflows/crear-tarjeta.yml/runs?per_page=1&t=' + Date.now()).catch(() => null); if (!rr || !rr.ok) return;
+        const run = ((await rr.json()).workflow_runs || [])[0]; if (!run || Date.parse(run.created_at) < inicio - 60000 || run.status !== 'completed') return;
+        clearInterval(t); if (run.conclusion === 'success') aviso('Tarjeta creada y oculta: revísela en «Noticias» con el filtro «Ocultas» y publíquela quitando «Ocultar».');
+        else aviso('No se pudo crear la tarjeta. Detalle: ' + run.html_url, 'danger'); }, 10000);
+    } catch (e) { aviso(e.message, 'danger'); } };
+
+  // ---------------------------------------------------------------- Candidatos del día (los arma el barrido, sin modelo)
+  VISTAS.candidatos = async () => {
+    const [cd, pe, tc, ds] = await Promise.all([leerJSON('data/candidatos.json', null), leerJSON('config/personalidades.json', { personalidades: [] }),
+      leerJSON('config/temas_calientes.json', { temas: [] }), leerJSON('config/candidatos_descartados.json', { personalidades: [], palabras_clave: [] })]);
+    let priv = null; try { priv = (await leerJSON('resultados/candidatos_privados.json', null, true)).datos; } catch (e) { priv = null; }
+    if (!cd.datos) { vista.innerHTML = '<div class="bloque"><div class="bc"><p class="ayuda mb-0">Todavía no hay candidatos: se arman en cada barrido con el registro de noticias.</p></div></div>'; return; }
+    const C = cd.datos, M = (priv && priv.menciones) || {};
+    const arch = r => M[r.clave] || null;
+    const enlaces = ej => ej.map(e => `<a href="../n/${esc(e.id)}.html" target="_blank" rel="noopener">${esc(e.titulo)}</a>`).join(' · ');
+    const fila = (r, tipo, i) => { const a = arch(r), total = r.apariciones + (a ? a.n : 0);
+      return `<tr data-fila="${tipo}:${i}"><td><b>${esc(r.texto)}</b>${r.nuevo ? ' <span class="badge text-bg-danger">Nuevo</span>' : ''}${r.origen ? ` <span class="badge text-bg-light border">${r.origen === 'torneo' ? 'torneo o serie' : 'nombre en titulares'}</span>` : ''}
+        ${(r.paises || []).length ? `<div class="ayuda">${esc(r.paises.join(', '))}</div>` : ''}
+        <div class="ayuda">${enlaces(r.ejemplos)}</div>${a ? `<div class="ayuda"><span class="badge text-bg-dark">Archivo privado</span> ${a.n} resultado${a.n === 1 ? '' : 's'} sin publicar: ${a.ejemplos.map(e => esc(e.titulo)).join(' · ')}</div>` : ''}</td>
+      <td class="text-end"><b>${total}</b><div class="ayuda">${r.apariciones} publicadas${a ? ` + ${a.n} archivo` : ''}</div></td><td class="text-nowrap">${esc(fechaLarga(r.primera))}</td><td class="text-nowrap">${esc(fechaLarga(r.ultima))}</td>
+      <td class="text-end">${r.dias}</td><td class="text-end">${r.fuentes}</td>
+      <td class="text-nowrap"><button class="btn btn-sm btn-mc" data-agregar="${tipo}:${i}" type="button">Agregar</button> <button class="btn btn-sm btn-outline-secondary" data-descartar="${tipo}:${i}" type="button">Descartar</button></td></tr>`; };
+    const cab = '<th>Candidato</th><th class="text-end">Menciones</th><th>Empezó a notarse</th><th>Última vez</th><th class="text-end">Días</th><th class="text-end">Fuentes</th><th></th>';
+    const tabla = (lista, tipo, vacio) => `<div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr>${cab}</tr></thead><tbody>${lista.map((r, i) => fila(r, tipo, i)).join('') || `<tr><td colspan="7" class="ayuda">${vacio}</td></tr>`}</tbody></table></div>`;
+    const A = (priv && priv.del_archivo) || [];
+    const filaArch = (r, i) => `<tr><td><b>${esc(r.texto)}</b><div class="ayuda">${r.ejemplos.map(e => `${esc(fechaLarga(e.fecha))} · ${esc(e.titulo)}${e.fuentes.length ? ' (' + esc(e.fuentes.join(', ')) + ')' : ''}`).join('<br>')}</div></td>
+      <td class="text-end"><b>${r.menciones}</b></td><td class="text-nowrap">${esc(fechaLarga(r.primera))}</td><td class="text-nowrap">${esc(fechaLarga(r.ultima))}</td><td class="text-end">${r.dias}</td><td class="text-end">${r.fuentes}</td>
+      <td class="text-nowrap"><div class="btn-group btn-group-sm" title="Crear tarjeta con el resultado más reciente">${['small', 'medium', 'large'].map(t => `<button class="btn btn-outline-dark" data-tarjeta="${i}" data-tam="${t}" type="button">${t[0].toUpperCase()}</button>`).join('')}</div></td></tr>`;
+    vista.innerHTML = `<div class="bloque"><div class="bh"><h2>Candidatos del día</h2><span class="ayuda">Armados el ${esc(fechaLarga(C.fecha))} con ${C.hechos_revisados} noticias de los últimos ${C.ventana_dias} días${priv ? ` y ${priv.lineas_revisadas} resultados del archivo privado` : ''}</span></div><div class="bc">
+        <p class="ayuda">Cada barrido mira el registro de noticias y el archivo privado de resultados y propone nombres que aparecen seguido y todavía no están en sus listas. No usa el modelo y no cuesta nada. <b>Agregar</b> una personalidad abre su ficha (puede marcarla como histórica, sumar alias y pedir un resumen a Gemini); una palabra clave queda como tema vigilado. <b>Descartar</b> hace que no se vuelva a proponer.${priv ? '' : ' El archivo privado todavía no aportó candidatos (se arman en el próximo barrido, con el repositorio privado conectado).'}</p>
+        <div class="row g-4"><div class="col-12"><h6 class="text-uppercase fw-bold small">Personalidades</h6>${tabla(C.personalidades, 'personalidades', 'Sin candidatos por ahora.')}</div>
+        <div class="col-12"><h6 class="text-uppercase fw-bold small">Palabras clave</h6>${tabla(C.palabras_clave, 'palabras_clave', 'Sin candidatos por ahora.')}</div>
+        ${priv ? `<div class="col-12"><h6 class="text-uppercase fw-bold small">Del archivo privado: ¿merecen una tarjeta? <span class="badge text-bg-dark">Privado</span></h6>
+          <p class="ayuda">Nombres y torneos que se repiten en resultados que no se publicaron ni están en las listas. Si uno ya pesa, «Crear tarjeta» (S, M o L) la escribe con el resultado más reciente; queda oculta para revisarla en «Noticias».</p>
+          <div class="tabla-wrap"><table class="table table-sm align-middle mb-0"><thead><tr>${cab.replace('<th></th>', '<th>Crear tarjeta</th>')}</tr></thead><tbody>${A.map(filaArch).join('') || '<tr><td colspan="7" class="ayuda">Sin candidatos en el archivo por ahora.</td></tr>'}</tbody></table></div></div>` : ''}</div></div></div>
+      <div class="modal fade" id="m-cand" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title">Agregar personalidad</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+        <div class="modal-body"><div class="mb-3"><label class="form-label" for="cd-nom">Nombre</label><input class="form-control" id="cd-nom"></div>
+          <div class="mb-3"><label class="form-label" for="cd-ali">Alias (separados por coma)</label><input class="form-control" id="cd-ali" placeholder="Por ejemplo: Apodo, Nombre en otro idioma"></div>
+          <label class="form-check mb-3"><input class="form-check-input" type="checkbox" id="cd-his"> <span class="form-check-label">Figura histórica (sus resultados merecen tarjeta)</span></label>
+          <div><div class="d-flex align-items-end gap-2 mb-1"><label class="form-label mb-0" for="cd-res">Resumen público (una o dos líneas)</label><button class="btn btn-sm btn-outline-dark ms-auto" id="cd-gem" type="button">Sugerir con Gemini</button></div>
+          <textarea class="form-control" id="cd-res" rows="3"></textarea><div class="ayuda mt-1" id="cd-gem-estado">Opcional. Si lo sugiere Gemini, revíselo antes de guardar: el resumen se publica.</div></div></div>
+        <div class="modal-footer"><button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancelar</button><button class="btn btn-mc" id="cd-guardar" type="button">Agregar a Personalidades</button></div></div></div></div>`;
+    const hoyIso = new Date().toISOString().slice(0, 10), modal = new bootstrap.Modal(document.getElementById('m-cand'));
+    let actual = null;
+    const sacar = (tipo, i) => { const tr = vista.querySelector(`[data-fila="${tipo}:${i}"]`); if (tr) tr.remove(); };
+    document.getElementById('cd-gem').onclick = async () => { const est = document.getElementById('cd-gem-estado'), b = document.getElementById('cd-gem'), nom = document.getElementById('cd-nom').value.trim();
+      if (!nom) return; b.disabled = true; est.textContent = 'Buscando con Gemini…';
+      try { document.getElementById('cd-res').value = await resumenGemini(nom); est.textContent = 'Sugerido por Gemini con una búsqueda rápida: revíselo y corríjalo antes de guardar.'; }
+      catch (e) { est.textContent = e.message; est.className = 'estado-error mt-1'; } finally { b.disabled = false; } };
+    document.getElementById('cd-guardar').onclick = async () => { const nom = document.getElementById('cd-nom').value.trim(); if (!nom || !actual) return;
+      try { let id = slugId(nom); if (pe.datos.personalidades.some(p => p.id === id)) id += '-2';
+        pe.datos.personalidades.push({ id, nombre: nom, alias: document.getElementById('cd-ali').value.split(',').map(x => x.trim()).filter(Boolean), historica: document.getElementById('cd-his').checked, resumen: document.getElementById('cd-res').value.trim() });
+        pe.sha = await guardar('config/personalidades.json', json(pe.datos), pe.sha, 'Personalidad agregada desde candidatos: ' + nom);
+        modal.hide(); sacar('personalidades', actual.i); aviso('Agregada a Personalidades.'); } catch (e) { aviso(e.message, 'danger'); } };
+    vista.onclick = async e => {
+      const t = e.target.closest('[data-tarjeta]'); if (t) { const r = A[+t.dataset.tarjeta]; return crearTarjeta('archivo', { fecha: r.ejemplos[0].fecha, titulo: r.ejemplos[0].titulo }, t.dataset.tam); }
+      const a = e.target.closest('[data-agregar]'), d = e.target.closest('[data-descartar]'); if (!a && !d) return;
+      const [tipo, idx] = (a || d).dataset[a ? 'agregar' : 'descartar'].split(':'), r = C[tipo][+idx];
+      if (a && tipo === 'personalidades') { actual = { i: idx }; document.getElementById('cd-nom').value = r.texto; document.getElementById('cd-ali').value = ''; document.getElementById('cd-his').checked = false; document.getElementById('cd-res').value = '';
+        const est = document.getElementById('cd-gem-estado'); est.className = 'ayuda mt-1'; est.textContent = gemini().clave ? 'Opcional. «Sugerir con Gemini» busca un resumen; revíselo antes de guardar, porque se publica.' : 'Opcional. Para sugerir un resumen con Gemini, cargue su clave en «Conexión».'; modal.show(); return; }
+      (a || d).disabled = true;
+      try {
+        if (a) { tc.datos.temas.push({ nombre: r.texto, palabras_clave: [r.texto], alta: hoyIso, estado: 'activo' });
+          tc.sha = await guardar('config/temas_calientes.json', json(tc.datos), tc.sha, 'Palabra clave agregada desde candidatos: ' + r.texto); }
+        else { ds.datos[tipo] = [...new Set([...(ds.datos[tipo] || []), r.texto])];
+          ds.sha = await guardar('config/candidatos_descartados.json', json(ds.datos), ds.sha, 'Candidato descartado: ' + r.texto); }
+        sacar(tipo, idx); aviso(a ? 'Agregado.' : 'Descartado: no se vuelve a proponer.');
+      } catch (er) { (a || d).disabled = false; aviso(er.message, 'danger'); } };
   };
 
   // ---------------------------------------------------------------- Consultar registros
@@ -491,7 +655,12 @@ td.titulo { min-width: 220px; }
       <select class="form-select form-select-sm w-auto" id="d-base">${Object.entries(BASES).map(([k, b]) => `<option value="${k}">${b.n}</option>`).join('')}</select>
       <select class="form-select form-select-sm w-auto" id="d-secc"><option value="">Todas las secciones</option></select>
       <input class="form-control form-control-sm w-auto flex-grow-1" id="d-q" type="search" placeholder="Buscar jugador, torneo, sala, fuente…"><span class="ayuda" id="d-n"></span></div>
-      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Se muestran hasta 300 filas, las más recientes primero. «Crear tarjeta» escribe una tarjeta con los datos y las fuentes de esa fila (S: titular y bajada; M: más un párrafo; L: más dos párrafos), con una sola llamada al modelo y los documentos de SEI; queda oculta para revisarla en «Noticias» (filtro «Ocultas»).</p><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
+      <div class="bc"><p class="ayuda">El archivo de resultados guarda los resultados que no se publican (con sus fuentes), para tenerlos a mano en una investigación; está en el repositorio privado. Los gráficos de arriba usan los mismos filtros que la tabla y no cuestan nada. Se muestran hasta 300 filas, las más recientes primero. «Crear tarjeta» escribe una tarjeta con los datos y las fuentes de esa fila (S: titular y bajada; M: más un párrafo; L: más dos párrafos), con una sola llamada al modelo y los documentos de SEI; queda oculta para revisarla en «Noticias» (filtro «Ocultas»).</p><div class="border rounded p-2 mb-2 d-flex flex-wrap gap-2 align-items-center bg-light"><b class="small text-uppercase">Gráficos</b>
+        <select class="form-select form-select-sm w-auto" id="g-dias" aria-label="Período de los gráficos">${[[7, 'Últimos 7 días'], [14, 'Últimos 14 días'], [30, 'Últimos 30 días'], [90, 'Últimos 90 días'], [0, 'Todo']].map(([n, t]) => `<option value="${n}"${n === 30 ? ' selected' : ''}>${t}</option>`).join('')}</select>
+        <label class="small">Contar por <select class="form-select form-select-sm d-inline-block w-auto" id="g-dim"></select></label>
+        <label class="small">Desglosar por <select class="form-select form-select-sm d-inline-block w-auto" id="g-desg"></select></label>
+        <label class="small">Mostrar <select class="form-select form-select-sm d-inline-block w-auto" id="g-top">${[5, 10, 20].map(n => `<option value="${n}"${n === 10 ? ' selected' : ''}>${n}</option>`).join('')}</select></label>
+        <span class="ayuda ms-auto">Se actualizan al instante, con los filtros de la tabla; no usan el modelo.</span></div><div class="row g-3 mb-3" id="d-graficos"></div><div class="tabla-wrap" id="d-tabla"></div></div></div>`;
     const cache = {};
     const [tjB, stB] = await Promise.all([leerJSON('docs/datos/tarjetas.json', { tarjetas: [] }), leerJSON('config/sitio.json', { secciones: [] })]);
     const mapaSecs = Object.fromEntries(tjB.datos.tarjetas.map(t => [t.id, t.secs || []]));
@@ -503,21 +672,31 @@ td.titulo { min-width: 220px; }
       document.getElementById('d-n').textContent = r.length + ' de ' + cache[k].length;
       const crea = k === 'hechos' || k === 'archivo';
       const filas = r.slice(0, 300);
+      // Gráficos: se recalculan en el navegador con los filtros de la tabla y los controles de arriba.
+      const DIMS = { hechos: { seccion: ['Sección', x => x.seccion], tipo: ['Tipo de noticia', x => x.tipo], sala: ['Sala', x => x.salas], torneo: ['Torneo o serie', x => x.torneo || null],
+          fuente: ['Fuente', x => (x.fuentes || []).map(f => f.nombre)], jugador: ['Jugador', x => (x.jugadores || []).map(j => j.nombre)], pais: ['País del evento', x => x.pais_evento || null] },
+        archivo: { fuente: ['Fuente', x => (x.fuentes || []).map(f => f.nombre)], origen: ['Motivo de archivo', x => x.origen] }, salas: { sala: ['Sala', x => x.sala], tema: ['Tema', x => x.tema] } }[k];
+      const TIEMPO = { dia: ['Día', f => f], semana: ['Semana', semana], mes: ['Mes', mes] };
+      const opciones = (el, lista, valor) => { el.innerHTML = lista.map(([v, t]) => `<option value="${v}">${t}</option>`).join(''); el.value = lista.some(([v]) => v === valor) ? valor : lista[0][0]; return el.value; };
+      const dimsLista = [...Object.entries(TIEMPO).map(([v, [t]]) => [v, t]), ...Object.entries(DIMS).map(([v, [t]]) => [v, t])];
+      const dim = opciones(document.getElementById('g-dim'), dimsLista, document.getElementById('g-dim').value || 'dia');
+      const desg = opciones(document.getElementById('g-desg'), [['', 'Sin desglose'], ...Object.entries(DIMS).map(([v, [t]]) => [v, t])], document.getElementById('g-desg').value);
+      const top = +document.getElementById('g-top').value, lim = desdeHace(+document.getElementById('g-dias').value), rg = r.filter(x => !lim || x.fecha >= lim);
+      let libre;
+      if (TIEMPO[dim]) { const cubo = TIEMPO[dim][1], claves = [...new Set(rg.map(x => cubo(x.fecha)))].sort(), pref = { semana: 'Semana del ', mes: 'Mes de ' }[dim] || '';
+        let series;
+        if (desg) { const f = DIMS[desg][1], cats = contar(rg, f).slice(0, 4).map(c => c[0]), de = x => [].concat(f(x) || []);
+          series = [...cats.map(c => ({ nombre: c, test: x => de(x).includes(c) })), ...(contar(rg, f).length > 4 ? [{ nombre: 'Otros', test: x => !de(x).some(c => cats.includes(c)) }] : [])]; }
+        else series = [{ nombre: 'Registros', test: () => true }];
+        libre = graficoDias(claves, series.map(se => ({ nombre: se.nombre, valores: claves.map(c => rg.filter(x => cubo(x.fecha) === c && se.test(x)).length) })), { formato: n => String(Math.round(n)), prefijo: pref }); }
+      else libre = graficoCategorias(contar(rg, DIMS[dim][1]), { max: top });
+      const tituloLibre = TIEMPO[dim] ? `Registros por ${TIEMPO[dim][0].toLowerCase()}${desg ? ', desglosados por ' + DIMS[desg][0].toLowerCase() : ''}` : `Registros por ${DIMS[dim][0].toLowerCase()}`;
+      const gs = [`<div class="col-12"><div class="border rounded p-3 bg-white"><h6 class="text-uppercase fw-bold small mb-2">${esc(tituloLibre)}</h6>${libre}</div></div>`];
+      Object.entries(DIMS).filter(([v]) => v !== dim).forEach(([v, [t, f]]) => gs.push(caja(t + ' (más frecuentes)', graficoCategorias(contar(rg, f), { max: top }))));
+      document.getElementById('d-graficos').innerHTML = gs.join('');
       document.getElementById('d-tabla').innerHTML = `<table class="table table-sm align-middle mb-0"><thead><tr>${b.cab.map(c => `<th>${c}</th>`).join('')}${crea ? '<th class="text-nowrap">Crear tarjeta</th>' : ''}</tr></thead><tbody>${filas.map((x, n) => `<tr>${b.col(x).map((c, i) => `<td class="${i === 0 ? 'text-nowrap' : ''}">${i === 0 ? esc(fechaLarga(c)) : (k === 'archivo' && i === 1 ? esc(c) : c)}</td>`).join('')}${crea && !(k === 'hechos' && x.seccion === 'tema') ? `<td class="text-nowrap"><div class="btn-group btn-group-sm">${['small', 'medium', 'large'].map(t => `<button class="btn btn-outline-dark" data-crear="${n}" data-tam="${t}" type="button" title="${{ small: 'Titular y bajada', medium: 'Titular, bajada y un párrafo', large: 'Titular, bajada y dos párrafos' }[t]}">${t[0].toUpperCase()}</button>`).join('')}</div></td>` : crea ? '<td></td>' : ''}</tr>`).join('') || `<tr><td colspan="4" class="ayuda">${cache[k].length ? 'Sin coincidencias.' : 'Todavía no hay datos en este registro.'}</td></tr>`}</tbody></table>`;
       document.querySelectorAll('#d-tabla [data-crear]').forEach(bt => bt.onclick = () => crearTarjeta(k, filas[+bt.dataset.crear], bt.dataset.tam)); };
-    const claveArchivo = async x => { const h = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(`${x.fecha || ''}|${x.titulo || ''}`));
-      return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 12); };
-    const crearTarjeta = async (k, x, tam) => {
-      try { const clave = k === 'hechos' ? x.id : await claveArchivo(x);
-        const r = await gh('/actions/workflows/crear-tarjeta.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { origen: k, clave, tamano: tam } }) });
-        if (r.status !== 204) throw new Error('GitHub no aceptó el pedido (' + r.status + '). ¿Está fusionado el flujo «Crear tarjeta desde el registro»?');
-        aviso(`Creando la tarjeta (${tam}): tarda uno o dos minutos. Quedará oculta en «Noticias».`, 'info');
-        const inicio = Date.now(); const t = setInterval(async () => {
-          const rr = await gh('/actions/workflows/crear-tarjeta.yml/runs?per_page=1&t=' + Date.now()).catch(() => null); if (!rr || !rr.ok) return;
-          const run = ((await rr.json()).workflow_runs || [])[0]; if (!run || Date.parse(run.created_at) < inicio - 60000 || run.status !== 'completed') return;
-          clearInterval(t); if (run.conclusion === 'success') aviso('Tarjeta creada y oculta: revísela en «Noticias» con el filtro «Ocultas» y publíquela quitando «Ocultar».');
-          else aviso('No se pudo crear la tarjeta. Detalle: ' + run.html_url, 'danger'); }, 10000);
-      } catch (e) { aviso(e.message, 'danger'); } };
+    ['g-dias', 'g-dim', 'g-desg', 'g-top'].forEach(id => document.getElementById(id).onchange = () => cargar().catch(e => aviso(e.message, 'danger')));
     document.getElementById('d-base').onchange = () => cargar().catch(e => aviso(e.message, 'danger'));
     document.getElementById('d-q').oninput = () => cargar().catch(e => aviso(e.message, 'danger'));
     document.getElementById('d-secc').onchange = () => { if (document.getElementById('d-base').value !== 'hechos') { document.getElementById('d-base').value = 'hechos'; } cargar().catch(e => aviso(e.message, 'danger')); };
