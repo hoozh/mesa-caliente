@@ -34,6 +34,14 @@
       ],
       "alta": "2026-11-27",
       "estado": "activo"
+    },
+    {
+      "nombre": "WSOP Paradise",
+      "palabras_clave": [
+        "WSOP Paradise"
+      ],
+      "alta": "2026-11-27",
+      "estado": "activo"
     }
   ]
 }
