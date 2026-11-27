@@ -85,3 +85,62 @@ def test_administrador_con_candidatos_y_graficos():
     assert "graficoDias" in html and "graficoCategorias" in html
     assert html.count("graficoDias(") >= 5 and "d-graficos" in html  # Costos (4) y Consultar registros
     assert "chart.js" not in html.lower() and "d3js" not in html.lower()  # SVG propio, sin librerías de gráficos
+
+
+# ---------------------------------------------------------------- archivo privado, columnas, Gemini y gráficos en vivo (27 nov, 10:51)
+
+MARCA_PRIVADA = "TITULAR-PRIVADO-SIN-PUBLICAR"
+
+
+def _archivo():
+    return [{"fecha": "2026-11-2%d" % i, "titulo": f"Jon Dough gana el torneo {MARCA_PRIVADA}", "fuentes": [{"nombre": "PokerNews", "url": "https://x"}]} for i in (3, 5, 6)] + \
+           [{"fecha": "2026-11-24", "titulo": "Vladimir Minko cobra en Chipre", "fuentes": [{"nombre": "CardPlayer"}]},
+            {"fecha": "2026-08-01", "titulo": "Viejo Campeón gana", "fuentes": []}]
+
+
+def test_el_archivo_privado_suma_menciones_y_propone_nombres_que_ameritan_tarjeta(tmp_path):
+    raiz = _raiz(tmp_path, HECHOS)
+    pub = candidatos.calcular(raiz, HOY)
+    priv = candidatos.calcular_privados(raiz, HOY, pub, _archivo())
+    assert priv["menciones"]["vladimir minko"]["n"] == 1  # cuenta el resultado del archivo del 24 nov
+    nuevos = {r["texto"]: r for r in priv["del_archivo"]}
+    assert "Jon Dough" in nuevos and nuevos["Jon Dough"]["menciones"] == 3 and nuevos["Jon Dough"]["dias"] == 3
+    assert nuevos["Jon Dough"]["ejemplos"][0]["clave"]  # clave para «Crear tarjeta» desde el archivo
+    assert "Viejo Campeón" not in nuevos  # fuera de la ventana
+    assert "Vladimir Minko" not in nuevos  # ya es candidato público
+
+
+def test_lo_del_archivo_nunca_va_al_archivo_publico_de_candidatos(tmp_path):
+    raiz = _raiz(tmp_path, HECHOS)
+    archivo = tmp_path / "privado" / "resultados" / "archivo.jsonl"
+    archivo.parent.mkdir(parents=True)
+    archivo.write_text("\n".join(json.dumps(a) for a in _archivo()) + "\n", encoding="utf-8")
+    candidatos.generar(raiz, HOY, archivo)
+    publico = (raiz / "data" / "candidatos.json").read_text(encoding="utf-8")
+    assert MARCA_PRIVADA not in publico and "Jon Dough" not in publico
+    privado = (archivo.parent / "candidatos_privados.json").read_text(encoding="utf-8")
+    assert "Jon Dough" in privado
+    assert not (raiz / "data" / "candidatos_privados.json").exists()
+
+
+def test_sin_repositorio_privado_el_barrido_no_publica_candidatos_del_archivo(raiz_temporal, descarga_ejemplo, monkeypatch):
+    monkeypatch.delenv("MESA_DIR_PRIVADO", raising=False)
+    corrida.ejecutar(raiz_temporal, AHORA, "manual", descarga_ejemplo, llamador_ok)
+    assert not list(raiz_temporal.rglob("candidatos_privados.json"))
+
+
+def test_los_candidatos_traen_las_columnas_pedidas(tmp_path):
+    c = candidatos.calcular(_raiz(tmp_path, HECHOS), HOY)
+    r = next(x for x in c["personalidades"] if x["texto"] == "Vladimir Minko")
+    assert {"apariciones", "primera", "ultima", "dias", "fuentes", "clave", "ejemplos"} <= set(r)
+    assert r["primera"] == "2026-11-20" and r["ultima"] == "2026-11-22"
+
+
+def test_administrador_gemini_ficha_y_controles_en_vivo():
+    html = (RAIZ / "docs" / "admin" / "index.html").read_text(encoding="utf-8")
+    for texto in ("Empezó a notarse", "Menciones", "resultados/candidatos_privados.json", "cd-his", "cd-ali", "cd-res", "resumenGemini",
+                  "x-goog-api-key", "google_search", "mc-gemini-clave", "Sugerir con Gemini", "Del archivo privado"):
+        assert texto in html, texto
+    for id_control in ("gc-dias", "gc-agr", "data-serie", "g-dias", "g-dim", "g-desg", "g-top"):
+        assert id_control in html, id_control
+    assert "/v1beta/interactions" in html and ":generateContent" in html  # segunda vía si la primera no responde

@@ -708,7 +708,8 @@ def ejecutar(raiz: Path, ahora: datetime, origen: str = "automatica",
     except Exception:
         traceback.print_exc()
     try:  # candidatos de Personalidades y palabras clave para el administrador (sin modelo, sin costo)
-        candidatos_mod.generar(raiz, hoy)
+        ruta_arch = ruta_archivo_resultados(raiz)
+        candidatos_mod.generar(raiz, hoy, ruta_arch if "privado" in str(ruta_arch) else None)  # el archivo es privado: solo si está el repositorio privado
     except Exception:
         traceback.print_exc()
 

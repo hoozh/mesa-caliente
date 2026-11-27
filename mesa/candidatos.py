@@ -81,7 +81,7 @@ def _acumular(d: dict, clave: str, texto: str, h: dict, extra: str = "") -> None
 
 def _resumen(e: dict) -> dict:
     hechos = sorted(e["hechos"].values(), key=lambda h: h["fecha"], reverse=True)
-    return {"texto": e["texto"], "apariciones": len(hechos), "dias": len({h["fecha"] for h in hechos}),
+    return {"texto": e["texto"], "clave": _norm(e["texto"]), "apariciones": len(hechos), "dias": len({h["fecha"] for h in hechos}),
             "fuentes": len(e["fuentes"]), "primera": min(h["fecha"] for h in hechos), "ultima": hechos[0]["fecha"],
             "paises": sorted(e["extra"]), "ejemplos": [{"id": h["id"], "titulo": h["titulo"], "fecha": h["fecha"]} for h in hechos[:EJEMPLOS]]}
 
@@ -170,7 +170,68 @@ def _leer_hechos(raiz: Path) -> list[dict]:
     return salida
 
 
-def generar(raiz: Path, hoy: date) -> dict:
+def _leer_jsonl(ruta: Path) -> list[dict]:
+    import json
+    if not ruta.exists():
+        return []
+    salida = []
+    for linea in ruta.read_text(encoding="utf-8").splitlines():
+        try:
+            salida.append(json.loads(linea))
+        except ValueError:
+            continue
+    return salida
+
+
+def calcular_privados(raiz: Path, hoy: date, publicos: dict, archivo: list[dict]) -> dict:
+    """Lo que sale del archivo de resultados (privado): cuántas veces aparece cada candidato público y qué nombres
+    y torneos se repiten allí sin haberse publicado, para decidir si ameritan una tarjeta. Nunca va al repositorio público."""
+    from .crear_tarjeta import clave_archivo
+    desde = (hoy - timedelta(days=VENTANA_DIAS)).isoformat()
+    lineas = [a for a in archivo if (a.get("fecha") or "") >= desde and a.get("titulo")]
+    v = _vigentes(raiz)
+    salas = {_norm(n) for n in temas_mod.cargar_generales(raiz)["salas"]}
+    normalizadas = [(_norm(a["titulo"]), a) for a in lineas]
+
+    def ejemplos(coinciden: list[dict]) -> list[dict]:
+        orden = sorted(coinciden, key=lambda a: a["fecha"], reverse=True)
+        return [{"fecha": a["fecha"], "titulo": a["titulo"], "clave": clave_archivo(a),
+                 "fuentes": [f.get("nombre") for f in a.get("fuentes", []) if f.get("nombre")][:3]} for a in orden[:EJEMPLOS]]
+
+    menciones = {}
+    for r in publicos["personalidades"] + publicos["palabras_clave"]:
+        c = [a for n, a in normalizadas if r["clave"] and f" {r['clave']} " in f" {n} "]
+        if c:
+            menciones[r["clave"]] = {"n": len(c), "dias": len({a["fecha"] for a in c}), "ejemplos": ejemplos(c)}
+
+    # Nombres propios que se repiten en el archivo y no están en ninguna lista ni entre los candidatos públicos.
+    conocidos = {r["clave"] for r in publicos["personalidades"] + publicos["palabras_clave"]} | v["personas"] | v["palabras"] | v["desc_personas"] | v["desc_palabras"]
+    frases: dict[str, dict] = {}
+    for a in lineas:
+        for frase in set(_frases(a["titulo"])):
+            e = frases.setdefault(_norm(frase), {"texto": frase, "lineas": [], "fuentes": set()})
+            e["lineas"].append(a)
+            e["fuentes"] |= {f.get("nombre") for f in a.get("fuentes", []) if f.get("nombre")}
+    nuevos = []
+    for clave, e in frases.items():
+        if clave in conocidos or clave in salas or any(clave in s.split() for s in salas):
+            continue
+        dias = {a["fecha"] for a in e["lineas"]}
+        if len(e["lineas"]) >= MIN_APARICIONES and len(dias) >= MIN_DIAS_FRASE:
+            nuevos.append({"texto": e["texto"], "clave": clave, "menciones": len(e["lineas"]), "dias": len(dias), "fuentes": len(e["fuentes"]),
+                           "primera": min(dias), "ultima": max(dias), "ejemplos": ejemplos(e["lineas"])})
+    nuevos = [r for r in nuevos if not any(r["clave"] != o["clave"] and r["clave"] in o["clave"] and r["menciones"] <= o["menciones"] for o in nuevos)]
+    nuevos.sort(key=lambda r: (r["dias"] * 2 + r["fuentes"], r["ultima"]), reverse=True)
+    return {"fecha": hoy.isoformat(), "ventana_dias": VENTANA_DIAS, "lineas_revisadas": len(lineas),
+            "menciones": menciones, "del_archivo": nuevos[:MAX_CANDIDATOS]}
+
+
+def generar(raiz: Path, hoy: date, archivo_privado: Path | None = None) -> dict:
+    """Escribe data/candidatos.json (público, solo con el registro de noticias publicadas) y, si hay archivo de
+    resultados, candidatos_privados.json junto a él (en el repositorio privado cuando existe)."""
     datos = calcular(raiz, hoy)
     escribir_json(Path(raiz) / "data" / "candidatos.json", datos)
+    if archivo_privado is not None and Path(archivo_privado).exists():
+        priv = calcular_privados(raiz, hoy, datos, _leer_jsonl(Path(archivo_privado)))
+        escribir_json(Path(archivo_privado).parent / "candidatos_privados.json", priv)
     return datos
