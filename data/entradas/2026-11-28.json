@@ -1,0 +1,602 @@
+{
+  "fecha": "2026-11-28",
+  "corridas": [
+    {
+      "id": "2026-11-28T12:00:32Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/joris-ruijs-wins-apt-championship-main-event-52910.htm",
+          "titular": "Joris Ruijs Wins First Seven-Figure Live Score With APT Championship Title",
+          "primera_frase": "Dutchman Joris Ruijs beat Quang Trinh Do heads-up to win the APT Championship Main Event"
+        },
+        {
+          "n": 2,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/stakeus-exits-utah-and-arkansas-restricts/",
+          "titular": "Stake.us Exits Utah and Arkansas, Restricts Registrations in Texas and Mississippi",
+          "primera_frase": ""
+        },
+        {
+          "n": 3,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/julien-sitbon-wins-2026-gukpt-grand-49300/",
+          "titular": "Julien Sitbon Wins 2026 GUKPT Grand Final High Roller for £61,150",
+          "primera_frase": "Julien Sitbon has claimed the title in the 2026 GUKPT Grand Final High Roller in London, topping a 97-entry field to collect £61,150."
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782961-chris-hunichen-wins-365k-as-acr-poker-oss-main-events-pay-out-4-66m",
+          "titular": "Chris Hunichen Wins $365K As ACR Poker OSS Main Events Pay Out $4.66M",
+          "primera_frase": "Chris Hunichen took a commanding chip lead into the final nine of the $2,650 Main Event and turned it into the biggest payday of ACR Poker’s Online Super Series (OSS) finale."
+        },
+        {
+          "n": 5,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/ramin-hajiyev-wins-triton-150k-anniversary-special-2-8m/",
+          "titular": "Ramin Hajiyev Wins Triton $150K Anniversary Special for $2.8M",
+          "primera_frase": "Only four players will ever own a Triton 10th Anniversary commemorative coin, and Ramin Hajiyev just claimed the last one."
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/ept-praga-2026-cerrara-temporada-con-doce-dias-de-torneos-54436.htm",
+          "titular": "El EPT Praga 2026 cerrará la temporada con doce días de torneos, high rollers y juegos mixtos",
+          "primera_frase": "Del 2 al 13 de diciembre, con un Main Event de 5.300 € y numerosos high rollers."
+        },
+        {
+          "n": 7,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/ept-praga-fast-track-sorbet-68312.htm",
+          "titular": "EPT Praga estreia Sviten Special, S.O.R.B.E.T. e formato Fast Track; saiba detalhes",
+          "primera_frase": "A etapa trará novidades no último evento do circuito em 2026"
+        },
+        {
+          "n": 8,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/andres-vasquez-conquista-su-primer-titulo-en-el-asian-poker-tour-y-se-lleva-us144-632/",
+          "titular": "Andrés Vásquez conquista su primer título en el Asian Poker Tour y se lleva US$144.632",
+          "primera_frase": "El poker colombiano vuelve a celebrar una conquista internacional."
+        },
+        {
+          "n": 9,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-championship-piergentile-hagen-gloria",
+          "titular": "BSOP Championship: Valentín Piergentile y Augusto Hagen van por la gloria",
+          "primera_frase": ""
+        },
+        {
+          "n": 10,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/fanduel-spin-field-goal-offers-seven-figure-jackpot-52861.htm",
+          "titular": "FanDuel Spin & Field Goal Offers Seven-Figure Jackpot",
+          "primera_frase": "Play Spin and Field Goal with PokerStars Exclusively on Fanduel"
+        },
+        {
+          "n": 11,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782734-owen-pr0digy-messere-takes-triton-heads-up-title",
+          "titular": "Owen ‘PR0DIGY’ Messere Takes Triton Heads-Up Title",
+          "primera_frase": "Owen Messere defeated Ben Tollerene, Christopher Nguyen, and Xu Yang to win the first-ever Triton Poker $50,000 heads-up event."
+        },
+        {
+          "n": 12,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/stephen-chidwick-passes-80m-in-tournament-earnings-in-triton-event/",
+          "titular": "Stephen Chidwick Passes $80m in Tournament Earnings in Triton Event",
+          "primera_frase": "The British poker legend Stephen Chidwick surpassed $80 million in live tournament earnings this week, passing everyone except Bryn Kenney on The Hendon Mob’s All-Time Money List."
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/iago-botelho-dia-4-bsop-championship-68310.htm",
+          "titular": "Iago Botelho lidera 24 classificados ao Dia 4 do BSOP Championship; veja o chip count",
+          "primera_frase": "O torneio pagará R$ 3 milhões para o campeão no BSOP Millions"
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/alex-arias-la-varianza-lidera-el-dia-1a-del-main-event-del-clsop-poker-festival-y-se-lleva-un-bono-de-us2-500/",
+          "titular": "Alex Arias «La Varianza» lidera el Día 1A del Main Event del CLSOP Poker Festival y se lleva un bono de US$2.500",
+          "primera_frase": "La acción continúa en las instalaciones del Santo Domingo Bay Convention Resort, donde se desarrolla el CLSOP Poker Festival, en alianza con Reef Poker."
+        },
+        {
+          "n": 15,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/bsop-online-2026",
+          "titular": "El BSOP Online regresa a con 75 torneos y US$400K GTD en el Main Event",
+          "primera_frase": ""
+        },
+        {
+          "n": 16,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/julien-sitbon-wins-the-2026-gukpt-grand-final-high-roller-52909.htm",
+          "titular": "Julien Sitbon Reigns Supreme in the GUKPT Grand Final High Roller",
+          "primera_frase": "This was Sitbon's third victory in London, and his first since 2018."
+        },
+        {
+          "n": 17,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782693-jared-bleznick-wins-860k-in-heads-up-plo-session",
+          "titular": "Jared Bleznick wins $860k in heads-up PLO session",
+          "primera_frase": "Almost $1 million in a single heads-up match for \"theblez\" this week in the CoinPoker nosebleed streets."
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/gonzalo-lopez-conquista-el-high-roller-del-clsop-poker-festival/",
+          "titular": "Gonzalo López conquista el High Roller del CLSOP Poker Festival",
+          "primera_frase": "El argentino, que llegó a la mesa final como líder en fichas, mantuvo su buen desempeño hasta conquistar el segundo título del festival y llevarse un premio de US$7.260."
+        },
+        {
+          "n": 19,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/ggpoker-navidad",
+          "titular": "Por fin de año, GGPoker reparte más de US$26 millones; fechas clave para no quedarte sin Navidad",
+          "primera_frase": ""
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/argentina-aprueba-la-ley-de-ludopatia-que-cambia-para-el-poker-y-los-juegos-de-azar-online/",
+          "titular": "Argentina aprueba la Ley de Ludopatía: ¿qué cambia para el poker y los juegos de azar online?",
+          "primera_frase": "La nueva legislación establece fuertes restricciones a la publicidad, los patrocinios, los bonos de bienvenida y los medios de pago."
+        },
+        {
+          "n": 21,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/mini-championship-ilusion-armada-gigante",
+          "titular": "En el Mini Championship la ilusión de nuestra Armada es gigante",
+          "primera_frase": ""
+        },
+        {
+          "n": 22,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/uma-milha-bsop-brasilena",
+          "titular": "La Mesa Final del Uma Milha del BSOP Millions será totalmente brasileña",
+          "primera_frase": ""
+        },
+        {
+          "n": 23,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-mexico/guillermo-de-la-vega-lidera-el-dia-2-del-main-en-jubilee-monterrey",
+          "titular": "Guillermo de la Vega lidera el Día 2 del Main en Jubilee Monterrey",
+          "primera_frase": ""
+        },
+        {
+          "n": 24,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/tercia-de-torneos-bcpoker",
+          "titular": "Tercia de torneos imperdibles en BCPoker este fin de semana con entradas desde $1",
+          "primera_frase": ""
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/play-your-way-to-2027-dublin-poker-festival-at-wpt-global-52908.htm",
+          "titular": "Play Your Way to the 2027 Dublin Poker Festival From $0.88 at WPT Global",
+          "primera_frase": "Satellites start from only $0.44 online at WPT Global."
+        },
+        {
+          "n": 26,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/pokerstars-on-fanduel-giving-away-10000/",
+          "titular": "PokerStars on FanDuel Giving Away $10,000 via Thanksgiving Freeroll Series",
+          "primera_frase": ""
+        },
+        {
+          "n": 27,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/stack-up-in-the-smokies-wsop-circuit-hits-harrah-s-cherokee/",
+          "titular": "STACK UP IN THE SMOKIES: WSOP CIRCUIT HITS HARRAH'S CHEROKEE",
+          "primera_frase": "The WSOP Circuit hits Harrah's Cherokee Nov."
+        },
+        {
+          "n": 28,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782957-111-big-blind-pot-sets-up-134k-turbo-tuesday-win-on-acr-poker",
+          "titular": "111 Big Blind Pot Sets Up $134K Turbo Tuesday Win On ACR Poker",
+          "primera_frase": "An ace had fallen on the river at the final table of ACR Poker’s $500,000 GTD Turbo Tuesday Mystery PKO, and Phil Nagy didn’t think khoald91 was trying to scare an opponent out of the pot."
+        },
+        {
+          "n": 29,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226754-ggpoker-announces-plans-relaunch-new-zealand",
+          "titular": "GGPoker Announces Plans to Relaunch in New Zealand With Local Partner",
+          "primera_frase": "GGPoker plans to return to New Zealand in early 2027 through a partnership with one of the entities that won the right to apply for a local online casino license."
+        },
+        {
+          "n": 30,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/winamax-renueva-su-aplicacion-de-poker-para-moviles-54431.htm",
+          "titular": "Winamax renueva su aplicación de póker para móviles con una interfaz completamente rediseñada",
+          "primera_frase": "Nuevas mesas en perspectiva, animaciones mejoradas y un HUD más intuitivo."
+        },
+        {
+          "n": 31,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/flavio-del-valle-felipe-phil-embaixadores-pokerstars-68302.htm",
+          "titular": "Flavio Del Valle e Felipe Phil são os novos embaixadores do PokerStars; saiba mais",
+          "primera_frase": "A dupla já faz sucesso nas transmissões ao vivo do site"
+        },
+        {
+          "n": 32,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/ley-de-ludopatia-argentina",
+          "titular": "Se aprobó la ley de ludopatía en Argentina: qué prohíbe y qué permite",
+          "primera_frase": ""
+        },
+        {
+          "n": 33,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/jorge-coello-returns-in-style-to-take-down-the-cnp-winamax-g-52896.htm",
+          "titular": "Jorge Coello Returns in Style to Take Down The CNP Winamax Grand Final",
+          "primera_frase": "Jorge Coello overcame a field of 2,703 entries to take home €136,436 after a four-way deal"
+        },
+        {
+          "n": 34,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/betrivers-new-jersey-online-poker-launch-remains/",
+          "titular": "BetRivers: New Jersey Online Poker Launch Remains a “Top Priority”",
+          "primera_frase": ""
+        },
+        {
+          "n": 35,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782155-new-georgia-governor-pushing-for-casino-gambling",
+          "titular": "New Georgia Governor Pushing For Casino Gambling",
+          "primera_frase": "The Democrat blue wave may be good for gambling legislation in Georgia, but Texas still faces some roadblocks to expansion."
+        },
+        {
+          "n": 36,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/marcelo-medeiros-dia-3-bsop-championship-68301.htm",
+          "titular": "Marcelo Medeiros lidera com folga o Dia 3 do BSOP Championship; veja o chip count",
+          "primera_frase": "O carioca busca o prêmio máximo de R$ 3 milhões para o campeão"
+        },
+        {
+          "n": 37,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/diego-maldonado-campeon-bsop-millions",
+          "titular": "El boliviano Diego Maldonado salió campeón en el BSOP Millions",
+          "primera_frase": ""
+        },
+        {
+          "n": 38,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/building-november-fred-leungs-plan-for-the-apt-championship-52892.htm",
+          "titular": "Building November: Fred Leung's Plan for the Future of the APT Championship",
+          "primera_frase": "Hear what APT CEO Fred Leung has to say about the success and future of the APT Championship"
+        },
+        {
+          "n": 39,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/torneos-argentina/cap-final-high-rollers",
+          "titular": "Así serán los High Rollers de la Gran Final del CAP en Rosario",
+          "primera_frase": ""
+        },
+        {
+          "n": 40,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/octopi-poker-art-of-bluffing-52900.htm",
+          "titular": "Master the Poker Skill Everyone Loves but Few Actually Study",
+          "primera_frase": "Octopi Poker explore what separates good bluffs from bad ones."
+        },
+        {
+          "n": 41,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/owen-messere-triton",
+          "titular": "Owen Messere ganó el $50K Duel en su primer cobro en un evento Triton",
+          "primera_frase": ""
+        },
+        {
+          "n": 42,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/russell-westbrook-poker-thanksgiving-giveaway-52904.htm",
+          "titular": "NBA Star Runs Thanksgiving Giveaway Using Charity Poker Funds",
+          "primera_frase": "Russell Westbrook raised nearly $1 million in a charity poker tournament."
+        },
+        {
+          "n": 43,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/torneos/wsop/invitational-wsop-pradise",
+          "titular": "Grandes nombres confirmados para el «Invitational» de la WSOP Pradise",
+          "primera_frase": ""
+        },
+        {
+          "n": 44,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/the-2026-wsopc-cherokee-1-5m-gtd-main-event-52905.htm",
+          "titular": "The 2026 WSOPC Wraps Up in Cherokee With a $1.5M Gtd Main Event and 18 Ring Events",
+          "primera_frase": ""
+        },
+        {
+          "n": 45,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/columnas/poker-adios-a-los-celulares-1",
+          "titular": "Adiós a los celulares y las capuchas: el torneo que desafía al poker moderno",
+          "primera_frase": ""
+        },
+        {
+          "n": 46,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/yoon-kang-leads-final-table-of-apt-championship-main-event-52906.htm",
+          "titular": "Is This The Chillest FT Chip Leader You've Ever Seen?",
+          "primera_frase": "Yoon Kang leads the final nine of the APT Championship in Taipei with over $1M on offer"
+        },
+        {
+          "n": 47,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/secretos-elite-del-poker",
+          "titular": "Los secretos de la élite del poker: tres cracks revelan cómo llegar a lo más alto",
+          "primera_frase": ""
+        },
+        {
+          "n": 48,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/la-estrella-de-la-nba-russell-westbrook",
+          "titular": "Russell Westbrook utilizó el dinero recaudado en un torneo para alimentar a cientos de familias",
+          "primera_frase": ""
+        },
+        {
+          "n": 49,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/rooms-y-plataformas/cash-games-en-bcpoker",
+          "titular": "Guía para jugar cash games en BCPoker: mesas, modalidades y cómo empezar",
+          "primera_frase": ""
+        },
+        {
+          "n": 50,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/brazilian-series-of-poker/armada-busca-mesa-final-bsop-championship",
+          "titular": "La Armada busca la Mesa Final en el BSOP Championship",
+          "primera_frase": ""
+        }
+      ],
+      "tipo": "seleccion"
+    },
+    {
+      "id": "2026-11-28T12:00:32Z",
+      "notas": [
+        {
+          "n": 1,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/12m-guaranteed-during-the-onyx-high-roller-series-in-januar-52911.htm",
+          "titular": "$12M Guaranteed During the Onyx High Roller Series in January",
+          "primera_frase": "The first Onyx High Roller Series of 2027 takes place in North Cyprus from Jan.",
+          "tema": "Tema: Triton North Cyprus"
+        },
+        {
+          "n": 2,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/video/jason-mercier-s-shocking-story-stabbed-after-ept-win-pokerne-13517.htm",
+          "titular": "Jason Mercier’s Shocking Story: STABBED After EPT Win | PokerNews Podcast #1018",
+          "primera_frase": "Jason Mercier joins the PokerNews Podcast to chat about life in Las Vegas, High Stakes Poker Live, a wild $2.6M pot involving Kevin Hart and Texas Mike, and his future in poker.",
+          "tema": "High Stakes"
+        },
+        {
+          "n": 3,
+          "fuente": "WSOP.com",
+          "url": "https://www.wsop.com/news/wsop-partners-with-stake-for-wsop-paradise/",
+          "titular": "WSOP PARTNERS WITH STAKE FOR WSOP PARADISE",
+          "primera_frase": "Stake is the exclusive online casino & sportsbook partner of WSOP Paradise 2026 at Baha Mar, with Super Main Event coverage on KICK and a Stake Players Party.",
+          "tema": "WSOP Paradise"
+        },
+        {
+          "n": 4,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782869-eelis-parssinen-steamrolls-to-second-triton-pot-limit-omaha-title",
+          "titular": "Eelis Parssinen Steamrolls To Second Triton Pot-Limit Omaha Title",
+          "primera_frase": "Eelis Parssinen knocked out five of his six final-table opponents in the Triton North Cyprus $50,000 PLO mystery bounty to win $1.77 million.",
+          "tema": "Tema: Triton North Cyprus"
+        },
+        {
+          "n": 5,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/kevin-hart-llevo-risas-y-polemica-a-la-mesa-de-high-stakes-poker-esta-bien-tener-compania-en-una-partida/",
+          "titular": "Kevin Hart llevó risas y polémica a la mesa de High Stakes Poker: ¿Está bien tener compañía en una partida?",
+          "primera_frase": "El popular actor y comediante Kevin Hart contó con la presencia de su esposa durante una de las sesiones televisadas del programa High Stakes Poker, lo que generó polémica y debate sobre los límites r",
+          "tema": "High Stakes"
+        },
+        {
+          "n": 6,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/joris-ruijs-wins-apt-championship-main-event-52910.htm",
+          "titular": "Joris Ruijs Wins First Seven-Figure Live Score With APT Championship Title",
+          "primera_frase": "Dutchman Joris Ruijs beat Quang Trinh Do heads-up to win the APT Championship Main Event",
+          "con_extracto": true
+        },
+        {
+          "n": 7,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/stakeus-exits-utah-and-arkansas-restricts/",
+          "titular": "Stake.us Exits Utah and Arkansas, Restricts Registrations in Texas and Mississippi",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 8,
+          "fuente": "PokerNewsDaily",
+          "url": "https://www.pokernewsdaily.com/julien-sitbon-wins-2026-gukpt-grand-49300/",
+          "titular": "Julien Sitbon Wins 2026 GUKPT Grand Final High Roller for £61,150",
+          "primera_frase": "Julien Sitbon has claimed the title in the 2026 GUKPT Grand Final High Roller in London, topping a 97-entry field to collect £61,150.",
+          "con_extracto": true
+        },
+        {
+          "n": 9,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/julien-sitbon-wins-the-2026-gukpt-grand-final-high-roller-52909.htm",
+          "titular": "Julien Sitbon Reigns Supreme in the GUKPT Grand Final High Roller",
+          "primera_frase": "This was Sitbon's third victory in London, and his first since 2018."
+        },
+        {
+          "n": 10,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782961-chris-hunichen-wins-365k-as-acr-poker-oss-main-events-pay-out-4-66m",
+          "titular": "Chris Hunichen Wins $365K As ACR Poker OSS Main Events Pay Out $4.66M",
+          "primera_frase": "Chris Hunichen took a commanding chip lead into the final nine of the $2,650 Main Event and turned it into the biggest payday of ACR Poker’s Online Super Series (OSS) finale.",
+          "con_extracto": true
+        },
+        {
+          "n": 11,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/ramin-hajiyev-wins-triton-150k-anniversary-special-2-8m/",
+          "titular": "Ramin Hajiyev Wins Triton $150K Anniversary Special for $2.8M",
+          "primera_frase": "Only four players will ever own a Triton 10th Anniversary commemorative coin, and Ramin Hajiyev just claimed the last one.",
+          "con_extracto": true
+        },
+        {
+          "n": 12,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/ept-praga-2026-cerrara-temporada-con-doce-dias-de-torneos-54436.htm",
+          "titular": "El EPT Praga 2026 cerrará la temporada con doce días de torneos, high rollers y juegos mixtos",
+          "primera_frase": "Del 2 al 13 de diciembre, con un Main Event de 5.300 € y numerosos high rollers.",
+          "con_extracto": true
+        },
+        {
+          "n": 13,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/ept-praga-fast-track-sorbet-68312.htm",
+          "titular": "EPT Praga estreia Sviten Special, S.O.R.B.E.T. e formato Fast Track; saiba detalhes",
+          "primera_frase": "A etapa trará novidades no último evento do circuito em 2026"
+        },
+        {
+          "n": 14,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/andres-vasquez-conquista-su-primer-titulo-en-el-asian-poker-tour-y-se-lleva-us144-632/",
+          "titular": "Andrés Vásquez conquista su primer título en el Asian Poker Tour y se lleva US$144.632",
+          "primera_frase": "El poker colombiano vuelve a celebrar una conquista internacional.",
+          "con_extracto": true
+        },
+        {
+          "n": 15,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/fanduel-spin-field-goal-offers-seven-figure-jackpot-52861.htm",
+          "titular": "FanDuel Spin & Field Goal Offers Seven-Figure Jackpot",
+          "primera_frase": "Play Spin and Field Goal with PokerStars Exclusively on Fanduel",
+          "con_extracto": true
+        },
+        {
+          "n": 16,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782734-owen-pr0digy-messere-takes-triton-heads-up-title",
+          "titular": "Owen ‘PR0DIGY’ Messere Takes Triton Heads-Up Title",
+          "primera_frase": "Owen Messere defeated Ben Tollerene, Christopher Nguyen, and Xu Yang to win the first-ever Triton Poker $50,000 heads-up event.",
+          "con_extracto": true
+        },
+        {
+          "n": 17,
+          "fuente": "tightpoker.com",
+          "url": "https://www.tightpoker.com/news/stephen-chidwick-passes-80m-in-tournament-earnings-in-triton-event/",
+          "titular": "Stephen Chidwick Passes $80m in Tournament Earnings in Triton Event",
+          "primera_frase": "The British poker legend Stephen Chidwick surpassed $80 million in live tournament earnings this week, passing everyone except Bryn Kenney on The Hendon Mob’s All-Time Money List.",
+          "con_extracto": true
+        },
+        {
+          "n": 18,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/alex-arias-la-varianza-lidera-el-dia-1a-del-main-event-del-clsop-poker-festival-y-se-lleva-un-bono-de-us2-500/",
+          "titular": "Alex Arias «La Varianza» lidera el Día 1A del Main Event del CLSOP Poker Festival y se lleva un bono de US$2.500",
+          "primera_frase": "La acción continúa en las instalaciones del Santo Domingo Bay Convention Resort, donde se desarrolla el CLSOP Poker Festival, en alianza con Reef Poker.",
+          "con_extracto": true
+        },
+        {
+          "n": 19,
+          "fuente": "CardPlayer",
+          "url": "https://www.cardplayer.com/poker-news/1782693-jared-bleznick-wins-860k-in-heads-up-plo-session",
+          "titular": "Jared Bleznick wins $860k in heads-up PLO session",
+          "primera_frase": "Almost $1 million in a single heads-up match for \"theblez\" this week in the CoinPoker nosebleed streets.",
+          "con_extracto": true
+        },
+        {
+          "n": 20,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/gonzalo-lopez-conquista-el-high-roller-del-clsop-poker-festival/",
+          "titular": "Gonzalo López conquista el High Roller del CLSOP Poker Festival",
+          "primera_frase": "El argentino, que llegó a la mesa final como líder en fichas, mantuvo su buen desempeño hasta conquistar el segundo título del festival y llevarse un premio de US$7.260.",
+          "con_extracto": true
+        },
+        {
+          "n": 21,
+          "fuente": "Poker Noticias",
+          "url": "https://pokernoticias.com/argentina-aprueba-la-ley-de-ludopatia-que-cambia-para-el-poker-y-los-juegos-de-azar-online/",
+          "titular": "Argentina aprueba la Ley de Ludopatía: ¿qué cambia para el poker y los juegos de azar online?",
+          "primera_frase": "La nueva legislación establece fuertes restricciones a la publicidad, los patrocinios, los bonos de bienvenida y los medios de pago.",
+          "con_extracto": true
+        },
+        {
+          "n": 22,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/promotions/2026/11/play-your-way-to-2027-dublin-poker-festival-at-wpt-global-52908.htm",
+          "titular": "Play Your Way to the 2027 Dublin Poker Festival From $0.88 at WPT Global",
+          "primera_frase": "Satellites start from only $0.44 online at WPT Global.",
+          "con_extracto": true
+        },
+        {
+          "n": 23,
+          "fuente": "Pokerfuse",
+          "url": "https://pokerfuse.com/latest-news/2026/11/pokerstars-on-fanduel-giving-away-10000/",
+          "titular": "PokerStars on FanDuel Giving Away $10,000 via Thanksgiving Freeroll Series",
+          "primera_frase": ""
+        },
+        {
+          "n": 24,
+          "fuente": "Poker Industry PRO",
+          "url": "https://pokerindustrypro.com/news/article/226754-ggpoker-announces-plans-relaunch-new-zealand",
+          "titular": "GGPoker Announces Plans to Relaunch in New Zealand With Local Partner",
+          "primera_frase": "GGPoker plans to return to New Zealand in early 2027 through a partnership with one of the entities that won the right to apply for a local online casino license."
+        },
+        {
+          "n": 25,
+          "fuente": "PokerNews en español",
+          "url": "https://es.pokernews.com/noticias/2026/11/winamax-renueva-su-aplicacion-de-poker-para-moviles-54431.htm",
+          "titular": "Winamax renueva su aplicación de póker para móviles con una interfaz completamente rediseñada",
+          "primera_frase": "Nuevas mesas en perspectiva, animaciones mejoradas y un HUD más intuitivo."
+        },
+        {
+          "n": 26,
+          "fuente": "PokerNews Brasil",
+          "url": "https://br.pokernews.com/noticias/2026/11/flavio-del-valle-felipe-phil-embaixadores-pokerstars-68302.htm",
+          "titular": "Flavio Del Valle e Felipe Phil são os novos embaixadores do PokerStars; saiba mais",
+          "primera_frase": "A dupla já faz sucesso nas transmissões ao vivo do site",
+          "con_extracto": true
+        },
+        {
+          "n": 27,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/noticias/ley-de-ludopatia-argentina",
+          "titular": "Se aprobó la ley de ludopatía en Argentina: qué prohíbe y qué permite",
+          "primera_frase": "",
+          "con_extracto": true
+        },
+        {
+          "n": 28,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/jorge-coello-returns-in-style-to-take-down-the-cnp-winamax-g-52896.htm",
+          "titular": "Jorge Coello Returns in Style to Take Down The CNP Winamax Grand Final",
+          "primera_frase": "Jorge Coello overcame a field of 2,703 entries to take home €136,436 after a four-way deal",
+          "con_extracto": true
+        },
+        {
+          "n": 29,
+          "fuente": "PokerNews",
+          "url": "https://www.pokernews.com/news/2026/11/building-november-fred-leungs-plan-for-the-apt-championship-52892.htm",
+          "titular": "Building November: Fred Leung's Plan for the Future of the APT Championship",
+          "primera_frase": "Hear what APT CEO Fred Leung has to say about the success and future of the APT Championship",
+          "con_extracto": true
+        },
+        {
+          "n": 30,
+          "fuente": "Código Poker",
+          "url": "https://codigopoker.com/triton-poker-series/owen-messere-triton",
+          "titular": "Owen Messere ganó el $50K Duel en su primer cobro en un evento Triton",
+          "primera_frase": "",
+          "con_extracto": true
+        }
+      ],
+      "tipo": "redaccion"
+    }
+  ]
+}

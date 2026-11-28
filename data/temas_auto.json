@@ -450,7 +450,7 @@
         "pokernews.com",
         "tightpoker.com"
       ],
-      "estado": "activo"
+      "estado": "inactivo"
     },
     {
       "nombre": "Tema: Flutter Entertainment",
@@ -514,7 +514,7 @@
         "Triton North Cyprus"
       ],
       "alta": "2026-11-22",
-      "ultima_novedad": "2026-11-27",
+      "ultima_novedad": "2026-11-28",
       "fuentes": [
         "cardplayer.com",
         "codigopoker.com",

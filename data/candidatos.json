@@ -1,10 +1,11 @@
 {
-  "fecha": "2026-11-27",
+  "fecha": "2026-11-28",
   "ventana_dias": 30,
-  "hechos_revisados": 302,
+  "hechos_revisados": 297,
   "personalidades": [
     {
       "texto": "Vladimir Minko",
+      "clave": "vladimir minko",
       "apariciones": 5,
       "dias": 4,
       "fuentes": 6,
@@ -32,6 +33,7 @@
     },
     {
       "texto": "Juan Pardo",
+      "clave": "juan pardo",
       "apariciones": 5,
       "dias": 4,
       "fuentes": 4,
@@ -59,6 +61,7 @@
     },
     {
       "texto": "Neymar Jr.",
+      "clave": "neymar jr",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 5,
@@ -85,34 +88,8 @@
       "nuevo": false
     },
     {
-      "texto": "Lucas Jumalon",
-      "apariciones": 3,
-      "dias": 3,
-      "fuentes": 5,
-      "primera": "2026-10-28",
-      "ultima": "2026-11-15",
-      "paises": [],
-      "ejemplos": [
-        {
-          "id": "2026-11-15-66ad66b4",
-          "titulo": "Lucas Jumalon rechazó jugar en enorme cash game de Hustler Casino Live con Negreanu",
-          "fecha": "2026-11-15"
-        },
-        {
-          "id": "2026-11-13-47ce23d0",
-          "titulo": "Lucas Jumalon habla sobre su vida tras ganar el WSOP Main Event 2026 por US$ 10 millones",
-          "fecha": "2026-11-13"
-        },
-        {
-          "id": "2026-10-28-070e7c9c",
-          "titulo": "Lucas Jumalon, campeón WSOP 2026 por US$ 10 millones, designado embajador global de WSOP Academy",
-          "fecha": "2026-10-28"
-        }
-      ],
-      "nuevo": false
-    },
-    {
       "texto": "Fabiano Kovalski",
+      "clave": "fabiano kovalski",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 3,
@@ -140,6 +117,7 @@
     },
     {
       "texto": "Carlos Serrano",
+      "clave": "carlos serrano",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 3,
@@ -167,6 +145,7 @@
     },
     {
       "texto": "Joe McKeehen",
+      "clave": "joe mckeehen",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 3,
@@ -194,6 +173,7 @@
     },
     {
       "texto": "André Moreira",
+      "clave": "andre moreira",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 2,
@@ -223,6 +203,7 @@
     },
     {
       "texto": "Santiago Montes",
+      "clave": "santiago montes",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 2,
@@ -252,6 +233,7 @@
     },
     {
       "texto": "Eric Wasserson",
+      "clave": "eric wasserson",
       "apariciones": 3,
       "dias": 2,
       "fuentes": 3,
@@ -275,10 +257,11 @@
           "fecha": "2026-11-26"
         }
       ],
-      "nuevo": true
+      "nuevo": false
     },
     {
       "texto": "Gabriel Tavares",
+      "clave": "gabriel tavares",
       "apariciones": 3,
       "dias": 2,
       "fuentes": 3,
@@ -306,6 +289,7 @@
     },
     {
       "texto": "Jonathan Jaffe",
+      "clave": "jonathan jaffe",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -328,6 +312,7 @@
     },
     {
       "texto": "Umut Ozturk",
+      "clave": "umut ozturk",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -350,6 +335,7 @@
     },
     {
       "texto": "Martin Zamani",
+      "clave": "martin zamani",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -372,6 +358,7 @@
     },
     {
       "texto": "Shane Martin",
+      "clave": "shane martin",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -394,6 +381,7 @@
     },
     {
       "texto": "David Peters",
+      "clave": "david peters",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -416,6 +404,7 @@
     },
     {
       "texto": "James Collopy",
+      "clave": "james collopy",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -438,6 +427,7 @@
     },
     {
       "texto": "Daniel Maor",
+      "clave": "daniel maor",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -460,6 +450,7 @@
     },
     {
       "texto": "Jorge Guzmán Flórez",
+      "clave": "jorge guzman florez",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 1,
@@ -489,6 +480,7 @@
     },
     {
       "texto": "Pierre Calamusa",
+      "clave": "pierre calamusa",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -511,6 +503,7 @@
     },
     {
       "texto": "Pablo Reynoso",
+      "clave": "pablo reynoso",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -533,6 +526,7 @@
     },
     {
       "texto": "Bryn Kenney",
+      "clave": "bryn kenney",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -555,6 +549,7 @@
     },
     {
       "texto": "Daniel Dvoress",
+      "clave": "daniel dvoress",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -577,6 +572,7 @@
     },
     {
       "texto": "Bryan Taylor",
+      "clave": "bryan taylor",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -599,6 +595,30 @@
     },
     {
       "texto": "Kelvin Kerber",
+      "clave": "kelvin kerber",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-23",
+      "ultima": "2026-11-24",
+      "paises": [],
+      "ejemplos": [
+        {
+          "id": "2026-11-24-7f8e6afd",
+          "titulo": "Kelvin Kerber, Brasil, gana el 250K Super High Roller del BSOP Millions por R$ 3.217.500",
+          "fecha": "2026-11-24"
+        },
+        {
+          "id": "2026-11-23-9e0cbb0b",
+          "titulo": "Kelvin Kerber gana el 250K Super High Roller del BSOP Millions",
+          "fecha": "2026-11-23"
+        }
+      ],
+      "nuevo": false
+    },
+    {
+      "texto": "Renan Bruschi",
+      "clave": "renan bruschi",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -622,34 +642,36 @@
   ],
   "palabras_clave": [
     {
-      "texto": "WSOP Circuit Panamá",
-      "apariciones": 10,
-      "dias": 9,
-      "fuentes": 2,
-      "primera": "2026-11-04",
-      "ultima": "2026-11-16",
+      "texto": "WSOP Circuit",
+      "clave": "wsop circuit",
+      "apariciones": 9,
+      "dias": 8,
+      "fuentes": 5,
+      "primera": "2026-10-30",
+      "ultima": "2026-11-20",
       "ejemplos": [
         {
-          "id": "2026-11-16-bc4851c5",
-          "titulo": "Eduardo Ventura gana su primer anillo WSOP Circuit Panamá en The Closer US$ 500",
+          "id": "2026-11-20-049e410f",
+          "titulo": "Maurice Hawkins gana su 27º anillo WSOP Circuit en New Orleans",
+          "fecha": "2026-11-20"
+        },
+        {
+          "id": "2026-11-17-e8f8613e",
+          "titulo": "Artsiom Batsian gana su primer anillo WSOP Circuit en Casino Middelkerke por €75.000",
+          "fecha": "2026-11-17"
+        },
+        {
+          "id": "2026-11-16-78eb1169",
+          "titulo": "Francis Cruz gana su primer anillo WSOP Circuit en Panamá con High Roller US$ 3.000",
           "fecha": "2026-11-16"
-        },
-        {
-          "id": "2026-11-14-36fc1127",
-          "titulo": "Gerardo Hernández Olivares conquista su primer anillo WSOP Circuit Panamá",
-          "fecha": "2026-11-14"
-        },
-        {
-          "id": "2026-11-14-d31ef2b0",
-          "titulo": "Renny Barrett gana su primer anillo WSOP Circuit Panamá por Jamaica",
-          "fecha": "2026-11-14"
         }
       ],
-      "origen": "torneo",
+      "origen": "frase",
       "nuevo": false
     },
     {
       "texto": "BSOP Millions",
+      "clave": "bsop millions",
       "apariciones": 12,
       "dias": 7,
       "fuentes": 4,
@@ -677,6 +699,7 @@
     },
     {
       "texto": "BSOP Millions 2026",
+      "clave": "bsop millions 2026",
       "apariciones": 9,
       "dias": 7,
       "fuentes": 3,
@@ -703,38 +726,12 @@
       "nuevo": false
     },
     {
-      "texto": "EPT 2027",
-      "apariciones": 5,
-      "dias": 5,
-      "fuentes": 7,
-      "primera": "2026-11-11",
-      "ultima": "2026-11-15",
-      "ejemplos": [
-        {
-          "id": "2026-11-15-32387cc9",
-          "titulo": "EPT 2027 reduce buy-in de Main Events a €5.000 y unifica PokerStars Open",
-          "fecha": "2026-11-15"
-        },
-        {
-          "id": "2026-11-14-a7099353",
-          "titulo": "PokerStars anuncia calendario del EPT 2027 con cinco paradas principales",
-          "fecha": "2026-11-14"
-        },
-        {
-          "id": "2026-11-13-a6729809",
-          "titulo": "PokerStars anuncia calendario completo del EPT 2027 con cinco paradas",
-          "fecha": "2026-11-13"
-        }
-      ],
-      "origen": "frase",
-      "nuevo": false
-    },
-    {
       "texto": "WSOP Paradise 2026",
-      "apariciones": 5,
-      "dias": 5,
-      "fuentes": 4,
-      "primera": "2026-10-28",
+      "clave": "wsop paradise 2026",
+      "apariciones": 4,
+      "dias": 4,
+      "fuentes": 3,
+      "primera": "2026-10-31",
       "ultima": "2026-11-27",
       "ejemplos": [
         {
@@ -757,34 +754,8 @@
       "nuevo": false
     },
     {
-      "texto": "WSOP Paradise",
-      "apariciones": 6,
-      "dias": 5,
-      "fuentes": 3,
-      "primera": "2026-11-08",
-      "ultima": "2026-11-27",
-      "ejemplos": [
-        {
-          "id": "2026-11-27-c796f869",
-          "titulo": "Alex Foxen y Kristen Foxen se alían con Solana como rostros oficiales para WSOP Paradise",
-          "fecha": "2026-11-27"
-        },
-        {
-          "id": "2026-11-26-a4108d2f",
-          "titulo": "Michael Mizrachi se suma a Solana días antes del inicio de WSOP Paradise",
-          "fecha": "2026-11-26"
-        },
-        {
-          "id": "2026-11-23-f7e562e0",
-          "titulo": "WSOP Paradise acogerá segundo Solana Showdown con influenciadores cripto",
-          "fecha": "2026-11-23"
-        }
-      ],
-      "origen": "frase",
-      "nuevo": false
-    },
-    {
       "texto": "PGT Sprint",
+      "clave": "pgt sprint",
       "apariciones": 4,
       "dias": 4,
       "fuentes": 2,
@@ -811,7 +782,36 @@
       "nuevo": false
     },
     {
+      "texto": "EPT Prague 2026",
+      "clave": "ept prague 2026",
+      "apariciones": 3,
+      "dias": 3,
+      "fuentes": 3,
+      "primera": "2026-11-19",
+      "ultima": "2026-11-28",
+      "ejemplos": [
+        {
+          "id": "2026-11-28-0d744ecc",
+          "titulo": "EPT Prague 2026 cierra la temporada con Main Event de €5.300 y múltiples high rollers",
+          "fecha": "2026-11-28"
+        },
+        {
+          "id": "2026-11-26-0edcfeb8",
+          "titulo": "EPT Prague 2026 presenta nuevos formatos de mixed games: Sviten Special y S.O.R.B.E.T.",
+          "fecha": "2026-11-26"
+        },
+        {
+          "id": "2026-11-19-73d9cd08",
+          "titulo": "EPT Prague 2026 anuncia cronograma de diciembre con Main Event €5.300",
+          "fecha": "2026-11-19"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
       "texto": "GGMillion$ Festival",
+      "clave": "ggmillion$ festival",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 3,
@@ -838,34 +838,8 @@
       "nuevo": false
     },
     {
-      "texto": "High Stakes",
-      "apariciones": 4,
-      "dias": 3,
-      "fuentes": 3,
-      "primera": "2026-11-24",
-      "ultima": "2026-11-26",
-      "ejemplos": [
-        {
-          "id": "2026-11-26-284aacc5",
-          "titulo": "Andrew Robl desafía a Eric Wasserson en High Stakes Poker tras perder tres sesiones consecutivas",
-          "fecha": "2026-11-26"
-        },
-        {
-          "id": "2026-11-26-551089b9",
-          "titulo": "Andrew Robl [nacionalidad a confirmar] pierde $1.241.000 (moneda a confirmar) en High Stakes Poker tras dejar decisión clave al azar",
-          "fecha": "2026-11-26"
-        },
-        {
-          "id": "2026-11-25-3fb9c091",
-          "titulo": "Ryan Feldman remonta en High Stakes Poker tras perder US$ 900.000 en dos días",
-          "fecha": "2026-11-25"
-        }
-      ],
-      "origen": "frase",
-      "nuevo": false
-    },
-    {
       "texto": "Borgata Fall Poker Open",
+      "clave": "borgata fall poker open",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 3,
@@ -892,29 +866,8 @@
       "nuevo": false
     },
     {
-      "texto": "WSOP Main Event 2026",
-      "apariciones": 2,
-      "dias": 2,
-      "fuentes": 5,
-      "primera": "2026-10-28",
-      "ultima": "2026-11-13",
-      "ejemplos": [
-        {
-          "id": "2026-11-13-47ce23d0",
-          "titulo": "Lucas Jumalon habla sobre su vida tras ganar el WSOP Main Event 2026 por US$ 10 millones",
-          "fecha": "2026-11-13"
-        },
-        {
-          "id": "2026-10-28-070e7c9c",
-          "titulo": "Lucas Jumalon, campeón WSOP 2026 por US$ 10 millones, designado embajador global de WSOP Academy",
-          "fecha": "2026-10-28"
-        }
-      ],
-      "origen": "torneo",
-      "nuevo": false
-    },
-    {
       "texto": "WSOP Circuit Panamá 2026",
+      "clave": "wsop circuit panama 2026",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 2,
@@ -941,56 +894,36 @@
       "nuevo": false
     },
     {
-      "texto": "Hustler Casino Live",
-      "apariciones": 2,
-      "dias": 2,
-      "fuentes": 4,
-      "primera": "2026-11-15",
-      "ultima": "2026-11-17",
+      "texto": "CLSOP Poker Festival",
+      "clave": "clsop poker festival",
+      "apariciones": 5,
+      "dias": 3,
+      "fuentes": 1,
+      "primera": "2026-11-26",
+      "ultima": "2026-11-28",
       "ejemplos": [
         {
-          "id": "2026-11-17-7beac128",
-          "titulo": "Hustler Casino Live descarta trampas en Britney Jing pero suspende a dos jugadores por conflicto de intereses",
-          "fecha": "2026-11-17"
+          "id": "2026-11-28-0f196134",
+          "titulo": "Alex Arias \"La Varianza\" lidera Día 1A del Main Event del CLSOP Poker Festival y gana bono de $2.500",
+          "fecha": "2026-11-28"
         },
         {
-          "id": "2026-11-15-66ad66b4",
-          "titulo": "Lucas Jumalon rechazó jugar en enorme cash game de Hustler Casino Live con Negreanu",
-          "fecha": "2026-11-15"
+          "id": "2026-11-28-8a411ccb",
+          "titulo": "Gonzalo López gana el High Roller del CLSOP Poker Festival con $7.260",
+          "fecha": "2026-11-28"
+        },
+        {
+          "id": "2026-11-27-da7d3339",
+          "titulo": "Alex Arias \"La Varianza\" gana primer título del CLSOP Poker Festival con US$ 1.630 en República Dominicana",
+          "fecha": "2026-11-27"
         }
       ],
       "origen": "frase",
       "nuevo": false
     },
     {
-      "texto": "GGMillion$ High Rollers",
-      "apariciones": 3,
-      "dias": 2,
-      "fuentes": 4,
-      "primera": "2026-10-28",
-      "ultima": "2026-11-12",
-      "ejemplos": [
-        {
-          "id": "2026-11-12-5421dbd0",
-          "titulo": "Artem Osmirko gana su segundo GGMillion$ de 2026",
-          "fecha": "2026-11-12"
-        },
-        {
-          "id": "2026-11-12-cd875133",
-          "titulo": "Brasileños dominan GGMillion$ High Rollers: Padilha runner-up, Tavares cuarto",
-          "fecha": "2026-11-12"
-        },
-        {
-          "id": "2026-10-28-3d99770a",
-          "titulo": "Jon Ánder Vallinas, 2º en GGMillion$ High Rollers US$ 10.300 por US$ 358.405",
-          "fecha": "2026-10-28"
-        }
-      ],
-      "origen": "torneo",
-      "nuevo": false
-    },
-    {
       "texto": "Resorts World NYC",
+      "clave": "resorts world nyc",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -1013,6 +946,7 @@
     },
     {
       "texto": "MSPT Main Event",
+      "clave": "mspt main event",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 3,
@@ -1035,6 +969,7 @@
     },
     {
       "texto": "Main Event WPS Medellín",
+      "clave": "main event wps medellin",
       "apariciones": 3,
       "dias": 3,
       "fuentes": 1,
@@ -1061,7 +996,31 @@
       "nuevo": false
     },
     {
+      "texto": "APT Championship 2026",
+      "clave": "apt championship 2026",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 2,
+      "primera": "2026-11-24",
+      "ultima": "2026-11-28",
+      "ejemplos": [
+        {
+          "id": "2026-11-28-47e87f98",
+          "titulo": "APT Championship 2026 ratifica su posición en el calendario global de poker con 600 entradas en Main Event",
+          "fecha": "2026-11-28"
+        },
+        {
+          "id": "2026-11-24-f8f2dc56",
+          "titulo": "Vincent Huang y Chang Lee ganan los high rollers del APT Championship 2026 en Taipéi",
+          "fecha": "2026-11-24"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
       "texto": "WSOP Circuit Main Event",
+      "clave": "wsop circuit main event",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1084,6 +1043,7 @@
     },
     {
       "texto": "GUKPT Grand Final Midi Main",
+      "clave": "gukpt grand final midi main",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1106,6 +1066,7 @@
     },
     {
       "texto": "Grosvenor Victoria",
+      "clave": "grosvenor victoria",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1128,6 +1089,7 @@
     },
     {
       "texto": "GGMillion$ Pot-Limit Omaha Bounty",
+      "clave": "ggmillion$ pot limit omaha bounty",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1149,29 +1111,8 @@
       "nuevo": false
     },
     {
-      "texto": "YY Poker Club",
-      "apariciones": 2,
-      "dias": 2,
-      "fuentes": 2,
-      "primera": "2026-11-05",
-      "ultima": "2026-11-09",
-      "ejemplos": [
-        {
-          "id": "2026-11-09-e73988e8",
-          "titulo": "WPT Seúl en YY Poker Club cierra con 1.033 entradas y pozo de aproximadamente US$ 1,17 millones",
-          "fecha": "2026-11-09"
-        },
-        {
-          "id": "2026-11-05-8be96463",
-          "titulo": "WPT Seúl destaca nueva sala YY Poker Club en INSPIRE Resort con diseño de lujo",
-          "fecha": "2026-11-05"
-        }
-      ],
-      "origen": "frase",
-      "nuevo": false
-    },
-    {
       "texto": "WPT Seúl",
+      "clave": "wpt seul",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1193,22 +1134,23 @@
       "nuevo": false
     },
     {
-      "texto": "Tough Call",
+      "texto": "YY Poker Club",
+      "clave": "yy poker club",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
-      "primera": "2026-10-28",
-      "ultima": "2026-11-08",
+      "primera": "2026-11-05",
+      "ultima": "2026-11-09",
       "ejemplos": [
         {
-          "id": "2026-11-08-2c905420",
-          "titulo": "The Tough Call: podcast de PokerStars aborda confianza mediática y desinformación",
-          "fecha": "2026-11-08"
+          "id": "2026-11-09-e73988e8",
+          "titulo": "WPT Seúl en YY Poker Club cierra con 1.033 entradas y pozo de aproximadamente US$ 1,17 millones",
+          "fecha": "2026-11-09"
         },
         {
-          "id": "2026-10-28-756e4a7f",
-          "titulo": "Maria Konnikova y James Hartigan lanzan podcast \"The Tough Call\" patrocinado por PokerStars",
-          "fecha": "2026-10-28"
+          "id": "2026-11-05-8be96463",
+          "titulo": "WPT Seúl destaca nueva sala YY Poker Club en INSPIRE Resort con diseño de lujo",
+          "fecha": "2026-11-05"
         }
       ],
       "origen": "frase",
@@ -1216,6 +1158,7 @@
     },
     {
       "texto": "$5.000 WPT Venetian Las Vegas Fall Championship",
+      "clave": "$5 000 wpt venetian las vegas fall championship",
       "apariciones": 2,
       "dias": 2,
       "fuentes": 2,
@@ -1234,6 +1177,98 @@
         }
       ],
       "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "Alex Arias La Varianza",
+      "clave": "alex arias la varianza",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 1,
+      "primera": "2026-11-27",
+      "ultima": "2026-11-28",
+      "ejemplos": [
+        {
+          "id": "2026-11-28-0f196134",
+          "titulo": "Alex Arias \"La Varianza\" lidera Día 1A del Main Event del CLSOP Poker Festival y gana bono de $2.500",
+          "fecha": "2026-11-28"
+        },
+        {
+          "id": "2026-11-27-da7d3339",
+          "titulo": "Alex Arias \"La Varianza\" gana primer título del CLSOP Poker Festival con US$ 1.630 en República Dominicana",
+          "fecha": "2026-11-27"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": true
+    },
+    {
+      "texto": "Caesars New Orleans",
+      "clave": "caesars new orleans",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 1,
+      "primera": "2026-11-15",
+      "ultima": "2026-11-25",
+      "ejemplos": [
+        {
+          "id": "2026-11-25-09c107b3",
+          "titulo": "Ryan Brown gana su segundo WSOP Circuit Main Event ring en Caesars New Orleans con US$ 110.938",
+          "fecha": "2026-11-25"
+        },
+        {
+          "id": "2026-11-15-20cf2773",
+          "titulo": "WSOP Circuit regresa a Caesars New Orleans con 18 eventos y Main Event de US$ 1.700",
+          "fecha": "2026-11-15"
+        }
+      ],
+      "origen": "frase",
+      "nuevo": false
+    },
+    {
+      "texto": "High Stakes Poker",
+      "clave": "high stakes poker",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 1,
+      "primera": "2026-11-24",
+      "ultima": "2026-11-25",
+      "ejemplos": [
+        {
+          "id": "2026-11-25-3fb9c091",
+          "titulo": "Ryan Feldman remonta en High Stakes Poker tras perder US$ 900.000 en dos días",
+          "fecha": "2026-11-25"
+        },
+        {
+          "id": "2026-11-24-46b953b1",
+          "titulo": "Kevin Hart rechaza call en mano de más de US$ 5 millones en High Stakes Poker",
+          "fecha": "2026-11-24"
+        }
+      ],
+      "origen": "torneo",
+      "nuevo": false
+    },
+    {
+      "texto": "Kerryjane Craigie",
+      "clave": "kerryjane craigie",
+      "apariciones": 2,
+      "dias": 2,
+      "fuentes": 1,
+      "primera": "2026-11-11",
+      "ultima": "2026-11-23",
+      "ejemplos": [
+        {
+          "id": "2026-11-23-3cb29873",
+          "titulo": "Kerryjane Craigie lanza comunidad de aprendizaje exclusiva para mujeres con Octopi Poker",
+          "fecha": "2026-11-23"
+        },
+        {
+          "id": "2026-11-11-cc4001fc",
+          "titulo": "Kerryjane Craigie reporta crecimiento récord en poker femenino en Europa",
+          "fecha": "2026-11-11"
+        }
+      ],
+      "origen": "frase",
       "nuevo": false
     }
   ]

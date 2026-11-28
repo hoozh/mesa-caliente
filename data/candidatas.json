@@ -165,48 +165,6 @@
   ],
   "menciones": [
     {
-      "dominio": "playgg.ro",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xvgjmw/ggpoker_told_me_in_writing_that_it_does_not_store/",
-      "enlace": "http://PlayGG.ro",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "badbeat.tv",
-      "articulo": "https://www.reddit.com/r/poker/comments/1xvbp3e/we_built_player_rankings_from_1_million_poker/",
-      "enlace": "https://badbeat.tv/l/r-intro",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "ig.me",
-      "articulo": "https://pokernoticias.com/kevin-perez-y-mario-del-valle-lideran-los-ultimos-vuelos-del-main-event-de-la-wsopc-panama-2026-58-jugadores-avanzan-al-dia-2/",
-      "enlace": "https://ig.me/m/pokernoticiaslatam_",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "bsop.com.br",
-      "articulo": "https://br.pokernews.com/noticias/2026/11/bsop-millions-comeca-start-up-68112.htm",
-      "enlace": "https://bsop.com.br/",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "pokerindustrypro.com",
-      "articulo": "https://pokerfuse.com/latest-news/2026/11/888-poker-adds-ai-feature-estimate-tournament/",
-      "enlace": "https://pokerindustrypro.com/news/article/226359-888-poker-trials-ai-powered-estimated-tournament",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "bggtrack.cfd",
-      "articulo": "https://www.pokerlistings.com/news/ggpoker-hosts-black-friday-week-ggmillion-festival-at-the-same-time",
-      "enlace": "https://bggtrack.cfd/vdxyAHz?type=pokerlistings_banners",
-      "fecha": "2026-11-14"
-    },
-    {
-      "dominio": "ggpoker.com",
-      "articulo": "https://www.pokerlistings.com/news/ggpoker-hosts-black-friday-week-ggmillion-festival-at-the-same-time",
-      "enlace": "https://ggpoker.com/tournaments/black-friday-week/",
-      "fecha": "2026-11-14"
-    },
-    {
       "dominio": "globalpokersites.com",
       "articulo": "https://www.reddit.com/r/poker/comments/1xw82fb/ggpoker_data_breach_what_leaked_and_who_likely/",
       "enlace": "https://globalpokersites.com/articles/ggpoker-supplier-breach-what-leaked",
@@ -781,6 +739,72 @@
       "articulo": "https://codigopoker.com/noticias/rooms-y-plataformas/monster-series-en-ignition-poker",
       "enlace": "https://www.ignitionpoker.com/es/poker?referral=vMmuEnLGkTgHt2ATjx-ES2Nd7ZgqdRLk&#038;affid=21938&#038;utm_medium=nota&#038;utm_source=21938&#038;m_id=&#038;b_id=21&#038;referrer=&#038;utm_campaign=nota",
       "fecha": "2026-11-27"
+    },
+    {
+      "dominio": "pokernews.com",
+      "articulo": "https://www.pokernewsdaily.com/julien-sitbon-wins-2026-gukpt-grand-49300/",
+      "enlace": "https://www.pokernews.com/news/2026/11/julien-sitbon-wins-the-2026-gukpt-grand-final-high-roller-52909.htm",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1782961-chris-hunichen-wins-365k-as-acr-poker-oss-main-events-pay-out-4-66m",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "acrpoker.eu",
+      "articulo": "https://www.cardplayer.com/poker-news/1782961-chris-hunichen-wins-365k-as-acr-poker-oss-main-events-pay-out-4-66m",
+      "enlace": "https://www.acrpoker.eu/tournaments/online-super-series-poker-tournament/",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/andres-vasquez-conquista-su-primer-titulo-en-el-asian-poker-tour-y-se-lleva-us144-632/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1782734-owen-pr0digy-messere-takes-triton-heads-up-title",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/alex-arias-la-varianza-lidera-el-dia-1a-del-main-event-del-clsop-poker-festival-y-se-lleva-un-bono-de-us2-500/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "pokercoaching.com",
+      "articulo": "https://www.cardplayer.com/poker-news/1782693-jared-bleznick-wins-860k-in-heads-up-plo-session",
+      "enlace": "https://cardplayer.pokercoaching.com/courses",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/gonzalo-lopez-conquista-el-high-roller-del-clsop-poker-festival/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "ig.me",
+      "articulo": "https://pokernoticias.com/argentina-aprueba-la-ley-de-ludopatia-que-cambia-para-el-poker-y-los-juegos-de-azar-online/",
+      "enlace": "https://ig.me/m/pokernoticiaslatam_",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "zonadeazar.com",
+      "articulo": "https://codigopoker.com/noticias/ley-de-ludopatia-argentina",
+      "enlace": "https://zonadeazar.com/ver-todo/%f0%9f%87%a6%f0%9f%87%b7-argentina-ley-de-ludopatia-que-prohibe-y-que-permite/",
+      "fecha": "2026-11-28"
+    },
+    {
+      "dominio": "stakecommunity.com",
+      "articulo": "https://pokerfuse.com/latest-news/2026/11/stakeus-exits-utah-and-arkansas-restricts/",
+      "enlace": "https://stakecommunity.com/topic/161479-stake-poker/",
+      "fecha": "2026-11-28"
     }
   ]
 }
